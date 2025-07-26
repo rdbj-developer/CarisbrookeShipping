@@ -1,0 +1,32 @@
+﻿@{
+    string controllerAction = ViewContext.RouteData.Values["Controller"].ToString() + ViewContext.RouteData.Values["Action"].ToString();
+    var userGroupMenuList = (List<OfficeApplication.BLL.Modals.Menus>)Session["UserGroupMenuPermission"];
+    if (userGroupMenuList != null)
+    {
+        userGroupMenuList = userGroupMenuList.Where(x => x.ParentId == 0).OrderBy(x=>x.DisplayOrder).ToList();
+    }
+    else {
+        userGroupMenuList = new List<OfficeApplication.BLL.Modals.Menus>();
+    }
+}
+<ul class="sidebar-menu" data-widget="tree">
+    @foreach (var item in userGroupMenuList)
+    {
+        if (item.ControllerName != "#")
+        {
+            <li class="@(controllerAction == (item.ControllerName + item.ActionName) ? "active" : "" )">
+                <a href="@Url.Action(item.ActionName, item.ControllerName)">
+                    <i class="@item.Class"></i> <span>@item.MenuText</span>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="@(controllerAction == (item.ControllerName + item.ActionName) ? "active" : "" )">
+                <a href="#">
+                    <i class="@item.Class"></i> <span>@item.MenuText</span>
+                </a>
+            </li>
+        }
+    }
+</ul>

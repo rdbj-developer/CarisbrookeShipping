@@ -1,0 +1,366 @@
+﻿<style>
+    .pink.lighten-2 {
+        background-color: #0097a7 !important;
+    }
+
+        .pink.lighten-2 a {
+            color: #ffffff !important;
+        }
+
+    .chip {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba(0,0,0,.6);
+        line-height: 32px;
+        padding: 0 12px;
+        -webkit-border-radius: 16px;
+        border-radius: 16px;
+        background-color: #eceff1;
+        margin-right: 1px;
+        margin-bottom: 1px;
+        cursor: pointer;
+        -webkit-transition: all .3s linear;
+        -o-transition: all .3s linear;
+        transition: all .3s linear;
+    }
+
+    .close:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+
+    .chip .close {
+        cursor: pointer;
+        float: right;
+        font-size: 16px;
+        line-height: 32px;
+        padding-left: 8px;
+        -webkit-transition: all .1s linear;
+        -o-transition: all .1s linear;
+        transition: all .1s linear;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    .form-group {
+        margin-bottom: 0px;
+    }
+</style>
+<script>
+    var number;
+    var RootUrl = '@Url.Content("~/")';
+    function removeNewDefect(ctr) {
+        $(ctr).closest('tr').remove();
+        setChnageValue(false, false, false, true, false);
+        GIRAutoSave();
+    }
+    function RemoveFile(ctr) {
+        $(ctr).parent().next().next().next().val('false')
+        $(ctr).parent().hide();
+    }
+    function getStartNumber(ship) {
+        var url = RootUrl + "Forms/getNextNumber";
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: false,
+            url: url,
+            data: {
+                ship: ship
+                , reportType: 'GI'  //RDBJ 09/24/2021 Added reportType : 'GI'
+                , UniqueFormID: $("#UniqueFormID").val()    // JSL 01/14/2023
+            }, 
+            success: function (Data) {
+                number = Data;
+            }
+        });
+    }
+    function createGuid() {
+        function S4() {
+            return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+        }
+        return (S4() + S4() + "-" + S4() + "-4" + S4().substr(0, 3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
+    }
+    function DeficienciesChange() {
+        setChnageValue(false, false, false, true);
+        GIRAutoSave();
+    }
+
+    function RedirectToDeficiencies(_value) {
+        $("#sectionList .NavButton").each(function () {
+            let $currentControl = $(this);
+            let attribDataSection = $(this).attr("data-section");
+            if (attribDataSection != undefined) {
+                let splitArray = attribDataSection.split(',');
+                $.each(splitArray, function (index, value) {
+                    if (value == _value) {
+                        var lblValue = ($currentControl).attr("data-lbl-text");
+                        var hideSection = ($currentControl).attr("data-lbl-show");
+                        $(".PageSection").hide();
+                        $("." + hideSection).show();
+                        $("#lblSubHeading").text(lblValue);
+                        $(".leftContent").animate({ scrollTop: 0 }, "fast");
+                    }
+                });
+            }
+        });
+    }
+
+    function fileUpload(ctr, count) {
+        if (typeof (FileReader) != "undefined") {
+            var image_holder = $("#img-holder");
+            var reader = new FileReader();
+            var notAllowType = ""
+            reader.onload = function (e) {
+                for (var i = 0; i < ctr.files.length; i++) {
+                    if (ctr.files[i].type.indexOf('pdf') >= 0 ||
+                        ctr.files[i].type.indexOf('image') >= 0 ||
+                        ctr.files[i].type.indexOf('document') >= 0 ||
+                        ctr.files[i].type.indexOf('xml') >= 0 ||
+                        ctr.files[i].type.indexOf('sheet') >= 0) {
+                        var picFile = e.target;
+                        var data = '<div  class="chip pink lighten-2 white-text waves-effect waves-effect filedata">' +
+                            '<a>' + ctr.files[i].name + '</a>' +
+                            '<i class="close fa fa-times" onclick="RemoveFile(this)"></i >' +
+                            '</div>' +
+                            '<input type="hidden" value="' + ctr.files[i].name + '" class="filename"  name="GIRDeficiencies[' + count + '].GIRDeficienciesFile[' + i + '].FileName" />' +
+                            '<input type="hidden" class="path" value="' + picFile.result + '"  name="GIRDeficiencies[' + count + '].GIRDeficienciesFile[' + i + '].StorePath" />' +
+                            '<input type="hidden" class="isUpload" value="' + "true" + '" name="GIRDeficiencies[' + count + '].GIRDeficienciesFile[' + i + '].IsUpload" />';
+                        $(ctr).parent().append(data);
+                        $("#DeficienciesChanged").val(true);
+                    }
+                    else {
+                        notAllowType = notAllowType + " [" + ctr.files[i].name + "] ";
+                    }
+                }
+                if (notAllowType != "") {
+                    $("#modal-default p").text(notAllowType + " files types are not supported")
+                    $('#modal-default').modal('show');
+                }
+            }
+            image_holder.show();
+            reader.readAsDataURL($(ctr)[0].files[0]);
+        } else {
+            alert("This browser does not support FileReader.");
+        }
+    }
+    $(document).ready(function () {
+        getStartNumber($("#Child").val());
+        $("#Child").change(function () {
+            getStartNumber($("#Child").val());
+        });
+
+        $("#InserNewDefect").click(function () {
+
+            number = parseInt(number) + 1;
+            var guid = createGuid();
+            var MembersCount = parseInt($("#GIRDeficiencies").val());
+            MembersCount = MembersCount + 1;
+            MembersCount = $(".tblDeficiencies").find(".records").length;
+            var html =
+                '<tr class="records" index="' + parseInt(MembersCount) + '">' +
+                '<td>' +
+                '<a href="#"  onclick="removeNewDefect(this)">' +
+                '<span class="glyphicon glyphicon-remove"></span>' +
+                '</a>' +
+                '</td>' +
+                '<td width="10%" class="v-al-m text-center">' +
+                '<div class="form-group has-feedback">' +
+                '<input type="text" readonly class="form-control col-md-12" name="GIRDeficiencies[' + MembersCount + '].No" value="' + parseInt(number) + '" />' +
+                '<span class="form-control-feedback">' +
+                '<label class="text-danger">*</label>' +
+                '</span>' +
+                '</div>' +
+                '</td>' +
+                '<td width="25%" class="v-al-m text-center">' +
+                '<div class="form-group has-feedback">' +
+                '<input type="hidden" name="GIRDeficiencies[' + MembersCount + '].Section" id="GIRDeficiencies[' + MembersCount + '].Section" />'+
+                '<a href="javascript:void(0)" onclick="RedirectToDeficiencies()" class="NavButton" id="GIRDeficiencies[' + MembersCount + '].Section" name="GIRDeficiencies[' + MembersCount + '].Section" />' +
+                '</div>' +
+                '</td>' +
+                '<td width="20%" class="v-al-m text-center">' +
+                '<div class="form-group has-feedback">' +
+                '<input type="text" class="form-control col-md-12 txtDateRaised GIRData" onchange="DeficienciesChange()" name="GIRDeficiencies[' + MembersCount + '].DateRaised"/>' +
+                '<span class="form-control-feedback">' +
+                '<label class="text-danger">*</label><i class="fa fa-calendar"></i>' +
+                '</span>' +
+                '</div>' +
+                '</td>' +
+                '<td width="20%" class="v-al-m text-center">' +
+                '<div class="form-group has-feedback">' +
+                '<textarea style="width:100%" onchange="DeficienciesChange()" class="GIRData" name="GIRDeficiencies[' + MembersCount + '].Deficiency"></textarea>' +
+                '<span class="form-control-feedback">' +
+                '<label class="text-danger">*</label>' +
+                '</span>' +
+                '</div>' +
+                '</td>' +
+                '<td width="15%" class="v-al-m text-center">' +
+                '<div class="form-group has-feedback">' +
+                '<input type="text" class="form-control col-md-12 txtDateClosed GIRData"  onchange="DeficienciesChange()" name="GIRDeficiencies[' + MembersCount + '].DateClosed" />' +
+                '<span class="form-control-feedback">' +
+                '<label class="text-danger">*</label><i class="fa fa-calendar"></i>' +
+                '</span>' +
+                '</div>' +
+                '</td>' +
+                '<td width="10%" class="v-al-m text-center">' +
+                '<div class="form-group has-feedback">' +
+                '<label for="' + guid + '" class="label label-primary" style="margin:0px;">Upload File</label>' +
+                '<input id="' + guid + '"  multiple  onChange="fileUpload(this,' + MembersCount + ')" style="visibility:hidden;height:4px;" type="file">' +
+                '</div>' +
+                '</td>' +
+                '</tr>';
+            $(".Deficiencies").append(html)
+            $("#GIRDeficiencies").val(MembersCount);
+        });
+    });
+</script>
+<div class="Section breakDivPage" style="padding-top:30px;">
+    <div class="SectionHead">
+        <u>Section 7</u> - Deficiencies
+    </div>
+    <div class="SectionContent">
+        <input type="hidden" value="-1" id="GIRDeficiencies" />
+        <table class="table tblSection Deficiencies tblDeficiencies">
+            <tr>
+                <td></td>
+                <td width="10%" class="v-al-m text-center">
+                    No.
+                </td>
+                <td width="20%" class="v-al-m text-center">
+                    Section No
+                </td>
+                <td width="25%" class="v-al-m text-center">Date Raised</td>
+                <td width="20%" class="v-al-m text-center">Deficiency</td>
+                <td width="15%" class="v-al-m text-center">Date Closed</td>
+                <td width="10%" class="v-al-m text-center">File Upload</td>
+            </tr>
+            @if (Model.GIRDeficiencies != null)
+            {
+                int count = 0;
+                var guid = Guid.NewGuid();
+                foreach (var item in Model.GIRDeficiencies)
+                {
+                    guid = Guid.NewGuid();
+            <tr class="records" index="@count">
+            <td>
+                <a href="#" onclick="removeNewDefect(this)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
+            </td>
+            <td width="10%" class="v-al-m text-center">
+                <div class="form-group has-feedback">
+                    <input type="text" readonly class="form-control col-md-12" name="GIRDeficiencies[@count].No" value="@item.No" />
+                    <span class="form-control-feedback">
+                        <label class="text-danger">*</label>
+                    </span>
+                </div>
+            </td>
+            <td width="20%" class="v-al-m text-center">
+                <div class="form-group has-feedback">
+                    <input type="hidden" name="GIRDeficiencies[@count].Section" value="@item.Section" />
+                    <input type="hidden" name="GIRDeficiencies[@count].ItemNo" value="@item.ItemNo" />
+                    <a href="javascript:void(0)" onclick="RedirectToDeficiencies('@item.Section')" name="GIRDeficiencies[@count].Section" id="GIRDeficiencies[@count].Section">@item.Section</a>
+                </div>
+            </td>
+            <td width="25%" class="v-al-m text-center">
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control col-md-12 txtDateRaised GIRData" onchange="DeficienciesChange()" value="@item.DateRaised" name="GIRDeficiencies[@count].DateRaised" />
+                    <span class="form-control-feedback">
+                        <label class="text-danger">*</label><i class="fa fa-calendar"></i>
+                    </span>
+                </div>
+            </td>
+            <td width="20%" class="v-al-m text-center">
+                <div class="form-group has-feedback">
+                    <textarea style="width:100%" onchange="DeficienciesChange()" class="GIRData" name="GIRDeficiencies[@count].Deficiency">@item.Deficiency</textarea>
+                    <span class="form-control-feedback">
+                        <label class="text-danger">*</label>
+                    </span>
+                </div>
+            </td>
+            <td width="15%" class="v-al-m text-center">
+                <div class="form-group has-feedback">
+                    @* RDBJ 10/26/2021 Set DateClose Value *@
+                    <input type="text" class="form-control col-md-12 txtDateClosed GIRData" onchange="DeficienciesChange()" value="@item.DateClosed" name="GIRDeficiencies[@count].DateClosed" />
+                    <span class="form-control-feedback">
+                        <label class="text-danger">*</label><i class="fa fa-calendar"></i>
+                    </span>
+                </div>
+            </td>
+            <td width="10%" class="v-al-m text-center">
+                <div class="form-group has-feedback">
+                    @{ int i = 0;}
+                    @foreach (var item1 in @item.GIRDeficienciesFile)
+                    {
+                        <div style="line-height: unset;" class="chip pink lighten-2 white-text waves-effect waves-effect file">
+                            <a onclick="DownloadCommentFile(' + ReportList[i].GIRCommentFileID+',this)">@item1.FileName</a>
+                        </div>
+                        <input type="hidden" value="@item1.FileName" class="filename" name="GIRDeficiencies[@count].GIRDeficienciesFile[@i].FileName" />
+                        <input type="hidden" class="path" value="@item1.StorePath" name="GIRDeficiencies[@count].GIRDeficienciesFile[@i].StorePath" />
+                        <input type="hidden" class="isUpload" value="@item1.IsUpload" name="GIRDeficiencies[@count].GIRDeficienciesFile[@i].IsUpload" />
+                        i++;
+                    }
+                    <label for="@guid" class="label label-primary" style="margin:0px;">Upload File</label>
+                    <input id="@guid" multiple onChange="fileUpload(this,@i+1)" style="visibility:hidden;height:4px;" type="file">
+                </div>
+            </td>
+        </tr>
+                    count++;
+                    @*<td>@item.No</td>
+                        <td>@item.DateRaised</td>
+                        <td>@item.Deficiency</td>
+                        <td>@item.DateClosed</td>
+                        <td>
+                            @foreach (var item1 in @item.GIRDeficienciesFile)
+                            {
+                                <div style="line-height: unset;" class="chip pink lighten-2 white-text waves-effect waves-effect file">
+
+                                    <a onclick="DownloadCommentFile(' + ReportList[i].GIRCommentFileID+',this)">@item1.FileName</a>
+
+                                </div>
+                            }
+                        </td>*@
+                }
+            }
+        </table>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a href="#" id="InserNewDefect">Insert new defect</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="SectionComplete">
+    <div class="checkbox">
+        <label>Section Complete?</label>
+        @* RDBJ 10/20/2021 Set Name and Value *@
+        <input type="checkbox" name="IsDeficienciesSectionComplete" class="GIRData" style="margin-left:20px;" value="true">
+    </div>
+</div>
+<br />
+
+<div class="modal fade aviodPrint" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Files types are not supported</h4>
+            </div>
+            <div class="modal-body">
+                <p>&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

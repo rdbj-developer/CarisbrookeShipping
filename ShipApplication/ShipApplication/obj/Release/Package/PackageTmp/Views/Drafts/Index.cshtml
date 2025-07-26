@@ -1,0 +1,140 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<style type="text/css">
+    .inner {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+        .inner p {
+            text-align: center;
+            font-size: 23px;
+        }
+
+    .small-box {
+        display: table;
+        width: 100%;
+        height: 100px;
+    }
+    .from-common {
+        display: flex;
+        align-items: center;
+        min-width: 200px;
+        width: 100%;
+    }
+    .box-header{
+        padding:0px !important;
+    }
+    .from-common label {
+        margin-right: 10px;
+        margin-bottom: 0px;
+    }
+
+    .content{
+        padding:0px !important;
+    }
+    .content .box-body{
+        padding:0px !important;
+    }
+    .k-grid td, .k-filter-row th, .k-grid-header th.k-header, .k-pager-wrap {
+        padding: 0px 8px 0px 8px !important;
+    }
+    tr {
+        cursor:pointer;
+    }
+
+    /* RDBJ 02/24/2022 */
+    div.row {
+        margin-right: 0px !important;
+    }
+    /* End RDBJ 02/24/2022 */
+</style>
+<script>
+    var RootUrl = '@Url.Content("~/")';
+    var shipCode = "@Session["ShipName"]";
+    var isInspector = '@ViewBag.Inspector';
+</script>
+<script src="~/Scripts/Custom/GISIDraftHandler.js?v=07062022"></script>
+<div class="well well-sm" style="margin-bottom:0px;">
+    <div class="box-header">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="from-common">
+                    <label>Ship: </label>
+                    <select class="form-control col-md-12 GIRData" name="ddlGIReportShipName" id="ddlGIReportShipName"  onchange="loadDetailGridByShip(this);">
+                        @if (ViewBag.ships != null && ViewBag.ships.Items != null)
+                        {
+                            foreach (var item in ViewBag.ships.Items)
+                            {
+                                if (@ShipApplication.BLL.Helpers.SessionManager.ShipName.ToUpper() == item.Name.ToUpper())
+                                {
+                                    <option value="@item.Code" selected>@item.Name</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.Code">@item.Name</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="content">
+    @*<div class="row">
+            <div class="col-lg-3 col-xs-12">
+                <a href="@Url.Action("GIRDrafts", "Drafts")" style="cursor:pointer;">
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <p>General Inspection Report</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-xs-12">
+                <a href="@Url.Action("SIRDrafts", "Drafts")" style="cursor:pointer;">
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <p>Superintended Inspection Report</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>*@
+    <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
+        <li class="nav-item active">
+            <a class="nav-link active" id="gi-content-below-tab" onclick="tabChangeLoadGridData('GI');" data-toggle="pill" href="#gi-content-below" role="tab" aria-controls="gi-content-below" aria-selected="true">General Inspection</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="si-content-below-tab" onclick="tabChangeLoadGridData('SI');" data-toggle="pill" href="#si-content-below" role="tab" aria-controls="si-content-below" aria-selected="false">Superintendent Inspection</a>
+        </li>
+        @* RDBJ 01/31/2022 *@
+        <li class="nav-item">
+            <a class="nav-link" id="ia-content-below-tab" onclick="tabChangeLoadGridData('IA');" data-toggle="pill" href="#ia-content-below" role="tab" aria-controls="ia-content-below" aria-selected="false">Internal Audit</a>
+        </li>
+        @* End RDBJ 01/31/2022 *@
+    </ul>
+    <div class="tab-content" id="custom-content-below-tabContent">
+        <div class="tab-pane fade in active" id="gi-content-below" role="tabpanel" aria-labelledby="gi-content-below-tab">
+            <div class="box-body">
+                <div id="GIRDraftsGrid"></div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="si-content-below" role="tabpanel" aria-labelledby="si-content-below-tab">
+            <div class="box-body">
+                <div id="SIRDraftsGrid"></div>
+            </div>
+        </div>
+        @* RDBJ 01/31/2022 *@
+        <div class="tab-pane fade" id="ia-content-below" role="tabpanel" aria-labelledby="ia-content-below-tab">
+            <div class="box-body">
+                <div id="IARDraftsGrid"></div>
+            </div>
+        </div>
+        @* RDBJ 01/31/2022 *@
+    </div>
+</section>

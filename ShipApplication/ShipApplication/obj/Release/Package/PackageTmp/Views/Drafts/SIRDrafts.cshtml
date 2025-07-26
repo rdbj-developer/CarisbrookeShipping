@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "SIRDrafts";
+}
+
+<link href="~/Content/Kendo/kendo.common.min.css" rel="stylesheet" />
+<link href="~/Content/Kendo/kendo.rtl.min.css" rel="stylesheet" />
+<link href="~/Content/Kendo/kendo.silver.min.css" rel="stylesheet" />
+<link href="~/Content/Kendo/kendo.mobile.all.min.css" rel="stylesheet" />
+
+<script>
+    var RootUrl = '@Url.Content("~/")';
+    $(document).ready(function () {
+        loadGrid();
+    });
+
+    function loadGrid() {
+        var shipCode = "@Session["ShipCode"]";
+        if (shipCode != null && shipCode != "" && shipCode != undefined) {
+            var url = RootUrl + "Drafts/GetSIRDrafts?ship=" + shipCode;
+            $.ajax({
+                type: 'GET',
+                dataType: 'json',
+                async: false,
+                url: url,
+                success: function (Data) {
+                    data = Data;
+                    $('#SIRDraftsGrid').empty();
+                    var grid = $('#SIRDraftsGrid').kendoGrid({
+                        scrollable: true,
+                        sortable: true,
+                        resizable: true,
+                        filterable: true,
+                        selectable: true,
+                        change: function () {
+                            var row = this.select();
+                            var id = row[0].cells[0].textContent;
+                            var _url = RootUrl + "Drafts/SIRformData?id=" + id;
+                            window.open(_url, '_blank');
+                        },
+                        dataSource: {
+                            data: data
+                        },
+                        dataBound: function () {
+                            for (var i = 0; i < this.columns.length; i++) {
+                            }
+                        },
+
+                        columns: [
+                            {
+                                field: "SIRFormID",
+                                title: "SIRFormID",
+                                hidden: true,
+                            },
+                            {
+                                field: "Ship",
+                                title: "Ship",
+                                hidden: true,
+                            },
+                            {
+                                field: "ShipName",
+                                title: "Shipname",
+                            },
+                            {
+                                field: "Location",
+                                title: "Location",
+                            },
+                            {
+                                field: "Master",
+                                title: "Master",
+                            },
+                            
+                            {
+                                field: "Superintended",
+                                title: "Superintended",
+                            },
+                            {
+                                field: "Date",
+                                title: "Date",
+                            },
+                        ]
+                    });
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+        else {
+            alert("Ship Not Available");
+        }
+    }
+</script>
+<div class="well well-sm" style="margin-bottom:0px;">Superintended Inspection Report</div>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    <div id="SIRDraftsGrid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

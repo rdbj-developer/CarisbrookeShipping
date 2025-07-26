@@ -1,0 +1,863 @@
+﻿@model IEnumerable<OfficeApplication.BLL.Modals.GIRData>
+
+@{
+    //ViewBag.Title = "GeneralInspectionReport"; // RDBJ 01/15/2022 commented this line
+    ViewBag.Title = "Inspections and Deficiencies"; // RDBJ 01/15/2022
+}
+
+<style>
+    /* RDBJ 11/25/2021 */
+    label.error {
+        color: red !important;
+    }
+    /* End RDBJ 11/25/2021 */
+
+    /* RDBJ 11/22/2021 Added CSS */
+    .SectionHead {
+        background: #FFFFE1;
+        padding: 5px;
+    }
+
+    .checkbox, .radio {
+        margin: 0px;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+
+    .tblSection {
+        margin-bottom: 0px;
+    }
+
+    .form-group {
+        margin-bottom: 0px !important;
+    }
+
+    .Section {
+        border: 1px solid black;
+        margin-bottom: 20px;
+    }
+
+    .tblSection {
+        background-color: #ffffff;
+    }
+
+        .tblSection > tbody > tr > td {
+            border: 1px solid #66afe9 !important;
+            padding: 1px !important;
+        }
+
+    /* End RDBJ 11/22/2021 Added CSS */
+
+    .from-common {
+        display: flex;
+        align-items: center;
+        min-width: 200px;
+        width: 100%;
+    }
+
+        .from-common label {
+            margin-right: 10px;
+            margin-bottom: 0px;
+        }
+
+    .upload {
+        display: inline;
+        padding: 0.2em 1.6em 0.3em;
+        font-size: 116%;
+        font-weight: 700;
+        line-height: 3;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25em;
+    }
+
+    .pink.lighten-2 {
+        background-color: #0097a7 !important;
+    }
+
+        .pink.lighten-2 a {
+            color: #ffffff !important;
+        }
+
+    .chip {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba(0,0,0,.6);
+        line-height: 32px;
+        padding: 0 12px;
+        -webkit-border-radius: 16px;
+        border-radius: 16px;
+        background-color: #eceff1;
+        margin-right: 1px;
+        margin-bottom: 1px;
+        cursor: pointer;
+        -webkit-transition: all .3s linear;
+        -o-transition: all .3s linear;
+        transition: all .3s linear;
+    }
+
+    .close:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+
+    .chip .close {
+        cursor: pointer;
+        float: right;
+        font-size: 16px;
+        line-height: 32px;
+        padding-left: 8px;
+        -webkit-transition: all .1s linear;
+        -o-transition: all .1s linear;
+        transition: all .1s linear;
+    }
+
+    .alert-info {
+        color: #31708f !important;
+        background-color: #d9edf7 !important;
+        border-color: #bce8f1 !important;
+    }
+
+    .k-grid-content.k-auto-scrollable {
+        max-height: 350px;
+    }
+
+    .text-info {
+        width: 15px;
+    }
+
+    .input-group {
+        width: 100%;
+    }
+
+    .k-grid td, .k-filter-row th, .k-grid-header th.k-header, .k-pager-wrap {
+        padding: 0px;
+        padding-bottom: 0px !important;
+        padding-top: 0px !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    .orders td, #DetailsGrid td {
+        border-style: solid;
+        border-width: 0 0 1px 1px;
+    }
+
+    .form-inline .form-control {
+        height: auto;
+    }
+
+    .gir-content {
+        padding: 0px !important;
+    }
+
+        .gir-content .box-body {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            padding-top: 0px !important;
+        }
+
+    #GIGrid
+    .well .box-header {
+        padding: 0px !important;
+    }
+
+    #SIGrid
+    .well .box-header {
+        padding: 0px !important;
+    }
+
+    #Grid
+    .well .box-header {
+        padding: 0px !important;
+    }
+
+    .content {
+        padding-top: 5px;
+    }
+
+    #GIGrid > table {
+        table-layout: fixed;
+    }
+
+    #SIGrid > table {
+        table-layout: fixed;
+    }
+
+    #Grid > table {
+        table-layout: fixed;
+    }
+
+    tr {
+        cursor: pointer;
+    }
+
+    /* RDBJ 02/24/2022 */
+    div.row {
+        margin-right: 0px !important;
+    }
+    /* End RDBJ 02/24/2022 */
+
+    /* RDBJ 04/01/2022 do not remove this css, due to hide trial version used section */
+    .ui-igtrialwatermark {
+        display: none !important;
+    }
+</style>
+
+<script type="text/x-kendo-template" id="template">
+    <div class="tabstrip">
+        <ul>
+            <li class="k-state-active">
+                Details
+            </li>
+            <li>
+                Comments
+            </li>
+             <li>
+                Add Comments
+            </li>
+            <li onclick="loadbyInitialActiontab(#= DeficienciesID #,this)">
+                Initial Actions
+            </li>
+            <li onclick="loadbyResolutiontab(#= DeficienciesID #,this)">
+                Resolution
+            </li>
+            <li>
+                Priority
+            </li>
+        </ul>
+            <div>
+              <div class="details">
+                <div class="row">
+                    <div class="col-md-2">Section Number</div>
+                    <div class="col-md-6">#= Section !=null? Section : '' #</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Comment</div>
+                    <div class="col-md-6">#= Deficiency #</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Date Raised</div>
+                    <div class="col-md-6">#= DateRaised!=null? kendo.toString(kendo.parseDate(DateRaised, 'yyyy-MM-dd'), 'MM/dd/yyyy h:mm'):'' #</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">File(s)</div>
+                    <div class="col-md-6">#=generateTemplateDeficiencies(GIRDeficienciesFile)#</div>
+                </div>
+              </div>
+         </div>
+         <div>
+            <div class="orders"></div>
+        </div>
+         <div>
+            <div class='employee-details'>
+                <form>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-comment text-info"></i></span>
+                        <textarea class="form-control comment" rows="2" id="comment"></textarea>
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user text-info"></i></span>
+                        <input type="text" class="form-control name" id="Name" value="@OfficeApplication.BLL.Helpers.SessionManager.Username" placeholder="Name">
+                    </div>
+                    <div class="input-group">
+                        <label for="employeeFile" class="label label-primary upload">Upload File</label>
+                        <input id="employeeFile" multiple onchange="fileUpload(this)" style="visibility:hidden;height:4px;" type="file" class="employeeFile">
+                    </div>
+                    <div>
+                        <input type="button" onclick="AddNotes(#= DeficienciesID #,this)" value="Add" class="btn">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div>
+            <div class='initial-details'>
+                <form>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-comment text-info"></i></span>
+                        <textarea class="form-control description" rows="2" id="description"></textarea>
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user text-info"></i></span>
+                        <input type="text" class="form-control name" id="Name" value="@OfficeApplication.BLL.Helpers.SessionManager.Username" placeholder="Name">
+                    </div>
+                    <div class="input-group">
+                        <label for="file" class="label label-primary upload">Upload File</label>
+                        <input id="file" multiple onchange="fileUpload(this)" style="visibility:hidden;height:4px;" type="file" class="Intifile">
+                    </div>
+                    <div>
+                        <input type="button" onclick="AddInitialDetails(#= DeficienciesID #,this)" value="Add" class="btn">
+                    </div>
+                </form>
+                <br />
+                <div class="initialDetailsList"></div>
+            </div>
+        </div>
+        <div>
+        <div class='resolution-details'>
+                <form>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-comment text-info"></i></span>
+                        <textarea class="form-control resolution" rows="2" id="resolution"></textarea>
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user text-info"></i></span>
+                        <input type="text" class="form-control name" id="Name" value="@OfficeApplication.BLL.Helpers.SessionManager.Username" placeholder="Name">
+                    </div>
+                    <div class="input-group">
+                        <label for="resultionfile" class="label label-primary upload">Upload File</label>
+                        <input id="resultionfile" multiple onchange="fileUpload(this)" style="visibility:hidden;height:4px;" type="file" class="resultionfile">
+                    </div>
+                    <div>
+                        <input type="button" onclick="AddResolution(#= DeficienciesID #,this)" value="Add" class="btn">
+                    </div>
+                </form>
+               <br />
+               <div class="resoultionList"></div>
+            </div>
+        </div>
+        <div>
+            <select class="DeficiencyPriority" onchange="AddPriority(#= DeficienciesID #,this)">
+                <option>12</option>
+                <option>8</option>
+                <option>4</option>
+            </select> &nbsp;&nbsp;Weeks
+        </div>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="ReportTemplate">
+    <div>
+        <div id="ShipReportsGrid" class="ShipGISIReports"></div>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="CommentsTemplate">
+    <div class="CommentsTab">
+        <ul>
+            <li class="k-state-active">
+                View Comments
+            </li>
+            <li>
+                Add Comments
+            </li>
+        </ul>
+        <div>
+            <div class="CommentsGrid"></div>
+        </div>
+        <div>
+            <div class='employee-details'>
+                <form>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-comment text-info"></i></span>
+                        <textarea class="form-control comment" rows="4" id="comment"></textarea>
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user text-info"></i></span>
+                        <input type="text" class="form-control name" id="Name" value="@Request.RequestContext.HttpContext.Session["Name"]" placeholder="Name">
+                    </div>
+                    <div class="input-group">
+                        <label for="file" class="label label-primary upload">Upload File</label>
+                        <input id="file" multiple onchange="fileUpload(this)" style="visibility:hidden;height:4px;" type="file">
+                    </div>
+                    <div>
+                        <input type="button" onclick="AddComment(#= NoteID #,this)" value="Add" class="btn">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="ReportTemplate">
+    <div>
+        <div id="ShipReportsGrid" class="ShipAuditsList"></div>
+    </div>
+</script>
+<script>
+    var RootUrl = '@Url.Content("~/")';
+    var AuditRootUrl = '@Url.Content("~/")';
+    var UserGroupID = '@ViewBag.UserGroup'; // RDBJ 01/05/2022
+</script>
+<script type="text/javascript" src="~/Scripts/jquery/jquery.validate.min.js"></script>
+@* RDBJ 12/01/2021 commented below js *@
+@*<script type="text/javascript" src="~/Scripts/bootstrap/bootstrap-treeview.js"></script>*@
+@*<script src="~/Scripts/Custom/ReferencesData.js"></script>*@
+<script src="~/Scripts/Custom/LoadReferenceData.js?v=1217202112"></script>
+<script src="~/Scripts/Custom/GeneralInspectionReport.js?v=01052023"></script>
+<script src="~/Scripts/Custom/AuditDeficiencies.js?v=12312022"></script>
+
+@* RDBJ 12/01/2021 Added below js *@
+<!-- Ignite UI for jQuery Required Combined JavaScript Files -->
+<link href="https://cdn-na.infragistics.com/igniteui/2021.1/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
+<link href="https://cdn-na.infragistics.com/igniteui/2021.1/latest/css/structure/infragistics.css" rel="stylesheet" />
+<script src="https://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+<script src="https://cdn-na.infragistics.com/igniteui/2021.1/latest/js/infragistics.core.js"></script>
+<script src="https://cdn-na.infragistics.com/igniteui/2021.1/latest/js/infragistics.lob.js"></script>
+@* End RDBJ 12/01/2021 Added below js *@
+
+@* RDBJ 11/15/2021 *@
+@*<script type="text/javascript">
+        $(function () {
+            $('#ISMTree').treeview({
+                color: "#428bca",
+                levels: 1,
+                expandIcon: 'glyphicon glyphicon-chevron-right',
+                collapseIcon: 'glyphicon glyphicon-chevron-down',
+                data: defaultData
+            });
+            $('#SSPTree').treeview({
+                color: "#428bca",
+                levels: 1,
+                expandIcon: 'glyphicon glyphicon-chevron-right',
+                collapseIcon: 'glyphicon glyphicon-chevron-down',
+                data: SSPData
+            });
+            $('#MLCTree').treeview({
+                color: "#428bca",
+                levels: 1,
+                expandIcon: 'glyphicon glyphicon-chevron-right',
+                collapseIcon: 'glyphicon glyphicon-chevron-down',
+                data: MLCData
+            });
+        });
+    </script>*@
+@* End RDBJ 11/15/2021 *@
+<section class="">
+    <div class="well well-sm" style="margin-bottom:0px;">
+        <div class="box-header" style="padding:0px !important;">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="from-common">
+                        <label>Ship: </label>
+                        <select class="form-control" name="ddlGIReportShipName" id="ddlGIReportShipName" onchange="loadDetailGridByShip(this);">
+                            <option value="null">--Select Ship--</option>
+                            @if (ViewBag.ShipDatas != null)
+                            {
+                                foreach (var item in ViewBag.ShipDatas)
+                                {
+                                    if (ViewBag.ShipName == @item.Name)
+                                    {
+                                        <option value="@item.Code" selected>@item.Name</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.Code">@item.Name</option>
+                                    }
+
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                @* JSL 12/19/2022 added style and id *@
+                <div style="float:right; padding: 0px 15px; display: none;" id="divAddEditAuditSection">
+                    @* RDBJ 11/26/2021 added button btnAddIAFDone *@
+                    <button type="button" id="btnAddIAF" onclick="HideAndShowAuditAndAuditNotesSection(false)" class="btn btn-primary" style="margin-right:10px; display:none;">Add Audit</button>
+                    <button type="button" id="btnAddIAFDone" onclick="HideAndShowAuditAndAuditNotesSectionAddEditDone(true)" class="btn btn-success" style="margin-right:10px; display:none;">Add Done</button>
+
+                    @* RDBJ 11/26/2021 added button btnEditIAFDone *@
+                    <button type="button" id="btnEditIAF" onclick="HideAndShowAuditAndAuditNotesSection(true)" class="btn btn-primary" style="display: none;">Edit</button>
+                    <button type="button" id="btnEditIAFDone" onclick="HideAndShowAuditAndAuditNotesSectionAddEditDone(false)" class="btn btn-success" style="display:none;">Edit/Update Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content gir-content" style="padding-bottom:0px">
+        <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
+            <li class="nav-item active">
+                <a class="nav-link active" id="gi-content-below-tab" onclick="tabChangeLoadGridData('GI');" data-toggle="pill" href="#gi-content-below" role="tab" aria-controls="gi-content-below" aria-selected="true">General Inspection</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="si-content-below-tab" onclick="tabChangeLoadGridData('SI');" data-toggle="pill" href="#si-content-below" role="tab" aria-controls="si-content-below" aria-selected="false">Superintendent Inspection</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="ia-content-below-tab" onclick="tabChangeLoadGridData('IA');" data-toggle="pill" href="#ia-content-below" role="tab" aria-controls="ia-content-below" aria-selected="false">Audit</a>
+            </li>
+            @* JSL 12/31/2022 *@
+            <li class="nav-item hide">
+                <a class="nav-link" id="fasto-content-below-tab" onclick="tabChangeLoadGridData('FSTO');" data-toggle="pill" href="#fsto-content-below" role="tab" aria-controls="fsto-content-below" aria-selected="false">FSTO</a>
+            </li>
+            @* End JSL 12/31/2022 *@
+        </ul>
+        <div class="tab-content" id="custom-content-below-tabContent">
+            <div class="tab-pane fade in active" id="gi-content-below" role="tabpanel" aria-labelledby="gi-content-below-tab">
+                <div class="box-body">
+                    <div id="GIGrid"></div>
+                </div>
+                <div class="box-body">
+                    <div class="alert alert-info" style="display:none;" id="info">
+                    </div>
+                    <div id="GIDetailsGrid"></div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="si-content-below" role="tabpanel" aria-labelledby="si-content-below-tab">
+                <div class="box-body">
+                    <div id="SIGrid"></div>
+                </div>
+                <div class="box-body">
+                    <div class="alert alert-info" style="display:none;" id="info">
+                    </div>
+                    <div id="SIDetailsGrid"></div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="ia-content-below" role="tabpanel" aria-labelledby="ia-content-below-tab">
+                <div class="box-body">
+                    <div id="Grid"></div>
+                </div>
+                @* RDBJ 11/25/2021 Wrapped in form tag *@
+                <form id="IAFForm" name="IAFForm">
+                    @* RDBJ 01/23/2022 added hidden *@
+                    <input type="hidden" id="hdnIAFFormSavedAsDraft" name="hdnIAFFormSavedAsDraft" value="" />
+                    
+                    <div id="SectionAuditNote" class="well well-sm" style="display:none;">
+                        <div class="SectionHead text-center">
+                            Audit Details
+                        </div>
+                        <table class="table tblSection">
+                            <tr>
+                                <td width="10%"><p class="m-5">Type:</p></td>
+                                <td width="40%">
+                                    <div class="form-group has-feedback">
+                                        <select class="form-control  col-md-12 AuditAutoUpdate" name="ddpAuditType" id="ddpAuditType">
+                                            <option value="1" selected>Internal</option>
+                                            <option value="2">External</option>
+                                            <option value="3">Non-Compliance</option>   @* JSL 12/31/2022 *@
+                                        </select>
+                                    </div>
+                                </td>
+                                <td width="10%" rowspan="3"><p class="m-5 text-center">Audit Type(s):</p></td>
+                                <td width="40%">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="txtAuditTypeISM" value="true" class="{InternalAuditForm.AuditType:true} AuditAutoUpdate" id="txtAuditTypeISM">
+                                                ISM
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%"><p class="m-5">Location</p></td>
+                                <td width="40%">
+                                    <div class="form-group has-feedback">
+                                        <input type="text" id="txtLocation" class="col-md-12 form-control AuditAutoUpdate" name="txtLocation" />
+                                        <span class="form-control-feedback arrivalCalendarAddon">
+                                            <label class="text-danger">*</label>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td width="40%">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="txtAuditTypeISPS" value="true" class="{InternalAuditForm.AuditType:true} AuditAutoUpdate" id="txtAuditTypeISPS">
+                                                ISPS
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%"><p class="m-5">Audit No.:</p></td>
+                                <td width="40%">
+                                    <div class="form-group has-feedback">
+                                        @*<input type="text" class="col-md-12 form-control" id="ddlAuditNo" name="ddlAuditNo" disabled />*@
+                                        <select class="col-md-12 form-control AuditAutoUpdate" id="ddlAuditNo" name="ddlAuditNo" disabled>
+                                            <option value="">In this the 1st, 2nd and 3rd this year?</option>
+                                            <option value="1" selected>1st Audit this year</option>
+                                            <option value="2">2nd Audit this year</option>
+                                            <option value="3">3rd Audit this year</option>
+                                        </select>
+                                        <span class="form-control-feedback arrivalCalendarAddon">
+                                            <label class="text-danger">*</label>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td width="40%">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="txtAuditTypeMLC" value="true" class="{InternalAuditForm.AuditType:true} AuditAutoUpdate" id="txtAuditTypeMLC">
+                                                MLC
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%"><p class="m-5">Date :</p></td>
+                                <td width="40%">
+                                    <div class="form-group has-feedback">
+                                        <input type="text" id="txtAuditDate" class="col-md-12 form-control datepicker AuditAutoUpdate" name="txtAuditDate" autocomplete="off" />
+                                        <span class="form-control-feedback arrivalCalendarAddon">
+                                            <label class="text-danger">*</label> <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td width="10%"><p class="m-5">Autitor: </p></td>
+                                <td width="40%">
+                                    <div class="form-group has-feedback">
+                                        @*<input type="text" class="col-md-12 form-control" id="txtAuditor" name="txtAuditor" value="@OfficeApplication.BLL.Helpers.SessionManager.Username" readonly />*@
+                                        @* RDBJ 02/09/2022 set value for all options *@
+                                        <select class="col-md-12 form-control AuditAutoUpdate" id="ddlAuditor" name="ddlAuditor">
+                                            @* JSL 07/24/2022 commented *@
+                                            <!--<option value=""></option>
+                                            <option value="Angus Tapp">Angus Tapp</option>
+                                            <option value="Bogdan Cojocaru">Bogdan Cojocaru</option>
+                                            <option value="Bogdan Sokolowski">Bogdan Sokolowski</option>
+                                            <option value="Krzysztof Nowaczyk">Krzysztof Nowaczyk</option>
+                                            <option value="Zbigniew Strzyga">Zbigniew Strzyga</option>
+                                            <option value="Jon Gray">Jon Gray</option>-->
+                                            @* RDBJ 01/28/2022 added Tushar *@
+                                            <!--<option value="Tushar Bijur">Tushar Bijur</option>-->
+                                            @* End JSL 07/24/2022 commented *@
+
+                                            @* JSL 07/24/2022 *@
+                                            @if (ViewBag.AuditorsList != null)
+                                            {
+                                                foreach (var item in ViewBag.AuditorsList)
+                                                {
+                                                    <option value="@item.PersonName">@item.PersonName</option>
+                                                }
+                                            }
+                                            @* End JSL 07/24/2022 *@
+                                        </select>
+                                        <span class="form-control-feedback">
+                                            <label class="text-danger">*</label>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%" colspan="2">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="ckbAuditAdditional" value="true" class="{InternalAuditForm.AuditType:true} AuditAutoUpdate" id="ckbAuditAdditional">
+                                                Additional ?
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="10%" colspan="2">
+                                    <div class="form-group has-feedback">
+                                        <button id="btnAddAudit" type="button" class="btn btn-success" onclick="SubmitAudits()" disabled> Add Audit </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="40%" colspan="2">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="ckbAuditClosed" value="true" class="{InternalAuditForm.AuditType:true} AuditAutoUpdate" id="ckbAuditClosed" checked>
+                                                Closed ?
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="40%" colspan="2">
+                                    <div class="form-group has-feedback">
+                                        <button id="btnRemoveAudit" type="button" class="btn btn-danger" onclick="RemoveAuditsOrAuditNotes(true)"> Remove Audit </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+                <div class="box-body">
+                    <div class="alert alert-info" style="display:none;" id="info">
+                    </div>
+                    <div id="DetailsGrid"></div>
+                </div>
+                @* RDBJ 11/25/2021 Wrapped in form tag *@
+                <form id="IAFNotesForm" name="IAFNotesForm">
+                    <div id="SectionAuditNotes" class="well well-sm" style="display:none;">
+                        <div class="SectionHead text-center">
+                            Audit Note Details
+                        </div>
+                        <table class="table tblSection">
+                            <tr>
+                                <td width="10%"><p class="m-5">Type:</p></td>
+                                <td width="40%">
+                                    <div class="form-group has-feedback">
+                                        <select onchange="getNumber(this)" id="AuditNoteType" name="AuditNoteType" class="col-md-6 form-control type" style="margin-right:10px;">
+                                            <option></option>
+                                            <option>ISM-Non Conformity</option>
+                                            <option>ISPS-Non Conformity</option>
+                                            <option>ISM-Observation</option>
+                                            <option>ISPS-Observation</option>
+                                            <option>MLC-Deficiency</option>
+                                        </select>
+                                        <input type="hidden" class="col-md-6 form-control number" id="hdnAuditNoteNumber" />
+                                    </div>
+                                </td>
+                                <td width="10%"><p class="m-5 text-center">SMS Reference:</p></td>
+                                <td width="40%">
+                                    <div class="form-group has-feedback">
+                                        <input type="text" id="txtReference" name="Reference" class="col-md-12 form-control" style="width:85%;" autocomplete="off" />
+                                        <input type="button" class="form-control RefeData" value="..." style="width:5%;padding-left:24px;" />
+                                        <span class="form-control-feedback">
+                                            <label class="text-danger">*</label>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%"><p class="m-5">Due Date :</p></td>
+                                <td width="40%">
+                                    <div class="form-group has-feedback">
+                                        <input type="text" id="txtDueDate" class="col-md-12 form-control datepicker" name="txtDueDate" autocomplete="off" />
+                                        <span class="form-control-feedback arrivalCalendarAddon">
+                                            <label class="text-danger">*</label> <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td width="10%" colspan="2">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="ckbAuditNoteResolved" value="true" class="{InternalAuditForm.AuditType:true}" id="ckbAuditNoteResolved">
+                                                Is Resolved ?
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%"><p class="m-5">Brief Description:</p></td>
+                                <td colspan="3">
+                                    <textarea id="txtBriefDescription" class="col-md-12 form-control" name="txtBriefDescription"></textarea>
+                                </td>
+                            </tr>
+                            <tr style="text-align:end;">
+                                <td width="10%" colspan="4">
+                                    <div class="form-group has-feedback">
+                                        @* JSL 10/15/2022 *@
+                                        <button type="button" id="btnClearAndAddNewDeficiencies" class="btn btn-primary hide" onclick="ClearAndResetFormAuditNote()"> Clear and Add New Deficiencies </button>
+                                        <button type="button" id="btnAddDeficiencies" class="btn btn-success" onclick="SubmitAuditNote()"> Add Deficiencies </button>
+                                        <button type="button" id="btnRemoveDeficiencies" class="btn btn-danger" onclick="RemoveAuditsOrAuditNotes(false)"> Remove Deficiencies </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            @* JSL 12/31/2022 *@
+            <div class="tab-pane fade" id="fsto-content-below" role="tabpanel" aria-labelledby="fsto-content-below-tab">
+                <div class="box-body">
+                    <div id="fstoGrid"></div>
+                </div>
+                <div class="box-body">
+                    <div class="alert alert-info" style="display:none;" id="info">
+                    </div>
+                    <div id="fstoDetailsGrid"></div>
+                </div>
+            </div>
+            @* End JSL 12/31/2022 *@
+        </div>
+    </section>
+</section>
+<ul id="context-menu" style="display:none">
+    <li id="addDeficiencies">
+        Open Form
+    </li>
+</ul>
+
+<ul id="child-menu" style="display:none">
+    <li id="childDeficiencies">
+        Open Form
+    </li>
+</ul>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#tblGIRdata,#tblGIRdataDetails').DataTable({ "order": [[0, "desc"]]/*, "sScrollY": ($(window).height() - 600)*/ });
+    })
+</script>
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Files types are not supported</h4>
+            </div>
+            <div class="modal-body">
+                <p>&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+@* RDBJ 11/22/2021 Reference Modal *@
+<div id="ReferenceModal" class="modal fade bd-example-modal-lg" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        Modal content
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Select Reference</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        @* RDBJ 12/01/2021 Commented below *@
+                        @*<div id="ISMTree" class=""></div>
+                            <div id="MLCTree" class=""></div>
+                            <div id="SSPTree" class=""></div>*@
+
+                        @* RDBJ 12/01/2021 *@
+                        <ul id="ISMTree" class=""></ul>
+                        <ul id="MLCTree" class=""></ul>
+                        <ul id="SSPTree" class=""></ul>
+                        @* End RDBJ 12/01/2021 *@
+                    </div>
+                </div>
+                <input type="hidden" id="ReferenceData" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" id="btnselect" onclick="SelectReference()">Select</button>
+            </div>
+        </div>
+    </div>
+</div>
+@* End RDBJ 11/22/2021 Reference Modal *@
+
+<!----modal starts here--->
+<div id="deleteModal" class="modal fade" role='dialog'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Delete </h4>
+            </div>
+            <div class="modal-body">
+                <p>Do You Really Want to Delete This Form?</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <span id="deleteButton"></span>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--Modal ends here--->

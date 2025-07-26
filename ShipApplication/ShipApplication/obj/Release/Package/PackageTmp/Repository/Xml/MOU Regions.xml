@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="yes"?>
+<MOURegions>
+	<MOURegion MOUId="1">Paris</MOURegion>
+	<MOURegion MOUId="2">Black Sea</MOURegion>
+	<MOURegion MOUId="3">Carribean</MOURegion>
+	<MOURegion MOUId="4">Indian</MOURegion>
+	<MOURegion MOUId="5">Mediterranian</MOURegion>
+	<MOURegion MOUId="6">Riyadh</MOURegion>
+	<MOURegion MOUId="7">Tokyo</MOURegion>
+	<MOURegion MOUId="8">Vina del Mar</MOURegion>
+	<MOURegion MOUId="9">USA</MOURegion>
+	<MOURegion MOUId="10">Abuja</MOURegion>
+	<MOURegion MOUId="11">other</MOURegion>
+</MOURegions>

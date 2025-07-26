@@ -1,0 +1,3 @@
+﻿Generated model file: CarisbrookeShipping.edmx.
+Loading metadata from the database took 00:00:01.1385516.
+Generating the model took 00:00:02.6840566.

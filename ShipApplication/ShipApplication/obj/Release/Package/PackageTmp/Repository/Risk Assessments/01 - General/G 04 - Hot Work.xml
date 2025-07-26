@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?mso-infoPathSolution PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" solutionVersion="6.0.0.0" productVersion="15.0.0" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<my:Main xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata"
+xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10"
+xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-gb">
+  <my:Details>
+    <my:Ship />
+    <my:Number>G 04</my:Number>
+    <my:Date>2015-05-15</my:Date>
+    <my:Title>Hot Work</my:Title>
+  </my:Details>
+  <my:Hazards>
+    <my:Hazard my:HazardId="1">
+      <my:Description>Contact with heat i.e. hot materials and surfaces</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>4</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Use of suitable and appropriate PPE: overalls, safety shoes, apron, welding gloves and face shield, etc.; 
+b) Fire-fighting equipment to be on stand-by - Portable extinguishers, fire hose, etc.; 
+c) Freshly welded or cut parts are not to be touched; 
+d) Regular checks should be carried out on completion.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>2</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="2">
+      <my:Description>Improper use of tools / equipment</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) The Manufacturer&#39;s Manual must be consulted for procedures etc., prior to any maintenance or repairs being carried out; 
+b) Only qualified person(s) may operate the equipment; 
+c) All equipment must be inspected and tested - machines, cables, hoses, electrodes, etc.; 
+d) Use of suitable and appropriate PPE: overalls, safety shoes, apron, welding gloves and face shield, etc.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="3">
+      <my:Description>Risks from physical, biological and chemical agents</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Combustible materials / vapours must be removed from the working area, were possible; 
+	  b) Smoking is
+      not permitted; 
+	  c) Working area to be thoroughly ventilated. Use fixed or portable fans if required; 
+	  d) Clean contaminated
+      surfaces as soon as possible.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="4">
+      <my:Description>Improper preparation of workplace</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) The Manufacturer&#39;s Manual must be consulted for procedures, etc., prior to any maintenance or repairs being carried out; 
+b) A plan must be agreed and approved by the Master prior to starting any work concerning installation or removal of temporary lashing points / fixings for the purpose of securing cargo or other equipment; 
+c) Permission must be obtained from Master and/or Chief Engineer for any hot work; 
+d) Safe Work Permit to be issued; 
+e) Crew involved in the task to be briefed; 
+f) Use of suitable and appropriate PPE: overalls, safety shoes, apron, welding gloves and face shield, etc.; 
+g) Combustible materials must be removed from the working area and adjacent compartment, were possible; 
+h) Isolate the deck below and around the hot work area, including gaps in tweendecks. Close all hatches and/or install screens where necessary; 
+i) Particular care must be taken on the position of fuel tanks; 
+j) Remove or protect any cables or other items that may be affected by heat; 
+k) Consult &#39;Enclosed Space Entry&#39; Risk Assessment, where applicable; 
+l) Fire-fighting equipment to be on stand-by - Portable extinguisher, fire hose, etc.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="5">
+      <my:Description>Electrical equipment and installation</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>4</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Use of suitable and appropriate PPE: overalls, safety shoes, apron, welding gloves and face shield, etc.; 
+b) All equipment to be connected correctly and checked for earthing, etc.; 
+c) All deck areas and surfaces in the vicinity of welding to be kept dry; 
+d) When welding on deck, ballasting/de-ballasting operations and washing on deck is not permitted; 
+e) When precipitation occurs, welding to be suspended, tools collected and placed in a dry place.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="6">
+      <my:Description>Health</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>4</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Use of suitable and appropriate PPE: overalls, safety shoes, apron, welding gloves and face shield, etc.; 
+b) Working area to be thoroughly ventilated. Use fixed or portable fans if required; 
+c) Rest should be taken at suitable intervals; 
+d) Looking at the arc without a face shield should be avoided.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+  </my:Hazards>
+  <my:Review>
+    <my:ReviewerName />
+    <my:ReviewerRank />
+    <my:ReviewDate />
+    <my:ReviewLocation /><my:ReviewMembers/>
+  </my:Review>
+  <my:Header>
+    <my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+    <my:HeaderSummary />
+    <my:HeaderCode>RAF</my:HeaderCode>
+    <my:HeaderIssueNumber>5</my:HeaderIssueNumber>
+    <my:HeaderIssueDate>05/14</my:HeaderIssueDate>
+    <my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+    <my:HeaderAmmendmentDate />
+    <my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+  </my:Header>
+  <my:Footer>Risk Assessment: G 04 - Hot Work</my:Footer>
+</my:Main>

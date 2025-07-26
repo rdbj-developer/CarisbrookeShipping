@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?mso-infoPathSolution PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" solutionVersion="6.0.0.0" productVersion="15.0.0" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<my:Main xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata"
+xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10"
+xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-gb">
+  <my:Details>
+    <my:Ship />
+    <my:Number>G 06</my:Number>
+    <my:Date>2015-05-15</my:Date>
+    <my:Title>Operating Handheld Tools &amp; Power Tools</my:Title>
+  </my:Details>
+  <my:Hazards>
+    <my:Hazard my:HazardId="1">
+      <my:Description>Debris - flying / dust</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>4</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Use of goggles, face shield and/or mask throughout operation; 
+b) Use of other PPE including protecting long sleeve clothing to prevent skin injuries, safety shoes and gloves; 
+c) Persons not engaged in a job should stay clear; 
+d) Caution should be paid to other people working in the vicinity, adjust the working angle/position of the tool to prevent debris flying towards them; 
+e) Dust mask should be used if dust is generated during the activity.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="2">
+      <my:Description>Worn or inappropriate tools especially tools with moving parts</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) Crew must be instructed how to use a tool in safe manner, consult manufacturer’s operation manual accordingly; 
+b) All tool safety guards must be in place; 
+c) The working tool must be switched off when not being used; 
+d) Worn or damaged tools must not be used; 
+e) Ensure the most appropriate tool for the job is being used and accessories / pieces are of adequate type (drill bits, grinding &amp; cutting disks, etc.) and in good condition / properly connected; 
+f) Cutting edges should be kept sharp and clean; 
+g) Adequate illumination must always be provided.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="3">
+      <my:Description>Electricity - electrocution</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) Hands should be kept dry, particularly when connecting cables and switching on/off a tool; 
+b) Tool cables should not come in contact with water; 
+c) When working in open spaces and precipitation occurs a job should be stopped and tools collected into a safe dry place; 
+d) Damaged equipment should never be used; 
+e) Extension cables should be placed in such a position that it cannot get damaged by other equipment, when passed through a door or hatch.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="4">
+      <my:Description>Working in areas either lacking oxygen or posing a threat to combustion (materials / gasses)</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) All tool safety guards must be in place; 
+b) Use of PPE (face shield, long sleeve boiler suit, etc.);
+c) All flammable materials should be removed from working area, if not possible then protective screens should be installed.
+d) If in an enclosed space the appropriate risk assessment must be consulted as well as a valid work permit in place with full compliance of the enclosed space entry procedures. Oxygen content must never fall below the minimum.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="5">
+      <my:Description>Operating at height - risk of tools / personnel falling</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Consult ‘Working Aloft’ Risk Assessment. Ensure all appropriate measures are in place and procedures are complied with 
+b) All tools being used aloft must be secured.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="6">
+      <my:Description>Improper use of tools</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) Tools should be used for jobs they have been designed for; 
+b) Operators must be capable of using the required tool; 
+c) The tools used must be off appropriate size to that of the job.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="7">
+      <my:Description>Water - falling into</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Consult ‘Working Aloft – Overboard’ Risk Assessment. 
+b) Extra precautions must be in place when operating electrical tools above water in conjunction with risk factor 3 - Electrocution.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="8">
+      <my:Description>Noise - during use of tools</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>3</my:RiskFactor>
+      <my:ControlMeasures>a) Ear defenders and / or plugs must be worn at all times; 
+b) More frequent breaks and job rotation must be considered to reduce the duration and effects associated with exposure; 
+c) Ensure there is no wear &amp; tear or misalignment of components that could increase exposure levels. 
+d) Consider other available work methods with less or no exposure effects that can be used to complete the task.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="9">
+      <my:Description>Vibration - during use of tools</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>3</my:RiskFactor>
+      <my:ControlMeasures>a) Protective gloves to be used. 
+b) More frequent breaks and job rotation must be considered to reduce the duration and effects associated with exposure; 
+c) Ensure there is no wear &amp; tear or misalignment of components that could increase exposure levels. 
+d) Consider other available work methods with less or no exposure effects that can be used to complete the task.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="10">
+      <my:Description>Slip / Trip</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>3</my:RiskFactor>
+      <my:ControlMeasures>a) Good house keeping must always be a priority to the working area. 
+b) Tools should be stowed in a tidy &#39;ship shape&#39; manner when not in use; 
+c) After the job is completed all tools should be collected and put back in their designated storing places; ensure tools are not left lying around the deck.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+  </my:Hazards>
+  <my:Review>
+    <my:ReviewerName />
+    <my:ReviewerRank />
+    <my:ReviewDate />
+    <my:ReviewLocation /><my:ReviewMembers/>
+  </my:Review>
+  <my:Header>
+    <my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+    <my:HeaderSummary />
+    <my:HeaderCode>RAF</my:HeaderCode>
+    <my:HeaderIssueNumber>5</my:HeaderIssueNumber>
+    <my:HeaderIssueDate>05/14</my:HeaderIssueDate>
+    <my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+    <my:HeaderAmmendmentDate />
+    <my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+  </my:Header>
+  <my:Footer>Risk Assessment: G 06 - Operating Handheld Tools &amp; Power Tools</my:Footer>
+</my:Main>

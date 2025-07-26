@@ -1,0 +1,469 @@
+﻿
+<div class="Section breakDiv">
+    <div class="SectionHead">
+        <u>Section 5B</u> - List of Publications Held On-board
+    </div>
+    <div class="SectionContent">
+        <table class="table tblSection tblSectionManning4d">
+            <tr>
+                <td width="80%">
+                    <p class="m-5">
+                        All items listed in the current on board version of Fleet Standing Order TSO 02 - Training and
+                        Publications Library and inventory carried out by the DOOW on board within last 3 months.
+                    </p>
+                </td>
+                <td width="20%" class="v-al-m text-center">
+                    <label class="radio-inline">
+                        @* RDBJ 10/20/2021 Set Name, Value and wrapped in if*@
+                        @if (Convert.ToBoolean(Model.CarriedOutByTheDOOW) == true)
+                        {
+                            <input type="radio" name="CarriedOutByTheDOOW" class="GIRData" value="true" checked><span>Yes</span>
+                        }
+                        else
+                        {
+                            <input type="radio" name="CarriedOutByTheDOOW" class="GIRData" value="true"><span>Yes</span>
+                        }
+                    </label>
+                    <label class="radio-inline">
+                        @* RDBJ 10/20/2021 Set Name, Value and wrapped in if*@
+                        @if (Convert.ToBoolean(Model.CarriedOutByTheDOOW) == false)
+                        {
+                            <input type="radio" name="CarriedOutByTheDOOW" class="GIRData" value="false" checked><span>No</span>
+                        }
+                        else
+                        {
+                            <input type="radio" name="CarriedOutByTheDOOW" class="GIRData" value="false"><span>No</span>
+                        }
+                    </label>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="Section breakDivPage clsSection">
+    <div class="SectionHead">
+        <u>Section 5C</u> - List of Documents
+    </div>
+    <div class="SectionContent">
+        <table class="table tblSection tblSectionManning4d">
+            <tr>
+                <td width="10%" class="v-al-m text-center">
+                    No.
+                </td>
+                <td width="40%" class="v-al-m text-center">Document</td>
+                <td width="10%" class="v-al-m text-center">
+                    O/B <br />
+                    Yes/No
+                </td>
+                <td width="40%" class="v-al-m text-center">Comment</td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    1
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">Regs4ships</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsRegs4shipsDVD == true)
+                    {
+                        <input type="checkbox" name="IsRegs4shipsDVD" class="GIRData" value="true" checked="checked" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" name="IsRegs4shipsDVD" class="GIRData" value="false" />
+                    }
+
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="Regs4shipsDVD" rows="1" placeholder="Issue/Year">@Model.Regs4shipsDVD</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    2
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">SOPEP & latest list of operational contact points</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsSOPEPPoints == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsSOPEPPoints" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsSOPEPPoints" value="false" />
+                    }
+
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="SOPEPPoints" rows="1">@Model.SOPEPPoints</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    3
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">Ballast Water Management Plan (BWMP)</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsBWMP == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsBWMP" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsBWMP" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="BWMP" rows="1">@Model.BWMP</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    4
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">BWMP supplement</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsBWMPSupplement == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsBWMPSupplement" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsBWMPSupplement" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="BWMPSupplement" rows="1">@Model.BWMPSupplement</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    5
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">Intact Stability Manual</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsIntactStabilityManual == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsIntactStabilityManual" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsIntactStabilityManual" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="IntactStabilityManual" rows="1">@Model.IntactStabilityManual</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    6a
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">Stability computer: Type-approval and approved software</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsStabilityComputer == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsStabilityComputer" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsStabilityComputer" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="StabilityComputer" rows="1">@Model.StabilityComputer</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    6b
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">Date of last test and printout sighted</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsDateOfLast == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsDateOfLast" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsDateOfLast" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="DateOfLast" rows="1">@Model.DateOfLast</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    7
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">Cargo securing manual</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsCargoSecuring == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsCargoSecuring" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsCargoSecuring" value="false" />
+                    }
+
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="CargoSecuring" rows="1">@Model.CargoSecuring</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    8
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">Bulk cargo stowage manual</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsBulkCargo == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsBulkCargo" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsBulkCargo" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="BulkCargo" rows="1">@Model.BulkCargo</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    9
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">SMS Manual</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsSMSManual == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsSMSManual" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsSMSManual" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="SMSManual" rows="1">@Model.SMSManual</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    10
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">Register of forms and checklists</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsRegisterOf == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsRegisterOf" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsRegisterOf" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="RegisterOf" rows="1">@Model.RegisterOf</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    11
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">Fleet Standing Order file</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsFleetStandingOrder == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsFleetStandingOrder" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsFleetStandingOrder" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="FleetStandingOrder" rows="1">@Model.FleetStandingOrder</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    12
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">Fleet Memoranda file</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsFleetMemoranda == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsFleetMemoranda" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsFleetMemoranda" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="FleetMemoranda" rows="1">@Model.FleetMemoranda</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    13
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">Ships plans and operational manuals</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsShipsPlans == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsShipsPlans" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsShipsPlans" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="ShipsPlans" rows="1">@Model.ShipsPlans</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    14
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">Collective bargaining agreements available on board (i.e.POEA, Nautilus, ITF as applicable)</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsCollective == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsCollective" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsCollective" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="Collective" rows="1">@Model.Collective</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    15
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">Draft and freeboard notice</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsDraftAndFreeboardNotice == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsDraftAndFreeboardNotice" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsDraftAndFreeboardNotice" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="DraftAndFreeboardNotice" rows="1">@Model.DraftAndFreeboardNotice</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    16
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">Panama canal SOPEP (PCSOPEP)</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsPCSOPEP == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsPCSOPEP" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsPCSOPEP" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="PCSOPEP" rows="1">@Model.PCSOPEP</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    17
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">NT-VRP, and ship specific appendix B (if applicable)</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsNTVRP == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsNTVRP" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsNTVRP" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="NTVRP" rows="1">@Model.NTVRP</textarea>
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td width="10%" class="v-al-m text-center clsItemNo">
+                    18
+                </td>
+                <td width="40%" class="v-al-m"><p class="m-0 m-l-5">Vessel General Permit (VGP) (if applicable)</p></td>
+                <td width="10%" class="v-al-m text-center">
+                    @* RDBJ 10/20/2021 set value true if checked and false if not checked *@
+                    @if (Model.IsVGP == true)
+                    {
+                        <input type="checkbox" class="GIRData" name="IsVGP" value="true" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="GIRData" name="IsVGP" value="false" />
+                    }
+                </td>
+                <td width="40%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="VGP" rows="1">@Model.VGP</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" width="100%" class="v-al-m">
+                    Comments:
+                </td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td colspan="4" width="100%" class="clsDeficiencies">
+                    <textarea class="form-control col-md-12 GIRData" name="PubsComments" rows="1">@Model.PubsComments</textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="SectionComplete">
+    <div class="checkbox">
+        <label>Section Complete?</label>
+        @* RDBJ 10/20/2021 Set Name, Value and wrapped in if*@
+        @if (Model.IsPubsAndDocsSectionComplete == true)
+        {
+            <input type="checkbox" class="GIRData" name="IsPubsAndDocsSectionComplete" value="true" style="margin-left:20px;" checked />
+        }
+        else
+        {
+            <input type="checkbox" class="GIRData" name="IsPubsAndDocsSectionComplete" value="false" style="margin-left:20px;" />
+        }
+    </div>
+</div>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CASHIP_WebGUIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SM_ACCOUNTCODE">
+    <Key>
+      <PropertyRef Name="ACCOUNTID" />
+    </Key>
+    <Property Name="ACCOUNTID" Type="int" Nullable="false" />
+    <Property Name="ACCOUNT_CODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="ACCOUNT_DESCR" Type="nvarchar" MaxLength="50" />
+    <Property Name="ACCOUNT_REMARKS" Type="ntext" />
+    <Property Name="EXPORTED" Type="int" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_SITE" Type="int" />
+    <Property Name="SITEID" Type="int" />
+    <Property Name="CREATED_DATE" Type="datetime" />
+    <Property Name="UPDATE_BY" Type="int" />
+    <Property Name="CREATED_BY" Type="int" />
+    <Property Name="PARENTID" Type="int" />
+  </EntityType>
+  <EntityContainer Name="CASHIP_WebGUIModelStoreContainer">
+    <EntitySet Name="SM_ACCOUNTCODE" EntityType="Self.SM_ACCOUNTCODE" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

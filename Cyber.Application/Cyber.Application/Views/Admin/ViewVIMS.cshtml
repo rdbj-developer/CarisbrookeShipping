@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "VIMS";
+    Layout = null;
+}
+
+<style type="text/css">
+    .VIMS {
+        width: -webkit-fill-available;
+    }
+</style>
+
+<script type="text/javascript">
+
+    
+    $(document).ready(function () {
+        var pono = '@ViewBag.PONO';
+        if (pono != undefined && pono != '') {
+            $("#PONO").val(pono);
+            onPOSearchClick();
+        }
+    });
+
+    function onPOSearchClick() {
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("ViewVIMSList", "Admin")?pono=' + $("#PONO").val(),
+             async: true,
+            cache: false,
+            success: function (result) {
+                 $("#dvVIMSListContainer").html(result);
+            },
+            error: function (err) {
+                $("#ajax_loader").hide();
+            }
+        });
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <label class="btn btn-default">PO NO : </label>
+                        </div>
+                        <input type="text" class="form-control" name="PONO" id="PONO">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-primary" onclick="onPOSearchClick()">Search</button>
+                        </div>
+                    </div>                
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="dvVIMSListContainer">
+</div>

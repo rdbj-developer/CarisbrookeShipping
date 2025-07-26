@@ -1,0 +1,44 @@
+﻿#ddlReviewPeriod {
+    display: inline-block;
+    float: right;
+    margin-top: 8px;
+    margin-right: 10px;
+}
+
+#lblReviewPeriod {
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+}
+
+.tblcrewmember > tbody > tr > td, .tblcrewmember > tbody > tr > th, .tblcrewmember > tfoot > tr > td, .tblcrewmember > tfoot > tr > th, .tblcrewmember > thead > tr > td, .tblcrewmember > thead > tr > th {
+    text-align: center;
+    border: 1px solid #66afe9 !important;
+}
+
+.tblSection7, .tblSection8, .tblSection12 {
+    margin-bottom: 1px !important;
+}
+
+    .tblSection7 > tbody > tr > td, .tblSection8 > tbody > tr > td, .tblSection12 > tbody > tr > td {
+        border-bottom: 1px solid #66afe9 !important;
+        border-left: 1px solid #66afe9 !important;
+        padding: 1px !important;
+    }
+
+.b1-sb {
+    border: 1px solid #333;
+}
+
+.border-bottom-1 {
+    border-bottom: 1px solid #66afe9;
+}
+
+.SectionHead {
+    border-bottom: 1px solid #66afe9;
+    background: #FFFFE1;
+}
+
+textarea {
+    resize: none;
+}

@@ -1,0 +1,287 @@
+﻿@using ShipApplication.BLL.Modals
+@model HoldVentilationRecordFormModal
+@{
+    ViewBag.Title = "HoldVentilationRecord";
+}
+<link href="~/Content/Custom/GIRForm.css" rel="stylesheet" />
+<style type="text/css">
+    .fa-fw {
+        background-color: #FFFFE1;
+        padding: 2px;
+    }
+
+    .fa-plus {
+        color: green;
+    }
+
+    .fa-remove {
+        color: red;
+    }
+
+    .actionToolbar {
+        margin-bottom: 0px;
+        display: flex;
+        justify-content: space-around;
+        align-items: stretch;
+    }
+
+    .divar {
+        background: #66afe9;
+        width: 1px;
+    }
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+
+    .Section {
+        border: none;
+    }
+
+    .SectionHead {
+        border: 1px solid #66afe9;
+        border-bottom: none;
+    }
+</style>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/Custom/HoldVentilationRecordHandler.js"></script>
+<script>
+    $(document).ready(function () {
+        var res = '@ViewBag.result';
+    if (res == '@AppStatic.SUCCESS') {
+        $.notify("Form Submitted Successfully", "success");
+    }
+    else if (res == '@AppStatic.ERROR') {
+        $.notify("Error occured while submitting Form !", "error");
+    }
+    else if (res != "") {
+        $.notify(res, "warn");
+    }
+    });
+    function printDiv() {
+        var RootUrl = '@Url.Content("~/")';
+        $("input[type=text]").each(function () {
+            var str = $(this).val();
+            $(this).attr('value', str);
+        });
+        $("input[type=checkbox]").each(function () {
+            var str = $(this).is(':checked');
+            $(this).attr('checked', str);
+        });
+        $(".dt").attr("style", "padding-right : 0px !important");
+        $(".aviodPrint").hide();
+        var style = "@@media print {.breakDivPage { page-break-after: always; page-break-inside:auto   } body { zoom: .8 } }";
+        style += "@@page {size: auto;margin: 5%;}";
+        style += ".Section {border: none;} .SectionHead {border: 1px solid #66afe9;border - bottom: none;}";
+
+        var divToPrint = document.getElementById('frmHoldVentilationRecordContent');
+        var newWin = window.open('', 'Print-Window');
+        newWin.document.open();
+        newWin.document.write('<html><head><title></title>');
+        newWin.document.write('<style type="text/css">' + style + '</style>');
+        newWin.document.write('<link href="' + RootUrl+'Content/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl +'Content/AdminLTE.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl +'Content/_all-skins.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl +'Content/Custom/SiteCustom.css" rel="stylesheet" />');
+        newWin.document.write('<link rel="stylesheet" href="' + RootUrl +'Content/Custom/GIRForm.css" type="text/css" />');
+        newWin.document.write('</head><body onload="window.print()">');
+
+        newWin.document.write(divToPrint.innerHTML);
+        newWin.document.write('</body></html>');
+       // $(".dt").show();
+        $(".aviodPrint").show();
+        newWin.document.close();
+        setTimeout(function () { newWin.close(); }, 5000);
+
+    }
+</script>
+<section class="content">
+    <form method="post" action="@Url.Action("HoldVentilationRecord", "Forms")">
+        <div id="frmHoldVentilationRecordContent">
+            <input type="hidden" value="5" id="hdnHoldVentilationRecordCount" />
+            <input type="hidden" value="@ShipApplication.BLL.Helpers.SessionManager.ShipCode" name="HoldVentilationRecordForm.ShipCode" id="hdnHVRShipCode" />
+            <input type="hidden" value="@ShipApplication.BLL.Helpers.SessionManager.ShipName" name="HoldVentilationRecordForm.ShipName" id="hdnHVRShipName" />
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6 text-center">
+                    <h3>Hold Ventilation Record</h3>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>SHIP: @ShipApplication.BLL.Helpers.SessionManager.ShipName</h4>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="GeneralSection PageSection">
+                        <div class="Section breakDiv">
+                            <div class="SectionContent">
+                                <table class="table tblSection">
+                                    <tr>
+                                        <td width="15%"><p class="m-5">CARGO</p></td>
+                                        <td width="35%">
+                                            <div class="form-group has-feedback">
+                                                <input type="text" class="col-md-12 form-control" id="txtCargo" name="HoldVentilationRecordForm.Cargo" />
+                                                @*<span class="form-control-feedback arrivalCalendarAddon">
+                                                        <label class="text-danger">*</label>
+                                                    </span>*@
+                                            </div>
+                                        </td>
+                                        <td width="15%">
+                                            <p class="m-5">QUANTITY</p>
+                                        </td>
+                                        <td width="35%">
+                                            <div class="form-group has-feedback">
+                                                <input type="text" id="txtQuantity" class="col-md-12 form-control" name="HoldVentilationRecordForm.Quantity" />
+                                                @*<span class="form-control-feedback arrivalCalendarAddon">
+                                                        <label class="text-danger">*</label>
+                                                    </span>*@
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"><p class="m-5">LOADING PORT</p></td>
+                                        <td width="35%">
+                                            <div class="form-group has-feedback">
+                                                <input type="text" class="col-md-12 form-control" id="txtLoadingPort" name="HoldVentilationRecordForm.LoadingPort" />
+                                                @*<span class="form-control-feedback arrivalCalendarAddon">
+                                                        <label class="text-danger">*</label>
+                                                    </span>*@
+                                            </div>
+                                        </td>
+                                        <td width="15%">
+                                            <p class="m-5">DISCHARGING PORT</p>
+                                        </td>
+                                        <td width="35%">
+                                            <div class="form-group has-feedback">
+                                                <input type="text" class="col-md-12 form-control" id="txtDischargingPort" name="HoldVentilationRecordForm.DischargingPort" />
+                                                @*<span class="form-control-feedback arrivalCalendarAddon">
+                                                        <label class="text-danger">*</label>
+                                                    </span>*@
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"><p class="m-5">LOADING DATE</p></td>
+                                        <td width="35%">
+                                            <div class="form-group has-feedback">
+                                                <input type="text" id="txtLoadingDate" autocomplete="off" class="col-md-12 form-control datepicker" name="HoldVentilationRecordForm.LoadingDate" />
+                                                <span class="form-control-feedback arrivalCalendarAddon aviodPrint">
+                                                        @*<label class="text-danger">*</label>*@ <i class="fa fa-calendar"></i>
+                                                    </span>
+                                            </div>
+                                        </td>
+                                        <td width="15%">
+                                            <p class="m-5">DISCHARGING DATE</p>
+                                        </td>
+                                        <td width="35%">
+                                            <div class="form-group has-feedback">
+                                                <input type="text" id="txtDischargingDate" autocomplete="off" class="col-md-12 form-control datepicker" name="HoldVentilationRecordForm.DischargingDate" />
+                                                <span class="form-control-feedback arrivalCalendarAddon aviodPrint">
+                                                    @*<label class="text-danger">*</label>*@ <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>                               
+                            </div>
+                        </div>
+                        <div class="Section breakDiv">
+                            <div class="SectionHead text-center">
+                                HOLDS VENTILATION RECORD SHEET
+                            </div>
+                            <div class="SectionContent">
+                                <table class="table tblSection RecordSheet">
+                                    <tr>
+                                        <td colspan="2"></td>
+                                        <td colspan="3"><p class="m-5 text-center">OUTSIDE AIR</p></td>
+                                        <td colspan="3"><p class="m-5 text-center">HOLD AIR</p></td>
+                                        <td><p class="m-5 text-center">VENTILATION</p></td>
+                                        <td><p class="m-5 text-center">SEA</p></td>
+                                        <td width="2%" class="text-center">
+                                            <p class="text-center actionToolbar aviodPrint">
+                                                <span class="m-5 text-center cursor-pointer">
+                                                    <i onclick="addNewRecord()" class="fa fa-fw fa-plus"></i>
+                                                </span>
+                                                <span class="divar"></span>
+                                                <span class="m-5 text-center cursor-pointer"><i onclick="removeRecord()" class="fa fa-fw fa-remove"></i></span>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="9%"><p class="m-5 text-center">DATE</p></td>
+                                        <td width="6%"><p class="m-5 text-center">TIME</p></td>
+                                        <td width="8%"><p class="m-5 text-center">DRY BULB</p></td>
+                                        <td width="8%"><p class="m-5 text-center">WET BULB</p></td>
+                                        <td width="8%"><p class="m-5 text-center">DEW POINT</p></td>
+                                        <td width="8%"><p class="m-5 text-center">DRY BULB</p></td>
+                                        <td width="8%"><p class="m-5 text-center">WET BULB</p></td>
+                                        <td width="8%"><p class="m-5 text-center">DEW POINT</p></td>
+                                        <td width="1%"><p class="m-5 text-center">Y/N</p></td>
+                                        <td width="3%"><p class="m-5 text-center">TEMP.</p></td>
+                                        <td width="5%"><p class="m-5 text-center">REMARKS</p></td>
+                                    </tr>
+                                    <tr class="records" index="0" IsSelected="true">
+                                        <td width="9%">
+                                            <div class="form-group has-feedback">
+                                                <input type="text" autocomplete="off" class="col-md-12 form-control datepicker dt" id="txtHVRDate" name="HoldVentilationRecordList[0].HVRDate" />
+                                                <span class="form-control-feedback arrivalCalendarAddon  aviodPrint">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td width="6%">
+                                            <input type="text" class="form-control time" id="txtHVRTime" name="HoldVentilationRecordList[0].HVRTime" placeholder="HH:MM" title="Only time allowed" />
+                                        </td>
+                                        <td width="8%">
+                                            <input type="text" class="col-md-12 form-control" id="txtOUTDryBulb" name="HoldVentilationRecordList[0].OUTDryBulb" />
+                                        </td>
+                                        <td width="8%">
+                                            <input type="text" class="col-md-12 form-control" id="txtOUTWetBulb" name="HoldVentilationRecordList[0].OUTWetBulb" />
+                                        </td>
+                                        <td width="8%">
+                                            <input type="text" class="col-md-12 form-control" id="txtOUTDewPOint" name="HoldVentilationRecordList[0].OUTDewPOint" />
+                                        </td>
+                                        <td width="8%">
+                                            <input type="text" class="col-md-12 form-control" id="txtHODryBulb" name="HoldVentilationRecordList[0].HODryBulb" />
+                                        </td>
+                                        <td width="8%">
+                                            <input type="text" class="col-md-12 form-control" id="txtHOWetBulb" name="HoldVentilationRecordList[0].HOWetBulb" />
+                                        </td>
+                                        <td width="8%">
+                                            <input type="text" class="col-md-12 form-control" id="txtHODewPOint" name="HoldVentilationRecordList[0].HODewPOint" />
+                                        </td>
+                                        <td width="2%" class="text-center">
+                                            <input type="checkbox" id="chkIsVentilation" name="HoldVentilationRecordList[0].IsVentilation" value="true" />
+                                            <input type="hidden" name="HoldVentilationRecordList[0].IsVentilation" value="false" />
+                                        </td>
+                                        <td width="3%">
+                                            <input type="text" id="txtSeaTemp" class="col-md-12 form-control" name="HoldVentilationRecordList[0].SeaTemp" />
+                                        </td>
+                                        <td width="5%">
+                                            <input type="text" id="txtRemarks" class="col-md-12 form-control" name="HoldVentilationRecordList[0].Remarks" />
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p><b>to be filed in the cargo record book</b></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+        <div class="row aviodPrint">
+            <div class="col-md-1">
+                <button type="submit" id="btnSubmit" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="col-md-1" style="padding-left:0px;">
+                <button type="button" class="btn btn-primary" onclick="printDiv()">Print</button>
+            </div>
+        </div>
+    </form>
+</section>

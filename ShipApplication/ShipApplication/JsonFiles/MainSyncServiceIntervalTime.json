@@ -1,0 +1,16 @@
+{
+  "LocalSettings": {
+    "IntervalTime": "8",
+    "UseServerTimeInterval": "false",
+    "UpdatedBy": "install",
+    "UpdatedDate": "26-02-2022",
+    "MainSyncServiceVersion": "5.13.00"
+  },
+  "ServerSettings": {
+    "IntervalTime": "8",
+    "UseServerTimeInterval": "true",
+    "UpdatedBy": "Daniel Lewandowski",
+    "UpdatedDate": "26-02-2022",
+    "MainSyncServiceVersion": "5.13.00"
+  }
+}

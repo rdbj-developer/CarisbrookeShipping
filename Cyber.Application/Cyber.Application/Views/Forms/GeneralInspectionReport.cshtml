@@ -1,0 +1,866 @@
+﻿@model IEnumerable<OfficeApplication.BLL.Modals.GIRData>
+
+@{
+    ViewBag.Title = "GeneralInspectionReport";
+}
+
+<style>
+    .upload {
+        display: inline;
+        padding: 0.2em 1.6em 0.3em;
+        font-size: 116%;
+        font-weight: 700;
+        line-height: 3;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25em;
+    }
+
+    .pink.lighten-2 {
+        background-color: #0097a7 !important;
+    }
+
+        .pink.lighten-2 a {
+            color: #ffffff !important;
+        }
+
+    .chip {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba(0,0,0,.6);
+        line-height: 32px;
+        padding: 0 12px;
+        -webkit-border-radius: 16px;
+        border-radius: 16px;
+        background-color: #eceff1;
+        margin-right: 1px;
+        margin-bottom: 1px;
+        cursor: pointer;
+        -webkit-transition: all .3s linear;
+        -o-transition: all .3s linear;
+        transition: all .3s linear;
+    }
+
+    .close:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+
+    .chip .close {
+        cursor: pointer;
+        float: right;
+        font-size: 16px;
+        line-height: 32px;
+        padding-left: 8px;
+        -webkit-transition: all .1s linear;
+        -o-transition: all .1s linear;
+        transition: all .1s linear;
+    }
+
+    .alert-info {
+        color: #31708f !important;
+        background-color: #d9edf7 !important;
+        border-color: #bce8f1 !important;
+    }
+
+    .k-grid-content.k-auto-scrollable {
+        max-height: 350px;
+    }
+
+    .text-info {
+        width: 15px;
+    }
+
+    .input-group {
+        width: 100%;
+    }
+
+    .k-grid td, .k-filter-row th, .k-grid-header th.k-header, .k-pager-wrap {
+        padding: 0px;
+        padding-bottom: 0px !important;
+        padding-top: 0px !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    .orders td, #DetailsGrid td {
+        border-style: solid;
+        border-width: 0 0 1px 1px;
+    }
+
+    .form-inline .form-control {
+        height: auto;
+    }
+</style>
+<script type="text/x-kendo-template" id="template">
+    <div class="tabstrip">
+        <ul>
+            <li class="k-state-active">
+                View Comments
+            </li>
+            <li>
+                Add Comments
+            </li>
+            <li>
+                Priority
+            </li>
+        </ul>
+        <div>
+            <div class="orders"></div>
+        </div>
+        <div>
+            <div class='employee-details'>
+                <form>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-comment text-info"></i></span>
+                        <textarea class="form-control comment" rows="4" id="comment"></textarea>
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user text-info"></i></span>
+                        <input type="text" class="form-control name" id="Name" value="@Request.RequestContext.HttpContext.Session["Name"]" placeholder="Name">
+                    </div>
+                    <div class="input-group">
+                        <label for="file" class="label label-primary upload">Upload File</label>
+                        <input id="file" multiple onchange="fileUpload(this)" style="visibility:hidden;height:4px;" type="file">
+                    </div>
+                    <div>
+                        <input type="button" onclick="AddNotes(#= DeficienciesID #,this)" value="Add" class="btn">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div>
+            <select class="DeficiencyPriority" onchange="AddPriority(#= DeficienciesID #,this)">
+                <option>12</option>
+                <option>8</option>
+                <option>4</option>
+            </select> &nbsp;&nbsp;Weeks
+        </div>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="ReportTemplate">
+    <div>
+        <div id="ShipReportsGrid" class="ShipGISIReports"></div>
+    </div>
+</script>
+<script>
+    var RootUrl = '@Url.Content("~/")';
+    var dataLoad;
+    var dataLoadFile;
+    var ShipReports;
+    $(document).ready(function () {
+        loadGrid();
+        loadDetailGrid();
+    });
+
+    function RemoveFile(ctr) {
+        $(ctr).parent().next().next().next().val('false')
+        $(ctr).parent().hide();
+    }
+    function fileUpload(ctr, count) {
+        if (typeof (FileReader) != "undefined") {
+            var image_holder = $("#img-holder");
+            var reader = new FileReader();
+            var notAllowType = ""
+            reader.onload = function (e) {
+                for (var i = 0; i < ctr.files.length; i++) {
+                    if (ctr.files[i].type.indexOf('pdf') >= 0 ||
+                        ctr.files[i].type.indexOf('image') >= 0 ||
+                        ctr.files[i].type.indexOf('document') >= 0 ||
+                        ctr.files[i].type.indexOf('xml') >= 0 ||
+                        ctr.files[i].type.indexOf('sheet') >= 0) {
+                        var picFile = e.target;
+                        var data = '<div  class="chip pink lighten-2 white-text waves-effect waves-effect file">' +
+                            '<a>' + ctr.files[i].name + '</a>' +
+                            '<i class="close fa fa-times" onclick="RemoveFile(this)"></i >' +
+                            '</div>' +
+                            '<input type="hidden" value="' + ctr.files[i].name + '" class="filename" />' +
+                            '<input type="hidden" class="path" value="' + picFile.result + '"   class="path" />' +
+                            '<input type="hidden" class="isUpload" value="' + "true" + '" class="IsUpload" />';
+                        $(ctr).parent().append(data)
+                    }
+                    else {
+                        notAllowType = notAllowType + " [" + ctr.files[i].name + "] ";
+                    }
+                }
+                if (notAllowType != "") {
+                    $("#modal-default p").text(notAllowType + " files types are not supported")
+                    $('#modal-default').modal('show');
+                }
+            }
+            image_holder.show();
+            reader.readAsDataURL($(ctr)[0].files[0]);
+        } else {
+            alert("This browser does not support FileReader.");
+        }
+    }
+    function Download(ctr,data) {
+        var _name = $(data).text();
+        var url = RootUrl + "Forms/Download?file=" + ctr + "&name=" + _name;;
+        $.ajax({
+            url: url,
+            contentType: 'application/json; charset=utf-8',
+            datatype: 'json',
+            type: "GET",
+            success: function () {
+                window.location = url;
+            }
+        });
+    }
+    function DownloadCommentFile(ctr,data) {
+        var _name = $(data).text();
+        var url = RootUrl + "Forms/DownloadCommentFile?file=" + ctr + "&name=" + _name;;
+        $.ajax({
+            url: url,
+            contentType: 'application/json; charset=utf-8',
+            datatype: 'json',
+            type: "GET",
+            success: function () {
+                window.location = url;
+            }
+        });
+    }
+    function generateTemplate(ReportList) {
+        var template = "";
+        for (var i = 0; i < ReportList.length; i++) {
+            template = template + '<div style="line-height: unset;" class="chip pink lighten-2 white-text waves-effect waves-effect file">' +
+                '<a onclick="DownloadCommentFile(' + ReportList[i].GIRCommentFileID+',this)">' + ReportList[i].FileName + '</a>' +
+                '</div>';
+        }
+
+        return template;
+    }
+    function generateTemplateDeficiencies(ReportList) {
+        var template = "";
+        for (var i = 0; i < ReportList.length; i++) {
+            template = template + '<div style="line-height: unset;" class="chip pink lighten-2 white-text waves-effect waves-effect file">' +
+                '<a onclick="Download(' + ReportList[i].GIRDeficienciesFileID + ',this)">' + ReportList[i].FileName + '</a>' +
+                '</div>';
+        }
+
+        return template;
+    }
+    function detailInit(e) {
+        var detailRow = e.detailRow;
+        var id = e.data.DeficienciesID;
+        detailRow.find(".tabstrip").kendoTabStrip({
+            animation: {
+                open: { effects: "fadeIn" }
+            }
+        });
+        var url = RootUrl + "Forms/GetDeficienciesNote";
+        var urlFile = RootUrl + "Forms/GetDeficienciesFiles";
+        loadComment(id, url);
+        loadFile(id, urlFile);
+        detailRow.find(".orders").kendoGrid({
+            scrollable: true,
+            sortable: true,
+            resizable: true,
+            filterable: true,
+            dataSource: {
+                data: dataLoad.options.data
+            },
+            resizable: true,
+            columns: [
+                {
+                    field: "UserName",
+                    title: "Name",
+                    width: "150px"
+                },
+                {
+                    field: "Comment",
+                    title: "Comment"
+                },
+                {
+                    field: "CreatedDate",
+                    title: "Date Time",
+                    template: "#= CreatedDate!=null? kendo.toString(kendo.parseDate(CreatedDate, 'yyyy-MM-dd'), 'MM/dd/yyyy h:mm'):'' #",
+                    width: "130px"
+                },
+                {
+                    field: 'GIRDeficienciesCommentFile',
+                    title: 'Files',
+                    template: "#=generateTemplate(GIRDeficienciesCommentFile)#",
+                    width: "130px"
+                }
+            ]
+        });
+
+    }
+    function updateStatus(ctr) {
+        var did = $(ctr).parent().parent().find('.DeficienciesID').text();
+        var url = RootUrl + "Forms/UpdateDeficienciesData";
+        var obj = {};
+        obj.id = did;
+        obj.isClose = $(ctr).prop('checked');
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: false,
+            url: url,
+            data: obj,
+            success: function (Data) {
+                $.notify("Updated Successfully", "success");
+                loadGrid();
+                loadDetailGrid();
+            },
+            error: function (Data) {
+                console.log(Data);
+            }
+        });
+    }
+    function loadGrid() {
+        var url = RootUrl + "Deficiencies/GetGISIShips";
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: false,
+            url: url,
+            success: function (Data) {
+                data = Data;
+                $('#Grid').empty();
+                var grid = $('#Grid').kendoGrid({
+                    scrollable: true,
+                    sortable: true,
+                    resizable: true,
+                    filterable: true,
+                    dataSource: {
+                        data: data
+                    },
+                    dataBound: function () {
+                        for (var i = 0; i < this.columns.length; i++) {
+                        }
+                    },
+                    detailTemplate: kendo.template($("#ReportTemplate").html()),
+                    detailInit: InitReportDetails,
+                    columns: [
+                        {
+                            field: "Ship",
+                            title: "Ship",
+                            hidden: true,
+                        },
+                        {
+                            field: "ShipName",
+                            title: "Ship",
+                            width: 100
+                        },
+                        {
+                            field: "TotalDeficiencies",
+                            title: "Total no of Deficiencies",
+                        },
+                        {
+                            field: "TotalOutstending",
+                            title: "Total Oustanding",
+                        },
+                        {
+                            field: "GIDeficiencies",
+                            title: "GI Deficiencies",
+                        },
+                        {
+                            field: "OpenGIDeficiencies",
+                            title: "Open GI Deficiencies",
+                        },
+                        {
+                            field: "SIDeficiencies",
+                            title: "SI Deficiencies",
+                        },
+                        {
+                            field: "OpenSIDeficiencies",
+                            title: "Open SI Deficiencies",
+                        },
+                    ]
+                });
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    }
+    function loadDetailGrid() {
+        $("#Grid tbody").on("click", "tr", function (e) {
+            var FormID = e.currentTarget.children[0].textContent
+            var ship = e.currentTarget.children[1].textContent;
+            var Type = "";
+            if(e.currentTarget.children[2] != undefined)
+                Type = e.currentTarget.children[2].textContent;
+            if(ship != "" && FormID != "" && Type != ""){
+                var url = RootUrl + "Deficiencies/GetGISIReportsDeficiencies";
+                $.ajax({
+                    type: 'GET',
+                    dataType: 'json',
+                    async: false,
+                    url: url,
+                    data: { ship: ship,FormID:FormID,Type:Type },
+                    success: function (Data) {
+                        $("#info").show();
+                        $("#info").html("Ship <strong>" + ship + "</strong>"+" " + Data.length +" Deficiencies data.");
+                        data = Data;
+                        $('#DetailsGrid').empty();
+                        var grid = $('#DetailsGrid').kendoGrid({
+                            scrollable: true,
+                            sortable: true,
+                            resizable: true,
+                            filterable: true,
+                            selectable: true,
+                            dataSource: {
+                                data: data
+                            },
+                            dataBound: function (e) {
+                                $("#DetailsGrid table.k-selectable").css("border-collapse","collapse");
+                                var rows = e.sender.tbody.children();
+                                var dataItem = e.sender.dataItem(row);
+                                for (var j = 0; j < rows.length; j++) {
+                                    var row = $(rows[j]);
+                                    var isExpired = $(row).find('td:eq(7)').text();
+                                    if(isExpired == "true"){
+                                        row.css("background-color","#da3b3b");
+                                        row.css("color","white");
+                                    }
+                                }
+                            },
+                            detailTemplate: kendo.template($("#template").html()),
+                            detailInit: detailInit,
+                            change: function () {
+                                var row = this.select();
+                                var id = row[0].cells[2].textContent;
+                                var type = row[0].cells[4].textContent;
+                                var no = row[0].cells[3].textContent;
+                                var _url;
+                                if (type == "GI")
+                                    _url = RootUrl + "GIRList/Index?id=" + id + "&isDefectSection=" + true;
+                                else
+                                    _url = RootUrl + "SIRList/DetailsView?id=" + id + "&isDefectSection=" + true+"&No="+no;
+                                window.open(_url, '_blank');
+                            },
+                            columns: [
+                                {
+                                    field: "DeficienciesID",
+                                    title: "DeficienciesID",
+                                    hidden: true,
+                                    attributes: { class: "DeficienciesID" }
+                                },
+                                 {
+                                     field: "GIRFormID",
+                                     title: "GIRFormID",
+                                     hidden: true,
+                                     attributes: { class: "GIRFormID" }
+                                 },
+                                {
+                                    field: "Number",
+                                    title: "Deficiency No",
+                                    width: "150px"
+                                },
+                                {
+                                    field: "ReportType",
+                                    title: "Report Type",
+                                    width: "120px"
+
+                                },
+                                {
+                                    field: "Deficiency",
+                                    title: "Description",
+                                    //width: "50px"
+                                },
+                                {
+                                    field: "IsColse",
+                                    title: "Is Closed?",
+                                    template: '<input onclick="updateStatus(this)"  type="checkbox" #= IsColse ? \'checked="checked"\' : "" # class="chkbx"  />',
+                                    width: "120px"
+                                },
+                                {
+                                    field: "isExpired",
+                                    title: "is Expired",
+                                    hidden: true,
+                                },
+                                {
+                                    field: 'GIRDeficienciesFile',
+                                    title: 'Files',
+                                    template: "#=generateTemplateDeficiencies(GIRDeficienciesFile)#",
+                                    width: "200px"
+                                },
+                            ]
+
+                        });
+
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+            else if(e.currentTarget.className == "k-master-row" || e.currentTarget.className == "k-alt k-master-row"){
+                if(e.target.className != "k-icon k-i-expand" && e.target.className != "k-icon k-i-collapse"){
+                    LoadAllDeficiencies(e);
+                }
+            }
+        });
+    }
+    function LoadAllDeficiencies(e){
+        var name = e.currentTarget.children[1].textContent;
+        var url = RootUrl + "Forms/GIRDetails";
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: false,
+            url: url,
+            data: { code: name },
+            success: function (Data) {
+                $("#info").show();
+                $("#info").html("Ship <strong>" + name + "</strong>"+" " + Data.length +" Deficiencies data.");
+                data = Data;
+                $('#DetailsGrid').empty();
+                var grid = $('#DetailsGrid').kendoGrid({
+                    scrollable: true,
+                    sortable: true,
+                    resizable: true,
+                    filterable: true,
+                    selectable: true,
+                    dataSource: {
+                        data: data
+                    },
+                    dataBound: function () {
+                        for (var i = 0; i < this.columns.length; i++) {
+                            //  this.autoFitColumn(i);
+                        }
+                    },
+                    detailTemplate: kendo.template($("#template").html()),
+                    detailInit: detailInit,
+                    change: function () {
+                        var row = this.select();
+                        var id = row[0].cells[2].textContent;
+                        var type = row[0].cells[4].textContent;
+                        var no = row[0].cells[3].textContent;
+                        var _url;
+                        if (type == "GI")
+                            _url = RootUrl + "GIRList/Index?id=" + id + "&isDefectSection=" + true;
+                        else
+                            _url = RootUrl + "SIRList/DetailsView?id=" + id + "&isDefectSection=" + true+"&No="+no;
+                        window.open(_url, '_blank');
+                    },
+                    columns: [
+                        {
+                            field: "DeficienciesID",
+                            title: "DeficienciesID",
+                            hidden: true,
+                            attributes: { class: "DeficienciesID" }
+                        },
+                         {
+                             field: "GIRFormID",
+                             title: "GIRFormID",
+                             hidden: true,
+                             attributes: { class: "GIRFormID" }
+                         },
+                        {
+                            field: "Number",
+                            title: "Deficiency No",
+                            width: "150px"
+                        },
+                        {
+                            field: "ReportType",
+                            title: "Report Type",
+                            width: "120px"
+
+                        },
+                        {
+                            field: "Deficiency",
+                            title: "Description",
+                            //width: "50px"
+                        },
+                        {
+                            field: "IsColse",
+                            title: "Is Closed?",
+                            template: '<input onclick="updateStatus(this)"  type="checkbox" #= IsColse ? \'checked="checked"\' : "" # class="chkbx"  />',
+                            width: "120px"
+                        },
+                        {
+                            field: 'GIRDeficienciesFile',
+                            title: 'Files',
+                            template: "#=generateTemplateDeficiencies(GIRDeficienciesFile)#",
+                            width: "200px"
+                        },
+                    ]
+
+                });
+
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    }
+    function loadComment(id, url) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: false,
+            url: url,
+            data: { id: id },
+            success: function (Data) {
+                dataLoad = new kendo.data.DataSource({
+                    data: Data
+                });
+
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    }
+    function loadFile(id, url) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: false,
+            url: url,
+            data: { id: id },
+            success: function (Data) {
+                dataLoadFile = new kendo.data.DataSource({
+                    data: Data
+                });
+
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    }
+    function AddNotes(id,ctr) {
+        var name=$(ctr).parent().parent().find('.name').val();
+        var url = RootUrl + "Forms/AddDeficienciesNote";
+        var comment = $(ctr).parent().parent().find('.comment').val();
+        var obj = {};
+        obj.UserName = name;
+        obj.Comment = comment;
+        obj.DeficienciesID = id;
+        var filedata = new Array();
+        $(ctr).parent().parent().find('.file').each(function () {
+            var GIRDeficienciesCommentFile = new Object();
+            GIRDeficienciesCommentFile.GIRCommentFileID = 0;
+            GIRDeficienciesCommentFile.NoteID = 0;
+            GIRDeficienciesCommentFile.DeficienciesID = id;
+            GIRDeficienciesCommentFile.FileName = $(this).next().val();
+            GIRDeficienciesCommentFile.StorePath = $(this).next().next().val();
+            GIRDeficienciesCommentFile.IsUpload = $(this).next().next().next().val();
+            filedata.push(GIRDeficienciesCommentFile);
+        });
+        obj.GIRDeficienciesCommentFile = filedata;
+
+        $.ajax({
+            type: 'POST',
+            contentType: 'application/json',
+            dataType: 'json',
+            async: false,
+            url: url,
+            data: JSON.stringify(obj),
+            success: function (Data) {
+
+                $.notify("Comment Added Successfully", "success");
+                var url = RootUrl + "Forms/GetDeficienciesNote";
+                loadComment(id, url)
+                var childGrid = $(ctr).parent().parent().parent().parent().parent().find('.orders')
+                $(childGrid).kendoGrid({
+                    scrollable: true,
+                    sortable: true,
+                    resizable: true,
+                    filterable: true,
+                    dataSource: {
+                        data: dataLoad.options.data
+                    },
+                    columns: [
+                        {
+                            field: "UserName",
+                            title: "Name",
+                            width: "150px"
+                        },
+                        {
+                            field: "Comment",
+                            title: "Comment"
+                        },
+                        {
+                            field: "CreatedDate",
+                            title: "Date Time",
+                            template: "#= CreatedDate!=null? kendo.toString(kendo.parseDate(CreatedDate, 'yyyy-MM-dd'), 'MM/dd/yyyy h:mm'):'' #",
+                            width: "130px"
+                        },
+                        {
+                            field: 'GIRDeficienciesCommentFile',
+                            title: 'Files',
+                            template: "#=generateTemplate(GIRDeficienciesCommentFile)#",
+                            width: "130px"
+                        }
+                    ]
+                });
+
+                $(ctr).parent().parent().find('.comment').val('');
+                $(ctr).parent().parent().find('.filename').remove();
+                $(ctr).parent().parent().find('.file').remove();
+                $(ctr).parent().parent().find('.path').remove();
+            },
+            error: function (Data) {
+                console.log(Data);
+            }
+        });
+    }
+    function AddPriority(id,ctr) {
+        //debugger
+        //var val = ctr.value;
+        //if(id > 0){
+        //    var obj = {};
+        //    obj.DefID = id;
+        //    obj.PriorityWeek = val;
+        //    $.ajax({
+        //        type: 'POST',
+        //        contentType: 'application/json',
+        //        dataType: 'json',
+        //        async: false,
+        //        url: 'Url.Action("UpdateDeficiencyPriority", "Deficiencies")',
+        //        data: JSON.stringify(obj),
+        //        success: function (Data) {
+        //            //debugger
+        //            //$.notify("Comment Added Successfully", "success");
+        //        },
+        //        error: function (Data) {
+        //            console.log(Data);
+        //        }
+        //    });
+        //}
+    }
+
+    function InitReportDetails(e) {
+        var detailRow = e.detailRow;
+        var code = e.data.Ship;
+        var url = RootUrl + "Deficiencies/GetShipGISIReports";
+        locadShipReports(code, url);
+        detailRow.find(".ShipGISIReports").kendoGrid({
+            scrollable: true,
+            sortable: true,
+            resizable: true,
+            filterable: true,
+            selectable: true,
+            dataSource: {
+                data: ShipReports.options.data
+            },
+            dataBound: function (e) {
+                var rows = e.sender.tbody.children();
+                var dataItem = e.sender.dataItem(row);
+                for (var j = 0; j < rows.length; j++) {
+                    var row = $(rows[j]);
+                    var isExpired = $(row).find('td:eq(7)').text();
+                    if(isExpired == "true"){
+                        row.css("background-color","#da3b3b");
+                        row.css("color","white");
+                    }
+                }
+            },
+            resizable: true,
+            columns: [
+                {
+                    field: "FormID",
+                    title: "FormID",
+                    hidden: true,
+                },
+                {
+                    field: "Ship",
+                    title: "Ship",
+                },
+                {
+                    field: "Type",
+                    title: "Type"
+                },
+                {
+                    field: "Date",
+                    title: "Date",
+                },
+                {
+                    field: "Location",
+                    title: "Location",
+                },
+                {
+                    field: "Deficiencies",
+                    title: "Deficiencies",
+                },
+                {
+                    field: "OpenDeficiencies",
+                    title: "OpenDeficiencies",
+                },
+                {
+                    field: "isExpired",
+                    title: "is Expired",
+                    hidden: true,
+                },
+            ]
+        });
+
+    }
+    function locadShipReports(code, url) {
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            async: false,
+            url: url,
+            data: { code: code },
+            success: function (Data) {
+                ShipReports = new kendo.data.DataSource({
+                    data: Data
+                });
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    }
+</script>
+
+<div class="well well-sm" style="margin-bottom:0px;">General Inspection</div>
+<section class="content" style="padding-bottom:0px">
+    @if (Model != null)
+    {
+        <div class="box">
+            <div class="box-body">
+                <div id="Grid"></div>
+            </div>
+            <div class="box-body">
+                <div class="alert alert-info" style="display:none;" id="info">
+
+                </div>
+                <div id="DetailsGrid"></div>
+
+            </div>
+        </div>
+    }
+    else
+    {
+        <h2 id="lblNoresult" style="display:none;">No result found</h2>
+    }
+</section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#tblGIRdata,#tblGIRdataDetails').DataTable({ "order": [[0, "desc"]]/*, "sScrollY": ($(window).height() - 600)*/ });
+    })
+</script>
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Files types are not supported</h4>
+            </div>
+            <div class="modal-body">
+                <p>&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><?mso-infoPathSolution solutionVersion="6.0.0.0" PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" productVersion="15.0.0" ?><?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?><my:Main xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata" xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xmlns:xdServerInfo="http://schemas.microsoft.com/office/infopath/2009/xslt/ServerInfo" xml:lang="en-gb">
+	<my:Details>
+		<my:Number>D27</my:Number>
+		<my:Title>Greasing of Cargo Cranes Wires</my:Title>
+	</my:Details>
+	<my:Hazards>
+		<my:Hazard my:HazardId="1">
+			<my:Description>Crew fall on deck/overboard</my:Description>
+			<my:Severity>4</my:Severity>
+			<my:Likelihood>1</my:Likelihood>
+			<my:RiskFactor>4</my:RiskFactor>
+			<my:ControlMeasures>a) Issue of safe work permit prior to work.
+b) Person in charge should monitor the work from start to finish.
+c) Check condition and operation of safety harness, lifting gear, staging, and greasing equipment. Familiarisation process is highly required. 
+d) Tool box talk to be carried out prior to work. Person in charge should highlight that this is high risk operation and crew should be cautious.
+e) Communication means should be supplied to crew.
+f) Greasing of luffing and hoisting wires should be performed for most of the wire's length on deck. Greasing of wires of cargo cranes at heights should only be performed for lengths which could not be greased on deck.
+g) In case crew falls overboard, refer to Contingency Plan 12 &amp; 13: Man overboard and recovery of person from the water.
+h) In case crew falls on deck, seek help immediately. </my:ControlMeasures>
+			<my:ReducedSeverity>3</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="2">
+			<my:Description>Equipment/Grease fall on deck</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>4</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>a) All crew should be aware of the work that is taking place and all restricted areas.
+b) Restricted access to area below the cargo crane. Signs showing "Work aloft" should be set up.
+c) Use of PPE.
+d) All tools in use should be secured with rope.
+e) Cleaning of deck after completion of work.</my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>2</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="3">
+			<my:Description>Adverse weather condition</my:Description>
+			<my:Severity>4</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>a) In adverse weather conditions or unexpected ship rolling, work should be postponed until weather improves. In case the crew had already started greasing, they should immediately stop working and seek safety.</my:ControlMeasures>
+			<my:ReducedSeverity>3</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="4">
+			<my:Description>Improper preparation of workplace</my:Description>
+			<my:Severity>4</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>a) Person in charge should ensure that all equipment is in good condition, properly setup, and that  crew know how to operate it.
+b) Particular attention should be given to the following safety equipment: the safety harness, sling, shackle, safety line, and bosun chair. </my:ControlMeasures>
+			<my:ReducedSeverity>3</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="5">
+			<my:Description>Personal injury</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>2</my:Likelihood>
+			<my:RiskFactor>4</my:RiskFactor>
+			<my:ControlMeasures>a) Crew should take breaks on the bosun chair and have a good supply of water.
+b) Use PPE, oil resistant gloves, and goggles.
+c) Switch off the radar and post a sign "Works aloft" on the radar control panel.
+d) Post a sign "Works aloft" at each ship whistle control.
+e) Safety line should be continuously monitored and adjusted.
+f) Safety harness should be tight and equipment should allow the crew to work easily.
+g) The  operator and person in charge should check the shackle's condition and ensure that it is correctly positioned and tightened.</my:ControlMeasures>
+			<my:ReducedSeverity>3</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		
+		<my:Hazard my:HazardId="6">
+										<my:Description>Improper communication with person in charge</my:Description>
+										<my:Severity>2</my:Severity>
+										<my:Likelihood>3</my:Likelihood>
+										<my:RiskFactor>4</my:RiskFactor>
+										<my:ControlMeasures>a) Radios should be checked prior to work.
+b) Clean rags should be supplied so that the crew are able to use the radios.
+c) Person in charge should be stationed on top of the crane to monitor the work and provide relevant instructions.</my:ControlMeasures>
+										<my:ReducedSeverity>2</my:ReducedSeverity>
+										<my:ReducedLikelihood>1</my:ReducedLikelihood>
+										<my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+									</my:Hazard><my:Hazard my:HazardId="7">
+			<my:Description>Inexperienced crew</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>a) Familiarisation with equipment.
+b) Check the equipment of each crew member.
+c) Person in charge should go through the process step by step.</my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+		</my:Hazard>
+		
+		
+		
+	</my:Hazards>
+	<my:Review>
+		<my:ReviewerName></my:ReviewerName>
+		<my:ReviewerRank></my:ReviewerRank>
+		<my:ReviewDate>2016-08-10</my:ReviewDate>
+		<my:ReviewLocation></my:ReviewLocation>
+		<my:ReviewMembers></my:ReviewMembers>
+	</my:Review>
+	<my:Header>
+		<my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+		<my:HeaderSummary></my:HeaderSummary>
+		<my:HeaderCode>RAF</my:HeaderCode>
+		<my:HeaderIssueNumber>6</my:HeaderIssueNumber>
+		<my:HeaderIssueDate>12/15</my:HeaderIssueDate>
+		<my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+		<my:HeaderAmmendmentDate></my:HeaderAmmendmentDate>
+		<my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+	</my:Header>
+	<my:Footer>Risk Assessment: D27 - Greasing of Cargo Cranes Wires</my:Footer>
+</my:Main>

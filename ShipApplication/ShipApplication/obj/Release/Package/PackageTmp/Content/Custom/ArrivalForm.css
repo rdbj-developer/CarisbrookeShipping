@@ -1,0 +1,30 @@
+﻿/*.arrivalCalendarAddon, .tenderCalendarAddon, .pobCalendarAddon {
+    border: 1px solid #ccc !important;
+    background-color: #fff !important;
+    border-left: none !important;
+}*/
+
+.nopaddingleftright{
+    padding-left:0px !important;
+    padding-right:0px !important;
+}
+
+.arrivalCalendarAddon{
+    right:4px;
+}
+
+.padd-left-10{
+    padding-left:10px !important;
+}
+
+.CloneCCEmailPanel{
+    margin-bottom: 5px;
+}
+
+.removeCCEmail{
+    cursor:pointer;
+}
+
+label.error {
+    color: red;
+}

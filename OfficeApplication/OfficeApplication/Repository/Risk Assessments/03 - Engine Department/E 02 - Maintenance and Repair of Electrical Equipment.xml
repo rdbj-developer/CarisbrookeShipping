@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?mso-infoPathSolution PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" solutionVersion="6.0.0.0" productVersion="15.0.0" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<my:Main xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata"
+xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10"
+xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-gb">
+  <my:Details>
+    <my:Ship />
+    <my:Number>E 02</my:Number>
+    <my:Date>2015-05-15</my:Date>
+    <my:Title>Maintenance and Repair of Electrical Equipment</my:Title>
+  </my:Details>
+  <my:Hazards>
+    <my:Hazard my:HazardId="1">
+      <my:Description>Electricity</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>4</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Safe Work Permit should be issued; 
+b) Use of PPE; 
+c) Use of dry insulation mat; 
+d) Before any work is done fuses should be removed or ensure that all related circuits are dead; 
+e) The work should be done by or under supervision of a competent person; 
+f) There should be a second person competent in the treatment of electric shock; 
+g) A person doing a job should have his/her hands, clothing is dry, should not stay on wet deck or in the water, rain; 
+h) A person working with electric equipment should not wear metal wrist watches, bracelets; 
+i) If working with live equipment additional precautions should be observed: working position should be safe and secured to avoid accidental contact with the live parts, contact with bear metal should be avoided, insulated gloves should be worn; 
+j) Improvised repairs to electrical equipment must be avoided.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="2">
+      <my:Description>Remote starts</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Post a notice at the equipment controls that maintenance/repairs is carried out; 
+b) Fuses or circuits should be reconnected by a person who disconnected them or under direct order of such a person</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="3">
+      <my:Description>Vicinity of flammable materials</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>Flammable materials should be removed or isolated from working area</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="4">
+      <my:Description>Lack of oxygen; hazardous vapours</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>4</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>Consult ‘Enclosed Space Entry’ Risk Assessment</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="5">
+      <my:Description>Fall from height</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>4</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>Consult ‘Working Aloft’ Risk Assessment</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+  </my:Hazards>
+  <my:Review>
+    <my:ReviewerName />
+    <my:ReviewerRank />
+    <my:ReviewDate />
+    <my:ReviewLocation /><my:ReviewMembers/>
+  </my:Review>
+  <my:Header>
+    <my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+    <my:HeaderSummary />
+    <my:HeaderCode>RAF</my:HeaderCode>
+    <my:HeaderIssueNumber>5</my:HeaderIssueNumber>
+    <my:HeaderIssueDate>05/14</my:HeaderIssueDate>
+    <my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+    <my:HeaderAmmendmentDate />
+    <my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+  </my:Header>
+  <my:Footer>Risk Assessment: E 02 - Maintenance and Repair of Electrical Equipment</my:Footer>
+</my:Main>

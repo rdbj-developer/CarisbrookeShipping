@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Forms Person List";
+    Layout = null;
+}
+
+<style>
+    label.error {
+        color: red !important;
+        font-size: small !important;
+        font-weight: 600 !important;
+    }
+</style>
+
+<script type="text/javascript" src="~/Scripts/jquery/jquery.validate.min.js"></script>
+<script src="~/Scripts/kendo.all.min.js"></script>
+<link href="~/Content/kendo/kendo.common.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/kendo.mobile.all.min.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    var RootUrl = '@Url.Content("~/")';
+</script>
+
+<script src="~/Scripts/Custom/FormsPerson.js?v=07232022"></script>
+
+<section class="">
+    <div class="well well-sm" style="margin-bottom:0px;">
+        <div class="box-header" style="padding:0px !important;">
+            <div class="row">
+                <div class="col-md-2" style="padding-top: 6px;">
+                </div>
+                <div style="float:right; padding: 0px 15px; display:flex;">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" onclick="openAddNewFormsPersonModal();"> <i class="fa fa-plus-square" aria-hidden="true"></i> Add Person </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="formsPersonSection" class="content gir-content" style="padding:0px !important; min-height: auto !important;">
+        <div id="FormsPersonGrid"></div>
+    </section>
+</section>
+
+<br />
+
+@* JSL 07/23/2022 *@
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-addNewFormsPerson">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="addNewFormsPersonModalTitle">
+                    <lable id="lblAddEditTitleModal"></lable>
+                </h4>
+                <input type="hidden" id="hdnId" value="" />
+            </div>
+            <form id="AddNewFormsPersonForm" name="AddNewFormsPersonForm">
+                <div class="modal-body" style="overflow:hidden !important;">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class="mr-sm-2">Person Name : </label><label class="text-danger">*</label>
+                            <input type="text" class="form-control" id="txtPersonName" name="txtPersonName" placeholder="Person Name">
+                            <span class="form-control-feedback">
+                            </span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="mr-sm-2">Person Type : </label>
+                            <select class="form-control" id="ddPersonType" name="ddPersonType">
+                                <option value="1" selected>Auditor</option>
+                                @*<option value="2">Inspector</option>
+                                <option value="3">Supretendent</option>*@
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnClose" class="btn btn-danger" onclick="closeFormsPersonModal();">Close</button>
+                    <button type="button" id="btnAddNewHelpSupport" class="btn btn-primary" onclick="SubmitNewFormsPerson();">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@* End JSL 07/23/2022 *@
+
+@* JSL 07/23/2022 *@
+<ul id="context-menu" style="display:none;">
+    <li id="editDetails"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</li>
+    <li id="deleteDetails"><i class="fa fa-trash" aria-hidden="true"></i> Delete</li>
+</ul>
+
+<script id="update-confirmation" type="text/x-kendo-template">
+    <p class="update-message">Are you sure want to delete ?</p>
+    <br />
+    <button class="update-confirm k-button">YES</button>
+    <button class="update-cancel k-button">NO</button>
+</script>
+@* End JSL 07/23/2022 *@

@@ -1,0 +1,59 @@
+﻿<style>
+    .ImageSection {
+       
+        margin-top: 20px;
+    }
+    .imagelist {
+        border: 1px solid black;
+        margin-bottom:10px;
+        padding:5px;
+    }
+    div.fill {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        height: 150px
+    }
+    div.fill img {
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100%
+    }
+    .Imgtitle {
+        padding-top: 50px;
+    }
+    #close {
+        float: right;
+        display: inline-block;
+        padding: 2px 5px;
+        background: #ccc;
+    }
+</style>
+
+
+
+<div class="ImageSection" >
+    <div class="container-fluid" id="img-holder">
+        @foreach (var item1 in Model.GIRPhotographs)
+        {
+        <div class="row imagelist">
+           
+            <div class="col-sm-3 fill"> <img src="@item1.ImagePath" /></div>
+            
+            <div class="col-sm-9 Imgtitle">
+             
+                <div class="form-group">
+             
+                   <input  type="text" class="col-md-12 form-control" value="@item1.ImageCaption" />
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        }
+        <input type="hidden" value="0" id="GIRPhotographs" />
+    </div>
+</div>

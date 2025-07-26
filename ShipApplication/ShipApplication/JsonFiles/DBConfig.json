@@ -1,0 +1,9 @@
+{
+  "ServerName": "JIGNESHLIMBANI\\MSSQLSERVER2019",
+  "UserName": "sa",
+  "Password": "Abcdefg1",
+  "DatabaseName": "CarisbrookeShipping123456",
+  "IsConnection": true,
+  "IsDBCreated": true,
+  "IsInspector": true
+}

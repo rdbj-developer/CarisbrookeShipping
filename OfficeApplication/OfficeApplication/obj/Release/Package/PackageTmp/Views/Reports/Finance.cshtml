@@ -1,0 +1,148 @@
+﻿@using OfficeApplication.BLL.Modals;
+@model OpexReportModal
+@{
+    ViewBag.Title = "Finance";
+}
+<style type="text/css">
+    .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+        border: 1px solid #3333 !important;
+        color: black;
+    }
+</style>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/Custom/Reports.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var selectedReport = '@ViewBag.selected';
+        $("#ddlReportPeriod").val(selectedReport);
+        $("#ddlReportPeriod").change(function () {
+            var selected = $(this).val();
+            $("#hdnSelectedVal").val(selected);
+            $('#frmReports').submit();
+        });
+    });
+
+    function PrintReport() {
+        var divToPrint = document.getElementById('ReportPrintPage');
+        var newWin = window.open('', 'Print-Window');
+        newWin.document.open();
+
+        newWin.document.write('<html><head><title></title>');
+        newWin.document.write('</head><body onload="window.print()">');
+
+        newWin.document.write(divToPrint.innerHTML);
+        newWin.document.write('</body></html>');
+
+        newWin.document.close();
+        setTimeout(function () { newWin.close(); }, 10);
+    }
+</script>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <form id="frmReports" method="post" action="@Url.Action("FinanceList", "Reports")">
+                        <input type="hidden" id="hdnSelectedVal" name="hdnSelectedVal" value="" />
+                        <select name="ddlReportPeriod" id="ddlReportPeriod">
+                            <option value="Annual">Annual</option>
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="box-body" id="ReportPage">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>CODE</th>
+                                    <th>ACCOUNT_CODE</th>
+                                    <th>ACCOUNT_DESCR </th>
+                                    <th>TOTAL(USD)</th>
+                                    <th></th>
+                                </tr>
+                                @if (Model != null && Model.DispList != null && Model.DispList.Count > 0)
+                                {
+                                    List<DisplayModal> DispList = Model.DispList;
+                                    foreach (var item in DispList)
+                                    {
+                                <tr>
+                                    <td>@item.CODE</td>
+                                    @if (!string.IsNullOrEmpty(item.CODE))
+                                            {
+                                    <td><a style="color:blue;cursor:pointer;"> @item.ACCOUNT_CODE</a></td>
+                                            }
+                                            else
+                                            {
+                                    <td>@item.ACCOUNT_CODE</td>
+                                            }
+                                    <td>@item.ACCOUNT_DESCR</td>
+                                    <td>@item.TOTAL</td>
+                                    <td>@item.TOTALAMT</td>
+                                </tr>
+                                    }
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer clearfix no-border">
+                    <button type="button" class="btn btn-default" onclick="PrintReport()"><i class="fa fa-print"></i> Print</button>&nbsp;&nbsp;&nbsp;
+                    <a href="@Url.Action("Download", "Reports")" class="btn btn-default"><i class="fa fa-file-excel-o"></i> Export</a>
+                </div>
+                <div class="box-body" id="ReportPrintPage" style="display:none;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th></th>
+                                    <th>Average</th>
+                                </tr>
+                                @if (Model != null && Model.PrintList != null && Model.PrintList.Count > 0)
+                                {
+                                    List<DisplayModal> PrintList = Model.PrintList;
+                                    foreach (var item in PrintList)
+                                    {
+                                        <tr>
+                                            <td>@item.ACCOUNT_DESCR</td>
+                                            @if (!string.IsNullOrEmpty(item.TOTAL))
+                                            {
+                                                if (item.CODE == "SubCatLast")
+                                                {
+                                                    <td style="border-top:1px solid black;">$ @item.TOTAL</td>
+                                                }
+                                                else if (item.CODE == "Last")
+                                                {
+                                                    <td style="border-top:1px solid black;">$ @item.TOTAL</td>
+                                                }
+                                                else
+                                                {
+                                                    <td>$ @item.TOTAL</td>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <td>@item.TOTAL</td>
+                                            }
+                                        </tr>
+                                    }
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

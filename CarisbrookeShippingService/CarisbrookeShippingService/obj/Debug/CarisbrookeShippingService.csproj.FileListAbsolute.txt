@@ -1,0 +1,15 @@
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShippingService\bin\Debug\CarisbrookeShippingService.exe.config
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShippingService\bin\Debug\CarisbrookeShippingService.exe
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShippingService\bin\Debug\CarisbrookeShippingService.pdb
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShippingService\bin\Debug\CarisbrookeShippingService.BLL.dll
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShippingService\bin\Debug\Newtonsoft.Json.dll
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShippingService\bin\Debug\CarisbrookeShippingService.BLL.pdb
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShippingService\bin\Debug\Newtonsoft.Json.xml
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShippingService\obj\Debug\CarisbrookeShippingService.ProjectInstaller.resources
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShippingService\obj\Debug\CarisbrookeShippingService.csproj.GenerateResource.cache
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShippingService\obj\Debug\CarisbrookeShippingService.exe
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShippingService\obj\Debug\CarisbrookeShippingService.pdb
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShippingService\obj\Debug\CarisbrookeShippingService.csproj.AssemblyReference.cache
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShippingService\obj\Debug\CarisbrookeShippingService.csproj.SuggestedBindingRedirects.cache
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShippingService\obj\Debug\CarisbrookeShippingService.csproj.CoreCompileInputs.cache
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShippingService\obj\Debug\CarisbrookeShippingService.csproj.CopyComplete

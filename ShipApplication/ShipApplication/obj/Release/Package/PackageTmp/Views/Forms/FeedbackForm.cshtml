@@ -1,0 +1,117 @@
+﻿@using ShipApplication.BLL.Modals;
+@{
+    ViewBag.Title = "Feedback";
+}
+<link href="~/Content/Custom/GIRForm.css?v1" rel="stylesheet" />
+<style type="text/css">
+    .glyphicon-remove {
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+
+    @@media only screen and (max-width: 991px) {
+        .col-md-10.leftContent {
+            float: left;
+            width: 80%;
+        }
+
+        .btn-default {
+            width: 100%;
+        }
+    }
+
+    @@media (min-width: 992px) {
+        .col-md-10.leftContent {
+            float: left;
+            width: 80%;
+        }
+
+        .rightContent {
+            width: 20%;
+        }
+    }
+     
+</style>
+<script type="text/javascript" src="~/Scripts/jquery/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery/additional-methods.min.js"></script>
+<script type="text/javascript">
+    var FeddbackFormValidator = undefined;
+    var RootUrl = '@Url.Content("~/")';
+    $(document).ready(function () {
+        var res = '@ViewBag.Result';
+        if (res == '@AppStatic.SUCCESS') {
+            $.notify("Feedback Submitted Successfully", "success");
+        }
+        else if (res == '@AppStatic.ERROR') {
+            $.notify("Error occured while submitting Feedback!", "error");
+        }
+        else if (res != "") {
+            $.notify(res, "warn");
+        }        
+    });
+</script>
+<script src="~/Scripts/Custom/FeedbackForm.js"></script>
+<section class="content">
+    <form id="FeedbackForm" class="FeddbackForm" name="FeedbackForm" method="post" action="@Url.Action("SendFeedbackMail", "Mail")">
+        <div id="frmFeedbackContent">
+            <input type="hidden" value="@ShipApplication.BLL.Helpers.SessionManager.ShipCode" name="ShipCode" id="hdnFBShipCode" />
+            <input type="hidden" value="@ShipApplication.BLL.Helpers.SessionManager.ShipName" name="ShipName" id="hdnFBShipName" />
+            <input type="hidden" value="@ShipApplication.BLL.Helpers.SessionManager.Username" name="FeedbackBy" id="hdnFBFeedbackBy" />
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6 text-center">
+                    <h3>Feedback</h3>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="SectionHead breakDiv table-bordered aviodPrint">
+                        <div class="instruction m-10">
+                            <p>Please help us improve our systems by providing suggestions or reporting issues you have encountered – your feedback is very important to us. <b>IT Department</b></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group has-feedback">
+                        <label class="p-l-0" for="txtTitle">Title</label>
+                        <input type="text" class="form-control p-l-0" id="txtTitle" name="Title" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group has-feedback">
+                        <label class="p-l-0" for="Details">Details</label>
+                        <textarea class="form-control GIRData p-l-0" id="Details" name="Details"></textarea>
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group has-feedback">
+                        <label class="p-l-0" for="AttachmentFile">Attachment</label>
+                        <input type="file" id="AttachmentFile" class="" value="Add attachment from here">
+                        <input type="hidden" name="AttachmentPath" id="AttachmentPath" />
+                        <input type="hidden" name="AttachmentFileName" id="AttachmentFileName" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row aviodPrint">
+            <div class="col-md-1">
+                <button type="submit" id="btnSubmit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</section>

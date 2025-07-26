@@ -1,0 +1,684 @@
+﻿<style type="text/css">
+    table > thead > tr > td {
+        border: 1px solid #66afe9 !important;
+        padding: 1px !important;
+    }
+
+    .SectionHead {
+        border: 1px solid #66afe9 !important
+    }
+
+    .CRAGeneralSection {
+        min-height: 430px;
+    }
+
+    #cyberContainer {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+</style>
+<div class="row">
+    <div class="col-md-12">
+        @if (Model != null && Model.CybersecurityRisksAssessmentForm != null)
+        {
+            <input type="hidden" id="hdnRemovedCRALId" name="CybersecurityRisksAssessmentForm.RemovedCRALId" />
+            <input type="hidden" value="@Model.CybersecurityRisksAssessmentForm.CreatedBy" name="CybersecurityRisksAssessmentForm.CreatedBy" id="hdnCreatedBy" />
+            <input type="hidden" value="@Model.CybersecurityRisksAssessmentForm.CreatedDate" name="CybersecurityRisksAssessmentForm.CreatedDate" id="hdnCreatedDate" />
+            <input type="hidden" value="@Model.CybersecurityRisksAssessmentForm.CRAId" name="CybersecurityRisksAssessmentForm.CRAId" id="hdnCRAId" />
+            <input type="hidden" value="@Model.CybersecurityRisksAssessmentForm.ShipName" name="CybersecurityRisksAssessmentForm.ShipName" id="hdnShipName" />
+            <div class="aviodPrint">Last synced: @Model.CybersecurityRisksAssessmentForm.UpdatedDate</div>
+        }
+        <div class="GeneralSection PageSection CRAGeneralSection drag" id="#dragCyber">
+            <div class="breakDiv">
+                <div class="SectionContent" id="cyberContainer">
+                    <table class="tblSection tblCRAEquipment" id="tblCRAEquipment">
+                        <thead style="border: 1px solid #66afe9 !important; ">
+                            <tr>
+                                <td width="6%" rowspan="2">
+                                </td>
+                                <td width="94%" colspan="21" style="text-align:center">Assess Risks</td>
+                            </tr>
+                            <tr>
+                                <td width="94%" colspan="21" style="text-align:center">Formally identified and owned risks are initially assessed as inherent, thisis because the control landscape may change over time so there should be a base level of the risk to re-assess against. The inherent impact and likelihood is assessed against the CIA triad to generate the inherent score. Current controls are then put against the risk to generate the residual risk. If this residual risk is higher than defined risk appetite, then the risk is put forward to risk treatment.</td>
+                            </tr>
+                            <tr class="theadBackColor">
+                                <td rowspan="2">Hardware ID</td>
+                                <td width="6%" rowspan="2">Risk ID</td>
+                                <td rowspan="2">Risk Description</td>
+                                <td rowspan="2">Vulnerability</td>
+                                <td colspan="4">Inherent <br />Impact/risk category</td>
+                                <td rowspan="2" class="custom-width">Impact <br /> score</td>
+                                <td rowspan="2" class="custom-width">Likelihood <br /> score</td>
+                                <td rowspan="2" class="bg-red custom-width">Inherent risk <br /> score</td>
+                                <td rowspan="2">Controls</td>
+                                <td colspan="4">Residual<br />Impact/risk category</td>
+                                <td rowspan="2" class="custom-width">Impact <br /> score</td>
+                                <td rowspan="2" class="custom-width">Likelihood <br /> score</td>
+                                <td rowspan="2" class="bg-red custom-width">Residual risk <br /> score</td>
+                                <td rowspan="2">Risk decision</td>
+                                <td rowspan="2">Risk Owner</td>
+                                <td rowspan="2"></td>
+                            </tr>
+                            <tr class="theadBackColor">
+                                <td>C</td>
+                                <td>I</td>
+                                <td>A</td>
+                                <td>S</td>
+                                <td>C</td>
+                                <td>I</td>
+                                <td>A</td>
+                                <td>S</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (@Model == null || @Model.CybersecurityRisksAssessmentListModal == null || @Model.CybersecurityRisksAssessmentListModal.Count <= 0)
+                            {
+                                <tr class="records" index="0" IsSelected="true" style="width:100%">
+                                    <td class="word-wrap">
+                                        <select class="editable-select CRAData" multiple="multiple" data-placeholder="Select..." name="CybersecurityRisksAssessmentListModal[0].HardwareIdList">
+                                            @if (Model.HardwareListBoxValues != null)
+                                            {
+                                                foreach (var item in (List<string>)Model.HardwareListBoxValues)
+                                                {
+                                                    <option value="@item">@item</option>
+                                                }
+                                            }
+                                        </select>
+                                        <div style="padding: 5px; float:right; ">
+                                            <button type="button" class="btn btn-sm btn-primary" onclick="copyHardwareIds(this)">Copy</button>
+                                            <button type="button" class="btn btn-sm btn-primary" onclick="pasteHardwareIds(this)">Paste</button>
+                                        </div>
+                                    </td>
+                                    <td class="">
+                                        <input type="text" class="CRAData textRow form-control riskid-width" rows="1" autocomplete="off" name="CybersecurityRisksAssessmentListModal[0].RiskId" />
+                                    </td>
+                                    <td class="">
+                                        <div tabindex="-1" unselectable="on" class="k-dropdown-wrap k-state-default new-group">
+                                            <textarea class="k-input CRAData textRow" rows="1" autocomplete="off"
+                                                      name="CybersecurityRisksAssessmentListModal[0].RiskDescription"></textarea>
+                                            <span unselectable="on" class="k-select edit" data-toggle="dropdown" aria-label="select" role="button" tabindex="-1">
+                                                <span class="k-icon k-i-arrow-chevron-down"></span>
+                                            </span>
+                                            <ul class="dropdown-menu selectbox">
+                                                @if (TempData["RiskList"] != null)
+                                                {
+                                                    foreach (var items in (List<string>)TempData["RiskList"])
+                                                    {
+                                                        <li><a href="javascript:void(0)">@items</a></li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="">
+                                        <div tabindex="-1" unselectable="on" class="k-dropdown-wrap k-state-default new-group">
+                                            <textarea class="k-input form-control CRAData textRow" rows="1" autocomplete="off"
+                                                      name="CybersecurityRisksAssessmentListModal[0].Vulnerability"></textarea>
+                                            <span unselectable="on" class="k-select edit" data-toggle="dropdown" aria-label="select" role="button" tabindex="-1">
+                                                <span class="k-icon k-i-arrow-chevron-down"></span>
+                                            </span>
+                                            <ul class="dropdown-menu selectbox">
+                                                @if (TempData["VulnerabilityList"] != null)
+                                                {
+                                                    foreach (var items in (List<string>)TempData["VulnerabilityList"])
+                                                    {
+                                                        <li><a href="javascript:void(0)">@items</a></li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[0].InherentRiskCategoryC" value="true" />
+                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[0].InherentRiskCategoryC" value="false" />
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[0].InherentRiskCategoryI" value="true" />
+                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[0].InherentRiskCategoryI" value="false" />
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[0].InherentRiskCategoryA" value="true" />
+                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[0].InherentRiskCategoryA" value="false" />
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[0].InherentRiskCategoryS" value="true" />
+                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[0].InherentRiskCategoryS" value="false" />
+                                    </td>
+                                    <td class="text-center">
+                                        <select class="col-md-12 form-control custom-width CRAData" name="CybersecurityRisksAssessmentListModal[0].InherentImpactScore" onchange="onChangeCalculateRiskScore(this,true)">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </td>
+                                    <td class="text-center">
+                                        <select class="col-md-12 form-control custom-width CRAData" name="CybersecurityRisksAssessmentListModal[0].InherentLikelihoodScore" onchange="onChangeCalculateRiskScore(this,true)">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="hidden" class="custom-width" name="CybersecurityRisksAssessmentListModal[0].InherentRiskScore" value="Low" />
+                                        <p class="m-5 text-center bg-green-active custom-width">Low</p>
+                                    </td>
+                                    <td class="word-wrap">
+                                        <select class="editable-select CRAData" multiple="multiple" data-placeholder="Select..." name="CybersecurityRisksAssessmentListModal[0].ControlsList">
+                                            @if (TempData["ControlsList"] != null)
+                                            {
+                                                foreach (var item in (List<string>)TempData["ControlsList"])
+                                                {
+                                                    <option value="@item">@item</option>
+                                                }
+                                            }
+                                        </select>
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[0].ResidualRiskCategoryC" value="true" />
+                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[0].ResidualRiskCategoryC" value="false" />
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[0].ResidualRiskCategoryI" value="true" />
+                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[0].ResidualRiskCategoryI" value="false" />
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[0].ResidualRiskCategoryA" value="true" />
+                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[0].ResidualRiskCategoryA" value="false" />
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[0].ResidualRiskCategoryS" value="true" />
+                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[0].ResidualRiskCategoryS" value="false" />
+                                    </td>
+                                    <td class="text-center">
+                                        <select class="col-md-12 form-control custom-width CRAData" name="CybersecurityRisksAssessmentListModal[0].ResidualImpactScore" onchange="onChangeCalculateRiskScore(this)">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </td>
+                                    <td class="text-center">
+                                        <select class="col-md-12 form-control custom-width CRAData" name="CybersecurityRisksAssessmentListModal[0].ResidualLikelihoodScore" onchange="onChangeCalculateRiskScore(this)">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[0].ResidualRiskScore" value="Low" /> <p class="m-5 text-center bg-green-active custom-width">Low</p>
+                                    </td>
+                                    <td class="word-wrap">
+                                        <select class="col-md-12 form-control CRAData riskDecision" name="CybersecurityRisksAssessmentListModal[0].RiskDecision">
+                                            <option value=""></option>
+                                            @if (TempData["RiskDecisionList"] != null)
+                                            {
+                                                foreach (var item in (List<string>)TempData["RiskDecisionList"])
+                                                {
+                                                    <option value="@item">@item</option>
+                                                }
+                                            }
+                                        </select>
+                                    </td>
+                                    <td class="word-wrap">
+                                        <textarea class="CRAData textRow" rows="1" autocomplete="off" name="CybersecurityRisksAssessmentListModal[0].RiskOwner"></textarea>
+                                    </td>
+                                    <td width="2%" class="text-center aviodPrint noExl">
+                                        <p>
+                                            <span class="m-5 text-center cursor-pointer"><i onclick="removeRecord(this)" class="fa fa-fw fa-remove"></i></span>
+                                        </p>
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                int count1 = 0;
+                                //string strRiskListLi = "", strVulnerabilityListLi = "", strControlsList = "";
+                                //List<string> lstControlsList = new List<string>();
+                                //List<string> lstRiskDecisionList = new List<string>();
+                                //var lstHardwareListBoxValues = Model.HardwareListBoxValues != null ? (List<string>)Model.HardwareListBoxValues : new List<string>();
+                                //if (TempData["RiskList"] != null)
+                                //{
+                                //    var lstRiskList = (List<string>)TempData["RiskList"];
+                                //    for (int i = 0; i < lstRiskList.Count; i++)
+                                //    {
+                                //        strRiskListLi += "<li><a href=\"javascript:void(0)\">" + lstRiskList[i] + "</a></li>";
+                                //    }
+                                //}
+                                //var lstVulnerabilityList = new List<string>();
+                                //if (TempData["VulnerabilityList"] != null)
+                                //{
+                                //    lstVulnerabilityList = (List<string>)TempData["VulnerabilityList"];
+                                //    for (int i = 0; i < lstVulnerabilityList.Count; i++)
+                                //    {
+                                //        strVulnerabilityListLi += "<li><a href=\"javascript:void(0)\">" + lstVulnerabilityList[i] + "</a></li>";
+                                //    }
+                                //}
+                                //if (TempData["ControlsList"] != null)
+                                //{
+                                //    lstControlsList = (List<string>)TempData["ControlsList"];
+                                //    for (int i = 0; i < lstControlsList.Count; i++)
+                                //    {
+                                //        strControlsList += "<option value=\"" + lstControlsList[i] + "\">" + lstControlsList[i] + "</option>";
+                                //    }
+                                //}
+                                //if (TempData["RiskDecisionList"] != null)
+                                //{
+                                //    lstRiskDecisionList = (List<string>)TempData["RiskDecisionList"];
+                                //}
+                                int impactScore, reseduleScore;
+                                for (int j = 0; j < Model.CybersecurityRisksAssessmentListModal.Count; j++)
+                                {
+                                    var item = Model.CybersecurityRisksAssessmentListModal[j];
+                                    impactScore = item.ImpactScore; //(Convert.ToInt32(item.InherentImpactScore) * Convert.ToInt32(item.InherentLikelihoodScore));
+                                    if (impactScore <= 3)
+                                    {
+                                        item.InherentRiskScore = "Low";
+                                        item.InherentClass = "bg-green-active";
+                                    }
+                                    else if (impactScore > 3 && impactScore <= 6)
+                                    {
+                                        item.InherentRiskScore = "Medium";
+                                        item.InherentClass = "bg-yellowtext";
+                                    }
+                                    else if (impactScore > 6 && impactScore <= 9)
+                                    {
+                                        item.InherentRiskScore = "High";
+                                        item.InherentClass = "bg-yellow-active";
+                                    }
+                                    else if (impactScore > 9 && impactScore <= 16)
+                                    {
+                                        item.InherentRiskScore = "Very high";
+                                        item.InherentClass = "bg-red";
+                                    }
+                                    reseduleScore = item.ReseduleScore;  //(Convert.ToInt32(item.ResidualImpactScore) * Convert.ToInt32(item.ResidualLikelihoodScore));
+                                    if (reseduleScore <= 3)
+                                    {
+                                        item.ResidualRiskScore = "Low";
+                                        item.ResidualClass = "bg-green-active";
+                                    }
+                                    else if (reseduleScore > 3 && reseduleScore <= 6)
+                                    {
+                                        item.ResidualRiskScore = "Medium";
+                                        item.ResidualClass = "bg-yellowtext";
+                                    }
+                                    else if (reseduleScore > 6 && reseduleScore <= 9)
+                                    {
+                                        item.ResidualRiskScore = "High";
+                                        item.ResidualClass = "bg-yellow-active";
+                                    }
+                                    else if (reseduleScore > 9 && reseduleScore <= 16)
+                                    {
+                                        item.ResidualRiskScore = "Very high";
+                                        item.ResidualClass = "bg-red";
+                                    }
+                                    <tr class="records" index="@count1" IsSelected="true">
+                                        <td>
+                                            <input type="hidden" class="IsUpdated" value="false" name="CybersecurityRisksAssessmentListModal[@count1].IsUpdated" />
+                                            <input type="hidden" class="CRALId" value="@item.CRALId" name="CybersecurityRisksAssessmentListModal[@count1].CRALId" />
+                                            <select class="editable-select CRAData HardwareIdList" multiple="multiple" data-placeholder="Select..."
+                                                    name="CybersecurityRisksAssessmentListModal[@count1].HardwareIdList" data-val="@item.HardwareId">
+                                                <option>ALL</option>
+                                                @*@{
+                                                        if (item.HardwareId == null || item.HardwareId == "")
+                                                        {
+                                                            for (int i = 0; i < lstHardwareListBoxValues.Count; i++)
+                                                            {
+                                                                <option value="@lstHardwareListBoxValues[i]">@lstHardwareListBoxValues[i]</option>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            for (int i = 0; i < lstHardwareListBoxValues.Count; i++)
+                                                            {
+                                                                <option @(item.HardwareId.Contains(lstHardwareListBoxValues[i].Split('|')[0]) ? "selected" : "") value="@lstHardwareListBoxValues[i]">@lstHardwareListBoxValues[i]</option>
+                                                            }
+                                                        }
+                                                    }*@
+                                            </select>
+                                            <div style="padding: 5px; float:right; ">
+                                                <button type="button" class="btn btn-sm btn-primary" onclick="copyHardwareIds(this)">Copy</button>
+                                                <button type="button" class="btn btn-sm btn-primary" onclick="pasteHardwareIds(this)">Paste</button>
+                                            </div>
+                                        </td>
+                                        <td class="word-wrap">
+                                            <input type="text" class="CRAData textRow riskid-width form-control" autocomplete="off" value="@item.RiskId" name="CybersecurityRisksAssessmentListModal[@count1].RiskId" />
+                                        <td class="word-wrap">
+                                            <div tabindex="-1" unselectable="on" class="k-dropdown-wrap k-state-default new-group">
+                                                <textarea class="k-input CRAData textRow" rows="1" autocomplete="off"
+                                                          name="CybersecurityRisksAssessmentListModal[@count1].RiskDescription">@item.RiskDescription</textarea>
+                                                <span unselectable="on" class="k-select edit" data-toggle="dropdown" aria-label="select" role="button" tabindex="-1">
+                                                    <span class="k-icon k-i-arrow-chevron-down"></span>
+                                                </span>
+                                                <ul class="dropdown-menu selectbox ulRiskDescription">
+                                                    @*@Html.Raw(strRiskListLi);*@
+                                                </ul>
+                                            </div>
+                                        </td>
+                                        <td class="word-wrap">
+                                            <div tabindex="-1" unselectable="on" class="k-dropdown-wrap k-state-default new-group">
+                                                <textarea class="k-input  CRAData textRow" rows="1" autocomplete="off"
+                                                          name="CybersecurityRisksAssessmentListModal[@count1].Vulnerability">@item.Vulnerability</textarea>
+                                                <span unselectable="on" class="k-select edit" data-toggle="dropdown" aria-label="select" role="button" tabindex="-1">
+                                                    <span class="k-icon k-i-arrow-chevron-down"></span>
+                                                </span>
+                                                <ul class="dropdown-menu selectbox ulVulnerability">
+                                                    @*@Html.Raw(strVulnerabilityListLi);*@
+                                                </ul>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="checkbox" class="CRAData" value="true" @(Convert.ToBoolean(item.InherentRiskCategoryC) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryC" />
+                                            <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryC" value="false" />
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="checkbox" class="CRAData" value="true" @(Convert.ToBoolean(item.InherentRiskCategoryI) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryI" />
+                                            <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryI" value="false" />
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="checkbox" class="CRAData" value="true" @(Convert.ToBoolean(item.InherentRiskCategoryA) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryA" />
+                                            <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryA" value="false" />
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="checkbox" class="CRAData" value="true" @(Convert.ToBoolean(item.InherentRiskCategoryS) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryS" />
+                                            <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryS" value="false" />
+                                        </td>
+                                        <td class="text-center">
+                                            <select class="col-md-12 custom-width form-control CRAData" name="CybersecurityRisksAssessmentListModal[@count1].InherentImpactScore" onchange="onChangeCalculateRiskScore(this,true)">
+                                                <option @(item.InherentImpactScore == "1" ? "selected" : "") value="1">1</option>
+                                                <option @(item.InherentImpactScore == "2" ? "selected" : "") value="2">2</option>
+                                                <option @(item.InherentImpactScore == "3" ? "selected" : "") value="3">3</option>
+                                                <option @(item.InherentImpactScore == "4" ? "selected" : "") value="4">4</option>
+                                            </select>
+                                        </td>
+                                        <td class="text-center">
+                                            <select class="col-md-12 custom-width form-control CRAData" name="CybersecurityRisksAssessmentListModal[@count1].InherentLikelihoodScore" onchange="onChangeCalculateRiskScore(this,true)">
+                                                <option @(item.InherentLikelihoodScore == "1" ? "selected" : "") value="1">1</option>
+                                                <option @(item.InherentLikelihoodScore == "2" ? "selected" : "") value="2">2</option>
+                                                <option @(item.InherentLikelihoodScore == "3" ? "selected" : "") value="3">3</option>
+                                                <option @(item.InherentLikelihoodScore == "4" ? "selected" : "") value="4">4</option>
+                                            </select>
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskScore" value="@item.InherentRiskScore" /><p class="m-5 text-center custom-width @item.InherentClass">@item.InherentRiskScore</p>
+                                        </td>
+                                        <td class="word-wrap">
+                                            <select class="editable-select CRAData Controls" data-val="@item.Controls" multiple="multiple" data-placeholder="Select..." name="CybersecurityRisksAssessmentListModal[@count1].ControlsList">
+                                                @*@Html.Raw(strControlsList);*@
+                                            </select>
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="checkbox" class="CRAData" value="true" @(Convert.ToBoolean(item.ResidualRiskCategoryC) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryC" />
+                                            <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryC" value="false" />
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="checkbox" class="CRAData" value="true" @(Convert.ToBoolean(item.ResidualRiskCategoryI) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryI" />
+                                            <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryI" value="false" />
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="checkbox" class="CRAData" value="true" @(Convert.ToBoolean(item.ResidualRiskCategoryA) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryA" />
+                                            <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryA" value="false" />
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="checkbox" class="CRAData" value="true" @(Convert.ToBoolean(item.ResidualRiskCategoryS) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryS" />
+                                            <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryS" value="false" />
+                                        </td>
+                                        <td class="text-center">
+                                            <select class="col-md-12 form-control custom-width CRAData" name="CybersecurityRisksAssessmentListModal[@count1].ResidualImpactScore" onchange="onChangeCalculateRiskScore(this)">
+                                                <option @(item.ResidualImpactScore == "1" ? "selected" : "") value="1">1</option>
+                                                <option @(item.ResidualImpactScore == "2" ? "selected" : "") value="2">2</option>
+                                                <option @(item.ResidualImpactScore == "3" ? "selected" : "") value="3">3</option>
+                                                <option @(item.ResidualImpactScore == "4" ? "selected" : "") value="4">4</option>
+                                            </select>
+                                        </td>
+                                        <td class="text-center">
+                                            <select class="col-md-12 form-control custom-width CRAData" name="CybersecurityRisksAssessmentListModal[@count1].ResidualLikelihoodScore" onchange="onChangeCalculateRiskScore(this)">
+                                                <option @(item.ResidualLikelihoodScore == "1" ? "selected" : "") value="1">1</option>
+                                                <option @(item.ResidualLikelihoodScore == "2" ? "selected" : "") value="2">2</option>
+                                                <option @(item.ResidualLikelihoodScore == "3" ? "selected" : "") value="3">3</option>
+                                                <option @(item.ResidualLikelihoodScore == "4" ? "selected" : "") value="4">4</option>
+                                            </select>
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskScore" value="@item.ResidualRiskScore" /><p class="m-5 text-center custom-width @item.ResidualClass">@item.ResidualRiskScore</p>
+                                        </td>
+                                        <td class="word-wrap">
+                                            <select class="col-md-12 form-control CRAData riskDecision" data-id="@item.CRALId" data-val="@item.RiskDecision" name="CybersecurityRisksAssessmentListModal[@count1].RiskDecision">
+                                                @*<option value=""></option>
+                                                    @for (int i = 0; i < lstRiskDecisionList.Count; i++)
+                                                     {
+                                                         <option @(item.RiskDecision == lstRiskDecisionList[i] ? "selected" : "") value="@lstRiskDecisionList[i]">@lstRiskDecisionList[i]</option>
+                                                     }*@
+                                            </select>
+                                        </td>
+                                        <td class="word-wrap">
+                                            <textarea style="width:100px" class="CRAData textRow" rows="1" autocomplete="off" value="@item.RiskOwner" name="CybersecurityRisksAssessmentListModal[@count1].RiskOwner">@item.RiskOwner</textarea>
+                                        </td>
+                                        <td width="2%" class="text-center aviodPrint noExl">
+                                            <p>
+                                                <span class="m-5 text-center cursor-pointer"><i onclick="removeRecord(this)" class="fa fa-fw fa-remove"></i></span>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    count1++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    <br />
+                    <div class="col-md-12 aviodPrint">
+                        <a href="#" id="lnkAddAssessRisk">Add RISK ASSESS</a>
+                    </div>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var scrolled = 0;
+    $(document).ready(function () {
+        InitAllLists();
+        $("textarea").each(function (textarea) {
+            $(this).width($(this)[0].scrollWidth);
+        });
+        bindCombobox();
+        bindAddNewRowEvents();
+        bindTextareaOnInputEvent();
+        bindScrollEvent();
+        $("#lnkAddAssessRisk").off('click').on("click", function () {
+            var jsonObjHWList = @Html.Raw(Json.Encode(TempData["HardwareList"]));
+             if (jsonObjHWList) {
+                 hardwareListCyber = "";
+                 $.each(jsonObjHWList, function (i, item) {
+                     hardwareListCyber += '<option value="' + item + '">' + item + '</option>';
+                 });
+             }
+            $(".tblCRAEquipment").find(".records").css('background-color', '#ffffff !important');
+            $(".tblCRAEquipment").find(".records").attr('IsSelected', 'false');
+            var count = parseInt($(".tblCRAEquipment").find(".records").length);
+            var newguid = generateGUID();
+            var strTemplate = '<tr class="records" index="' + count + '" IsSelected="true">'
+                + '<td>	'
+                + '<input type="hidden" class="IsUpdated" value="true" name="CybersecurityRisksAssessmentListModal[' + count + '].IsUpdated" /> '
+                + '<input type="hidden" class="CRALId" value="' + newguid+ '" name="CybersecurityRisksAssessmentListModal[' + count + '].CRALId" />'
+                + '    <select class="editable-select CRAData" multiple="multiple" data-placeholder="Select..." id="HardwareList_' + count + '" name="CybersecurityRisksAssessmentListModal[' + count + '].HardwareIdList">	'
+                + hardwareListCyber
+                + '    </select>	'
+                +' <div style = "padding: 5px; float:right; " > '
+                + '  <button type="button" class="btn btn-sm btn-primary" onclick="copyHardwareIds(this)">Copy</button> '
+                +'<button type="button" class="btn btn-sm btn-primary" onclick="pasteHardwareIds(this)">Paste</button>'
+                +'</div> '
+                + '</td>	'
+                + '<td class="word-wrap"><input type="text" class="CRAData textRow form-control riskid-width" autocomplete="off" name="CybersecurityRisksAssessmentListModal[' + count + '].RiskId"/></td>'
+                + '<td class="word-wrap">	'
+                + '<div tabindex="-1" unselectable="on" class="k-dropdown-wrap k-state-default new-group">'
+                + '                                <textarea class="k-input CRAData textRow" rows="1" autocomplete="off"'
+                + '                                         name="CybersecurityRisksAssessmentListModal[' + count + '].RiskDescription"></textarea>'
+                + '                               <span unselectable="on" class="k-select edit" data-toggle="dropdown" aria-label="select" role="button" tabindex="-1">'
+                + '                                   <span class="k-icon k-i-arrow-chevron-down"></span>'
+                + '                               </span>'
+                + '                               <ul class="dropdown-menu selectbox">'
+                + riskList
+                + '                              </ul>'
+                + '</div>'
+                + '</td>	'
+                + '<td class="word-wrap">	'
+                + '<div tabindex="-1" unselectable="on" class="k-dropdown-wrap k-state-default new-group">'
+                + '                                <textarea class="k-input CRAData textRow" rows="1" autocomplete="off"'
+                + '                                    name="CybersecurityRisksAssessmentListModal[' + count + '].Vulnerability"></textarea>'
+                + '                               <span unselectable="on" class="k-select edit" data-toggle="dropdown" aria-label="select" role="button" tabindex="-1">'
+                + '                                   <span class="k-icon k-i-arrow-chevron-down"></span>'
+                + '                               </span>'
+                + '                               <ul class="dropdown-menu selectbox">'
+                + vulnerabilityList
+                + '                              </ul>'
+                + '                           </div>'
+                + '</td>	'
+                + '<td class="text-center"><input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentRiskCategoryC" value="true" /><input type="hidden" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentRiskCategoryC" value="false" /></td>	'
+                + '<td class="text-center"><input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentRiskCategoryI" value="true" /><input type="hidden" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentRiskCategoryI" value="false" /></td>	'
+                + '<td class="text-center"><input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentRiskCategoryA" value="true" /><input type="hidden" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentRiskCategoryA" value="false" /></td>	'
+                + '<td class="text-center"><input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentRiskCategoryS" value="true" /><input type="hidden" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentRiskCategoryS" value="false" /></td>	'
+                + '<td class="text-center custom-width">'
+                + '<select class="col-md-12 form-control custom-width  CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentImpactScore" onchange="onChangeCalculateRiskScore(this,true)">'
+                + '    <option value="1">1</option>'
+                + '    <option value="2">2</option>'
+                + '    <option value="3">3</option>'
+                + '    <option value="4">4</option>'
+                + '</select>                        '
+                + '                </td>'
+                + '<td class="text-center custom-width">'
+                + '    <select class="col-md-12 form-control custom-width  CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentLikelihoodScore" onchange="onChangeCalculateRiskScore(this,true)">'
+                + '        <option value="1">1</option>'
+                + '        <option value="2">2</option>'
+                + '        <option value="3">3</option>'
+                + '        <option value="4">4</option>'
+                + '    </select>'
+                + '</td>'
+                + '<td class="text-center custom-width">'
+                + '    <input type="hidden" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentRiskScore" value="Low" />'
+                + '    <p class="m-5 text-center custom-width  bg-green-active">Low</p>'
+                + '</td>'
+                + '<td class="word-wrap">'
+                + '    <select class="editable-select CRAData" multiple="multiple" data-placeholder="Select..."  name="CybersecurityRisksAssessmentListModal[' + count + '].ControlsList">	'
+                + controlsList
+                + '    </select>	'
+                + '</td>'
+                + '<td class="text-center"><input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualRiskCategoryC" value="true" /><input type="hidden" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualRiskCategoryC" value="false" /></td>	'
+                + '<td class="text-center"><input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualRiskCategoryI" value="true" /><input type="hidden" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualRiskCategoryI" value="false" /></td>	'
+                + '<td class="text-center"><input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualRiskCategoryA" value="true" /><input type="hidden" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualRiskCategoryA" value="false" /></td>	'
+                + '<td class="text-center"><input type="checkbox" class="CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualRiskCategoryS" value="true" /><input type="hidden" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualRiskCategoryS" value="false" /></td>	'
+                + '<td class="text-center custom-width">'
+                + '<select class="col-md-12 form-control custom-width CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualImpactScore" onchange="onChangeCalculateRiskScore(this)">'
+                + '    <option value="1">1</option>'
+                + '    <option value="2">2</option>'
+                + '    <option value="3">3</option>'
+                + '    <option value="4">4</option>'
+                + '</select>'
+                + '</td>'
+                + '<td class="text-center custom-width">'
+                + '    <select class="col-md-12 form-control custom-width CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualLikelihoodScore" onchange="onChangeCalculateRiskScore(this)">'
+                + '        <option value="1">1</option>'
+                + '        <option value="2">2</option>'
+                + '        <option value="3">3</option>'
+                + '        <option value="4">4</option>'
+                + '    </select>'
+                + '</td>'
+                + '<td class="text-center custom-width">'
+                + '    <input type="hidden" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualRiskScore" value="Low" />'
+                + '    <p class="m-5 text-center bg-green-active">Low</p>'
+                + '</td>'
+                + '<td>	'
+                + '    <select class="col-md-12 form-control CRAData riskDecision" name="CybersecurityRisksAssessmentListModal[' + count + '].RiskDecision">	'
+                + riskDecisionList
+                + '    </select>	'
+                + '</td>	'
+                + '<td class="word-wrap"><textarea  rows="1" class="CRAData  textRow" autocomplete="off" name="CybersecurityRisksAssessmentListModal[' + count + '].RiskOwner"></textarea></td>	'
+                + '<td width="2%" class="text-center aviodPrint noExl">	'
+                + '    <p>	'
+                + '        <span class="m-5 text-center cursor-pointer"><i onclick="removeRecord(this)" class="fa fa-fw fa-remove"></i></span>	'
+                + '    </p>	'
+                + '</td>	'
+                + ' </tr>';
+            $(".tblCRAEquipment").append(strTemplate);
+            bindAddNewRowEvents();
+            bindCombobox(true);
+            bindTextareaOnInputEvent();
+            bindScrollEvent();
+        });
+        var elementScroll = document.getElementById('#dragCyber');
+        elementScroll.addEventListener("mousedown", function (e) {
+            this.sx = this.scrollLeft;
+            mx = e.pageX - this.offsetLeft;
+
+            this.addEventListener("mousemove", mouseMoveFunctionCyber);
+        });
+
+        elementScroll.addEventListener("mouseup", function (e) {
+            this.removeEventListener("mousemove", mouseMoveFunctionCyber);
+            mx = 0;
+        });
+
+        function InitAllLists() {
+            var str = "";
+            var cyberData =  @Html.Raw(Json.Encode(Model));
+            if (cyberData.HardwareListBoxValues) {
+                str = "";
+                var lstHardwareListBoxValues = cyberData.HardwareListBoxValues;
+                for (var i = 0; i < lstHardwareListBoxValues.length; i++) {
+                    str += '<option value="' + lstHardwareListBoxValues[i].split("|")[0] + '">' + lstHardwareListBoxValues[i] + '</option>';
+                }
+                $(".HardwareIdList").append(str);
+            }
+            var lstRiskDecisionList =  @Html.Raw(Json.Encode(TempData["RiskDecisionList"]));
+            if (lstRiskDecisionList) {
+                str = '<option value=""></option>';
+                for (var i = 0; i < lstRiskDecisionList.length; i++) {
+                    str += '<option value="' + lstRiskDecisionList[i]  + '">' + lstRiskDecisionList[i] + '</option>';
+                }
+                $(".riskDecision").append(str);
+                debugger;
+                var dataList = cyberData.CybersecurityRisksAssessmentListModal;
+                var CRALId = "";
+                $(".riskDecision").each(function () {
+                    CRALId = $(this).attr("data-id");
+                    var filterdata = $.grep(dataList, function (n, i) {
+                        return (n.CRALId == CRALId);
+                    });
+                    if (filterdata && filterdata.length>0) {
+                        $(this).val($(this).attr("data-val"));
+                    }
+                });
+            }
+            var lstRiskList =  @Html.Raw(Json.Encode(TempData["RiskList"]));
+            if (lstRiskList) {
+                str = '';
+                for (var i = 0; i < lstRiskList.length; i++) {
+                    str += '<li><a href="javascript:void(0)">' + lstRiskList[i] + '</a></li>';
+                }
+                $(".ulRiskDescription").append(str);
+            }
+            var lstVulnerabilityList =  @Html.Raw(Json.Encode(TempData["VulnerabilityList"]));
+            if (lstVulnerabilityList) {
+                str = '';
+                for (var i = 0; i < lstVulnerabilityList.length; i++) {
+                    str += '<li><a href="javascript:void(0)">' + lstVulnerabilityList[i] + '</a></li>';
+                }
+                $(".ulVulnerability").append(str);
+            }
+            var lstControlsList =  @Html.Raw(Json.Encode(TempData["ControlsList"]));
+            if (lstControlsList) {
+                str = '';
+                for (var i = 0; i < lstControlsList.length; i++) {
+                    str += '<option value="' + lstControlsList[i] + '">' + lstControlsList[i] + '</option>';
+                }
+                $(".Controls").append(str);
+            }
+        }
+    });
+
+
+</script>

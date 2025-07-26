@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="yes"?>
+<EquipmentConditions>
+	<EquipmentCondition EquipmentConditionId="1">New</EquipmentCondition>
+	<EquipmentCondition EquipmentConditionId="2">Good</EquipmentCondition>
+	<EquipmentCondition EquipmentConditionId="3">Acceptable</EquipmentCondition>
+</EquipmentConditions>

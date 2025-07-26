@@ -1,0 +1,459 @@
+﻿@using ShipApplication.BLL.Modals
+@model SMRModal
+@{
+    ViewBag.Title = "SMR";
+}
+
+<link href="~/Content/Custom/SMRForm.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var res = '@ViewBag.result';
+        if (res == '@AppStatic.SUCCESS') {
+            $.notify("Form Submitted Successfully", "success");
+        }
+        else if (res == '@AppStatic.ERROR') {
+            $.notify("error occured while submitting form !", "error");
+        }
+        else if (res != '') {
+            $.notify("Data submitted on server", "info");
+        }
+
+        $("#ddlReviewPeriod").on('change', function () {
+            var selected = $(this).val();
+            if (selected == "OctToMar")
+                $(".Section12").hide();
+            else
+                $(".Section12").show();
+        });
+        $("#lnkAddCrewmember").click(function () {
+            var MembersCount = parseInt($("#hdnCrewMembersCount").val());
+            MembersCount = MembersCount + 1;
+            var newHtml = '<tr><td class="p-1"><input type="text" class="form-control text-center" name="SMRFormCrewMemberList[' + MembersCount + '].Rank" /></td>' +
+                '<td class="p-1"><input type="text" class="form-control" name="SMRFormCrewMemberList[' + MembersCount + '].FullName" /> </td>' +
+                '<td class="p-5"><input type="checkbox" name="SMRFormCrewMemberList[' + MembersCount + '].ElectedAsSafety" value="true" /> </td>' +
+                '</tr>';
+            $(".tblcrewmember").append(newHtml);
+            $("#hdnCrewMembersCount").val(MembersCount)
+        });
+        $('#datepicker').datepicker({
+            autoclose: true
+        });
+    })
+
+    function printDiv() {
+
+        $("input[type=text]").each(function () {
+            var str = $(this).val();
+            $(this).attr('value', str);
+        });
+        $("input[type=checkbox]").each(function () {
+            var str = $(this).val();
+            $(this).attr('checked', str);
+        });
+        $("textarea").each(function () {
+            var str = $(this).val();
+            $(this).text("");
+            $(this).append(str);
+        });
+
+        var divToPrint = document.getElementById('frmSMRContent');
+        var newWin = window.open('', 'Print-Window');
+        newWin.document.open();
+
+        newWin.document.write('<html><head><title></title>');
+        newWin.document.write('<link href="/ShipApplication/Content/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />');
+        newWin.document.write('<link rel="stylesheet" href="/ShipApplication/Content/Custom/SMRForm.css" type="text/css" />');
+        newWin.document.write('<link href="/ShipApplication/Content/AdminLTE.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="/ShipApplication/Content/_all-skins.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="/ShipApplication/Content/Custom/SiteCustom.css" rel="stylesheet" />');
+        newWin.document.write('</head><body onload="window.print()">');
+
+        newWin.document.write(divToPrint.innerHTML);
+        newWin.document.write('</body></html>');
+
+        newWin.document.close();
+        setTimeout(function () { newWin.close(); }, 5000);
+    }
+
+</script>
+
+<section class="content">
+    <form method="post" action="@Url.Action("SMR", "Forms")">
+        <div id="frmSMRContent">
+            <input type="hidden" value="7" id="hdnCrewMembersCount" />
+            <div class="row">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-6 text-center">
+                    <h3>Shipboard Management Review</h3>
+                </div>
+                <div class="col-md-3">
+                    <p class="m-0"> Form: SMR</p>
+                    <p class="m-0">Issue No: 6-12/15</p>
+                    <p class="m-0">Amend No: 0</p>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Ship: @ShipApplication.BLL.Helpers.SessionManager.ShipName</h4>
+                </div>
+                <div class="col-md-6">
+                    <h4 style="display:inline-block;float:right;">@DateTime.Now.Year</h4>
+                    <select id="ddlReviewPeriod" name="ReviewPeriod">
+                        <option value="OctToMar">October - March</option>
+                        <option value="AprToSept">April - September</option>
+                    </select>&nbsp;
+                    <h4 id="lblReviewPeriod">Review Period</h4>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table tblcrewmember" style="margin-bottom:3px;">
+                        <tr>
+                            <th colspan="3">
+                                Crew Members in Attendance
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="p-5 f-w-b" width="25%">Rank</td>
+                            <td class="p-5 f-w-b" width="50%">Full Name</td>
+                            <td class="p-5 f-w-b" width="25%">Elected As Safety representative?</td>
+                        </tr>
+                        <tr>
+                            <td class="p-1"><input type="text" class="form-control text-center" value="Master" name="SMRFormCrewMemberList[0].Rank" /></td>
+                            <td class="p-1"><input type="text" class="form-control" name="SMRFormCrewMemberList[0].FullName" required /></td>
+                            <td class="p-5"><input type="checkbox" name="SMRFormCrewMemberList[0].ElectedAsSafety" value="true" /></td>
+                        </tr>
+                        <tr>
+                            <td class="p-1"><input type="text" class="form-control text-center" value="Chief Officer" name="SMRFormCrewMemberList[1].Rank" /></td>
+                            <td class="p-1"><input type="text" class="form-control" name="SMRFormCrewMemberList[1].FullName" required /> </td>
+                            <td class="p-5"><input type="checkbox" name="SMRFormCrewMemberList[1].ElectedAsSafety" value="true" /> </td>
+                        </tr>
+                        <tr>
+                            <td class="p-1"><input type="text" class="form-control text-center" value="DOOW" name="SMRFormCrewMemberList[2].Rank" /></td>
+                            <td class="p-1"><input type="text" class="form-control" name="SMRFormCrewMemberList[2].FullName" required /> </td>
+                            <td class="p-5"><input type="checkbox" name="SMRFormCrewMemberList[2].ElectedAsSafety" value="true" /> </td>
+                        </tr>
+                        <tr>
+                            <td class="p-1"><input type="text" class="form-control text-center" value="Chief Engineer" name="SMRFormCrewMemberList[3].Rank" /></td>
+                            <td class="p-1"><input type="text" class="form-control" name="SMRFormCrewMemberList[3].FullName" required /> </td>
+                            <td class="p-5"><input type="checkbox" name="SMRFormCrewMemberList[3].ElectedAsSafety" value="true" /> </td>
+                        </tr>
+                        <tr>
+                            <td class="p-1"><input type="text" class="form-control text-center" value="EOOW" name="SMRFormCrewMemberList[4].Rank" /></td>
+                            <td class="p-1"><input type="text" class="form-control" name="SMRFormCrewMemberList[4].FullName" required /> </td>
+                            <td class="p-5"><input type="checkbox" name="SMRFormCrewMemberList[4].ElectedAsSafety" value="true" /> </td>
+                        </tr>
+                        <tr>
+                            <td class="p-1"><input type="text" class="form-control text-center" value="AB/OS" name="SMRFormCrewMemberList[5].Rank" /></td>
+                            <td class="p-1"><input type="text" class="form-control" name="SMRFormCrewMemberList[5].FullName" required /> </td>
+                            <td class="p-5"><input type="checkbox" name="SMRFormCrewMemberList[5].ElectedAsSafety" value="true" /> </td>
+                        </tr>
+                        <tr>
+                            <td class="p-1"><input type="text" class="form-control text-center" value="AB/OS" name="SMRFormCrewMemberList[6].Rank" /></td>
+                            <td class="p-1"><input type="text" class="form-control" name="SMRFormCrewMemberList[6].FullName" required /> </td>
+                            <td class="p-5"><input type="checkbox" name="SMRFormCrewMemberList[6].ElectedAsSafety" value="true" /> </td>
+                        </tr>
+                        <tr>
+                            <td class="p-1"><input type="text" class="form-control text-center" value="Motorman / Wiper" name="SMRFormCrewMemberList[7].Rank" /></td>
+                            <td class="p-1"><input type="text" class="form-control" name="SMRFormCrewMemberList[7].FullName" required /> </td>
+                            <td class="p-5"><input type="checkbox" name="SMRFormCrewMemberList[7].ElectedAsSafety" value="true" /> </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-12 text-center">
+                    <a href="#" id="lnkAddCrewmember">Add another crewmember</a>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-12 b1-sb AgendaAndMinutes">
+                        <div class="row text-center SectionHead">
+                            <p class="m-5">Agenda and Minutes</p>
+                        </div>
+                        <div class="row border-bottom-1">
+                            <div class="col-md-12 p-5">
+                                <div class="form-group">
+                                    <label class="col-md-2" style="padding-top:7px;">Date of meeting:</label>
+                                    <div class="input-group date col-md-6">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right" id="datepicker" name="DateOfMeeting" required>
+                                    </div>
+                                </div>
+                                <p>Note: Every effort must be made to have all crew at the meeting; </p>
+                            </div>
+                        </div>
+                        <div class="row SectionHead">
+                            <p class="m-5"><u>Section 1</u>-Analysis of previous Shipboard Management Review (SMR) and Company Response (condensed minutes)</p>
+                        </div>
+                        <div class="row border-bottom-1">
+                            <div class="col-md-12 p-1">
+                                <textarea class="col-md-12 col-xs-12" id="Section1" name="Section1" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row SectionHead">
+                            <p class="m-5"><u>Section 2</u>-Review of non-conformities and observations (from internal and external audits) since last SMR:</p>
+                        </div>
+                        <div class="row border-bottom-1">
+                            <div class="col-md-12 p-1">
+                                <textarea class="col-md-12 col-xs-12" id="Section2" name="Section2" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row SectionHead">
+                            <p class="m-5"><u>Section 3</u>-Review of deficiency reports (Flag Report of Inspection / Port State Control / Class) since last SMR:</p>
+                        </div>
+                        <div class="row border-bottom-1">
+                            <div class="col-md-12 p-1">
+                                <textarea class="col-md-12 col-xs-12" id="Section3" name="Section3" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row SectionHead">
+                            <p class="m-5"><u>Section 4</u>-Review of incidents and near-miss reports since last SMR:</p>
+                        </div>
+                        <div class="row border-bottom-1">
+                            <div class="col-md-12 p-1">
+                                <textarea class="col-md-12 col-xs-12" id="Section4" name="Section4" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row SectionHead">
+                            <p class="m-5"><u>Section 5</u>-Review of the ship's planned maintenance, and defect reports issued since the last SMR:</p>
+                        </div>
+                        <div class="row border-bottom-1">
+                            <div class="col-md-12 p-1">
+                                <textarea class="col-md-12 col-xs-12" id="Section5" name="Section5" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row SectionHead">
+                            <p class="m-5"><u>Section 6</u>-Review of Records of Class and Statutory Surveys (any memoranda and / or class conditions):</p>
+                        </div>
+                        <div class="row border-bottom-1">
+                            <div class="col-md-12 p-1">
+                                <textarea class="col-md-12 col-xs-12" id="Section6" name="Section6" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row SectionHead">
+                            <p class="m-5"><u>Section 7</u>-Review and evaluation of the SMS and its objectives:</p>
+                        </div>
+                        <div class="row border-bottom-1">
+                            <table class="table tblSection7">
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;">a)</p></td>
+                                    <td width="42%"><p style="margin:12px;"> Is the system implemented properly on board?</p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section7a" name="Section7a" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;">b)</p></td>
+                                    <td width="42%"><p style="margin: 7px;margin-left:12px;">Is it an efficient and effective safety management system? Does it Work? </p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section7b" name="Section7b" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;">c)</p></td>
+                                    <td width="42%"><p style="margin: 12px;">Does it provide a safe and secure working environment? </p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section7c" name="Section7c" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;">d)</p></td>
+                                    <td width="42%"><p style="margin:2px;margin-left: 12px;">Does the Company provide the necessary resources including for safe working practices? </p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section7d" name="Section7d" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;">e)</p></td>
+                                    <td width="42%"><p style="margin: 12px;"> i) Have all identified risks been assessed? </p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section7e1" name="Section7e1" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;"></p></td>
+                                    <td width="42%"><p style="margin: 12px;">ii) Are safeguards established against all identified risks? </p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section7e2" name="Section7e2" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;"></p></td>
+                                    <td width="42%"><p style="margin: 12px;">iii) Have all Risk Assessments been reviewed as required? </p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section7e3" name="Section7e3" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;">f)</p></td>
+                                    <td width="42%"><p style="margin: 12px;"> i) procedures, checklists, instructions, filing system  and forms.</p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section7f1" name="Section7f1" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;"></p></td>
+                                    <td width="42%"><p style="margin:5px;margin-left: 12px;">ii) Your practical and specific recommendations to make them more useful.</p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section7f2" name="Section7f2" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;">g)</p></td>
+                                    <td width="42%"><p style="margin: 0px;margin-left:12px;">Do any Company’s requirements conflict with the requirements of Charterers/PSC/FSI/Class?</p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section7g" name="Section7g" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;">h)</p></td>
+                                    <td width="42%"><p style="margin: 0px;margin-left:12px;">State your opinion regarding the overall effectiveness of the Safety Management System in achieving the stated Safety & Environmental Protection policy objectives.</p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12" id="Section7h" name="Section7h" style="padding-bottom:18px;" required></textarea></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="row SectionHead">
+                            <p class="m-5"><u>Section 8</u>-Review of  crew training, promotion, and planning:</p>
+                        </div>
+                        <div class="row border-bottom-1">
+                            <table class="table tblSection8">
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;">a)</p></td>
+                                    <td width="42%"><p style="margin:2px;margin-left:12px;">Has the Company training matrix (TDE) and Videotel training matrix been followed?</p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section8a" name="Section8a" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:5px;">b)</p></td>
+                                    <td colspan="2" width="96%"><p style="margin:5px;">Which (if any) of the following areas could benefit from improvement or changes?</p></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;"></p></td>
+                                    <td width="42%"><p style="margin:12px;">i) Cadet and crew training</p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section8b1" name="Section8b1" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;"></p></td>
+                                    <td width="42%"><p style="margin:12px;">ii) Promotion</p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section8b2" name="Section8b2" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;"></p></td>
+                                    <td width="42%"><p style="margin:12px;">iii) Crew change planning</p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section8b3" name="Section8b3" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;"></p></td>
+                                    <td width="42%"><p style="margin:12px;">iv) Handover, Familiarization / Briefing of Crew</p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section8b4" name="Section8b4" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width="8%"><p class="text-center" style="margin:12px;"></p></td>
+                                    <td width="42%"><p style="margin:12px;">v) Crew motivation and methods of stimulating</p></td>
+                                    <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section8b5" name="Section8b5" required></textarea></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="row SectionHead">
+                            <p class="m-5"><u>Section 9</u>-Review of any Health, Safety and/or MLC Crew Complaints Since the Last SMR</p>
+                        </div>
+                        <div class="row border-bottom-1">
+                            <div class="col-md-12 p-1">
+                                <textarea class="col-md-12 col-xs-12" id="Section9" name="Section9" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row SectionHead">
+                            <p class="m-5"><u>Section 10</u>-Any Other Issues (including amendments/proposals related to Ship Energy Efficiency Management Plan etc.)</p>
+                        </div>
+                        <div class="row border-bottom-1">
+                            <div class="col-md-12 p-1">
+                                <textarea class="col-md-12 col-xs-12" id="Section10" name="Section10" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row SectionHead">
+                            <p class="m-5"><u>Section 11</u>-Evaluation and Review of performance and support provided by the Company (including Company Representatives) to Masters and Crew.</p>
+                        </div>
+                        <div class="row border-bottom-1">
+                            <div class="col-md-12 p-1">
+                                <textarea class="col-md-12 col-xs-12" id="Section11" name="Section11" required></textarea>
+                            </div>
+                        </div>
+                        <div class="Section12" style="display:none;">
+                            <div class="row SectionHead">
+                                <p class="m-5"><u>Section 12</u>-Evaluation and Review of the Ships Security Plan, Ship Security Assessment, and Security Management System and its Procedures </p>
+                            </div>
+                            <div class="row border-bottom-1">
+                                <table class="table tblSection12">
+                                    <tr>
+                                        <td width="8%"><p class="text-center" style="margin:12px;">a)</p></td>
+                                        <td width="42%"><p style="margin:12px;">Is the Ship Security Plan still valid?</p></td>
+                                        <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section12a" name="Section12a"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="8%"><p class="text-center" style="margin:12px;">b)</p></td>
+                                        <td width="42%"><p style="margin:12px;">Have there been or are any required changes on board?</p></td>
+                                        <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section12b" name="Section12b"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="8%"><p class="text-center" style="margin:12px;">c)</p></td>
+                                        <td width="42%"><p style="margin:12px;"> Was the SSAS tested for real at least once every 12 months?</p></td>
+                                        <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section12c" name="Section12c" placeholder="Include the date of last test"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="8%"><p class="text-center" style="margin:12px;">d)</p></td>
+                                        <td width="42%"><p style="margin:2px;margin-left:12px;">Were security drills carried out on board at least once every 3 months as per ISPS Code part B paragraph 13.6?</p></td>
+                                        <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section12d" name="Section12d" placeholder="Summarise the dates and kind of the drills"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="8%"><p class="text-center" style="margin:12px;">e)</p></td>
+                                        <td width="42%"><p style="margin:2px;margin-left:12px;">Is the security equipment on board sufficient to fulfil the requirements of the SSP?</p></td>
+                                        <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section12e" name="Section12e"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="8%"><p class="text-center" style="margin:12px;">f)</p></td>
+                                        <td width="42%"><p style="margin:12px;">Is the security equipment on board 100% in good working condition? </p></td>
+                                        <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section12f" name="Section12f" placeholder="Has any defective security equipment been reported to CSO? If so when?"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="8%"><p class="text-center" style="margin:12px;">g)</p></td>
+                                        <td width="42%"><p style="margin:2px;margin-left:12px;">Do the SSO and DSSO hold an STCW Certificate of Proficiency with Flag State Endorsements as required by STCW SECTION A-VI/5.</p></td>
+                                        <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section12g" name="Section12g"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="8%"><p class="text-center" style="margin:12px;">h)</p></td>
+                                        <td width="42%"><p style="margin:2px;margin-left:12px;">Do all other seafarers hold Certificates of Proficiency for Security Training for Seafarers with Designated Security Duties as per STCW TABLE A-VI/6.1 AND 6.2.</p></td>
+                                        <td width="50%"><textarea class="col-md-12 col-xs-12" id="Section12h" name="Section12h" style="padding-bottom:20px;"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="8%"><p class="text-center" style="margin:12px;">i)</p></td>
+                                        <td width="42%"><p style="margin:2px;margin-left:12px;">Were any conflicts between safety and security identified and reported to CSO? </p></td>
+                                        <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section12i" name="Section12i"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="8%"><p class="text-center" style="margin:12px;">j)</p></td>
+                                        <td width="42%"><p style="margin:5px;margin-left:12px;">Is the Ship Security Assessment still valid? Are any amendments required?</p></td>
+                                        <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section12j" name="Section12j" placeholder="Provide details of any changes in the ship’s structure or equipment since the original assessment"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="8%"><p class="text-center" style="margin:12px;">k)</p></td>
+                                        <td width="42%"><p style="margin:12px;">Does the system work? Can we make the system better? </p></td>
+                                        <td width="50%"><textarea class="col-md-12 col-xs-12 p-b-0" id="Section12k" name="Section12k" placeholder="Provide details of any areas which could benefit from improvement or changes?"></textarea></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row SectionHead">
+                            <p class="m-5 text-center">EU-MRV</p>
+                        </div>
+                        <div class="row SectionHead">
+                            <p class="m-5"><u>Section 13</u>-Review of the EU-MRV Monitoring Plan and reporting system (check if plan is adequate, robust,  practical, and if there are any difficulties in implementation or suggestions for improvement)</p>
+                        </div>
+                        <div class="row border-bottom-1">
+                            <div class="col-md-12 p-1">
+                                <textarea class="col-md-12 col-xs-12" id="Section13" name="Section13" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="col-md-1" style="padding-left:0px;">
+                <button type="button" class="btn btn-primary" onclick="printDiv()">Print</button>
+            </div>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?mso-infoPathSolution PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" solutionVersion="6.0.0.0" productVersion="15.0.0" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<my:Main xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata"
+xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10"
+xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-gb">
+  <my:Details>
+    <my:Ship />
+    <my:Number>D 19</my:Number>
+    <my:Date>2015-05-15</my:Date>
+    <my:Title>Rigging Razor Wire</my:Title>
+  </my:Details>
+  <my:Hazards>
+    <my:Hazard my:HazardId="1">
+      <my:Description>Physical contact with razor blades / spikes.</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>4</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Correct PPE must be worn at all times including face shield (visor), welding gauntlets and welding apron. 
+b) All areas of the body must be covered to prevent lacerations.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>4</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>2</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="2">
+      <my:Description>Rigging overhead; loose blades falling onto face / eyes / head.</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Correct PPE must be worn at all times including face shield (visor), welding gauntlets and welding apron. 
+b) Face shield must always be in the correct position to ensure protection of the face. 
+c) Hard hats must be worn and secured in place. 
+d) When stretching upwards, arms must not become exposed. Ensure that boiler suit sleeves are long enough to maintain arm protection.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>3</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>2</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="3">
+      <my:Description>Rigging aloft from a ladder / falling / becoming entangled in razor wire.</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) All persons involved must be wearing the correct PPE including face shield (visor), welding gauntlets and apron. 
+b) Working aloft risk assessment and safe work permit must be completed in conjunction with this RAF and all required safety measures put into place 
+c) One member of crew must always be footing the ladder 
+d) One member of crew must be in control of the movement of razor wires/spikes 
+e) Ensure that at any time the section of wire not being rigged is lead &#39;away&#39; from the ladder. This will ensure minimal contact in the event of crew member falling.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>2</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+  </my:Hazards>
+  <my:Review>
+    <my:ReviewerName />
+    <my:ReviewerRank />
+    <my:ReviewDate />
+    <my:ReviewLocation /><my:ReviewMembers/>
+  </my:Review>
+  <my:Header>
+    <my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+    <my:HeaderSummary />
+    <my:HeaderCode>RAF</my:HeaderCode>
+    <my:HeaderIssueNumber>5</my:HeaderIssueNumber>
+    <my:HeaderIssueDate>05/14</my:HeaderIssueDate>
+    <my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+    <my:HeaderAmmendmentDate />
+    <my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+  </my:Header>
+  <my:Footer>Risk Assessment: D 19 - Rigging Razor Wire</my:Footer>
+</my:Main>

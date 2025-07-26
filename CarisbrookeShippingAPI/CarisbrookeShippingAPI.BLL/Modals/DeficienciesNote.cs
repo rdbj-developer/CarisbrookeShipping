@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CarisbrookeShippingAPI.BLL.Modals
+{
+    public class DeficienciesNote
+    {
+        public DeficienciesNote()
+        {
+            GIRDeficienciesCommentFile = new List<GIRDeficienciesCommentFile>();
+        }
+        public Nullable<System.Guid> NoteUniqueID { get; set; }
+        public Nullable<System.Guid> DeficienciesUniqueID { get; set; }
+        public long NoteID { get; set; }
+        public Nullable<long> DeficienciesID { get; set; }
+        public Nullable<long> GIRFormID { get; set; }
+        public string UserName { get; set; }
+        public string Comment { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.DateTime> ModifyDate { get; set; }
+        public List<GIRDeficienciesCommentFile> GIRDeficienciesCommentFile { get; set; } = new List<GIRDeficienciesCommentFile>();
+        public Nullable<System.Guid> UniqueFormID { get; set; }
+        public int? isNew { get; set; } //RDBJ 10/16/2021
+        public bool? IsResolution { get; set; }  // JSL 07/05/2022
+    }
+    public class GIRDeficienciesCommentFile
+    {
+        public Nullable<System.Guid> CommentFileUniqueID { get; set; }
+        public Nullable<System.Guid> NoteUniqueID { get; set; }
+        public long GIRCommentFileID { get; set; }
+        public long NoteID { get; set; }
+        public Nullable<long> DeficienciesID { get; set; }
+        public string FileName { get; set; }
+        public string StorePath { get; set; }
+        public string IsUpload { get; set; }
+    }
+}

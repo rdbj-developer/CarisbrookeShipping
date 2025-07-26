@@ -1,0 +1,143 @@
+﻿@using OfficeApplication.BLL.Modals;
+@model string
+@{
+    ViewBag.Title = "Xmls";
+    Layout = null;
+}
+<style type="text/css">
+    .LeftBox {
+        border: 1px solid #d2d6de;
+    }
+
+    .fancytree-icon {
+        display: none !important;
+    }
+
+    .txtTolbl {
+        border: none;
+        background-color: white !important;
+        padding-left: 0px;
+    }
+</style>
+
+<script src="~/Scripts/Custom/ManageXmls.js?v=13.05.2019.02"></script>
+
+<script type="text/javascript">
+    $(function () {
+        var vh = $(window).height();
+        $("#divXmlTree").height(vh-207);
+
+         var res = '@TempData["Result"]';
+        var ClickedType = '@TempData["ClickedType"]';
+        if (res == '@AppStatic.SUCCESS') {
+            SuccessMsg(ClickedType);
+        }
+        if (res == '@AppStatic.ERROR') {
+            ErrorMsg(ClickedType);
+        }
+        InitXmlsTree();
+    });
+
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31
+          && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+
+</script>
+
+<form class="form-horizontal" id="frmManageXml" method="post" action="@Url.Action("ManageForms", "Admin")" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box LeftBox">
+                <div class="box-body" style="overflow:auto;" id="divXmlTree">
+                    <div id="XmlsTree">
+                        @Html.Raw(ViewBag.TreeView)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="box-body">
+                <input type="hidden" name="hdnFormClickedType" id="hdnXmlClickedType" value="" />
+                <input type="hidden" name="CreatedDate" id="hdnXmlCreatedDate" value="" />
+                <input type="hidden" name="DownloadPath" id="hdnXmlDownloadPath" value="" />
+                <input type="hidden" name="Type" id="hdnTypeXml" value="" />
+                <input type="hidden" name="UploadType" id="hdnUploadTypeXml" value="" />
+                <input type="hidden" name="FolderType" id="hdnFolderTypeXml" value="Xml" />
+                <div class="form-group">
+                    <label for="FormID" class="col-sm-2 control-label">Id:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control txtTolbl" id="txtXmlID" name="FormID" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Title" class="col-sm-2 control-label">Title:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtXmlTitle" name="Title" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="TemplatePath" class="col-sm-2 control-label">Path</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" id="txtXmlPath" rows="4" name="TemplatePath"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="CanBeOpened" class="col-sm-2 control-label"></label>
+                    <label class="col-sm-10">
+                        <input type="checkbox" name="CanBeOpened" value="true" class="{CanBeOpened:true}" id="chkCanBeOpenedXml">
+                        CanBeOpened
+                    </label>
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class=" col-md-offset-2 col-md-5 AddFileNewXml">
+                        <div class="input-group col-md-6">
+                            <label class="input-group-btn">
+                                <span class="btn btn-default" id="btnAddXmlFileUpload">
+                                    Add New File
+                                    <input type="file" id="btnAddXmlFile" class="AddFileUploadXml" onchange="GetXmlFileData(this)" value="AddFile" name="postedFiles" style="display: none;">
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-offset-2 col-md-5 UpdateFileNewXml" style="display:none;">
+                        <div class="input-group  col-md-6">
+                            <label class="input-group-btn">
+                                <span class="btn btn-default" id="btnUpdateXmlFileUpload">
+                                    Update Form
+                                    <input type="file" id="btnUpdateXmlFile" class="UpdateFileUploadXml" onchange="GetXmlFileData(this)" value="UpdateFile" name="updatedFiles" style="display: none;">
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <label class="control-label" id="lblXmlFileName" style="display:none;"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-5">
+                        <button type="button" id="btnEditXml" class="col-md-12 btn btn-default">Edit</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="col-md-12 btn btn-default btnAddNewXml" id="btnRemoveXml" value="RemoveObj">Remove</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-5">
+                        <button type="submit" id="btnSubmitXml" class="col-md-12 btn btn-default">Save</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="col-md-12 btn btn-default btnAddNewXml" value="CancelChanges">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

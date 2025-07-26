@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+       
+    });
+    function loadTabContent(containerId, url) {
+        //debugger;
+        if (decodeURIComponent(url).indexOf("#") < 0) {
+            $(containerId).load(url, function (responseTxt, statusTxt, xhr) {
+                console.log(responseTxt);
+                console.log(statusTxt);
+            });
+        }
+    }
+</script>
+<section class="content">
+    <div class="row">
+        <div class="col-md-2">
+            <a href="@Url.Action("GeneralInspectionReport", "Forms")" class="btn btn-primary">GI/SI Deficiencies </a>
+        </div>
+        <div class="col-md-2">
+            <a href="@Url.Action("AuditDeficiencies", "Deficiencies")" class="btn btn-primary">Audit Deficiencies </a>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?mso-infoPathSolution PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" solutionVersion="6.0.0.0" productVersion="15.0.0" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<my:Main xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata"
+xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10"
+xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-gb">
+  <my:Details>
+    <my:Ship />
+    <my:Number>G 18</my:Number>
+    <my:Date>2015-05-15</my:Date>
+    <my:Title>Noise and Vibration</my:Title>
+  </my:Details>
+  <my:Hazards>
+    <my:Hazard my:HazardId="1">
+      <my:Description>Exposure to excessive ambient noise - accommodation spaces. Hearing impairment, hypertension, sleep disturbance.</my:Description>
+      <my:Severity>1</my:Severity>
+      <my:Likelihood>1</my:Likelihood>
+      <my:RiskFactor>1</my:RiskFactor>
+      <my:ControlMeasures>Regular informal monitoring of decibel levels as required. Crew to report any apparent increase to Safety Officer for subsequent investigation and analysis, and company to be informed.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="2">
+      <my:Description>Exposure to excessive ambient noise during work activities. Hearing impairment, hypertension.</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>3</my:RiskFactor>
+      <my:ControlMeasures>PPE provided ( including Ear muffs/defenders) crew training, signage in place.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>2</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="3">
+      <my:Description>Exposure to excessive vibration - accommodation spaces. Spinal deformation, lumbago and sciatica. Nervous, vestibular, vascular, digestive damage.</my:Description>
+      <my:Severity>1</my:Severity>
+      <my:Likelihood>1</my:Likelihood>
+      <my:RiskFactor>1</my:RiskFactor>
+      <my:ControlMeasures>Initial built yard vibration analysis. Maximum exposure levels as specified in CoSWP Chapter 34.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="4">
+      <my:Description>Exposure to hand/arm vibration during work activities. Localised disorders of the blood veins, nerves and joints, permanent numbness of fingers, muscle weakness and &quot;white finger&quot;.</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>3</my:RiskFactor>
+      <my:ControlMeasures>Use of low vibration tools where possible, PPE, regular maintenance of tools. Exposure levels limited as specified in CoSWP Chapter 34. Crew to report any increase in vibration observed when operating equipment to Safety Officer for subsequent investigation and analysis., and Company informed for further and follow up actions.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>2</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+  </my:Hazards>
+  <my:Review>
+    <my:ReviewerName />
+    <my:ReviewerRank />
+    <my:ReviewDate />
+    <my:ReviewLocation /><my:ReviewMembers/>
+  </my:Review>
+  <my:Header>
+    <my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+    <my:HeaderSummary />
+    <my:HeaderCode>RAF</my:HeaderCode>
+    <my:HeaderIssueNumber>5</my:HeaderIssueNumber>
+    <my:HeaderIssueDate>05/14</my:HeaderIssueDate>
+    <my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+    <my:HeaderAmmendmentDate />
+    <my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+  </my:Header>
+  <my:Footer>Risk Assessment: G 18 - Noise and Vibration</my:Footer>
+</my:Main>

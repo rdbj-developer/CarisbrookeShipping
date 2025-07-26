@@ -1,0 +1,1467 @@
+﻿@using OfficeApplication.BLL.Helpers;
+@using OfficeApplication.BLL.Modals
+@model OfficeApplication.BLL.Modals.RiskAssessmentFormModal
+@{
+    ViewBag.Title = "RAformData";
+}
+
+<link href="~/Content/Custom/GIRForm.css" rel="stylesheet" />
+<style type="text/css">
+    .fa-fw {
+        background-color: #FFFFE1;
+        padding: 2px;
+    }
+
+    .fa-plus {
+        color: green;
+    }
+
+    .fa-remove {
+        color: red;
+    }
+
+    .actionToolbar {
+        margin-bottom: 0px;
+        display: flex;
+        justify-content: space-around;
+        align-items: stretch;
+    }
+
+    .divar {
+        background: #66afe9;
+        width: 1px;
+    }
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+
+    .Section {
+        border: none;
+    }
+
+    .SectionHead {
+        border: 1px solid #66afe9;
+        border-bottom: none;
+    }
+
+    .headerTD {
+        background-color: transparent;
+    }
+
+        .headerTD > tbody > tr > td {
+            border: none !important;
+        }
+
+    .bg-red {
+        background-color: #B80000 !important;
+    }
+
+    .bg-yellowtext {
+        background-color: #ffff00;
+        color: black;
+    }
+
+    .form-control[readonly] {
+        background-color: #fff;
+        opacity: 1;
+    }
+    .print-content {
+        display: none !important;
+    }
+</style>
+<script type="text/javascript" src="~/Scripts/jquery/jquery.validate.min.js"></script>
+<script type="text/javascript">
+    var RootUrl = '@Url.Content("~/")';
+    $(document).on('keydown', function (e) {
+        if (e.keyCode == 80 && (e.metaKey || e.ctrlKey)) {
+            printDiv();
+        }
+    });
+    $(document).ready(function () {
+        bindTextareaOnInputEvent();
+        $('textarea').each(function () {
+                this.style.height = this.scrollHeight + "px";
+            });
+        ValidationRiskAF();
+        var res = '@ViewBag.result';
+        if (res == '@AppStatic.SUCCESS') {
+            $.notify("Form Updated Successfully", "success");
+        }
+        else if (res == '@AppStatic.ERROR') {
+            $.notify("Error occured while submitting Form !", "error");
+        }
+        else if (res != "") {
+            $.notify(res, "warn");
+            }
+
+        InitRiskFactor();
+        var today = new Date();
+        $('.datepickerRAS').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true,
+            endDate: "today",
+            maxDate: today
+        });
+        $(document).on('click', '.records', function () {
+            $(".records").css('background-color', '#ffffff!important');
+            $(".records").attr('IsSelected', 'false');
+            $(this).css('background-color', '#17a2b8!important');
+            $(this).attr('IsSelected', 'true');
+        });
+
+        $("#lnkAddHazard").click(function(){
+            addStage1RowDefination();
+            addStage2RowDefination();
+            addStage4RowDefination();
+            addStage3RowDefination();
+        });
+
+        $("table").on("click", ".up,.down", function () {
+            var row = $(this).parents("tr:first");
+            var rowid = $(this).closest('tr').prev('tr').attr('data-id');
+            var indexId = $(this).parents("tr:first").attr('index');
+            if (rowid == "0") {
+                if (!$(this).is('.up')) {
+                    row.insertAfter(row.next());
+                }
+            } else {
+                if ($(this).is('.up')) {
+                    row.insertBefore(row.prev());
+                    $('.tblStage2 tr[index=' + indexId + ']').insertBefore($('.tblStage2 tr[index=' + indexId + ']').prev());
+                    $('.tblStage3 tr[index=' + indexId + ']').insertBefore($('.tblStage3 tr[index=' + indexId + ']').prev());
+                    $('.tblStage4 tr[index=' + indexId + ']').insertBefore($('.tblStage4 tr[index=' + indexId + ']').prev());
+                }
+                else {
+                    row.insertAfter(row.next());
+                    $('.tblStage2 tr[index=' + indexId + ']').insertAfter($('.tblStage2 tr[index=' + indexId + ']').next());
+                    $('.tblStage3 tr[index=' + indexId + ']').insertAfter($('.tblStage3 tr[index=' + indexId + ']').next());
+                    $('.tblStage4 tr[index=' + indexId + ']').insertAfter($('.tblStage4 tr[index=' + indexId + ']').next());
+                }
+            }
+            check('tblStage1');
+            check("tblStage2");
+            check("tblStage3");
+            check("tblStage4");
+        });
+
+        $(window).on('load', function () {
+            $('textarea').each(function () {
+                $(this).height($(this).prop('scrollHeight'));
+            });
+        });
+    });
+
+    function ValidationRiskAF() {
+        formvalidator1 = $("#frmRiskAssessmentForm").validate({
+            rules: {
+                'RiskAssessmentForm.Number': {
+                    required: true,
+                },
+                'RiskAssessmentForm.Title': {
+                    required: true
+                },
+                'RiskAssessmentForm.ReviewerName': {
+                    required: true
+                },
+                'RiskAssessmentForm.ReviewerRank': {
+                    required: true
+                },
+                'RiskAssessmentForm.ReviewerLocation': {
+                    required: true
+                },
+                'RiskAssessmentForm.ReviewerDate': {
+                    required: true,
+                   // date: true
+                },
+            },
+            messages: {
+                'RiskAssessmentForm.Number':"Numbers is required",
+                'RiskAssessmentForm.Title': "Title is required",
+                'RiskAssessmentForm.ReviewerName': "Reviewer Name is required",
+                'RiskAssessmentForm.ReviewerRank': "Reviewer Rank is requried",
+                'RiskAssessmentForm.ReviewerLocation': "Reviewer Location is required",
+                'RiskAssessmentForm.ReviewerDate': "Reviewer date is required"
+            },
+            errorPlacement: function (error, element) {
+                $(error).insertAfter($(element).parent().find(".form-control-feedback"));
+            }
+        });
+    }
+
+    function removeRecord(obj, parentTableClass) {
+        var indexid = obj.parentNode.parentElement.parentElement.parentElement.getAttribute('index');
+        obj.parentNode.parentElement.parentElement.parentElement.remove();
+        if (indexid == null) {
+            $(".tblStage2 tr[index=0]").remove();
+            $(".tblStage3 tr[index=0]").remove();
+            $(".tblStage4 tr[index=0]").remove();
+        } else {
+            $(".tblStage2 tr[index=" + indexid + "]").remove();
+            $(".tblStage3 tr[index=" + indexid + "]").remove();
+            $(".tblStage4 tr[index=" + indexid + "]").remove();
+        }
+        check(parentTableClass);
+        check("tblStage2");
+        check("tblStage3");
+        check("tblStage4");
+    }
+
+    function check(cls) {
+        var obj = $('.' + cls + ' tr').find('.srRow');
+        $.each(obj, function (key, value) {
+            //$(value).find('input').find('.dataID').attr('name', 'RiskAssessmentFormHazardList[' + parseInt(key) + '].Id');
+            //$(value).find('input').attr('name', 'RiskAssessmentFormHazardList[' + parseInt(key) + '].HazardId');
+            //$(value).find('input').val(key + 1);
+
+             $(value).html('<input type="text" class="form-control text-center" name="RiskAssessmentFormHazardList[' + parseInt(key) + '].HazardId" value ="' + (key + 1) + '"/>');
+        });
+
+        if (cls == 'tblStage1') {
+            var obj = $('.' + cls + ' tr').find('.textRow');
+            $.each(obj, function (key, value) {
+                $(value).find('input').attr('name', 'RiskAssessmentFormHazardList[' + parseInt(key) + '].Stage1Description');
+                //  $(value).html('<input type="text" class="form-control text-center"  name="RiskAssessmentFormHazardList[' + parseInt(key) + '].HazardId" value ="' + (key + 1) + '"/>');
+            });
+        } else if (cls == 'tblStage2') {
+            var obj = $('.' + cls + ' tr').find('.textRow');
+            $.each(obj, function (key, value) {
+                $(value).find('select').attr('name', 'RiskAssessmentFormHazardList[' + parseInt(key) + '].Stage2Severity');
+                //  $(value).html('<input type="text" class="form-control text-center"  name="RiskAssessmentFormHazardList[' + parseInt(key) + '].HazardId" value ="' + (key + 1) + '"/>');
+            });
+
+            var obj = $('.' + cls + ' tr').find('.SelectRow');
+            $.each(obj, function (key, value) {
+                $(value).find('select').attr('name', 'RiskAssessmentFormHazardList[' + parseInt(key) + '].Stage2Likelihood');
+                //  $(value).html('<input type="text" class="form-control text-center"  name="RiskAssessmentFormHazardList[' + parseInt(key) + '].HazardId" value ="' + (key + 1) + '"/>');
+            });
+
+            var obj = $('.' + cls + ' tr').find('.RFRow');
+            $.each(obj, function (key, value) {
+                $(value).find('input').attr('name', 'RiskAssessmentFormHazardList[' + parseInt(key) + '].Stage2RiskFactor');
+                //  $(value).html('<input type="text" class="form-control text-center"  name="RiskAssessmentFormHazardList[' + parseInt(key) + '].HazardId" value ="' + (key + 1) + '"/>');
+            });
+
+        } else if (cls == 'tblStage3') {
+            var obj = $('.' + cls + ' tr').find('.textRow');
+            $.each(obj, function (key, value) {
+                $(value).find('input').attr('name', 'RiskAssessmentFormHazardList[' + parseInt(key) + '].Stage3Description');
+                //  $(value).html('<input type="text" class="form-control text-center"  name="RiskAssessmentFormHazardList[' + parseInt(key) + '].HazardId" value ="' + (key + 1) + '"/>');
+            });
+
+        } else if (cls == 'tblStage4') {
+            var obj = $('.' + cls + ' tr').find('.textRow');
+            $.each(obj, function (key, value) {
+                $(value).find('select').attr('name', 'RiskAssessmentFormHazardList[' + parseInt(key) + '].Stage4Severity');
+                //  $(value).html('<input type="text" class="form-control text-center"  name="RiskAssessmentFormHazardList[' + parseInt(key) + '].HazardId" value ="' + (key + 1) + '"/>');
+            });
+
+            var obj = $('.' + cls + ' tr').find('.SelectRow');
+            $.each(obj, function (key, value) {
+                $(value).find('select').attr('name', 'RiskAssessmentFormHazardList[' + parseInt(key) + '].Stage4Likelihood');
+                //  $(value).html('<input type="text" class="form-control text-center"  name="RiskAssessmentFormHazardList[' + parseInt(key) + '].HazardId" value ="' + (key + 1) + '"/>');
+            });
+
+            var obj = $('.' + cls + ' tr').find('.RFRow');
+            $.each(obj, function (key, value) {
+                $(value).find('input').attr('name', 'RiskAssessmentFormHazardList[' + parseInt(key) + '].Stage4RiskFactor');
+                //  $(value).html('<input type="text" class="form-control text-center"  name="RiskAssessmentFormHazardList[' + parseInt(key) + '].HazardId" value ="' + (key + 1) + '"/>');
+            });
+        }
+	}
+
+    function addStage1RowDefination() {
+        $(".tblStage1").find(".records").css('background-color', '#ffffff !important');
+        $(".tblStage1").find(".records").attr('IsSelected', 'false');
+
+        var count = $(".tblStage1").find(".records").length;
+        var strTemplate = '<tr class="records" index="' + parseInt(count) + '" IsSelected="true">'
+            + '     <td width="10%" class="srRow"><input type="text" class="form-control text-center" name="RiskAssessmentFormHazardList[' + parseInt(count) + '].HazardId" value="' + (parseInt(count) + 1) + '" readonly/></td>'
+            + '     <td width="80%" class="textRow">'
+            + '         <div class="form-group has-feedback">'
+            + '             <input type="text" class="col-md-12 form-control" name="RiskAssessmentFormHazardList[' + parseInt(count) + '].Stage1Description" />'
+            + '         </div>'
+            + '     </td>'
+            + '     <td width="10%">'
+            + '         <p class="text-center actionToolbar aviodPrint">'
+            + '             <span class="m-5 text-center cursor-pointer"><i onclick="removeRecord(this,\'tblStage1\')" class="fa fa-fw fa-remove"></i></span>'
+            + '             <span class="divar"></span>'
+            + '             <span class="m-5 text-center cursor-pointer up"><i class="fa fa-fw fa-arrow-up"></i></span>'
+            + '             <span class="divar"></span>'
+            + '             <span class="m-5 text-center cursor-pointer down"><i class="fa fa-fw fa-arrow-down"></i></span>'
+            + '         </p>'
+            + '     </td>'
+            + ' </tr>';
+        $(".tblStage1").append(strTemplate);
+    }
+
+    function addStage2RowDefination() {
+        $(".tblStage2").find(".records").css('background-color', '#ffffff !important');
+        $(".tblStage2").find(".records").attr('IsSelected', 'false');
+
+        var count2 = $(".tblStage2").find(".records").length;
+        var strTemplate = '<tr class="records" index="' + parseInt(count2) + '" >'
+            + '<td width="10%" class="srRow"><input type="text" class="form-control text-center" name="RiskAssessmentFormHazardList[' + parseInt(count2) + '].HazardId"value="' + (parseInt(count2) + 1) + '" readonly/></td>'
+            + '<td width="28%" class="textRow">'
+            + ' <div class="form-group has-feedback">'
+            + '   <select class="col-md-12 form-control GIRData" id="ddlSeverity" name="RiskAssessmentFormHazardList[' + parseInt(count2) + '].Stage2Severity" onchange="onChangeCalculateRiskFactor(this)">'
+            + '       <option value=""></option>'
+            + '       <option value="1">Slight</option>'
+            + '       <option value="2">Moderate</option>'
+            + '       <option value="3">Major</option>'
+            + '       <option value="4">Extreme</option>'
+            + '   </select>'
+            + ' </div>'
+            + '</td>'
+            + '<td width="3%"><p class="m-5 text-center">X</p></td>'
+            + '<td width="28%" class="SelectRow">'
+            + ' <div class="form-group has-feedback">'
+            + '   <select class="col-md-12 form-control GIRData" id="ddlLikelihood" name="RiskAssessmentFormHazardList[' + parseInt(count2) + '].Stage2Likelihood" onchange="onChangeCalculateRiskFactor(this)">'
+            + '       <option value=""></option>'
+            + '       <option value="1">Very Unlikely</option>'
+            + '       <option value="2">Unlikely</option>'
+            + '       <option value="3">Likely</option>'
+            + '       <option value="4">Very Likely</option>'
+            + '   </select>'
+            + ' </div>'
+            + '</td>'
+            + '<td width="28%" class="RFRow"><input type="hidden" name="RiskAssessmentFormHazardList[' + parseInt(count2) + '].Stage2RiskFactor"/><p class="m-5 text-center" name="RiskAssessmentFormHazardList[' + parseInt(count2) + '].Stage2RiskFactor"></p></td>'
+            + ' </tr>';
+        $(".tblStage2").append(strTemplate);
+    }
+
+    function addStage3RowDefination() {
+        $(".tblStage3").find(".records").css('background-color', '#ffffff !important');
+        $(".tblStage3").find(".records").attr('IsSelected', 'false');
+
+        var count3 = $(".tblStage3").find(".records").length;
+        var strTemplate = '<tr class="records" index="' + parseInt(count3) + '" IsSelected="true">'
+            + '     <td width="10%" class="srRow"><input type="text" style="border: none;" class="form-control text-center" name="RiskAssessmentFormHazardList[' + parseInt(count3) + '].HazardId" value="' + (parseInt(count3) + 1) + '" readonly/></td>'
+            + '     <td width="80%" class="textRow">'
+            + '         <div class="form-group has-feedback">'
+            + '             <textarea type="text" class="col-md-12 form-control" name="RiskAssessmentFormHazardList[' + parseInt(count3) + '].Stage3Description"> </textarea>'
+            + '         </div>'
+            + '     </td>'
+            + ' </tr>';
+        $(".tblStage3").append(strTemplate);
+        bindTextareaOnInputEvent();
+    }
+
+    function addStage4RowDefination() {
+        $(".tblStage4").find(".records").css('background-color', '#ffffff !important');
+        $(".tblStage4").find(".records").attr('IsSelected', 'false');
+
+        var count4 = $(".tblStage4").find(".records").length;
+        var strTemplate = '<tr class="records" index="' + parseInt(count4) + '">'
+            + '<td width="10%" class="srRow"><input type="text" class="form-control text-center" name="RiskAssessmentFormHazardList[' + parseInt(count4) + '].HazardId"value="' + (parseInt(count4) + 1) + '" readonly/></td>'
+            + '<td width="28%" class="textRow">'
+            + ' <div class="form-group has-feedback">'
+            + '   <select class="col-md-12 form-control GIRData" id="ddlSeverity" name="RiskAssessmentFormHazardList[' + parseInt(count4) + '].Stage4Severity" onchange="onChangeCalculateRiskFactor(this)">'
+            + '       <option value=""></option>'
+            + '       <option value="1">Slight</option>'
+            + '       <option value="2">Moderate</option>'
+            + '       <option value="3">Major</option>'
+            + '       <option value="4">Extreme</option>'
+            + '   </select>'
+            + ' </div>'
+            + '</td>'
+            + '<td width="3%"><p class="m-5 text-center">X</p></td>'
+            + '<td width="28%" class="SelectRow">'
+            + ' <div class="form-group has-feedback">'
+            + '   <select class="col-md-12 form-control GIRData" id="ddlLikelihood" name="RiskAssessmentFormHazardList[' + parseInt(count4) + '].Stage4Likelihood" onchange="onChangeCalculateRiskFactor(this)">'
+            + '       <option value=""></option>'
+            + '       <option value="1">Very Unlikely</option>'
+            + '       <option value="2">Unlikely</option>'
+            + '       <option value="3">Likely</option>'
+            + '       <option value="4">Very Likely</option>'
+            + '   </select>'
+            + ' </div>'
+            + '</td>'
+            + '<td width="28%" class="RFRow"><input type="hidden" name="RiskAssessmentFormHazardList[' + parseInt(count4) + '].Stage4RiskFactor"/><p class="m-5 text-center" name="RiskAssessmentFormHazardList[' + parseInt(count4) + '].Stage4RiskFactor"></p></td>'
+            + ' </tr>';
+        $(".tblStage4").append(strTemplate);
+    }
+
+    var riskFactorVal = {
+        "Very Low Risk": 1,
+        "Low Risk": 2,
+        "Medium Risk": 3,
+        "High Risk": 4,
+        "Very High Risk":5
+    };
+
+    var arrRiskFactor = [];
+    function InitRiskFactor() {
+        arrRiskFactor = [
+            {
+                "Severity": "1",
+                "Likelihood": "1",
+                "RiskFactor": "Very Low Risk",
+                "Color": "bg-green-active"
+            },
+            {
+                "Severity": "1",
+                "Likelihood": "2",
+                "RiskFactor": "Very Low Risk",
+                "Color": "bg-green-active"
+            },
+            {
+                "Severity": "1",
+                "Likelihood": "3",
+                "RiskFactor": "Low Risk",
+                "Color": "bg-lime"
+            },
+            {
+                "Severity": "1",
+                "Likelihood": "4",
+                "RiskFactor": "Low Risk",
+                "Color": "bg-lime"
+            },
+            {
+                "Severity": "2",
+                "Likelihood": "1",
+                "RiskFactor": "Very Low Risk",
+                "Color": "bg-green-active"
+            },
+            {
+                "Severity": "2",
+                "Likelihood": "2",
+                "RiskFactor": "Medium Risk",
+                "Color": "bg-yellowtext"
+            },
+            {
+                "Severity": "2",
+                "Likelihood": "3",
+                "RiskFactor": "High Risk",
+                "Color": "bg-yellow-active"
+            },
+            {
+                "Severity": "2",
+                "Likelihood": "4",
+                "RiskFactor": "Very High Risk",
+                "Color": "bg-red"
+            },
+            {
+                "Severity": "3",
+                "Likelihood": "1",
+                "RiskFactor": "Medium Risk",
+                "Color": "bg-yellowtext"
+            },
+            {
+                "Severity": "3",
+                "Likelihood": "2",
+                "RiskFactor": "High Risk",
+                "Color": "bg-yellow-active"
+            },
+            {
+                "Severity": "3",
+                "Likelihood": "3",
+                "RiskFactor": "Very High Risk",
+                "Color": "bg-red"
+            },
+            {
+                "Severity": "3",
+                "Likelihood": "4",
+                "RiskFactor": "Very High Risk",
+                "Color": "bg-red"
+            },
+            {
+                "Severity": "4",
+                "Likelihood": "1",
+                "RiskFactor": "High Risk",
+                "Color": "bg-yellow-active"
+            },
+            {
+                "Severity": "4",
+                "Likelihood": "2",
+                "RiskFactor": "Very High Risk",
+                "Color": "bg-red"
+            },
+            {
+                "Severity": "4",
+                "Likelihood": "3",
+                "RiskFactor": "Very High Risk",
+                "Color": "bg-red"
+            },
+            {
+                "Severity": "4",
+                "Likelihood": "4",
+                "RiskFactor": "Very High Risk",
+                "Color": "bg-red"
+            }
+        ];
+    }
+
+    function getRiskColor(riskString) {
+        return $.map(arrRiskFactor, function (val, key) {
+            if (val.RiskFactor == riskString)
+                return val.Color;
+        });
+    }
+
+    function onChangeAmended(obj) {
+        var isTrue = $(obj).val();
+        if (isTrue == "true") {
+            $("#txtAmendmentDate").text("@ViewBag.CurrentDateString");
+            $('#ReviewerDate').datepicker("setDate", "@ViewBag.CurrentDateString");
+        }
+        else {
+            $("#txtAmendmentDate").text($("#hdnAmendmentDate").val());
+        }
+    }
+
+    function onChangeCalculateRiskFactor(obj) {
+      //  var dt = $(".tblRiskCalculation p:contains('" + obj.value + "')");
+        var servityDropdownVal = $(obj).closest('tr').find('td:eq(1)').find('select').val();
+        var likelyhoodDropdownVal = $(obj).closest('tr').find('td:eq(3)').find('select').val();
+
+        var res = $.map(arrRiskFactor, function(val, key) {
+                     if (val.Severity == servityDropdownVal && val.Likelihood == likelyhoodDropdownVal)
+                       return val;
+                  });
+        if (res.length != 0) {
+            //  $(obj).closest('tr').find('td:eq(4)').html('<p class="m-5 text-center ' + res[0].Color + '">'+res[0].RiskFactor +'</p>');
+            var data = $(obj).closest('tr').find('td:eq(4)').find('p').attr('class').split(" ");
+            if (data.length >= 3) {
+                $(obj).closest('tr').find('td:eq(4)').find('p').removeClass("m-5 text-center " + data[2]);
+                $(obj).closest('tr').find('td:eq(4)').find('p').addClass("m-5 text-center " + res[0].Color);
+                $(obj).closest('tr').find('td:eq(4)').find('p').text(res[0].RiskFactor);
+                $(obj).closest('tr').find('td:eq(4)').find('input').val(res[0].RiskFactor);
+                $(obj).closest('tr').find('td:eq(4)').find('input').removeClass("m-5 text-center " + data[2]);
+                $(obj).closest('tr').find('td:eq(4)').find('input').addClass(res[0].Color);
+            } else {
+                $(obj).closest('tr').find('td:eq(4)').find('p').addClass("m-5 text-center "+ res[0].Color );
+                $(obj).closest('tr').find('td:eq(4)').find('p').text(res[0].RiskFactor);
+                $(obj).closest('tr').find('td:eq(4)').find('input').val(res[0].RiskFactor);
+                $(obj).closest('tr').find('td:eq(4)').find('input').addClass(res[0].Color);
+            }
+        } else {
+            //$(obj).closest('tr').find('td:eq(4)').html("");
+        }
+    }
+
+    function addRecord() {
+        var countadd = $(".tblReviewer").find(".records").length;
+        var strTemplate = '<tr class="records" index="' + parseInt(countadd) + '" IsSelected="true">'
+            + '<td width="1%"><p class="m-5 text-center"><i class="fa fa-circle" style="font-size: 8px;"></i></p></td>'
+            + '<td width="89%"> <div class="form-group has-feedback" >'
+            + '    <input type="text" class="col-md-12 form-control" name="RiskAssessmentFormReviewerList[' + parseInt(countadd) +'].ReviewerName" /></div> '
+            + '</td>'
+            + '<td width="5%">'
+            + '   <p class="text-center actionToolbar aviodPrint">'
+            + '   <span class="m-5 text-center cursor-pointer"><i onclick="addRecord()" class="fa fa-fw fa-plus"></i></span>'
+            + '   <span class=""></span>'
+            + '   <span class="m-5 text-center cursor-pointer"><i onclick="removeReviewerRecord(this,\'tblReviewer\')" class="fa fa-fw fa-remove"></i></span>'
+            + '   <span class=""></span> </p>'
+            + '</td>'
+            + ' </tr>';
+        $(".tblReviewer").append(strTemplate);
+    }
+
+    function removeReviewerRecord(obj, parentTableClass) {
+        var sum = $('.tblReviewer tr').length;
+        if (sum != 2) {
+            obj.parentNode.parentElement.parentElement.parentElement.remove();
+        }
+
+    }
+    var doc;
+    function printDiv() {
+
+        var RootUrl = '@Url.Content("~/")';
+        $("input[type=text]").each(function () {
+            var str = $(this).val();
+            $(this).attr('value', str);
+        });
+        $("input[type=checkbox]").each(function () {
+            var str = $(this).is(':checked');
+            $(this).attr('checked', str);
+         });
+         $("select").each(function (i) {
+             var objSelected = $(this).find('option:selected');
+             objSelected.attr('selected', 'selected');
+         });
+        $('.print-content').remove();
+         $('textarea').each(function () {
+             $(this).attr('value', $(this).val());
+             var text = $(this).val().replace(/\n/g, '<br/>') + '&nbsp;';
+             $(this).after('<p class="well print-content">' + text + '</p>');
+         });
+        $("#Maindiv").hide();
+        $("#forntpage").show();
+        $(".tblStage15remove").show();
+        $("#footerdiv").show();
+        $(".dt").attr("style", "padding-right : 0px !important");
+        $(".aviodPrint").hide();
+        var style = "@@media print {  .print-content {border: 0px !important; display: block !important;} textarea {display: none !important;} .breakDivPage { page-break-after: always; page-break-inside:avoid;   } body { zoom: .8; -webkit-print-color-adjust: exact; }  }"; 
+        style += "@@page {size: A4;margin-top: 4%; @@bottom-right { content: counter(page) ' of ' counter(pages); }}";
+        style += ".bg-red {background-color: #B80000 !important; } .bg-yellowtext { background-color: #ffff00 !important; color: black;} .Section {border: none;} .tblSection tr td {border: 1px solid #66afe9 !important; border-collapse: collapse;} .SectionHead {border: 1px solid #66afe9;border-bottom: none; background: #FFFFE1;}";
+        style += ".fa-fw { background-color: #FFFFE1; padding: 2px;} .fa-plus { color: green;} .fa-remove { color: red;}  .actionToolbar { margin-bottom: 0px; display: flex; justify-content: space-around; align-items: stretch;}";
+        style += ".SectionHead ,.tblSection tr td {border:0px}.table{margin-bottom: 0px !important;} .table > tbody > tr > td{border-top: 1px solid !important;}}";//.form-control{border: none !important;
+        style += ".print-content {display: none !important;}";
+        $("#printHeaderTitle").show();
+        $("#printHeaderTitle").html($("#txtNumber").val() + " - " + $("#txtTitle").val());
+        var divToPrint = "";
+        divToPrint = document.getElementById('frmRiskAssessmentFormContent').innerHTML;
+        $("#frmRiskAssessmentFormContentPrint").show();
+        $('#Printtable').show();
+        $("#Printtable tbody").empty();
+        var divToPrint1 = $("#Printtable tbody").append("<tr><td>" + divToPrint + "</td></tr>");
+        divToPrint = document.getElementById('frmRiskAssessmentFormContentPrint').innerHTML;
+        $("#removediv").hide();
+         var newWin = window.open('', 'Print-Window');
+        if (newWin == null) {
+            $.notify("Please unblock popup from your browser settings to continue print!!!", "warn");
+            return false;
+        }
+        newWin.document.open();
+        newWin.document.write('<html><head><title></title>');
+        newWin.document.write('<style type="text/css">' + style + '</style>');
+        newWin.document.write('<link href="' + RootUrl + 'Content/PrintStyle.css" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl+'Content/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl +'Content/AdminLTE.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl +'Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl +'Content/_all-skins.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl +'Content/Custom/SiteCustom.css" rel="stylesheet" />');
+        newWin.document.write('<link rel="stylesheet" href="' + RootUrl + 'Content/Custom/RAFPrint.css" type="text/css" />');
+
+        newWin.document.write('</head><body>');
+        newWin.document.write(divToPrint);
+        newWin.document.write('</body></html>');
+        newWin.onload = function () {
+            newWin.print();
+        };       
+        doc = newWin.document;
+        $("#forntpage").hide();
+        $("#footerdiv").hide();
+        $(".tblStage15remove").hide();
+         $("#printHeaderTitle").hide();
+        $("#Maindiv").show();
+        $(".aviodPrint").show();
+        $("#removediv").show(); $('#Printtable').hide();
+        $("#frmRiskAssessmentFormContentPrint").hide();
+        newWin.document.close();
+        setTimeout(function () { newWin.close(); }, 1000);
+        $('.print-content').remove();
+    }
+
+    $(document).on('change', '#ddlIsApplicable', function () {
+        var IsShow = $("#ddlIsApplicable").val();
+        if (IsShow == "false") {
+            document.getElementById('divStage5').scrollTop = 2000000;
+        }
+    })
+   function bindTextareaOnInputEvent() {
+        $('textarea').on('input', function () {
+            this.style.height = "";
+            this.style.height = this.scrollHeight + "px";
+        });
+    }
+</script>
+<section class="content">
+    <form method="post" id="frmRiskAssessmentForm" action="@Url.Action("RiskAssessmentForm", "Forms")">
+        <div id="frmRiskAssessmentFormContent">
+            <input type="hidden" value="1" id="hdnRiskAssessmentFormRecordCount" />
+            @*<input type="hidden" value="OFFICE" name="RiskAssessmentForm.ShipCode" id="hdnRAFShipCode" />*@
+            <input type="hidden" value="@Model.RiskAssessmentForm.ShipCode" name="RiskAssessmentForm.ShipCode" id="hdnRAFShipCode" />
+            <input type="hidden" value="@Model.RiskAssessmentForm.RAFID" name="RiskAssessmentForm.RAFID" id="hdnRAFID" />
+            <div class="row" id="Maindiv">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6 text-center">
+                    <h3>Risk Assessment Form</h3>
+                </div>
+                <div class="col-md-3" style="margin-top:10px;">
+                    <p class="m-0"> Form: @Model.RiskAssessmentForm.Code</p>
+                    <p class="m-0">Issue No: 6-12/15</p>
+                    @*<p class="m-0">Issue No: @Model.RiskAssessmentForm.Issue-@string.Format("{0:MM/yy}", Model.RiskAssessmentForm.IssueDate)</p>
+                        <p class="m-0">Amend No: @Model.RiskAssessmentForm.Amendment-@string.Format("{0:MM/yy}", Model.RiskAssessmentForm.AmendmentDate)</p>*@
+                </div>
+            </div>
+            <div style="display:none" class="page-header" id="forntpage">
+                <div class="SectionContent">
+                    <table class="table tblSection" id="mainPrintTable">
+                        <tr>
+                            <td width="20%" style="text-align:center;border:none!important;">
+                                <img src="~/Images/logo.png" style="width:50px" />
+                                <p>Carisbrooke Shipping</p>
+                            </td>
+                            <td width="50%" style="text-align:center; padding-top:25px !important;border:none!important; font-size:large;">
+                                <strong>Risk Assessment Form</strong>
+                            </td>
+                            <td width="20%" style="border:none!important;font-size:small">
+                                <p class="m-0"> Form: RAF</p>
+                                <p class="m-0">Issue No: 6-12/15</p>
+                                @*<p class="m-0">Issue No: 5-08/14</p>
+                                    <p class="m-0">Amend No: 6-12/16</p>*@
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div style="display: none;" class="page-footer" id="footerdiv">
+                <div class="SectionContent">
+                    <table class="table tblSection">
+                        <tr>
+                            <td width="20%" style="font-size:small; text-align:center;border:none!important;"></td>
+                            <td width="50%" style="font-size:small; text-align:center;border:none!important;">
+                                <p>SMS File: Risk Assessments</p>
+                            </td>
+                            <td width="20%" style="font-size:small; border:none!important;"></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:small; text-align:center;border:none!important;"><p></p></td>
+                            <td style="font-size:small; text-align:center;border:none!important;">
+                                <p>Risk Assessments : @Model.RiskAssessmentForm.Number - @Model.RiskAssessmentForm.Title</p>
+                            </td>
+                            <td style="font-size:small; text-align:center;border:none!important;"><p class="m-0">Retain: Until Updated</p></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:small; text-align:center;border:none!important;"></td>
+                            <td style="font-size:small; text-align:center;border:none!important;"><p>Copy to company :yes (if new)</p></td>
+                            <td style="font-size:small; text-align:center;border:none!important;"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br />
+            <div class="row" id="removediv">
+                <div class="col-md-12">
+                    <div class="GeneralSection PageSection">
+                        <div class="Section">
+                            <div class="SectionContent">
+                                <table class="table headerTD" border="0">
+                                    <tr>
+                                        <td width="20%"><p class="m-5">Ship</p></td>
+                                        <td width="15%">
+                                            <input type="text" class="col-md-12 form-control" style="padding-right:20px" id="txtShipName" name="RiskAssessmentForm.ShipName" value="@Model.RiskAssessmentForm.ShipName" />
+                                        </td>
+                                        <td width="65%"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><p class="m-5">Number</p></td>
+                                        <td width="30%">
+                                            <div class="form-group has-feedback">
+                                                <input type="text" class="col-md-12 form-control" readonly style="padding-right:20px" id="txtNumber" name="RiskAssessmentForm.Number" value="@Model.RiskAssessmentForm.Number" />
+                                                @*<span class="form-control-feedback arrivalCalendarAddon">
+                                                        <label class="text-danger">*</label>
+                                                    </span>*@
+                                            </div>
+                                        </td>
+                                        <td width="50%"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><p class="m-5">Title</p></td>
+                                        <td width="80%" colspan="2">
+                                            <div class="form-group has-feedback">
+                                                <input type="text" class="col-md-12 form-control" readonly id="txtTitle" name="RiskAssessmentForm.Title" value="@Model.RiskAssessmentForm.Title" />
+                                                @*<span class="form-control-feedback arrivalCalendarAddon">
+                                                        <label class="text-danger">*</label>
+                                                    </span>*@
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><p class="m-5">  Is applicable to our ship?</p></td>
+                                        <td width="15%">
+                                            <div class="form-group has-feedback">
+                                                <select class="col-md-12 form-control GIRData" id="ddlIsApplicable" name="RiskAssessmentForm.IsApplicable">
+                                                    <option value=false @(!string.IsNullOrEmpty(Model.RiskAssessmentForm.IsApplicable.ToString()) && Model.RiskAssessmentForm.IsApplicable == false ? "selected" : "")>No</option>
+                                                    <option value=true @(!string.IsNullOrEmpty(Model.RiskAssessmentForm.IsApplicable.ToString()) && Model.RiskAssessmentForm.IsApplicable == true ? "selected" : "")>Yes</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td width="65%"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><p class="m-5">Issue Date</p></td>
+                                        <td width="15%">
+                                            @{
+                                                var dtString = Model.RiskAssessmentForm.AmendmentDate.HasValue ? Model.RiskAssessmentForm.AmendmentDate.Value.ToString("dd/MM/yyyy") : "";
+                                            }
+                                            <p class="m-5" id="txtAmendmentDate">@dtString</p>
+                                            <input type="hidden" id="hdnAmendmentDate" name="RiskAssessmentForm.AmendmentDate" value="@dtString" />
+                                        </td>
+                                        <td width="65%"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div class="tblStage15remove" style="display:none;">
+                                <p class="text-center"> @Model.RiskAssessmentForm.Number - @Model.RiskAssessmentForm.Title</p>
+                            </div>*@
+                        <div class="SectionContent text-center" id="printHeaderTitle" style="display:none;color: #132160;padding-bottom:15px;font-size: 14px;font-weight: bold">
+
+                        </div>
+                        <div class="Section">
+                            <div class="SectionHead text-center">
+                                <u>Stage 1</u> - Define the Hazard(s)
+                            </div>
+                            <div class="SectionContent">
+                                <table class="table tblSection tblStage1" id="tblStage1">
+                                    <tr>
+                                        <td colspan="3"><p class="m-5 text-center">A <b>hazard</b> is a <b>source of potential harm or damage</b>, or a <b>situation with the potential for harm or damage</b></p></td>
+                                    </tr>
+                                    <tr class="Mainrow" data-id="0">
+                                        <td width="10%"><p class="m-5 text-center">Hazard Id</p></td>
+                                        <td width="80%"><p class="m-5 text-center">Description of hazard</p></td>
+                                        <td width="10%" class="aviodPrint"></td>
+                                    </tr>
+                                    @if (Model.RiskAssessmentFormHazardList.Count == 0)
+                                    {
+                                        <tr class="records" index="0" IsSelected="true">
+                                            <td width="10%" class="srRow">
+                                                <input type="hidden" class="form-control text-center dataID" name="RiskAssessmentFormHazardList[0].Id" value="" />
+                                                <input type="text" class="form-control text-center" name="RiskAssessmentFormHazardList[0].HazardId" value="1" readonly />
+                                            </td>
+                                            <td width="80%" class="textRow">
+                                                <div class="form-group has-feedback">
+                                                    <input type="text" class="col-md-12 form-control" name="RiskAssessmentFormHazardList[0].Stage1Description" value="" />
+                                                </div>
+                                            </td>
+                                            <td width="10%" class="aviodPrint">
+                                                <p class="text-center actionToolbar">
+                                                    <span class="m-5 text-center cursor-pointer"><i onclick='removeRecord(this,"tblStage1")' class="fa fa-fw fa-remove"></i></span>
+                                                    <span class="divar"></span>
+                                                    <span class="m-5 text-center cursor-pointer up"><i class="fa fa-fw fa-arrow-up"></i></span>
+                                                    <span class="divar"></span>
+                                                    <span class="m-5 text-center cursor-pointer down"><i class="fa fa-fw fa-arrow-down"></i></span>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        int count1 = 0;
+                                        foreach (var item in Model.RiskAssessmentFormHazardList)
+                                        {
+                                            <tr class="records" index="@count1" IsSelected="true">
+                                                <td width="10%" class="srRow">
+                                                    <input type="hidden" class="form-control text-center dataID" name="RiskAssessmentFormHazardList[@count1].Id" value="" />
+                                                    <input type="text" class="form-control text-center" name="RiskAssessmentFormHazardList[@count1].HazardId" value="@item.HazardId" readonly />
+                                                </td>
+                                                <td width="80%" class="textRow">
+                                                    <div class="form-group has-feedback">
+                                                        <input type="text" class="col-md-12 form-control" name="RiskAssessmentFormHazardList[@count1].Stage1Description" value="@item.Stage1Description" />
+                                                    </div>
+                                                </td>
+                                                <td width="10%" class="aviodPrint">
+                                                    <p class="text-center actionToolbar aviodPrint">
+                                                        <span class="m-5 text-center cursor-pointer"><i onclick='removeRecord(this,"tblStage1")' class="fa fa-fw fa-remove"></i></span>
+                                                        <span class="divar"></span>
+                                                        <span class="m-5 text-center cursor-pointer up"><i class="fa fa-fw fa-arrow-up"></i></span>
+                                                        <span class="divar"></span>
+                                                        <span class="m-5 text-center cursor-pointer down"><i class="fa fa-fw fa-arrow-down"></i></span>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            count1 = count1 + 1;
+                                        }
+                                    }
+                                </table>
+                                <div class="col-md-12 text-center aviodPrint">
+                                    <a href="#" id="lnkAddHazard">Add another hazard</a>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="Section ">
+                            <div class="SectionHead text-center">
+                                Risk Calculation
+                            </div>
+                            <div class="SectionContent">
+                                <table class="table tblSection tblRiskCalculation">
+                                    <tr>
+                                        <td colspan="6" align="center">
+                                            <span class="m-5 text-center">
+                                                The risk factor is described as being the severity of the hazard x the likelihood
+                                                of the hazard happening.
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="10%"><p class="m-5 text-center">Likelihood <i class="fa fa-arrow-down"></i></p></td>
+                                        <td width="10%"><p class="m-5 text-center">Severity <i class="fa fa-arrow-right"></i></p></td>
+                                        <td width="15%"><p class="m-5 text-center">Slight</p></td>
+                                        <td width="15%"><p class="m-5 text-center">Moderate</p></td>
+                                        <td width="15%"><p class="m-5 text-center">Major</p></td>
+                                        <td width="15%"><p class="m-5 text-center">Extreme</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><p class="m-5">Very Unlikely</p></td>
+                                        <td><p class="m-5 text-center bg-green-active">Very Low Risk</p></td>
+                                        <td><p class="m-5 text-center bg-green-active">Very Low Risk</p></td>
+                                        <td><p class="m-5 text-center bg-yellowtext">Medium Risk</p></td>
+                                        <td><p class="m-5 text-center bg-yellow-active">High Risk</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><p class="m-5">Unlikely</p></td>
+                                        <td><p class="m-5 text-center bg-green-active">Very Low Risk</p></td>
+                                        <td><p class="m-5 text-center bg-yellowtext">Medium Risk</p></td>
+                                        <td><p class="m-5 text-center bg-yellow-active">High Risk</p></td>
+                                        <td><p class="m-5 text-center bg-red">Very High Risk</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><p class="m-5">Likely</p></td>
+                                        <td><p class="m-5 text-center bg-lime">Low Risk</p></td>
+                                        <td><p class="m-5 text-center bg-yellow-active">High Risk</p></td>
+                                        <td><p class="m-5 text-center bg-red">Very High Risk</p></td>
+                                        <td><p class="m-5 text-center bg-red">Very High Risk</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><p class="m-5">Very Likely</p></td>
+                                        <td><p class="m-5 text-center bg-lime">Low Risk</p></td>
+                                        <td><p class="m-5 text-center bg-red">Very High Risk</p></td>
+                                        <td><p class="m-5 text-center bg-red">Very High Risk</p></td>
+                                        <td><p class="m-5 text-center bg-red">Very High Risk</p></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="Section">
+                            <div class="SectionHead text-center">
+                                <u>Stage 2</u> - Decide Acceptability of the Risks
+                            </div>
+                            <div class="SectionContent">
+                                <table class="table tblSection tblStage2">
+                                    <tr>
+                                        <td width="10%"><p class="m-5 text-center">Hazard Id</p></td>
+                                        <td width="28%"><p class="m-5 text-center">Severity</p></td>
+                                        <td width="3%"><p class="m-5 text-center">X</p></td>
+                                        <td width="28%"><p class="m-5 text-center">Likelihood</p></td>
+                                        <td width="28%"><p class="m-5 text-center">Risk Factor</p></td>
+                                    </tr>
+                                    @if (Model.RiskAssessmentFormHazardList.Count == 0)
+                                    {
+                                        <tr class="records" index="0">
+                                            <td width="10%" class="srRow">
+                                                <input type="hidden" class="form-control text-center dataID" name="RiskAssessmentFormHazardList[0].Id" value="" />
+                                                <input type="text" class="form-control text-center" name="RiskAssessmentFormHazardList[0].HazardId" value="1" readonly />
+                                            </td>
+                                            <td width="28%" class="textRow">
+                                                <div class="form-group has-feedback">
+                                                    <select class="col-md-12 form-control GIRData" id="ddlSeverity" name="RiskAssessmentFormHazardList[0].Stage2Severity" onchange="onChangeCalculateRiskFactor(this)">
+                                                        <option value="" selected></option>
+                                                        <option value="1">Slight</option>
+                                                        <option value="2">Moderate</option>
+                                                        <option value="3">Major</option>
+                                                        <option value="4">Extreme</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td width="3%"><p class="m-5 text-center">X</p></td>
+                                            <td width="28%" class="SelectRow">
+                                                <div class="form-group has-feedback">
+                                                    <select class="col-md-12 form-control GIRData" id="ddlLikelihood" name="RiskAssessmentFormHazardList[0].Stage2Likelihood" onchange="onChangeCalculateRiskFactor(this)">
+                                                        <option value="" selected></option>
+                                                        <option value="1">Very Unlikely</option>
+                                                        <option value="2">Unlikely</option>
+                                                        <option value="3">Likely</option>
+                                                        <option value="4">Very Likely</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td width="28%" class="RFRow"><input type="hidden" name="RiskAssessmentFormHazardList[0].Stage2RiskFactor" value="" /><p class="m-5 text-center" name="RiskAssessmentFormHazardList[0].Stage2RiskFactor"></p></td>
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        int count2 = 0;
+                                        string ClassString = "", ClassText = "";
+                                        foreach (var item2 in Model.RiskAssessmentFormHazardList)
+                                        {
+                                            <tr class="records" index="@count2">
+                                                <td width="10%" class="srRow">
+                                                    <input type="hidden" class="form-control text-center dataID" name="RiskAssessmentFormHazardList[@count2].Id" value="@item2.Id" />
+                                                    <input type="text" class="form-control text-center" name="RiskAssessmentFormHazardList[@count2].HazardId" value="@item2.HazardId" readonly />
+                                                </td>
+                                                <td width="28%" class="textRow">
+                                                    <div class="form-group has-feedback">
+                                                        <select class="col-md-12 form-control GIRData" id="ddlSeverity" name="RiskAssessmentFormHazardList[@count2].Stage2Severity" onchange="onChangeCalculateRiskFactor(this)">
+                                                            <option value="" selected></option>
+                                                            <option value="1" @(!string.IsNullOrEmpty(item2.Stage2Severity) && item2.Stage2Severity == "1" ? "selected" : "")>Slight</option>
+                                                            <option value="2" @(!string.IsNullOrEmpty(item2.Stage2Severity) && item2.Stage2Severity == "2" ? "selected" : "")>Moderate</option>
+                                                            <option value="3" @(!string.IsNullOrEmpty(item2.Stage2Severity) && item2.Stage2Severity == "3" ? "selected" : "")>Major</option>
+                                                            <option value="4" @(!string.IsNullOrEmpty(item2.Stage2Severity) && item2.Stage2Severity == "4" ? "selected" : "")>Extreme</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                                <td width="3%"><p class="m-5 text-center">X</p></td>
+                                                <td width="28%" class="SelectRow">
+                                                    <div class="form-group has-feedback">
+                                                        <select class="col-md-12 form-control GIRData" id="ddlLikelihood" name="RiskAssessmentFormHazardList[@count2].Stage2Likelihood" onchange="onChangeCalculateRiskFactor(this)">
+                                                            <option value="" selected></option>
+                                                            <option value="1" @(!string.IsNullOrEmpty(item2.Stage2Likelihood) && item2.Stage2Likelihood == "1" ? "selected" : "")>Very Unlikely</option>
+                                                            <option value="2" @(!string.IsNullOrEmpty(item2.Stage2Likelihood) && item2.Stage2Likelihood == "2" ? "selected" : "")>Unlikely</option>
+                                                            <option value="3" @(!string.IsNullOrEmpty(item2.Stage2Likelihood) && item2.Stage2Likelihood == "3" ? "selected" : "")>Likely</option>
+                                                            <option value="4" @(!string.IsNullOrEmpty(item2.Stage2Likelihood) && item2.Stage2Likelihood == "4" ? "selected" : "")>Very Likely</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+
+
+                                                @if ((item2.Stage2Severity == "1" && item2.Stage2Likelihood == "1") || (item2.Stage2Severity == "1" && item2.Stage2Likelihood == "2") || (item2.Stage2Severity == "2" && item2.Stage2Likelihood == "1"))
+                                                {
+                                                    ClassString = "bg-green-active";
+                                                    ClassText = "Very Low Risk";
+                                                }
+                                                else if ((item2.Stage2Severity == "1" && item2.Stage2Likelihood == "3") || (item2.Stage2Severity == "1" && item2.Stage2Likelihood == "4"))
+                                                {
+                                                    ClassString = "bg-lime";
+                                                    ClassText = "Low Risk";
+                                                }
+                                                else if ((item2.Stage2Severity == "2" && item2.Stage2Likelihood == "2") || (item2.Stage2Severity == "3" && item2.Stage2Likelihood == "1"))
+                                                {
+                                                    ClassString = "bg-yellowtext";
+                                                    ClassText = "Medium Risk";
+                                                }
+                                                else if ((item2.Stage2Severity == "2" && item2.Stage2Likelihood == "3") || (item2.Stage2Severity == "3" && item2.Stage2Likelihood == "2") || (item2.Stage2Severity == "4" && item2.Stage2Likelihood == "1"))
+                                                {
+                                                    ClassString = "bg-yellow-active";
+                                                    ClassText = "High Risk";
+                                                }
+                                                else if ((item2.Stage2Severity == "2" && item2.Stage2Likelihood == "4") || (item2.Stage2Severity == "3" && item2.Stage2Likelihood == "3") || (item2.Stage2Severity == "3" && item2.Stage2Likelihood == "4"))
+                                                {
+                                                    ClassString = "bg-red";
+                                                    ClassText = "Very High Risk";
+                                                }
+                                                else if ((item2.Stage2Severity == "4" && item2.Stage2Likelihood == "2") || (item2.Stage2Severity == "4" && item2.Stage2Likelihood == "3") || (item2.Stage2Severity == "4" && item2.Stage2Likelihood == "4"))
+                                                {
+                                                    ClassString = "bg-red";
+                                                    ClassText = "Very High Risk";
+                                                }
+                                                else
+                                                {
+                                                    ClassText = "";
+                                                }
+                                                <td width="28%" class="RFRow"><input type="hidden" name="RiskAssessmentFormHazardList[@count2].Stage2RiskFactor" value="@ClassText" /><p class="m-5 text-center @ClassString" name="RiskAssessmentFormHazardList[@count2].Stage2RiskFactor">@ClassText</p></td>
+                                            </tr>
+                                            count2 = count2 + 1;
+                                        }
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                        <div class="breakDivPage"></div>
+                        <br />
+                        <div class="Section">
+                            <u>Risk factors should not exceed the Medium Risk level.</u> If they do, then control measures must be put in place to
+                            reduce the risk factor as per Stage 4.(This does not mean that risk factors below the medium risk level would not need implementing)
+                        </div>
+                        <div class="Section ">
+                            <div class="SectionHead text-center">
+                                <u>Stage 3</u> - Control Measures and Procedures to Reduce the Risk
+                            </div>
+
+                            <div class="SectionContent">
+                                <table class="table tblSection tblStage3" id="tblStage3">
+                                    <tr>
+                                        <td colspan="2">
+                                            <p class="m-5">
+                                                This stage is to determine what measures would reduce the risk factor os a particular hazard.
+                                                These measures would either lower the severity of the hazard, or reduce to likelihood of it occuring, or both.
+                                                These measures can range from using additional safety gear, using back-up systems, standardising the procedures,
+                                                regulating conditions under which the activity can be undertaken etc.
+                                            </p>
+                                            <p class="m-5 text-center">
+                                                <u>Care must be taken NOT to create new dangers by implementing control measures.</u>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="10%"><p class="m-5 text-center">Hazard Id</p></td>
+                                        <td width="80%"><p class="m-5 text-center">Description of Control Measures</p></td>
+                                    </tr>
+                                    @if (Model.RiskAssessmentFormHazardList.Count == 0)
+                                    {
+                                        <tr class="records" index="0" IsSelected="true">
+                                            <td width="10%" class="srRow">
+                                                <input type="hidden" class="form-control text-center dataID" name="RiskAssessmentFormHazardList[0].Id" value="" />
+                                                <input type="text" class="form-control text-center" style="border: none;" name="RiskAssessmentFormHazardList[0].HazardId" value="1" readonly>
+                                            </td>
+                                            <td width="80%" class="textRow">
+                                                <div class="form-group has-feedback">
+                                                    <textarea type="text" class="col-md-12 form-control" rows="1" id="txtCargo" name="RiskAssessmentFormHazardList[0].Stage3Description" value=""></textarea>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        int count3 = 0;
+                                        foreach (var item3 in Model.RiskAssessmentFormHazardList)
+                                        {
+                                            <tr class="records" index="@count3" IsSelected="true">
+                                                <td width="10%" class="srRow">
+                                                    <input type="hidden" class="form-control text-center" name="RiskAssessmentFormHazardList[@count3].Id" value="@item3.Id" />
+                                                    <input type="text" class="form-control text-center" style="border: none;" name="RiskAssessmentFormHazardList[@count3].HazardId" value="@item3.HazardId" readonly>
+                                                </td>
+                                                <td width="80%" class="textRow">
+                                                    <div class="form-group has-feedback">
+                                                        <textarea type="text" class="col-md-12 form-control" rows="1" id="txtCargo" name="RiskAssessmentFormHazardList[@count3].Stage3Description" value="">@item3.Stage3Description </textarea>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            count3 = count3 + 1;
+                                        }
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                        <div class="breakDivPage"></div>
+                        <br />
+                        <div class="Section tblStage15remove" style="display:none;">
+                            <div class="SectionHead text-center">
+                                Risk Calculation
+                            </div>
+                            <div class="SectionContent">
+                                <table class="table tblSection tblRiskCalculation">
+                                    <tr>
+                                        <td colspan="6" align="center">
+                                            <span class="m-5 text-center">
+                                                The risk factor is described as being the severity of the hazard x the likelihood
+                                                of the hazard happening.
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="10%"><p class="m-5 text-center">Likelihood <i class="fa fa-arrow-down"></i></p></td>
+                                        <td width="10%"><p class="m-5 text-center">Severity <i class="fa fa-arrow-right"></i></p></td>
+                                        <td width="15%"><p class="m-5 text-center">Slight</p></td>
+                                        <td width="15%"><p class="m-5 text-center">Moderate</p></td>
+                                        <td width="15%"><p class="m-5 text-center">Major</p></td>
+                                        <td width="15%"><p class="m-5 text-center">Extreme</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><p class="m-5">Very Unlikely</p></td>
+                                        <td><p class="m-5 text-center bg-green-active">Very Low Risk</p></td>
+                                        <td><p class="m-5 text-center bg-green-active">Very Low Risk</p></td>
+                                        <td><p class="m-5 text-center bg-yellowtext">Medium Risk</p></td>
+                                        <td><p class="m-5 text-center bg-yellow-active">High Risk</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><p class="m-5">Unlikely</p></td>
+                                        <td><p class="m-5 text-center bg-green-active">Very Low Risk</p></td>
+                                        <td><p class="m-5 text-center bg-yellowtext">Medium Risk</p></td>
+                                        <td><p class="m-5 text-center bg-yellow-active">High Risk</p></td>
+                                        <td><p class="m-5 text-center bg-red">Very High Risk</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><p class="m-5">Likely</p></td>
+                                        <td><p class="m-5 text-center bg-lime">Low Risk</p></td>
+                                        <td><p class="m-5 text-center bg-yellow-active">High Risk</p></td>
+                                        <td><p class="m-5 text-center bg-red">Very High Risk</p></td>
+                                        <td><p class="m-5 text-center bg-red">Very High Risk</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><p class="m-5">Very Likely</p></td>
+                                        <td><p class="m-5 text-center bg-lime">Low Risk</p></td>
+                                        <td><p class="m-5 text-center bg-red">Very High Risk</p></td>
+                                        <td><p class="m-5 text-center bg-red">Very High Risk</p></td>
+                                        <td><p class="m-5 text-center bg-red">Very High Risk</p></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="Section">
+                            <div class="SectionHead text-center">
+                                <u>Stage 4</u> - Review Risks and Develope Emergency Procedures
+                            </div>
+                            <div class="SectionContent">
+                                <table class="table tblSection tblStage4">
+                                    <tr>
+                                        <td colspan="5">
+                                            <p class="m-5">
+                                                When reviewing the risks involved, the adequacy and practicability os the control measures should be considered.
+                                                In other words..."Is it still possible to execute the work or procedure with the controls in place?"
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="10%"><p class="m-5 text-center">Hazard Id</p></td>
+                                        <td width="28%"><p class="m-5 text-center">Severity</p></td>
+                                        <td width="3%"><p class="m-5 text-center">X</p></td>
+                                        <td width="28%"><p class="m-5 text-center">Likelihood</p></td>
+                                        <td width="28%"><p class="m-5 text-center">Risk Factor</p></td>
+                                    </tr>
+                                    @if (Model.RiskAssessmentFormHazardList.Count == 0)
+                                    {
+                                        <tr class="records" index="0">
+                                            <td width="10%" class="srRow">
+                                                <input type="hidden" class="form-control text-center dataID" name="RiskAssessmentFormHazardList[0].Id" value="" />
+                                                <input type="text" class="form-control text-center" name="RiskAssessmentFormHazardList[0].HazardId" value="1" readonly />
+                                            </td>
+                                            <td width="28%" class="textRow">
+                                                <div class="form-group has-feedback">
+                                                    <select class="col-md-12 form-control GIRData" name="RiskAssessmentFormHazardList[0].Stage4Severity" onchange="onChangeCalculateRiskFactor(this)">
+                                                        <option value=""></option>
+                                                        <option value="1">Slight</option>
+                                                        <option value="2">Moderate</option>
+                                                        <option value="3">Major</option>
+                                                        <option value="4">Extreme</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td width="3%"><p class="m-5 text-center">X</p></td>
+                                            <td width="28%" class="SelectRow">
+                                                <div class="form-group has-feedback">
+                                                    <select class="col-md-12 form-control GIRData" name="RiskAssessmentFormHazardList[0].Stage4Likelihood" onchange="onChangeCalculateRiskFactor(this)">
+                                                        <option value=""></option>
+                                                        <option value="1">Very Unlikely</option>
+                                                        <option value="2">Unlikely</option>
+                                                        <option value="3">Likely</option>
+                                                        <option value="4">Very Likely</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td width="28%" class="RFRow"><input type="hidden" name="RiskAssessmentFormHazardList[0].Stage4RiskFactor" value="" /><p class="m-5 text-center" name="RiskAssessmentFormHazardList[0].Stage4RiskFactor"> </p></td>
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        int count4 = 0;
+                                        string ClassString1 = "", ClassText1 = "";
+                                        foreach (var item4 in Model.RiskAssessmentFormHazardList)
+                                        {
+                                            <tr class="records" index="@count4">
+                                                <td width="10%" class="srRow">
+                                                    <input type="hidden" class="form-control text-center dataID" name="RiskAssessmentFormHazardList[@count4].Id" value="@item4.Id" />
+                                                    <input type="text" class="form-control text-center" name="RiskAssessmentFormHazardList[@count4].HazardId" value="@item4.HazardId" readonly />
+                                                </td>
+                                                <td width="28%" class="textRow">
+                                                    <div class="form-group has-feedback">
+                                                        <select class="col-md-12 form-control GIRData" name="RiskAssessmentFormHazardList[@count4].Stage4Severity" onchange="onChangeCalculateRiskFactor(this)">
+                                                            <option value=""></option>
+                                                            <option value="1" @(!string.IsNullOrEmpty(item4.Stage4Severity) && item4.Stage4Severity == "1" ? "selected" : "")>Slight</option>
+                                                            <option value="2" @(!string.IsNullOrEmpty(item4.Stage4Severity) && item4.Stage4Severity == "2" ? "selected" : "")>Moderate</option>
+                                                            <option value="3" @(!string.IsNullOrEmpty(item4.Stage4Severity) && item4.Stage4Severity == "3" ? "selected" : "")>Major</option>
+                                                            <option value="4" @(!string.IsNullOrEmpty(item4.Stage4Severity) && item4.Stage4Severity == "4" ? "selected" : "")>Extreme</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                                <td width="3%"><p class="m-5 text-center">X</p></td>
+                                                <td width="28%" class="SelectRow">
+                                                    <div class="form-group has-feedback">
+                                                        <select class="col-md-12 form-control GIRData" name="RiskAssessmentFormHazardList[@count4].Stage4Likelihood" onchange="onChangeCalculateRiskFactor(this)">
+                                                            <option value=""></option>
+                                                            <option value="1" @(!string.IsNullOrEmpty(item4.Stage4Likelihood) && item4.Stage4Likelihood == "1" ? "selected" : "")>Very Unlikely</option>
+                                                            <option value="2" @(!string.IsNullOrEmpty(item4.Stage4Likelihood) && item4.Stage4Likelihood == "2" ? "selected" : "")>Unlikely</option>
+                                                            <option value="3" @(!string.IsNullOrEmpty(item4.Stage4Likelihood) && item4.Stage4Likelihood == "3" ? "selected" : "")>Likely</option>
+                                                            <option value="4" @(!string.IsNullOrEmpty(item4.Stage4Likelihood) && item4.Stage4Likelihood == "4" ? "selected" : "")>Very Likely</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                                @if ((item4.Stage4Severity == "1" && item4.Stage4Likelihood == "1") || (item4.Stage4Severity == "1" && item4.Stage4Likelihood == "2") || (item4.Stage4Severity == "2" && item4.Stage4Likelihood == "1"))
+                                                {
+                                                    ClassString1 = "bg-green-active";
+                                                    ClassText1 = "Very Low Risk";
+                                                }
+                                                else if ((item4.Stage4Severity == "1" && item4.Stage4Likelihood == "3") || (item4.Stage4Severity == "1" && item4.Stage4Likelihood == "4"))
+                                                {
+                                                    ClassString1 = "bg-lime"; ClassText1 = "Low Risk";
+                                                }
+                                                else if ((item4.Stage4Severity == "2" && item4.Stage4Likelihood == "2") || (item4.Stage4Severity == "3" && item4.Stage4Likelihood == "1"))
+                                                {
+                                                    ClassString1 = "bg-yellowtext"; ClassText1 = "Medium Risk";
+                                                }
+                                                else if ((item4.Stage4Severity == "2" && item4.Stage4Likelihood == "3") || (item4.Stage4Severity == "3" && item4.Stage4Likelihood == "2") || (item4.Stage4Severity == "4" && item4.Stage4Likelihood == "1"))
+                                                {
+                                                    ClassString1 = "bg-yellow-active"; ClassText1 = "High Risk";
+                                                }
+                                                else if ((item4.Stage4Severity == "2" && item4.Stage4Likelihood == "4") || (item4.Stage4Severity == "3" && item4.Stage4Likelihood == "3") || (item4.Stage4Severity == "3" && item4.Stage4Likelihood == "4"))
+                                                {
+                                                    ClassString1 = "bg-red"; ClassText1 = "Very High Risk";
+                                                }
+                                                else if ((item4.Stage4Severity == "4" && item4.Stage4Likelihood == "2") || (item4.Stage4Severity == "4" && item4.Stage4Likelihood == "3") || (item4.Stage4Severity == "4" && item4.Stage4Likelihood == "4"))
+                                                {
+                                                    ClassString1 = "bg-red"; ClassText1 = "Very High Risk";
+                                                }
+                                                else
+                                                {
+                                                    ClassText1 = "";
+                                                }
+                                                <td width="28%" class="RFRow"><input type="hidden" name="RiskAssessmentFormHazardList[@count4].Stage4RiskFactor" value="@ClassText1" /><p class="m-5 text-center @ClassString1" name="RiskAssessmentFormHazardList[@count4].Stage4RiskFactor"> @ClassText1</p></td>
+                                            </tr>
+                                            count4 = count4 + 1;
+                                        }
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                        <div class="Section">
+                            <div class="SectionHead text-center">
+                                <u>Stage 5</u> - Review
+                            </div>
+                            <div class="SectionContent aviodPrint">
+                                <table class="table tblSection">
+                                    <tr>
+                                        <td rowspan="3" width="5%" style="vertical-align: middle;"><p class="m-5 text-center">Reviewer</p></td>
+                                        <td width="5%"><p class="m-5 text-center">Name</p></td>
+                                        <td width="15%">
+                                            <div class="form-group has-feedback">
+                                                <input type="text" class="col-md-12 form-control" id="txtReviewerName" name="RiskAssessmentForm.ReviewerName" value="@Model.RiskAssessmentForm.ReviewerName" />
+                                                <span class="form-control-feedback arrivalCalendarAddon">
+                                                    <label class="text-danger">*</label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td width="5%"><p class="m-5 text-center">Date</p></td>
+                                        <td width="10%">
+                                            <div class="form-group has-feedback">
+                                                <input type="text" id="ReviewerDate" class="col-md-12 form-control GIRData datepickerRAS" name="RiskAssessmentForm.ReviewerDate" value="@string.Format("{0:dd/MM/yyyy}", Model.RiskAssessmentForm.ReviewerDate)" />
+                                                <span class="form-control-feedback arrivalCalendarAddon">
+                                                    <label class="text-danger">*</label> <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="5%"><p class="m-5 text-center">Rank</p></td>
+                                        <td width="15%">
+                                            <div class="form-group has-feedback">
+                                                <input type="text" class="col-md-12 form-control" id="txtReviewerRank" name="RiskAssessmentForm.ReviewerRank" value="@Model.RiskAssessmentForm.ReviewerRank" />
+                                                <span class="form-control-feedback arrivalCalendarAddon">
+                                                    <label class="text-danger">*</label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td width="5%"><p class="m-5 text-center">Location</p></td>
+                                        <td width="10%">
+                                            <div class="form-group has-feedback">
+                                                <input type="text" class="col-md-12 form-control" id="txtReviewerLocation" name="RiskAssessmentForm.ReviewerLocation" value="@Model.RiskAssessmentForm.ReviewerLocation" />
+                                                <span class="form-control-feedback arrivalCalendarAddon">
+                                                    <label class="text-danger">*</label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="5%"><p class="m-5 text-center"></p></td>
+                                        <td width="15%">
+                                        </td>
+                                        <td width="7%"><p class="m-5 text-center">Risk Assessment re-issued?</p></td>
+                                        <td width="10%">
+                                            <div class="form-group has-feedback">
+                                                @*<select class="col-md-12 form-control GIRData" name="RiskAssessmentForm.IsAmended" onchange="onChangeAmended(this)">
+                                                        <option value=false @(Model.RiskAssessmentForm.IsAmended.HasValue && Model.RiskAssessmentForm.IsAmended.Value ? "" : "selected")>No</option>
+                                                        <option value=true @(Model.RiskAssessmentForm.IsAmended.HasValue && Model.RiskAssessmentForm.IsAmended.Value ? "selected" : "")>Yes</option>
+                                                    </select>*@
+                                                <select class="col-md-12 form-control GIRData" name="RiskAssessmentForm.IsAmended" onchange="onChangeAmended(this)">
+                                                    <option value=false>No</option>
+                                                    <option value=true>Yes</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="SectionContent tblStage15remove" style="display:none;">
+                                <table class="table tblSection" style="border-bottom: none;">
+                                    <tr>
+                                        <td><p class="m-5">Reviewed by @Model.RiskAssessmentForm.ReviewerName , on @string.Format("{0:dd MMM yyyy}", Model.RiskAssessmentForm.ReviewerDate)  at </p></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="SectionContent">
+                                <table class="table tblSection headerTD tblReviewer" style="background-color: #fff;border: 1px solid #66afe9;">
+                                    <tr class="aviodPrint">
+                                        <td colspan="3"><p class="m-5">Others present during review (name and rank):</p></td>
+                                    </tr>
+                                    <tr class="tblStage15remove" style="display:none;border-top:none;">
+                                        <td colspan="3"><p class="m-5">Persons present during review::</p></td>
+                                    </tr>
+                                    @if (Model.RiskAssessmentFormReviewerList.Count == 0)
+                                    {
+                                        <tr class="records" index="0" IsSelected="true">
+                                            <td width="1%">
+                                                <input type="hidden" class="form-control text-center" name="RiskAssessmentFormReviewerList[0].Id" value="" />
+                                                <p class="m-5 text-center"><i class="fa fa-circle" style="font-size: 8px;"></i></p>
+                                            </td>
+                                            <td width="89%">
+                                                <div class="form-group has-feedback">
+                                                    <input type="text" class="col-md-12 form-control" name="RiskAssessmentFormReviewerList[0].ReviewerName" value="" />
+                                                </div>
+                                            </td>
+                                            <td width="5%" class="aviodPrint">
+                                                <p class="text-center actionToolbar aviodPrint">
+                                                    <span class="m-5 text-center cursor-pointer"><i onclick="addRecord()" class="fa fa-fw fa-plus"></i></span>
+                                                    <span class=""></span>
+                                                    <span class="m-5 text-center cursor-pointer"><i onclick="removeReviewerRecord(this,'tblReviewer')" class="fa fa-fw fa-remove"></i></span>
+                                                    <span class=""></span>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        int count = 0;
+                                        foreach (var item5 in Model.RiskAssessmentFormReviewerList)
+                                        {
+                                            <tr class="records" index="0" IsSelected="true">
+                                                <td width="1%">
+                                                    <input type="hidden" class="form-control text-center" name="RiskAssessmentFormReviewerList[@count].Id" value="@item5.Id" />
+                                                    <p class="m-5 text-center"><i class="fa fa-circle" style="font-size: 8px;"></i></p>
+                                                </td>
+                                                <td width="89%">
+                                                    <div class="form-group has-feedback">
+                                                        <input type="text" class="col-md-12 form-control" name="RiskAssessmentFormReviewerList[@count].ReviewerName" value="@item5.ReviewerName" />
+                                                    </div>
+                                                </td>
+                                                <td width="5%" class="aviodPrint">
+                                                    <p class="text-center actionToolbar aviodPrint">
+                                                        <span class="m-5 text-center cursor-pointer"><i onclick="addRecord()" class="fa fa-fw fa-plus"></i></span>
+                                                        <span class=""></span>
+                                                        <span class="m-5 text-center cursor-pointer"><i onclick="removeReviewerRecord(this,'tblReviewer')" class="fa fa-fw fa-remove"></i></span>
+                                                        <span class=""></span>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            count = count + 1;
+                                        }
+                                    }
+                                    <tr class="tblStage15remove" style="display:none;">
+                                        <td colspan="3">
+                                            <p class="m-5">Reviewer's signature: _________________________</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+        <div class="row aviodPrint">
+            <div class="col-md-1">
+                <button type="submit" id="btnSubmit" class="btn btn-primary">Save</button>
+            </div>
+            <div class="col-md-1" style="padding-left:0px;">
+                <button type="button" class="btn btn-primary" onclick="printDiv()">Print</button>
+            </div>
+        </div>
+        <div id="frmRiskAssessmentFormContentPrint" style="display:none;">
+            <table style="display:none;" class="ParentTable" id="Printtable">
+                <thead>
+                    <tr>
+                        <td>
+                            <div class="page-header-space"></div>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <div class="page-footer-space"></div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+    </form>
+</section>
+

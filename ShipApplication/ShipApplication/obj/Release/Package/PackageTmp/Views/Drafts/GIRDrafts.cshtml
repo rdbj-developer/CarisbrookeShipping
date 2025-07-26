@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "GIRDrafts";
+}
+
+@*<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.911/styles/kendo.rtl.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.911/styles/kendo.silver.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.911/styles/kendo.mobile.all.min.css" />*@
+
+<link href="~/Content/Kendo/kendo.common.min.css" rel="stylesheet" />
+<link href="~/Content/Kendo/kendo.rtl.min.css" rel="stylesheet" />
+<link href="~/Content/Kendo/kendo.silver.min.css" rel="stylesheet" />
+<link href="~/Content/Kendo/kendo.mobile.all.min.css" rel="stylesheet" />
+
+<script>
+    var RootUrl = '@Url.Content("~/")';
+    $(document).ready(function () {
+        loadGrid();
+    });
+
+    function loadGrid() {
+        var shipCode = "@Session["ShipName"]";
+        if (shipCode != null && shipCode != "" && shipCode != undefined) {
+            var url = RootUrl + "Drafts/GetGIRDrafts?ship=" + shipCode;
+            $.ajax({
+                type: 'GET',
+                dataType: 'json',
+                async: false,
+                url: url,
+                success: function (Data) {
+                    data = Data;
+                    $('#GIRDraftsGrid').empty();
+                    var grid = $('#GIRDraftsGrid').kendoGrid({
+                        scrollable: true,
+                        sortable: true,
+                        resizable: true,
+                        filterable: true,
+                        selectable: true,
+                        change: function () {
+                            var row = this.select();
+                            var id = row[0].cells[0].textContent;
+                            var _url = RootUrl + "Drafts/GIRformData?id=" + id;
+                            window.open(_url, '_blank');
+                        },
+                        dataSource: {
+                            data: data
+                        },
+                        dataBound: function () {
+                            for (var i = 0; i < this.columns.length; i++) {
+                            }
+                        },
+
+                        columns: [
+                            {
+                                field: "GIRFormID",
+                                title: "GIRFormID",
+                                hidden: true,
+                            },
+                            {
+                                field: "Ship",
+                                title: "Ship",
+                                hidden: true,
+                            },
+                            {
+                                field: "ShipName",
+                                title: "Ship",
+                            },
+                            {
+                                field: "Auditor",
+                                title: "Auditor",
+                            },
+                            {
+                                field: "Location",
+                                title: "Location",
+                            },
+                            {
+                                field: "Date",
+                                title: "Date",
+                            },
+                            {
+                                field: "GeneralPreamble",
+                                title: "General Preamble",
+                            },
+                        ]
+                    });
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+        else {
+            alert("Ship Not Available");
+        }
+    }
+</script>
+<div class="well well-sm" style="margin-bottom:0px;">General Inspection Report</div>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    <div id="GIRDraftsGrid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

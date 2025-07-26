@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IMOSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClassificationSocieties">
+          <Key>
+            <PropertyRef Name="ClassificationSocietyId" />
+          </Key>
+          <Property Name="ClassificationSocietyId" Type="int" Nullable="false" />
+          <Property Name="AbbreviatedName" Type="nvarchar" MaxLength="255" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="CSShips">
+          <Key>
+            <PropertyRef Name="ShipId" />
+          </Key>
+          <Property Name="ShipId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Code" Type="nvarchar" MaxLength="255" />
+          <Property Name="ShipClassId" Type="int" />
+          <Property Name="BuildCountryId" Type="int" />
+          <Property Name="BuildYear" Type="int" />
+          <Property Name="ClassificationSocietyId" Type="int" />
+          <Property Name="FlagStateId" Type="int" />
+          <Property Name="IMONumber" Type="int" />
+          <Property Name="CallSign" Type="nvarchar" MaxLength="255" />
+          <Property Name="MMSI" Type="int" />
+          <Property Name="GrossTonnage" Type="int" />
+          <Property Name="NetTonnage" Type="int" />
+          <Property Name="OfficeId" Type="int" />
+          <Property Name="TechnicalManagerId" Type="int" />
+          <Property Name="SuperintendentId" Type="int" />
+          <Property Name="Notes" Type="text" />
+          <Property Name="IsDelivered" Type="bit" Nullable="false" />
+          <Property Name="FleetId" Type="int" />
+          <Property Name="YardNo" Type="int" />
+          <Property Name="OfficialNumber" Type="int" />
+          <Property Name="PortOfRegistryId" Type="int" />
+          <Property Name="SummerDeadweight" Type="decimal" Precision="8" Scale="3" />
+          <Property Name="Lightweight" Type="decimal" Precision="7" Scale="3" />
+          <Property Name="LOA" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="LBP" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="Beam" Type="decimal" Precision="5" Scale="3" />
+          <Property Name="SummerDraft" Type="decimal" Precision="7" Scale="5" />
+          <Property Name="BHP" Type="int" />
+          <Property Name="BowThruster" Type="int" />
+          <Property Name="BuildNumber" Type="int" />
+          <Property Name="Agent" Type="text" />
+          <Property Name="Ports" Type="text" />
+          <Property Name="TechnicalManagerNotes" Type="text" />
+          <Property Name="MinimumSafeManning" Type="int" />
+          <Property Name="MaximumPersonsLSA" Type="int" />
+          <Property Name="TotalBerths" Type="int" />
+          <Property Name="RegisteredOwners" Type="nvarchar" MaxLength="255" />
+          <Property Name="HullAndMachineryId" Type="int" />
+          <Property Name="ProtectionAndIndemnityId" Type="int" />
+          <Property Name="Owner" Type="nvarchar" MaxLength="255" />
+          <Property Name="SMCIsVerified" Type="bit" Nullable="false" />
+          <Property Name="MarineSoftwareNumber" Type="char" MaxLength="3" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="CE email" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataloyNumber" Type="char" MaxLength="3" />
+          <Property Name="Phone1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="SatC1" Type="nvarchar" MaxLength="50" />
+          <Property Name="SatC2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Citadel" Type="nvarchar" MaxLength="50" />
+          <Property Name="P&amp;I Club" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_CSShips_ClassificationSocieties">
+          <End Role="ClassificationSocieties" Type="Self.ClassificationSocieties" Multiplicity="0..1" />
+          <End Role="CSShips" Type="Self.CSShips" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassificationSocieties">
+              <PropertyRef Name="ClassificationSocietyId" />
+            </Principal>
+            <Dependent Role="CSShips">
+              <PropertyRef Name="ClassificationSocietyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IMOSModelStoreContainer">
+          <EntitySet Name="ClassificationSocieties" EntityType="Self.ClassificationSocieties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CSShips" EntityType="Self.CSShips" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CSShips_ClassificationSocieties" Association="Self.FK_CSShips_ClassificationSocieties">
+            <End Role="ClassificationSocieties" EntitySet="ClassificationSocieties" />
+            <End Role="CSShips" EntitySet="CSShips" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IMOSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="IMOSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClassificationSocieties" EntityType="IMOSModel.ClassificationSociety" />
+          <EntitySet Name="CSShips" EntityType="IMOSModel.CSShip" />
+          <AssociationSet Name="FK_CSShips_ClassificationSocieties" Association="IMOSModel.FK_CSShips_ClassificationSocieties">
+            <End Role="ClassificationSociety" EntitySet="ClassificationSocieties" />
+            <End Role="CSShip" EntitySet="CSShips" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ClassificationSociety">
+          <Key>
+            <PropertyRef Name="ClassificationSocietyId" />
+          </Key>
+          <Property Name="ClassificationSocietyId" Type="Int32" Nullable="false" />
+          <Property Name="AbbreviatedName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CSShips" Relationship="IMOSModel.FK_CSShips_ClassificationSocieties" FromRole="ClassificationSociety" ToRole="CSShip" />
+        </EntityType>
+        <EntityType Name="CSShip">
+          <Key>
+            <PropertyRef Name="ShipId" />
+          </Key>
+          <Property Name="ShipId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ShipClassId" Type="Int32" />
+          <Property Name="BuildCountryId" Type="Int32" />
+          <Property Name="BuildYear" Type="Int32" />
+          <Property Name="ClassificationSocietyId" Type="Int32" />
+          <Property Name="FlagStateId" Type="Int32" />
+          <Property Name="IMONumber" Type="Int32" />
+          <Property Name="CallSign" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MMSI" Type="Int32" />
+          <Property Name="GrossTonnage" Type="Int32" />
+          <Property Name="NetTonnage" Type="Int32" />
+          <Property Name="OfficeId" Type="Int32" />
+          <Property Name="TechnicalManagerId" Type="Int32" />
+          <Property Name="SuperintendentId" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelivered" Type="Boolean" Nullable="false" />
+          <Property Name="FleetId" Type="Int32" />
+          <Property Name="YardNo" Type="Int32" />
+          <Property Name="OfficialNumber" Type="Int32" />
+          <Property Name="PortOfRegistryId" Type="Int32" />
+          <Property Name="SummerDeadweight" Type="Decimal" Precision="8" Scale="3" />
+          <Property Name="Lightweight" Type="Decimal" Precision="7" Scale="3" />
+          <Property Name="LOA" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="LBP" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="Beam" Type="Decimal" Precision="5" Scale="3" />
+          <Property Name="SummerDraft" Type="Decimal" Precision="7" Scale="5" />
+          <Property Name="BHP" Type="Int32" />
+          <Property Name="BowThruster" Type="Int32" />
+          <Property Name="BuildNumber" Type="Int32" />
+          <Property Name="Agent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ports" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TechnicalManagerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MinimumSafeManning" Type="Int32" />
+          <Property Name="MaximumPersonsLSA" Type="Int32" />
+          <Property Name="TotalBerths" Type="Int32" />
+          <Property Name="RegisteredOwners" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="HullAndMachineryId" Type="Int32" />
+          <Property Name="ProtectionAndIndemnityId" Type="Int32" />
+          <Property Name="Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SMCIsVerified" Type="Boolean" Nullable="false" />
+          <Property Name="MarineSoftwareNumber" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CE_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DataloyNumber" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SatC1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SatC2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Citadel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="P_I_Club" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ClassificationSociety" Relationship="IMOSModel.FK_CSShips_ClassificationSocieties" FromRole="CSShip" ToRole="ClassificationSociety" />
+        </EntityType>
+        <Association Name="FK_CSShips_ClassificationSocieties">
+          <End Type="IMOSModel.ClassificationSociety" Role="ClassificationSociety" Multiplicity="0..1" />
+          <End Type="IMOSModel.CSShip" Role="CSShip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassificationSociety">
+              <PropertyRef Name="ClassificationSocietyId" />
+            </Principal>
+            <Dependent Role="CSShip">
+              <PropertyRef Name="ClassificationSocietyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IMOSModelStoreContainer" CdmEntityContainer="IMOSEntities">
+          <EntitySetMapping Name="ClassificationSocieties">
+            <EntityTypeMapping TypeName="IMOSModel.ClassificationSociety">
+              <MappingFragment StoreEntitySet="ClassificationSocieties">
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="AbbreviatedName" ColumnName="AbbreviatedName" />
+                <ScalarProperty Name="ClassificationSocietyId" ColumnName="ClassificationSocietyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSShips">
+            <EntityTypeMapping TypeName="IMOSModel.CSShip">
+              <MappingFragment StoreEntitySet="CSShips">
+                <ScalarProperty Name="P_I_Club" ColumnName="P&amp;I Club" />
+                <ScalarProperty Name="Citadel" ColumnName="Citadel" />
+                <ScalarProperty Name="SatC2" ColumnName="SatC2" />
+                <ScalarProperty Name="SatC1" ColumnName="SatC1" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone3" ColumnName="Phone3" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="DataloyNumber" ColumnName="DataloyNumber" />
+                <ScalarProperty Name="CE_email" ColumnName="CE email" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MarineSoftwareNumber" ColumnName="MarineSoftwareNumber" />
+                <ScalarProperty Name="SMCIsVerified" ColumnName="SMCIsVerified" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="ProtectionAndIndemnityId" ColumnName="ProtectionAndIndemnityId" />
+                <ScalarProperty Name="HullAndMachineryId" ColumnName="HullAndMachineryId" />
+                <ScalarProperty Name="RegisteredOwners" ColumnName="RegisteredOwners" />
+                <ScalarProperty Name="TotalBerths" ColumnName="TotalBerths" />
+                <ScalarProperty Name="MaximumPersonsLSA" ColumnName="MaximumPersonsLSA" />
+                <ScalarProperty Name="MinimumSafeManning" ColumnName="MinimumSafeManning" />
+                <ScalarProperty Name="TechnicalManagerNotes" ColumnName="TechnicalManagerNotes" />
+                <ScalarProperty Name="Ports" ColumnName="Ports" />
+                <ScalarProperty Name="Agent" ColumnName="Agent" />
+                <ScalarProperty Name="BuildNumber" ColumnName="BuildNumber" />
+                <ScalarProperty Name="BowThruster" ColumnName="BowThruster" />
+                <ScalarProperty Name="BHP" ColumnName="BHP" />
+                <ScalarProperty Name="SummerDraft" ColumnName="SummerDraft" />
+                <ScalarProperty Name="Beam" ColumnName="Beam" />
+                <ScalarProperty Name="LBP" ColumnName="LBP" />
+                <ScalarProperty Name="LOA" ColumnName="LOA" />
+                <ScalarProperty Name="Lightweight" ColumnName="Lightweight" />
+                <ScalarProperty Name="SummerDeadweight" ColumnName="SummerDeadweight" />
+                <ScalarProperty Name="PortOfRegistryId" ColumnName="PortOfRegistryId" />
+                <ScalarProperty Name="OfficialNumber" ColumnName="OfficialNumber" />
+                <ScalarProperty Name="YardNo" ColumnName="YardNo" />
+                <ScalarProperty Name="FleetId" ColumnName="FleetId" />
+                <ScalarProperty Name="IsDelivered" ColumnName="IsDelivered" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="SuperintendentId" ColumnName="SuperintendentId" />
+                <ScalarProperty Name="TechnicalManagerId" ColumnName="TechnicalManagerId" />
+                <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
+                <ScalarProperty Name="NetTonnage" ColumnName="NetTonnage" />
+                <ScalarProperty Name="GrossTonnage" ColumnName="GrossTonnage" />
+                <ScalarProperty Name="MMSI" ColumnName="MMSI" />
+                <ScalarProperty Name="CallSign" ColumnName="CallSign" />
+                <ScalarProperty Name="IMONumber" ColumnName="IMONumber" />
+                <ScalarProperty Name="FlagStateId" ColumnName="FlagStateId" />
+                <ScalarProperty Name="ClassificationSocietyId" ColumnName="ClassificationSocietyId" />
+                <ScalarProperty Name="BuildYear" ColumnName="BuildYear" />
+                <ScalarProperty Name="BuildCountryId" ColumnName="BuildCountryId" />
+                <ScalarProperty Name="ShipClassId" ColumnName="ShipClassId" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShipId" ColumnName="ShipId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

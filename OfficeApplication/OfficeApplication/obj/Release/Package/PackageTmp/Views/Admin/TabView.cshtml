@@ -1,0 +1,51 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+            localStorage.setItem('activeTab', $(e.target).attr('href'));
+        });
+        var activeTab = localStorage.getItem('activeTab');
+        if (activeTab) {
+            $('#myTab a[href="' + activeTab + '"]').tab('show');
+        }
+        $('.nav-tabs .active a').click();
+    });
+    function loadTabContent(containerId, url) {
+        // JSL 02/05/2023
+        $(".tab-pane").empty(); 
+        $(containerId).empty();
+        // End JSL 02/05/2023
+
+        if (decodeURIComponent(url).indexOf("#") < 0) {
+            $(containerId).load(url, function (responseTxt, statusTxt, xhr) {
+                console.log(statusTxt);
+            });
+        }
+    }   
+</script>
+
+@{ 
+    var userGroupMenuList = (List<OfficeApplication.BLL.Modals.Menus>)Session["UserGroupMenuPermission"];
+    if (userGroupMenuList != null)
+    {
+        userGroupMenuList = userGroupMenuList.Where(x => x.ParentId == 7 && Convert.ToString(x.MenuType).ToLower() == "tabview").OrderBy(x => x.DisplayOrder).ToList();
+    }
+    else
+    {
+        userGroupMenuList = new List<OfficeApplication.BLL.Modals.Menus>();
+    }
+    int iFirst = 0, iFirstContent = 0;
+}
+<ul class="nav nav-tabs" id="myTab">
+    @foreach (var item in userGroupMenuList)
+    {
+        <li class="nav @(iFirst++ == 0 ? " active":"") "><a href="#@item.MenuId" onclick="loadTabContent('#@item.MenuId','@Url.Action(item.ActionName,item.ControllerName)')" data-toggle="tab">@item.MenuText</a></li>
+    }   
+</ul>
+<div class="tab-content">
+    @foreach (var item in userGroupMenuList)
+    {
+        <div id="@item.MenuId" class="tab-pane @(iFirstContent++ == 0 ? " active in" : "")">            
+        </div>             
+    }   
+</div>
+

@@ -1,0 +1,462 @@
+﻿@model OfficeApplication.BLL.Modals.GeneralInspectionReport
+<style>
+    .content-wrapper {
+        overflow: hidden !important;
+    }
+
+</style>
+<script type="text/javascript">
+  
+    $(document).ready(function () {
+        var height = $(window).height();
+        $(".leftContent").height(height - 60);
+        $(".rightContent").height(height - 60);
+        $(".SectionComplete").hide();
+        $(".NavButton").click(function () {
+            var lblValue = $(this).attr("data-lbl-text");
+            var hideSection = $(this).attr("data-lbl-show");
+            $(".PageSection").hide();
+            $("." + hideSection).show();
+            $("#lblSubHeading").text(lblValue);
+            $(".leftContent").animate({ scrollTop: 0 }, "fast");
+        })
+
+        var IsLoadDefect = getUrlVars()["isDefectSection"];
+        if (IsLoadDefect == "true" && IsLoadDefect != undefined) {
+            $("#DeficienciesSection").trigger('click');
+        }
+
+    });
+    function getUrlVars() {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
+
+    function printDiv() {
+        var className = $(".PageSection:Visible").attr("class");
+        className = className.replace("PageSection", "");
+        className = className.trim();
+        $(".SectionComplete").hide();
+        $(".aviodPrint").hide();
+        $("#lblInspector").html("<strong>Inspector: </strong>" + $("#Inspector").val());
+        $("#lblship").html("<strong>Ship :</strong>" + $("#ShipName").val());
+        $("#lblport").html("<strong>Port :</strong>" + $("#Port").val());
+        $("#lbldate").html("<strong>Date :</strong>" + $("#Date").val());
+        $("input[type=text]").each(function () {
+            var str = $(this).val();
+            $(this).attr('value', str);
+        });
+        $("textarea").each(function () {
+            var str = $(this).val();
+            $(this).text("");
+            $(this).append(str);
+        });
+        $("select").each(function (i) {
+            var objSelected = $(this).find('option:selected');
+            objSelected.attr('selected', 'selected');
+        });
+        var divToPrint = "";
+        $(".PageSection").show();
+        divToPrint = document.getElementById("forntpage").innerHTML;
+        divToPrint += document.getElementById('GIRContent').innerHTML;
+
+        var newWin = window.open('', 'Print-Window');
+        newWin.document.open();
+        var style = "@@media print {.breakDivPage { page-break-after: always; page-break-inside:auto   } }";
+        style += "@@page {size: auto;margin: 5%;}";
+        newWin.document.write('<html><head><title></title>');
+        newWin.document.write('<style>' + style + '</style>');
+        newWin.document.write('<link href="/ShipApplication/Content/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />');
+        newWin.document.write('<link href="/ShipApplication/Content/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />');
+        newWin.document.write('<link rel="stylesheet" href="/ShipApplication/Content/Custom/GIRForm.css" type="text/css" />');
+        newWin.document.write('<link href="/ShipApplication/Content/AdminLTE.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="/ShipApplication/Content/_all-skins.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="/ShipApplication/Content/Custom/SiteCustom.css" rel="stylesheet" />');
+        newWin.document.write('</head><body onload="window.print()">');
+
+        newWin.document.write(divToPrint);
+        newWin.document.write('</body></html>');
+        $(".aviodPrint").show();
+        newWin.document.close();
+        $(".PageSection").hide();
+        $("." + className).show();
+        setTimeout(function () { newWin.close(); }, 10);
+    }
+
+</script>
+<link href="~/Content/Custom/GIRForm.css" rel="stylesheet" />
+<style>
+    .glyphicon-remove {
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+
+    @@media only screen and (max-width: 991px) {
+        .col-md-10.leftContent {
+            float: left;
+            width: 80%;
+        }
+
+        .btn-default {
+            width: 100%;
+        }
+    }
+
+    @@media (min-width: 992px) {
+        .col-md-10.leftContent {
+            float: left;
+            width: 80%;
+        }
+
+        .rightContent {
+            width: 20%;
+        }
+    }
+</style>
+
+<section class="content" style="padding-top:0px;">
+    <div class="row">
+        <div class="col-md-10 leftContent" style="overflow:auto;">
+            <div class="row">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-6 text-center">
+                    <h3 style="margin-top:30px;">General Inspection Report</h3>
+                    <h5 id="lblSubHeading">General</h5>
+                </div>
+                <div class="col-md-3" style="margin-top:10px;">
+                    <p class="m-0"> Form: GIR</p>
+                    <p class="m-0">Issue No: 5-08/14</p>
+                    <p class="m-0">Amend No: 6-12/16</p>
+                </div>
+            </div>
+
+            <div style="display:none" id="forntpage">
+                <div class="row">
+                    <div class="col-md-12 text-center breakDivPage">
+                        <h3 style="margin-top:150px;">Carisbrooke Shipping Ltd</h3>
+                        <img src="~/Images/logo.png" />
+                        <h1 style="font-weight:bold">General Inspection Report</h1>
+                        <h5 style="margin-top:100px;" id="lblInspector"><strong>Inspector:</strong></h5>
+                        <h5 style="margin-top:100px;" id="lblship"><strong>Ship:</strong></h5>
+                        <h5 style="margin-top:100px;" id="lblport"><strong>Port:</strong></h5>
+                        <h5 style="margin-top:100px;" id="lbldate"><strong>Date:</strong></h5>
+                    </div>
+                </div>
+                <div class="SectionContent">
+                    <table class="table tblSection">
+                        <tr>
+                            <td width="30%" style="text-align:center;border:none!important;">
+                                <img src="~/Images/logo.png" style="width:50px" />
+                                <p>Carisbrooke Shipping</p>
+                            </td>
+                            <td width="50%" style="text-align:center; padding-top:25px !important;border:none!important;">
+                                <strong>General Inspection Report</strong>
+                            </td>
+                            <td width="20%" style="border:none!important;">
+                                <p class="m-0"> Form: GIR</p>
+                                <p class="m-0">Issue No: 5-08/14</p>
+                                <p class="m-0">Amend No: 6-12/16</p>
+                            </td>
+
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-12  breakDivPage">
+                        <table id="index">
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">1</td>
+                                <td style=" padding: 5px !important; border: none!important;">Index </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">2</td>
+                                <td style=" padding: 5px !important; border: none!important;">Preamble </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">3</td>
+                                <td style=" padding: 5px !important; border: none!important;">General Description  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">4</td>
+                                <td style=" padding: 5px !important; border: none!important;">Manning  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">5</td>
+                                <td style=" padding: 5px !important; border: none!important;">General Inspection  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">A</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Certification  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">B</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">List of Publications Held  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">C</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">List of Documentation / Records Kept  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">D</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Upkeep of Records  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">E</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Port / Flag State Inspection Reports  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">F</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Safety Equipment  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">G</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Security Equipment and Records  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">H</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Bridge  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">I</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Navigation  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">J</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Hospital and Medicine Locker  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">K</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;"> Galley  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">L</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Engine Room  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">M</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Accommodation Block and Poop Deck - External Standards  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">N</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Accommodation Block - Internal Standards  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">O</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Boarding Equipment  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">P</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Main Deck Area 12  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Q</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Cargo Holds, Hatch Covers, Cargo and/or Gantry Crane  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">R</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Forecastle Head  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">S</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Forecastle Space  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">T</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Hull  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">6</td>
+                                <td style=" padding: 5px !important; border: none!important;">Summary and Recommendations </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">7</td>
+                                <td style=" padding: 5px !important; border: none!important;">Deficiencies </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">8</td>
+                                <td style=" padding: 5px !important; border: none!important;">Photographs</td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <form id="GIRForm" name="GIRForm" method="post" action="@Url.Action("GeneralInspectionReport", "Forms")">
+                <div class="row" id="GIRContent">
+                    <div class="col-md-12">
+                        <div class="GeneralSection PageSection">
+                            @{Html.RenderPartial("_GIR_GeneralSection");}
+                        </div>
+                        <div class="ManningSection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_ManningSection");}
+                        </div>
+                        <div class="ShipCertificationSection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_ShipCertificationSection");}
+                        </div>
+                        <div class="PubsAndDocSection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_PubsAndDocSection");}
+                        </div>
+                        <div class="RecordKeepingSection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_RecordKeepingSection");}
+                        </div>
+                        <div class="SafetyEquipmentSection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_SafetyEquipmentSection");}
+                        </div>
+                        <div class="SecuritySection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_SecuritySection");}
+                        </div>
+                        <div class="BridgeSection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_BridgeSection");}
+                        </div>
+                        <div class="MedicalSection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_MedicalSection");}
+                        </div>
+                        <div class="GalleySection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_GalleySection");}
+                        </div>
+                        <div class="EngineRoomSection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_EngineRoomSection");}
+                        </div>
+                        <div class="SuperstructureSection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_SuperstructureSection");}
+                        </div>
+                        <div class="DeckSection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_DeckSection");}
+                        </div>
+                        <div class="HoldsAndCoverSection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_HoldsAndCoverSection");}
+                        </div>
+                        <div class="ForeCastleSection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_ForeCastleSection");}
+                        </div>
+                        <div class="HullSection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_HullSection");}
+                        </div>
+                        <div class="SummarySection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_SummarySection");}
+                        </div>
+                        <div class="DeficienciesSection PageSection" style="display:none;">
+                            @{Html.RenderPartial("_GIR_DeficienciesSection");}
+                        </div>
+                        <div class="PhotographsSection PageSection aviodPrint" style="display:none;">
+                            @{Html.RenderPartial("_GIR_PhotographsSection");}
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-primary" style="display:none" onclick="printDiv()">
+                            Print
+                        </button> &nbsp;&nbsp;
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-2 rightContent p-l-r-0" style="overflow:auto;">
+            <div class="col-md-12 p-l-r-0 text-center">
+                <h3>Form Assistance</h3>
+            </div>
+            <div class="col-md-12 p-l-r-0 text-center">
+                <h4>Navigation</h4>
+                <br />
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="GeneralSection" id="GeneralSection" data-lbl-text="General">General</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="ManningSection" id="ManningSection" data-lbl-text="Manning">Manning</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="ShipCertificationSection" id="ShipCertificationSection" data-lbl-text="Ship Certification">Ship Certification</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="PubsAndDocSection" id="PubsAndDocSection" data-lbl-text="List of Publications and Documnets">Pubs and Docs</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="RecordKeepingSection" id="RecordKeepingSection" data-lbl-text="Record Keeping">Record Keeping</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="SafetyEquipmentSection" id="SafetyEquipmentSection" data-lbl-text="Safety Equipment">Safety Equipment</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="SecuritySection" id="SecuritySection" data-lbl-text="Security Equipment and Records">Security</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="BridgeSection" id="BridgeSection" data-lbl-text="Bridge and Navigation">Bridge</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="MedicalSection" id="MedicalSection" data-lbl-text="Hospital and Medical Locker">Medical</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="GalleySection" id="GalleySection" data-lbl-text="Galley">Galley</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="EngineRoomSection" id="EngineRoomSection" data-lbl-text="Engine Room">Engine Room</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="SuperstructureSection" id="SuperstructureSection" data-lbl-text="Superstructure and Deck - Standards">Superstructure</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="DeckSection" id="DeckSection" data-lbl-text="Boarding Equipment and Main Deck">Deck</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="HoldsAndCoverSection" id="HoldsAndCoverSection" data-lbl-text="Holds and Hatch Covers">Holds and Covers</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="ForeCastleSection" id="ForeCastleSection" data-lbl-text="Forecastle">Forecastle</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="HullSection" id="HullSection" data-lbl-text="Hull">Hull</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="SummarySection" id="SummarySection" data-lbl-text="Summary and Recommendations">Summary</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="DeficienciesSection" id="DeficienciesSection" data-lbl-text="Deficiencies">Deficiencies</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton" data-lbl-show="PhotographsSection" id="PhotographsSection" data-lbl-text="Photographs">Photographs</button>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?mso-infoPathSolution PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" solutionVersion="6.0.0.0" productVersion="15.0.0" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<my:Main xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata"
+xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10"
+xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-gb">
+  <my:Details>
+    <my:Ship />
+    <my:Number>G 16</my:Number>
+    <my:Date>2015-06-17</my:Date>
+    <my:Title>Young Seafarer</my:Title>
+  </my:Details>
+  <my:Hazards>
+    <my:Hazard my:HazardId="1">
+      <my:Description>Improper preparation of workplace</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>3</my:RiskFactor>
+      <my:ControlMeasures>a) Working areas must be clear of hazardous materials and items that can cause potential harm; 
+b) When conducting jobs that pose a risk to the seafarer, the appropriate risk assessment must be consulted prior to work commencing;
+c) All working spaces must have adequate illumination; 
+d) Consideration must be given to weather conditions when working outside e.g., water on deck, pitching / rolling moments; 
+e) Equipment, not in use, should be stowed appropriately to avoid interference with operations.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="2">
+      <my:Description>Equipment</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>3</my:RiskFactor>
+      <my:ControlMeasures>a) Consult specific task risk assessment; 
+b) At all times the prescribed instruments / tools must be in use; 
+c) Use of appropriate PPE through out every operation; 
+d) Damaged equipment should be removed and not used; 
+e) If correct equipment is not available then the task cannot be undertaken.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="3">
+      <my:Description>Organisation of processes and activities</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>4</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Operation must be carefully planned and all crew briefed before starting; 
+b) All equipment thoroughly checked prior to use; 
+c) Adequate number of crew available; 
+d) Take into account the inexperience of a young person; 
+e) Young persons must at all times be supervised by an experienced member of crew.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>2</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="4">
+      <my:Description>Health and safety training</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Crew made aware of any physical and / or mental risks associated with the job in hand; 
+b) Crew instructed how to safely operate all equipment intended for use; 
+c) Person in charge to monitor physical and mental health of young person at regular intervals; 
+d) More frequent breaks to be considered.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="5">
+      <my:Description>Risks from physical, biological and chemical agents</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) If a task is detailed as being &#39;Prohibited for Young Seafarers&#39; in the General Guidance book then this must be obeyed and the task must not be undertaken. 
+b) If the task involves any risk from agents, work and processes as outlined in the General Guidance for Young Persons / Seafarers then the task is prohibited unless being performed under direct supervision of a competent person and forming part of an established training programme. 
+c) A Health assessment must be conducted before and at regular intervals during a prohibited task, as per General Guidance for Young Persons / Seafarers.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="6">
+      <my:Description>Working at night</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) Night work is only permitted when in accordance with an established training program. 
+b) RWH regulations are different for Young Persons - MLC 2006 - Title 2, Regulation 2.3. 
+c) A Health assessment must be conducted before and at regular intervals during night work, as per General Guidance for Young Persons /Seafarers.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>2</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="7">
+      <my:Description>Insufficient awareness of physical and / or mental risks</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>4</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>If the Young Person is not aware of the physical and or mental risks associated with the task then they are not to undertake the work.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>2</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+  </my:Hazards>
+  <my:Review>
+    <my:ReviewerName />
+    <my:ReviewerRank />
+    <my:ReviewDate />
+    <my:ReviewLocation /><my:ReviewMembers/>
+  </my:Review>
+  <my:Header>
+    <my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+    <my:HeaderSummary />
+    <my:HeaderCode>RAF</my:HeaderCode>
+    <my:HeaderIssueNumber>5</my:HeaderIssueNumber>
+    <my:HeaderIssueDate>05/14</my:HeaderIssueDate>
+    <my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+    <my:HeaderAmmendmentDate />
+    <my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+  </my:Header>
+  <my:Footer>Risk Assessment: G 16 - Young Seafarer</my:Footer>
+</my:Main>

@@ -1,0 +1,546 @@
+﻿@{
+    ViewBag.Title = "Deficiencies Details";
+}
+<style>
+    .upload {
+        display: inline;
+        padding: 0.2em 1.6em 0.3em;
+        font-size: 116%;
+        font-weight: 700;
+        line-height: 3;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25em;
+    }
+
+    .pink.lighten-2 {
+        background-color: #0097a7 !important;
+    }
+
+        .pink.lighten-2 a {
+            color: #ffffff !important;
+        }
+
+    .chip {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba(0,0,0,.6);
+        line-height: 32px;
+        padding: 0 12px;
+        -webkit-border-radius: 16px;
+        border-radius: 16px;
+        background-color: #eceff1;
+        margin-right: 1px;
+        margin-bottom: 1px;
+        cursor: pointer;
+        -webkit-transition: all .3s linear;
+        -o-transition: all .3s linear;
+        transition: all .3s linear;
+    }
+
+    .close:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+
+    .chip .close {
+        cursor: pointer;
+        float: right;
+        font-size: 16px;
+        line-height: 32px;
+        padding-left: 8px;
+        -webkit-transition: all .1s linear;
+        -o-transition: all .1s linear;
+        transition: all .1s linear;
+    }
+
+    .text-info {
+        width: 15px;
+    }
+
+    .input-group {
+        width: 100%;
+    }
+
+    .orders td, #DetailsGrid td {
+        border-style: solid;
+        border-width: 0 0 1px 1px;
+    }
+
+    .form-inline .form-control {
+        height: auto;
+    }
+
+    .gir-content {
+        padding: 0px !important;
+    }
+
+        .gir-content .box-body {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            padding-top: 10px !important;
+        }
+
+    .well .box-header {
+        padding: 0px !important;
+    }
+
+    .content {
+        padding-top: 5px;
+    }
+    /*new-style*/
+    .chip {
+        /*display: flex;*/
+    }
+
+        .chip a {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: auto;
+        }
+
+    .for-tag {
+        display: flex;
+    }
+
+        .for-tag label {
+            height: 34px;
+            line-height: 35px !important;
+            padding: 0 !important;
+            min-width: 120px;
+            margin: 0;
+        }
+
+    .individual-tag {
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+
+    .Intifile, .employeeFile, .resultionfile {
+        display: none !important;
+    }
+
+    .clstag-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .add-btn {
+        margin-top: 10px;
+    }
+
+    .gir-content {
+        height: auto !important;
+    }
+
+    .headerdetails {
+        padding: 0px;
+        max-width: 80%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        .headerdetails li span {
+            display: inline-block
+        }
+
+            .headerdetails li span:first-child {
+                margin-right: 10px;
+                min-width: 140px;
+            }
+
+        .headerdetails li {
+            list-style: none;
+            width: 48%;
+        }
+
+    .back-btn {
+        position: absolute;
+        top: 0;
+        right: 50px;
+    }
+
+    .header-inner-common {
+        position: relative;
+    }
+    /*RDBJ 10/16/2021 Added notification class*/
+    .notification {
+        background-color: rgba(212, 19, 13, 1);
+        color: #fff;
+        border-radius: 3px;
+        padding: 5px 5px;
+        font: 9px Verdana;
+    }
+
+    /* RDBJ2 02/23/2022 */
+    li.active {
+        font-weight: bold;
+    }
+
+    .datepicker {
+        cursor: pointer;
+    }
+    /* End RDBJ2 02/23/2022 */
+
+    /* JSL 06/27/2022 */
+    .fadeOutBackGroundColourOfNotification {
+        background-color: rgb(165, 229, 255, 1);
+        color: black;
+        animation: fade 6s forwards;
+    }
+
+    @@-webkit-keyframes fade {
+        from {
+            background-color: rgb(165, 229, 255, 1);
+        }
+
+        to {
+            background-color: rgb(165, 229, 255, 0);
+        }
+    }
+    /* JSL 06/27/2022 */
+
+    /* JSL 12/03/2022 */
+    .imgClass {
+        /*border: 1px solid #ddd;*/
+        border-radius: 4px;
+        padding: 5px;
+        object-fit: cover;
+    }
+
+        .imgClass:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+        }
+
+    .box {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 5px;
+    }
+
+    .item {
+        width: 31.33%;
+        position: relative;
+        /*padding: 5px;*/
+        display: block;
+        border: 1px solid #ddd;
+        margin: 7px;
+    }
+
+    .img {
+        opacity: 1;
+        display: block;
+        width: 100%;
+        height: 450px;
+        transition: .5s ease;
+        backface-visibility: hidden;
+    }
+
+    .info-box {
+        cursor: pointer;
+    }
+
+    .downloadFileBtn {
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    /* End JSL 12/03/2022 */
+
+    /* JSL 10/12/2022 */
+    @@keyframes blink {
+        0% {
+            box-shadow: 0 0 20px #EC7A44;
+        }
+
+        50% {
+            box-shadow: none;
+        }
+
+        100% {
+            box-shadow: 0 0 20px #EC7A44;
+        }
+    }
+
+    @@-webkit-keyframes blink {
+        0% {
+            box-shadow: 0 0 20px #EC7A44;
+        }
+
+        50% {
+            box-shadow: 0 0 0;
+        }
+
+        100% {
+            box-shadow: 0 0 20px #EC7A44;
+        }
+    }
+
+    .blink {
+        -webkit-animation: blink 1.0s linear infinite;
+        -moz-animation: blink 1.0s linear infinite;
+        -ms-animation: blink 1.0s linear infinite;
+        -o-animation: blink 1.0s linear infinite;
+        animation: blink 1.0s linear infinite;
+    }
+    /* End JSL 10/12/2022 */
+</style>
+
+@* JSL 12/03/2022 *@
+<link href="~/Content/lightgallery/css/lightgallery.css" rel="stylesheet" />
+<link href="~/Content/lightgallery/css/lightgallery-bundle.css" rel="stylesheet" />
+
+<script src="~/Content/lightgallery/lightgallery.umd.js"></script>
+<script src="~/Content/lightgallery/plugins/fullscreen/lg-fullscreen.umd.js"></script>
+<script src="~/Content/lightgallery/plugins/relativeCaption/lg-relative-caption.umd.js"></script>
+<script src="~/Content/lightgallery/plugins/rotate/lg-rotate.umd.js"></script>
+<script src="~/Content/lightgallery/plugins/thumbnail/lg-thumbnail.umd.js"></script>
+<script src="~/Content/lightgallery/plugins/zoom/lg-zoom.umd.js"></script>
+@* End JSL 12/03/2022 *@
+
+
+<script>
+    var RootUrl = '@Url.Content("~/")';
+    var vbUserGroup = '@ViewBag.UserGroup'; // RDBJ 12/18/2021
+    var strCurrentUserName = '@Request.RequestContext.HttpContext.Session["Name"]'; // RDBJ 01/05/2022
+</script>
+<script src="~/Scripts/Custom/DeficienciesDetails.js?v=01082023"></script>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header" id="divHeaderDetail">
+
+                </div>
+                <div class="box-body">
+                    <input type="hidden" id="UniqueFormID" value="" />
+                    <section class="content gir-content" style="padding-bottom:0px">
+                        <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
+                            <li class="nav-item active">
+                                <a class="nav-link active" id="detail-content-below-tab" onclick="tabChangeLoadGridData('Details', this);" data-toggle="pill" href="#detail-content-below" role="tab" aria-controls="detail-content-below" aria-selected="true">Details</a>
+                            </li>
+                            @* RDBJ 10/16/2021 Added style on li, Add 'this' for tabChangeLoadGridData, Added span inside anchor to display notification counts *@
+                            <li class="nav-item" style="display:flex;">
+                                <a class="nav-link" id="initialaction-content-below-tab" onclick="tabChangeLoadGridData('InitialActions', this);" data-toggle="pill" href="#initialaction-content-below" role="tab" aria-controls="initialaction-content-below" aria-selected="false">
+                                    @* RDBJ 12/20/2021 Replace with Corrective Action *@
+                                    @*Initial Actions*@
+                                    Corrective Action
+                                    @* RDBJ 03/01/2022 Remove notification class *@
+                                    <span id="notificationInitialActionsCounter" class=""></span>
+                                </a>
+                            </li>
+                            @* RDBJ 10/16/2021 Added style on li, Add 'this' for tabChangeLoadGridData, Added span inside anchor to display notification counts *@
+                            <li class="nav-item" style="display:flex;">
+                                <a class="nav-link" id="comments-content-below-tab" onclick="tabChangeLoadGridData('Comments', this);" data-toggle="pill" href="#comments-content-below" role="tab" aria-controls="comments-content-below" aria-selected="false">
+                                    Comments
+                                    @* RDBJ 03/01/2022 Remove notification class *@
+                                    <span id="notificationCommentsCounter" class=""></span>
+                                </a>
+                            </li>
+                            @* JSL 07/05/2022 added class hide RDBJ 10/16/2021 Added style on li, Add 'this' for tabChangeLoadGridData, Added span inside anchor to display notification counts *@
+                            <li class="nav-item hide" style="display:flex;">
+                                <a class="nav-link" id="resolution-content-below-tab" onclick="tabChangeLoadGridData('Resolution', this);" data-toggle="pill" href="#resolution-content-below" role="tab" aria-controls="resolution-content-below" aria-selected="false">
+                                    Resolution
+                                    @* RDBJ 03/01/2022 Remove notification class *@
+                                    <span id="notificationResolutionsCounter" class=""></span>
+                                </a>
+                            </li>
+                            @* JSL 07/09/2022 added class hide and moved into details tab *@
+                            <li class="nav-item hide">
+                                <a class="nav-link" id="priority-content-below-tab" onclick="tabChangeLoadGridData('Priority', this);" data-toggle="pill" href="#priority-content-below" role="tab" aria-controls="priority-content-below" aria-selected="false">Priority</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="custom-content-below-tabContent">
+                            <div class="tab-pane fade in active" id="detail-content-below" role="tabpanel" aria-labelledby="detail-content-below-tab">
+                                <div class="box-body">
+                                    <div id="detailGrid"></div>
+                                    @* JSL 12/10/2022 *@
+                                    <br />
+                                    <div id="defAttachment" class="container-fluid box"></div>
+                                    @* End JSL 12/10/2022 *@
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="comments-content-below" role="tabpanel" aria-labelledby="comments-content-tab">
+                                <div class="box-body">
+                                    <div id="commentGrid"></div><br />
+                                    @* JSL 12/21/2022 wrapped in div *@
+                                    <div id="commentForm" class="">
+                                        <form>
+                                            <label style="font-weight:400;color: #3c8dbc;">Add new comment</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-comment text-info"></i></span>
+                                                <textarea class="form-control comment" rows="2" id="comment"></textarea>
+                                            </div>
+                                            <br />
+                                            <div class="inner-form" style="display:flex; justify-content:space-between;">
+                                                <div class="input-group" style="flex:1">
+                                                    <span class="input-group-addon"><i class="fa fa-user text-info"></i></span>
+                                                    @* RDBJ 01/05/2022 Set Readonly username *@
+                                                    <input type="text" class="form-control name" id="Name" value="@Request.RequestContext.HttpContext.Session["Name"]" readonly placeholder="Name">
+                                                </div>
+                                                <div class="input-group for-tag" style="margin-left: 15px; max-width: 50%; width: 100%;">
+                                                    <label for="employeeFile" class="label label-primary upload">Upload File</label>
+                                                    <input id="employeeFile" multiple onchange="fileUpload(this)" style="visibility:hidden;height:4px;" type="file" class="employeeFile">
+                                                    <div id="comment-list" class="clstag-list"></div>
+                                                </div>
+                                            </div>
+                                            <div class="add-btn">
+                                                @* JSL 06/25/2022 added class btn-success *@
+                                                <input type="button" onclick="AddNotes(this)" value="Add" class="btn btn-success">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    @* End JSL 12/21/2022 wrapped in div *@
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="initialaction-content-below" role="tabpanel" aria-labelledby="initialaction-content-tab">
+                                <div class="box-body">
+                                    <div id="initialActionGrid"></div><br />
+                                    @* JSL 07/23/2022 removed hide class JSL 07/18/2022 added hide class to avoid add *@
+                                    <div id="initialActionForm" class="">
+                                        <form>
+                                            <label style="font-weight:400;color: #3c8dbc;">Add new comment</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-comment text-info"></i></span>
+                                                <textarea class="form-control description" rows="2" id="description"></textarea>
+                                            </div>
+                                            <br />
+                                            <div class="inner-form" style="display:flex; justify-content:space-between;">
+                                                <div class="input-group" style="flex:1">
+                                                    <span class="input-group-addon"><i class="fa fa-user text-info"></i></span>
+                                                    @* RDBJ 01/05/2022 Set Readonly username *@
+                                                    <input type="text" class="form-control name" id="Name" value="@Request.RequestContext.HttpContext.Session["Name"]" readonly placeholder="Name">
+                                                </div>
+                                                <div class="input-group for-tag" style="margin-left: 15px; max-width: 50%; width: 100%;">
+                                                    <label for="file" class="label label-primary upload">Upload File</label>
+                                                    <input id="file" multiple onchange="fileUpload(this)" style="visibility:hidden;height:4px;" type="file" class="Intifile">
+                                                    <div id="intial-list" class="clstag-list"></div>
+                                                </div>
+                                            </div>
+                                            <div class="add-btn">
+                                                @* JSL 06/25/2022 added class btn-success *@
+                                                <input type="button" onclick="AddInitialDetails(this)" value="Add" class="btn btn-success">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane fade" id="resolution-content-below" role="tabpanel" aria-labelledby="resolution-content-tab">
+                                <div class="box-body">
+                                    <div id="resolutionGrid"></div><br />
+                                    <div id="resolutionForm">
+                                        <form>
+                                            <label style="font-weight:400;color: #3c8dbc;">Add new comment</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-comment text-info"></i></span>
+                                                <textarea class="form-control resolution" rows="2" id="resolution"></textarea>
+                                            </div>
+                                            <br />
+                                            <div class="inner-form" style="display:flex; justify-content:space-between;">
+                                                <div class="input-group" style="flex:1">
+                                                    <span class="input-group-addon"><i class="fa fa-user text-info"></i></span>
+                                                    @* RDBJ 01/05/2022 Set Readonly username *@
+                                                    <input type="text" class="form-control name" id="Name" value="@Request.RequestContext.HttpContext.Session["Name"]" readonly placeholder="Name">
+                                                </div>
+                                                <div class="input-group for-tag" style="margin-left: 15px; max-width: 50%; width: 100%;">
+                                                    <label for="resultionfile" class="label label-primary upload">Upload File</label>
+                                                    <input id="resultionfile" multiple onchange="fileUpload(this)" style="visibility:hidden;height:4px;" type="file" class="resultionfile">
+                                                    <div id="resoultion-list" class="clstag-list"></div>
+                                                </div>
+                                            </div>
+                                            <div class="add-btn">
+                                                @* JSL 06/25/2022 added class btn-success *@
+                                                <input type="button" onclick="AddResolution(this)" value="Add" class="btn btn-success">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="priority-content-below" role="tabpanel" aria-labelledby="priority-content-tab">
+                                <div class="box-body">
+                                    <div id="priorityGrid">
+                                        @* RDBJ 02/28/2022 Commented *@
+                                        @* RDBJ 11/02/2021 Implement *@
+                                        @*<div class="form-row">
+                                                <div class="form-group col-md-6" style="display:flex;">
+                                                    <label class="mr-sm-2" style="padding-top:7px; padding-right:5px;">Weeks: </label>
+                                                    <select class="DeficiencyPriority form-control" id="DeficiencyPriority" onchange="AddPriority(this)" style="width:auto;">
+                                                        <option value="12">12</option>
+                                                        <option value="8">8</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                            </div>*@
+                                        @* End RDBJ 02/28/2022 Commented *@
+
+                                        @* RDBJ 02/28/2022 *@
+                                        <table class="table table-bordered" style="width: 100% !important">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="col-md-2" style="width: 250px;" valign="top">Weeks :</td>
+                                                    <td>
+                                                        <select class="DeficiencyPriority form-control" id="DeficiencyPriority" onchange="AddPriority()" style="width:auto;">
+                                                            <option value="12">12</option>
+                                                            <option value="8">8</option>
+                                                            <option value="4">4</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-md-2" style="width: 250px;" valign="top"> Due Date :</td>
+                                                    <td>
+                                                        <div class="form-group has-feedback" style="width: 180px;">
+                                                            <input type="text" class="form-control datepicker txtDueDate" onchange="AddPriority()" autocomplete="off" />
+                                                            <span class="form-control-feedback arrivalCalendarAddon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        @* RDBJ 02/28/2022 *@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade aviodPrint" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Files types are not supported</h4>
+            </div>
+            <div class="modal-body">
+                @* JSL 01/08/2023 *@
+                <p id="fileTypeError"></p>
+                <p id="fileSizeError"></p>
+                <p id="fileNameError"></p>
+                @* End JSL 01/08/2023 *@
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

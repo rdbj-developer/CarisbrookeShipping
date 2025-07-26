@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="yes"?>
+<Ranks>
+	<Rank RankId="2">Master</Rank>
+	<Rank RankId="3">Chief Engineer</Rank>
+	<Rank RankId="4">Chief Officer</Rank>
+	<Rank RankId="5">Second Officer</Rank>
+	<Rank RankId="6">Second Engineer</Rank>
+	<Rank RankId="7">Third Officer</Rank>
+	<Rank RankId="8">Third Engineer</Rank>
+	<Rank RankId="9">Junior Officer</Rank>
+    <Rank RankId="20">Jnr / 4th Engineer</Rank>
+	<Rank RankId="10">Key AB / Bosun</Rank>
+	<Rank RankId="11">AB</Rank>
+	<Rank RankId="12">OS</Rank>
+	<Rank RankId="13">Oiler / Wiper</Rank>
+	<Rank RankId="14">Cook</Rank>
+	<Rank RankId="15">OS/Cook</Rank>
+	<Rank RankId="16">Deck Cadet</Rank>
+	<Rank RankId="17">Engine Cadet</Rank>
+	<Rank RankId="18">Deck Boy</Rank>
+	<Rank RankId="19">Engine Boy</Rank>
+</Ranks>

@@ -1,0 +1,286 @@
+﻿<div class="SectionInstructions breakDiv aviodPrint">
+    <div class="instruction m-10">
+        <p class="m-5">Instructions</p>
+        <ul>
+            <li>
+                Use the buttons on the right hand side to switch between different sections of the report.
+            </li>
+            <li> Complete each section fully </li>
+            <li>When all sections are completed use the "Submit" button to email the form directly to the ISM department.</li>
+        </ul>
+    </div>
+    <div class="instruction m-10">
+        <p class="m-5">Notes</p>
+        <ul>
+            <li>If the form is too large to email you will be requested to transfer to form the FTP server and you will be given and option to send an email informing the ISM department that you have done so. Alternatively you can reduce the number of attachments and try again.</li>
+            <li> If the form is not saved when attempting to submit you will be prompted to save it. If you do not save the form it will not be submitted. </li>
+        </ul>
+    </div>
+</div>
+<div class="Section breakDiv">
+    <div class="SectionHead">
+        <u>Section 1</u> - General Details
+    </div>
+    <div class="SectionContent">
+        <table class="table tblSection">
+            <tr>
+                <td width="10%"><p class="m-5">Ship:</p></td>
+                <td width="40%">
+                    <div class="form-group has-feedback">
+                        <select class="form-control  col-md-12 GIRData" name="Ship" id="Child">
+                            @if (ViewBag.ships != null && ViewBag.ships.Items != null)
+                            {
+                                foreach (var item in ViewBag.ships.Items)
+                                {
+                                    if (ShipApplication.BLL.Helpers.SessionManager.ShipName.ToUpper() == item.Name.ToUpper())
+                                    {
+                                        <option value="@item.Code" selected>@item.Name</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.Code">@item.Name</option>
+                                    }
+                                }
+                            }
+                        </select>
+                        @*<input type="hidden" id="Child" name="Ship" />*@
+                        @*<input type="text" class="col-md-12 form-control GIRData" value="@ShipApplication.BLL.Helpers.SessionManager.ShipName" readonly />*@
+                        <input type="hidden" name="ShipName" id="ShipName" />
+                        <span class="form-control-feedback">
+                            @*<label class="text-danger">*</label>*@ @*RDBJ 10/08/2021 Commented*@
+                        </span>
+                    </div>
+                </td>
+                <td width="10%"><p class="m-5">Port:</p></td>
+                <td width="40%">
+                    <div class="form-group has-feedback">
+                        <input type="text" class="col-md-12 form-control GIRData" id="Port" name="Port" />
+                        <span class="form-control-feedback">
+                            <label id="lblErrorPort" class="text-danger">*</label>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="10%"><p class="m-5">Inspector:</p></td>
+                <td width="40%">
+                    <div class="form-group has-feedback">
+                        @*<select class="col-md-12 form-control GIRData" id="Inspector" name="Inspector">
+                            <option value=""></option>
+                            <option>Angus Tapp</option>
+                            <option>Bogdan Cojocaru</option>
+                            <option>Bogdan Sokolowski</option>
+                            <option>Krzysztof Nowaczyk</option>
+                            <option>Zbigniew Strzyga</option>
+                            <option>Jon Gray</option>
+                        </select>*@
+                        
+                        <input type="text" class="col-md-12 form-control GIRData" id="Inspector" name="Inspector" value="@ShipApplication.BLL.Helpers.SessionManager.UserFullName" readonly />
+                        <span class="form-control-feedback">
+                            @*<label class="text-danger">*</label>*@ @*RDBJ 10/08/2021 Commented*@
+                        </span>
+                    </div>
+                </td>
+                <td width="10%"><p class="m-5">Date:</p></td>
+                <td width="40%">
+                    <div class="form-group has-feedback">
+                        <input type="text" id="Date" class="col-md-12 form-control GIRData" name="Date" />
+                        <span class="form-control-feedback arrivalCalendarAddon">
+                            <label id="lblErrorDate" class="text-danger">*</label> <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="Section breakDiv">
+    <div class="SectionHead ">
+        <u>Section 2</u> - General Preamble
+    </div>
+    <div class="SectionContent">
+        <table class="table tblSection">
+            <tr>
+                <td width="100%">
+                    <textarea class="col-md-12 form-control GIRData" id="GeneralPreamble" name="GeneralPreamble"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="Section breakDiv">
+    <div class="SectionHead" style="padding: 10px !important;">
+        <u>Section 3</u> - General Description
+        @* RDBJ 10/06/2021 Added Button *@
+        <button type="button" id="btnUpdateShipsDataCancel" class="btn btn-danger" style="display: none; float:right; padding: 0 10px 0 12px !important;">Cancel</button> @* RDBJ 10/07/2021 Added Cancel Button*@
+        <button type="button" id="btnUpdateShipsData" class="btn btn-info aviodPrint" style="float: right; margin-right: 10px !important; padding: 0 10px 0 10px !important;">Edit Ships Data</button>
+    </div>
+    <div class="SectionContent">
+        <table class="table tblSection">
+            @* RDBJ 10/06/2021 Updated all name with CSShipsModal *@
+            <tr>
+                <td width="20%"><p class="m-5">Class society:</p></td>
+                <td width="30%">
+                    @* RDBJ 01/11/2022 commented this below line *@
+                    @*<input type="text" name="CSShipsModal.ClassificationSocietyId" class="col-md-12 form-control" value="@Model.CSShipsModal.ClassificationSocietyId" readonly />*@
+                    
+                    @* RDBJ 01/11/2022 *@
+                    <input type="hidden" id="hdnClassificationSocietyId" name="CSShipsModal.ClassificationSocietyId" value="@Model.CSShipsModal.ClassificationSocietyId" />
+                    <select id="ClassificationSocietyId" name="ddlClassificationSocietyId" class="col-md-12 form-control" onchange="ddlOnChangeSetValueCommonFunction('ClassificationSocietyId');" disabled>
+                        @*<option value="1">BV - Bureau Veritas</option>
+                        <option value="2">GL - Germanisher Lloyd</option>
+                        <option value="3">LR - Lloyd's Register</option>
+                        <option value="4">RI - RINA</option>
+                        <option value="5">NKK - Nippon Kaiji Kyokai</option>*@
+                        <option value=""> --- Select --- </option>
+                        @if (ViewBag.ClassificationSociety != null)
+                        {
+                            int i = 0;
+                            foreach (var item in ViewBag.ClassificationSociety)
+                            {
+                                <option value="@i" @(item["selected"] == true ? "selected" : "")>@item["text"]</option>
+                                i++;
+                            }
+                        }
+                    </select>
+                    @* End RDBJ 01/11/2022 *@
+                </td>
+                <td width="20%"><p class="m-5">Year of Build:</p></td>
+                <td width="30%"><input type="text" name="CSShipsModal.BuildYear" class="col-md-12 form-control" value="@Model.CSShipsModal.BuildYear" readonly /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Flag:</p></td>
+                <td width="30%">
+                    @* RDBJ 01/11/2022 commented this below line *@
+                    @*<input type="text" name="CSShipsModal.FlagStateId" class="col-md-12 form-control" value="@Model.CSShipsModal.FlagStateId" readonly />*@
+                    
+                    @* RDBJ 01/11/2022 *@
+                    <input type="hidden" id="hdnFlagStateId" name="CSShipsModal.FlagStateId" value="@Model.CSShipsModal.FlagStateId" />
+                    <select id="FlagStateId" name="ddlFlagStateId" class="col-md-12 form-control" onchange="ddlOnChangeSetValueCommonFunction('FlagStateId');" disabled>
+                        @*<option value="1">GER - German</option>
+                        <option value="2">IOM - Isle of Man</option>
+                        <option value="3">UK - United Kingdom</option>
+                        <option value="4">MLT - Malta</option>
+                        <option value="5">MAR - Madeira</option>
+                        <option value="5">AB - Antigue &amp; Barbuda</option>
+                        <option value="5">LI - Liberia</option>*@
+                        <option value=""> --- Select --- </option>
+                        @if (ViewBag.FlagState != null)
+                        {
+                            int i = 0;
+                            foreach (var item in ViewBag.FlagState)
+                            {
+                                <option value="@i" @(item["selected"] == true ? "selected" : "")>@item["text"]</option>
+                                i++;
+                            }
+                        }
+                    </select>
+                    @* End RDBJ 01/11/2022 *@
+                </td>
+                <td width="20%"><p class="m-5">Class of vessel:</p></td>
+                <td width="30%"><input type="text" name="Classofvessel" class="col-md-12 form-control" readonly /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Port of registry:</p></td>
+                <td width="30%">
+                    @* RDBJ 01/11/2022 commented this below line *@
+                    @*<input type="text" name="CSShipsModal.PortOfRegistryId" class="col-md-12 form-control" value="@Model.CSShipsModal.PortOfRegistryId" readonly />*@
+                    
+                    @* RDBJ 01/11/2022 *@
+                    <input type="hidden" id="hdnPortOfRegistryId" name="CSShipsModal.PortOfRegistryId" value="@Model.CSShipsModal.PortOfRegistryId" />
+                    <select id="PortOfRegistryId" name="ddlPortOfRegistryId" class="col-md-12 form-control" onchange="ddlOnChangeSetValueCommonFunction('PortOfRegistryId');" disabled>
+                        @*<option value="1">Leer</option>
+                        <option value="2">Douglas</option>
+                        <option value="3">Cowes</option>
+                        <option value="4">Valletta</option>
+                        <option value="5">Madeira</option>
+                        <option value="6">St. John's</option>
+                        <option value="7">Panama</option>
+                        <option value="8">Liberia</option>*@
+                        <option value=""> --- Select --- </option>
+                        @if (ViewBag.PortOfRegistry != null)
+                        {
+                            int i = 0;
+                            foreach (var item in ViewBag.PortOfRegistry)
+                            {
+                                <option value="@i" @(item["selected"] == true ? "selected" : "")>@item["text"]</option>
+                                i++;
+                            }
+                        }
+                    </select>
+                    @* RDBJ 01/11/2022 *@
+                </td>
+                <td width="20%"><p class="m-5">MMSI:</p></td>
+                <td width="30%"><input type="text" name="CSShipsModal.MMSI" class="col-md-12 form-control" value="@Model.CSShipsModal.MMSI" readonly /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">IMO number:</p></td>
+                <td width="30%"><input type="text" name="CSShipsModal.IMONumber" class="col-md-12 form-control" value="@Model.CSShipsModal.IMONumber" readonly /> </td>
+                <td width="20%"><p class="m-5">Call sign:</p></td>
+                <td width="30%"><input type="text" name="CSShipsModal.CallSign" class="col-md-12 form-control" value="@Model.CSShipsModal.CallSign" readonly /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Summer DWT:</p></td>
+                <td width="30%"><input type="text" name="CSShipsModal.SummerDeadweight" class="col-md-12 form-control" value="@Model.CSShipsModal.SummerDeadweight" readonly /> </td>
+                <td width="20%"><p class="m-5">Gross tonnage:</p></td>
+                <td width="30%"><input type="text" name="CSShipsModal.GrossTonnage" class="col-md-12 form-control" value="@Model.CSShipsModal.GrossTonnage" readonly /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Lightweight:</p></td>
+                <td width="30%"><input type="text" name="CSShipsModal.Lightweight" class="col-md-12 form-control" value="@Model.CSShipsModal.Lightweight" readonly /> </td>
+                <td width="20%"><p class="m-5">Net tonnage:</p></td>
+                <td width="30%"><input type="text" name="CSShipsModal.NetTonnage" class="col-md-12 form-control" value="@Model.CSShipsModal.NetTonnage" readonly /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Beam:</p></td>
+                <td width="30%"><input type="text" name="CSShipsModal.Beam" class="col-md-12 form-control" value="@Model.CSShipsModal.Beam" readonly /> </td>
+                <td width="20%"><p class="m-5">LOA:</p></td>
+                <td width="30%"><input type="text" name="CSShipsModal.LOA" class="col-md-12 form-control" value="@Model.CSShipsModal.LOA" readonly /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Summer draft:</p></td>
+                <td width="30%"><input type="text" name="CSShipsModal.SummerDraft" class="col-md-12 form-control" value="@Model.CSShipsModal.SummerDraft" readonly /> </td>
+                <td width="20%"><p class="m-5">LBP:</p></td>
+                <td width="30%"><input type="text" name="CSShipsModal.LBP" class="col-md-12 form-control" value="@Model.CSShipsModal.LBP" readonly /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Bow thruster:</p></td>
+                <td width="30%"><input type="text" name="CSShipsModal.BowThruster" class="col-md-12 form-control" value="@Model.CSShipsModal.BowThruster" readonly /> </td>
+                <td width="20%"><p class="m-5">BHP:</p></td>
+                <td width="30%"><input type="text" name="CSShipsModal.BHP" class="col-md-12 form-control" value="@Model.CSShipsModal.BHP" readonly /></td>
+            </tr>
+            @* End RDBJ 10/06/2021 Updated all name with CSShipsModal *@
+            <tr>
+                <td width="20%"><p class="m-5">No. of holds:</p></td>
+                <td width="30%"><input type="text" name="Noofholds" class="col-md-12 form-control GIRData" /> </td>
+                <td width="20%"><p class="m-5">No. moveable bulkheads:</p></td>
+                <td width="30%"><input type="text" name="Nomoveablebulkheads" class="col-md-12 form-control GIRData" /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Containers:</p></td>
+                <td width="30%"><input type="text" name="Containers" class="col-md-12 form-control GIRData" /> </td>
+                <td width="20%"><p class="m-5">Cargo capacity:</p></td>
+                <td width="30%"><input type="text" name="Cargocapacity" class="col-md-12 form-control GIRData" /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Cargo handling equipment:</p></td>
+                <td width="80%" colspan="3"><textarea name="Cargohandlingequipment" class="col-md-12 form-control GIRData"></textarea></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Last voyage and cargo:</p></td>
+                <td width="80%" colspan="3"><textarea name="Lastvoyageandcargo" class="col-md-12 form-control GIRData"></textarea></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Current/Planned voyage and cargo:</p></td>
+                <td width="80%" colspan="3"><textarea name="CurrentPlannedvoyageandcargo" class="col-md-12 form-control GIRData"></textarea></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="SectionComplete">
+    <div class="checkbox">
+        <label>Section Complete?</label>
+        @* RDBJ 10/19/2021 Set Name and Value *@
+        <input type="checkbox" name="IsGeneralSectionComplete" style="margin-left:20px;" class="GIRData" value="true">
+    </div>
+</div>

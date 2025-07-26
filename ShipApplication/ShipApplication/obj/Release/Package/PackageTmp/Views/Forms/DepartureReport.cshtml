@@ -1,0 +1,331 @@
+﻿@using ShipApplication.BLL.Modals;
+@model ShipApplication.BLL.Modals.DepartureReportModal
+@{
+    ViewBag.Title = "DepartureReport";
+}
+
+<link rel="stylesheet" href="~/Content/Custom/ArrivalForm.css" />
+<script type="text/javascript" src="~/Scripts/jquery/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery/additional-methods.min.js"></script>
+<script type="text/javascript" src="~/Scripts/Custom/DepartureReportHandler.js?v3"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.time').inputmask('99:99', { 'placeholder': '00:00' })
+        var res = '@ViewBag.Result';
+        if (res == '@AppStatic.SUCCESS') {
+            $.notify("Departure Report Submitted Successfully", "success");
+        }
+        else if (res == '@AppStatic.ERROR') {
+            $.notify("Error occured while submitting Report !", "error");
+        }
+    });
+</script>
+
+<section class="content">
+    <form id="DepartureForm" name="DepartureForm" method="post" action="@Url.Action("SendDepartureReportMail", "Mail")">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="pwd">Ship Code</label><br />
+                    <span>@ShipApplication.BLL.Helpers.SessionManager.ShipCode</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Ship Name</label><br />
+                    <span>@ShipApplication.BLL.Helpers.SessionManager.ShipName</span>
+                    <input type="hidden" name="ShipName" value="@ShipApplication.BLL.Helpers.SessionManager.ShipName" />
+                    <input type="hidden" name="ShipCode" value="@ShipApplication.BLL.Helpers.SessionManager.ShipCode" />
+                    <input type="hidden" name="ReportCreated" value="@ShipApplication.BLL.Helpers.Utility.GetCurrentDateString()" />
+                    <input type="hidden" name="CreatedBy" value="@ShipApplication.BLL.Helpers.SessionManager.Username" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="pwd">Report created on</label><br />
+                    <span>@ShipApplication.BLL.Helpers.Utility.GetCurrentDateString()</span><br />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-4">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 nopaddingleftright" for="txtVoyageNo">Voyage no.</label>
+                        <input type="text" class="form-control" id="txtVoyageNo" name="VoyageNo" title="Only integers allowed" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <div class="form-group has-feedback">
+                        <label for="txtPortName">Port Name</label>
+                        <input type="text" class="form-control" id="txtPortName" name="PortName" title="Cannot be blank" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Cargo</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtDateCargoOperations">Date cargo operations completed</label>
+                        <input type="text" class="form-control" id="txtDateCargoOperations" name="DateCargoOperations" title="Only date or date and time allowed" />
+                        <span class="form-control-feedback arrivalCalendarAddon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtTimeCargoOperations">Time cargo operations completed</label>
+                        <input type="text" class="form-control time" id="txtTimeCargoOperations" name="TimeCargoOperations" placeholder="HH:MM" />
+                        <span class="form-control-feedback text-danger"><label></label></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtFuelOil">Cargo on board</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtCargoOnBoard" name="CargoOnBoard" />
+                        </div>
+                        <div class="col-sm-2 col-xs-2">t</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtFuelOil">Cargo loaded / discharged this port</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtCargoLoaded" name="CargoLoaded" />
+                        </div>
+                        <div class="col-sm-2 col-xs-2">t</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtFuelOil">Draft FWD</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtDraftFWD" name="DraftFWD" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">m</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtFuelOil">Draft AFT</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtDraftAFT" name="DraftAFT" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">m</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Departure</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtPOBDate">Pilot on board (POB) date</label>
+                        <input type="text" class="form-control" id="txtPOBDate" name="POBDate" title="Only date or date and time allowed" />
+                        <span class="form-control-feedback arrivalCalendarAddon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtPOBTime">Pilot on board (POB) time</label>
+                        <input type="text" class="form-control time" id="txtPOBTime" name="POBTime" placeholder="HH:MM" />
+                        <span class="form-control-feedback text-danger"><label></label></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtDepartureDate">Departure (unberthing) date</label>
+                        <input type="text" class="form-control" id="txtDepartureDate" name="DepartureDate" title="Only date or date and time allowed" />
+                        <span class="form-control-feedback arrivalCalendarAddon">
+                            <label class="text-danger">*</label> <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtDepartureTime">Departure (unberthing) time (LT)</label>
+                        <input type="text" class="form-control time" id="txtDepartureTime" name="DepartureTime" placeholder="HH:MM" title="Only time allowed" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtPOffDate">Pilot off (DOP) date</label>
+                        <input type="text" class="form-control" id="txtPOffDate" name="POffDate" />
+                        <span class="form-control-feedback">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtPOffTime">Pilot off (DOP) time</label>
+                        <input type="text" class="form-control time" id="txtPOffTime" name="POffTime" placeholder="HH:MM" />
+                        <span class="form-control-feedback text-danger"><label></label></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <label for="txtNoOfTugs">Number of tugs used on departure</label>
+                    <input type="text" class="form-control" id="txtNoOfTugs" name="NoOfTugs" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Bunker ROB</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtFuelOil">Fuel oil</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtFuelOil" name="FuelOil" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">t</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtDieselOil">Diesel oil</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtDieselOil" name="DieselOil" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-1">t</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtSulphurFuelOil">Low sulphur fuel oil</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtSulphurFuelOil" name="SulphurFuelOil" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-1">t</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtSulphurDieselOil">Low sulphur diesel oil</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtSulphurDieselOil" name="SulphurDieselOil" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-1">t</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Arrival</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtNextPort">Next port</label>
+                        <input type="text" class="form-control" id="txtNextPort" name="NextPort" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtETADate">ETA date</label>
+                        <input type="text" class="form-control" id="txtETADate" name="ETADate" title="Only date or date and time allowed" />
+                        <span class="form-control-feedback arrivalCalendarAddon">
+                            <label class="text-danger">*</label> <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtETATime">ETA time</label>
+                        <input type="text" class="form-control time" id="txtETATime" name="ETATime" placeholder="HH:MM" title="Only time allowed" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-12">
+                    <div class="form-group has-feedback">
+                        <label for="txtIntendedRoute">Intended route to next port</label>
+                        <input type="text" class="form-control" name="IntendedRoute" id="txtIntendedRoute" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-12">
+                    <label for="txtRemarks" style="font-size:20px;">Remarks</label>
+                    <input type="text" class="form-control" id="txtRemarks" name="Remarks" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Recipients</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-12">
+                    <label class="col-sm-12 col-xs-12 nopaddingleftright">To...</label>
+                    <input type="text" class="form-control" readonly="readonly" value="shipsPosition@carisbrooke.co" name="ToEmail" id="txtToEmail" />
+                </div>
+                <div class="form-group col-md-12">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 nopaddingleftright">CC...</label>
+                        <input type="text" class="txtCCEmail form-control" readonly="readonly" value="@ViewBag.CCEmail" name="ToCC" id="txtTOCC" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <input type="submit" id="btnSubmit" class="btn btn-primary" value="Submit" />
+            </div>
+        </div>
+    </form>
+</section>

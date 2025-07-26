@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="931a9c8a38334971aa1420c1249011cc" Name="Diagram1" ZoomLevel="38">
+        <EntityTypeShape EntityType="IMOSModel.ClassificationSociety" Width="1.5" PointX="0.75" PointY="6.25" />
+        <EntityTypeShape EntityType="IMOSModel.CSShip" Width="1.5" PointX="3" PointY="1.375" />
+        <AssociationConnector Association="IMOSModel.FK_CSShips_ClassificationSocieties" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

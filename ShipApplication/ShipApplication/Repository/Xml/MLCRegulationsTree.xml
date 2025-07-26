@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="yes"?>
+<MLCRegulations>
+	<Level1 Level1Key="1" Level1Identifier="1" Level1Value="Minimum requirements for seafarers to work on a ship">
+		<Level2 Level2Key="2" Level2Identifier="1.1" Level2Value="Minimum age"/>
+		<Level2 Level2Key="3" Level2Identifier="1.2" Level2Value="Medical certificate"/>
+		<Level2 Level2Key="4" Level2Identifier="1.3" Level2Value="Training and qualifications"/>
+		<Level2 Level2Key="5" Level2Identifier="1.4" Level2Value="Recruitment and placement"/>
+	</Level1>
+	<Level1 Level1Key="6" Level1Identifier="2" Level1Value="Conditions of employment">
+		<Level2 Level2Key="7" Level2Identifier="2.1" Level2Value="Seafarers' employment agreements"/>
+		<Level2 Level2Key="8" Level2Identifier="2.2" Level2Value="Wages"/>
+		<Level2 Level2Key="9" Level2Identifier="2.3" Level2Value="Hours of work and hours of rest"/>
+		<Level2 Level2Key="10" Level2Identifier="2.4" Level2Value="Entitlement to leave"/>
+		<Level2 Level2Key="11" Level2Identifier="2.5" Level2Value="Repatriation"/>
+		<Level2 Level2Key="12" Level2Identifier="2.6" Level2Value="Seafarer compensation for the ship's loss or foundering"/>
+		<Level2 Level2Key="13" Level2Identifier="2.7" Level2Value="Manning levels"/>
+		<Level2 Level2Key="14" Level2Identifier="2.8" Level2Value="Career and skill development and opportunities for seafarers' employment"/>
+	</Level1>
+	<Level1 Level1Key="15" Level1Identifier="3" Level1Value="Accommodation, recreational facilities, food and catering">
+		<Level2 Level2Key="16" Level2Identifier="3.1" Level2Value="Accommodation and recreational facilities"/>
+		<Level2 Level2Key="17" Level2Identifier="3.2" Level2Value="Food and catering"/>
+	</Level1>
+	<Level1 Level1Key="18" Level1Identifier="4" Level1Value="Health protection, medical care, welfare and social security protection">
+		<Level2 Level2Key="19" Level2Identifier="4.1" Level2Value="Medical care on board ship and ashore"/>
+		<Level2 Level2Key="20" Level2Identifier="4.2" Level2Value="Shipowners' liability"/>
+		<Level2 Level2Key="21" Level2Identifier="4.3" Level2Value="Health and safety protection and accident prevention"/>
+		<Level2 Level2Key="22" Level2Identifier="4.4" Level2Value="Access to shore-based welfare facilities"/>
+		<Level2 Level2Key="23" Level2Identifier="4.5" Level2Value="Social security"/>
+	</Level1>
+	<Level1 Level1Key="24" Level1Identifier="5" Level1Value="Compliance and enforcement">
+		<Level2 Level2Key="25" Level2Identifier="5.1" Level2Value="Flag State responsibilities">
+			<Level3 Level3Key="26" Level3Identifier="5.1.1" Level3Value="General principles"/>
+			<Level3 Level3Key="27" Level3Identifier="5.1.2" Level3Value="Authorization of recognized organizations"/>
+			<Level3 Level3Key="28" Level3Identifier="5.1.3" Level3Value="Maritime labour certificate and declaration of maritime labour compliance"/>
+			<Level3 Level3Key="29" Level3Identifier="5.1.4" Level3Value="Inspection and enforcement"/>
+			<Level3 Level3Key="30" Level3Identifier="5.1.5" Level3Value="On-board complaint procedures"/>
+			<Level3 Level3Key="31" Level3Identifier="5.1.6" Level3Value="Marine casualties"/>
+		</Level2>
+		<Level2 Level2Key="32" Level2Identifier="5.2" Level2Value="Port State responsibilities">
+			<Level3 Level3Key="33" Level3Identifier="5.2.1" Level3Value="Inspections in port"/>
+			<Level3 Level3Key="34" Level3Identifier="5.2.2" Level3Value="Onshore seafarer complaint-handling procedures"/>
+		</Level2>
+		<Level2 Level2Key="35" Level2Identifier="5.3" Level2Value="Labour-supplying responsibilities"/>
+	</Level1>
+</MLCRegulations>

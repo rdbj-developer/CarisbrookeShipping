@@ -1,0 +1,107 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{27524DB8-4221-475F-9335-E74C25640A6F}|CarisbrookeShippingAPI.BLL\\CarisbrookeShippingAPI.BLL.csproj|d:\\data\\work\\dotnetproject\\carisbrooke\\projects\\carisbrookeshippingapi\\carisbrookeshippingapi.bll\\helpers\\girhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27524DB8-4221-475F-9335-E74C25640A6F}|CarisbrookeShippingAPI.BLL\\CarisbrookeShippingAPI.BLL.csproj|solutionrelative:carisbrookeshippingapi.bll\\helpers\\girhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C951BBE1-F9FF-44B1-AA7B-43919C9C7AB0}|CarisbrookeShippingAPI\\CarisbrookeShippingAPI.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingAPI\\carisbrookeshippingapi\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{C951BBE1-F9FF-44B1-AA7B-43919C9C7AB0}|CarisbrookeShippingAPI\\CarisbrookeShippingAPI.csproj|solutionrelative:carisbrookeshippingapi\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27524DB8-4221-475F-9335-E74C25640A6F}|CarisbrookeShippingAPI.BLL\\CarisbrookeShippingAPI.BLL.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingAPI\\carisbrookeshippingapi.bll\\helpers\\deficiencyhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27524DB8-4221-475F-9335-E74C25640A6F}|CarisbrookeShippingAPI.BLL\\CarisbrookeShippingAPI.BLL.csproj|solutionrelative:carisbrookeshippingapi.bll\\helpers\\deficiencyhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C951BBE1-F9FF-44B1-AA7B-43919C9C7AB0}|CarisbrookeShippingAPI\\CarisbrookeShippingAPI.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingAPI\\carisbrookeshippingapi\\controllers\\deficienciescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C951BBE1-F9FF-44B1-AA7B-43919C9C7AB0}|CarisbrookeShippingAPI\\CarisbrookeShippingAPI.csproj|solutionrelative:carisbrookeshippingapi\\controllers\\deficienciescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingAPI\\CarisbrookeShippingAPI\\Web.config",
+              "RelativeDocumentMoniker": "CarisbrookeShippingAPI\\Web.config",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingAPI\\CarisbrookeShippingAPI\\Web.config",
+              "RelativeToolTip": "CarisbrookeShippingAPI\\Web.config",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADYAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2023-03-06T09:52:44.756Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DeficienciesController.cs",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingAPI\\CarisbrookeShippingAPI\\Controllers\\DeficienciesController.cs",
+              "RelativeDocumentMoniker": "CarisbrookeShippingAPI\\Controllers\\DeficienciesController.cs",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingAPI\\CarisbrookeShippingAPI\\Controllers\\DeficienciesController.cs",
+              "RelativeToolTip": "CarisbrookeShippingAPI\\Controllers\\DeficienciesController.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAYwDoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-06T09:52:44.76Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GIRHelper.cs",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingAPI\\CarisbrookeShippingAPI.BLL\\Helpers\\GIRHelper.cs",
+              "RelativeDocumentMoniker": "CarisbrookeShippingAPI.BLL\\Helpers\\GIRHelper.cs",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingAPI\\CarisbrookeShippingAPI.BLL\\Helpers\\GIRHelper.cs",
+              "RelativeToolTip": "CarisbrookeShippingAPI.BLL\\Helpers\\GIRHelper.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAApwC0AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-06T09:52:44.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DeficiencyHelper.cs",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingAPI\\CarisbrookeShippingAPI.BLL\\Helpers\\DeficiencyHelper.cs",
+              "RelativeDocumentMoniker": "CarisbrookeShippingAPI.BLL\\Helpers\\DeficiencyHelper.cs",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingAPI\\CarisbrookeShippingAPI.BLL\\Helpers\\DeficiencyHelper.cs",
+              "RelativeToolTip": "CarisbrookeShippingAPI.BLL\\Helpers\\DeficiencyHelper.cs",
+              "ViewState": "AQIAAFIEAAAAAAAAAAAQwHYEAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-06T09:52:44.765Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?mso-infoPathSolution PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" solutionVersion="6.0.0.0"  productVersion="15.0.0" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<my:Main xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata"
+xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10"
+xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-gb">
+  <my:Details>
+    <my:Ship />
+    <my:Number>G 09</my:Number>
+    <my:Date>2015-05-15</my:Date>
+    <my:Title>Operating High Pressure Machines (Washing and Replenishing Chemicals)</my:Title>
+  </my:Details>
+  <my:Hazards>
+    <my:Hazard my:HazardId="1">
+      <my:Description>Electricity</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Electric cable and its connections should not be submerged in water or other liquid; 
+b) When connecting/disconnecting cables, switching on/off equipment hands should be dry; 
+c) Do not use damaged equipment, improvised repairs of electrical tools must be avoided.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="2">
+      <my:Description>Water - high pressure jet</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Crew should be instructed, briefed, following manufacturer’s operation manual; 
+b) Use of PPE; 
+c) Jet should never be directed at any part of human body.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="3">
+      <my:Description>Debris - flying debris</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Use of PPE: goggles, face shield, gloves, safety shoes, etc.; 
+b) Adequate illumination should be provided.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="4">
+      <my:Description>Height - fall from</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>Consult ‘Working Aloft and Overboard’ Risk Assessment.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="5">
+      <my:Description>Gas - lack of oxygen or hazardous vapours</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>Consult ‘Enclosed Space Entry’ Risk Assessment.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="6">
+      <my:Description>Chemicals - skin irritation / chemical burns (e.g. when replenishing chemicals)</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>Consult ‘Dealing With Hazardous Substances’ Risk Assessment.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="7">
+      <my:Description>Noise - from jet wash motor</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>3</my:RiskFactor>
+      <my:ControlMeasures>a) Consider use of ear defenders. 
+b) More frequent breaks and job rotation must be considered to reduce the duration and effects associated with exposure; 
+c) Ensure there is no wear &amp; tear or misalignment of components that could increase exposure levels. 
+d) Consider other available work methods with less or no exposure effects that can be used to complete the task.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="8">
+      <my:Description>Vibration - from jet wash lance</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>3</my:RiskFactor>
+      <my:ControlMeasures>a) Use gloves. 
+b) More frequent breaks and job rotation must be considered to reduce the duration and effects associated with exposure; 
+c) Ensure there is no wear &amp; tear or misalignment of components that could increase exposure levels. 
+d) Consider other available work methods with less or no exposure effects that can be used to complete the task.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+  </my:Hazards>
+  <my:Review>
+    <my:ReviewerName />
+    <my:ReviewerRank />
+    <my:ReviewDate />
+    <my:ReviewLocation /><my:ReviewMembers/>
+  </my:Review>
+  <my:Header>
+    <my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+    <my:HeaderSummary />
+    <my:HeaderCode>RAF</my:HeaderCode>
+    <my:HeaderIssueNumber>5</my:HeaderIssueNumber>
+    <my:HeaderIssueDate>05/14</my:HeaderIssueDate>
+    <my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+    <my:HeaderAmmendmentDate />
+    <my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+  </my:Header>
+  <my:Footer>Risk Assessment: G 09 - Operating High Pressure Machines (Washing and Replenishing Chemicals)</my:Footer>
+</my:Main>

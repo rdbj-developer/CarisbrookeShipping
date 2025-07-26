@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?mso-infoPathSolution PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" solutionVersion="6.0.0.0" productVersion="15.0.0" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<my:Main xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata"
+xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10"
+xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-gb">
+  <my:Details>
+    <my:Ship />
+    <my:Number>C 01</my:Number>
+    <my:Date>2015-05-15</my:Date>
+    <my:Title>Food Storage and Preparation</my:Title>
+  </my:Details>
+  <my:Hazards>
+    <my:Hazard my:HazardId="1">
+      <my:Description>Slips and trips</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) Galley equipment to be well maintained and any leaks are promptly reported; 
+b) Drainage channels and drip trays are provided where spills are likely; 
+c) Spillages to be cleaned immediately and the deck left dry; 
+d) There are no trailing cables or obstructions; 
+e) Trip hazards are clearly marked; 
+f) Make sure suitable footwear with a good grip is worn.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="2">
+      <my:Description>Manual handling</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) Commonly used items and heavy goods to be stored at an accessible and appropriate height;
+b) Consult &#39;Manual Handling&#39; Risk Assessment.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="3">
+      <my:Description>Contact with heat i.e. steam, hot water, hot oil and hot surfaces</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) Cook to be trained on how to handle hot oils and how to safely use, empty and clean the fryer, were applicable; 
+b) Use of appropriate PPE: long sleeve t-shirts, heat-resistant gloves, cloths and aprons;
+c) &#39;Hot water&#39; signs to be displayed at the sinks and &#39;hot surface&#39; signs to be displayed at the hot plates; 
+d) Make sure all pan-handles are in good condition; e) In adverse weather, guards should be fitted on the range to prevent hot pans / pots from falling.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="4">
+      <my:Description>Personal injuries, cuts</my:Description>
+      <my:Severity>1</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>2</my:RiskFactor>
+      <my:ControlMeasures>a) Cook to be trained in the safe use, maintenance and storage of knives; 
+b) Crew must only use suitable cutters for opening packages and must not use knives; 
+c) Make sure all knife handles are in good condition; 
+d) Knifes should not be left submerged in the wash basin, they should be washed immediately.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="5">
+      <my:Description>Food handling</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Wherever possible and sensible, the Cook should use tools (i.e. cutlery, tongs, scoops, etc) to handle food rather than their hands;
+b) Where handling cannot be avoided, ensure hands are washed promptly after handling. 
+c) Ensure the Cook thoroughly dries their hands after washing them;
+d) The Cook must regularly check for dry, red or itchy skin on their hands; 
+e) Smoking is strictly forbidden in the galley; 
+f) The food store / fridge / freezers must be kept clean and at an adequate temperature.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="6">
+      <my:Description>Contact with cleaning chemicals</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) The Cook is aware on how to use and store cleaning products safely, and never to transfer chemicals to an unmarked container; 
+b) Mops, brushes and protective gloves to be provided and used; 
+c) Protective gloves are to be rinsed after use and stored in a clean place.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="7">
+      <my:Description>Electrical equipment and installation</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) Any defective equipment, plugs, discoloured sockets, damaged cables are promptly reported;
+b) Any faulty equipment should be promptly taken out of use; 
+c) All power-operated equipment must be disconnected from the mains prior to cleaning.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="8">
+      <my:Description>Fire</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) All equipment (extraction fan, oven, deep fat fryer) and surfaces to be kept clean and free of grease;
+b) Consult &#39;Fire in Accommodation&#39; Contingency Response Card.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+  </my:Hazards>
+  <my:Review>
+    <my:ReviewerName />
+    <my:ReviewerRank />
+    <my:ReviewDate />
+    <my:ReviewLocation /><my:ReviewMembers/>
+  </my:Review>
+  <my:Header>
+    <my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+    <my:HeaderSummary />
+    <my:HeaderCode>RAF</my:HeaderCode>
+    <my:HeaderIssueNumber>5</my:HeaderIssueNumber>
+    <my:HeaderIssueDate>05/14</my:HeaderIssueDate>
+    <my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+    <my:HeaderAmmendmentDate />
+    <my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+  </my:Header>
+  <my:Footer>Risk Assessment: C 01 - Food Storage and Preparation</my:Footer>
+</my:Main>

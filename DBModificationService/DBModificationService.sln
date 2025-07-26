@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBModificationService", "DBModificationService\DBModificationService.csproj", "{239E5BD5-9008-4197-B71F-155550B542BE}"
+EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Setup", "Setup\Setup.isproj", "{6A9D734B-050B-4BE7-B2CF-019D0FDEF8FB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0D3AD5AA-05A5-4C67-AFD8-FAAF95F285BF} = {0D3AD5AA-05A5-4C67-AFD8-FAAF95F285BF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBModification", "DBModification\DBModification.csproj", "{0D3AD5AA-05A5-4C67-AFD8-FAAF95F285BF}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://cs-work-project.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DBModification\\DBModification.csproj
+		SccProjectName1 = DBModification
+		SccLocalPath1 = DBModification
+		SccProjectUniqueName2 = DBModificationService\\DBModificationService.csproj
+		SccProjectName2 = DBModificationService
+		SccLocalPath2 = DBModificationService
+		SccProjectUniqueName3 = Setup\\Setup.isproj
+		SccProjectName3 = Setup
+		SccLocalPath3 = Setup
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{239E5BD5-9008-4197-B71F-155550B542BE}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{239E5BD5-9008-4197-B71F-155550B542BE}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{239E5BD5-9008-4197-B71F-155550B542BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{239E5BD5-9008-4197-B71F-155550B542BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{239E5BD5-9008-4197-B71F-155550B542BE}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{239E5BD5-9008-4197-B71F-155550B542BE}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{239E5BD5-9008-4197-B71F-155550B542BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{239E5BD5-9008-4197-B71F-155550B542BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{239E5BD5-9008-4197-B71F-155550B542BE}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{239E5BD5-9008-4197-B71F-155550B542BE}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{6A9D734B-050B-4BE7-B2CF-019D0FDEF8FB}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
+		{6A9D734B-050B-4BE7-B2CF-019D0FDEF8FB}.CD_ROM|Any CPU.Build.0 = CD_ROM
+		{6A9D734B-050B-4BE7-B2CF-019D0FDEF8FB}.Debug|Any CPU.ActiveCfg = DVD-5
+		{6A9D734B-050B-4BE7-B2CF-019D0FDEF8FB}.Debug|Any CPU.Build.0 = DVD-5
+		{6A9D734B-050B-4BE7-B2CF-019D0FDEF8FB}.DVD-5|Any CPU.ActiveCfg = DVD-5
+		{6A9D734B-050B-4BE7-B2CF-019D0FDEF8FB}.DVD-5|Any CPU.Build.0 = DVD-5
+		{6A9D734B-050B-4BE7-B2CF-019D0FDEF8FB}.Release|Any CPU.ActiveCfg = SingleImage
+		{6A9D734B-050B-4BE7-B2CF-019D0FDEF8FB}.Release|Any CPU.Build.0 = SingleImage
+		{6A9D734B-050B-4BE7-B2CF-019D0FDEF8FB}.SingleImage|Any CPU.ActiveCfg = SingleImage
+		{6A9D734B-050B-4BE7-B2CF-019D0FDEF8FB}.SingleImage|Any CPU.Build.0 = SingleImage
+		{0D3AD5AA-05A5-4C67-AFD8-FAAF95F285BF}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{0D3AD5AA-05A5-4C67-AFD8-FAAF95F285BF}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{0D3AD5AA-05A5-4C67-AFD8-FAAF95F285BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D3AD5AA-05A5-4C67-AFD8-FAAF95F285BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D3AD5AA-05A5-4C67-AFD8-FAAF95F285BF}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D3AD5AA-05A5-4C67-AFD8-FAAF95F285BF}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{0D3AD5AA-05A5-4C67-AFD8-FAAF95F285BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D3AD5AA-05A5-4C67-AFD8-FAAF95F285BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D3AD5AA-05A5-4C67-AFD8-FAAF95F285BF}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{0D3AD5AA-05A5-4C67-AFD8-FAAF95F285BF}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,461 @@
+﻿@model IEnumerable<ShipApplication.BLL.Modals.GIRData>
+
+@{
+    ViewBag.Title = "Inspection and Deficiencies";
+}
+
+<style>
+    .from-common {
+        display: flex;
+        align-items: center;
+        min-width: 200px;
+        width: 100%;
+    }
+
+        .from-common label {
+            margin-right: 10px;
+            margin-bottom: 0px;
+        }
+
+    .upload {
+        display: inline;
+        padding: 0.2em 1.6em 0.3em;
+        font-size: 116%;
+        font-weight: 700;
+        line-height: 3;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25em;
+    }
+
+    .pink.lighten-2 {
+        background-color: #0097a7 !important;
+    }
+
+        .pink.lighten-2 a {
+            color: #ffffff !important;
+        }
+
+    .chip {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba(0,0,0,.6);
+        line-height: 32px;
+        padding: 0 12px;
+        -webkit-border-radius: 16px;
+        border-radius: 16px;
+        background-color: #eceff1;
+        margin-right: 1px;
+        margin-bottom: 1px;
+        cursor: pointer;
+        -webkit-transition: all .3s linear;
+        -o-transition: all .3s linear;
+        transition: all .3s linear;
+    }
+
+    .close:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+
+    .chip .close {
+        cursor: pointer;
+        float: right;
+        font-size: 16px;
+        line-height: 32px;
+        padding-left: 8px;
+        -webkit-transition: all .1s linear;
+        -o-transition: all .1s linear;
+        transition: all .1s linear;
+    }
+
+    .alert-info {
+        color: #31708f !important;
+        background-color: #d9edf7 !important;
+        border-color: #bce8f1 !important;
+    }
+
+    .k-grid-content.k-auto-scrollable {
+        max-height: 350px;
+    }
+
+    .text-info {
+        width: 15px;
+    }
+
+    .input-group {
+        width: 100%;
+    }
+
+    .k-grid td, .k-filter-row th, .k-grid-header th.k-header, .k-pager-wrap {
+        padding: 0px;
+        padding-bottom: 0px !important;
+        padding-top: 0px !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    .orders td, #DetailsGrid td {
+        border-style: solid;
+        border-width: 0 0 1px 1px;
+    }
+
+    .form-inline .form-control {
+        height: auto;
+    }
+
+    .gir-content {
+        padding: 0px !important;
+    }
+
+        .gir-content .box-body {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            padding-top: 0px !important;
+        }
+
+    #GIGrid
+    .well .box-header {
+        padding: 0px !important;
+    }
+
+    #SIGrid
+    .well .box-header {
+        padding: 0px !important;
+    }
+
+    #Grid
+    .well .box-header {
+        padding: 0px !important;
+    }
+
+    tr .k-state-selected {
+        color: #fff !important;
+    }
+
+    #GIGrid > table {
+        table-layout: fixed;
+    }
+
+    #SIGrid > table {
+        table-layout: fixed;
+    }
+
+    #Grid > table {
+        table-layout: fixed;
+    }
+
+    tr {
+        cursor: pointer;
+    }
+
+    /* RDBJ 02/24/2022 */
+    div.row {
+        margin-right: 0px !important;
+    }
+    /* End RDBJ 02/24/2022 */
+</style>
+<script type="text/x-kendo-template" id="template">
+    <div class="tabstrip">
+        <ul>
+            <li class="k-state-active">
+                Details
+            </li>
+            <li>
+                Comments
+            </li>
+             <li>
+                Add Comments
+            </li>
+            <li onclick="loadbyInitialActiontab(#= DeficienciesID #,this)">
+                Initial Actions
+            </li>
+            <li onclick="loadbyResolutiontab(#= DeficienciesID #,this)">
+                Resolution
+            </li>
+            <li>
+                Priority
+            </li>
+        </ul>
+            <div>
+              <div class="details">
+                <div class="row">
+                    <div class="col-md-2">Section Number</div>
+                    <div class="col-md-6">#= Section !=null? Section : '' #</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Comment</div>
+                    <div class="col-md-6">#= Deficiency #</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Date Raised</div>
+                    <div class="col-md-6">#= DateRaised!=null? kendo.toString(kendo.parseDate(DateRaised, 'yyyy-MM-dd'), 'MM/dd/yyyy h:mm'):'' #</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">File(s)</div>
+                    <div class="col-md-6">#=generateTemplateDeficiencies(GIRDeficienciesFile)#</div>
+                </div>
+              </div>
+         </div>
+         <div>
+            <div class="orders"></div>
+        </div>
+         <div>
+            <div class='employee-details'>
+                <form>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-comment text-info"></i></span>
+                        <textarea class="form-control comment" rows="2" id="comment"></textarea>
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user text-info"></i></span>
+                        <input type="text" class="form-control name" id="Name" value="@ShipApplication.BLL.Helpers.SessionManager.Username" placeholder="Name">
+                    </div>
+                    <div class="input-group">
+                        <label for="employeeFile" class="label label-primary upload">Upload File</label>
+                        <input id="employeeFile" multiple onchange="fileUpload(this)" style="visibility:hidden;height:4px;" type="file" class="employeeFile">
+                    </div>
+                    <div>
+                        <input type="button" onclick="AddNotes(#= DeficienciesID #,this)" value="Add" class="btn">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div>
+            <div class='initial-details'>
+                <form>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-comment text-info"></i></span>
+                        <textarea class="form-control description" rows="2" id="description"></textarea>
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user text-info"></i></span>
+                        <input type="text" class="form-control name" id="Name" value="@ShipApplication.BLL.Helpers.SessionManager.Username" placeholder="Name">
+                    </div>
+                    <div class="input-group">
+                        <label for="file" class="label label-primary upload">Upload File</label>
+                        <input id="file" multiple onchange="fileUpload(this)" style="visibility:hidden;height:4px;" type="file" class="Intifile">
+                    </div>
+                    <div>
+                        <input type="button" onclick="AddInitialDetails(#= DeficienciesID #,this)" value="Add" class="btn">
+                    </div>
+                </form>
+                <br />
+                <div class="initialDetailsList"></div>
+            </div>
+        </div>
+        <div>
+        <div class='resolution-details'>
+                <form>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-comment text-info"></i></span>
+                        <textarea class="form-control resolution" rows="2" id="resolution"></textarea>
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user text-info"></i></span>
+                        <input type="text" class="form-control name" id="Name" value="@ShipApplication.BLL.Helpers.SessionManager.Username" placeholder="Name">
+                    </div>
+                    <div class="input-group">
+                        <label for="resultionfile" class="label label-primary upload">Upload File</label>
+                        <input id="resultionfile" multiple onchange="fileUpload(this)" style="visibility:hidden;height:4px;" type="file" class="resultionfile">
+                    </div>
+                    <div>
+                        <input type="button" onclick="AddResolution(#= DeficienciesID #,this)" value="Add" class="btn">
+                    </div>
+                </form>
+               <br />
+               <div class="resoultionList"></div>
+            </div>
+        </div>
+        <div>
+            <select class="DeficiencyPriority" onchange="AddPriority(#= DeficienciesID #,this)">
+                <option>12</option>
+                <option>8</option>
+                <option>4</option>
+            </select> &nbsp;&nbsp;Weeks
+        </div>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="ReportTemplate">
+    <div>
+        <div id="ShipReportsGrid" class="ShipGISIReports"></div>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="CommentsTemplate">
+    <div class="CommentsTab">
+        <ul>
+            <li class="k-state-active">
+                View Comments
+            </li>
+            <li>
+                Add Comments
+            </li>
+        </ul>
+        <div>
+            <div class="CommentsGrid"></div>
+        </div>
+        <div>
+            <div class='employee-details'>
+                <form>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-comment text-info"></i></span>
+                        <textarea class="form-control comment" rows="4" id="comment"></textarea>
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user text-info"></i></span>
+                        <input type="text" class="form-control name" id="Name" value="@Request.RequestContext.HttpContext.Session["Name"]" placeholder="Name">
+                    </div>
+                    <div class="input-group">
+                        <label for="file" class="label label-primary upload">Upload File</label>
+                        <input id="file" multiple onchange="fileUpload(this)" style="visibility:hidden;height:4px;" type="file">
+                    </div>
+                    <div>
+                        <input type="button" onclick="AddComment(#= NoteID #,this)" value="Add" class="btn">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="ReportTemplate">
+    <div>
+        <div id="ShipReportsGrid" class="ShipAuditsList"></div>
+    </div>
+</script>
+<script>
+    var RootUrl = '@Url.Content("~/")';
+    var rank = "@Request.RequestContext.HttpContext.Session["Rank"]";
+    var configRank = "Office";
+    var isInspector = '@ViewBag.Inspector';
+    $(document).ready(function () {
+        if (isInspector.toLowerCase() == 'false') {
+            $("#ddlGIReportShipName").prop('disabled', true);
+        } else {
+            $("#ddlGIReportShipName").prop('disabled', false);
+        }
+    });
+</script>
+<script src="~/Scripts/Custom/Deficiencies.js?v=07182022"></script>
+<script src="~/Scripts/Custom/AuditDeficiencies.js?v=07182022"></script>
+<div class="well well-sm" style="margin-bottom:0px;">
+    <div class="box-header">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="from-common">
+                    <label>Ship: </label>
+                    @*<select class="form-control" name="ddlGIReportShipName" id="ddlGIReportShipName" disabled>
+                        <option value="@ShipApplication.BLL.Helpers.SessionManager.ShipCode">@ShipApplication.BLL.Helpers.SessionManager.ShipName</option>
+                    </select>*@
+                    <select class="form-control" name="ddlGIReportShipName" id="ddlGIReportShipName" onchange="loadDetailGridByShip(this);">
+                        @*<option value="null">--Select Ship--</option>*@
+                        @if (ViewBag.ships != null && ViewBag.ships.Items != null)
+                        {
+                            foreach (var item in ViewBag.ships.Items)
+                            {
+                                if (@ShipApplication.BLL.Helpers.SessionManager.ShipName.ToUpper() == item.Name.ToUpper())
+                                {
+                                    <option value="@item.Code" selected>@item.Name</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.Code">@item.Name</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="content gir-content" style="padding-bottom:0px">
+    <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
+        <li class="nav-item active">
+            <a class="nav-link active" id="gi-content-below-tab" onclick="tabChangeLoadGridData('GI');" data-toggle="pill" href="#gi-content-below" role="tab" aria-controls="gi-content-below" aria-selected="true">General Inspection</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="si-content-below-tab" onclick="tabChangeLoadGridData('SI');" data-toggle="pill" href="#si-content-below" role="tab" aria-controls="si-content-below" aria-selected="false">Superintendent Inspection</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="ia-content-below-tab" onclick="tabChangeLoadGridData('IA');" data-toggle="pill" href="#ia-content-below" role="tab" aria-controls="ia-content-below" aria-selected="false">Audit</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="custom-content-below-tabContent">
+        <div class="tab-pane fade in active" id="gi-content-below" role="tabpanel" aria-labelledby="gi-content-below-tab">
+            <div class="box-body">
+                <div id="GIGrid"></div>
+            </div>
+            <div class="box-body">
+                <div class="alert alert-info" style="display:none;" id="info">
+                </div>
+                <div id="GIDetailsGrid"></div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="si-content-below" role="tabpanel" aria-labelledby="si-content-below-tab">
+            <div class="box-body">
+                <div id="SIGrid"></div>
+            </div>
+            <div class="box-body">
+                <div class="alert alert-info" style="display:none;" id="info">
+                </div>
+                <div id="SIDetailsGrid"></div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="ia-content-below" role="tabpanel" aria-labelledby="ia-content-below-tab">
+            <div class="box-body">
+                <div id="Grid"></div>
+            </div>
+            <div class="box-body">
+                <div class="alert alert-info" style="display:none;" id="info">
+
+                </div>
+                <div id="DetailsGrid"></div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<ul id="context-menu" style="display:none">
+    <li id="addDeficiencies">
+        Open Form
+    </li>
+</ul>
+
+<ul id="child-menu" style="display:none">
+    <li id="childDeficiencies">
+        Open Form
+    </li>
+</ul>
+<script type="text/javascript">
+    //$(document).ready(function () {
+    //    $('#tblGIRdata,#tblGIRdataDetails').DataTable({ "order": [[0, "desc"]]/*, "sScrollY": ($(window).height() - 600)*/ });
+    //})
+</script>
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Files types are not supported</h4>
+            </div>
+            <div class="modal-body">
+                <p>&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

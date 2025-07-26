@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWS_DB_UpdateService", "AWS_DB_UpdateService\AWS_DB_UpdateService.csproj", "{1D54CBA8-08FF-489E-AE0B-38086E130905}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWS_DB_Update", "AWS_DB_Update\AWS_DB_Update.csproj", "{A29FDCDA-E203-40C7-AF31-C556F7D4A18C}"
+EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "AWS_DB_Update_Setup", "AWS_DB_Update_Setup\AWS_DB_Update_Setup.isproj", "{84549503-9D53-4B06-82E0-EA929C2C242C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1D54CBA8-08FF-489E-AE0B-38086E130905} = {1D54CBA8-08FF-489E-AE0B-38086E130905}
+		{A29FDCDA-E203-40C7-AF31-C556F7D4A18C} = {A29FDCDA-E203-40C7-AF31-C556F7D4A18C}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://cs-work-project.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AWS_DB_UpdateService\\AWS_DB_UpdateService.csproj
+		SccProjectName1 = AWS_DB_UpdateService
+		SccLocalPath1 = AWS_DB_UpdateService
+		SccProjectUniqueName2 = AWS_DB_Update\\AWS_DB_Update.csproj
+		SccProjectName2 = AWS_DB_Update
+		SccLocalPath2 = AWS_DB_Update
+		SccProjectUniqueName3 = AWS_DB_Update_Setup\\AWS_DB_Update_Setup.isproj
+		SccProjectName3 = AWS_DB_Update_Setup
+		SccLocalPath3 = AWS_DB_Update_Setup
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D54CBA8-08FF-489E-AE0B-38086E130905}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{1D54CBA8-08FF-489E-AE0B-38086E130905}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{1D54CBA8-08FF-489E-AE0B-38086E130905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D54CBA8-08FF-489E-AE0B-38086E130905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D54CBA8-08FF-489E-AE0B-38086E130905}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D54CBA8-08FF-489E-AE0B-38086E130905}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{1D54CBA8-08FF-489E-AE0B-38086E130905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D54CBA8-08FF-489E-AE0B-38086E130905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D54CBA8-08FF-489E-AE0B-38086E130905}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{1D54CBA8-08FF-489E-AE0B-38086E130905}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{A29FDCDA-E203-40C7-AF31-C556F7D4A18C}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{A29FDCDA-E203-40C7-AF31-C556F7D4A18C}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{A29FDCDA-E203-40C7-AF31-C556F7D4A18C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29FDCDA-E203-40C7-AF31-C556F7D4A18C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A29FDCDA-E203-40C7-AF31-C556F7D4A18C}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29FDCDA-E203-40C7-AF31-C556F7D4A18C}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{A29FDCDA-E203-40C7-AF31-C556F7D4A18C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A29FDCDA-E203-40C7-AF31-C556F7D4A18C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A29FDCDA-E203-40C7-AF31-C556F7D4A18C}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{A29FDCDA-E203-40C7-AF31-C556F7D4A18C}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{84549503-9D53-4B06-82E0-EA929C2C242C}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
+		{84549503-9D53-4B06-82E0-EA929C2C242C}.CD_ROM|Any CPU.Build.0 = CD_ROM
+		{84549503-9D53-4B06-82E0-EA929C2C242C}.Debug|Any CPU.ActiveCfg = DVD-5
+		{84549503-9D53-4B06-82E0-EA929C2C242C}.Debug|Any CPU.Build.0 = DVD-5
+		{84549503-9D53-4B06-82E0-EA929C2C242C}.DVD-5|Any CPU.ActiveCfg = DVD-5
+		{84549503-9D53-4B06-82E0-EA929C2C242C}.DVD-5|Any CPU.Build.0 = DVD-5
+		{84549503-9D53-4B06-82E0-EA929C2C242C}.Release|Any CPU.ActiveCfg = SingleImage
+		{84549503-9D53-4B06-82E0-EA929C2C242C}.Release|Any CPU.Build.0 = SingleImage
+		{84549503-9D53-4B06-82E0-EA929C2C242C}.SingleImage|Any CPU.ActiveCfg = SingleImage
+		{84549503-9D53-4B06-82E0-EA929C2C242C}.SingleImage|Any CPU.Build.0 = SingleImage
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

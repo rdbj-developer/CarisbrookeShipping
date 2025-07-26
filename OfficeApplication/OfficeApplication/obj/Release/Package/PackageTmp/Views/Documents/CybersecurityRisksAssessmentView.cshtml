@@ -1,0 +1,507 @@
+﻿@using OfficeApplication.BLL.Modals
+@model CybersecurityRisksAssessmentModal
+@{
+    ViewBag.Title = "CybersecurityRisksAssessment";
+}
+<link href="~/Content/Custom/GIRForm.css" rel="stylesheet" />
+<link href="~/Content/Custom/ManageCybersecurity.css?01052021" rel="stylesheet" />
+<script type="text/javascript">
+    $(document).on('keydown', function (e) {
+        if (e.keyCode == 80 && (e.metaKey || e.ctrlKey)) {
+            printDiv();
+        }
+    });
+    $(document).ready(function () {
+        var elementScroll = document.querySelector('.drag');
+        elementScroll.addEventListener("mousedown", function (e) {
+            this.sx = this.scrollLeft;
+            mx = e.pageX - this.offsetLeft;
+
+            this.addEventListener("mousemove", mouseMoveFunction);
+        });
+
+        elementScroll.addEventListener("mouseup", function (e) {
+            this.removeEventListener("mousemove", mouseMoveFunction);
+            mx = 0;
+        });
+        $("#lnkAddAssessRisk").on("click", function () {
+            $(".tblCRAEquipment").find(".records").css('background-color', '#ffffff !important');
+            $(".tblCRAEquipment").find(".records").attr('IsSelected', 'false');
+            var count = parseInt($(".tblCRAEquipment").find(".records").length);
+            var strTemplate = '<tr class="records" index="' + count + '" IsSelected="true">'
+                + '<td>	'
+                + '    <input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].HardwareId" />	'
+                + '</td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].RiskId" /></td>	'
+                + '<td>	'
+                + '    <select class="editable-select CRAData" id="RiskList_' + count + '" name="CybersecurityRisksAssessmentListModal[' + count + '].RiskDescription">	'
+                + riskList
+                + '    </select>	'
+                + '</td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentRiskCategoryC" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentRiskCategoryI" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentRiskCategoryA" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentRiskCategoryS" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentImpactScore" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentLikelihoodScore" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].InherentRiskScore" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].RiskOwner" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].Controls" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualRiskCategoryC" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualRiskCategoryI" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualRiskCategoryA" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualRiskCategoryS" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualImpactScore" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualLikelihoodScore" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].ResidualRiskScore" /></td>	'
+                + '<td><input type="text" class="col-md-12 form-control CRAData" name="CybersecurityRisksAssessmentListModal[' + count + '].RiskDecision" /></td>	'
+                + '<td>	'
+                + '    <select class="editable-select CRAData" id="VulnerabilityList_' + count + ' name="CybersecurityRisksAssessmentListModal[' + count + '].Vulnerability">	'
+                + vulnerabilityList
+                + '    </select>	'
+                + '</td>	'
+                + '<td width="2%" class="text-center aviodPrint">	'
+                + '    <p>	'
+                + '        <span class="m-5 text-center cursor-pointer"><i onclick="removeRecord(this)" class="fa fa-fw fa-remove"></i></span>	'
+                + '    </p>	'
+                + '</td>	'
+                + ' </tr>';
+            $(".tblCRAEquipment").append(strTemplate);
+            bindAddNewRowEvents();
+            bindCombobox();
+        });
+        $("#tblCRAEquipment").kendoTooltip({
+            filter: ".h-tooltip",
+            width: 250,
+            position: "bottom",
+            animation: {
+                open: {
+                    effects: "zoom",
+                    duration: 100
+                }
+            },
+            "background-color": "red"
+        }).data("kendoTooltip");
+    });
+    function mouseMoveFunction(e) {
+        var mx2 = e.pageX - this.offsetLeft;
+        if (mx) this.scrollLeft = this.sx + mx - mx2;
+    }
+
+    function bindCombobox() {
+        $('.selectbox li').on('click', function(e) {
+            $(this).parent().parent().parent().find("textarea").val($(this).children().html());
+        });
+        $("select.editable-select").each(function () {
+            if (!$(this).closest("span") || $(this).closest("span").length <= 0) {
+                // create ComboBox from select HTML element
+                $(this).kendoComboBox({ value: $(this).val() });
+            }
+        });
+    }
+    function bindAddNewRowEvents() {
+        $(".CRAData").bind("change", function () {
+            CRAAutoSave();
+        });
+    }
+    function removeRecord(obj) {
+        $(obj).closest("tr").remove();
+
+        //Reindex all rows
+        var trRows = $('.tblCRAEquipment tr.records');
+        $.each(trRows, function (key, trvalue) {
+            var rows = $(trvalue).find("input");
+            $.each(rows, function (tdkey, value) {
+                var valArr = value.name.split(".");
+                value.name = "CybersecurityRisksAssessmentListModal[" + parseInt(key) + "]." + valArr[1];
+            });
+        });
+        CRAAutoSave();
+    }
+    function CRAAutoSave() {
+    @*var url ='@Url.Action("AssetManagmentEquipmentAutoSave", "Documents")';
+    $("#lblAutoSave").show();
+    var form = $("#formContent");
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: form.serialize(),
+        async: true,
+        success: function (res) {
+            console.log(res);
+            $("#hdnAMEId").val(res);
+            $("#lblAutoSave").hide();
+        },
+        error: function (err) {
+            console.log(err);
+            $("#lblAutoSave").hide();
+        }
+    });*@
+    }
+    $(document).on('keydown', function (e) {
+        if (e.keyCode == 80 && (e.metaKey || e.ctrlKey)) {
+            printDiv();
+        }
+    });
+    function printDiv() {
+        var RootUrl = '@Url.Content("~/")';
+        $(".dt").attr("style", "padding-right : 0px !important");
+        $(".aviodPrint").hide();
+        var style = "@@media print {.breakDivPage { page-break-after: always; page-break-inside:auto   } body { zoom: .8 ; -webkit-print-color-adjust: exact; }  .editable-select .k-input{display:none;} textarea{border: none !important;-webkit-appearance: none; resize: none; " +
+          "appearance: none; border: none;} .form-control{border: none !important; } select{-moz-appearance: none; -webkit-appearance: none; appearance: none; border: none;} }";
+        style += "@@page {size: 50.1cm 30.4cm; margin: 0cm 1cm 1cm 1cm;}";
+        style += ".Section {border: none;} .SectionHead {border: 1px solid #66afe9;border-bottom: none;}";
+        style += " table thead tr td { border: 1px solid #66afe9 !important;vertical-align:middle !important } .bg-red {background-color: #dd4b39 !important;}  .bg-yellowtext {background-color: #ffff00 !important; color: black;}";
+        style += "headerTD {background-color: transparent;} .headerTD > tbody > tr > td {border: none !important; }";
+        style += ".theadBackColor {background-color: #8eadb6  !important; color: #ffffff !important; } .theadBackColor > td {color: #ffffff !important; border-right-color: #ffffff !important;border-bottom-color: #ffffff !important;} .theadBackColor > td:last-child {border-right-color: #66afe9 !important;}";
+        style += ".k-reset{padding:0px} .word-wrap{ word-break: break-all !important; white-space: pre-wrap !important;} .min-width400 {min-width: 400px} .min-width200 {min-width: 200px;} .min-width100 {min-width: 100px;}";
+         $("#h4ShipName").show();
+         $("#h4ShipName").html("SHIP: @OfficeApplication.BLL.Helpers.SessionManager.ShipName");
+        var divToPrint = document.getElementById('frmRiskAssessmentList').innerHTML;
+        $("#frmRiskAssessmentListContentPrint").show();
+         $("#Printtable tbody").empty();
+         var divToPrint1 = $("#Printtable tbody").append("<tr><td  style='border-width: 0px !important;'>" + divToPrint + "</td></tr>");
+        divToPrint = document.getElementById('frmRiskAssessmentListContentPrint').innerHTML;
+        $("#removediv").hide();
+        var newWin = window.open('', 'Print-Window');
+        newWin.document.open();
+        newWin.document.write('<html><head><title></title>');
+        newWin.document.write('<style type="text/css">' + style + '</style>');
+        newWin.document.write('<link href="' + RootUrl+'Content/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl +'Content/AdminLTE.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl +'Content/_all-skins.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl +'Content/Custom/SiteCustom.css" rel="stylesheet" />');
+        newWin.document.write('<link rel="stylesheet" href="' + RootUrl + 'Content/Custom/GIRForm.css" type="text/css" />');
+        newWin.document.write('</head><body onload="window.print()">');
+        if (newWin == null) {
+            $.notify("Please unblock popup from your browser settings to continue print!!!", "warn");
+            return false;
+        }
+        newWin.document.write(divToPrint);
+        newWin.document.write('</body></html>');
+
+        $("#Printtable tbody").empty();
+        $("#frmRiskAssessmentListContentPrint").hide();
+        $("#removediv").show();
+        $(".aviodPrint").show();
+        $("#h4ShipName").hide();
+        newWin.document.close();
+        setTimeout(function () { newWin.close(); }, 1000);
+    }
+
+    function exportCyberSecurity() {
+        window.location = '@Url.Action("DownloadCybersecurityRiskAssessmentList", "Admin")';
+    }
+</script>
+<section class="content">
+    <form method="post" id="formContent" action="@Url.Action("CybersecurityRisksAssessment", "Documents")">
+        <div id="frmRiskAssessmentList">
+            <input type="hidden" value="@OfficeApplication.BLL.Helpers.SessionManager.ShipCode" name="CybersecurityRisksAssessmentForm.ShipCode" id="hdnHVRShipCode" />
+            <input type="hidden" value="@OfficeApplication.BLL.Helpers.SessionManager.ShipName" name="CybersecurityRisksAssessmentForm.ShipName" id="hdnHVRShipName" />
+            @if (@Model != null && @Model.CybersecurityRisksAssessmentForm != null)
+            {
+                <input type="hidden" value="@Model.CybersecurityRisksAssessmentForm.CreatedBy" name="CybersecurityRisksAssessmentForm.CreatedBy" id="hdnCreatedBy" />
+                <input type="hidden" value="@Model.CybersecurityRisksAssessmentForm.CreatedDate" name="CybersecurityRisksAssessmentForm.CreatedDate" id="hdnCreatedDate" />
+                <input type="hidden" value="@Model.CybersecurityRisksAssessmentForm.CRAId" name="CybersecurityRisksAssessmentForm.CRAId" id="hdnCRAId" />
+            }
+            <div class="row aviodPrint">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6 text-center">
+                    <h3>Assess Risks</h3>
+                    <h5>Table below lists all cyber security risks affecting IT and OT systems on board. Hover over each column title for more info.</h5>
+                </div>
+            </div>
+            <div class="row aviodPrint">
+                <div class="col-md-6">
+                    <h4>SHIP: @OfficeApplication.BLL.Helpers.SessionManager.ShipName</h4>
+                </div>
+            </div>
+            <br />
+            <div class="row aviodPrint">
+                <div class="col-md-12 text-center">
+                    <label id="lblAutoSave" style="display: none;">Saving...</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="GeneralSection PageSection CRAGeneralSection drag">
+                        <div class="breakDiv">
+                            <div class="SectionContent">
+                                <table class="tblSection tblCRAEquipment" id="tblCRAEquipment">
+                                    <thead style="border: 1px solid #66afe9 !important; ">
+                                        <tr>
+                                            <td width="6%" rowspan="2">
+                                            </td>
+                                            <td width="94%" colspan="20" style="text-align:center">Assess Risks</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="94%" colspan="20" style="text-align:center">Formally identified and owned risks are initially assessed as inherent, thisis because the control landscape may change over time so there should be a base level of the risk to re-assess against. The inherent impact and likelihood is assessed against the CIA triad to generate the inherent score. Current controls are then put against the risk to generate the residual risk. If this residual risk is higher than defined risk appetite, then the risk is put forward to risk treatment.</td>
+                                        </tr>
+                                        <tr class="theadBackColor">
+                                            <td rowspan="2" class="h-tooltip" title="This column contains the list of IT & OT Assets affected by the risk. 'Hover over' Hardware ID to see the full name of the asset">Hardware ID</td>
+                                            <td rowspan="2" class="h-tooltip" title="Unique reference of the risk">Risk ID</td>
+                                            <td rowspan="2" class="h-tooltip" title="Short description of the risk created in accordance to ISO 27001 standard. Some examples include: 'breakdown of communication links' - risks related to data transmission or communication. Eavesdropping - collecting of information using network 'sniffing' or 'snooping' techniques">Risk Description</td>
+                                            <td rowspan="2" class="h-tooltip" title="The type of vulnerability discovered">Vulnerability</td>
+                                            <td colspan="4" class="h-tooltip" title="This column indicates the areas of impact for each risk (C-Confidentiality, I-Integrity, A-Availability, S-Safety)">Inherent <br />Impact/risk category</td>
+                                            <td rowspan="2" class="h-tooltip" title="Impact score">Impact score</td>
+                                            <td rowspan="2" class="h-tooltip" title="Likelihood score">Likelihood score</td>
+                                            <td rowspan="2" class="h-tooltip bg-red" title="Inherent risk score">Inherent risk score</td>
+                                            <td rowspan="2" class="h-tooltip" title="Risk Owner">Risk Owner</td>
+                                            <td rowspan="2" class="h-tooltip" title="Measures used to mitigate the risk. Please refer to Cyber Security Plan for more details (references to SMS, IT procedures and policies)">Controls</td>
+                                            <td colspan="4" class="h-tooltip" title="This column indicates the areas of impact for each risk (C-Confidentiality, I-Integrity, A-Availability, S-Safety)">Residual<br />Impact/risk category</td>
+                                            <td rowspan="2" class="h-tooltip" title="Impact score">Impact score</td>
+                                            <td rowspan="2" class="h-tooltip" title="Likelihood score">Likelihood score</td>
+                                            <td rowspan="2" class="h-tooltip bg-red" title="Residual risk score">Residual risk score</td>
+                                            <td rowspan="2" class="h-tooltip" title="Risk decision">Risk decision</td>
+                                        </tr>
+                                        <tr class="theadBackColor">
+                                            <td class="h-tooltip" title="C">C</td>
+                                            <td class="h-tooltip" title="I">I</td>
+                                            <td class="h-tooltip" title="A">A</td>
+                                            <td class="h-tooltip" title="S">S</td>
+                                            <td class="h-tooltip" title="C">C</td>
+                                            <td class="h-tooltip" title="I">I</td>
+                                            <td class="h-tooltip" title="A">A</td>
+                                            <td class="h-tooltip" title="S">S</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (@Model == null || @Model.CybersecurityRisksAssessmentListModal == null || @Model.CybersecurityRisksAssessmentListModal.Count <= 0)
+                                        {
+                                            <tr>
+                                                <td colspan="21" class="text-center">
+                                                    <p>No data avilable</p>
+                                                </td>
+                                            </tr>
+                                        }
+                                        else
+                                        {
+                                            int count1 = 0;
+                                            string ClassString1 = "";
+                                            foreach (var item in Model.CybersecurityRisksAssessmentListModal)
+                                            {
+                                                <tr class="records" index="@count1" IsSelected="true">
+                                                    <td class="word-wrap">
+                                                        <div class="min-width400" style="display: flex; flex-wrap: wrap;padding:5px">
+                                                            <ul role="listbox" class="ul-listbox">
+                                                                @{
+                                                                    var lst = item.HardwareId != null ? item.HardwareId.Split(',').ToList() : new List<string>();
+                                                                    if (lst != null && lst.Count > 0)
+                                                                    {
+                                                                        var hdList = (List<string>)ViewBag.HardwareList;
+                                                                        if (hdList != null && hdList.Count > 0)
+                                                                        {
+                                                                            var q = (from c in lst
+                                                                                     join p in hdList on c equals p.Split('|')[0] into ps
+                                                                                     from p in ps.DefaultIfEmpty()
+                                                                                     select new { ID = c, Name = p == null ? "" : p.Split('|')[1] }).ToList();
+                                                                            if (q != null && q.Count > 0)
+                                                                            {
+                                                                                foreach (var hd in q)
+                                                                                {
+                                                                                    <li class="k-button" deselectable="on">
+                                                                                        <span deselectable="on"><span class="h-tooltip" title="@hd.Name">@hd.ID</span></span>
+                                                                                    </li>
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            foreach (var hd in lst)
+                                                                            {
+                                                                                <li class="k-button" deselectable="on">
+                                                                                    <span deselectable="on"><span>@hd</span></span>
+                                                                                </li>
+                                                                            }
+                                                                        }
+                                                                    }
+
+                                                                }
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="min-width100">@item.RiskId</div>
+                                                    <td>
+                                                        <div class="min-width400">@item.RiskDescription</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="min-width400">@item.Vulnerability</div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="checkbox" readonly class="CRAData" value="true" @(Convert.ToBoolean(item.InherentRiskCategoryC) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryC" />
+                                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryC" value="false" />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="checkbox" readonly class="CRAData" value="true" @(Convert.ToBoolean(item.InherentRiskCategoryI) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryI" />
+                                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryI" value="false" />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="checkbox" readonly class="CRAData" value="true" @(Convert.ToBoolean(item.InherentRiskCategoryA) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryA" />
+                                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryA" value="false" />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="checkbox" readonly class="CRAData" value="true" @(Convert.ToBoolean(item.InherentRiskCategoryS) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryS" />
+                                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskCategoryS" value="false" />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div>@item.InherentImpactScore</div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div>@item.InherentLikelihoodScore</div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        @if (Convert.ToString(item.InherentRiskScore).ToLower() == "low")
+                                                        {
+                                                            ClassString1 = "bg-green-active";
+                                                        }
+                                                        else if (Convert.ToString(item.InherentRiskScore).ToLower() == "medium")
+                                                        {
+                                                            ClassString1 = "bg-yellowtext";
+                                                        }
+                                                        else if (Convert.ToString(item.InherentRiskScore).ToLower() == "high")
+                                                        {
+                                                            ClassString1 = "bg-yellow-active";
+                                                        }
+                                                        else if (Convert.ToString(item.InherentRiskScore).ToLower() == "very high")
+                                                        {
+                                                            ClassString1 = "bg-red";
+                                                        }
+                                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].InherentRiskScore" value="@item.InherentRiskScore" /><p class="min-width100 m-5 text-center @ClassString1">@item.InherentRiskScore</p>
+                                                    </td>
+                                                    <td><div>@item.RiskOwner</div></td>
+                                                    <td class="word-wrap">
+                                                        <div class="min-width400">
+                                                            <ul role="listbox" class="ul-listbox">
+                                                                @if (!string.IsNullOrWhiteSpace(item.Controls))
+                                                                {
+                                                                    var lstCntrls = item.Controls.Split(',').ToList();
+                                                                    if (lstCntrls != null && lstCntrls.Count > 0)
+                                                                    {
+                                                                        foreach (var ik in lstCntrls)
+                                                                        {
+                                                                            <li class="k-button" deselectable="on">
+                                                                                <span deselectable="on"><span>@ik</span></span>
+                                                                            </li>
+                                                                        }
+                                                                    }
+                                                                }                                                                
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="checkbox" readonly class="CRAData" value="true" @(Convert.ToBoolean(item.ResidualRiskCategoryC) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryC" />
+                                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryC" value="false" />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="checkbox" readonly class="CRAData" value="true" @(Convert.ToBoolean(item.ResidualRiskCategoryI) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryI" />
+                                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryI" value="false" />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="checkbox" readonly class="CRAData" value="true" @(Convert.ToBoolean(item.ResidualRiskCategoryA) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryA" />
+                                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryA" value="false" />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="checkbox" readonly class="CRAData" value="true" @(Convert.ToBoolean(item.ResidualRiskCategoryS) ? "checked" : "") name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryS" />
+                                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskCategoryS" value="false" />
+                                                    </td>
+                                                    <td class="text-center"><div>@item.ResidualImpactScore</div></td>
+                                                    <td class="text-center"><div>@item.ResidualLikelihoodScore</div></td>
+                                                    <td class="text-center">
+                                                        @if (Convert.ToString(item.ResidualRiskScore).ToLower() == "low")
+                                                        {
+                                                            ClassString1 = "bg-green-active";
+                                                        }
+                                                        else if (Convert.ToString(item.ResidualRiskScore).ToLower() == "medium")
+                                                        {
+                                                            ClassString1 = "bg-yellowtext";
+                                                        }
+                                                        else if (Convert.ToString(item.ResidualRiskScore).ToLower() == "high")
+                                                        {
+                                                            ClassString1 = "bg-yellow-active";
+                                                        }
+                                                        else if (Convert.ToString(item.ResidualRiskScore).ToLower() == "very high")
+                                                        {
+                                                            ClassString1 = "bg-red";
+                                                        }
+                                                        <input type="hidden" name="CybersecurityRisksAssessmentListModal[@count1].ResidualRiskScore" value="@item.ResidualRiskScore" /><p class="min-width100 m-5 text-center @ClassString1">@item.ResidualRiskScore</p>
+                                                    </td>
+                                                    <td class="word-wrap"><div class="min-width200">@item.RiskDecision</div></td>
+                                                </tr>
+                                                count1++;
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                                <br />
+                                @*<div class="col-md-12 aviodPrint">
+                                        <a href="#" id="lnkAddAssessRisk">Add RISK ASSESS</a>
+                                    </div>*@
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    Risk / Impact Category Legend:
+                    <table class="table headerTD" border="0">
+                        <tr>
+                            <td class="text-right">C</td>
+                            <td>:</td>
+                            <td>Confidentiality</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">I</td>
+                            <td>:</td>
+                            <td>Integrity</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">A</td>
+                            <td>:</td>
+                            <td>Avilability</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">S</td>
+                            <td>:</td>
+                            <td>Safety</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row aviodPrint">
+            @*<div class="col-md-1">
+                    <button type="submit" id="btnSubmit" class="btn btn-primary">Save</button>
+                </div>*@
+            <div class="col-md-1">
+                <button type="button" class="btn btn-primary" onclick="printDiv()">Print</button>
+            </div>
+            <div class="col-md-1" style="padding-left:0px;">
+                <a href="#" onclick="exportCyberSecurity()" class="btn btn-primary"><i class="fa fa-file-excel-o"></i> Export</a>
+            </div>
+        </div>
+        <div id="frmRiskAssessmentListContentPrint" style="display:none;">
+            <table class="ParentTable" id="Printtable">
+                <thead>
+                    <tr>
+                        <td style='border-width: 0px !important;'>
+                            <div class="page-header-space">
+                                <div class="text-center">
+                                    <h3>Assess Risks</h3>
+                                </div>
+                                <div class="text-right">
+                                    <h4 id="h4ShipName">SHIP: @OfficeApplication.BLL.Helpers.SessionManager.ShipName</h4>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </form>
+</section>

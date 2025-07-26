@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?><?mso-infoPathSolution solutionVersion="6.0.0.0" PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" productVersion="15.0.0" ?><?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?><my:Main my:DateCreated="2016-08-05T23:23:54" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata" xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10" xmlns:xdServerInfo="http://schemas.microsoft.com/office/infopath/2009/xslt/ServerInfo" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-us">
+	<my:Details>
+		<my:Number>G22</my:Number>
+		<my:Title>Ship - Helicopter Operations</my:Title>
+	</my:Details>
+	<my:Hazards>
+		<my:Hazard my:HazardId="1">
+			<my:Description>Lack of / or improper communication Ship - Helicopter, including the lack of agreement between ship and helicopter related to who is in charge.</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>A/ Primary and back up communications means and channels must be agreed and tested between ship and helicopter, prior commencing of the operations.
+B/ All communications only in English Language.
+C/ It has to be very clearly agreed who is in charge , who can declare ABORT .</my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>2</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="2">
+			<my:Description>Structural damage of ship and equipment ( including collision and /or loss) due to contact between ship and  helicopter.</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>A/ Vessel in normal circumstances would act as assisted ship. 
+B/ Agree the approach maneuver with the helicopter, weather and sea condition should be assessed, safe speed agreed to maintain safe steering, course. 
+C/ Ensure bridge team consists of sufficient number of crew in position. 
+D/ Ensure adequate lighting is available during hours of darkness. 
+E/ Do not direct flood light, search light towards helicopter. 
+G/ Acknowledge and follow helicopter pilot' s instructions as and when applicable and agreed which includes when the helicopter crew is lowered on board.
+H/ Helicopter to be positioned in such a way that ship's wings, cranes or any other part wouldn't make contact . 
+I/ It is recommended that landing area to be marked on deck, as stipulated in IAMSAR MANUAL, VOLUME III, Section 2, 2-28. 
+J/ Any other activity/operation that may interfere , must be suspended till the completion of ship - helicopter operations.
+K/ Unless  necessary ship to helicopter operations should be avoided - See IAMSAR 2-29.
+L/ Take account of traffic around the vessel , exhibit appropriate day signals / lights and set ship's status on AIS accordingly. Broadcast on VHF "SECURITE" message, inform about own activity ships in vicinity and always inform the helicopter about any changes of situation in the area and on scene.</my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>2</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		
+		
+		<my:Hazard my:HazardId="3">
+			<my:Description>Personnel transfer between ship &amp;  helicopter and vice - versa.</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>4</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>A/ Means of transfer between ship and helicopter to be arranged accordingly. 
+B/ See SMS - ISM Ship Specific contingency plan  related to  helicopter operations and IAMSAR instructions for carefully implementing control measures.</my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>2</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="4">
+			<my:Description>Weather and sea state factors.</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>A/ The operation should be carefully planned taking into account actual weather ( including VISIBILITY) and sea state condition and expected forecast. 
+B/ Local weather forecast should be monitored. 
+C/ Agree with helicopter on contingency plan in case the weather deteriorates : consider SUSPENDING OF OPERATIONS.</my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>2</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		
+		<my:Hazard my:HazardId="5">
+			<my:Description>The actual need for a rescue helicopter.</my:Description>
+			<my:Severity>2</my:Severity>
+			<my:Likelihood>2</my:Likelihood>
+			<my:RiskFactor>3</my:RiskFactor>
+			<my:ControlMeasures>A/ Consider if it is necessary the assistance of a helicopter and if not, do not attempt the operation. 
+B/ The  assessment whether the helicopter is needed of not , must be discussed prior the approach of the helicopter by Master and helicopter's pilot. 
+C/ The result of the assessment and further control measures to put in place may result in Go or NO-GO situation.
+Proceeding to operations means maximum "medium risk".</my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="6">
+			<my:Description>Vessel construction suitable for ship to helicopter joined operations.</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>A/ Vessels with high  and or wide fixtures/equipment/structures on deck are not suitable for helicopter operations - SEE HAZARD 5 AND FURTHER CONTROL MEASURES.
+C/ Use of wind direction and helicopter's maneuverability particulars / pilot's experience - all with high importance in this matter. 
+D/ The Pilot will decide to approach / land or not. 
+E/  Vessel 's landing area should be normally marked, in accordance to IAMSAR MANUAL, 2-28.</my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>2</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		
+	<my:Hazard my:HazardId="7">
+										<my:Description>Personnel injuries during landing / taking off of the helicopter.</my:Description>
+										<my:Severity>3</my:Severity>
+										<my:Likelihood>3</my:Likelihood>
+										<my:RiskFactor>5</my:RiskFactor>
+										<my:ControlMeasures>A/ Avoided by respecting IAMSAR instructions, skills accumulated at drills, trainings and by mandatory use of PPE. 
+B/ Only crew involved to be present near the scene- safe distance kept.
+C/ Orders and instructions of on scene coordinator /team leader have to be followed at once. </my:ControlMeasures>
+										<my:ReducedSeverity>2</my:ReducedSeverity>
+										<my:ReducedLikelihood>2</my:ReducedLikelihood>
+										<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+									</my:Hazard><my:Hazard my:HazardId="8">
+										<my:Description>Hazards associated strictly with helicopter operations / pilots skills as can be observed.</my:Description>
+										<my:Severity>2</my:Severity>
+										<my:Likelihood>1</my:Likelihood>
+										<my:RiskFactor>1</my:RiskFactor>
+										<my:ControlMeasures>This risk can be very high or not at all. 
+If observe hesitations from helicopter's pilot, Master to request very clear the abort of operation .</my:ControlMeasures>
+										<my:ReducedSeverity>1</my:ReducedSeverity>
+										<my:ReducedLikelihood>2</my:ReducedLikelihood>
+										<my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+									</my:Hazard><my:Hazard my:HazardId="9">
+										<my:Description>Lack of crew preparedness and awareness.</my:Description>
+										<my:Severity>2</my:Severity>
+										<my:Likelihood>2</my:Likelihood>
+										<my:RiskFactor>3</my:RiskFactor>
+										<my:ControlMeasures>A/Regular drills and training will increase the preparedness of ship's crew for any situation than can arise.
+B/Ship's crew to be instructed, trained before commencing of these operations.
+C/ This risk assessment to be reviewed and discussed with all crew involved.
+D/ All crew aware about the time of commencing and completion of operations.</my:ControlMeasures>
+										<my:ReducedSeverity>2</my:ReducedSeverity>
+										<my:ReducedLikelihood>1</my:ReducedLikelihood>
+										<my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+									</my:Hazard></my:Hazards>
+	<my:Review>
+		<my:ReviewerName></my:ReviewerName>
+		<my:ReviewerRank>Master</my:ReviewerRank>
+		<my:ReviewDate>2016-08-09</my:ReviewDate>
+		<my:ReviewLocation></my:ReviewLocation>
+		<my:ReviewMembers>Chief Officer </my:ReviewMembers><my:ReviewMembers>OOW</my:ReviewMembers><my:ReviewMembers>All crew involved in this operations including the engine crew on standby .</my:ReviewMembers>
+	</my:Review>
+	<my:Header>
+		<my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+		<my:HeaderSummary></my:HeaderSummary>
+		<my:HeaderCode>RAF</my:HeaderCode>
+		<my:HeaderIssueNumber>6</my:HeaderIssueNumber>
+		<my:HeaderIssueDate>12/15</my:HeaderIssueDate>
+		<my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+		<my:HeaderAmmendmentDate></my:HeaderAmmendmentDate>
+		<my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+	</my:Header>
+	<my:Footer>Risk Assessment: G22 - Ship - Helicopter Operations</my:Footer>
+</my:Main>

@@ -1,0 +1,320 @@
+﻿@* RDBJ 01/08/2022 Added this page *@
+@{
+    ViewBag.Title = "IAFStep2";
+    //Layout = "~/Views/Shared/Menu.cshtml";
+}
+
+@* RDBJ 01/20/2022 added below script *@
+<script type="text/javascript" src="~/Scripts/autoSize/autosize.min.js"></script>
+<script>
+    $(document).ready(function () {
+        autosize(document.getElementsByTagName("textarea")); // RDBJ 01/20/2022
+
+        // RDBJ 01/22/2022
+        $(".IAFAutoUpdateData").bind("change", function (e) {
+            if ($("#IAForm").valid()) {
+                IAFAutoSave();
+            }
+        });
+        // End RDBJ 01/22/2022
+    });
+</script>
+
+@* RDBJ 01/08/2022 *@
+<div class="@ViewBag.id form2" id="AllForm">
+    <div class="row">
+        <div class="col-md-12 ">
+            <div class="row">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-6 text-center">
+                    <h3 style="margin-top:30px;">Internal Audit Form</h3>
+                    <h5 id="lblSubHeading">ISM NCN 1 of 1</h5>
+                </div>
+                <div class="col-md-3" style="margin-top:10px;">
+                    <p class="m-0"> Form: IAF</p>
+                    <p class="m-0">Issue No: 6-01/16</p>
+                    <p class="m-0">Amend No: 1-02/17</p>
+                </div>
+            </div>
+
+            <div class="section21 PageSection SectionDiv">
+                <div class="Section">
+                    <div class="SectionHead text-center">
+                        Audit Details
+                    </div>
+                    <div class="SectionContent">
+                        <table class="table tblSection">
+                            <tr>
+                                <td width="10%"><p class="m-5">Site:</p></td>
+                                <td width="40%">
+                                    <div class="form-group has-feedback">
+                                        <input readonly type="text" class="col-md-12 form-control ship" />
+                                    </div>
+                                </td>
+                                <td width="10%" rowspan="3"><p class="m-5">Audit Type(s):</p></td>
+                                <td width="40%">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input readonly type="checkbox" class="ISM" disabled />
+                                                ISM
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%"><p class="m-5">Location</p></td>
+                                <td width="40%">
+                                    <div class="form-group has-feedback">
+                                        <input readonly type="text" id="txtLocation" class="col-md-12 form-control location" />
+                                    </div>
+                                </td>
+
+                                @*<td width="10%"><p class="m-5">Audit Type(s):</p></td>*@
+                                <td width="40%">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" class="ISPS" disabled>
+                                                ISPS
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%"><p class="m-5">Audit No.:</p></td>
+                                <td width="40%">
+                                    <div class="form-group has-feedback">
+                                        <input type="text" readonly class="col-md-12 form-control Audit" />
+
+                                    </div>
+                                </td>
+                                @*<td width="10%"><p class="m-5">Audit Type(s):</p></td>*@
+                                <td width="40%">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input readonly type="checkbox" class="MLC" disabled />
+                                                MLC
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%"><p class="m-5">Date :</p></td>
+                                <td width="40%">
+                                    <div class="form-group has-feedback">
+                                        <input type="text" readonly class="datepicker col-md-12 form-control Date" />
+
+                                    </div>
+                                </td>
+                                <td width="10%"><p class="m-5">Auditor: </p></td>
+                                <td width="40%">
+                                    <div class="form-group has-feedback">
+                                        <input type="text" readonly class="datepicker col-md-12 form-control Auditor" />
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="section2 PageSection SectionDiv">
+                <div class="Section">
+                    <div class="SectionHead text-center">
+                        Step 1 - Description of Non-Conformity / Observation
+                    </div>
+                    <div class="SectionContent">
+                        <table class="table tblSection">
+                            <tr>
+                                <td width="10%"><p class="m-5">Reference:</p></td>
+                                <td width="90%">
+                                    <div class="form-group has-feedback">
+                                        <input type="text" id="BriefDescription" class="col-md-12 form-control IAFAutoUpdateData" name="AuditNote[@ViewBag.count].Reference" />
+                                        <span class="form-control-feedback">
+                                            <label class="text-danger">*</label>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td width="5%"><input type="button" class="form-control RefeData" value="..." /></td>
+                            </tr>
+                            <tr>
+                                <td width="10%"><p class="m-5">Brief Description:</p></td>
+                                <td width="90%" colspan="2">
+                                    <div class="form-group has-feedback">
+                                        <input type="text" id="BriefDescription" class="col-md-12 form-control BriefDescription IAFAutoUpdateData" />
+                                        <span class="form-control-feedback">
+                                            <label class="text-danger">*</label>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="3"><p class="m-5">Full Description:</p></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="3">
+                                    <div class="form-group has-feedback">
+                                        <textarea rows="4" type="text" id="FullDescription" class="col-md-12 form-control IAFAutoUpdateData" style="height:50%;" name="AuditNote[@ViewBag.count].FullDescription"></textarea>
+                                        <span class="form-control-feedback">
+                                            <label class="text-danger">*</label>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section2A PageSection SectionDiv">
+                <div class="Section">
+                    <div class="SectionHead text-center">
+                        Step 2A - Corrective Action(s)
+                    </div>
+                    <div class="SectionContent">
+                        <table class="table tblSection">
+                            <tr>
+                                <td width="100%" colspan="2">
+                                    <div class="form-group has-feedback">
+                                        <textarea rows="4" type="text" id="CorrectiveAction" class="col-md-12 form-control IAFAutoUpdateData" style="height:50%;" name="AuditNote[@ViewBag.count].CorrectiveAction"></textarea>
+                                        <span class="form-control-feedback">
+                                            <label class="text-danger">*</label>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section2B PageSection SectionDiv breakDivPage">
+                <div class="Section">
+                    <div class="SectionHead text-center">
+                        Step 2B - Preventative Action(s)
+                    </div>
+                    <div class="SectionContent">
+                        <table class="table tblSection">
+                            <tr>
+                                <td width="100%" colspan="2">
+                                    <div class="form-group has-feedback">
+                                        <textarea rows="4" type="text" id="CorrectiveAction" class="col-md-12 form-control IAFAutoUpdateData" style="height:50%;" name="AuditNote[@ViewBag.count].PreventativeAction"></textarea>
+                                        <span class="form-control-feedback">
+                                            <label class="text-danger">*</label>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section3 PageSection SectionDiv">
+                <div class="Section">
+                    <div class="SectionHead text-center">
+                        Responsible Person<br />
+                        (Master has overall responsibility to ensure that responsible person will complete the action.)
+                    </div>
+
+                    <div class="SectionContent">
+                        <table class="table tblSection">
+                            <tr>
+                                <td width="5%"><p class="m-5">Rank:</p></td>
+                                <td width="25%">
+                                    <div class="form-group has-feedback">
+                                        <input type="text" class="col-md-12 form-control IAFAutoUpdateData" id="Rank" name="AuditNote[@ViewBag.count].Rank" />
+                                        <span class="form-control-feedback">
+                                            <label class="text-danger">*</label>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td width="5%"><p class="m-5">Name:</p></td>
+                                <td width="25%">
+                                    <div class="form-group has-feedback">
+                                        <input type="text" class="col-md-12 form-control IAFAutoUpdateData" id="Name" name="AuditNote[@ViewBag.count].Name" />
+                                        <span class="form-control-feedback">
+                                            <label class="text-danger">*</label>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td width="5%"><p class="m-5">TimeScale:</p></td>
+                                <td width="25%">
+                                    <div class="form-group has-feedback">
+                                        <input type="text" class="col-md-12 form-control datepicker IAFAutoUpdateData" id="Date" name="AuditNote[@ViewBag.count].TimeScale" />
+                                        @*@Html.TextBox("SuperintendedInspectionReport.Date", String.Format("{0:d}", DateTime.Now), new { @class = "datepicker form-control col-md-12" })*@
+                                        <span class="form-control-feedback arrivalCalendarAddon">
+                                            <label class="text-danger">*</label> <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section4 PageSection SectionDiv AttachmentsDiv" style="width:50%">
+                <div class="Section">
+                    <div class="SectionHead text-center">
+                        Attachments
+                    </div>
+
+                    <div class="SectionContent text-center" style="border:0px;">
+
+                        <ul class="list-group" id="fileinfo_@ViewBag.count"></ul>
+
+                        @* JSL 09/10/2022 added class avoidPrint *@
+                        <table class="table tblSection avoidPrint" style=" border:0px;">
+                            <tr>
+                                <td width="50%"><p class="m-5">Max file size:</p></td>
+                                <td width="50%">
+                                    <label class="text-info">4.0 Mb</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%"><p class="m-5">Attachments allowed:</p></td>
+                                <td width="50%">
+                                    <label class="text-info">No Restriction</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%"><p class="m-5">Total allowed size:</p></td>
+                                <td width="50%">
+                                    <label class="text-info">4.0 Mb</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%" colspan="2">
+                                    <div class="file btn  btn btn-primary">
+                                        Upload
+                                        <input type="file" name="file" class="file" onchange="fileUpload(this)" multiple />
+                                    </div>
+                                    <button type="button" onclick="RemoveFile()" id="btnremovefile" class="btn btn-primary disabled">
+                                        Remove
+                                    </button>
+                                    <button type="button" id="btnopenfile" class="btn btn-primary disabled">
+                                        Open
+                                    </button>
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+        </div>
+    </div>
+</div>
+@* End RDBJ 01/08/2022 *@

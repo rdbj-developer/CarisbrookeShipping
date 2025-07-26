@@ -1,0 +1,302 @@
+﻿@{
+  Layout = null;
+}
+<script src="~/Scripts/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+<link href="~/Content/bootstrap-datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<script type="text/javascript">
+    var wnd,
+        detailsTemplate;
+    var wndAccount,
+        detailsTemplateAccount;
+     var arrayData = @Html.Raw(Json.Encode(@ViewBag.AccountData));
+    function LoadGrid()
+    {
+        $("#PONO").val('@ViewBag.PONO')
+        var array = @Html.Raw(Json.Encode(@ViewBag.data));
+        if (array != null)
+        {
+            loadInvoice(array)
+            loadAccount(array)
+        }
+    }
+    function loadInvoice(array) {
+        var obj = new Array();
+        if (array.VIMS != null) {
+            for (var i = 0; i < array.VIMS.length; i++) {
+                var item = new Object();
+                item.REQNINVOICEID = array.VIMS[i].REQNINVOICEID;
+                item.INVOICE_AMOUNT = array.VIMS[i].INVOICE_AMOUNT;
+                item.INVOICE_EXCHRATE = array.VIMS[i].INVOICE_EXCHRATE;
+                item.INVOICE_DATE = array.VIMS[i].INVOICE_DATE;
+                item.INVOICENO = array.VIMS[i].INVOICENO;
+                item.VRID = array.VIMS[i].VRID;
+                item.NET_INVOICE_AMOUNT = array.VIMS[i].NET_INVOICE_AMOUNT;
+                item.CURR_CODE = array.VIMS[i].CURR_CODE;
+                item.PONO = array.VIMS[i].PONO;
+                item.InvoiceValue = array.VIMS[i].INVOICE_AMOUNT * array.VIMS[i].INVOICE_EXCHRATE;
+                obj.push(item);
+            }
+            $('#grid').empty();
+            $('#grid').kendoGrid({
+
+                scrollable: true,
+                sortable: true,
+
+                selectable: "row",
+                filterable: true,
+                dataBound: function () {
+                    for (var i = 0; i < this.columns.length; i++) {
+                        this.autoFitColumn(i);
+                    }
+                },
+                columns: [
+
+                    { command: { text: "Edit", click: showDetails }, title: " " },
+                    { field: "PONO", title: "PONO", hidden: true },
+                    { field: "REQNINVOICEID", title: "REQNINVOICEID" },
+                    { field: "INVOICE_AMOUNT", title: "INVOICE AMOUNT" },
+                    { field: "INVOICE_EXCHRATE", title: "INVOICE EXCHRATE" },
+                    { field: "InvoiceValue", title: "Invoice Value USD" },
+                    {
+                        field: "INVOICE_DATE", title: "INVOICE DATE",
+                        template: "#= INVOICE_DATE!=null? kendo.toString(kendo.parseDate(INVOICE_DATE, 'yyyy-MM-dd'), 'dd/MM/yyyy'):'' #"
+
+                    },
+                    { field: "INVOICENO", title: "INVOICE NO" },
+                    { field: "VRID", title: "VRID" },
+                    { field: "NET_INVOICE_AMOUNT", title: "NET INVOICE AMOUNT" },
+                    { field: "CURR_CODE", title: "CURR CODE" }
+
+                ],
+                editable: "popup",
+                dataSource: {
+                    data: obj
+                }
+
+            });
+            wnd = $("#details")
+                .kendoWindow({
+                    title: "Edit Details",
+                    modal: true,
+                    visible: false,
+                    resizable: false,
+                    width: 600
+                }).data("kendoWindow");
+
+        }
+        
+        detailsTemplate = kendo.template($("#template").html());
+    }
+
+    function showDetails(e) {
+        e.preventDefault();
+
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        wnd.content(detailsTemplate(dataItem));
+        wnd.center().open();
+        datepicker();
+    }
+    function loadAccount(array) {
+        var obj = new Array();
+        if (array.AccountList != null) {
+            for (var i = 0; i < array.AccountList.length; i++) {
+                var item = new Object();
+                item.PONO = array.AccountList[i].PONO;
+                item.POTITLE = array.AccountList[i].POTITLE;
+                item.ACCOUNT_DESCR = array.AccountList[i].ACCOUNT_DESCR;
+                item.POTOTAL = array.AccountList[i].POTOTAL;
+                item.PODATE = array.AccountList[i].PODATE;
+                item.ACCOUNTID = array.AccountList[i].ACCOUNTID;
+                item.VRID = array.AccountList[i].VRID;
+                item.ACCOUNT_CODE = array.AccountList[i].ACCOUNT_CODE;
+                obj.push(item);
+            }
+            $('#gridAccount').empty();
+            $('#gridAccount').kendoGrid({
+
+                scrollable: true,
+                sortable: true,
+
+                selectable: "row",
+                filterable: true,
+                dataBound: function () {
+                    for (var i = 0; i < this.columns.length; i++) {
+                        this.autoFitColumn(i);
+                    }
+                },
+                columns: [
+
+                    { command: { text: "Edit", click: showDetailsAccount }, title: " " },
+                    { field: "PONO", title: "PONO" },
+                    { field: "VRID", title: "VRID", hidden: true },
+                    { field: "POTITLE", title: "POTITLE" },
+                    { field: "ACCOUNT_CODE", title: "ACCOUNT CODE" },
+                    { field: "ACCOUNT_DESCR", title: "Account Description" },
+                    { field: "POTOTAL", title: "POTOTAL" },
+                    {
+                        field: "PODATE", title: "PODATE",
+                        template: "#= PODATE!=null? kendo.toString(kendo.parseDate(PODATE, 'yyyy-MM-dd'), 'dd/MM/yyyy'):'' #"
+
+                    }
+
+                ],
+                editable: "popup",
+                dataSource: {
+                    data: obj
+                }
+
+            });
+            wnd = $("#detailsAccount")
+                .kendoWindow({
+                    title: "Edit Details",
+                    modal: true,
+                    visible: false,
+                    resizable: false,
+                    width: 600
+                }).data("kendoWindow");
+
+            detailsTemplateAccount = kendo.template($("#templateAccount").html());
+        }
+    }
+
+    function showDetailsAccount(e) {
+        e.preventDefault();
+
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        wnd.content(detailsTemplateAccount(dataItem));
+        datepicker();
+        wnd.center().open();
+    }
+
+    function datepicker() {
+        $(".datepicker").datepicker({
+            autoclose: true,
+            format: 'dd/mm/yyyy'
+        });
+    }
+    $(document).ready(function () {
+        LoadGrid();
+    });
+</script>
+<script type="text/x-kendo-template" id="template">
+    <div id="details-container">
+        <form action="@Url.Action("UpdateVIMS", "Admin")" method="post">
+
+            <div class="form-group">
+                <label for="REQNINVOICEID">REQNINVOICEID</label>
+                <input type="text" class="form-control VIMS" readonly id="REQNINVOICEID" name="REQNINVOICEID" value="#= REQNINVOICEID #" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="INVOICE_EXCHRATE">Invoices - Exchange rate</label>
+                <input type="text" class="form-control VIMS" id="INVOICE_EXCHRATE" name="INVOICE_EXCHRATE" value="#= INVOICE_EXCHRATE #" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="INVOICE_DATE">Date update</label>
+                <input type="text" class="form-control VIMS datepicker" id="INVOICE_DATE" name="INVOICE_DATE" value="#= INVOICE_DATE!=null? kendo.toString(kendo.parseDate(INVOICE_DATE, 'yyyy-MM-dd'), 'dd/MM/yyyy'):'' #" " placeholder="Enter email">
+            </div>
+            <div class="form-group" style="display:none">
+                <label for="OldINVOICE_EXCHRATE">INVOICE EXCHRATE</label>
+                <input type="text" class="form-control VIMS" id="OldINVOICE_EXCHRATE" name="OldINVOICE_EXCHRATE" value="#= INVOICE_EXCHRATE #" placeholder="Enter email">
+            </div>
+            <div class="form-group" style="display:none">
+
+                <label for="OldINVOICE_DATE">INVOICE DATE</label>
+                <input type="text" class="form-control VIMS datepicker" id="OldINVOICE_DATE" name="OldINVOICE_DATE" value="#= INVOICE_DATE!=null? kendo.toString(kendo.parseDate(INVOICE_DATE, 'yyyy-MM-dd'), 'dd/MM/yyyy'):'' #" " placeholder="Enter email">
+            </div>
+            <div class="form-group" style="display:none">
+                <label for="PONO">VRID</label>
+                <input type="text" class="form-control VIMS" value="#= PONO #" name="PONO" placeholder="Enter email">
+            </div>
+            @*<div class="form-group">
+                    <label for="exampleInputEmail1">NET_INVOICE_AMOUNT</label>
+                    <input type="text" class="form-control VIMS"   value="#= NET_INVOICE_AMOUNT #" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">CURR_CODE</label>
+                    <input type="text" class="form-control VIMS"   value="#= CURR_CODE #" placeholder="Enter email">
+                </div>*@
+
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="templateAccount">
+    <div id="details-container">
+        <form action="@Url.Action("UpdateAccount", "Admin")" method="post">
+            <div class="form-group">
+                <label for="PONO">PO NO</label>
+                <input type="text" class="form-control VIMS" readonly id="PONO" name="PONO" value="#= PONO #" placeholder="Enter PO NO">
+            </div>
+            <div class="form-group" style="display:none;">
+                <label for="ACCOUNTID">ACCOUNTID</label>
+                <input type="text" class="form-control VIMS" id="ACCOUNTID" name="ACCOUNTID" value="#= ACCOUNTID #" placeholder="Enter ACCOUNT CODE">
+            </div>
+            <div class="form-group">
+                <select class="form-control VIMS" name="ACCOUNT_ID">
+                    # for (var i = 0; i < arrayData.length; i++) { #
+                    #if(ACCOUNT_CODE==arrayData[i].ACCOUNT_CODE){#
+                    <option value="#= (arrayData[i].ACCOUNTID) #" selected="selected">#= (arrayData[i].ACCOUNT_CODE + ' : ' + arrayData[i].ACCOUNT_DESCR) #</option>
+                    #}else{#
+                    <option value="#= (arrayData[i].ACCOUNTID) #">#= (arrayData[i].ACCOUNT_CODE + ' : ' + arrayData[i].ACCOUNT_DESCR) #</option>
+                    #}#
+                    # } #
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="PODATE">PO DATE</label>
+                <input type="text" class="form-control VIMS datepicker" id="PODATE" name="PODATE" value="#= PODATE!=null? kendo.toString(kendo.parseDate(PODATE, 'yyyy-MM-dd'), 'dd/MM/yyyy'):'' #" " placeholder="Enter ACCOUNT CODE">
+            </div>
+            <div class="form-group" style="display:none">
+                <label for="OLDPODATE">PO DATE</label>
+                <input type="text" class="form-control VIMS datepicker" id="OLDPODATE" name="OLDPODATE" value="#= PODATE!=null? kendo.toString(kendo.parseDate(PODATE, 'yyyy-MM-dd'), 'dd/MM/yyyy'):'' #" " placeholder="Enter ACCOUNT CODE">
+            </div>
+            <div class="form-group" style="display:none">
+                <label for="OLdACCOUNT_ID">ACCOUNT CODE</label>
+                <input type="text" class="form-control VIMS" id="OLdACCOUNT_ID" name="OLdACCOUNT_ID" value="#= ACCOUNTID #" placeholder="Enter ACCOUNT CODE">
+            </div>
+            <div class="form-group" style="display:none">
+                <label for="VRID">VRID</label>
+                <input type="text" class="form-control VIMS" readonly id="VRID" name="VRID" value="#= VRID #" placeholder="Enter ACCOUNT CODE">
+            </div>
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    </div>
+</script>
+<br />
+<div class="row">
+    <div class="col-md-12">
+
+
+        @if (ViewBag.data != null)
+        {
+            <div class="well well-sm" style="margin-bottom:0px;">
+                Invoices - Exchange Rate / Date update
+            </div>
+            <br />
+            <div id="grid"></div>
+            <div id="details"></div>
+        }
+
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+
+
+        @if (ViewBag.data != null)
+        {
+            <div class="well well-sm" style="margin-bottom:0px;">Purchase Orders - Account Code update </div>
+            <br />
+            <div id="gridAccount"></div>
+            <div id="detailsAccount"></div>
+        }
+
+    </div>
+</div>

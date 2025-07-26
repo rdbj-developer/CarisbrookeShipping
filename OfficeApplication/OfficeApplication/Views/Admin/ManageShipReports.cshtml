@@ -1,0 +1,235 @@
+﻿@using OfficeApplication.BLL.Modals;
+
+@{
+    ViewBag.Title = "Ship Reports";
+    Layout = null;
+}
+
+<style>
+    .k-grid td, .k-filter-row th, .k-grid-header th.k-header, .k-pager-wrap {
+        padding: 0px;
+        padding-bottom: 0px !important;
+        padding-top: 0px !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    #grid > table {
+        table-layout: fixed;
+    }
+
+    .k-detail-row {
+        height: 50px;
+    }
+
+        .k-detail-row > table {
+            height: 100px;
+        }
+</style>
+<script src="~/Scripts/Custom/Reports.js?v1.1" type="text/javascript"></script>
+<script>
+    var RootUrl = '@Url.Content("~/")';
+    $(document).ready(function () {       
+        LoadDailyPositionReportGrid();
+    });
+
+    $(document).on('click', '#ArrivalReportHead', function () {
+        LoadArrivalReportGrid();
+    });
+
+    $(document).on('click', '#DepartureReportHead', function () {
+        LoadDepartureReportGrid();
+    });
+
+    $(document).on('click', '#DailyCargoReportHead', function () {
+        LoadDailyCargoReportGrid();
+    });
+
+    $(document).on('click', '#DailyPositionReportHead', function () {
+        LoadDailyPositionReportGrid();
+    })
+
+    $(document).on('click', '#btnArrivalSubmit', function () {
+        LoadArrivalReportGrid();
+    });
+    $(document).on('click', '#btnDepartureSubmit', function () {
+        LoadDepartureReportGrid();
+    });
+    $(document).on('click', '#btnDailyCargoSubmit', function () {
+        LoadDailyCargoReportGrid();
+    });
+    $(document).on('click', '#btnDailyPositionSubmit', function () {
+        LoadDailyPositionReportGrid();
+    });
+</script>
+
+<ul class="nav nav-tabs" id="myTab">
+    <li class="active">
+        <a id="DailyPositionReportHead" href="#DailyPositionReportTab" data-toggle="tab">Daily Position Report</a>
+    </li>
+    <li >
+        <a id="ArrivalReportHead" href="#ArrivalReportTab" data-toggle="tab">Arrival Reports</a>
+    </li>
+    <li>
+        <a id="DepartureReportHead" href="#DepartureReportTab" data-toggle="tab">Departure Report</a>
+    </li>
+    <li>
+        <a id="DailyCargoReportHead" href="#DailyCargoReportTab" data-toggle="tab">Daily Cargo Report</a>
+    </li>
+    
+</ul>
+<div class="tab-content">
+    <div id="DailyPositionReportTab" class="tab-pane active">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <select class="form-control" name="ddlShipPostion" id="ddlShipPostion">
+                                        <option value="">--Select Ship--</option>
+                                        @if (ViewBag.ShipDatas != null)
+                                        {
+                                            foreach (var item in ViewBag.ShipDatas)
+                                            {
+                                        <option value="@item.Name">@item.Name</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-primary" id="btnDailyPositionSubmit">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-body" id="DailyPositionReportPage">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="dailyPositionReportGrid">
+                                        <div class="well">Loading Please Wait...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="ArrivalReportTab" class="tab-pane ">        
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <select class="form-control" name="ddlShip" id="ddlShip">
+                                            <option value="">--Select Ship--</option>
+                                            @if (ViewBag.ShipDatas != null)
+                                            {
+                                                foreach (var item in ViewBag.ShipDatas)
+                                                {
+                                                    <option value="@item.Name">@item.Name</option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-primary" id="btnArrivalSubmit">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-body" id="ArrivalReportPage">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="arrivalReportGrid">
+                                            <div class="well">Loading Please Wait...</div>
+                                        </div>
+                                    </div>
+                                </div>                              
+                            </div>                           
+                        </div>
+                    </div>
+                </div>
+            </section>      
+    </div>
+    <div id="DepartureReportTab" class="tab-pane ">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <select class="form-control" name="ddlShipDepart" id="ddlShipDepart">
+                                        <option value="">--Select Ship--</option>
+                                        @if (ViewBag.ShipDatas != null)
+                                        {
+                                            foreach (var item in ViewBag.ShipDatas)
+                                            {
+                                                <option value="@item.Name">@item.Name</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-primary" id="btnDepartureSubmit">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-body" id="DepartureReportPage">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="departureReportGrid">
+                                        <div class="well">Loading Please Wait...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="DailyCargoReportTab" class="tab-pane ">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <select class="form-control" name="ddlShipDailyCargo" id="ddlShipDailyCargo">
+                                        <option value="">--Select Ship--</option>
+                                        @if (ViewBag.ShipDatas != null)
+                                        {
+                                            foreach (var item in ViewBag.ShipDatas)
+                                            {
+                                                <option value="@item.Name">@item.Name</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-primary" id="btnDailyCargoSubmit">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-body" id="DailyCargoReportPage">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="dailyCargoReportGrid">
+                                        <div class="well">Loading Please Wait...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+</div>

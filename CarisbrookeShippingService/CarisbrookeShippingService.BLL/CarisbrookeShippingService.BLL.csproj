@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{81B576F3-7B6E-4A9A-B72D-49BDD336E11E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CarisbrookeShippingService.BLL</RootNamespace>
+    <AssemblyName>CarisbrookeShippingService.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\APIHelper.cs" />
+    <Compile Include="Helpers\ARFormDataHelper.cs" />
+    <Compile Include="Helpers\AssetManagmentEquipmentListHelper.cs" />
+    <Compile Include="Helpers\AWSUsersHelper.cs" />
+    <Compile Include="Helpers\CloudLocalGIRSynch.cs" />
+    <Compile Include="Helpers\CloudLocalHelpAndSupportSynch.cs" />
+    <Compile Include="Helpers\CloudLocalIAFSynch.cs" />
+    <Compile Include="Helpers\CloudLocalSIRSynch.cs" />
+    <Compile Include="Helpers\CommonAssetsDB.cs" />
+    <Compile Include="Helpers\CybersecurityRisksAssessmentHelper.cs" />
+    <Compile Include="Helpers\DCRFormDataHelper.cs" />
+    <Compile Include="Helpers\DocumentsHelper.cs" />
+    <Compile Include="Helpers\DPRFormDataHelper.cs" />
+    <Compile Include="Helpers\DRFormDataHelper.cs" />
+    <Compile Include="Helpers\FormsHelper.cs" />
+    <Compile Include="Helpers\GIRFormDataHelper.cs" />
+    <Compile Include="Helpers\FeedbackFormDataHelper.cs" />
+    <Compile Include="Helpers\HelpAndSupportHelper.cs" />
+    <Compile Include="Helpers\HVRFormDataHelper.cs" />
+    <Compile Include="Helpers\IAFHelper.cs" />
+    <Compile Include="Helpers\LogHelper.cs" />
+    <Compile Include="Helpers\RiskAssessmentFormHelper.cs" />
+    <Compile Include="Helpers\ServiceHelper.cs" />
+    <Compile Include="Helpers\SIRFormDataHelper.cs" />
+    <Compile Include="Helpers\SMRFormDataHelper.cs" />
+    <Compile Include="Helpers\SqlExtensions.cs" />
+    <Compile Include="Helpers\TableQueryGenerator.cs" />
+    <Compile Include="Helpers\Utility.cs" />
+    <Compile Include="Modals\APIResponse.cs" />
+    <Compile Include="Modals\AppStatic.cs" />
+    <Compile Include="Modals\ARModal.cs" />
+    <Compile Include="Modals\AssetManagmentEquipmentListModal.cs" />
+    <Compile Include="Modals\AWSUserModal.cs" />
+    <Compile Include="Modals\CybersecurityRisksAssessmentModal.cs" />
+    <Compile Include="Modals\DCRModal.cs" />
+    <Compile Include="Modals\DeficienciesNote.cs" />
+    <Compile Include="Modals\DocumentModal.cs" />
+    <Compile Include="Modals\DPRModal.cs" />
+    <Compile Include="Modals\DRModal.cs" />
+    <Compile Include="Modals\FeedbackFormModal.cs" />
+    <Compile Include="Modals\FormModal.cs" />
+    <Compile Include="Modals\GIRModal.cs" />
+    <Compile Include="Modals\HelpAndSupportModal.cs" />
+    <Compile Include="Modals\HVRModal.cs" />
+    <Compile Include="Modals\InternalAuditForm.cs" />
+    <Compile Include="Modals\RAFormModal.cs" />
+    <Compile Include="Modals\ReferencesModal.cs" />
+    <Compile Include="Modals\ServerConnectModal.cs" />
+    <Compile Include="Modals\SIRModal.cs" />
+    <Compile Include="Modals\SMRModal.cs" />
+    <Compile Include="Modals\SMTPServerModal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Constant\CarisbrookeShippingAPI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarisbrookeShippingAPI.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Constant\CarisbrookeShippingAPI.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CarisbrookeShippingAPI.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

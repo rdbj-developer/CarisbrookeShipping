@@ -1,0 +1,13 @@
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShipping\bin\Debug\CarisbrookeShipping.exe.config
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShipping\bin\Debug\CarisbrookeShipping.exe.manifest
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShipping\bin\Debug\CarisbrookeShipping.application
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShipping\bin\Debug\CarisbrookeShipping.exe
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShipping\bin\Debug\CarisbrookeShipping.pdb
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShipping\obj\Debug\CarisbrookeShipping.csprojResolveAssemblyReference.cache
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShipping\obj\Debug\CarisbrookeShipping.CarisbrookeShipping.resources
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShipping\obj\Debug\CarisbrookeShipping.Properties.Resources.resources
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShipping\obj\Debug\CarisbrookeShipping.csproj.GenerateResource.Cache
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShipping\obj\Debug\CarisbrookeShipping.exe.manifest
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShipping\obj\Debug\CarisbrookeShipping.application
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShipping\obj\Debug\CarisbrookeShipping.exe
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingService\CarisbrookeShipping\obj\Debug\CarisbrookeShipping.pdb

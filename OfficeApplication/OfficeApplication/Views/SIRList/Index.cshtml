@@ -1,0 +1,151 @@
+﻿@model IEnumerable<OfficeApplication.BLL.Modals.SIRModal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<script>
+    var RootUrl = '@Url.Content("~/")';
+    function ViewGIRForm(ctr) {
+        var url = RootUrl + 'GIRList/Index?id=' + ctr;
+        alert(ctr)
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            async: false,
+            url: url,
+
+            success: function (Data) {
+
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    }
+    function LoadGrid() {
+        var month = $("#ddlReportPeriod").val();
+
+        var array = @Html.Raw(Json.Encode(@ViewBag.Listdata));
+        var obj = new Array();
+        for (var i = 0; i < array.length; i++) {
+            var item = new Object();
+            item.ShipName = array[i].ShipName;
+            item.SIRFormID = array[i].SIRFormID;
+            item.Date = array[i].Date;
+            item.Port = array[i].Port;
+            item.Inspector = array[i].Inspector;
+            obj.push(item);
+        }
+        $('#grid').empty();
+        $('#grid').kendoGrid({
+
+                    scrollable: true,
+
+                    filterable: true,
+                    selectable: true,
+                    change: function () {
+                        var row = this.select();
+                        var id = row[0].cells[1].textContent;
+                        var _url = RootUrl + "SIRList/DetailsView?id=" + id ;
+                        window.open(_url, '_blank');
+                    },
+                    pageable: {
+                        alwaysVisible: true,
+                        pageSizes: [5, 10, 20, 100]
+                    },
+                    dataSource: {
+                        data: obj,
+                        pageSize: 10
+                    },
+                    dataBound: function () {
+                        for (var i = 0; i < this.columns.length; i++) {
+                            this.autoFitColumn(i);
+                        }
+                    },
+                    columns: [
+                        {
+                            field: "ShipName",
+                            title: "Ship Name"
+                        },
+                        {
+                            field: "SIRFormID",
+                            title: "SIRFormID",
+                            hidden: true
+                        },
+                        {
+                            field: "Date",
+                            title: "Date",
+                            template: "#= Date!=null? kendo.toString(kendo.parseDate(Date, 'yyyy-MM-dd'), 'MM/dd/yyyy'):'' #"
+                        },
+                        {
+                            field: "Port",
+                            title: "Port"
+                        },
+                        {
+                            field: "Inspector",
+                            title: "Inspector"
+                        }
+                    ],
+
+                    dataBound: function () {
+                        var grid = this;
+                        $(".k-grouping-row").each(function (e) {
+                            grid.collapseGroup(this);
+                        });
+                    },
+
+                });
+
+    }
+
+    $(document).ready(function () {
+        LoadGrid();
+    });
+</script>
+<div class="well well-sm" style="margin-bottom:0px;">General Inspection Reports <a href="@Url.Action("Index", "Forms")" class="label label-info" style="float:right;">GO BACK</a></div>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+
+                    <input type="hidden" id="hdnSelectedVal" name="hdnSelectedVal" value="" />
+                    <select name="ddlReportPeriod" id="ddlReportPeriod">
+                        <option value="Annual">Annual</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+
+                </div>
+                <div class="box-body" id="ReportPage">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="grid">
+                                <div class="well">Loading Please Wait...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer clearfix no-border">
+                        <button type="button" class="btn btn-default" onclick="PrintReport()"><i class="fa fa-print"></i> Print</button>&nbsp;&nbsp;&nbsp;
+                        <a href="@Url.Action("DownloadInvoice", "Reports")" class="btn btn-default"><i class="fa fa-file-excel-o"></i> Export</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

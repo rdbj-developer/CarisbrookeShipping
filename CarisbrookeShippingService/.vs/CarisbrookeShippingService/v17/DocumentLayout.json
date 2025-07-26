@@ -1,0 +1,175 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8301F8F9-E07C-4411-917F-5DC48B5648E2}|CarisbrookeShippingService\\CarisbrookeShippingService.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\carisbrookeshippingservice\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8301F8F9-E07C-4411-917F-5DC48B5648E2}|CarisbrookeShippingService\\CarisbrookeShippingService.csproj|solutionrelative:carisbrookeshippingservice\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81B576F3-7B6E-4A9A-B72D-49BDD336E11E}|CarisbrookeShippingService.BLL\\CarisbrookeShippingService.BLL.csproj|d:\\data\\work\\dotnetproject\\carisbrooke\\projects\\carisbrookeshippingservice\\carisbrookeshippingservice.bll\\helpers\\servicehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81B576F3-7B6E-4A9A-B72D-49BDD336E11E}|CarisbrookeShippingService.BLL\\CarisbrookeShippingService.BLL.csproj|solutionrelative:carisbrookeshippingservice.bll\\helpers\\servicehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81B576F3-7B6E-4A9A-B72D-49BDD336E11E}|CarisbrookeShippingService.BLL\\CarisbrookeShippingService.BLL.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\carisbrookeshippingservice.bll\\modals\\documentmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81B576F3-7B6E-4A9A-B72D-49BDD336E11E}|CarisbrookeShippingService.BLL\\CarisbrookeShippingService.BLL.csproj|solutionrelative:carisbrookeshippingservice.bll\\modals\\documentmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81B576F3-7B6E-4A9A-B72D-49BDD336E11E}|CarisbrookeShippingService.BLL\\CarisbrookeShippingService.BLL.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\carisbrookeshippingservice.bll\\helpers\\apihelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81B576F3-7B6E-4A9A-B72D-49BDD336E11E}|CarisbrookeShippingService.BLL\\CarisbrookeShippingService.BLL.csproj|solutionrelative:carisbrookeshippingservice.bll\\helpers\\apihelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81B576F3-7B6E-4A9A-B72D-49BDD336E11E}|CarisbrookeShippingService.BLL\\CarisbrookeShippingService.BLL.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\carisbrookeshippingservice.bll\\helpers\\iafhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81B576F3-7B6E-4A9A-B72D-49BDD336E11E}|CarisbrookeShippingService.BLL\\CarisbrookeShippingService.BLL.csproj|solutionrelative:carisbrookeshippingservice.bll\\helpers\\iafhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81B576F3-7B6E-4A9A-B72D-49BDD336E11E}|CarisbrookeShippingService.BLL\\CarisbrookeShippingService.BLL.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\carisbrookeshippingservice.bll\\helpers\\sirformdatahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81B576F3-7B6E-4A9A-B72D-49BDD336E11E}|CarisbrookeShippingService.BLL\\CarisbrookeShippingService.BLL.csproj|solutionrelative:carisbrookeshippingservice.bll\\helpers\\sirformdatahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81B576F3-7B6E-4A9A-B72D-49BDD336E11E}|CarisbrookeShippingService.BLL\\CarisbrookeShippingService.BLL.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\carisbrookeshippingservice.bll\\helpers\\girformdatahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81B576F3-7B6E-4A9A-B72D-49BDD336E11E}|CarisbrookeShippingService.BLL\\CarisbrookeShippingService.BLL.csproj|solutionrelative:carisbrookeshippingservice.bll\\helpers\\girformdatahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8301F8F9-E07C-4411-917F-5DC48B5648E2}|CarisbrookeShippingService\\CarisbrookeShippingService.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\carisbrookeshippingservice\\service1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8301F8F9-E07C-4411-917F-5DC48B5648E2}|CarisbrookeShippingService\\CarisbrookeShippingService.csproj|solutionrelative:carisbrookeshippingservice\\service1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8301F8F9-E07C-4411-917F-5DC48B5648E2}|CarisbrookeShippingService\\CarisbrookeShippingService.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\carisbrookeshippingservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8301F8F9-E07C-4411-917F-5DC48B5648E2}|CarisbrookeShippingService\\CarisbrookeShippingService.csproj|solutionrelative:carisbrookeshippingservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "App.config",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService\\App.config",
+              "RelativeDocumentMoniker": "CarisbrookeShippingService\\App.config",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService\\App.config",
+              "RelativeToolTip": "CarisbrookeShippingService\\App.config",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB4AAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2022-06-24T10:02:31.639Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService\\Program.cs",
+              "RelativeDocumentMoniker": "CarisbrookeShippingService\\Program.cs",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService\\Program.cs",
+              "RelativeToolTip": "CarisbrookeShippingService\\Program.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2022-06-23T10:34:07.438Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Service1.cs",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService\\Service1.cs",
+              "RelativeDocumentMoniker": "CarisbrookeShippingService\\Service1.cs",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService\\Service1.cs",
+              "RelativeToolTip": "CarisbrookeShippingService\\Service1.cs",
+              "ViewState": "AQIAAHAAAAAAAAAAAAAvwH0AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000587|",
+              "WhenOpened": "2022-06-23T10:34:17.005Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ServiceHelper.cs",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService.BLL\\Helpers\\ServiceHelper.cs",
+              "RelativeDocumentMoniker": "CarisbrookeShippingService.BLL\\Helpers\\ServiceHelper.cs",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService.BLL\\Helpers\\ServiceHelper.cs",
+              "RelativeToolTip": "CarisbrookeShippingService.BLL\\Helpers\\ServiceHelper.cs",
+              "ViewState": "AQIAAFUAAAAAAAAAAAAvwGkAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2022-06-23T10:34:25.837Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "APIHelper.cs",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService.BLL\\Helpers\\APIHelper.cs",
+              "RelativeDocumentMoniker": "CarisbrookeShippingService.BLL\\Helpers\\APIHelper.cs",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService.BLL\\Helpers\\APIHelper.cs",
+              "RelativeToolTip": "CarisbrookeShippingService.BLL\\Helpers\\APIHelper.cs",
+              "ViewState": "AQIAAI0AAAAAAAAAAAArwKAAAABpAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2022-11-15T09:13:20.995Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DocumentModal.cs",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService.BLL\\Modals\\DocumentModal.cs",
+              "RelativeDocumentMoniker": "CarisbrookeShippingService.BLL\\Modals\\DocumentModal.cs",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService.BLL\\Modals\\DocumentModal.cs",
+              "RelativeToolTip": "CarisbrookeShippingService.BLL\\Modals\\DocumentModal.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAUAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-01-24T10:10:33.06Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IAFHelper.cs",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService.BLL\\Helpers\\IAFHelper.cs",
+              "RelativeDocumentMoniker": "CarisbrookeShippingService.BLL\\Helpers\\IAFHelper.cs",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService.BLL\\Helpers\\IAFHelper.cs",
+              "RelativeToolTip": "CarisbrookeShippingService.BLL\\Helpers\\IAFHelper.cs",
+              "ViewState": "AQIAACsEAAAAAAAAAAAYwDkEAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2022-11-15T11:14:06.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SIRFormDataHelper.cs",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService.BLL\\Helpers\\SIRFormDataHelper.cs",
+              "RelativeDocumentMoniker": "CarisbrookeShippingService.BLL\\Helpers\\SIRFormDataHelper.cs",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService.BLL\\Helpers\\SIRFormDataHelper.cs",
+              "RelativeToolTip": "CarisbrookeShippingService.BLL\\Helpers\\SIRFormDataHelper.cs",
+              "ViewState": "AQIAAG0HAAAAAAAAAAAYwHsHAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2022-11-15T11:12:20.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GIRFormDataHelper.cs",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService.BLL\\Helpers\\GIRFormDataHelper.cs",
+              "RelativeDocumentMoniker": "CarisbrookeShippingService.BLL\\Helpers\\GIRFormDataHelper.cs",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\CarisbrookeShippingService\\CarisbrookeShippingService.BLL\\Helpers\\GIRFormDataHelper.cs",
+              "RelativeToolTip": "CarisbrookeShippingService.BLL\\Helpers\\GIRFormDataHelper.cs",
+              "ViewState": "AQIAAFQKAAAAAAAAAAAYwGgKAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2022-09-12T08:08:05.176Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

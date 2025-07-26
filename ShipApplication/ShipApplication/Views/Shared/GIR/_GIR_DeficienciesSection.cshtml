@@ -1,0 +1,1078 @@
+﻿<style>
+    .pink.lighten-2 {
+        background-color: #0097a7 !important;
+    }
+
+        .pink.lighten-2 a {
+            color: #ffffff !important;
+        }
+
+    .chip {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba(0,0,0,.6);
+        line-height: 32px;
+        padding: 0 12px;
+        -webkit-border-radius: 16px;
+        border-radius: 16px;
+        background-color: #eceff1;
+        margin-right: 1px;
+        margin-bottom: 1px;
+        cursor: pointer;
+        -webkit-transition: all .3s linear;
+        -o-transition: all .3s linear;
+        transition: all .3s linear;
+    }
+
+    .close:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+
+    .chip .close {
+        cursor: pointer;
+        float: right;
+        font-size: 16px;
+        line-height: 32px;
+        padding-left: 8px;
+        -webkit-transition: all .1s linear;
+        -o-transition: all .1s linear;
+        transition: all .1s linear;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    .form-group {
+        margin-bottom: 0px;
+    }
+    /*RDBJ 10/09/2021*/
+    .dataTables_wrapper .dataTables_length label {
+        margin-left: 5px !important;
+    }
+
+    .dataTables_wrapper .dataTables_length select {
+        margin: 5px 5px 0 5px !important;
+        background-color: white !important;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        margin: 5px 5px 0 5px !important;
+        background-color: white !important;
+    }
+
+    .dataTables_info {
+        margin-left: 5px;
+    }
+
+    .dataTables_wrapper .dataTables_paginate {
+        margin-bottom: 5px;
+    }
+    /*End RDBJ 10/09/2021*/
+
+    /* RDBJ 01/07/2022 */
+    .txtSetDateWidthForPrint {
+        width: 90px !important;
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+    /* End RDBJ 01/07/2022 */
+
+</style>
+<link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" /> @*RDBJ 10/09/2021*@
+<script src="~/Scripts/dataTable/jquery.dataTables.min.js"></script> @*RDBJ 10/09/2021*@
+<script>
+    var number;
+    var RootUrl = '@Url.Content("~/")';
+    
+    //RDBJ 10/30/2021
+    var girDeficienciesFiles = {
+        Files: []
+    };
+
+    var fileData = new FormData();  // JSL 11/12/2022
+    $(document).ready(function () {
+        //getStartNumber($("#Child").val()); //RDBJ 11/02/2021 Commented
+        $("#Child").change(function () {
+            getStartNumber($("#Child").val());
+        });
+
+        $("#InserNewDefect").click(function () {
+            InsertNewDeficiencies(); //RDBJ 10/30/2021
+        });
+
+        $("#btnAddDeficiency").click(function () {
+            if ($("#GIRForm").valid()) {
+                AddDeficiency();
+            }
+        });
+
+        $('#btnUploadDeficiencies').click(function () {
+            if ($("#UniqueFormID").val() != "") {
+                // Checking whether FormData is available in browser
+                if (window.FormData !== undefined) {
+
+                    var fileUpload = $("#FileUploadDeficiencies").get(0);
+                    var files = fileUpload.files;
+
+                    if (files.length <= 0) {
+                        $.notify("Please select file.", "error");
+                        return;
+                    }
+
+                    // Create FormData object
+                    var fileData = new FormData();
+                    fileData.append("uniqueFormData", $("#UniqueFormID").val());
+                    fileData.append("ShipName", $("#Child option:selected").val());
+                    // Looping over all files and add it to FormData object
+                    for (var i = 0; i < files.length; i++) {
+                        fileData.append(files[i].name, files[i]);
+                    }
+
+                    $.ajax({
+                        url: RootUrl + 'Forms/GIRDeficienciesUpload',
+                        type: "POST",
+                        contentType: false, // Not to set any content header
+                        processData: false, // Not to process data
+                        data: fileData,
+                        success: function (result) {
+                            $.notify("Deficiencies Uploaded Successfully", "success");
+                            location.reload(true);
+                        },
+                        error: function (err) {
+                            $.notify("Error occured while uploading Deficiencies !", "error");
+                        }
+                    });
+                } else {
+                    alert("FormData is not supported.");
+                }
+            }
+            else {
+                alert("Please save GIR form data.");
+                return false;
+            }
+
+        });
+
+        textAreaAutoHeight();
+
+        //RDBJ 10/09/2021
+        $('#tblDeficiencies').DataTable({
+            destroy: true,  // RDBJ 02/06/2022
+            pageLength: 100, //RDBJ 10/19/2021 set page 100
+            lengthMenu: [[5, 10, 20, 100], [5, 10, 20, 100]],
+            "language": {
+                "lengthMenu": "Show _MENU_ Deficiencies",
+                "emptyTable": "Deficiencies Not Availabe!"
+            }
+        });
+    });
+
+    function removeNewDefect(ctr, defID) { //RDBJ 10/30/2021 set defID
+        if (isInspector.toLowerCase() == 'true' && isDraft.toLowerCase() == 'true') {
+            //$(ctr).closest('tr').remove();
+            //setChnageValue(false, false, false, true, false);
+            DeleteDefectFromDB(ctr, defID); //RDBJ 10/30/2021 set defID
+        }
+    }
+    function DeleteDefectFromDB(ctr, defID) { //RDBJ 10/30/2021 set defID
+        //$("#lblAutoSave").show(); // RDBJ 12/08/2021 commente this line
+        var modal = {
+            UniqueFormID: $("#UniqueFormID").val(),
+            ReportType: "GI",
+            DefID: defID, //RDBJ 10/30/2021 set defID
+        }
+        $.ajax({
+            url: '@Url.Action("DeleteDefectFromDB", "Deficiencies")',
+            type: 'POST',
+            data: modal,
+            async: true,
+            success: function (res) {
+                //$(ctr).closest('tr').remove(); // RDBJ 12/08/2021 commente this line
+
+                // RDBJ 12/08/2021
+                var id = $("#UniqueFormID").val();
+                $(".DeficienciesSection").load('@Url.Action("_GIR_DeficienciesSection", "Drafts")' + '?id=' + id);
+                // End RDBJ 12/08/2021
+
+                //$("#lblAutoSave").hide(); // RDBJ 12/08/2021 commente this line
+            },
+            error: function (err) {
+                console.log(err);
+                $("#lblAutoSave").hide();
+            }
+        });
+    }
+    function RemoveFile(ctr) {
+        // JSL 06/04/2022 commented
+        /*
+        $(ctr).parent().next().next().next().val('false');
+        $(ctr).parent().hide();
+        $("#DeficienciesChanged").val(true); // RDBJ2 03/12/2022
+        GIRAutoSave();  // RDBJ2 03/12/2022
+        */
+        // End JSL 06/04/2022 commented
+
+        // JSL 06/04/2022
+        var DeficienciesUniqueID = $(ctr).attr("data-parentid");
+        var DeficienciesFileUniqueID = $(ctr).attr("data-id");
+
+        var dic = {};
+        dic["DeficienciesFileUniqueID"] = DeficienciesFileUniqueID;
+        dic["DeficienciesUniqueID"] = DeficienciesUniqueID;
+        dic["FormType"] = "GI";
+        dic["IsDeleteFromSection"] = "true";
+
+        CommonServerPostApiCall(dic, "Deficiencies", "PerformAction", str_API_DELETEDEFICIENCYFILE);
+        // End JSL 06/04/2022
+    }
+    function getStartNumber(ship) {
+        var url = RootUrl + "Forms/getNextNumber";
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            async: false,
+            url: url,
+            data: { ship: ship, ReportType: 'GI', UniqueFormID: $("#UniqueFormID").val()}, //RDBJ 10/30/2021 Added ReportType
+            success: function (Data) {
+                number = Data;
+            }
+        });
+    }
+    function createGuid() {
+        function S4() {
+            return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+        }
+        return (S4() + S4() + "-" + S4() + "-4" + S4().substr(0, 3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
+    }
+    function DeficienciesChange() {
+        if (isInspector.toLowerCase() == 'true' && isDraft.toLowerCase() == 'true') {
+            setChnageValue(false, false, false, true);
+            GIRAutoSave();
+        }
+    }
+    function RedirectToDeficiencies(_value) {
+        $("#sectionList .NavButton").each(function () {
+            let $currentControl = $(this);
+            let attribDataSection = $(this).attr("data-section");
+            if (attribDataSection != undefined) {
+                let splitArray = attribDataSection.split(',');
+                $.each(splitArray, function (index, value) {
+                    if (value == _value) {
+                        var lblValue = ($currentControl).attr("data-lbl-text");
+                        var hideSection = ($currentControl).attr("data-lbl-show");
+                        $(".PageSection").hide();
+                        $("." + hideSection).show();
+                        $("#lblSubHeading").text(lblValue);
+                        $(".leftContent").animate({ scrollTop: 0 }, "fast");
+                    }
+                });
+            }
+        });
+    }
+    function fileUpload(ctr, count) {
+        if (typeof (FileReader) != "undefined") {
+            var image_holder = $("#img-holder");
+            var reader = new FileReader();
+            var notAllowType = "";
+            var fileistoobig = ""; //RDBJ 10/30/2021
+            reader.onload = function (e) {
+                var modAdd = $(ctr).parent().find('.filedata').length;
+                for (var i = 0; i < ctr.files.length; i++) {
+                    if (ctr.files[i].type.indexOf('pdf') >= 0 ||
+                        ctr.files[i].type.indexOf('image') >= 0 ||
+                        ctr.files[i].type.indexOf('document') >= 0 ||
+                        ctr.files[i].type.indexOf('xml') >= 0 ||
+                        ctr.files[i].type.indexOf('sheet') >= 0
+                    ) {
+
+                        //RDBJ 10/30/2021 validation for file size and wrapped in if
+                        if (ctr.files[i].size > 2000000) {
+                            fileistoobig = fileistoobig + " [" + ctr.files[i].name + "] ";
+                        }
+                        else {
+                            var picFile = e.target;
+                            var data = '';
+
+                            //RDBJ 10/30/2021 wrapped in if and added else part
+                            if (count != 999) {
+                                data = '<div  class="chip pink lighten-2 white-text waves-effect waves-effect filedata">' +
+                                    '<a>' + ctr.files[i].name + '</a>' +
+                                    '<i class="close fa fa-times" onclick="RemoveFile(this)"></i >' +
+                                    '</div>' +
+                                    '<input type="hidden" value="' + ctr.files[i].name + '" class="filename" name="GIRDeficiencies[' + count + '].GIRDeficienciesFile[' + (i + modAdd) + '].FileName" />' +
+                                    //'<input type="hidden" class="path" value="' + picFile.result + '"  name="GIRDeficiencies[' + count + '].GIRDeficienciesFile[' + (i + modAdd) + '].StorePath" />' +    // JSL 06/04/2022 commented this line
+                                    '<input type="hidden" class="isUpload" value="' + "true" + '" name="GIRDeficiencies[' + count + '].GIRDeficienciesFile[' + (i + modAdd) + '].IsUpload" />';
+                                $("#DeficienciesChanged").val(true);
+                            }
+                            else {
+                                data = '<div  class="chip pink lighten-2 white-text waves-effect waves-effect filedata">' +
+                                    '<a>' + ctr.files[i].name + '</a>' +
+                                    '<i class="close fa fa-times" onclick="deleteFile(this, \'' + ctr.files[i].name + '\')"></i >' +
+                                    '</div>';
+
+                                var DeficienciesFileUniqueID = createGuid();    // JSL 06/04/2022
+                                girDeficienciesFiles.Files.push({
+                                    "DeficienciesFileUniqueID": DeficienciesFileUniqueID,   // JSL 06/04/2022
+                                    "FileName": ctr.files[i].name,
+                                    "StorePath": picFile.result,
+                                    "IsUpload": true
+                                });
+                            }
+                            $(ctr).parent().append(data);
+                            //GIRAutoSave();  // RDBJ 02/06/2022
+                        }
+                    }
+                    else {
+                        notAllowType = notAllowType + " [" + ctr.files[i].name + "] ";
+                    }
+                }
+
+                if (notAllowType != "") {
+                    $("#modal-gir-def-file-upload-error-default p").text(notAllowType + " files types are not supported")
+                    $('#modal-gir-def-file-upload-error-default').modal('show');
+                }
+                //RDBJ 10/30/2021 added else if
+                else if (fileistoobig != "") {
+                    $("#modal-gir-def-file-upload-error-default p").text(fileistoobig + " File must be smaller than 2.0 MB")
+                    $('#modal-gir-def-file-upload-error-default').modal('show');
+                }
+            }
+            image_holder.show();
+            reader.readAsDataURL($(ctr)[0].files[0]);
+
+        } else {
+            alert("This browser does not support FileReader.");
+        }
+    }
+
+    // JSL 11/12/2022
+    function fileUploadFromPopupModalAddDeficiency(ctr) {
+        var image_holder = $("#img-holder");
+        var notAllowType = "";
+        var fileistoobig = "";
+
+        var modAdd = $(ctr).parent().find('.filedata').length;
+        for (var i = 0; i < ctr.files.length; i++) {
+            if (ctr.files[i].type.indexOf('pdf') >= 0 ||
+                ctr.files[i].type.indexOf('image') >= 0 ||
+                ctr.files[i].type.indexOf('document') >= 0 ||
+                ctr.files[i].type.indexOf('xml') >= 0 ||
+                ctr.files[i].type.indexOf('sheet') >= 0
+            ) {
+                if (ctr.files[i].size > 2000000) {
+                    fileistoobig = fileistoobig + " [" + ctr.files[i].name + "] ";
+                }
+                else {
+                    fileData.append(ctr.files[i].name, ctr.files[i]);
+                    var data = '';
+                    data = '<div  class="chip pink lighten-2 white-text waves-effect waves-effect filedata">' +
+                        '<a>' + ctr.files[i].name + '</a>' +
+                        '<i class="close fa fa-times" onclick="deleteFile(this, \'' + ctr.files[i].name + '\')"></i >' +
+                        '</div>';
+                    $(ctr).parent().append(data);
+                }
+            }
+            else {
+                notAllowType = notAllowType + " [" + ctr.files[i].name + "] ";
+            }
+        }
+
+        if (notAllowType != "") {
+            $("#modal-gir-def-file-upload-error-default p").text(notAllowType + " files types are not supported")
+            $('#modal-gir-def-file-upload-error-default').modal('show');
+        }
+        
+        else if (fileistoobig != "") {
+            $("#modal-gir-def-file-upload-error-default p").text(fileistoobig + " File must be smaller than 2.0 MB")
+            $('#modal-gir-def-file-upload-error-default').modal('show');
+        }
+
+        image_holder.show();
+    }
+    // End JSL 11/12/2022
+
+    // RDBJ2 03/12/2022
+    function defFileUpload(ctr, count) {
+        // Checking whether FormData is available in browser  
+        if (window.FormData !== undefined) {
+            var image_holder = $("#img-holder");
+            var notAllowType = "";
+            var fileistoobig = "";
+
+            var fileUpload = $("#" + $(ctr).attr("id")).get(0);
+            var files = fileUpload.files;
+            // Looping over all files and add it to FormData object  
+            for (var i = 0; i < files.length; i++) {
+                if (files[i].type.indexOf('pdf') >= 0 ||
+                    files[i].type.indexOf('image') >= 0 ||
+                    files[i].type.indexOf('document') >= 0 ||
+                    files[i].type.indexOf('xml') >= 0 ||
+                    files[i].type.indexOf('sheet') >= 0
+                ) {
+                    if (files[i].size > 2000000) {
+                        fileistoobig = fileistoobig + " [" + files[i].name + "] ";
+                    }
+                    else {
+                        var DeficienciesFileUniqueID = createGuid();    // JSL 06/04/2022
+                        var DeficienciesUniqueID = $(ctr).attr("data-deficiency-id");
+                        // Create FormData object  
+                        var fileData = new FormData();
+                        fileData.append(files[i].name, files[i]);
+
+                        fileData.append('DeficienciesUniqueID', DeficienciesUniqueID);
+                        fileData.append('DeficienciesFileUniqueID', DeficienciesFileUniqueID);  // JSL 06/04/2022
+                        fileData.append('IsUploadGIRDefFiles', true);
+
+                        $.ajax({
+                            url: RootUrl + 'Forms/UploadGIRPhotosOrDefFiles',
+                            type: "POST",
+                            async: true,
+                            contentType: false, // Not to set any content header  
+                            processData: false, // Not to process data  
+                            data: fileData,
+                            success: function (data) {
+                                if (data.Status == 'Success') {
+                                    var modAdd = $(ctr).parent().find('.filedata').length;
+
+                                    htmlFileData = '<div  class="chip pink lighten-2 white-text waves-effect waves-effect filedata">' +
+                                        '<a>' + data.FileName + '</a>' +
+                                        '<i class="close fa fa-times" data-parentid="' + DeficienciesUniqueID + '" data-id="' + DeficienciesFileUniqueID + '" onclick="RemoveFile(this)"></i >' +   // JSL 06/04/2022 added data-parentid data-id
+                                        '</div>' +
+                                        '<input type="hidden" value="' + data.FileName + '" class="filename"  name="GIRDeficiencies[' + count + '].GIRDeficienciesFile[' + (modAdd) + '].FileName" />' +
+                                        //'<input type="hidden" class="path" value="' + data.ImagePath + '"  name="GIRDeficiencies[' + count + '].GIRDeficienciesFile[' + (modAdd) + '].StorePath" />' +    // JSL 06/04/2022 commented this line
+                                        '<input type="hidden" class="isUpload" value="' + "true" + '" name="GIRDeficiencies[' + count + '].GIRDeficienciesFile[' + (modAdd) + '].IsUpload" />';
+
+                                    $("#FormVersion").val(data.FormVersion);    // JSL 06/04/2022
+
+                                    $(ctr).parent().append(htmlFileData);
+                                }
+                            },
+                            error: function (err) {
+                                alert(err.statusText);
+                            }
+                        });
+                    }
+                }
+                else {
+                    notAllowType = notAllowType + " [" + files[i].name + "] ";
+                }
+            }
+
+            if (notAllowType != "") {
+                $("#modal-gir-def-file-upload-error-default p").text(notAllowType + " files types are not supported")
+                $('#modal-gir-def-file-upload-error-default').modal('show');
+            }
+            else if (fileistoobig != "") {
+                $("#modal-gir-def-file-upload-error-default p").text(fileistoobig + " File must be smaller than 2.0 MB")
+                $('#modal-gir-def-file-upload-error-default').modal('show');
+            }
+            image_holder.show();
+
+            $("#files").val(null);
+        } else {
+            //alert("FormData is not supported.");
+        }
+    }
+    // End RDBJ2 03/12/2022
+
+    //RDBJ 10/30/2021
+    function deleteFile(ctr, value) {
+        $(ctr).parent().remove();
+
+        $.each(girDeficienciesFiles.Files, function (i) {
+            if (girDeficienciesFiles.Files[i].FileName === value) {
+                girDeficienciesFiles.Files.splice(i, 1);
+                return false;
+            }
+        });
+
+        // JSL 11/12/2022
+        fileData.delete(value);
+        // End JSL 11/12/2022
+    }
+    //End RDBJ 10/30/2021
+
+    //RDBJ 10/30/2021
+    function DownloadDeficienciesFile(fileId, data) {
+        var _name = $(data).text();
+        var url = RootUrl + "Deficiencies/Download?file=" + fileId + "&name=" + _name;;
+        $.ajax({
+            url: url,
+            contentType: 'application/json; charset=utf-8',
+            datatype: 'json',
+            type: "GET",
+            async: false,
+            success: function () {
+                window.location = url;
+            }
+        });
+    }
+    //End RDBJ 10/30/2021
+
+    //RDBJ 10/30/2021 wrappend in function old source
+    function InsertNewDefectByTableRow() {
+        getStartNumber($("#Child").val());
+        number = parseInt(number);
+        var guid = createGuid();
+        var MembersCount = parseInt($("#GIRDeficiencies").val());
+        MembersCount = MembersCount + 1;
+        MembersCount = $(".tblDeficiencies").find(".records").length;
+        var html =
+            '<tr class="records" index="' + parseInt(MembersCount) + '">' +
+            '<td style="vertical-align: middle;">' +
+            '<a href="#"  onclick="removeNewDefect(this, ' + parseInt(number) + ')">' +
+            '<span class="glyphicon glyphicon-remove"></span>' +
+            '</a>' +
+            '</td>' +
+            '<td width="8%" class="v-al-m text-center">' +
+            '<div class="form-group has-feedback">' +
+            '<input style="padding:0px 0px 0px 5px !important;" type="text" readonly class="form-control col-md-12" name="GIRDeficiencies[' + MembersCount + '].No" value="' + parseInt(number) + '" />' +
+            //'<label id="GIRDeficiencies[' + MembersCount + '].No" name="GIRDeficiencies[' + MembersCount + '].No">' + parseInt(number) + '</label>' + //RDBJ 10/09/2021 Added and then Commented
+            '<span class="form-control-feedback">' +
+            '<label class="text-danger">*</label>' +
+            '</span>' +
+            '</div>' +
+            '</td>' +
+            '<td width="10%" class="v-al-m text-center">' +
+            '<div class="form-group has-feedback">' +
+            //'<input type="hidden" name="GIRDeficiencies[' + MembersCount + '].Section" id="GIRDeficiencies[' + MembersCount + '].Section" />'+
+            //'<a href="javascript:void(0)" onclick="RedirectToDeficiencies()" class="NavButton" id="GIRDeficiencies[' + MembersCount + '].Section" name="GIRDeficiencies[' + MembersCount + '].Section" />' +
+            '<select class="NavButton" id="GIRDeficiencies[' + MembersCount + '].Section" name="GIRDeficiencies[' + MembersCount + '].Section">' +
+            '<option value="Section 4b" selected>Section 4B</option>' +
+            '<option value="Section 4c">Section 4C</option>' +
+            '<option value="Section 4d">Section 4D</option>' +
+            '<option value="Section 5A">Section 5A</option>' +
+            '<option value="Section 5B">Section 5B</option>' +
+            '<option value="Section 5C">Section 5C</option>' +
+            '<option value="Section 5D">Section 5D</option>' +
+            '<option value="Section 5E">Section 5E</option>' +
+            '<option value="Section 5F">Section 5F</option>' +
+            '<option value="Section 5G">Section 5G</option>' +
+            '<option value="Section 5H">Section 5H</option>' +
+            '<option value="Section 5I">Section 5I</option>' +
+            '<option value="Section 5J">Section 5J</option>' +
+            '<option value="Section 5K">Section 5K</option>' +
+            '<option value="Section 5L">Section 5L</option>' +
+            '<option value="Section 5M">Section 5M</option>' +
+            '<option value="Section 5N">Section 5N</option>' +
+            '<option value="Section 5O">Section 5O</option>' +
+            '<option value="Section 5P">Section 5P</option>' +
+            '<option value="Section 5Q">Section 5Q</option>' +
+            '<option value="Section 5R">Section 5R</option>' +
+            '<option value="Section 5S">Section 5S</option>' +
+            '<option value="Section 5T">Section 5T</option>' +
+            '<option value="Section 6">Section 6</option>' +
+            '</select>' +
+            '</div>' +
+            '</td>' +
+            '<td width="21%" class="v-al-m text-center">' +
+            '<div class="form-group has-feedback">' +
+            '<input type="text" class="form-control col-md-12 txtDateRaised GIRData" onchange="DeficienciesChange()" name="GIRDeficiencies[' + MembersCount + '].DateRaised"/>' +
+            '<span class="form-control-feedback">' +
+            '<label class="text-danger">*</label><i class="fa fa-calendar"></i>' +
+            '</span>' +
+            '</div>' +
+            '</td>' +
+            '<td width="24%" class="v-al-m text-center">' +
+            '<div class="form-group has-feedback">' +
+            '<textarea style="width:100%" onchange="DeficienciesChange()" class="GIRData" name="GIRDeficiencies[' + MembersCount + '].Deficiency"></textarea>' +
+            '<span class="form-control-feedback">' +
+            '<label class="text-danger">*</label>' +
+            '</span>' +
+            '</div>' +
+            '</td>' +
+            '<td width="21%" class="v-al-m text-center">' +
+            '<div class="form-group has-feedback">' +
+            '<input type="text" class="form-control col-md-12 txtDateClosed GIRData"  onchange="DeficienciesChange()" name="GIRDeficiencies[' + MembersCount + '].DateClosed" />' +
+            '<span class="form-control-feedback">' +
+            '<label class="text-danger">*</label><i class="fa fa-calendar"></i>' +
+            '</span>' +
+            '</div>' +
+            '</td>' +
+            '<td width="16%" class="v-al-m text-center">' +
+            '<div class="form-group has-feedback">' +
+            '<label for="' + guid + '" class="label label-primary clsfileupload" style="margin:0px;width:100%;">Upload File</label>' +
+            '<input id="' + guid + '"  multiple  onChange="fileUpload(this,' + MembersCount + ')" style="visibility:hidden;height:4px;" type="file">' +
+            '</div>' +
+            '</td>' +
+            '</tr>';
+        $(".Deficiencies").append(html)
+        $("#GIRDeficiencies").val(MembersCount);
+    }
+    //End RDBJ 10/30/2021
+
+    //RDBJ 10/30/2021
+    function InsertNewDeficiencies() {
+        // RDBJ 12/18/2021
+        if ($("#UniqueFormID").val() == "") {
+            $("#lblAutoSave").hide();
+            $.notify("Please add General Details first in General Section!", "error");
+            return;
+        }
+
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("getDeficienciesNumbers", "Deficiencies")",
+            data: { ReportType: "GI", ship: $("#Child option:selected").val(), UniqueFormID: $("#UniqueFormID").val() },
+            dataType: 'json',
+            success: function (data) {
+                var numberOptions = '';
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        if (i == 0)
+                            numberOptions += '<option value="' + data[i] + '" selected>' + data[i] + '</option>';
+                        else
+                            numberOptions += '<option value="' + data[i] + '">' + data[i] + '</option>';
+                    }
+                    $("#ddbSelectExistingNumber").html(numberOptions);
+                }
+                else {
+                    $("#chkbUseNextNumber").prop("checked", true);
+                    $("#ddbSelectExistingNumber").prop("disabled", true);
+                }
+                girDeficienciesFiles.Files = [];    // RDBJ 02/06/2022
+                // RDBJ 02/06/2022
+                $('#modal-insertDeficiencies').modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
+
+                // JSL 10/15/2022
+                var formDate = moment(document.getElementById("Date").value, "DD/MM/YYYY").format('YYYY-MM-DD');
+                document.getElementById("dateRaised").value = formDate;
+                // End JSL 10/15/2022
+
+                $('#modal-insertDeficiencies').modal('show');
+            }
+        });
+    }
+    //End RDBJ 10/30/2021
+
+    //RDBJ 10/30/2021
+    function AddDeficiency() {
+        $("#lblAutoSave").show();
+        //var url = RootUrl + 'Forms/AddGIRDeficiencies';   // JSL 11/12/2022 commented
+        var url = RootUrl + 'Forms/AddGIRDeficienciesWithFile'; // JSL 11/12/2022
+        var defNo = 0;
+
+        if ($('#chkbUseNextNumber').is(":checked")) {
+            defNo = 0;
+        }
+        else {
+            defNo = $("#ddbSelectExistingNumber").val();
+        }
+
+        // JSL 11/12/2022 commented
+        /*
+        var Modal = {
+            GIRFormID: 0, // RDBJ 12/08/2021
+            UniqueFormID: $("#UniqueFormID").val(),
+            No: defNo,
+            Section: $("#ddbSelectSection").val(),
+            DateRaised: $("#dateRaised").val(),
+            Deficiency: $("#txtDeficiency").val(),
+            DateClosed: $("#dateClosed").val(),
+            ReportType: "GI",
+            Ship: $("#Child option:selected").val(),
+            Priority: $("#DeficiencyPriority").val(),
+            GIRDeficienciesFile: girDeficienciesFiles.Files
+        }
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            async: true,
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ Modal: Modal }),
+            success: function (data) {
+                // JSL 06/04/2022
+                $("#FormVersion").val(data.FormVersion);
+                // JSL 06/04/2022
+
+                girDeficienciesFiles.Files = [];
+                $("#lblAutoSave").hide();
+                GetDeficienciesDataAfterAdded();
+            },
+            error: function (data) {
+                $("#lblAutoSave").hide();
+            }
+        });
+        */
+        // End JSL 11/12/2022 commented
+
+        // JSL 11/12/2022
+        fileData.append("GIRFormID", 0);
+        fileData.append("UniqueFormID", $("#UniqueFormID").val());
+        fileData.append("No", defNo);
+        fileData.append("Section", $("#ddbSelectSection").val());
+        fileData.append("DateRaised", $("#dateRaised").val());
+        fileData.append("Deficiency", $("#txtDeficiency").val());
+        fileData.append("DateClosed", $("#dateClosed").val());
+        fileData.append("ReportType", "GI");
+        fileData.append("Ship", $("#Child option:selected").val());
+        fileData.append("Priority", $("#DeficiencyPriority").val());
+
+        $.ajax({
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            async: false,
+            url: url,
+            data: fileData,
+            success: function (data) {
+                $("#FormVersion").val(data.FormVersion);
+
+                girDeficienciesFiles.Files = [];
+                $("#lblAutoSave").hide();
+                GetDeficienciesDataAfterAdded();
+
+                fileData = new FormData();
+            },
+            error: function (Data) {
+                console.log(Data);
+            }
+        });
+        // End JSL 11/12/2022
+    }
+    //End RDBJ 10/30/2021
+
+    //RDBJ 11/10/2021
+    function GetDeficienciesDataAfterAdded() {
+        var id = $("#UniqueFormID").val();
+        $(".DeficienciesSection").load('@Url.Action("_GIR_DeficienciesSection", "Drafts")' + '?id=' + id);
+        $('#modal-insertDeficiencies').modal('hide');
+        $('.modal-backdrop').remove();
+    }
+    //End RDBJ 11/10/2021
+</script>
+<div class="Section breakDivPage">
+    <div class="SectionHead">
+        <u>Section 7</u> - Deficiencies
+    </div>
+    <div class="SectionContent">
+        <input type="hidden" value="-1" id="GIRDeficiencies" />
+        <table id="tblDeficiencies" class="table tblSection Deficiencies tblDeficiencies" width="100%">
+            @* RDBJ 10/09/2021 Added table tag id and width *@
+            @* RDBJ 10/09/2021 heading tr tag change from td to th and wrapped in thead tag *@
+            <thead>
+                <tr>
+                    @* RDBJ 03/21/2022 Wrapped in if *@
+                    @if (Model.SavedAsDraft == true && ViewBag.SavedAsDraft == true)
+                    {
+                        <td class="aviodPrint"></td>
+                    }
+
+                    <th width="8%" class="v-al-m text-center">
+                        No.
+                    </th>
+                    <th width="12%" class="v-al-m text-center">
+                        Section No
+                    </th>
+                    <th width="15%" class="v-al-m text-center">Date Raised </th>
+                    <th width="36%" class="v-al-m text-center">Deficiency </th>
+                    <th width="15%" class="v-al-m text-center">Date Closed </th>
+                    <th width="14%" class="v-al-m text-center">File Upload </th>
+                </tr>
+            </thead>
+            @if (Model.GIRDeficiencies != null)
+            {
+                int count = 0;
+                var guid = Guid.NewGuid();
+                foreach (var item in Model.GIRDeficiencies)
+                {
+                    guid = Guid.NewGuid();
+                    <tr class="records" index="@count">
+                        @* RDBJ 03/21/2022 Wrapped in if *@
+                        @if (Model.SavedAsDraft == true && ViewBag.SavedAsDraft == true)
+                        {
+                            <td style="vertical-align: middle; text-align: center;" class="aviodPrint">
+                                @* RDBJ 10/30/2021 DeficienciesUniqueID *@
+                                <a href="#" onclick="removeNewDefect(this, '@item.DeficienciesUniqueID')">
+                                    <span class="glyphicon glyphicon-remove" style="display:inline !important;"></span>
+                                </a>
+                                <input type="hidden" name="GIRDeficiencies[@count].Ship" value="@item.Ship" /> @*RDBJ 11/29/2021*@
+                                <input type="hidden" id="GIRDeficiencies[@count].ReportType" name="GIRDeficiencies[@count].ReportType" value="GI" /> @*RDBJ 11/29/2021*@
+                            </td>
+                        }
+                        
+                        <td width="8%" class="v-al-m text-center">
+                            <div class="form-group has-feedback">
+                                @* RDBJ 10/09/2021 commented Input type and added Label *@
+                                @*<input style="padding:0px 0px 0px 5px !important;" type="text" class="form-control col-md-12" id="GIRDeficiencies[@count].No" name="GIRDeficiencies[@count].No" value="@item.No" readonly/>*@
+                                <label id="GIRDeficiencies[@count].No" name="GIRDeficiencies[@count].No">@item.No</label>
+                                <input type="hidden" id="GIRDeficiencies[@count].No" name="GIRDeficiencies[@count].No" value="@item.No" /> @*RDBJ 10/12/2021*@
+                                <span class="form-control-feedback">
+                                    @*<label class="text-danger">*</label>*@ @* RDBJ 10/09/2021 Commented *@
+                                </span>
+                            </div>
+                        </td>
+                        <td width="12%" class="v-al-m text-center">
+                            <div class="form-group has-feedback">
+                                <input type="hidden" name="GIRDeficiencies[@count].Section" value="@item.Section" />
+                                <input type="hidden" name="GIRDeficiencies[@count].ItemNo" value="@item.ItemNo" />
+                                <a href="javascript:void(0)" onclick="RedirectToDeficiencies('@item.Section')" name="GIRDeficiencies[@count].Section" id="GIRDeficiencies[@count].Section">@item.Section</a>
+                            </div>
+                        </td>
+                        <td width="15%" class="v-al-m text-center">
+                            <div class="form-group has-feedback">
+                                @* RDBJ 01/15/2022 added style *@
+                                <input type="text" class="form-control col-md-12 txtDateRaised GIRData" onchange="DeficienciesChange()" value="@(item.DateRaised != null ? item.DateRaised.ToShortDateString() : "")" name="GIRDeficiencies[@count].DateRaised" style="padding-right: 0px !important" />
+                                <span class="form-control-feedback">
+                                    @*<label class="text-danger">*</label>*@<i class="fa fa-calendar"></i> @* RDBJ 10/09/2021 Commented *@
+                                </span>
+                            </div>
+                        </td>
+                        <td width="36%" class="v-al-m text-center">
+                            <div class="form-group has-feedback">
+                                @* RDBJ 10/23/2021 added class txtAreaDeficiencies *@
+                                <textarea style="width:100%" onchange="DeficienciesChange()" class="GIRData txtAreaDeficiencies" name="GIRDeficiencies[@count].Deficiency">@item.Deficiency</textarea>
+                                <span class="form-control-feedback">
+                                    @*<label class="text-danger">*</label>*@ @* RDBJ 10/09/2021 Commented *@
+                                </span>
+                            </div>
+                        </td>
+                        <td width="15%" class="v-al-m text-center">
+                            <div class="form-group has-feedback">
+                                @* RDBJ 01/15/2022 added style *@ @* RDBJ 10/26/2021 Set DateClose Value *@
+                                <input type="text" class="form-control col-md-12 txtDateClosed GIRData" onchange="DeficienciesChange()" value="@(item.DateClosed != null ? item.DateClosed.ToShortDateString() : "")" name="GIRDeficiencies[@count].DateClosed" style="padding-right: 0px !important" />
+                                <span class="form-control-feedback">
+                                    @*<label class="text-danger">*</label>*@<i class="fa fa-calendar"></i> @* RDBJ 10/09/2021 Commented *@
+                                </span>
+                            </div>
+                        </td>
+                        <td width="14%" class="v-al-m text-center">
+                            <div class="form-group has-feedback">
+                                @{ int i = 0;}
+
+                                @* RDBJ 03/21/2022 Wrapped in if *@
+                                @if (Model.SavedAsDraft == true && ViewBag.SavedAsDraft == true)
+                                {
+                                    <label for="@guid" class="label label-primary aviodPrint" style="margin:0px; cursor:pointer;">Upload File</label>
+                                }
+
+                                @* RDBJ2 03/12/2022 Commented this line *@
+                                @*<input id="@guid" multiple onChange="fileUpload(this,@count, @i+1)" style="visibility:hidden;height:4px;width:100%;" type="file">*@
+
+                                @* RDBJ2 03/12/2022 Added *@
+                                <input id="@guid" data-deficiency-id="@item.DeficienciesUniqueID" multiple onChange="defFileUpload(this,@count)" style="visibility:hidden;height:4px;width:100%;" type="file">
+
+                                @* RDBJ 10/30/2021 replcae with proper name *@
+                                @foreach (var girFileItem in @item.GIRDeficienciesFile)
+                                {
+                                    <input type="hidden" value="@girFileItem.GIRDeficienciesFileID" name="GIRDeficiencies[@count].GIRDeficienciesFile[@i].GIRDeficienciesFileID" />
+                                    <input type="hidden" value="@girFileItem.DeficienciesUniqueID" name="GIRDeficiencies[@count].GIRDeficienciesFile[@i].DeficienciesUniqueID" />
+                                    @* JSL 09/09/2022 Added style width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; *@
+                                    <div style="display: flex;" class="chip pink lighten-2 white-text waves-effect waves-effect filedata">
+                                        <a style="width: 130px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" onclick="DownloadDeficienciesFile('@girFileItem.GIRDeficienciesFileID',this)">@girFileItem.FileName</a>
+                                        @* RDBJ2 05/10/2022 added remove file *@
+                                        @if (ViewBag.Inspector == true && Model.SavedAsDraft == true)
+                                        {
+                                            @* JSL 06/04/2022 added data-parentid, data-id attr *@
+                                            <i class="close fa fa-times" data-parentid="@girFileItem.DeficienciesUniqueID" data-id="@girFileItem.DeficienciesFileUniqueID" onclick="RemoveFile(this)"></i>
+                                        }
+                                    </div>
+                                    <input type="hidden" value="@girFileItem.FileName" class="filename" name="GIRDeficiencies[@count].GIRDeficienciesFile[@i].FileName" />
+                                    <input type="hidden" class="path" value="@girFileItem.StorePath" name="GIRDeficiencies[@count].GIRDeficienciesFile[@i].StorePath" />
+                                    <input type="hidden" class="isUpload" value="@girFileItem.IsUpload" name="GIRDeficiencies[@count].GIRDeficienciesFile[@i].IsUpload" />
+                                    i++;
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                    count++;
+                    @*<td>@item.No</td>
+                        <td>@item.DateRaised</td>
+                        <td>@item.Deficiency</td>
+                        <td>@item.DateClosed</td>
+                        <td>
+                            @foreach (var item1 in @item.GIRDeficienciesFile)
+                            {
+                                <div style="line-height: unset;" class="chip pink lighten-2 white-text waves-effect waves-effect file">
+
+                                    <a onclick="DownloadDeficienciesFile('@item1.GIRDeficienciesFileID',this)">@item1.FileName</a>
+
+                                </div>
+                            }
+                        </td>*@
+                }
+            }
+        </table>
+    </div>
+</div>
+<div class="row aviodPrint">
+    @if (ViewBag.Inspector == true && Model.SavedAsDraft == true)
+    {
+        <div class="col-md-12 text-center">
+            @*<a href="#" id="InserNewDefect">Insert new defect</a>*@
+            @* RDBJ 10/30/2021 make css *@
+            <label id="InserNewDefect" class="label label-primary clsfileupload" style="margin:0px;width:100%;font-size: unset;cursor:pointer;">Insert new defect</label>
+        </div>
+    }
+</div>
+<div class="SectionComplete" style="margin-top:10px;">
+    <div class="checkbox">
+        <label>Section Complete?</label>
+        @* RDBJ 10/19/2021 Set Name, Value and wrapped in if*@
+        @if (Model.IsDeficienciesSectionComplete == true)
+        {
+            <input type="checkbox" class="GIRData" name="IsDeficienciesSectionComplete" value="true" style="margin-left:20px;" checked />
+        }
+        else
+        {
+            <input type="checkbox" class="GIRData" name="IsDeficienciesSectionComplete" value="false" style="margin-left:20px;" />
+        }
+        @*<input type="checkbox" class="GIRData" name="IsSummarySectionComplete" onchange="DeficienciesChange();" style="margin-left:20px;">*@
+    </div>
+</div>
+<br />
+
+
+
+<div class="row aviodPrint">
+    <div class="col-md-12">
+        @* RDBJ 03/21/2022 Wrapped in if *@
+        @if (Model.SavedAsDraft == true && ViewBag.SavedAsDraft == true)
+        {
+            <input type="file" id="FileUploadDeficiencies" accept="text/xml" style="float:left;" />
+            <button type="button" class="btn btn-success" id="btnUploadDeficiencies">Import</button>
+        }
+    </div>
+</div>
+
+@* RDBJ 10/30/2021 Added Deficiencies Modal *@
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-insertDeficiencies">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content aviodPrint">
+            <div class="modal-header">
+                <h4 class="modal-title">Add New Deficiency</h4>
+                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                </button>*@
+            </div>
+            <div class="modal-body" style="overflow:hidden !important;">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="mr-sm-2">Select Existing Number: </label>
+                        <select class="custom-select mr-sm-2" id="ddbSelectExistingNumber" name="ddbSelectExistingNumber"></select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <input type="checkbox" class="custom-control-input" id="chkbUseNextNumber">
+                            <label class="custom-control-label"> Use Next Number</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="mr-sm-2">Section No</label><label class="text-danger">*</label>
+                        <select class="form-control" id="ddbSelectSection">
+                            <option value="Section 4b" selected>Section 4B</option>
+                            <option value="Section 4c">Section 4C</option>
+                            <option value="Section 4d">Section 4D</option>
+                            <option value="Section 5A">Section 5A</option>
+                            <option value="Section 5B">Section 5B</option>
+                            <option value="Section 5C">Section 5C</option>
+                            <option value="Section 5D">Section 5D</option>
+                            <option value="Section 5E">Section 5E</option>
+                            <option value="Section 5F">Section 5F</option>
+                            <option value="Section 5G">Section 5G</option>
+                            <option value="Section 5H">Section 5H</option>
+                            <option value="Section 5I">Section 5I</option>
+                            <option value="Section 5J">Section 5J</option>
+                            <option value="Section 5K">Section 5K</option>
+                            <option value="Section 5L">Section 5L</option>
+                            <option value="Section 5M">Section 5M</option>
+                            <option value="Section 5N">Section 5N</option>
+                            <option value="Section 5O">Section 5O</option>
+                            <option value="Section 5P">Section 5P</option>
+                            <option value="Section 5Q">Section 5Q</option>
+                            <option value="Section 5R">Section 5R</option>
+                            <option value="Section 5S">Section 5S</option>
+                            <option value="Section 5T">Section 5T</option>
+                            <option value="Section 6">Section 6</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="mr-sm-2">Date Raised</label><label class="text-danger">*</label>
+                        <input type="date" class="form-control" id="dateRaised" name="dateRaised">
+                        <span class="form-control-feedback"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label class="mr-sm-2">Deficiency</label><label class="text-danger">*</label>
+                        <textarea class="form-control" id="txtDeficiency" name="txtDeficiency"></textarea>
+                        <span class="form-control-feedback"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="mr-sm-2">Date Closed</label>
+                        <input type="date" class="form-control" id="dateClosed">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="mr-sm-2">Priority Weeks: </label>
+                        <select class="form-control" id="DeficiencyPriority">
+                            <option value="12" selected>12</option>
+                            <option value="8">8</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="defFiles" class="label label-primary clsfileupload" style="margin-top: 5px; width: 100%; font-size: unset; cursor: pointer;">Upload Files</label>
+                        @* JSL 11/12/2022 commented below line *@
+                        @*<input id="defFiles" multiple onChange="fileUpload(this, 999)" style="visibility:hidden;height:4px;" type="file">*@
+
+                        @* JSL 11/12/2022 added below line *@
+                        <input id="defFiles" multiple onChange="fileUploadFromPopupModalAddDeficiency(this)" style="visibility:hidden;height:4px;" type="file">
+                    </div>
+                </div>
+                <div class="form-row">
+                    
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnAddDeficiency" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+@* End RDBJ 10/30/2021 Added Deficiencies Modal *@
+
+<div class="modal fade" id="modal-gir-def-file-upload-error-default">
+    <div class="modal-dialog">
+        <div class="modal-content aviodPrint">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Files types are not supported</h4>
+            </div>
+            <div class="modal-body">
+                <p>&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

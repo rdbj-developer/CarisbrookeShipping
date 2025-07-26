@@ -1,0 +1,319 @@
+﻿@using OfficeApplication.BLL.Modals;
+@model string
+@{
+    ViewBag.Title = "Documents";
+    Layout = null;
+}
+<style type="text/css">
+    .LeftBox {
+        border: 1px solid #d2d6de;
+    }
+
+    .fancytree-icon {
+        display: none !important;
+    }
+
+    .txtTolbl {
+        border: none;
+        background-color: white !important;
+        padding-left: 0px;
+    }
+
+    .pl-0 {
+        padding-left: 0px;
+    }
+
+    .pl-10 {
+        padding-left: 10px;
+    }
+
+    .pt-1 {
+        padding-top: 10px;
+    }
+</style>
+
+<script src="~/Scripts/Custom/ManageDocuments.js?06.02.2020"></script>
+
+<script type="text/javascript">
+    $(function () {
+        @*var res = '@ViewBag.Result';*@
+         var res = '@TempData["Result"]';
+        var ClickedType = '@TempData["ClickedType"]';
+        if (res == '@AppStatic.SUCCESS') {
+            SuccessMsg(ClickedType);
+        }
+        if (res == '@AppStatic.ERROR') {
+            ErrorMsg(ClickedType);
+        }
+        InitDocumentsTree();
+    });
+
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31
+          && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+
+    function InitDocumentsTree() {
+        $("#DocumentsTree").fancytree({
+            click: function (event, data) {
+                var node = data.node;
+                var selectedType = node.type;
+                if (selectedType == "FOLDER" || selectedType == "Folder") {
+                    $('#btnAddFileUpload').attr('disabled', false);
+                    $(".AddFileUpload").prop('disabled', false);
+                    $('#btnAddNewFolder').attr('disabled', false);
+                     $('#btnAddNewWindowsFolder').attr('disabled', false);
+                    $(".AddFileNew").show();
+                    $(".UpdateFileNew").hide();
+					$(".UpdateFileFolderNew").hide();
+                }
+                else if (selectedType == "WINDOWSFOLDER" || selectedType == "windowsfolder") {
+                    $('#btnAddNewFolder').attr('disabled', true);
+                    $('#btnAddFileUpload').attr('disabled', true);
+                    $('#btnAddNewWindowsFolder').attr('disabled', true);
+                    $(".AddFileNew").hide();
+                    $('#btnUpdateFileUpload').attr('disabled', false);
+                    $(".UpdateFileUpload").prop('disabled', false);
+                    $(".UpdateFileNew").hide();
+                    $(".UpdateFileFolderNew").show();								 
+                }
+                else {
+                    $('#btnAddNewFolder').attr('disabled', true);
+                    $('#btnAddFileUpload').attr('disabled', true);
+                     $('#btnAddNewWindowsFolder').attr('disabled', true);
+                    $(".AddFileNew").hide();
+                    $('#btnUpdateFileUpload').attr('disabled', false);
+                    $(".UpdateFileUpload").prop('disabled', false);
+                    $(".UpdateFileNew").show();
+					$(".UpdateFileFolderNew").hide();								
+                }
+                $('#btnSubmit').attr('disabled', true);
+                $('#btnRemove').attr('disabled', false);
+                $('#btnEdit').attr('disabled', false);
+                $('#btnAddRootFolder').attr('disabled', false);
+                $("#hdnSelectedType").val(selectedType);
+                $("#txtDocumentID").val(node.data.documentid);
+                $("#txtParentID").val(node.data.parentid);
+                $("#txtNumber").val(node.data.number);
+                $("#txtDocNo").val(node.data.docno);
+                $("#txtTitle").val(node.title);
+                $("#optSectionType").val(node.data.sectiontype);
+                $("#txtPath").text("");
+                $("#txtPath").text(node.data.path);
+                $("#txtNumber").prop("readonly", "readonly");
+                $("#txtDocNo").prop("readonly", "readonly");
+                $("#txtTitle").prop("readonly", "readonly");
+                $("#txtPath").prop("readonly", "readonly");
+            },
+        });
+    }
+
+    function BindDocumentsTree() {
+        $("#ajax_loader").show();
+        $.ajax({
+            type: "GET",
+             url: '@Url.Action("DocumentsTreeView", "Admin")?sectionType=' + $("#optSectionType").val() ,
+             async: true,
+             cache: false,
+             dataType: "html",
+             success: function (result) {
+                 $("#DocumentsTree").html('@Html.Raw("'  + result + '")');
+                 CancelChanges();
+                 try {
+                     var objTree = $(".sampletree").fancytree();
+                     if (objTree != undefined && objTree != null) {
+                         // using default options
+                         $("#DocumentsTree").fancytree("destroy");
+                     }
+                     InitDocumentsTree();
+                 } catch (e) {
+
+                 }
+
+                 $("#ajax_loader").hide();
+            },
+            error: function (err) {
+                $("#ajax_loader").hide();
+            }
+        });
+
+    }
+</script>
+
+<form class="form-horizontal" id="frmManageDoc" method="post" action="@Url.Action("ManageDocuments", "Admin")" enctype="multipart/form-data">
+    @*<div class="row">
+        <div class="form-group col-md-6">
+            <label for="SectionType" class="col-sm-2 control-label">Type:</label>
+            <div class="col-sm-10">
+                <select class="form-control col-md-12" name="SectionType" id="optSectionType" onchange="BindDocumentsTree()">
+                    <option selected="selected" value="ISM">ISM</option>
+                    <option value="IT">IT</option>
+                </select>
+            </div>
+        </div>
+    </div>*@
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="SectionType" class="col-sm-2 control-label">Type:</label>
+                <div class="col-sm-10">
+                    <select class="form-control col-md-12" name="SectionType" id="optSectionType" onchange="BindDocumentsTree()">
+                        <option selected="selected" value="ISM">ISM</option>
+                        <option value="IT">IT</option>
+                    </select>
+                </div>
+            </div>
+            <div class="box LeftBox">
+                <div class="box-body" style="overflow:auto;">
+                    <div id="DocumentsTree">
+                        @Html.Raw(ViewBag.TreeView)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 pl-0">
+            <div class="box-body">
+                @*<form class="form-horizontal" id="frmManageDoc" method="post" action="@Url.Action("ManageDocuments", "Admin")" enctype="multipart/form-data">*@
+                <input type="hidden" name="hdnClickedType" id="hdnClickedType" value="" />
+                <input type="hidden" name="hdnSelectedType" id="hdnSelectedType" value="" />
+                <div class="form-group">
+                    <label for="lblDocumentID" class="col-sm-2 control-label">Id:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control txtTolbl" id="txtDocumentID" name="DocumentID" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lblParentID" class="col-sm-2 control-label">ParentID:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control txtTolbl" id="txtParentID" name="ParentID" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="DocNo" class="col-sm-2 control-label">DocNo:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtDocNo" name="DocNo" onkeypress="return isNumberKey(event)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Number" class="col-sm-2 control-label">Number:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtNumber" name="Number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Number" class="col-sm-2 control-label">Title:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtTitle" name="Title" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputExperience" class="col-sm-2 control-label">Path</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" id="txtPath" rows="4" name="Path"></textarea>
+                    </div>
+                </div>
+                <br />
+                @*<div class="form-group">
+                        <div class="col-md-offset-2 col-md-3">
+                            <button type="button" class="btn btn-default btnAddNew" id="btnAddRootFolder" value="AddRoot">Add Root Folder</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-default btnAddNew" id="btnAddNewFolder" value="AddFolder">Add New Folder</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-default btnAddNew" id="btnAddNewWindowsFolder" value="AddFolder">Add New Windows Folder</button>
+                        </div>
+                        <div class="col-md-3 col-md-offset-2  AddFileNew">
+                            <div class="input-group">
+                                <label class="input-group-btn">
+                                    <span class="btn btn-default" id="btnAddFileUpload">
+                                        Add New File
+                                        <input type="file" id="btnAddFile" class="AddFileUpload" onchange="GetFileData(this)" value="AddFile" name="postedFiles" style="display: none;">
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3 UpdateFileNew" style="display:none;">
+                            <div class="input-group">
+                                <label class="input-group-btn">
+                                    <span class="btn btn-default" id="btnUpdateFileUpload">
+                                        Update Document
+                                        <input type="file" id="btnUpdateFile" class="UpdateFileUpload" onchange="GetFileData(this)" value="UpdateFile" name="updatedFiles" style="display: none;">
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-3">
+                        <button type="button" class="btn btn-default btnAddNew" id="btnAddRootFolder" value="AddRoot">Add Root Folder</button>
+                    </div>
+                    <div class="col-md-3 pl-10">
+                        <button type="button" class="btn btn-default btnAddNew" id="btnAddNewFolder" value="AddFolder">Add New Folder</button>
+                    </div>
+                    <div class="col-md-4 pl-0">
+                        <button type="button" class="btn btn-default btnAddNew" id="btnAddNewWindowsFolder" value="AddWindowsFolder">Add New Windows Folder</button>
+                    </div>
+                </div>
+
+                <div class="row pt-1">
+                    <div class="col-md-offset-2 col-md-3 AddFileNew">
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <span class="btn btn-default" id="btnAddFileUpload">
+                                    Add New File
+                                    <input type="file" id="btnAddFile" class="AddFileUpload" onchange="GetFileData(this)" value="AddFile" name="postedFiles" style="display: none;">
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                   <div class="col-md-offset-2 col-md-3 UpdateFileNew" style="display:none">
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <span class="btn btn-default" id="btnUpdateFileUpload">
+                                    Update Document
+                                    <input type="file" id="btnUpdateFile" class="UpdateFileUpload" onchange="GetFileData(this)" value="UpdateFile" name="updatedFiles" style="display: none;">
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+					 <div class="col-md-offset-2 col-md-3 UpdateFileFolderNew" style="display:none">
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <span class="btn btn-default" id="btnUpdateFileFolerUpload">
+                                    Update Windows Folder
+                                    <input type="button" id="btnUpdateFileFolder" class="UpdateFileFolderUpload"  value="UpdateFileFolder" name="updatedFilesFolder" style="display: none;">
+                                </span>
+                            </label>
+                        </div>
+                    </div> 
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <label class="control-label" id="lblFileName" style="display:none;"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-5">
+                        <button type="button" id="btnEdit" class="col-md-12 btn btn-default">Edit</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="col-md-12 btn btn-default btnAddNew" id="btnRemove" value="RemoveObj">Remove</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-5">
+                        <button type="submit" id="btnSubmit" class="col-md-12 btn btn-default">Save</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="col-md-12 btn btn-default btnAddNew" value="CancelChanges">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

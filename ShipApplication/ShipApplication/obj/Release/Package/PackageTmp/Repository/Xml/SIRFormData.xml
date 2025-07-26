@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Sections>
+		<Section SectionId="1">
+			<Title>Accommodation General</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">General appearance</Item>
+				<Item ItemId="2" IsYesNo="true">Accommodation entrances secured / locked</Item>
+				<Item ItemId="3" IsYesNo="false">Entrance door bell and code lock</Item>
+				<Item ItemId="4" IsYesNo="false">Fire doors</Item>
+				<Item ItemId="5" IsYesNo="false">Restricted areas marked and secured</Item>
+				<Item ItemId="6" IsYesNo="false">Posters clearly displayed</Item>
+				<Item ItemId="7" IsYesNo="false">Muster lists</Item>
+				<Item ItemId="8" IsYesNo="false">Safety signage</Item>
+				<Item ItemId="9" IsYesNo="false">SOLAS Training manual</Item>
+				<Item ItemId="10" IsYesNo="true">Code of Safe Working Practices</Item>
+				<Item ItemId="11" IsYesNo="false">Videotel VOD – Complete Set</Item>
+			</Items>
+		</Section>
+		<Section SectionId="2">
+			<Title>Galley and Fridges</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">General appearance</Item>
+				<Item ItemId="2" IsYesNo="false">Hygiene and cleanliness</Item>
+				<Item ItemId="3" IsYesNo="false">Food rotation</Item>
+				<Item ItemId="4" IsYesNo="false">Fridge and freezer cleaning schedule</Item>
+				<Item ItemId="5" IsYesNo="false">Fridge alarm</Item>
+				<Item ItemId="6" IsYesNo="false">Garbage segregation</Item>
+				<Item ItemId="7" IsYesNo="false">Garbage Disposal Placards</Item>
+			</Items>
+		</Section>
+		<Section SectionId="3">
+			<Title>Hospital</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">General appearance</Item>
+				<Item ItemId="2" IsYesNo="false">Hospital alarm</Item>
+				<Item ItemId="3" IsYesNo="true">Breathalyser kits</Item>
+				<Item ItemId="4" IsYesNo="true">Medical locker</Item>
+				<Item ItemId="5" IsYesNo="true">Semi-Automatic External Defibrillator </Item>
+			</Items>
+		</Section>
+		<Section SectionId="4">
+			<Title>Laundry</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">General appearance</Item>
+				<Item ItemId="2" IsYesNo="false">Iron - not left unattended and notice posted </Item>
+				<Item ItemId="3" IsYesNo="false">Washing Machines, Dryers and exhausts clean and free of lint </Item>>
+			</Items>
+		</Section>
+		<Section SectionId="5">
+			<Title>Inspections and Reports Status</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">Survey Status</Item>
+				<Item ItemId="6" IsYesNo="false">Last Supers Inspection Outstanding Items</Item>
+				<Item ItemId="8" IsYesNo="false">Last General Inspection Outstanding Items</Item>
+				<Item ItemId="9" IsYesNo="false">Port / Flag State Inspection Outstanding Items</Item>
+			</Items>
+		</Section>		
+		<Section SectionId="6">
+			<Title>Bridge Equipment</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">Single watch keeper's alarm - Bridge </Item>
+				<Item ItemId="2" IsYesNo="false">General Alarm and Fire Alarm</Item>
+				<Item ItemId="3" IsYesNo="false">Bridge Emergency Main Engine Shut Down</Item>
+				<Item ItemId="4" IsYesNo="false">Aldis Lamp (including spare bulbs)</Item>
+				<Item ItemId="5" IsYesNo="false">Ship's Whistle</Item>
+				<Item ItemId="6" IsYesNo="false">Oxygen/Gas Meter and test tubes (IMDG only) (Drager Multi-Warn)</Item>
+				<Item ItemId="7" IsYesNo="false">Oxygen Meter (Drager micro Pac)-3pcs</Item>
+				<Item ItemId="8" IsYesNo="false">Multi Gas detector kit (with 10m hose)</Item>
+			</Items>
+		</Section>	
+		<Section SectionId="7">
+			<Title>Bridge / Deck Log Book</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">Watchkeeping Arrangements (Lookout)</Item>
+				<Item ItemId="2" IsYesNo="false">Regular Position fixes on charts during navigation (maximum 1hr interval)</Item>
+				<Item ItemId="3" IsYesNo="false">Daily watch keeping entries</Item>
+				<Item ItemId="4" IsYesNo="false">Steering Gear Test prior to arrival / departure</Item>
+				<Item ItemId="5" IsYesNo="false">Safety and Security Rounds</Item>
+				<Item ItemId="6" IsYesNo="true">Hose tests of hatch covers recorded</Item>
+			</Items>
+		</Section>	
+		<Section SectionId="8">
+			<Title>Deck Safety and Security</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">Emergency exits and escape Sets (EEBD)</Item>
+				<Item ItemId="2" IsYesNo="false">Fire flaps and dampers</Item>
+				<Item ItemId="3" IsYesNo="false">Portable fire extinguishers and refills</Item>
+				<Item ItemId="4" IsYesNo="false">Emergency fire pump</Item>
+				<Item ItemId="5" IsYesNo="false">Fire line deck isolation valve</Item>
+				<Item ItemId="6" IsYesNo="false">International shore connection</Item>
+				<Item ItemId="7" IsYesNo="false">Life boat and contents</Item>
+				<Item ItemId="8" IsYesNo="false">Lifejackets / Immersion suits &amp; storage boxes</Item>
+				<Item ItemId="9" IsYesNo="false">Smoke floats and lifebuoys</Item>
+				<Item ItemId="10" IsYesNo="false">EPIRBs</Item>
+				<Item ItemId="11" IsYesNo="false">Muster Point identified</Item>
+				<Item ItemId="12" IsYesNo="false">Emergency exits clear and secured</Item>
+				<Item ItemId="13" IsYesNo="false">Fire Plan and tube</Item>
+				<Item ItemId="14" IsYesNo="false">Water-tight doors and covers</Item>
+				<Item ItemId="15" IsYesNo="false">Rescue boats and contents</Item>
+				<Item ItemId="16" IsYesNo="false">Outboard motor</Item>
+				<Item ItemId="17" IsYesNo="false">Davits and release mechanisms</Item>
+				<Item ItemId="18" IsYesNo="false">Observe LR / RB crane and LB davit test (Observe backup power &amp; limit switches in order)</Item>
+				<Item ItemId="19" IsYesNo="false">Life rafts and embarkation ladders</Item>
+				<Item ItemId="20" IsYesNo="false">Fireman outfits and BA sets</Item>
+				<Item ItemId="21" IsYesNo="false">Chemical suits (IMDG only)</Item>
+				<Item ItemId="22" IsYesNo="false">Safety rails and walkways</Item>
+				<Item ItemId="23" IsYesNo="false">Fire hoses and boxes</Item>
+				<Item ItemId="24" IsYesNo="false">Forecastle areas secured unless manned</Item>
+				<Item ItemId="25" IsYesNo="false">F.W filling points and sounding pipes secured</Item>
+			</Items>
+		</Section>
+		<Section SectionId="9">
+			<Title>General Deck</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">Ship's General Appearance</Item>
+				<Item ItemId="2" IsYesNo="false">Forecastle general appearance</Item>
+				<Item ItemId="3" IsYesNo="false">Bosun's store general appearance</Item>
+				<Item ItemId="4" IsYesNo="false">Paint locker general appearance</Item>
+				<Item ItemId="5" IsYesNo="false">Windlass</Item>
+				<Item ItemId="6" IsYesNo="false">Capstan</Item>
+				<Item ItemId="7" IsYesNo="false">Ropes and fenders</Item>
+				<Item ItemId="8" IsYesNo="false">SOPEP locker</Item>
+				<Item ItemId="9" IsYesNo="false">Acetylene bottles</Item>
+				<Item ItemId="10" IsYesNo="false">Oxygen bottles</Item>
+				<Item ItemId="11" IsYesNo="false">Pilot ladder</Item>
+				<Item ItemId="12" IsYesNo="false">Gangways</Item>
+				<Item ItemId="13" IsYesNo="false">Waste bins</Item>
+				<Item ItemId="14" IsYesNo="true">Anchor operation observed</Item>
+				<Item ItemId="15" IsYesNo="false">Mast wire stays</Item>
+			</Items>
+		</Section>
+		<Section SectionId="10">
+			<Title>Cargo / Hatches / Holds</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">Hatch general condition</Item>
+				<Item ItemId="2" IsYesNo="false">Hold general condition</Item>
+				<Item ItemId="3" IsYesNo="false">Hatch entrances clear and secured</Item>
+				<Item ItemId="4" IsYesNo="false">Hatch ladders and walkways</Item>
+				<Item ItemId="5" IsYesNo="false">Hatch tools and loose equipment</Item>
+				<Item ItemId="6" IsYesNo="false">Hatch operation observed</Item>
+				<Item ItemId="8" IsYesNo="false">Hold ventilation and lighting</Item>
+				<Item ItemId="9" IsYesNo="false">Bulkheads / tweendecks and shifting</Item>
+				<Item ItemId="10" IsYesNo="false">Bilge sounding points / pumps</Item>
+				<Item ItemId="11" IsYesNo="false">Dehumidifiers</Item>
+				<Item ItemId="12" IsYesNo="false">Grabs</Item>
+				<Item ItemId="13" IsYesNo="false">Bob Cats</Item>
+				<Item ItemId="14" IsYesNo="true">Gantry or cargo cranes operation observed</Item>
+				<Item ItemId="15" IsYesNo="false">Crane / gantry operators / cabin</Item>
+				<Item ItemId="16" IsYesNo="false">Crane / gantry safety devices</Item>
+			</Items>
+		</Section>
+		<Section SectionId="11">
+			<Title>Engine Room General</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">Engine Room General Appearance</Item>
+				<Item ItemId="2" IsYesNo="true">Tools and Equipment Stowed</Item>
+				<Item ItemId="3" IsYesNo="false">Rag/Metal/Waste Bins</Item>
+				<Item ItemId="4" IsYesNo="false">Strops/Chain Blocks and Overhead Crane</Item>
+				<Item ItemId="5" IsYesNo="false">Ballast System Plan</Item>
+				<Item ItemId="6" IsYesNo="false">Posters and signage</Item>
+				<Item ItemId="7" IsYesNo="true">Stores stowed and secured</Item>
+				<Item ItemId="8" IsYesNo="true">Oil Transfer Procedure available and posted</Item>
+			</Items>
+		</Section>
+		<Section SectionId="12">
+			<Title>Engine Control Room</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">General Appearance</Item>
+				<Item ItemId="2" IsYesNo="true">UMS Alarm in use and tested</Item>
+				<Item ItemId="3" IsYesNo="false">Communication between bridge and engine room</Item>
+				<Item ItemId="4" IsYesNo="false">Switchboard with rubber mat</Item>
+				<Item ItemId="5" IsYesNo="false">Start / Stop procedures for main engine and equipment</Item>
+				<Item ItemId="6" IsYesNo="true">Chief Engineer's Orders posted</Item>
+			</Items>
+		</Section>
+		<Section SectionId="13">
+			<Title>Engine Room Log Book</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="true">Times of UMS recorded</Item>
+				<Item ItemId="2" IsYesNo="false">Daily watchkeeping arrangements</Item>
+				<Item ItemId="3" IsYesNo="false">Time / Vessel position of changeover of fuels. Correct and proper recording in Marine Fuel Sulphur Record Book (MFSRB) contained in the Emissions Control Manual. For ECA zones and EU ports.</Item>
+				<Item ItemId="4" IsYesNo="true">Stern tube temperatures and LO consumption recorded</Item>
+			</Items>
+		</Section>
+		<Section SectionId="14">
+			<Title>Engine Room Equipment</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">Alarms and shutdowns</Item>
+				<Item ItemId="2" IsYesNo="false">Bilge pumps</Item>
+				<Item ItemId="3" IsYesNo="false">Oily water separator (see TSM 52)</Item>
+				<Item ItemId="4" IsYesNo="false">Ballast valves operated monthly</Item>
+				<Item ItemId="5" IsYesNo="false">Indicator gauges and lights</Item>
+				<Item ItemId="6" IsYesNo="false">Hydraulics</Item>
+				<Item ItemId="7" IsYesNo="false">Electrics</Item>
+				<Item ItemId="8" IsYesNo="false">Pipes and fittings</Item>
+				<Item ItemId="9" IsYesNo="false">Main engine and appendages</Item>
+				<Item ItemId="10" IsYesNo="false">Shaft generator</Item>
+				<Item ItemId="11" IsYesNo="false">Auxiliary engines</Item>
+				<Item ItemId="12" IsYesNo="false">Boiler plant</Item>
+				<Item ItemId="13" IsYesNo="false">Incinerator</Item>
+				<Item ItemId="14" IsYesNo="false">Domestic plants</Item>
+				<Item ItemId="15" IsYesNo="false">Pumps / compressors</Item>
+				<Item ItemId="16" IsYesNo="false">Heaters / coolers</Item>
+				<Item ItemId="17" IsYesNo="false">Filters</Item>
+				<Item ItemId="18" IsYesNo="false">Fire pumps</Item>
+				<Item ItemId="19" IsYesNo="false">Remote sounding system</Item>
+				<Item ItemId="20" IsYesNo="false">Fuel treatment plant</Item>
+				<Item ItemId="21" IsYesNo="false">Smoke extraction system</Item>
+				<Item ItemId="22" IsYesNo="false">Test emergency pitch control</Item>
+				<Item ItemId="23" IsYesNo="false">Check M.E oil mist detector</Item>
+				<Item ItemId="24" IsYesNo="false">Check stand-by purifiers in working order</Item>
+				<Item ItemId="25" IsYesNo="false">OWS meter calibration</Item>
+			</Items>
+		</Section>		
+		<Section SectionId="15">
+			<Title>Engine Room Safety</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">Emergency bilge suction valve</Item>
+				<Item ItemId="2" IsYesNo="false">Emergency main engine shut down</Item>
+				<Item ItemId="3" IsYesNo="false">Emergency lighting</Item>
+				<Item ItemId="4" IsYesNo="true">Safety rails and floor plates secure</Item>
+				<Item ItemId="5" IsYesNo="true">Emergency escapes accessible</Item>
+				<Item ItemId="6" IsYesNo="true">All escapes secured as per instruction</Item>
+				<Item ItemId="7" IsYesNo="false">Safety equipment accessible</Item>
+				<Item ItemId="8" IsYesNo="false">CO2 pre-warning alarm</Item>
+				<Item ItemId="9" IsYesNo="false">Fire pump</Item>
+				<Item ItemId="10" IsYesNo="false">Quick closing valves</Item>
+				<Item ItemId="11" IsYesNo="false">Machinery / fan remote stops</Item>
+				<Item ItemId="12" IsYesNo="false">Main engine local stops</Item>
+				<Item ItemId="13" IsYesNo="false">Water mist system</Item>
+				<Item ItemId="14" IsYesNo="false">Fixed CO2 system</Item>
+				<Item ItemId="15" IsYesNo="false">Critical equipment list clearly identified, maintenance up to date, spare parts available</Item>
+			</Items>
+		</Section>		
+		<Section SectionId="16">
+			<Title>Steering Gear</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">General appearance</Item>
+				<Item ItemId="2" IsYesNo="true">Emergency steering operation observed</Item>
+				<Item ItemId="3" IsYesNo="false">Communication between bridge and steering flat</Item>
+				<Item ItemId="4" IsYesNo="true">Emergency steering plan posted</Item>		
+			</Items>
+		</Section>			
+		<Section SectionId="17">
+			<Title>Emergency Generator Room</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">General appearance</Item>
+				<Item ItemId="2" IsYesNo="false">Back-up / start /test under load observed or last date checked</Item>
+				<Item ItemId="3" IsYesNo="true">Fuel tank full and frequently drained</Item>
+				<Item ItemId="4" IsYesNo="false">Emergency lighting marked and tested</Item>
+				<Item ItemId="5" IsYesNo="false">Emergency switchboard rubber matting</Item>
+				<Item ItemId="6" IsYesNo="true">Start procedure from dead ship posted</Item>
+			</Items>
+		</Section>	
+		<Section SectionId="18">
+			<Title>Bunkers and Samples</Title>
+			<Items>
+				<Item ItemId="1" IsYesNo="false">HFO / IFO Fuel Sampling Records (As per Lintec and MARPOL A-VI; see also page 8)</Item>
+				<Item ItemId="2" IsYesNo="true">Save-Alls empty</Item>
+				<Item ItemId="3" IsYesNo="true">Oils/Sludge Transfer/Line Diagram Posted</Item>
+				<Item ItemId="4" IsYesNo="true">Sample Bottles / Cubitainer available</Item>
+				<Item ItemId="5" IsYesNo="true">Designated storage for samples</Item>
+				<Item ItemId="6" IsYesNo="true">Water finding paste</Item>
+				<Item ItemId="7" IsYesNo="false">Bunker / safety pollution prevention procedures</Item>
+			</Items>
+		</Section>
+</Sections>

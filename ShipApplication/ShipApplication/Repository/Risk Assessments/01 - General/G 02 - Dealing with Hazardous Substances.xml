@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?><?mso-infoPathSolution PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" solutionVersion="6.0.0.0"  productVersion="15.0.0" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<my:Main xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata"
+xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10"
+xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-gb">
+  <my:Details>
+    <my:Ship />
+    <my:Number>G 02</my:Number>
+    <my:Date>2015-05-15</my:Date>
+    <my:Title>Dealing with Hazardous Substances</my:Title>
+  </my:Details>
+  <my:Hazards>
+    <my:Hazard my:HazardId="1">
+      <my:Description>Environment - improper storage</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) Material Safety Data Sheet (MSDS) should be placed in all storing rooms; 
+b) Hazardous substance(s) should be kept in their designated properly labelled container(s); 
+c) Storage places should be kept ventilated; 
+d) Consult appropriate MSDS or any other relevant publication regarding mixing different substances, mixing with water etc.; 
+e) Consult appropriate MSDS or any other relevant publication regarding effects of high / low temperatures on the substance.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="2">
+      <my:Description>Gas - inhalation of fumes</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) Crew training, instruction; 
+b) Storage places should be kept ventilated e.g. chemical store. If permanent ventilation is not possible (e.g. paint store located forward) than such a store should be left open for a while before entry; 
+c) When working with hazardous substances (chemicals, paint, thinners, etc.) crew should work in well ventilated place, mechanical ventilation will be required inside enclosed compartment; 
+d) Consult MSDS if respiratory system protective equipment should be used; 
+e) Time of exposure should be reduced as far as possible; 
+f) More often breaks during the work might be considered necessary; 
+g) Consult relevant MSDS for first aid treatment.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="3">
+      <my:Description>Gas - explosive</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) No smoking or any kind of naked flame is allowed when working with hazardous substances or inside storage areas; 
+b) Any hot work or sparks generating job should be avoided in vicinity of crew working with hazardous substances; 
+c) Only gas proof lightning to be used inside the compartment where substances are kept.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="4">
+      <my:Description>Liquid - contact with skin or eyes, ingestion, absorption (carcinogens / mutagens)</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) Use of PPE: safety shoes, boiler suits, proper gloves, goggles, mask etc.; 
+b) Consult relevant MSDS for first aid treatment; 
+c) Eye and skin wash liquid to be easily available.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="5">
+      <my:Description>Biological</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) Use of PPE: safety shoes, boiler suits, proper gloves, goggles, mask etc.; 
+b) Eye and skin wash liquid to be easily available.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+  </my:Hazards>
+  <my:Review>
+    <my:ReviewerName />
+    <my:ReviewerRank />
+    <my:ReviewDate />
+    <my:ReviewLocation /><my:ReviewMembers/>
+  </my:Review>
+  <my:Header>
+    <my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+    <my:HeaderSummary />
+    <my:HeaderCode>RAF</my:HeaderCode>
+    <my:HeaderIssueNumber>5</my:HeaderIssueNumber>
+    <my:HeaderIssueDate>05/14</my:HeaderIssueDate>
+    <my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+    <my:HeaderAmmendmentDate />
+    <my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+  </my:Header>
+  <my:Footer>Risk Assessment: G 02 - Dealing with Hazardous Substances</my:Footer>
+</my:Main>

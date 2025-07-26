@@ -1,0 +1,81 @@
+<?xml version="1.0" standalone="yes"?>
+<APMCUsers>
+	<APMCUser APMCUserId="2">
+		<DisplayName>Mark Harris</DisplayName>
+		<Initials>MH</Initials>
+		<APMCRoleId>5</APMCRoleId>
+	</APMCUser>
+	<APMCUser APMCUserId="4">
+		<DisplayName>Simon Merritt</DisplayName>
+		<Initials>SMER</Initials>
+		<APMCRoleId>4</APMCRoleId>
+	</APMCUser>
+	<APMCUser APMCUserId="7">
+		<DisplayName>Marius Lazar</DisplayName>
+		<Initials>ML</Initials>
+		<APMCRoleId>5</APMCRoleId>
+	</APMCUser>
+	
+	<APMCUser APMCUserId="13">
+		<DisplayName>Irek Zdrojewski</DisplayName>
+		<Initials>IZ</Initials>
+		<APMCRoleId>6</APMCRoleId>
+	</APMCUser>
+	<APMCUser APMCUserId="21">
+		<DisplayName>Stephen Bell</DisplayName>
+		<Initials>SB</Initials>
+		<APMCRoleId>6</APMCRoleId>
+	</APMCUser>
+	<APMCUser APMCUserId="25">
+		<DisplayName>Stefan Heffernan</DisplayName>
+		<Initials>SH</Initials>
+		<APMCRoleId>6</APMCRoleId>
+	</APMCUser>
+	<APMCUser APMCUserId="29">
+		<DisplayName>Puiu Tarlungianu</DisplayName>
+		<Initials>PT</Initials>
+		<APMCRoleId>6</APMCRoleId>
+	</APMCUser>
+	<APMCUser APMCUserId="55">
+		<DisplayName>Angus Tapp</DisplayName>
+		<Initials>AT</Initials>
+		<APMCRoleId>1</APMCRoleId>
+	</APMCUser>
+	<APMCUser APMCUserId="57">
+		<DisplayName>Greg Sasin</DisplayName>
+		<Initials>GS</Initials>
+		<APMCRoleId>6</APMCRoleId>
+	</APMCUser>
+	
+	<APMCUser APMCUserId="61">
+		<DisplayName>Lisa Straughton</DisplayName>
+		<Initials>LS</Initials>
+		<APMCRoleId>7</APMCRoleId>
+	</APMCUser>
+	
+	
+	<APMCUser APMCUserId="66">
+		<DisplayName>Stephen Moore</DisplayName>
+		<Initials>SMR</Initials>
+		<APMCRoleId>3</APMCRoleId>
+	</APMCUser>
+	
+	<APMCUser APMCUserId="32">
+		<DisplayName>Orry Crews</DisplayName>
+		<Initials>OC</Initials>
+		<APMCRoleId>5</APMCRoleId>
+	</APMCUser>
+	
+	
+	<APMCUser APMCUserId="80">
+		<DisplayName>Hrvoje Radic</DisplayName>
+		<Initials>HR</Initials>
+		<APMCRoleId>6</APMCRoleId>
+	</APMCUser>
+	<APMCUser APMCUserId="1090">
+		<DisplayName>Ciprian Marcovschi</DisplayName>
+				<Initials>CM</Initials>
+		<APMCRoleId>6</APMCRoleId>
+	</APMCUser>
+	
+</APMCUsers>

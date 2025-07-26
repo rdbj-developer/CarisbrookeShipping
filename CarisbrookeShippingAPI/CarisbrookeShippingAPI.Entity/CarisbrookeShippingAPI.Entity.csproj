@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0C72B56B-CF8D-4523-A132-8ADCDFC7144E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CarisbrookeShippingAPI.Entity</RootNamespace>
+    <AssemblyName>CarisbrookeShippingAPI.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ACCOUNTCODE.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArrivalReport.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssetManagmentEquipmentITList.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssetManagmentEquipmentList.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssetManagmentEquipmentLog.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssetManagmentEquipmentOTList.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssetManagmentEquipmentSoftwareAsset.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditNote.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditNotesAttachment.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditNotesComment.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditNotesCommentsFile.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditNotesResolution.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditNotesResolutionFile.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarisbrookeShipping.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarisbrookeShipping.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarisbrookeShipping.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarisbrookeShipping.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarisbrookeShipping.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="CASHIP_WebGUI.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CASHIP_WebGUI.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CASHIP_WebGUI.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CASHIP_WebGUI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CASHIP_WebGUI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CASHIP_WebGUI.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="CB_FormsPersonMaster.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CB_proc_GetRecentNotifications_Result.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodaPurchaseOrder.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonAssetsDB.cs" />
+    <Compile Include="CSShip.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CybersecurityRisksAssessment.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CybersecurityRisksAssessmentList.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CybersecurityRisksAssessmentLog.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CyberSecuritySetting.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DailyCargoReport.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DailyPositionReport.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DepartureReport.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Document.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FeedbackForm.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Form.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FSTOInspection.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FSTOInspectionAttachment.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralInspectionReport.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralSetting.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GIRDeficienciesCommentFile.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GIRDeficienciesFile.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GIRDeficienciesInitialAction.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GIRDeficienciesInitialActionsFile.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GIRDeficienciesNote.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GIRDeficienciesResolution.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GIRDeficienciesResolutionFile.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GIRDeficiency.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GIRPhotograph.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GIRRestandWorkHour.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GlRCrewDocument.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GlRSafeManningRequirement.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HelpAndSupport.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HoldVentilationRecordForm.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HoldVentilationRecordSheet.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IMOSModal.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IMOSModal.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IMOSModal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IMOSModal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IMOSModal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IMOSModal.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="InternalAuditForm.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MainSyncServicesEventLog.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MLCRegulationTree.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Notification.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OpenFileServicesDownloadLog.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OpenFileServicesEventLog.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OpenFileServicesReleaseNote.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OpexReportFinilizeDate.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RiskAssessmentForm.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RiskAssessmentFormHazard.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RiskAssessmentFormLog.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RiskAssessmentFormReviewer.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RolePermission.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ship.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipAppDownloadLog.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipAppReleaseNote.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipSystem.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipSystemsEventLog.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipSystemsInfo.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipSystemsProcess.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipSystemsService.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipSystemsSoftwareInfo.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SIRAdditionalNote.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SIRNote.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SMRForm.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SMRFormCrewMember.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SMSReferencesTree.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SM_ACCOUNTCODE.cs">
+      <DependentUpon>CASHIP_WebGUI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetAllNotificationsByUser_Result.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetAllNotifications_Result.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetAssignedToMeGISIIADeficiencies_Result.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetNotificationDetailsById_Result.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetNotificationsForTheISMDashboard_Result.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_GetReportsDataList_Result.cs">
+      <DependentUpon>CASHIP_WebGUI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_GetReportsData_Result.cs">
+      <DependentUpon>CASHIP_WebGUI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_GetReportsData_Result1.cs">
+      <DependentUpon>CASHIP_WebGUI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Get_GIDeficiencies_OR_SIActionableItems_Number_Result.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SSPReferenceTree.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuperintendedInspectionReport.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserGroup.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserGroupMenuPermission.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfile.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIMSLogInfomation.cs">
+      <DependentUpon>CarisbrookeShipping.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="CASHIP_WebGUI.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CASHIP_WebGUI.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="CarisbrookeShipping.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CarisbrookeShipping.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CarisbrookeShipping.edmx.diagram">
+      <DependentUpon>CarisbrookeShipping.edmx</DependentUpon>
+    </None>
+    <None Include="CASHIP_WebGUI.edmx.diagram">
+      <DependentUpon>CASHIP_WebGUI.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="IMOSModal.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IMOSModal.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="IMOSModal.edmx.diagram">
+      <DependentUpon>IMOSModal.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CarisbrookeShipping.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarisbrookeShipping.edmx</DependentUpon>
+      <LastGenOutput>CarisbrookeShipping.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="CarisbrookeShipping.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarisbrookeShipping.edmx</DependentUpon>
+      <LastGenOutput>CarisbrookeShipping.cs</LastGenOutput>
+    </Content>
+    <Content Include="CASHIP_WebGUI.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CASHIP_WebGUI.edmx</DependentUpon>
+      <LastGenOutput>CASHIP_WebGUI.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="CASHIP_WebGUI.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CASHIP_WebGUI.edmx</DependentUpon>
+      <LastGenOutput>CASHIP_WebGUI.cs</LastGenOutput>
+    </Content>
+    <Content Include="IMOSModal.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IMOSModal.edmx</DependentUpon>
+      <LastGenOutput>IMOSModal.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="IMOSModal.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IMOSModal.edmx</DependentUpon>
+      <LastGenOutput>IMOSModal.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

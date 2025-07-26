@@ -1,0 +1,136 @@
+﻿@model OfficeApplication.BLL.Modals.NotificationsModal
+@{
+    ViewBag.Title = "Notifications";
+}
+@* RDBJ 10/14/2021 Added styles*@
+<style>
+    table.dataTable thead .sorting::after,
+    table.dataTable thead .sorting_asc::after {
+        display: none;
+    }
+
+    table.dataTable thead .sorting_desc::after {
+        display: none;
+    }
+
+    .dataTables_wrapper .dataTables_length label {
+        margin-left: 5px !important;
+    }
+
+    .dataTables_wrapper .dataTables_length select {
+        margin: 5px 5px 0 5px !important;
+        background-color: white !important;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        margin: 5px 5px 0 5px !important;
+        background-color: white !important;
+    }
+
+    .dataTables_info {
+        margin-left: 5px;
+    }
+
+    .dataTables_wrapper .dataTables_paginate {
+        margin-bottom: 5px;
+    }
+
+    .alert-info {
+        background-color: aliceblue !important;
+        color: black !important;
+    }
+
+    .close {
+        font-size: small !important;
+        opacity: 0.5 !important;
+    }
+
+    tr {
+        cursor: pointer;
+    }
+    /*RDBJ 10/18/2021*/
+    .textCenter {
+        text-align: center;
+    }
+
+    /*RDBJ 10/21/2021*/
+    .deficiencyTextEllipsis {
+        display: inline-block;
+        width: 350px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+    }
+
+    .shipTextEllipsis {
+        display: inline-block;
+        width: 100px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+    }
+    /*End RDBJ 10/21/2021*/
+
+    /*RDBJ 10/22/2021*/
+    .paginate_button {
+        padding: 0em 0em !important;
+    }
+
+    .pagination > li > a, .pagination > li > span {
+        margin-left: 0px !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button a:hover {
+        cursor: pointer !important;
+    }
+
+    /* RDBJ 12/21/2021 */
+    .avoidAllPadding {
+        padding: 0px !important;
+    }
+    /* End RDBJ 12/21/2021 */
+</style>
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>*@
+<script src="~/Scripts/moment.min.js"></script>
+<link href="~/Scripts/dataTable/jquery.dataTables.min.css" rel="stylesheet" />
+@*<link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />*@ @*RDBJ 10/14/2021*@
+<script src="~/Scripts/dataTable/jquery.dataTables.min.js"></script> @*RDBJ 10/14/2021*@
+<script src="~/Scripts/Custom/Notifications.js?v=01072022"></script>
+<script>
+    var tableName; //RDBJ 10/16/2021
+    var RootUrl = '@Url.Content("~/")';
+
+    //RDBJ 10/18/2021 Commented
+    $(document).ready(function () {
+        getNotifications(); //RDBJ 10/18/2021
+    });
+</script>
+<section class="">
+    @*<div class="well well-sm" style="margin-bottom:0px;">
+            <div class="box-header" style="padding:0px !important;">
+                <div class="row">
+                    <div class="col-md-2">
+                        Notifications
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <section id="notificationSection" class="content gir-content" style="padding-bottom:0px">
+        @* RDBJ 10/18/2021 Update, RDBJ 10/14/2021 Added table to load notifications *@
+        <table id="tblNotifications" class="table-striped table-hover" width="100%">
+        </table>
+    </section>
+
+    <section style="padding: 15px;">
+        <div class="well well-sm" style="margin-bottom:0px;">
+            <div class="box-header" style="padding:0px !important;">
+                <div class="row">
+                    <div class="col-md-2">
+                        Assigned To me
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="AssignMeGridList" class="content gir-content avoidAllPadding"></div>
+    </section>
+</section>

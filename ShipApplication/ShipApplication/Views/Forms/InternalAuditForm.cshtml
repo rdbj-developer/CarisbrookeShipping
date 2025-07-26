@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<style type="text/css">
+    .doc-title:hover {
+        cursor: pointer;
+        color: black;
+    }
+    .box {
+        margin-bottom: 1px !important;
+    }
+    .DocHeader {
+        margin: 0px;
+        font-size: 18px;
+    }
+        .DocHeader a {
+            color: #444;
+        }
+            .DocHeader a:hover {
+                background: none !important;
+                cursor: pointer
+            }
+
+    .box-header:hover {
+        background-color: #3333;
+    }
+
+    .content-wrapper {
+        overflow: hidden !important;
+    }
+
+    .content {
+        overflow: auto;
+        height: calc(100vh - 165px) !important;
+    }
+</style>
+<script type="text/javascript">
+    var url = "@System.Configuration.ConfigurationManager.AppSettings["FileServiceUrl"].ToString()";
+    var RootUrl = '@Url.Content("~/")';
+</script>
+<script src="~/Scripts/Custom/Forms.js?v=14.05.2019.03" type="text/javascript"></script>
+
+<div class="well well-sm " style="margin-bottom:0px;">Internal Audit Form</div>
+<section class="content-header">
+    <div class="row">
+        <div class="col-md-2">
+            <a href="#" onclick="openForMainPCDocument(@ViewBag.Path,'RWH','@ViewBag.IsLocalRequest')" class="btn btn-primary">New Form </a>
+        </div>
+        <div class="col-md-2">
+            <a href="#" onclick="openForMainPCDocument(@ViewBag.FolderPath,'','@ViewBag.IsLocalRequest',true)" class="btn btn-primary @ViewBag.OpenFolderClass">Open Folder </a>
+        </div>
+    </div>
+</section>
+<section class="content">
+    @if (ViewBag.FormList != null)
+    {
+        <div class="row">
+            @foreach (var item in ViewBag.FormList)
+            {
+                if (item.IsFolder == true)
+                {
+                    <div class="box box-solid collapsed-box" style="background-color:#3c8dbc;">
+                        <div class="box-header with-border DocHeader">
+                            <h3 class="box-title doc-title">
+                                <a href="#" style="color:#ffffff !important" onclick="openForMainPCDocument(@item.TemplatePath,'RWH','@ViewBag.IsLocalRequest')">
+                                    @item.Title
+                                </a>
+                            </h3>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    if (item.IsFolder == true)
+                    {
+                        <div class="box box-solid collapsed-box" style="background-color:#3c8dbc;">
+                            <div class="box-header with-border DocHeader">
+                                <h3 class="box-title doc-title">
+                                    <a href="#" style="color:#ffffff !important" onclick="openForMainPCDocument(@item.TemplatePath,'RWH','@ViewBag.IsLocalRequest')">
+                                        @item.Title
+                                    </a>
+                                </h3>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="box box-solid collapsed-box">
+                            <div class="box-header with-border DocHeader">
+                                <h3 class="box-title doc-title">
+                                    <a href="#" onclick="openForMainPCDocument(@item.TemplatePath,'RWH','@ViewBag.IsLocalRequest')">
+                                        @item.Title
+                                    </a>
+                                </h3>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    }
+</section>

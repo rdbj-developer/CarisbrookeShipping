@@ -1,0 +1,340 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+        $("#lnkAddCrewmemberManning4a").click(function () {
+            var MembersCount = parseInt($("#GIRSafeManningRequirements").val());
+            var newHtml = '<tr class="GIRSafeManningRequirements">' +
+                '<td>' +
+                '<a href="#"  onclick="removeSafeMining(this)">' +
+                '<span class="glyphicon glyphicon-remove"></span>' +
+                '</a>' +
+                '</td>' +
+                '<td width="50%">' +
+                '<div class="form-group has-feedback" >' +
+                '<input type="text" class="col-md-12 form-control GIRData" onchange="SafeMiningChange()" name="GIRSafeManningRequirements[' + MembersCount + '].Rank" />' +
+                '<span class="form-control-feedback">' +
+                '<label class="text-danger">*</label>' +
+                '</span>' +
+                '</div >' +
+                '</td > ' +
+                '<td width="25%" class="text-center v-al-m"><input type="checkbox" class="GIRData RequiredbySMD" onchange="SafeMiningChange()" value="true" name="GIRSafeManningRequirements[' + MembersCount + '].RequiredbySMD" /> </td>' + //RDBJ 10/20/2021 Added class
+                '<td width="25%" class="text-center v-al-m"><input type="checkbox" class="GIRData OnBoard" onchange="SafeMiningChange()"  value="true" name="GIRSafeManningRequirements[' + MembersCount + '].OnBoard"/></td>' + //RDBJ 10/20/2021 Added class
+                '</tr>';
+            $(".tblSectionManning4a tbody").append(newHtml);
+            MembersCount = MembersCount + 1;
+            $("#GIRSafeManningRequirements").val(MembersCount);
+        });
+        $("#lnkAddCrewmemberManning4b").click(function () {
+            var MembersCount = parseInt($("#GIRCrewDocuments").val());
+            var newHtml = '<tr class="addDeficiencies">' +
+                '<td>' +
+                    '<a href="#"  onclick="removeCrewDocs(this)">' +
+                        '<span class="glyphicon glyphicon-remove"></span>' +
+                    '</a>' +
+                '</td>' +
+                '<td width="40%">' +
+                '<div class="form-group has-feedback" >' +
+                '<input type="text" class="col-md-12 form-control GIRData" onchange="CrewDocsChange()" name="GIRCrewDocuments[' + MembersCount + '].CrewmemberName"  />' +
+                    '<span class="form-control-feedback">' +
+                    '<label class="text-danger">*</label>' +
+                    '</span>' +
+                    '</div >' +
+                '</td > ' +
+                '<td width="60%"  class="clsDeficiencies">' +
+                    '<div class="form-group has-feedback" >' +
+                '<input type="text" class="col-md-12 form-control GIRData" onchange="CrewDocsChange()" name="GIRCrewDocuments[' + MembersCount + '].CertificationDetail" />' +
+                    '<span class="form-control-feedback">' +
+                    '<label class="text-danger">*</label>' +
+                    '</span>' +
+                    '</div >' +
+                '</td > ' +
+                '</tr>';
+            $(".tblSectionManning4b tbody").append(newHtml);
+            MembersCount = MembersCount + 1;
+            $("#GIRCrewDocuments").val(MembersCount);           
+            if (menuDeficiency) {
+                var currentTarget = menuDeficiency.options.target;
+                menuDeficiency.setOptions({
+                    target: currentTarget
+                });
+            }
+        });
+        $("#lnkAddCrewmemberManning4c").click(function () {
+            var MembersCount = parseInt($("#GIRRestandWorkHours").val());
+            var newHtml = '<tr class="addDeficiencies">' +
+                '<td>' +
+                '<a href="#"  onclick="removeRestAndWork(this)">' +
+                '<span class="glyphicon glyphicon-remove"></span>' +
+                '</a>' +
+                '</td>' +
+                '<td width="40%">' +
+                '<div class="form-group has-feedback" >' +
+                '<input type="text" class="col-md-12 form-control GIRData" onchange="RestAndWorkChange()" name="GIRRestandWorkHours[' + MembersCount + '].CrewmemberName" />' +
+                    '<span class="form-control-feedback">' +
+                    '<label class="text-danger">*</label>' +
+                    '</span>' +
+                    '</div >' +
+                '</td > ' +
+                '<td width="60%"  class="clsDeficiencies">' +
+                    '<div class="form-group has-feedback" >' +
+                '<input type="text" class="col-md-12 form-control GIRData" onchange="RestAndWorkChange()" name="GIRRestandWorkHours[' + MembersCount + '].RestAndWorkDetail" />' +
+                    '<span class="form-control-feedback">' +
+                    '<label class="text-danger">*</label>' +
+                    '</span>' +
+                    '</div >' +
+                '</td > ' +
+                '</tr>';
+            $(".tblSectionManning4c tbody").append(newHtml);
+            MembersCount = MembersCount + 1;
+            $("#GIRRestandWorkHours").val(MembersCount);            
+            if (menuDeficiency) {
+                var currentTarget = menuDeficiency.options.target;
+                menuDeficiency.setOptions({
+                    target: currentTarget
+                });
+            }
+        });
+
+        totalCountRequiredbySMDOnBoard(); //RDBJ 10/19/2021
+    });
+    function SafeMiningChange(ctr) {
+        setChnageValue(true, false, false, false, false);
+        //RDBJ 10/09/2021
+        if (ctr.type == "checkbox") {
+            var blnValue = ctr.value;
+            if (blnValue == true)
+                ctr.value = false
+            else
+                ctr.value = true
+
+            totalCountRequiredbySMDOnBoard(); //RDBJ 10/19/2021
+        }
+        //End RDBJ 10/09/2021
+        GIRAutoSave();
+    }
+    function CrewDocsChange() {       
+        setChnageValue(false, true, false, false, false);
+        GIRAutoSave();
+    }
+    function RestAndWorkChange() {       
+        setChnageValue(false, false, true, false, false);
+        GIRAutoSave();
+    }
+    function removeSafeMining(ctr) {
+        setChnageValue(true, false, false, false, false);
+        $(ctr).closest('tr').find("td .GIRData")[0].value = ""; //RDBJ 10/09/2021
+
+        //RDBJ 10/09/2021 Commented
+        /*
+        var MembersCount = parseInt($("#GIRSafeManningRequirements").val());
+        if (MembersCount > 0) {
+            MembersCount = MembersCount - 1;
+            $("#GIRSafeManningRequirements").val(MembersCount)
+        }
+        else {
+            $("#GIRSafeManningRequirements").val(MembersCount)
+        }
+        */
+
+        GIRAutoSave();
+        $(ctr).closest('tr').css("display", "none"); //RDBJ 10/09/2021
+    }
+    function removeCrewDocs(ctr) {
+        setChnageValue(false, true, false, false, false);
+        $(ctr).closest('tr').find("td .GIRData")[0].value = ""; //RDBJ 10/09/2021
+
+        //RDBJ 10/09/2021 Commented
+        /*
+        var MembersCount = parseInt($("#GIRCrewDocuments").val());
+        if (MembersCount > 0) {
+            MembersCount = MembersCount - 1;
+            $("#GIRCrewDocuments").val(MembersCount)
+        }
+        else {
+            $("#GIRCrewDocuments").val(MembersCount)
+        }
+        */
+
+        $(ctr).closest('tr').css("display", "none"); //RDBJ 10/09/2021
+        GIRAutoSave();
+    }
+    function removeRestAndWork(ctr) {
+        setChnageValue(false, false, true, false, false);
+        $(ctr).closest('tr').find("td .GIRData")[0].value = ""; //RDBJ 10/09/2021
+
+        //RDBJ 10/09/2021 Comented
+        /*
+        var MembersCount = parseInt($("#GIRRestandWorkHours").val());
+        if (MembersCount > 0) {
+            MembersCount = MembersCount - 1;
+            $("#GIRRestandWorkHours").val(MembersCount)
+        }
+        else {
+            $("#GIRRestandWorkHours").val(MembersCount);
+        }
+        */
+
+        GIRAutoSave();
+        $(ctr).closest('tr').css("display", "none"); //RDBJ 10/09/2021
+    }
+
+    //RDBJ 10/19/2021
+    function totalCountRequiredbySMDOnBoard() {
+        var RequiredbySMD = document.getElementById("totalRequiredbySMD");
+        RequiredbySMD.textContent = $('.RequiredbySMD:checkbox:checked').length;
+
+        var OnBoard = document.getElementById("totalOnBoard");
+        OnBoard.textContent = $('.OnBoard:checkbox:checked').length;
+    };
+    //End RDBJ 10/19/2021
+</script>
+<div class="Section breakDiv">
+    <div class="SectionHead">
+        <u>Section 4a</u> - Safe Manning Requirements
+    </div>
+    <div class="SectionContent">
+        <input type="hidden" value="1" id="GIRSafeManningRequirements" />
+        <table class="table tblSection tblSectionManning4a">
+            <tr>
+                <td></td>
+                <td width="50%"><p class="m-5">Total crew required by safe manning document:</p></td>
+                <td width="25%" style="text-align:center;"><p class="m-5" id="totalRequiredbySMD">0</p></td>
+                <td width="25%"><p class="m-5"></p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td width="50%"><p class="m-5">Total crew on board:</p></td>
+                <td width="25%" style="text-align:center;"><p class="m-5" id="totalOnBoard">0</p></td>
+                <td width="25%"><p class="m-5"></p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td width="50%"><p class="m-5 text-center">Rank</p></td>
+                <td width="25%"><p class="m-5 text-center">Required by SMD?</p></td>
+                <td width="25%"><p class="m-5 text-center">On Board?</p></td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="#" onclick="removeSafeMining(this)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                </td>
+                <td width="50%">
+                    <div class="form-group has-feedback">
+                        <input type="text" class="col-md-12 form-control GIRData" onchange="SafeMiningChange(this)" name="GIRSafeManningRequirements[0].Rank" />
+                        <span class="form-control-feedback">
+                            <label class="text-danger">*</label>
+                        </span>
+                    </div>
+                </td>
+                <td width="25%" class="text-center v-al-m"><input type="checkbox" class="GIRData RequiredbySMD" onchange="SafeMiningChange(this)" value="true" name="GIRSafeManningRequirements[0].RequiredbySMD" /> </td>
+                <td width="25%" class="text-center v-al-m"><input type="checkbox" class="GIRData OnBoard" onchange="SafeMiningChange(this)" value="true" name="GIRSafeManningRequirements[0].OnBoard" /></td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-12 text-center">
+        <a href="#" id="lnkAddCrewmemberManning4a">Add crewmember</a>
+    </div>
+    <div class="clearfix"></div>
+
+</div>
+<div class="Section breakDiv clsSection">
+    <div class="SectionHead">
+        <u>Section 4b</u> - Crew Documents
+    </div>
+    <div class="SectionContent">
+        <input type="hidden" value="1" id="GIRCrewDocuments" />
+        <table class="table tblSection tblSectionManning4b">
+            <tr>
+                <td></td>
+                <td width="40%" class="v-al-m"><p class="m-5 text-center">Crewmember Name</p></td>
+                <td width="60%" class="v-al-m"><p class="m-5 text-center">Detail any certification which is incorrect, out of date, or due to expire within 90 days</p></td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td>
+                    <a href="#" onclick="removeCrewDocs(this)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                </td>
+                <td width="40%">
+                    <div class="form-group has-feedback">
+                        <input type="text" class="col-md-12 form-control GIRData" onchange="CrewDocsChange()" name="GIRCrewDocuments[0].CrewmemberName" />
+                        <span class="form-control-feedback">
+                            <label class="text-danger">*</label>
+                        </span>
+                    </div>
+                </td>
+                <td width="60%" class="clsDeficiencies">
+                    <div class="form-group has-feedback">
+                        <input type="text" class="col-md-12 form-control GIRData" onchange="CrewDocsChange()" name="GIRCrewDocuments[0].CertificationDetail" />
+                        <span class="form-control-feedback">
+                            <label class="text-danger">*</label>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-12 text-center">
+        <a href="#" id="lnkAddCrewmemberManning4b">Add crewmember</a>
+    </div>
+</div>
+<div class="Section breakDiv clsSection">
+    <div class="SectionHead">
+        <u>Section 4c</u> - Rest and Work Hours
+    </div>
+    <div class="SectionContent">
+        <input type="hidden" value="1" id="GIRRestandWorkHours" />
+        <table class="table tblSection tblSectionManning4c">
+            <tr>
+                <td></td>
+                <td width="40%" class="v-al-m"><p class="m-5 text-center">Crewmember Name</p></td>
+                <td width="60%" class="v-al-m"><p class="m-5 text-center">Detail any rest and work hours which have not been completed correctly, or exceed minimum required rest</p></td>
+            </tr>
+            <tr class="addDeficiencies">
+                <td>
+                    <a href="#" onclick="removeRestAndWork(this)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                </td>
+                <td width="40%">
+                    <div class="form-group has-feedback">
+                        <input type="text" class="col-md-12 form-control GIRData" onchange="RestAndWorkChange()" name="GIRRestandWorkHours[0].CrewmemberName" />
+                        <span class="form-control-feedback">
+                            <label class="text-danger">*</label>
+                        </span>
+                    </div>
+                </td>
+                <td width="60%" class="clsDeficiencies">
+                    <div class="form-group has-feedback">
+                        <input type="text" class="col-md-12 form-control GIRData" onchange="RestAndWorkChange()" name="GIRRestandWorkHours[0].RestAndWorkDetail" />
+                        <span class="form-control-feedback">
+                            <label class="text-danger">*</label>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-12 text-center">
+        <a href="#" id="lnkAddCrewmemberManning4c">Add crewmember</a>
+    </div>
+</div>
+<div class="Section breakDivPage clsSection">
+    <div class="SectionHead">
+        <u>Section 4d</u> - Shipboard Working Arrangements
+    </div>
+    <div class="SectionContent">
+        <table class="table tblSection tblSectionManning4d">
+            <tr  class="addDeficiencies">
+                <td width="100%"  class="clsDeficiencies"><textarea class="form-control col-md-12 GIRData" name="ShipboardWorkingArrangements"></textarea> </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="SectionComplete">
+    <div class="checkbox">
+        <label>Section Complete?</label>
+        @* RDBJ 10/20/2021 Set Name and Value *@
+        <input type="checkbox" name="IsManningSectionComplete" style="margin-left:20px;" class="GIRData" value="true">
+    </div>
+</div>

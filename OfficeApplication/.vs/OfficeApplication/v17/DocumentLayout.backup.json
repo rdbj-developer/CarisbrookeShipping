@@ -1,0 +1,174 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|d:\\data\\work\\dotnetproject\\carisbrooke\\projects\\officeapplication\\officeapplication\\models\\signalr\\notificationshub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|solutionrelative:officeapplication\\models\\signalr\\notificationshub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|d:\\data\\work\\dotnetproject\\carisbrooke\\projects\\officeapplication\\officeapplication\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|solutionrelative:officeapplication\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\officeapplication\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|solutionrelative:officeapplication\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|d:\\data\\work\\dotnetproject\\carisbrooke\\projects\\officeapplication\\officeapplication\\controllers\\signalrnotificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|solutionrelative:officeapplication\\controllers\\signalrnotificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|d:\\data\\work\\dotnetproject\\carisbrooke\\projects\\officeapplication\\officeapplication\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|solutionrelative:officeapplication\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\officeapplication\\views\\admin\\tabview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|solutionrelative:officeapplication\\views\\admin\\tabview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\officeapplication\\views\\admin\\manageforms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|solutionrelative:officeapplication\\views\\admin\\manageforms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\officeapplication\\views\\admin\\manageismdocuments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|solutionrelative:officeapplication\\views\\admin\\manageismdocuments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\officeapplication\\views\\admin\\managedocuments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}|OfficeApplication\\OfficeApplication.csproj|solutionrelative:officeapplication\\views\\admin\\managedocuments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Web.config",
+              "RelativeDocumentMoniker": "OfficeApplication\\Web.config",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Web.config",
+              "RelativeToolTip": "OfficeApplication\\Web.config",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2022-07-19T08:14:44.847Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "OfficeApplication\\Controllers\\LoginController.cs",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "OfficeApplication\\Controllers\\LoginController.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAIwBQAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T09:21:32.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SignalRNotificationController.cs",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Controllers\\SignalRNotificationController.cs",
+              "RelativeDocumentMoniker": "OfficeApplication\\Controllers\\SignalRNotificationController.cs",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Controllers\\SignalRNotificationController.cs",
+              "RelativeToolTip": "OfficeApplication\\Controllers\\SignalRNotificationController.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAawDsAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T09:13:43.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NotificationsHub.cs",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Models\\SignalR\\NotificationsHub.cs",
+              "RelativeDocumentMoniker": "OfficeApplication\\Models\\SignalR\\NotificationsHub.cs",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Models\\SignalR\\NotificationsHub.cs",
+              "RelativeToolTip": "OfficeApplication\\Models\\SignalR\\NotificationsHub.cs",
+              "ViewState": "AQIAADcAAAAAAAAAAAAYwEUAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T09:11:14.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TabView.cshtml",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Views\\Admin\\TabView.cshtml",
+              "RelativeDocumentMoniker": "OfficeApplication\\Views\\Admin\\TabView.cshtml",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Views\\Admin\\TabView.cshtml",
+              "RelativeToolTip": "OfficeApplication\\Views\\Admin\\TabView.cshtml",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002242|",
+              "WhenOpened": "2023-02-05T05:20:34.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "OfficeApplication\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "OfficeApplication\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAnwDsAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-02-05T05:08:35.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ManageDocuments.cshtml",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Views\\Admin\\ManageDocuments.cshtml",
+              "RelativeDocumentMoniker": "OfficeApplication\\Views\\Admin\\ManageDocuments.cshtml",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Views\\Admin\\ManageDocuments.cshtml",
+              "RelativeToolTip": "OfficeApplication\\Views\\Admin\\ManageDocuments.cshtml",
+              "ViewState": "AQIAADIAAAAAAAAAAAAwwGIAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002242|",
+              "WhenOpened": "2023-02-05T04:34:12.638Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ManageISMDocuments.cshtml",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Views\\Admin\\ManageISMDocuments.cshtml",
+              "RelativeDocumentMoniker": "OfficeApplication\\Views\\Admin\\ManageISMDocuments.cshtml",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Views\\Admin\\ManageISMDocuments.cshtml",
+              "RelativeToolTip": "OfficeApplication\\Views\\Admin\\ManageISMDocuments.cshtml",
+              "ViewState": "AQIAALwAAAAAAAAAAAAnwMEAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002242|",
+              "WhenOpened": "2023-02-05T04:34:02.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ManageForms.cshtml",
+              "DocumentMoniker": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Views\\Admin\\ManageForms.cshtml",
+              "RelativeDocumentMoniker": "OfficeApplication\\Views\\Admin\\ManageForms.cshtml",
+              "ToolTip": "D:\\Data\\Work\\dotNetProject\\CarisBrooke\\Projects\\OfficeApplication\\OfficeApplication\\Views\\Admin\\ManageForms.cshtml",
+              "RelativeToolTip": "OfficeApplication\\Views\\Admin\\ManageForms.cshtml",
+              "ViewState": "AQIAAM8AAAAAAAAAAAAAAN4AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002242|",
+              "WhenOpened": "2023-02-05T04:26:27.024Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

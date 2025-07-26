@@ -1,0 +1,447 @@
+﻿@{
+    ViewBag.Title = "Review Log";
+}
+<style type="text/css">
+    .tblSection {
+        margin-bottom: 0px;
+    }
+
+    .table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    table {
+        background-color: #ffffff;
+    }
+
+        table > tbody > tr > td {
+            border: 1px solid #66afe9 !important;
+            padding: 1px !important;
+        }
+
+    p {
+        margin: 5px;
+    }
+
+    .a-fw {
+        background-color: #FFFFE1;
+        padding: 2px;
+    }
+
+    .fa-plus {
+        color: green;
+    }
+
+    .fa-remove {
+        color: red;
+    }
+
+    .actionToolbar {
+        margin-bottom: 0px;
+        display: flex;
+        justify-content: space-around;
+        align-items: stretch;
+    }
+
+    .divar {
+        background: #66afe9;
+        width: 1px;
+    }
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+
+    .Section {
+        border: none;
+        margin-bottom: 20px;
+    }
+
+    .SectionHead {
+        border: 1px solid #66afe9;
+        border-bottom: none;
+    }
+
+    .headerTD {
+        background-color: transparent;
+    }
+
+        .headerTD > tbody > tr > td {
+            border: none !important;
+        }
+
+    .bg-red {
+        background-color: #B80000 !important; /*#ce1414 !important;*/
+    }
+
+    .bg-yellowtext {
+        background-color: #ffff00;
+        color: black;
+    }
+
+    .bg-overdue {
+        background-color: #FF0000 !important;
+    }
+
+    .font-white {
+        color: white;
+    }
+
+    .form-control[readonly] {
+        background-color: #fff;
+        opacity: 1;
+    }
+
+    .form-group {
+        margin-bottom: 0px;
+    }
+
+    .tblHeader > tbody > tr > td {
+        border: 1px solid gray !important;
+        padding: 1px !important;
+    }
+    /* basic positioning */
+    .legend {
+        list-style: none;
+        padding: 1px;
+        margin: 5px;
+    }
+
+        .legend li {
+            /*float: left;*/
+            margin-right: 10px;
+        }
+
+        .legend span {
+            border: 1px solid #ccc;
+            float: left;
+            width: 15px;
+            height: 15px;
+            margin: 2px;
+            /*margin-top: 5px;*/
+        }
+        /* your colors */
+        .legend .superawesome {
+            background-color: #ff00ff;
+        }
+
+    .opacity5 {
+        opacity: 0.5;
+    }
+</style>
+
+<script type="text/javascript">
+    var doc;
+    var bottom = 0;
+     var RootUrl = '@Url.Content("~/")';
+    function printDiv() {
+        $("input[type=text]").each(function () {
+            var str = $(this).val();
+            $(this).attr('value', str);
+        });
+        $("input[type=checkbox]").each(function () {
+            var str = $(this).is(':checked');
+            $(this).attr('checked', str);
+         });
+        $("select").each(function (i) {
+             var objSelected = $(this).find('option:selected');
+             objSelected.attr('selected', 'selected');
+        });
+        $("#Maindiv").hide();
+        $("#forntpage").show();
+        $(".tblStage15remove").show();
+        $("#footerdiv").show();
+        $(".dt").attr("style", "padding-right : 0px !important");
+        $(".aviodPrint").hide();
+        var style = "@@media print {.breakDivPage { page-break-after: always; page-break-inside:avoid;   } body { counter-reset: numberOfPages; zoom: .8; -webkit-print-color-adjust: exact; } }";
+        style += "@@page {size: A4;margin: 5%; padding: 0 0 10%; @@bottom-right { content: counter(page) ' of ' counter(pages); }}";
+        style += " .bg-red {background-color: #B80000 !important; } .bg-yellowtext { background-color: #ffff00 !important; color: black;} .bg-overdue {background-color: #FF0000 !important;} .font-white { color: white !important; } .Section {border: none !important;} .tblSection tr td {border: 1px solid #66afe9 !important; border-collapse: collapse;} .SectionHead {border: 1px solid #66afe9;border-bottom: none; background: #FFFFE1;}";
+        style += "tfoot {  display:table-footer-group } #forntpage{width: 82.7%;} .fa-fw { background-color: #FFFFE1; padding: 2px;} .fa-plus { color: green;} .fa-remove { color: red;}  .actionToolbar { margin-bottom: 0px; display: flex; justify-content: space-around; align-items: stretch;} table { page-break-inside:auto }    tr { page-break-inside:avoid; page-break-after:auto } .page-header-space { height: 120px; }";
+        style += "header, .header-space,footer, .footer-space {height: 100px;font-weight: bold;width: 100%;padding: 10pt;margin: 10pt 0;}";
+        style += "header {position: fixed;top: 0;border-bottom: 1px solid black;}footer {position: fixed;bottom: 0;border-top: 1px solid black;}";
+        style += ".opacity5 {opacity: 0.5;}";
+        var divToPrint = "";
+        divToPrint = document.getElementById('frmRiskAssessmentFormContent').innerHTML;
+        $("#frmRiskAssessmentFormContentPrint").show();
+        $('#Printtable').show();
+        $("#Printtable tbody").empty();
+        $("#Printtable tbody").append("<tr><td>" + divToPrint + "</td></tr>");
+        divToPrint = document.getElementById('frmRiskAssessmentFormContentPrint').innerHTML;
+        divToPrint = divToPrint.replace('<select', '<select style="width:250px !important;"');
+
+        $("#removediv").hide();
+        var newWin = window.open('', 'Print-Window');
+        newWin.document.open();
+        newWin.document.write('<html><head><title></title>');
+        newWin.document.write('<link href="' + RootUrl +'Content/PrintStyle.css" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl +'Content/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl + 'Content/AdminLTE.min.css?v1" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl + 'Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl +'Content/_all-skins.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="' + RootUrl +'Content/Custom/SiteCustom.css" rel="stylesheet" />');
+        newWin.document.write('<link rel="stylesheet" href="' + RootUrl +'Content/Custom/RAFPrint.css" type="text/css" />');
+        newWin.document.write('<style type="text/css"  media="print">' + style + '</style>');
+        newWin.document.write('</head><body onload="window.print()">');
+        newWin.document.write(divToPrint);
+        newWin.document.write('</body></html>');
+        doc = newWin.document;
+        $("#forntpage").hide();
+        $("#footerdiv").hide();
+        $(".tblStage15remove").hide();
+        $("#Maindiv").show();
+        $(".aviodPrint").show();
+        $("#printHeaderTitle").hide();
+        $("#removediv").show(); $('#Printtable').hide();
+        $("#frmRiskAssessmentFormContentPrint").hide();
+        newWin.document.close();
+        setTimeout(function () { newWin.close(); }, 5);
+    }
+
+    $(document).ready(function () {
+        fillTable("GRE");
+        $("#ddlShipPostion").val("GRE");
+    });
+
+    function fillTable(shipCode) {
+        try {
+            $.ajax({
+             type: "GET",
+             url: '@Url.Action("GetRiskAssessmentReviewLogData", "Documents")?shipCode='+shipCode,
+             async: true,
+             cache: false,
+             dataType: "html",
+             success: function (result) {
+                 $("#tblSection").html('@Html.Raw("'  + result + '")');
+                 $(".aviodPrint").css('display', 'block');
+                 $("#ajax_loader").hide();
+            },
+            error: function (err) {
+                $("#ajax_loader").hide();
+            }
+        });
+        } catch (e) {
+                $("#ajax_loader").hide();
+        }
+    }
+
+function EditViewofRiskassessmentForm(id) {
+    var _url = RootUrl + "Forms/RAformData?id=" + id + "&shipCode=" + $("#ddlShipPostion").val();
+    window.open(_url, '_blank');
+}
+
+</script>
+
+<section class="content">
+    <form method="post" id="frmRiskAssessmentForm" action="@Url.Action("RiskAssessmentReviewLog", "Documents")">
+        <div id="frmRiskAssessmentFormContent">
+            <input type="hidden" value="1" id="hdnRiskAssessmentFormRecordCount" />
+            <input type="hidden" value="0" name="RiskAssessmentForm.RAFID" id="hdnRAFID" />
+            <div class="row" id="Maindiv">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6 text-center">
+
+                </div>
+                <div class="col-md-3" style="margin-top:10px;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="GeneralSection PageSection page-header" id="forntpage" style="display:none">
+                        <div class="Section">
+                            <div class="SectionContent">
+                                <table class="table tblSection" id="mainPrintTable">
+                                    <tr>
+                                        <td width="20%" style="text-align:center;border:none!important;">
+                                            <img src="~/Images/logo.png" style="width:50px" />
+                                            <p>Carisbrooke Shipping</p>
+                                        </td>
+                                        <td width="30%" style="text-align:center; border:none!important; font-size:large;">
+                                        </td>
+                                        <td width="40%" style="font-size:small;border:none !important">
+                                            <table class="table tblSection tblHeader">
+                                                <tr>
+                                                    <td colspan="4" class="text-center" style="background-color: #3c8dbc47 !important;"><p class="m-5">Risk Assessment Review Log</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="30%"><p class="m-5">Issue No:</p></td>
+                                                    <td width="10%">
+                                                        <div class="form-group has-feedback">
+                                                            <p class="text-center"> 2</p>
+                                                        </div>
+                                                    </td>
+                                                    <td width="45%">
+                                                        <p class="m-5">Amendment No:</p>
+                                                    </td>
+                                                    <td width="10%">
+                                                        <div class="form-group has-feedback">
+                                                            <p class="text-center">-</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="30%"><p class="m-5">Issue Date:</p></td>
+                                                    <td width="10%">
+                                                        <div class="form-group">
+                                                            <p class="text-center">@DateTime.Now.ToString("MM/yy")</p>
+                                                        </div>
+                                                    </td>
+                                                    <td width="45%">
+                                                        <p class="m-5">Amendment Date:</p>
+                                                    </td>
+                                                    <td width="10%">
+                                                        <div class="form-group">
+                                                            <p class="text-center">-</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="removediv">
+                <div class="col-md-12">
+                    <div class="GeneralSection PageSection">
+                        <div class="Section aviodPrint">
+                            <div class="SectionContent">
+                                <table class="table tblSection" id="mainPrintTable" style="background: transparent;">
+                                    <tr>
+                                        <td width="20%" style="border:none !important"></td>
+                                        <td width="40%" style="font-size:small;border:none !important">
+                                            <table class="table tblSection tblHeader">
+                                                <tr>
+                                                    <td colspan="4" class="text-center" style="background-color: #3c8dbc47 !important;"><p class="m-5 text-bold">Risk Assessment Review Log</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="30%"><p class="m-5">Issue No:</p></td>
+                                                    <td width="10%">
+                                                        <div class="form-group has-feedback">
+                                                            <p> 2</p>
+                                                        </div>
+                                                    </td>
+                                                    <td width="45%">
+                                                        <p class="m-5">Amendment No:</p>
+                                                    </td>
+                                                    <td width="10%">
+                                                        <div class="form-group has-feedback">
+                                                            <p>-</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="30%"><p class="m-5">Issue Date:</p></td>
+                                                    <td width="10%">
+                                                        <div class="form-group">
+                                                            <p>@DateTime.Now.ToString("MM/yy")</p>
+                                                        </div>
+                                                    </td>
+                                                    <td width="45%">
+                                                        <p class="m-5">Amendment Date:</p>
+                                                    </td>
+                                                    <td width="10%">
+                                                        <div class="form-group">
+                                                            <p>-</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td width="20%" style="border:none !important">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="col-md-3" style="float:left;padding-left:0px;padding-top:30px">
+                                    <select class="form-control" name="ddlShipPostion" id="ddlShipPostion" onchange="fillTable(event.target.value)">
+                                        <option value="">--Select Ship--</option>
+                                        @if (ViewBag.ShipDatas != null)
+                                        {
+                                            foreach (var item in ViewBag.ShipDatas)
+                                            {
+                                                <option value="@item.Code">@item.Name</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                                <div class="aviodPrint col-md-6" style="float:right;padding:0px">
+                                    <div class="col-md-4" style="padding:0px">
+                                        <p class="m-5  text-bold">Risk Factor colors :</p>
+                                        <ul class="legend">
+                                            <li><span class="bg-green-active"></span>&nbsp; - low</li>
+                                            <li><span class="bg-yellowtext"></span>&nbsp; - medium</li>                                            
+                                            <li><span class="bg-red"></span>&nbsp; - high </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6" style="padding:0px">
+                                        <p class="m-5  text-bold">Ship Specific Issue Date colors :</p>
+                                        <ul class="legend">
+                                            <li>
+                                                <span class="bg-orange"></span>&nbsp; - overdue in less then 1 month
+                                            </li>
+                                            <li><span class="bg-overdue"></span>&nbsp; - overdue </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="aviodPrint col-md-3" style="float:right">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tblStage15remove" style="display:none;">
+                            <p class="text-center"> </p>
+                        </div>
+                        <div class=""></div>
+                        <div class="SectionContent text-center" id="printHeaderTitle" style="display:none;color: #132160;padding-bottom:15px;font-size: 14px;font-weight: bold">
+
+                        </div>
+                        @*<div>
+                                <div class="col-md-3">
+                                    <select class="form-control" name="ddlShipPostion" id="ddlShipPostion" onchange="fillTable(event.target.value)">
+                                        <option value="">--Select Ship--</option>
+                                        @if (ViewBag.ShipDatas != null)
+                                        {
+                                            foreach (var item in ViewBag.ShipDatas)
+                                            {
+                                                <option value="@item.Code">@item.Name</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            </div>*@
+                        <div class="Section" id="tblSection">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row aviodPrint" style="display:none">
+            <div class="col-md-1">
+                <button type="button" class="btn btn-primary" onclick="printDiv()">Print</button>
+            </div>
+        </div>
+        <div id="frmRiskAssessmentFormContentPrint" style="display:none;">
+            <table style="display:none;margin: 0 auto;" class="ParentTable" id="Printtable">
+                <thead>
+                    <tr>
+                        <td>
+                            <div class="page-header-space"></div>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <div class="page-footer-space"></div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </form>
+</section>

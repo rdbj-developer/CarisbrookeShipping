@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IMOSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="IMOSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ClassificationSocieties" EntityType="IMOSModel.ClassificationSociety" />
+    <EntitySet Name="CSShips" EntityType="IMOSModel.CSShip" />
+    <AssociationSet Name="FK_CSShips_ClassificationSocieties" Association="IMOSModel.FK_CSShips_ClassificationSocieties">
+      <End Role="ClassificationSociety" EntitySet="ClassificationSocieties" />
+      <End Role="CSShip" EntitySet="CSShips" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ClassificationSociety">
+    <Key>
+      <PropertyRef Name="ClassificationSocietyId" />
+    </Key>
+    <Property Name="ClassificationSocietyId" Type="Int32" Nullable="false" />
+    <Property Name="AbbreviatedName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CSShips" Relationship="IMOSModel.FK_CSShips_ClassificationSocieties" FromRole="ClassificationSociety" ToRole="CSShip" />
+  </EntityType>
+  <EntityType Name="CSShip">
+    <Key>
+      <PropertyRef Name="ShipId" />
+    </Key>
+    <Property Name="ShipId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ShipClassId" Type="Int32" />
+    <Property Name="BuildCountryId" Type="Int32" />
+    <Property Name="BuildYear" Type="Int32" />
+    <Property Name="ClassificationSocietyId" Type="Int32" />
+    <Property Name="FlagStateId" Type="Int32" />
+    <Property Name="IMONumber" Type="Int32" />
+    <Property Name="CallSign" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MMSI" Type="Int32" />
+    <Property Name="GrossTonnage" Type="Int32" />
+    <Property Name="NetTonnage" Type="Int32" />
+    <Property Name="OfficeId" Type="Int32" />
+    <Property Name="TechnicalManagerId" Type="Int32" />
+    <Property Name="SuperintendentId" Type="Int32" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsDelivered" Type="Boolean" Nullable="false" />
+    <Property Name="FleetId" Type="Int32" />
+    <Property Name="YardNo" Type="Int32" />
+    <Property Name="OfficialNumber" Type="Int32" />
+    <Property Name="PortOfRegistryId" Type="Int32" />
+    <Property Name="SummerDeadweight" Type="Decimal" Precision="8" Scale="3" />
+    <Property Name="Lightweight" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="LOA" Type="Decimal" Precision="6" Scale="3" />
+    <Property Name="LBP" Type="Decimal" Precision="6" Scale="3" />
+    <Property Name="Beam" Type="Decimal" Precision="5" Scale="3" />
+    <Property Name="SummerDraft" Type="Decimal" Precision="7" Scale="5" />
+    <Property Name="BHP" Type="Int32" />
+    <Property Name="BowThruster" Type="Int32" />
+    <Property Name="BuildNumber" Type="Int32" />
+    <Property Name="Agent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Ports" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TechnicalManagerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MinimumSafeManning" Type="Int32" />
+    <Property Name="MaximumPersonsLSA" Type="Int32" />
+    <Property Name="TotalBerths" Type="Int32" />
+    <Property Name="RegisteredOwners" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="HullAndMachineryId" Type="Int32" />
+    <Property Name="ProtectionAndIndemnityId" Type="Int32" />
+    <Property Name="Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SMCIsVerified" Type="Boolean" Nullable="false" />
+    <Property Name="MarineSoftwareNumber" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CE_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataloyNumber" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SatC1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SatC2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Citadel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="P_I_Club" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ClassificationSociety" Relationship="IMOSModel.FK_CSShips_ClassificationSocieties" FromRole="CSShip" ToRole="ClassificationSociety" />
+  </EntityType>
+  <Association Name="FK_CSShips_ClassificationSocieties">
+    <End Type="IMOSModel.ClassificationSociety" Role="ClassificationSociety" Multiplicity="0..1" />
+    <End Type="IMOSModel.CSShip" Role="CSShip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClassificationSociety">
+        <PropertyRef Name="ClassificationSocietyId" />
+      </Principal>
+      <Dependent Role="CSShip">
+        <PropertyRef Name="ClassificationSocietyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

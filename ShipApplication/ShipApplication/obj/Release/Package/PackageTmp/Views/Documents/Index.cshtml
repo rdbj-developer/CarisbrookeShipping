@@ -1,0 +1,358 @@
+﻿@using ShipApplication.BLL.Modals
+@model List<DocumentModal>
+
+@{
+    ViewBag.Title = "Documents";
+}
+
+<style type="text/css">
+    .doc-title:hover {
+        cursor: pointer;
+        color: black;
+    }
+
+    .box {
+        margin-bottom: 1px !important;
+    }
+
+    .DocHeader {
+        margin: 0px;
+        font-size: 18px;
+    }
+
+        .DocHeader a {
+            color: #444;
+        }
+
+            .DocHeader a:hover {
+                background: none !important;
+            }
+
+    .box-header:hover {
+        background-color: #3333;
+    }
+
+    /*.content-wrapper {
+        overflow: hidden !important;
+    }*/
+
+    .content {
+        overflow: auto;
+        height: calc(100vh - 165px) !important;
+    }
+
+    #lblISM {
+        margin-top: 10px;
+        font-size: 30px;
+    }
+</style>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/Custom/Documents.js?v=17.07.2020"></script>
+<script type="text/javascript">
+    var url = "@System.Configuration.ConfigurationManager.AppSettings["FileServiceUrl"].ToString()";
+        var RootUrl = '@Url.Content("~/")';
+</script>
+@*<script src="~/Scripts/Custom/Forms.js" type="text/javascript"></script>*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        var errorMsg = "@ViewBag.ErrorMsg";
+        if (errorMsg != null && errorMsg!="") {
+            $.notify(errorMsg, "error");
+        }
+    });
+
+    function GetAllDocuments() {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("GetAllDocuments", "Documents")',
+            async: false,
+            success: function (res) {
+                if (res != null && res.length > 0) {
+                    AllDocuments = res;
+                    var Categories = AllDocuments.filter(function (x) {
+                            return x.ParentID == "00000000-0000-0000-0000-000000000000";
+                    })
+                    CreateDocList(Categories);
+                }
+            },
+            error: function () {
+            }
+        });
+    }
+
+    function CreateDocList(Categories) {
+
+        $(".content").html("");
+        var html = '';
+        var sectionType = "";
+        for (x in Categories) {
+            if (sectionType != Categories[x].SectionType) {
+                sectionType = Categories[x].SectionType;
+                html += getSectionHeader(Categories[x].SectionType);
+            }
+            html += '<div class="box box-solid collapsed-box">';
+            if (Categories[x].Type == "FOLDER")
+            {
+                if (Categories[x].Title == "Asset Management - IT & OT Equipment") {
+                    html += '<div class="box-header with-border"><h3 class="DocHeader">';
+                    html += '<a href="#" onclick="OpenAssetManagementEquipment()">' + Categories[x].Title + '</a> ';
+                    html += '</h3></div>';
+                }
+                else if (Categories[x].Title == "Cybersecurity Risk Assessment") {
+                    html += '<div class="box-header with-border"><h3 class="DocHeader">';
+                    html += '<a href="#" onclick="OpenCybersecurityRA()">' + Categories[x].Title + '</a> ';
+                    html += '</h3></div>';
+                }
+                else {
+                    html += '<div class="box-header with-border"><h3 data-DocumentID=' + Categories[x].DocumentID +
+                        ' data-ParentID=' + Categories[x].ParentID + ' data-Type=' + Categories[x].Type +
+                        ' data-SectionType=' + Categories[x].SectionType +
+                        ' class="box-title doc-title" data-widget="collapse">' + Categories[x].Title +
+                        '</h3></div>';
+                }
+            }
+            else {
+                var num = Categories[x].Number;
+                if (num != null && num != undefined && num != "")
+                    num = Categories[x].Number + " - ";
+                else
+                    num = "";
+                html += '<div class="box-header with-border"><h3 class="DocHeader">';
+                if (Categories[x].Path == "null") {
+                        Categories[x].Path = null;
+                    }
+                if (Categories[x].Path != null) {
+                    if (Categories[x].Path.includes("Risk Assessments") == true && Categories[x].Type == "XML") {
+                        //var Url = '@Url.Action("RAformData", "Forms")?id=' + Categories[x].RAFID; // JSL 12/27/2022 commented
+                        var Url = '@Url.Action("RAformData", "Forms")?id=' + Categories[x].RAFUniqueID; // JSL 12/27/2022
+                        html += '<a href="#" onclick="EditViewofRiskassessmentForm(\'' + Url + '\')">' + num + Categories[x].Title + '</a> ';
+                    } else {
+                        if (Categories[x].Type == "XML") {
+                            var Url = '@Url.Action("ViewPDFPath", "Documents")?id=' + Categories[x].DocumentID;
+                            html += '<a href="#" onclick="ViewInfoPDF(\'' + Url + '\')">' + num + Categories[x].Title + '</a> ';
+                        }
+                        else if (Categories[x].Type == "DOCX" && Categories[x].Title == "Review Log") {
+                            html += '<a href="#" onclick="OpenRiskAssessmentReviewLog()">' + num + Categories[x].Title + '</a> ';
+                        }
+                        else if (Categories[x].Type == "WINDOWSFOLDER") {
+                             html += "<a href='#' onclick='openFolder("+Categories[x].Path+")'>" + num + Categories[x].Title + "</a> ";
+                        }
+                        else {
+                            var Url = '@Url.Action("ViewPDF", "Documents")?id=' + Categories[x].DocumentID;
+                            html += '<a target="_blank" href="' + Url + '">' + num + Categories[x].Title + '</a>';
+                        }
+                    }
+                    html += '</h3></div>';
+                } else {
+                    if (Categories[x].Path == null && Categories[x].RAFID != null) {
+                        //var Url = '@Url.Action("RAformData", "Forms")?id=' + Categories[x].RAFID;    // JSL 12/27/2022 commented
+                        var Url = '@Url.Action("RAformData", "Forms")?id=' + Categories[x].RAFUniqueID; // JSL 12/27/2022
+                        html += '<a href="#" onclick="EditViewofRiskassessmentForm(\'' + Url + '\')">' + num + Categories[x].Title + '</a> ';
+                     }
+                     else if (Categories[x].Type == "XML") {
+                            var Url = '@Url.Action("ViewPDFPath", "Documents")?id=' + Categories[x].DocumentID;
+                            html += '<a href="#" onclick="ViewInfoPDF(\'' + Url + '\')">' + num + Categories[x].Title + '</a> ';
+                     }
+                     else if (Categories[x].Type == "DOCX" && Categories[x].Title == "Review Log") {
+                         html += '<a href="#" onclick="OpenRiskAssessmentReviewLog()">' + num + Categories[x].Title + '</a> ';
+                     }
+                         else if (Categories[x].Type == "WINDOWSFOLDER") {
+                            html += "<a href='#' onclick='openFolder("+Categories[x].Path+")'>" + num + Categories[x].Title + "</a> ";
+                        }
+                     else {
+                            var Url = '@Url.Action("ViewPDF", "Documents")?id=' + Categories[x].DocumentID;
+                            html += '<a target="_blank" href="' + Url + '">' + num + Categories[x].Title + '</a>';
+                        }
+                        html += '</h3></div>';
+                }
+
+            }
+            html += '</div>';
+        }
+        $(".content").append(html);
+        $('.doc-title').click(function (e) {
+            try {
+                var DocumentID = $(this).attr("data-DocumentID");
+                var Type = $(this).attr("data-Type");
+                var SesctionType = $(this).attr("data-SectionType");
+                if (Type == "FOLDER") {
+                    SetHeaderLabel(SesctionType , $(this).text());
+                    $("#lnkBackToDoc").show();
+                }
+                GetSubCategories(DocumentID);
+            }
+            catch (e) { }
+        });
+    }
+
+    function SetHeaderLabel(SesctionType,name) {
+        var olVal = $("#lblISM").text();
+        if (olVal.trim() != "") {
+            olVal = olVal.trim() + "/";
+        }
+        else {
+            if (SesctionType == "IT") {
+                olVal = SesctionType + " Department/" + olVal.trim();
+            }
+            else {
+                olVal = SesctionType + " /" + olVal.trim();
+            }
+            
+        }
+        var newText = olVal + name;
+        $("#lblISM").text(newText);
+    }
+
+    function getSectionHeader(title) {
+         if (title == null | title == undefined)
+                title= "";
+        var html = '<div class="box box-solid collapsed-box box-primary">';
+        if (title == "IT") {
+            html += '<div class="box-header with-border"><h3 class="DocHeader">' +
+                title + ' Department</h3></div></div>';
+        }
+        else {
+            html += '<div class="box-header with-border"><h3 class="DocHeader">' +
+                title + ' </h3></div></div>';
+        }
+        
+        return html;
+    }
+
+    function SortBySectionType(x, y) {
+        return ((x.SectionType == y.SectionType) ? 0 : ((x.SectionType > y.SectionType) ? 1 : -1));
+    }
+
+
+    function DisplaySearchedFiles(MainFiles) {
+        MainFiles = MainFiles.sort(SortBySectionType);
+        $(".content").html("");
+        var MainUniques = GetUniqueArrays(MainFiles);
+        var sectionHeader = '';
+        for (var g = 0; g < MainUniques.length; g++) {
+            var html = '';
+            var docID = MainUniques[g];
+
+            var ParentFolder = AllDocuments.filter(function (el) {
+                return el.DocumentID == docID;
+            });
+
+            if (ParentFolder != null && ParentFolder != undefined && ParentFolder.length > 0) {
+                if (sectionHeader != ParentFolder[0].SectionType) {
+                    sectionHeader = ParentFolder[0].SectionType;
+                    html += getSectionHeader(ParentFolder[0].SectionType);
+                }
+                html += '<h3>' + ParentFolder[0].Title + '</h3>';
+            }
+
+            var AllDispFiles = MainFiles.filter(function (el) {
+                return el.ParentID == docID;
+            });
+
+            if (AllDispFiles != null && AllDispFiles != undefined && AllDispFiles.length > 0) {
+                for (var j = 0; j < AllDispFiles.length; j++) {
+                    var docCat = AllDispFiles[j];
+                    var num = docCat.Number;
+                    if (num != null && num != undefined && num != "")
+                        num = docCat.Number + " - ";
+                    else
+                        num = "";
+                    html += '<div class="box box-solid collapsed-box">';
+                    html += '<div class="box-header with-border"><h3 class="DocHeader">';
+                    if (docCat.Path == "null") {
+                        docCat.Path = null;
+                    }
+                    if (docCat.Path != null) {
+                        if (docCat.Path.includes("Risk Assessments") == true && docCat.Type == "XML") {
+                            //var Url = '@Url.Action("RAformData", "Forms")?id=' + docCat.RAFID;  // JSL 12/27/2022 commented
+                            var Url = '@Url.Action("RAformData", "Forms")?id=' + Categories[x].RAFUniqueID; // JSL 12/27/2022
+                            html += '<a href="#" onclick="EditViewofRiskassessmentForm(\'' + Url + '\')">' + num + docCat.Title + '</a> ';
+                        } else {
+                            if (docCat.Type == "XML") {
+                                var Url = '@Url.Action("ViewPDFPath", "Documents")?id=' + docCat.DocumentID;
+                                html += '<a href="#" onclick="ViewInfoPDF(\'' + Url + '\')">' + num + docCat.Title + '</a> ';
+                            }
+                             else if (docCat.Type == "DOCX" && docCat.Title == "Review Log") {
+                         html += '<a href="#" onclick="OpenRiskAssessmentReviewLog()">' + num + docCat.Title + '</a> ';
+                            }
+                                else if (docCat.Type == "WINDOWSFOLDER") {
+                            html += "<a href='#' onclick='openFolder("+docCat.Path+")'>" + num +docCat.Title + "</a> ";
+                        }
+                            else {
+                                var Url = '@Url.Action("ViewPDF", "Documents")?id=' + docCat.DocumentID;
+                                html += '<a target="_blank" href="' + Url + '">' + num + docCat.Title + '</a>';
+                            }
+                        }
+                        html += '</h3></div>';
+                    } else {
+                         if (docCat.Type == "XML") {
+                                 var Url = '@Url.Action("ViewPDFPath", "Documents")?id=' + docCat.DocumentID;
+                             html += '<a href="#" onclick="ViewInfoPDF(\''+ Url + '\')">' + docCat.Title + '</a > ';
+                         }
+                         else if (docCat.Type == "DOCX" && docCat.Title == "Review Log") {
+                         html += '<a href="#" onclick="OpenRiskAssessmentReviewLog()">' + num + docCat.Title + '</a> ';
+                         }
+                             else if (docCat.Type == "WINDOWSFOLDER") {
+                            html += "<a href='#' onclick='openFolder("+docCat.Path+")'>" + num + docCat.Title + "</a> ";
+                        }
+                        else {
+                              var Url = '@Url.Action("ViewPDF", "Documents")?id=' + docCat.DocumentID;
+                            html += '<a target="_blank" href="' + Url + '">' + docCat.Title +'</a>';
+                           }
+                            html += '</h3></div>';
+                    }
+                    html += '</div>';
+                }
+                $(".content").append(html);
+            }
+        }
+    }
+    function openFolder(path) {
+    $.ajax({
+        type: "POST",
+        crossDomain: true,
+        contentType: "application/json; charset=utf-8",
+        headers: {
+            "cache-control": "no-cache"
+        },
+        url: url + "openfolder",
+        data: JSON.stringify({
+            value: path
+        }),
+        success: function (response) {
+            if (response != null && response != "" && response.OpenFileResult != null && response.OpenFileResult != "") {
+                    $.notify(response.OpenFileResult, "error");
+            }
+        },
+        error: function (response) {
+            if (response.statusCode != 200)
+                $.notify("Make sure local service is running.", "error");
+            console.log(response);
+        }
+    });
+    }
+</script>
+
+<section class="content-header" id="docSection">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 id="lblISM"></h1>
+            <a href="@Url.Action("Index", "Documents")" style="display:none;" id="lnkBackToDoc">Back to documents list</a>
+        </div>
+        <div class="col-md-4">
+            <div class="sidebar-form" style="background:white;border:none;">
+                <div class="input-group">
+                    <input type="text" id="txtSearch" name="q" class="form-control" placeholder="Search..." style="background:white;border:none;">
+                    <span class="input-group-btn">
+                        <button type="button" name="search" id="search-btn" class="btn btn-flat" style="background:white;border:none;">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+</section>

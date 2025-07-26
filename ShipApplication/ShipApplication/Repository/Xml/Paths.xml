@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Paths>
+    <Global>
+        <ShipDetails>C:\Carisbrooke Shipping Ltd\Saved Forms\Ship Details.xml</ShipDetails>
+        <EmailAddresses>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Xml\EmailAddresses.xml</EmailAddresses>
+        <SavedForms>C:\Carisbrooke Shipping Ltd\Saved Forms\</SavedForms>
+        <KeyFile>C:\Carisbrooke Shipping Ltd\Saved Forms\Authentication.csl</KeyFile>
+    </Global>
+    <RWH>
+        <RWHTemplate>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Forms\Technical and Safety\RWH - Record of Hours of Work and Rest.xltm</RWHTemplate>
+		<RWHHelpFile>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\RWH Help.pdf</RWHHelpFile>
+        <RWHNetworkFolder>\\V-CSL-DATA\Data\00 - CS - Safety Mgmt Manuals &amp; Docs\08 - Rest and Work Hours - Managed Ships\</RWHNetworkFolder>
+    </RWH>
+    <QCH>
+        <ShipsFolder>\\V-CSL-DATA\data\Technical\Ships</ShipsFolder>
+    </QCH>
+    <QHE>
+        <ShipsFolder>\\V-CSL-DATA\data\Technical\Ships</ShipsFolder>
+    </QHE>
+    <IRF>
+        <NetworkFolder>\\V-CSL-DATA\data\ISM Safety and Security\02 - ISM\05 - Incident &amp; Investigation Reports</NetworkFolder>
+    </IRF>
+    <IAF>
+        <ShipInternalAudits>\\V-CSL-DATA\data\ISM Safety and Security\02 - ISM\04 - Audits &amp; Inspections\Ships Internal Audits</ShipInternalAudits>
+        <OfficeInternalAudits>\\V-CSL-DATA\data\ISM Safety and Security\02 - ISM\04 - Audits &amp; Inspections\Office Internal Audits</OfficeInternalAudits>
+        <LocalSavePath>C:\Carisbrooke Shipping Ltd\Saved Forms\IAF</LocalSavePath>
+        <CurrentSavePath>C:\Carisbrooke Shipping Ltd\Saved Forms\IAF\Current</CurrentSavePath>
+    </IAF>
+</Paths>

@@ -1,0 +1,567 @@
+﻿@using ShipApplication.BLL.Modals;
+@using ShipApplication.BLL.Helpers;
+@{
+    ViewBag.Title = "Settings";
+}
+
+@* JSL 11/12/2022 *@
+<link href="~/Content/Kendo/kendo.common.min.css" rel="stylesheet" />
+<link href="~/Content/Kendo/kendo.rtl.min.css" rel="stylesheet" />
+<link href="~/Content/Kendo/kendo.silver.min.css" rel="stylesheet" />
+<link href="~/Content/Kendo/kendo.mobile.all.min.css" rel="stylesheet" />
+@* End JSL 11/12/2022 *@
+
+<style type="text/css">
+    .shipStyle {
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .nopaddingleftright {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .inspector {
+        padding-top: 0px !important;
+    }
+</style>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Content/Kendo/kendo.all.min.js"></script>
+<script src="~/Scripts/Custom/Settings.js?11132022"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var ServerConnRes = '@ViewBag.result';
+        var DBcreateRes = '@ViewBag.dbcreate';
+        var SMTPConnRes = '@ViewBag.SMTPResult';
+
+        var ServerConn = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.serverconnection))';
+        var SelectedShip = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.selectedShip))';
+        var SMTPServerConn = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.SMTPServerDetails))';
+
+        var isInternetAvailable = false; //RDBJ 09/17/2021
+        SetAppMode('@Utility.CheckInternet()'); //RDBJ 09/17/2021
+
+        if (ServerConnRes == '@AppStatic.SUCCESS') {
+            $.notify("Connection Successfully", "success");
+            $("#lblServerConnect").text("Server Connected Successfully");
+            $("#lblServerConnect").css("color", "green");
+        }
+        else if (ServerConnRes == '@AppStatic.ERROR') {
+            $.notify("error occured while connecting server", "error");
+            $("#lblServerConnect").text("Please Enter valid Credentials");
+            $("#lblServerConnect").css("color", "red");
+        }
+        else { }
+
+        if (DBcreateRes == '@AppStatic.ERROR') {
+            $.notify("databse create error", "warn");
+        }
+        if (SMTPConnRes == '@AppStatic.SUCCESS') {
+            $.notify("SMTP Settings Saved Successfully", "success");
+        }
+        else if (SMTPConnRes == '@AppStatic.ERROR') {
+            $.notify("error occured while saving SMTP Settings", "error");
+        }
+        else { }
+
+        if (ServerConn != "null") {
+            ServerConn = ServerConn.replace("\\", "\\\\");
+            var ServerObj = JSON.parse(ServerConn);
+            DisplayServerSettings(ServerObj);
+        }
+        $("#btnChangeServerSettings").click(function () {
+            ChangeServerSettings();
+        });
+
+        if (SelectedShip != "null" && SelectedShip != "") {
+            var jsondata = JSON.parse(SelectedShip);
+            $("#ddlShips").val(jsondata.id);
+        }
+
+        if (SMTPServerConn != "null") {
+            var SMPTObj = JSON.parse(SMTPServerConn);
+            DisplaySMTPSettings(SMPTObj);
+        }
+        $("#btnChangeSMTPSettings").click(function () {
+            ChangeSMTPSettings();
+        });
+
+        $("#ddlShips").change(function () {
+            var value = $(this).val();
+            var text = $("#ddlShips option:selected").text();
+            if (value != "") {
+                $("#ajax_loader").show();
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("SaveShip", "Settings")',
+                    data: { id: value, name: text },
+                    dataType: "json",
+                    success: function (res) {
+                        $("#ajax_loader").hide();
+                        if (res == true) {
+                            $.notify("Saved Successfully", "success");
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 500);
+                        }
+                        else {
+                            $.notify("Error occured!!", "error");
+                        }
+                    },
+                    error: function () {
+                        $("#ajax_loader").hide();
+                        $.notify("Error occured!!", "error");
+                    }
+                });
+            }
+        });
+
+        $("#btnSyncData").click(function () {
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("SyncData", "Settings")',
+                success: function (data) {
+                    $.notify("Synced Successfully", "success");
+                },
+                error: function () {
+                    $.notify("Error occured!!", "error");
+                }
+            });
+        });
+
+        $(document).on("click", "#lnkAddRecipient", function (e) {
+            var ccPanelDiv = $(".CCEmailPanel").clone();
+
+            if ($(ccPanelDiv).hasClass("hide")) {
+                $(ccPanelDiv).removeClass("hide");
+            }
+
+            if ($(ccPanelDiv).hasClass("CCEmailPanel")) {
+                $(ccPanelDiv).removeClass("CCEmailPanel").addClass("CloneCCEmailPanel");
+            }
+
+            if ($(ccPanelDiv).find(".txtCCEmail").length > 0) {
+                $(ccPanelDiv).find(".txtCCEmail").removeClass("txtCCEmail").addClass("txtClonedCCEmail").attr("name", "CCEmail");
+            }
+
+            $(ccPanelDiv).insertAfter(".CCEmailPanel");
+        });
+
+        $(document).on("click", ".removeCCEmail", function () {
+            $(this).parent().parent().remove();
+        });
+
+        $("#btnDeleteLocalRiskAssessment").click(function () {
+            var kendoWindow = $("<div />").kendoWindow({
+                title: "Delete Logs Confirmation",
+                resizable: false,
+                modal: true
+            });
+            kendoWindow.data("kendoWindow")
+                .content($("#delete-confirmation").html())
+                .center().open();
+
+            kendoWindow.find(".delete-confirm,.delete-cancel")
+                .click(function () {
+                    if ($(this).hasClass("delete-confirm")) {
+                        $.ajax({
+                            type: "GET",
+                            url: '@Url.Action("DeleteLocalRiskAssessmentData", "Forms")',
+                            success: function (data) {
+                                $.notify("Deleted Successfully", "success");
+                            },
+                            error: function () {
+                                $.notify("Error occured!!", "error");
+                            }
+                        });
+                        //$.ajax({
+                        //    type: "POST",
+                        //    contentType: "application/json; charset=utf-8",
+                        //    dataType: "json",
+                        //    headers: {
+                        //        "cache-control": "no-cache"
+                        //    },
+                        //    url: RootUrl + "Admin/GetAllDeletePCRecord",
+                        //    data: JSON.stringify({
+                        //        ShipCode: ShipCode, Id: Id, PCName: PCName, PCUniqueId: PCUniqueId
+                        //    }),
+                        //    success: function (response) {
+                        //        if (response.result == "Success") {
+                        //            $.notify("Record Deleted Successfully !!!", "success");
+                        //            LoadAllShipPCName();
+                        //        }
+                        //        else {
+                        //            $.notify("Failed to Record Delete !!!", "error");
+                        //        }
+                        //    },
+                        //    error: function (response) {
+
+                        //    }
+                        //});
+                    }
+                    kendoWindow.data("kendoWindow").close();
+                })
+                .end()
+
+        });
+
+        // JSL 11/12/2022
+        $("#btnCleanLocalDB").click(function () {
+            var kendoWindow = $("<div />").kendoWindow({
+                title: "Delete Data Confirmation",
+                resizable: false,
+                modal: true
+            });
+            kendoWindow.data("kendoWindow")
+                .content($("#delete-confirmation").html())
+                .center().open();
+
+            kendoWindow.find(".delete-confirm,.delete-cancel")
+                .click(function () {
+                    if ($(this).hasClass("delete-confirm")) {
+                        CleanLocalDBExceptThisShipData();
+                    }
+                    kendoWindow.data("kendoWindow").close();
+                })
+                .end()
+        });
+        // End JSL 11/12/2022
+
+        $("#btnDownloadSyncService").click(function () {
+            window.location = '@Url.Action("DownloadMainSyncServiceSetup", "Settings")';
+        });
+
+        $("#chkbInspector").change(function () {
+            // JSL 11/12/2022 wrapped confirm popup
+            ChangeInspectorMode();
+            // End JSL 11/12/2022 wrapped confirm popup
+        });
+
+        //RDBJ 09/16/2021
+        $("#btnUpdateShipsData").click(function () {
+            //RDBJ 09/23/2021 Commented for meanwhile
+            /*
+            if (isInternetAvailable == false) {
+                $.notify("Internet not available, Please try again after sometimes!!", "error");
+                return;
+            }
+            */
+
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("GetUpdateShipsDetails", "Settings")',
+                dataType: "json",
+                success: function (res) {
+                    $("#ajax_loader").hide();
+                    if (res == true) {
+                        $.notify("Saved Successfully", "success");
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 500);
+                    }
+                    else {
+                        $.notify("Error occured!!", "error");
+                    }
+                },
+                error: function () {
+                    $("#ajax_loader").hide();
+                    $.notify("Error occured!!", "error");
+                }
+            });
+        });
+        //End RDBJ 09/16/2021
+
+        GetMainSyncServiceSettings();   // RDBJ 02/26/2022
+
+        // RDBJ 02/26/2022
+        $(".updateData").bind("change", function (e) {
+            UpdateMainSyncServiceData();
+        });
+        // End RDBJ 02/26/2022
+
+        GetMainSyncServiceDetailsAndStatus();   // RDBJ 04/13/2022
+    });
+</script>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Connect to Server</h3>
+                </div>
+                <form class="form-horizontal" method="post" action="@Url.Action("Index", "Settings")">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Server Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtServerName" name="ServerName" placeholder="Please Enter Server Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">UserName</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtUserName" name="UserName" placeholder="Please Enter User Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="txtPassword" name="Password" placeholder="Please Enter Password" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label inspector">Is Inspector</label>
+                            <div class="col-sm-9">
+                                <input type="checkbox" class="form-check-input" id="chkbInspector" name="IsInspector" value="true">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-4">
+                                <button type="submit" id="btnServerConnect" class="btn btn-info">Connect Server</button>
+                            </div>
+                            <div class="col-sm-5 text-right">
+                                <button type="button" id="btnChangeServerSettings" class="btn btn-info">Change Server Settings</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <div class="col-sm-12 text-center">
+                            <label id="lblServerConnect"></label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            @Html.DropDownList("ddlShips", ViewBag.ships as SelectList, "--- select ship ---", new { @class = "form-control shipStyle" })
+        </div>
+        <div class="col-sm-8 text-right">
+            @* RDBJ 02/16/2022 Updated Version 5.11 *@
+            @* RDBJ 02/26/2022 Commented below line *@
+            @*<button type="button" id="btnDownloadSyncService" class="btn btn-info">Download Main Service(Version 5.11)</button>*@
+
+            @* RDBJ 02/26/2022 *@
+            <button type="button" id="btnDownloadSyncService" class="btn btn-info" data-toggle="tooltip" data-original-title="Main Sync Servie">
+                <span id="showNotificationForMainSyncServiceInSettingPage" style="position: initial !important; font: 12px Verdana !important; padding-right: 3px; margin-right: 5px;"></span><i style="padding-left:2px" class="fa fa-download"></i>&nbsp; Download Main Service (Version <span id="mainSyncServiceVersion"></span>)
+            </button>
+            @* End RDBJ 02/26/2022 *@
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">SMTP Settings</h3>
+                </div>
+                <form class="form-horizontal" method="post" action="@Url.Action("SaveSmtpCredential", "Settings")">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Server Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtSMTPServerName" name="SMPTServerName" placeholder="Please Enter Server Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Port</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtSMTPPort" name="SMTPPort" placeholder="Please Enter Port" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">From Address</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtSMTPFromAddress" name="SMTPFromAddress" placeholder="Please Enter From Address" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">UserName</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtSMTPUserName" name="SMTPUserName" placeholder="Please Enter UserName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="txtSMTPPassword" name="SMTPPassword" placeholder="Please Enter Password" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Is Authentication Required</label>
+                            <div class="col-sm-9">
+                                <input type="checkbox" class="checkbox" value="true" id="chkIsAuthenticationRequired" name="IsAuthenticationRequired">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">CC</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtSMTPCC" name="CCEmail" placeholder="Please Enter CC" required />
+                            </div>
+                        </div>
+                        <div class="form-group CCEmailPanel hide">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-9 ">
+                                <div class="col-sm-11 col-xs-10 nopaddingleftright">
+                                    <input type="text" class="txtCCEmail form-control" />
+                                    <span class="form-control-feedback text-danger"><label>*</label></span>
+                                </div>
+                                <div class="col-sm-1 col-xs-1 fa fa-window-close removeCCEmail"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-9">
+                                <a href="#" id="lnkAddRecipient">Add Recipient</a>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-4">
+                                <button type="submit" id="btnSMTPSettings" class="btn btn-info">Save SMTP Settings</button>
+                            </div>
+                            <div class="col-sm-5 text-right">
+                                <button type="button" id="btnChangeSMTPSettings" class="btn btn-info">Change SMTP Settings</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Database Maintenance</h3>
+                </div>
+                <form class="form-horizontal">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Ship : </label>
+                            <div class="col-sm-9">
+                                <button type="button" id="btnUpdateShipsData" class="btn btn-info">Update Ships Data</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Risk Assessment : </label>
+                            <div class="col-sm-9">
+                                <button type="button" id="btnDeleteLocalRiskAssessment" class="btn btn-info">Delete Local Risk Assessment</button>
+                            </div>
+                        </div>
+                        @* JSL 11/12/2022 *@
+                        <div class="form-group hide">
+                            <label class="col-sm-3 control-label">Clean Database : </label>
+                            <div class="col-sm-9">
+                                <button type="button" id="btnCleanLocalDB" class="btn btn-danger">Delete Data except @ShipApplication.BLL.Helpers.SessionManager.ShipName Ship</button>
+                            </div>
+                        </div>
+                        @* End JSL 11/12/2022 *@
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    @* RDBJ 02/26/2022 *@
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <div class="col-md-6">
+                        <h3 class="box-title">Syncing Service Time Interval</h3>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <div id="mainSyncServiceStatus"></div>
+                        @* JSL 05/28/2022 *@
+                        <div style="padding-top: 5px;">
+                            Specification :
+                            <span data-toggle="tooltip" data-original-title="Latest version service running in this machine." style="color: #00a65a !important; padding-left: 5px; cursor: pointer; "><i class="fa fa-square" aria-hidden="true"></i></span>
+                            <span data-toggle="tooltip" data-original-title="Older version service running in this machine." style="color: #f39c12 !important; padding-left: 5px; cursor: pointer; "><i class="fa fa-square" aria-hidden="true"></i></span>
+                            <span data-toggle="tooltip" data-original-title="Service is not installed/running in this machine." style="color: red !important; padding-left: 5px; cursor: pointer; "><i class="fa fa-square" aria-hidden="true"></i></span>
+                        </div>
+                        @* End JSL 05/28/2022 *@
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="col-sm-6" style="background-color: white; padding-bottom: 20px; border-right: 1px dashed black;">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">Server Settings (Defaults)</h3>
+                                <div class="form-horizontal">
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Time Interval : </label>
+                                            <div class="col-sm-9">
+                                                <label id="lblServerTimeInterval" class="control-label" style="font-weight: normal !important;"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Updated By : </label>
+                                            <div class="col-sm-9">
+                                                <label id="lblServerUpdatedBy" class="control-label" style="font-weight: normal !important;"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Updated On : </label>
+                                            <div class="col-sm-9">
+                                                <label id="lblServerUpdatedDate" class="control-label" style="font-weight: normal !important;"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" style="background-color: white; padding-bottom: 20px;">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">This Ship Settings (Use this Setting <input type="checkbox" id="chkbUseLocalTimeInterval" class="updateData" style="cursor:pointer;" /> )</h3>
+                                <div class="form-horizontal">
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Time Interval : </label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control updateData" id="ddLocalTimeInterval" style="width: 150px; cursor:pointer;">
+                                                    <option value="8">8 Mins</option>
+                                                    <option value="15">15 Mins</option>
+                                                    <option value="30">30 Mins</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Updated By : </label>
+                                            <div class="col-sm-9">
+                                                <label id="lblLocalUpdatedBy" class="control-label" style="font-weight: normal !important;"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Updated On : </label>
+                                            <div class="col-sm-9">
+                                                <label id="lblLocalUpdatedDate" class="control-label" style="font-weight: normal !important;"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* End RDBJ 02/26/2022 *@
+
+</section>
+<script id="delete-confirmation" type="text/x-kendo-template">
+    <p class="delete-message">This action cannot be undone. Are you sure want to delete this data?</p>
+    <br />
+    <button class="delete-confirm k-button">YES</button>
+    <button class="delete-cancel k-button">NO</button>
+</script>

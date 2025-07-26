@@ -1,0 +1,97 @@
+﻿@using ShipApplication.BLL.Modals
+@using ShipApplication.BLL.Helpers
+
+@* JSL 12/16/2022 *@
+<div class="SectionContentde">
+    <table class="table tblSection tblStage1" id="tblStage1">
+        <tfoot style="opacity:0">
+            <tr>
+                <td style="    border: 0px !important;">
+                    <div class="footer-space" colspan="4"></div>
+                </td>
+            </tr>
+        </tfoot>
+        <tr>
+            <td width="5%">
+                <p class="m-5 text-center text-bold">No.</p>
+            </td>
+            <td width="25%">
+                <p class="m-5 text-center text-bold"> General - All Departments</p>
+            </td>
+            <td width="10%">
+                <p class="m-5 text-center text-bold">Risk Factor</p>
+            </td>
+            <td width="10%">
+                <p class="m-5 text-center text-bold">Ship Specific Issue Date</p>
+            </td>
+            <td width="10%">
+                <p class="m-5 text-center text-bold">Last Review Date</p>
+            </td>
+        </tr>
+        @if (ViewBag.DocList != null)
+        {
+            var lists = (System.Collections.Generic.List<RiskAssessmentReviewLog>)ViewBag.DocList;
+            if (lists != null && lists.Count > 0)
+            {
+                string bgColor = "", strDate = "", strClass = "", strLastReviewDate = "";
+                foreach (var item in lists)
+                {
+                    bgColor = strDate = strClass = "";
+                    if (item.IsApplicable == false)
+                    {
+                        strDate = "N/A";
+                        strClass = "opacity5";
+                    }
+                    else
+                    {
+                        if (item.AmendmentDate.HasValue)
+                        {
+                            var dateSpan = DateTimeSpan.CompareDates(item.AmendmentDate.Value, DateTime.Now);
+
+                            if (dateSpan.Years >= 1 || dateSpan.Months >= 12)
+                            {
+                                bgColor = "bg-overdue font-white";
+                            }
+                            else if (dateSpan.Months >= 11)
+                            {
+                                bgColor = "bg-orange font-white";
+                            }
+                            strDate = Utility.ToDateTimeStr(item.AmendmentDate, "dd/MM/yyyy");
+                        }
+                    }
+                    if (item.ReviewerDate.HasValue)
+                    {
+                        strLastReviewDate = Utility.ToDateTimeStr(item.ReviewerDate, "dd/MM/yyyy");
+                    }
+                    <tr class="@strClass">
+                        <td>
+                            <p class="text-center text-bold">@item.Number</p>
+                        </td>
+                        <td>
+                            @* JSL 11/26/2022 commented below line *@
+                            @*<p><a href="#" onclick="EditViewofRiskassessmentForm(@item.RAFID)">@item.Title</a></p>*@
+
+                            @* JSL 11/26/2022 added below line *@
+                            <p><a href="javascript:void(0);" onclick="EditViewofRiskassessmentForm('@item.RAFUniqueID')">@item.Title</a></p>
+                            @*<p>@item.Title</p>*@
+
+                        </td>
+                        <td>
+                            <p class="text-center @item.RiskFactorColour">@item.Stage4RiskFactor</p>
+                        </td>
+                        <td>
+                            <p class="text-center  @bgColor">@strDate</p>
+                        </td>
+                        <td>
+                            <p class="text-center">@strLastReviewDate</p>
+                        </td>
+                    </tr>
+                }
+            }
+        }
+    </table>
+    <footer id="pageFooter">
+        <div class="numberOfPages"></div>
+    </footer>
+</div>
+@* End JSL 12/16/2022 *@

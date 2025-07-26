@@ -1,0 +1,115 @@
+﻿/*.content-wrapper {
+    overflow: hidden !important;
+}*/
+
+.tblSection {
+    margin-bottom: 0px;
+}
+
+.Section {
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.SectionInstructions {
+    border: 1px solid black;
+    margin-bottom: 20px;
+    background-color: #F9B3B3;
+}
+
+.SectionHead {
+    background: #FFFFE1;
+    padding: 5px;
+}
+
+.SectionComplete {
+    background: #FEB5A9;
+    padding: 5px;
+}
+
+table > tbody > tr > td {
+    border: 1px solid #66afe9 !important;
+    padding: 1px !important;
+}
+
+.p-l-r-0 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.m-b-10 {
+    margin-bottom: 10px;
+}
+
+.v-al-m {
+    vertical-align: middle !important;
+}
+
+.m-0 {
+    margin: 0px !important;
+}
+
+.m-10 {
+    margin: 10px !important;
+}
+
+.m-l-5 {
+    margin-left: 5px !important;
+}
+
+.m-l-10 {
+    margin-left: 10px !important;
+}
+
+.p-l-0 {
+    padding-left: 0px;
+}
+
+label.error {
+    color: red !important;
+}
+
+.form-group {
+    margin-bottom: 0px;
+}
+
+.checkbox, .radio {
+    margin: 0px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+table {
+    background-color: #ffffff;
+}
+
+.content-wrapper {
+    /*overflow: hidden !important;*/
+}
+
+.glyphicon-remove {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+@media only screen and (max-width: 991px) {
+    .col-md-10.leftContent {
+        float: left;
+        width: 80%;
+    }
+
+    .btn-default {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-10.leftContent {
+        float: left;
+        width: 80%;
+    }
+
+    .rightContent {
+        width: 20%;
+    }
+}

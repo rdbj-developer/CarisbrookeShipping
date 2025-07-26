@@ -1,0 +1,79 @@
+﻿@using OfficeApplication.BLL.Modals;
+
+@model ShipWisePCModal
+@{
+    ViewBag.Title = "ManageSiteInfo";
+    Layout = null;
+}
+
+<style>
+    .k-grid .k-button {
+        margin: 2px .16em !important;
+    }
+
+    .clsLable {
+        padding: .6em .6em .6em;
+    }
+
+    #grid {
+        width: 100%
+    }
+    /*#grid > table {
+        table-layout: fixed;
+    }
+
+    .k-grid table {
+    width:auto !important;
+    }*/
+
+    /*td:first-child { width:30px; }*/
+    th:first-child {
+        width: 20px;
+    }
+</style>
+<script type="text/javascript">
+    var RootUrl = '@Url.Content("~/")';
+</script>
+<script id="template" type="text/x-kendo-template">
+    <button type="button" data-toggle="tooltip" title="Refresh data" class="btn btn-sm btn-primary k-grid-refresh" onclick="return LoadAllShipPCName()"><i style="font-size:10px;padding-left:2px" class="fa fa-refresh"></i></button>
+</script>
+<script src="~/Scripts/Custom/ManageSiteInfo.js?19.10.2020"></script>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body" id="ReportPage">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="grid">
+                                <div class="well">Loading Please Wait...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script id="delete-confirmation" type="text/x-kendo-template">
+    <p class="delete-message">Are you sure want to delete this data?</p>
+    <br />
+    <button class="delete-confirm k-button">YES</button>
+    <button class="delete-cancel k-button">NO</button>
+</script>
+
+<script id="blockpc-confirmation" type="text/x-kendo-template">
+    <p class="blockpc-message">Are you sure want to block/unblock this PC?</p>
+    <br />
+    <button class="blockpc-confirm k-button">YES</button>
+    <button class="blockpc-cancel k-button">NO</button>
+</script>
+
+<script id="mainpc-confirmation" type="text/x-kendo-template">
+    <p class="mainpc-message">Are you sure want to mark this PC as Main PC?</p>
+    <br />
+    <button class="mainpc-confirm k-button">YES</button>
+    <button class="mainpc-cancel k-button">NO</button>
+</script>

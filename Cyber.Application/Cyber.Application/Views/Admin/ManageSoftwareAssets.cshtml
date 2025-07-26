@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "SoftwareAssets";
+    Layout = null;
+}
+<script>
+    $(document).ready(function () {
+        LoadSoftwareAssetsGrid();
+    });
+    function LoadSoftwareAssetsGrid() {
+        var shipCode = $("#ddlShipSWAssets").val();
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            headers: {
+                "cache-control": "no-cache"
+            },
+            url: '@Url.Action("GetShipSystemsSoftwareAssets", "Admin")',
+            data: JSON.stringify({
+                "shipCode": shipCode
+            }),
+            success: function (response) {
+                if (response != null) {
+                    $('#softwareAssetsList').empty();
+                    $('#softwareAssetsList').kendoGrid({
+                        scrollable: true,
+                        filterable: true,
+                        selectable: true,
+                        sortable: true,
+                        noRecords: true,
+                        messages: {
+                            noRecords: "No record found."
+                        },
+                        resizable: true,
+                        pageable: {
+                            alwaysVisible: true,
+                            pageSizes: [5, 10, 20, 100]
+                        },
+                        dataSource: {
+                            data: response,
+                            pageSize: 10
+                        },
+                        dataBound: function () {
+                            for (var i = 0; i < this.columns.length; i++) {
+                                this.autoFitColumn(i);
+                            }
+                        },
+                        columns: [
+                            {
+                                field: "ID",
+                                hidden: true
+                            },
+                            {
+                                field: "ShipName",
+                                title: "Ship"
+                            },
+                            {
+                                field: "Name",
+                                title: "Software"
+                            },
+                            {
+                                field: "Version",
+                                title: "Version"
+                            },
+                            {
+                                field: "InstallDate",
+                                title: "InstallDate"
+                            },
+                            {
+                                field: "Publisher",
+                                title: "Publisher"
+                            },
+                            {
+                                field: "InstallLocation",
+                                title: "InstallLocation"
+                            }
+                        ]
+                    });
+                }
+            },
+            error: function (response) {
+                console.log(response);
+            }
+        });
+    }
+
+</script>
+<section class="content">
+    <div class="row">
+        <div class="col-md-3">
+            <select class="form-control aviodPrint" name="AssetManagmentEquipmentListForm.ShipCode" id="ddlShipSWAssets" 
+                    onchange="LoadSoftwareAssetsGrid()">
+                <option value="">--Select Ship--</option>
+                @if (ViewBag.ShipDatas != null)
+                {
+                    foreach (var item in ViewBag.ShipDatas)
+                    {
+                        <option value="@item.Code">@item.Name</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="softwareAssetsList">
+                <div class="well">Loading Please Wait...</div>
+            </div>
+        </div>
+    </div>
+</section>

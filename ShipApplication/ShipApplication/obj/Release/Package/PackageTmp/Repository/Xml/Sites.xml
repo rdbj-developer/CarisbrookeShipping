@@ -1,0 +1,278 @@
+<?xml version="1.0" standalone="yes"?>
+<Sites>
+	<SiteInfo>
+		<Name>Amy C</Name>
+		<Email>amyc@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Andrea Anon</Name>
+		<Email>andreaanon@skyfile.com</Email>
+        <UpdateSourceType>AFT</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Anja C</Name>
+		<Email>anjac@skyfile.com</Email>
+        <UpdateSourceType>AFT</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Charlotte C</Name>
+		<Email>charlottec-cs@skyfile.com</Email>
+        <UpdateSourceType>AFT</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Greta C</Name>
+		<Email>gretac@skyfile.com</Email>
+        <UpdateSourceType>AFT</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Heleen C</Name>
+		<Email>heleenc@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Jacqueline C</Name>
+		<Email>jacquelinec.2bon5@globeemail.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Janet C</Name>
+		<Email>janetc@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Jasmine C</Name>
+		<Email>jasminec@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Johanna C</Name>
+		<Email>johannac@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Julie C</Name>
+		<Email>juliec@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Karen C</Name>
+		<Email>karenc@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Karina C</Name>
+		<Email>karinac@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Karla C</Name>
+		<Email>karlac@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Kate C</Name>
+		<Email>katec@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Kathy C</Name>
+		<Email>kathyc@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Kelly C</Name>
+		<Email>kellyc@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Kikki C</Name>
+		<Email>kikkic@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Kimberly C</Name>
+		<Email>kimberlyc@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Kitty C</Name>
+		<Email>kittyc@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Kristin C</Name>
+		<Email>kristinc@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Lauren C</Name>
+		<Email>laurenc@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Lijun C</Name>
+		<Email>lijunc@skyfile.com</Email>
+        <UpdateSourceType>AFT</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Michelle C</Name>
+		<Email>michellec@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Minka C</Name>
+		<Email>minkac@skyfile.com</Email>
+        <UpdateSourceType>AFT</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Nicole C</Name>
+		<Email>nicolec@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Nomadic Bergen</Name>
+		<Email>nomadicbergen@skyfile.com</Email>
+        <UpdateSourceType>AFT</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Nomadic Hjellestad</Name>
+		<Email>nhjellestad@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Nomadic Milde</Name>
+		<Email>nomadicmilde@skyfile.com</Email>
+        <UpdateSourceType>AFT</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Office</Name>
+		<Email>technical.uk@carisbrooke.co</Email>
+        <UpdateSourceType>Network</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Paula C</Name>
+		<Email>paulac@skyfile.com</Email>
+        <UpdateSourceType>AFT</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Sally Ann C</Name>
+		<Email>sallyannc@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Sider Martina C</Name>
+		<Email>sider.martinac@skyfile.com</Email>
+        <UpdateSourceType>AFT</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Steffi C</Name>
+		<Email>steffic@skyfile.com</Email>
+        <UpdateSourceType>AFT</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Tina C</Name>
+		<Email>tinac@skyfile.com</Email>
+        <UpdateSourceType>AFT</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Vectis Castle</Name>
+		<Email>vectiscastle@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Vectis Eagle</Name>
+		<Email>vectiseagle@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Vectis Falcon</Name>
+		<Email>vectisfalcon@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Vectis Harrier</Name>
+		<Email>vectisharrier@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Vectis Isle</Name>
+		<Email>vectisisle@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Vectis Osprey</Name>
+		<Email>vectisosprey@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Vectis Pride</Name>
+		<Email>vectispride@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Vectis Progress</Name>
+		<Email>vectisprogress@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Victoria C</Name>
+		<Email>victoriac@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+	<SiteInfo>
+		<Name>Sider Xiaoyi C</Name>
+		<Email>sider.xiaoyic@skyfile.com</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+    <SiteInfo>
+		<Name>Colin Papworth</Name>
+		<Email>colin.papworth@carisbrooke.co</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+    <SiteInfo>
+		<Name>Greg Sasin</Name>
+		<Email>greg.sasin@carisbrooke.co</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+    <SiteInfo>
+		<Name>Hrvoje Radic</Name>
+		<Email>hrvoje.radic@carisbrooke.co</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+    <SiteInfo>
+		<Name>Irek Zdrojewski</Name>
+		<Email>irek.zdrojewski@carisbrooke.co</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+    <SiteInfo>
+		<Name>Maciej Halicki</Name>
+		<Email>maciej.halicki@carisbrooke.co</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+    <SiteInfo>
+		<Name>Puiu Tarlungianu</Name>
+		<Email>puiu.tarlungianu@carisbrooke.co</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+    <SiteInfo>
+		<Name>Stefan Heffernan</Name>
+		<Email>stefan.heffernan@carisbrooke.co</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+    <SiteInfo>
+		<Name>Stephen Bell</Name>
+		<Email>stephen.bell@carisbrooke.co</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+    <SiteInfo>
+		<Name>Bogdan Sokolowski</Name>
+		<Email>bogdan.sokolowski@carisbrooke.co</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+    <SiteInfo>
+		<Name>Krzysztof Nowaczyk</Name>
+		<Email>krzysztof.nowaczyk@carisbrooke.co</Email>
+        <UpdateSourceType>FTP</UpdateSourceType>
+	</SiteInfo>
+</Sites>

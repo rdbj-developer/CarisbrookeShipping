@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><?mso-infoPathSolution solutionVersion="6.0.0.0" PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" productVersion="15.0.0" ?><?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?><my:Main my:DateCreated="2016-03-04T08:12:35" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata" xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10" xmlns:xdServerInfo="http://schemas.microsoft.com/office/infopath/2009/xslt/ServerInfo" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-gb">
+	<my:Details>
+		<my:Number>D26</my:Number>
+		<my:Title>Carriage of Windmill Blades on Deck ( Blind Sector) </my:Title>
+	</my:Details>
+	<my:Hazards>
+		<my:Hazard my:HazardId="1">
+			<my:Description>OOW  &amp; Helmsman/ Lookout not seeing an approaching vessel or object due to Vertical &amp; Horizontal blind sector from deck cargo.</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>OOW &amp; Helmsman/ Lookout briefed to check frequently this sector by moving across the bridge to see past this blind sector.
+OOW signs that he confirms to 'navigate with caution due to blind sector from deck cargo' in the Master's Night Order Book.
+OOW informed to keep very sharp lookout using radar to check this blind sector.</my:ControlMeasures>
+			<my:ReducedSeverity>3</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="2">
+			<my:Description>Pilot &amp; Bridge team ( OOWs/Helmsmen/ Lookouts) not knowing about the blind sector.</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>Pilot &amp; all Bridge Team Briefed  by the Master. Pilot Master Exchange form signed by the Pilot acknowledging  specifically the blind sector &amp; location .</my:ControlMeasures>
+			<my:ReducedSeverity>3</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="3">
+			<my:Description>Not seeing buoys or other objects while approaching the fairway due to blind sector.</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>In area with TSS, confined waters, restricted visibility, dense traffic During approach to the port, radars put on proper range scale &amp; set up correctly to best detect objects that may be obstructed by the blind sector. Frequent movement across the bridge to check behind this blind sector by the OOW &amp; lookouts. One more look out added on watch.</my:ControlMeasures>
+			<my:ReducedSeverity>3</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="4">
+			<my:Description>Inability to judge distance forward correctly from the bridge during mooring/unmooring operations.</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>Constant communication by VHF radio to the Chief Officer at mooring station forward to give correct information to Bridge about distance to any hazard.</my:ControlMeasures>
+			<my:ReducedSeverity>3</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		
+		
+		
+		
+		
+		
+	<my:Hazard my:HazardId="5">
+										<my:Description>Manoeuvring the ship while mooring/unmooring during strong winds.</my:Description>
+										<my:Severity>3</my:Severity>
+										<my:Likelihood>3</my:Likelihood>
+										<my:RiskFactor>5</my:RiskFactor>
+										<my:ControlMeasures>Wind pushing against large deck surfaces must be taken in account.
+Thrusters and/or/if available tug/s should be properly use and Speed to be properly adjusted in this respect.</my:ControlMeasures>
+										<my:ReducedSeverity xsi:nil="true"></my:ReducedSeverity>
+										<my:ReducedLikelihood xsi:nil="true"></my:ReducedLikelihood>
+										<my:ReducedRiskFactor></my:ReducedRiskFactor>
+									</my:Hazard></my:Hazards>
+	<my:Review>
+		<my:ReviewerName>Jakub Zubkiewicz</my:ReviewerName>
+		<my:ReviewerRank>Master</my:ReviewerRank>
+		<my:ReviewDate>2016-03-09</my:ReviewDate>
+		<my:ReviewLocation>Taranto, Italy</my:ReviewLocation>
+		<my:ReviewMembers>ALL BRIDGE TEAM ( ALL OOWs + J/O+ LOOKOUTS + DECK CADETS</my:ReviewMembers><my:ReviewMembers></my:ReviewMembers><my:ReviewMembers></my:ReviewMembers>
+	</my:Review>
+	<my:Header>
+		<my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+		<my:HeaderSummary></my:HeaderSummary>
+		<my:HeaderCode>RAF</my:HeaderCode>
+		<my:HeaderIssueNumber>6</my:HeaderIssueNumber>
+		<my:HeaderIssueDate>12/15</my:HeaderIssueDate>
+		<my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+		<my:HeaderAmmendmentDate></my:HeaderAmmendmentDate>
+		<my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+	</my:Header>
+	<my:Footer>Risk Assessment: D26 - Carriage of Windmill Blades on Deck ( Blind Sector) </my:Footer>
+</my:Main>

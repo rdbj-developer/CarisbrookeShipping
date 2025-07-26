@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarisbrookeShippingAPI", "CarisbrookeShippingAPI\CarisbrookeShippingAPI.csproj", "{C951BBE1-F9FF-44B1-AA7B-43919C9C7AB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarisbrookeShippingAPI.BLL", "CarisbrookeShippingAPI.BLL\CarisbrookeShippingAPI.BLL.csproj", "{27524DB8-4221-475F-9335-E74C25640A6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarisbrookeShippingAPI.Entity", "CarisbrookeShippingAPI.Entity\CarisbrookeShippingAPI.Entity.csproj", "{0C72B56B-CF8D-4523-A132-8ADCDFC7144E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C951BBE1-F9FF-44B1-AA7B-43919C9C7AB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C951BBE1-F9FF-44B1-AA7B-43919C9C7AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C951BBE1-F9FF-44B1-AA7B-43919C9C7AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C951BBE1-F9FF-44B1-AA7B-43919C9C7AB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27524DB8-4221-475F-9335-E74C25640A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27524DB8-4221-475F-9335-E74C25640A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27524DB8-4221-475F-9335-E74C25640A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27524DB8-4221-475F-9335-E74C25640A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C72B56B-CF8D-4523-A132-8ADCDFC7144E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C72B56B-CF8D-4523-A132-8ADCDFC7144E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C72B56B-CF8D-4523-A132-8ADCDFC7144E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C72B56B-CF8D-4523-A132-8ADCDFC7144E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A058F3DE-A67C-4232-B5C3-1E22C2EFF1AF}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://cs-work-project.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CarisbrookeShippingAPI.BLL\\CarisbrookeShippingAPI.BLL.csproj
+		SccProjectName1 = CarisbrookeShippingAPI.BLL
+		SccLocalPath1 = CarisbrookeShippingAPI.BLL
+		SccProjectUniqueName2 = CarisbrookeShippingAPI.Entity\\CarisbrookeShippingAPI.Entity.csproj
+		SccProjectName2 = CarisbrookeShippingAPI.Entity
+		SccLocalPath2 = CarisbrookeShippingAPI.Entity
+		SccProjectUniqueName3 = CarisbrookeShippingAPI\\CarisbrookeShippingAPI.csproj
+		SccProjectName3 = CarisbrookeShippingAPI
+		SccLocalPath3 = CarisbrookeShippingAPI
+	EndGlobalSection
+EndGlobal

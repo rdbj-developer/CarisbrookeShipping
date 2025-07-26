@@ -1,0 +1,230 @@
+﻿@using OfficeApplication.BLL.Modals;
+@model string
+@{
+    ViewBag.Title = "Forms";
+    Layout = null;
+}
+<style type="text/css">
+    .LeftBox {
+        border: 1px solid #d2d6de;
+    }
+
+    .fancytree-icon {
+        display: none !important;
+    }
+
+    .txtTolbl {
+        border: none;
+        background-color: white !important;
+        padding-left: 0px;
+    }
+</style>
+<script src="~/Scripts/Custom/ManageForms.js?v1"></script>
+
+<script type="text/javascript">
+    $(function () {
+        var vh = $(window).height();
+        $("#divFormTree").height(vh-140);
+        $('#txtIssueDate').datepicker({
+            autoclose: true,
+              format: 'dd/mm/yyyy'
+        });
+        $('#txtAmendmentDate').datepicker({
+            autoclose: true,
+              format: 'dd/mm/yyyy'
+        });
+
+         var res = '@TempData["Result"]';
+        var ClickedType = '@TempData["ClickedType"]';
+        if (res == '@AppStatic.SUCCESS') {
+            SuccessMsg(ClickedType);
+        }
+        if (res == '@AppStatic.ERROR') {
+            ErrorMsg(ClickedType);
+        }
+        InitFormsTree();
+    });
+
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31
+          && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+
+</script>
+
+<form class="form-horizontal" id="frmManageForm" method="post" action="@Url.Action("ManageForms", "Admin")" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box LeftBox">
+                <div class="box-body" style="overflow:auto;" id="divFormTree">
+                    <div id="FormsTree">
+                        @Html.Raw(ViewBag.TreeView)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="box-body">
+                <input type="hidden" name="hdnFormClickedType" id="hdnFormClickedType" value="" />
+                <input type="hidden" name="CreatedDate" id="hdnFormCreatedDate" value="" />
+                <input type="hidden" name="DownloadPath" id="hdnFormDownloadPath" value="" />
+                <input type="hidden" name="Type" id="hdnType" value="" />
+                <input type="hidden" name="UploadType" id="hdnUploadType" value="" />
+                <div class="form-group">
+                    <label for="FormID" class="col-sm-2 control-label">Form Id:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control txtTolbl" id="txtFormID" name="FormID" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Title" class="col-sm-2 control-label">Title:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtFormTitle" name="Title" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="TemplatePath" class="col-sm-2 control-label">Path</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" id="txtFormPath" rows="4" name="TemplatePath"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Code" class="col-sm-2 control-label">Code:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtCode" name="Code">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Issue" class="col-sm-2 control-label">Issue:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtIssue" name="Issue" onkeypress="return isNumberKey(event)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="IssueDate" class="col-sm-2 control-label">Issue Date:</label>
+                    <div class="col-sm-10 has-feedback">
+                        <input type="text" class="form-control col-md-12" id="txtIssueDate" name="IssueDate" placeholder="dd/mm/yyyy">
+                        <span class="form-control-feedback arrivalCalendarAddon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Amendment" class="col-sm-2 control-label">Amendment:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtAmendment" name="Amendment" onkeypress="return isNumberKey(event)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="AmendmentDate" class="col-sm-2 control-label">Amendment Date:</label>
+                    <div class="col-sm-10 has-feedback">
+                        <input type="text" class="form-control col-md-12" id="txtAmendmentDate" name="AmendmentDate"  placeholder="dd/mm/yyyy">
+                        <span class="form-control-feedback arrivalCalendarAddon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Department" class="col-sm-2 control-label">Department:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtDepartment" name="Department">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Category" class="col-sm-2 control-label">Category:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtCategory" name="Category">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="AccessLevel" class="col-sm-2 control-label">AccessLevel:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtAccessLevel" name="AccessLevel">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="">
+                        <div class="col-sm-10 col-md-offset-2">
+                            <label class="col-sm-6">
+                                <input type="checkbox" name="AllowsNetworkAccess" value="true" class="{AllowsNetworkAccess:true}" id="chkAllowsNetworkAccess">
+                                AllowsNetworkAccess
+                            </label>
+                            <label class="col-sm-6">
+                                <input type="checkbox" name="CanBeOpened" value="true" class="{CanBeOpened:true}" id="chkCanBeOpened">
+                                CanBeOpened
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="">
+                        <div class="col-sm-10 col-md-offset-2">
+                            <label class="col-sm-6">
+                                <input type="checkbox" name="HasSavedData" value="true" class="{HasSavedData:true}" id="chkHasSavedData">
+                                HasSavedData
+                            </label>
+                            <label class="col-sm-6">
+                                <input type="checkbox" name="IsURNBased" value="true" class="{IsURNBased:true}" id="chkIsURNBased">
+                                IsURNBased
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="URN" class="col-sm-2 control-label">URN:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtURN" name="URN">
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class=" col-md-offset-2 col-md-5 AddFileNew">
+                        <div class="input-group col-md-6">
+                            <label class="input-group-btn">
+                                <span class="btn btn-default" id="btnAddFormFileUpload">
+                                    Add New File
+                                    <input type="file" id="btnAddFormFile" class="AddFileUpload" onchange="GetFormFileData(this)" value="AddFile" name="postedFiles" style="display: none;">
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-offset-2 col-md-5 UpdateFileNew" style="display:none;">
+                        <div class="input-group  col-md-6">
+                            <label class="input-group-btn">
+                                <span class="btn btn-default" id="btnUpdateFormFileUpload">
+                                    Update Form
+                                    <input type="file" id="btnUpdateFormFile" class="UpdateFileUpload" onchange="GetFormFileData(this)" value="UpdateFile" name="updatedFiles" style="display: none;">
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <label class="control-label" id="lblFormFileName" style="display:none;"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-5">
+                        <button type="button" id="btnEditForm" class="col-md-12 btn btn-default">Edit</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="col-md-12 btn btn-default btnAddNew" id="btnRemoveForm" value="RemoveObj">Remove</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-5">
+                        <button type="submit" id="btnSubmitForm" class="col-md-12 btn btn-default">Save</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="col-md-12 btn btn-default btnAddNew" value="CancelChanges">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

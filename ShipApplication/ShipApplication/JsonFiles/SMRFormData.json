@@ -1,0 +1,376 @@
+USE [CarisbrookeShipping]
+GO
+
+INSERT INTO [dbo].[GeneralInspectionReport]
+           ([ShipID]
+           ,[ShipName]
+           ,[Ship]
+           ,[Port]
+           ,[Inspector]
+           ,[Date]
+           ,[GeneralPreamble]
+           ,[Classsociety]
+           ,[YearofBuild]
+           ,[Flag]
+           ,[Classofvessel]
+           ,[Portofregistry]
+           ,[MMSI]
+           ,[IMOnumber]
+           ,[Callsign]
+           ,[SummerDWT]
+           ,[Grosstonnage]
+           ,[Lightweight]
+           ,[Nettonnage]
+           ,[Beam]
+           ,[LOA]
+           ,[Summerdraft]
+           ,[LBP]
+           ,[Bowthruster]
+           ,[BHP]
+           ,[Noofholds]
+           ,[Nomoveablebulkheads]
+           ,[Containers]
+           ,[Cargocapacity]
+           ,[Cargohandlingequipment]
+           ,[Lastvoyageandcargo]
+           ,[CurrentPlannedvoyageandcargo]
+           ,[IsSynced]
+           ,[CreatedDate]
+           ,[UpdatedDate])
+     VALUES
+           (<ShipID, int,>
+           ,<ShipName, nvarchar(max),>
+           ,<Ship, nvarchar(max),>
+           ,<Port, nvarchar(max),>
+           ,<Inspector, nvarchar(max),>
+           ,<Date, datetime,>
+           ,<GeneralPreamble, nvarchar(max),>
+           ,<Classsociety, nvarchar(max),>
+           ,<YearofBuild, nvarchar(max),>
+           ,<Flag, nvarchar(max),>
+           ,<Classofvessel, nvarchar(max),>
+           ,<Portofregistry, nvarchar(max),>
+           ,<MMSI, nvarchar(max),>
+           ,<IMOnumber, nvarchar(max),>
+           ,<Callsign, nvarchar(max),>
+           ,<SummerDWT, nvarchar(max),>
+           ,<Grosstonnage, nvarchar(max),>
+           ,<Lightweight, nvarchar(max),>
+           ,<Nettonnage, nvarchar(max),>
+           ,<Beam, nvarchar(max),>
+           ,<LOA, nvarchar(max),>
+           ,<Summerdraft, nvarchar(max),>
+           ,<LBP, nvarchar(max),>
+           ,<Bowthruster, nvarchar(max),>
+           ,<BHP, nvarchar(max),>
+           ,<Noofholds, nvarchar(max),>
+           ,<Nomoveablebulkheads, nvarchar(max),>
+           ,<Containers, nvarchar(max),>
+           ,<Cargocapacity, nvarchar(max),>
+           ,<Cargohandlingequipment, nvarchar(max),>
+           ,<Lastvoyageandcargo, nvarchar(max),>
+           ,<CurrentPlannedvoyageandcargo, nvarchar(max),>
+           ,<IsSynced, bit,>
+           ,<CreatedDate, datetime,>
+           ,<UpdatedDate, datetime,>
+           ,<hipboardWorkingArrangement, nvarchar(max),>
+           ,<CertificationIndex, nvarchar(max),>
+           ,<IPubAndDocectionComplete, bit,>
+           ,<CarriedOutByTheDOOW, nvarchar(max),>
+           ,<IReg4hipDVD, bit,>
+           ,<Reg4hipDVD, nvarchar(max),>
+           ,<IOPEPPoint, bit,>
+           ,<OPEPPoint, nvarchar(max),>
+           ,<IBWMP, bit,>
+           ,<BWMP, nvarchar(max),>
+           ,<IBWMPupplement, bit,>
+           ,<BWMPupplement, nvarchar(max),>
+           ,<IIntacttabilityManual, bit,>
+           ,<IntacttabilityManual, nvarchar(max),>
+           ,<ItabilityComputer, bit,>
+           ,<tabilityComputer, nvarchar(max),>
+           ,<IDateOfLat, bit,>
+           ,<DateOfLat, nvarchar(max),>
+           ,<ICargoecurin, bit,>
+           ,<Cargoecurin, nvarchar(max),>
+           ,<IBulkCargo, bit,>
+           ,<BulkCargo, nvarchar(max),>
+           ,<IMManual, bit,>
+           ,<MManual, nvarchar(max),>
+           ,<IRegiterOf, bit,>
+           ,<RegiterOf, nvarchar(max),>
+           ,<IFleettandingOrder, bit,>
+           ,<FleettandingOrder, nvarchar(max),>
+           ,<IFleetMemoranda, bit,>
+           ,<FleetMemoranda, nvarchar(max),>
+           ,<IhipPlan, bit,>
+           ,<hipPlan, nvarchar(max),>
+           ,<ICollective, bit,>
+           ,<Collective, nvarchar(max),>
+           ,<IDraftAndFreeboardNotice, bit,>
+           ,<DraftAndFreeboardNotice, nvarchar(max),>
+           ,<IPCOPEP, bit,>
+           ,<PCOPEP, nvarchar(max),>
+           ,<INTVRP, bit,>
+           ,<NTVRP, nvarchar(max),>
+           ,<IVGP, bit,>
+           ,<VGP, nvarchar(max),>
+           ,<PubComment, nvarchar(max),>
+           ,<OfficialLogbookA, nvarchar(max),>
+           ,<OfficialLogbookB, nvarchar(max),>
+           ,<OfficialLogbookC, nvarchar(max),>
+           ,<OfficialLogbookD, nvarchar(max),>
+           ,<OfficialLogbookE, nvarchar(max),>
+           ,<DeckLogbook, nvarchar(max),>
+           ,<Litofcrew, nvarchar(max),>
+           ,<LatHoe, nvarchar(max),>
+           ,<PaagePlanning, nvarchar(max),>
+           ,<LoadingComputer, nvarchar(max),>
+           ,<EngineLogbook, nvarchar(max),>
+           ,<OilRecordBook, nvarchar(max),>
+           ,<RikAement, nvarchar(max),>
+           ,<GMDLogbook, nvarchar(max),>
+           ,<DeckLogbook5D, nvarchar(max),>
+           ,<GarbageRecordBook, nvarchar(max),>
+           ,<BallatWaterRecordBook, nvarchar(max),>
+           ,<CargoRecordBook, nvarchar(max),>
+           ,<EmiionControlManual, nvarchar(max),>
+           ,<LGR, nvarchar(max),>
+           ,<PEER, nvarchar(max),>
+           ,<RecordKeepingComment, nvarchar(max),>
+           ,<LastPortStateControl, nvarchar(max),>
+           ,<LiferaftsComment, nvarchar(max),>
+           ,<releasesComment, nvarchar(max),>
+           ,<LifeboatComment, nvarchar(max),>
+           ,<LifeboatdavitComment, nvarchar(max),>
+           ,<LifeboatequipmentComment, nvarchar(max),>
+           ,<RescueboatComment, nvarchar(max),>
+           ,<RescueboatequipmentComment, nvarchar(max),>
+           ,<RescueboatoutboardmotorComment, nvarchar(max),>
+           ,<RescueboatdavitComment, nvarchar(max),>
+           ,<DeckComment, nvarchar(max),>
+           ,<PyrotechnicsComment, nvarchar(max),>
+           ,<EPIRBComment, nvarchar(max),>
+           ,<SARTsComment, nvarchar(max),>
+           ,<GMDSSComment, nvarchar(max),>
+           ,<ManoverboardComment, nvarchar(max),>
+           ,<LinethrowingapparatusComment, nvarchar(max),>
+           ,<FireextinguishersComment, nvarchar(max),>
+           ,<EmergencygeneratorComment, nvarchar(max),>
+           ,<CO2roomComment, nvarchar(max),>
+           ,<SurvivalComment, nvarchar(max),>
+           ,<LifejacketComment, nvarchar(max),>
+           ,<FiremansComment, nvarchar(max),>
+           ,<LifebuoysComment, nvarchar(max),>
+           ,<FireboxesComment, nvarchar(max),>
+           ,<EmergencybellsComment, nvarchar(max),>
+           ,<EmergencylightingComment, nvarchar(max),>
+           ,<FireplanComment, nvarchar(max),>
+           ,<DamageComment, nvarchar(max),>
+           ,<EmergencyplansComment, nvarchar(max),>
+           ,<MusterlistComment, nvarchar(max),>
+           ,<SafetysignsComment, nvarchar(max),>
+           ,<EmergencysteeringComment, nvarchar(max),>
+           ,<StatutoryemergencydrillsComment, nvarchar(max),>
+           ,<EEBDComment, nvarchar(max),>
+           ,<OxygenComment, nvarchar(max),>
+           ,<MultigasdetectorComment, nvarchar(max),>
+           ,<GasdetectorComment, nvarchar(max),>
+           ,<SufficientquantityComment, nvarchar(max),>
+           ,<BASetsComment, nvarchar(max),>
+           ,<SafetyComment, nvarchar(max),>
+           ,<GangwayComment, nvarchar(max),>
+           ,<RestrictedComment, nvarchar(max),>
+           ,<OutsideComment, nvarchar(max),>
+           ,<EntrancedoorsComment, nvarchar(max),>
+           ,<AccommodationComment, nvarchar(max),>
+           ,<GMDSSComment5G, nvarchar(max),>
+           ,<VariousComment, nvarchar(max),>
+           ,<SSOComment, nvarchar(max),>
+           ,<SecuritylogbookComment, nvarchar(max),>
+           ,<Listoflast10portsComment, nvarchar(max),>
+           ,<PFSOComment, nvarchar(max),>
+           ,<SecuritylevelComment, nvarchar(max),>
+           ,<DrillsandtrainingComment, nvarchar(max),>
+           ,<DOSComment, nvarchar(max),>
+           ,<SSASComment, nvarchar(max),>
+           ,<VisitorslogbookComment, nvarchar(max),>
+           ,<KeyregisterComment, nvarchar(max),>
+           ,<ShipSecurityComment, nvarchar(max),>
+           ,<SecurityComment, nvarchar(max),>
+           ,<NauticalchartsComment, nvarchar(max),>
+           ,<NoticetomarinersComment, nvarchar(max),>
+           ,<ListofradiosignalsComment, nvarchar(max),>
+           ,<ListoflightsComment, nvarchar(max),>
+           ,<SailingdirectionsComment, nvarchar(max),>
+           ,<TidetablesComment, nvarchar(max),>
+           ,<NavtexandprinterComment, nvarchar(max),>
+           ,<RadarsComment, nvarchar(max),>
+           ,<GPSComment, nvarchar(max),>
+           ,<AISComment, nvarchar(max),>
+           ,<VDRComment, nvarchar(max),>
+           ,<ECDISComment, nvarchar(max),>
+           ,<EchosounderComment, nvarchar(max),>
+           ,<ADPbackuplaptopComment, nvarchar(max),>
+           ,<ColourprinterComment, nvarchar(max),>
+           ,<VHFDSCtransceiverComment, nvarchar(max),>
+           ,<radioinstallationComment, nvarchar(max),>
+           ,<InmarsatCComment, nvarchar(max),>
+           ,<MagneticcompassComment, nvarchar(max),>
+           ,<SparecompassbowlComment, nvarchar(max),>
+           ,<CompassobservationbookComment, nvarchar(max),>
+           ,<GyrocompassComment, nvarchar(max),>
+           ,<RudderindicatorComment, nvarchar(max),>
+           ,<SpeedlogComment, nvarchar(max),>
+           ,<NavigationComment, nvarchar(max),>
+           ,<SignalflagsComment, nvarchar(max),>
+           ,<RPMComment, nvarchar(max),>
+           ,<BasicmanoeuvringdataComment, nvarchar(max),>
+           ,<MasterstandingordersComment, nvarchar(max),>
+           ,<MasternightordersbookComment, nvarchar(max),>
+           ,<SextantComment, nvarchar(max),>
+           ,<AzimuthmirrorComment, nvarchar(max),>
+           ,<BridgepostersComment, nvarchar(max),>
+           ,<ReviewofplannedComment, nvarchar(max),>
+           ,<BridgebellbookComment, nvarchar(max),>
+           ,<BridgenavigationalComment, nvarchar(max),>
+           ,<SecurityEquipmentComment, nvarchar(max),>
+           ,<NavigationPost, nvarchar(max),>
+           ,<GeneralComment, nvarchar(max),>
+           ,<MedicinestorageComment, nvarchar(max),>
+           ,<MedicinechestcertificateComment, nvarchar(max),>
+           ,<InventoryStoresComment, nvarchar(max),>
+           ,<OxygencylindersComment, nvarchar(max),>
+           ,<StretcherComment, nvarchar(max),>
+           ,<SalivaComment, nvarchar(max),>
+           ,<AlcoholComment, nvarchar(max),>
+           ,<HospitalComment, nvarchar(max),>
+           ,<GeneralGalleyComment, nvarchar(max),>
+           ,<HygieneComment, nvarchar(max),>
+           ,<FoodstorageComment, nvarchar(max),>
+           ,<FoodlabellingComment, nvarchar(max),>
+           ,<GalleyriskassessmentComment, nvarchar(max),>
+           ,<FridgetemperatureComment, nvarchar(max),>
+           ,<FoodandProvisionsComment, nvarchar(max),>
+           ,<GalleyComment, nvarchar(max),>
+           ,<ConditionComment, nvarchar(max),>
+           ,<PaintworkComment, nvarchar(max),>
+           ,<LightingComment, nvarchar(max),>
+           ,<PlatesComment, nvarchar(max),>
+           ,<BilgesComment, nvarchar(max),>
+           ,<PipelinesandvalvesComment, nvarchar(max),>
+           ,<LeakageComment, nvarchar(max),>
+           ,<EquipmentComment, nvarchar(max),>
+           ,<OilywaterseparatorComment, nvarchar(max),>
+           ,<FueloiltransferplanComment, nvarchar(max),>
+           ,<SteeringgearComment, nvarchar(max),>
+           ,<WorkshopandequipmentComment, nvarchar(max),>
+           ,<SoundingpipesComment, nvarchar(max),>
+           ,<EnginecontrolComment, nvarchar(max),>
+           ,<ChiefEngineernightordersbookComment, nvarchar(max),>
+           ,<ChiefEngineerstandingordersComment, nvarchar(max),>
+           ,<PreUMSComment, nvarchar(max),>
+           ,<EnginebellbookComment, nvarchar(max),>
+           ,<LockoutComment, nvarchar(max),>
+           ,<EngineRoomComment, nvarchar(max),>
+           ,<CleanlinessandhygieneComment, nvarchar(max),>
+           ,<ConditionComment5M, nvarchar(max),>
+           ,<PaintworkComment5M, nvarchar(max),>
+           ,<SignalmastandstaysComment, nvarchar(max),>
+           ,<MonkeyislandComment, nvarchar(max),>
+           ,<FireDampersComment, nvarchar(max),>
+           ,<RailsBulwarksComment, nvarchar(max),>
+           ,<WatertightdoorsComment, nvarchar(max),>
+           ,<VentilatorsComment, nvarchar(max),>
+           ,<WinchesComment, nvarchar(max),>
+           ,<FairleadsComment, nvarchar(max),>
+           ,<MooringLinesComment, nvarchar(max),>
+           ,<EmergencyShutOffsComment, nvarchar(max),>
+           ,<RadioaerialsComment, nvarchar(max),>
+           ,<SOPEPlockerComment, nvarchar(max),>
+           ,<ChemicallockerComment, nvarchar(max),>
+           ,<AntislippaintComment, nvarchar(max),>
+           ,<SuperstructureComment, nvarchar(max),>
+           ,<CabinsComment, nvarchar(max),>
+           ,<OfficesComment, nvarchar(max),>
+           ,<MessroomsComment, nvarchar(max),>
+           ,<ToiletsComment, nvarchar(max),>
+           ,<LaundryroomComment, nvarchar(max),>
+           ,<ChangingroomComment, nvarchar(max),>
+           ,<OtherComment, nvarchar(max),>
+           ,<ConditionComment5N, nvarchar(max),>
+           ,<SelfclosingfiredoorsComment, nvarchar(max),>
+           ,<StairwellsComment, nvarchar(max),>
+           ,<SuperstructureInternalComment, nvarchar(max),>
+           ,<PortablegangwayComment, nvarchar(max),>
+           ,<SafetynetComment, nvarchar(max),>
+           ,<AccommodationLadderComment, nvarchar(max),>
+           ,<SafeaccessprovidedComment, nvarchar(max),>
+           ,<PilotladdersComment, nvarchar(max),>
+           ,<BoardingEquipmentComment, nvarchar(max),>
+           ,<CleanlinessComment, nvarchar(max),>
+           ,<PaintworkComment5P, nvarchar(max),>
+           ,<ShipsiderailsComment, nvarchar(max),>
+           ,<WeathertightdoorsComment, nvarchar(max),>
+           ,<FirehydrantsComment, nvarchar(max),>
+           ,<VentilatorsComment5P, nvarchar(max),>
+           ,<ManholecoversComment, nvarchar(max),>
+           ,<MainDeckAreaComment, nvarchar(max),>
+           ,<ConditionComment5Q, nvarchar(max),>
+           ,<PaintworkComment5Q, nvarchar(max),>
+           ,<MechanicaldamageComment, nvarchar(max),>
+           ,<AccessladdersComment, nvarchar(max),>
+           ,<ManholecoversComment5Q, nvarchar(max),>
+           ,<HoldbilgeComment, nvarchar(max),>
+           ,<AccessdoorsComment, nvarchar(max),>
+           ,<ConditionHatchCoversComment, nvarchar(max),>
+           ,<PaintworkHatchCoversComment, nvarchar(max),>
+           ,<RubbersealsComment, nvarchar(max),>
+           ,<SignsofhatchesComment, nvarchar(max),>
+           ,<SealingtapeComment, nvarchar(max),>
+           ,<ConditionofhydraulicsComment, nvarchar(max),>
+           ,<PortablebulkheadsComment, nvarchar(max),>
+           ,<TweendecksComment, nvarchar(max),>
+           ,<HatchcoamingComment, nvarchar(max),>
+           ,<ConditionCargoCranesComment, nvarchar(max),>
+           ,<GantrycranealarmComment, nvarchar(max),>
+           ,<GantryconditionComment, nvarchar(max),>
+           ,<CargoHoldsComment, nvarchar(max),>
+           ,<CleanlinessComment5R, nvarchar(max),>
+           ,<PaintworkComment5R, nvarchar(max),>
+           ,<TriphazardsComment, nvarchar(max),>
+           ,<WindlassComment, nvarchar(max),>
+           ,<CablesComment, nvarchar(max),>
+           ,<WinchesComment5R, nvarchar(max),>
+           ,<FairleadsComment5R, nvarchar(max),>
+           ,<MooringComment, nvarchar(max),>
+           ,<HatchToforecastlespaceComment, nvarchar(max),>
+           ,<VentilatorsComment5R, nvarchar(max),>
+           ,<BellComment, nvarchar(max),>
+           ,<ForemastComment, nvarchar(max),>
+           ,<FireComment, nvarchar(max),>
+           ,<RailsComment, nvarchar(max),>
+           ,<AntislippaintComment5R, nvarchar(max),>
+           ,<ForecastleComment, nvarchar(max),>
+           ,<CleanlinessComment5S, nvarchar(max),>
+           ,<PaintworkComment5S, nvarchar(max),>
+           ,<ForepeakComment, nvarchar(max),>
+           ,<ChainlockerComment, nvarchar(max),>
+           ,<LightingComment5S, nvarchar(max),>
+           ,<AccesssafetychainComment, nvarchar(max),>
+           ,<EmergencyfirepumpComment, nvarchar(max),>
+           ,<BowthrusterandroomComment, nvarchar(max),>
+           ,<SparemooringlinesComment, nvarchar(max),>
+           ,<PaintlockerComment, nvarchar(max),>
+           ,<ForecastleSpaceComment, nvarchar(max),>
+           ,<BoottopComment, nvarchar(max),>
+           ,<TopsidesComment, nvarchar(max),>
+           ,<AntifoulingComment, nvarchar(max),>
+           ,<DraftandplimsollComment, nvarchar(max),>
+           ,<FoulingComment, nvarchar(max),>
+           ,<MechanicalComment, nvarchar(max),>
+           ,<HullComment, nvarchar(max),>
+           ,<SummaryComment, nvarchar(max),>)
+GO
+
+

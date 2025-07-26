@@ -1,0 +1,84 @@
+﻿@using OfficeApplication.BLL.Modals;
+@model List<SMRModal>
+@{
+    ViewBag.Title = "SMR";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var Searched = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.Searched))';
+        if (Searched != "null") {
+            var jsonres = JSON.parse(Searched);
+            $("#ddlYear").val(parseInt(jsonres.Year));
+            $("#ddlReviewPeriod").val(jsonres.ReviewPeriod);
+            $("#lblNoresult").show();
+        }
+        else {
+            $("#lblNoresult").hide();
+        }
+    })
+</script>
+
+<section class="content">
+    <form action="@Url.Action("SMR", "Forms")" method="post">
+        <div class="row">
+            <div class="col-sm-3">
+                <select id="ddlYear" class="form-control" name="Year" required>
+                    <option value="0">Select Year</option>
+                    <option value="2018">2018</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <select id="ddlReviewPeriod" class="form-control" name="ReviewPeriod">
+                    <option value="">Select Review Period</option>
+                    <option value="OctToMar">October - March</option>
+                    <option value="AprToSept">April - September</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+    <br />
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="box">
+            <div class="box-body">
+                <table class="table table-responsive" id="tblSMRForms">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Year</th>
+                            <th>Review Period</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><a target="_blank" href="@Url.Action("SMRDetails", "Forms", new { id = @item.SMRFormID })">@item.ShipName</a></td>
+                                <td>@item.Year</td>
+                                <td>@item.ReviewPeriod</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+    else
+    {
+        <h2 id="lblNoresult" style="display:none;">No result found</h2>
+    }
+
+</section>
+
+<script src="~/Scripts/jquery/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#tblSMRForms').DataTable();
+    })
+</script>

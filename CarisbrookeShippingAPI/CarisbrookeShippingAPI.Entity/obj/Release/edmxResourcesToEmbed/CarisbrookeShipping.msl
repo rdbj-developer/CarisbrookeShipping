@@ -1,0 +1,2333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CarisbrookeShippingModelStoreContainer" CdmEntityContainer="CarisbrookeShippingEntities">
+    <EntitySetMapping Name="ACCOUNTCODEs">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.ACCOUNTCODE">
+        <MappingFragment StoreEntitySet="ACCOUNTCODE">
+          <ScalarProperty Name="ACCOUNTID" ColumnName="ACCOUNTID" />
+          <ScalarProperty Name="ACCOUNT_CODE" ColumnName="ACCOUNT_CODE" />
+          <ScalarProperty Name="ACCOUNT_DESCR" ColumnName="ACCOUNT_DESCR" />
+          <ScalarProperty Name="ACCOUNT_REMARKS" ColumnName="ACCOUNT_REMARKS" />
+          <ScalarProperty Name="EXPORTED" ColumnName="EXPORTED" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_SITE" ColumnName="UPDATE_SITE" />
+          <ScalarProperty Name="SITEID" ColumnName="SITEID" />
+          <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+          <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="PARENTID" ColumnName="PARENTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditNotes">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.AuditNote">
+        <MappingFragment StoreEntitySet="AuditNotes">
+          <ScalarProperty Name="AssignTo" ColumnName="AssignTo" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="NotesUniqueID" ColumnName="NotesUniqueID" />
+          <ScalarProperty Name="UniqueFormID" ColumnName="UniqueFormID" />
+          <ScalarProperty Name="DateClosed" ColumnName="DateClosed" />
+          <ScalarProperty Name="AuditNotesId" ColumnName="AuditNotesId" />
+          <ScalarProperty Name="InternalAuditFormId" ColumnName="InternalAuditFormId" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="BriefDescription" ColumnName="BriefDescription" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+          <ScalarProperty Name="CorrectiveAction" ColumnName="CorrectiveAction" />
+          <ScalarProperty Name="PreventativeAction" ColumnName="PreventativeAction" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TimeScale" ColumnName="TimeScale" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Ship" ColumnName="Ship" />
+          <ScalarProperty Name="IsResolved" ColumnName="IsResolved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditNotesAttachments">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.AuditNotesAttachment">
+        <MappingFragment StoreEntitySet="AuditNotesAttachment">
+          <ScalarProperty Name="NotesFileUniqueID" ColumnName="NotesFileUniqueID" />
+          <ScalarProperty Name="NotesUniqueID" ColumnName="NotesUniqueID" />
+          <ScalarProperty Name="AuditNotesAttachmentId" ColumnName="AuditNotesAttachmentId" />
+          <ScalarProperty Name="InternalAuditFormId" ColumnName="InternalAuditFormId" />
+          <ScalarProperty Name="AuditNotesId" ColumnName="AuditNotesId" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="StorePath" ColumnName="StorePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditNotesComments">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.AuditNotesComment">
+        <MappingFragment StoreEntitySet="AuditNotesComments">
+          <ScalarProperty Name="isNew" ColumnName="isNew" />
+          <ScalarProperty Name="NotesUniqueID" ColumnName="NotesUniqueID" />
+          <ScalarProperty Name="CommentUniqueID" ColumnName="CommentUniqueID" />
+          <ScalarProperty Name="CommentsID" ColumnName="CommentsID" />
+          <ScalarProperty Name="AuditNoteID" ColumnName="AuditNoteID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditNotesCommentsFiles">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.AuditNotesCommentsFile">
+        <MappingFragment StoreEntitySet="AuditNotesCommentsFiles">
+          <ScalarProperty Name="CommentFileUniqueID" ColumnName="CommentFileUniqueID" />
+          <ScalarProperty Name="CommentUniqueID" ColumnName="CommentUniqueID" />
+          <ScalarProperty Name="CommentFileID" ColumnName="CommentFileID" />
+          <ScalarProperty Name="CommentsID" ColumnName="CommentsID" />
+          <ScalarProperty Name="AuditNoteID" ColumnName="AuditNoteID" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="StorePath" ColumnName="StorePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CSShips">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.CSShip">
+        <MappingFragment StoreEntitySet="CSShips">
+          <ScalarProperty Name="ShipId" ColumnName="ShipId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ShipClassId" ColumnName="ShipClassId" />
+          <ScalarProperty Name="BuildCountryId" ColumnName="BuildCountryId" />
+          <ScalarProperty Name="BuildYear" ColumnName="BuildYear" />
+          <ScalarProperty Name="ClassificationSocietyId" ColumnName="ClassificationSocietyId" />
+          <ScalarProperty Name="FlagStateId" ColumnName="FlagStateId" />
+          <ScalarProperty Name="IMONumber" ColumnName="IMONumber" />
+          <ScalarProperty Name="CallSign" ColumnName="CallSign" />
+          <ScalarProperty Name="MMSI" ColumnName="MMSI" />
+          <ScalarProperty Name="GrossTonnage" ColumnName="GrossTonnage" />
+          <ScalarProperty Name="NetTonnage" ColumnName="NetTonnage" />
+          <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
+          <ScalarProperty Name="TechnicalManagerId" ColumnName="TechnicalManagerId" />
+          <ScalarProperty Name="SuperintendentId" ColumnName="SuperintendentId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="IsDelivered" ColumnName="IsDelivered" />
+          <ScalarProperty Name="FleetId" ColumnName="FleetId" />
+          <ScalarProperty Name="YardNo" ColumnName="YardNo" />
+          <ScalarProperty Name="OfficialNumber" ColumnName="OfficialNumber" />
+          <ScalarProperty Name="PortOfRegistryId" ColumnName="PortOfRegistryId" />
+          <ScalarProperty Name="SummerDeadweight" ColumnName="SummerDeadweight" />
+          <ScalarProperty Name="Lightweight" ColumnName="Lightweight" />
+          <ScalarProperty Name="LOA" ColumnName="LOA" />
+          <ScalarProperty Name="LBP" ColumnName="LBP" />
+          <ScalarProperty Name="Beam" ColumnName="Beam" />
+          <ScalarProperty Name="SummerDraft" ColumnName="SummerDraft" />
+          <ScalarProperty Name="BHP" ColumnName="BHP" />
+          <ScalarProperty Name="BowThruster" ColumnName="BowThruster" />
+          <ScalarProperty Name="BuildNumber" ColumnName="BuildNumber" />
+          <ScalarProperty Name="Agent" ColumnName="Agent" />
+          <ScalarProperty Name="Ports" ColumnName="Ports" />
+          <ScalarProperty Name="TechnicalManagerNotes" ColumnName="TechnicalManagerNotes" />
+          <ScalarProperty Name="MinimumSafeManning" ColumnName="MinimumSafeManning" />
+          <ScalarProperty Name="MaximumPersonsLSA" ColumnName="MaximumPersonsLSA" />
+          <ScalarProperty Name="TotalBerths" ColumnName="TotalBerths" />
+          <ScalarProperty Name="RegisteredOwners" ColumnName="RegisteredOwners" />
+          <ScalarProperty Name="HullAndMachineryId" ColumnName="HullAndMachineryId" />
+          <ScalarProperty Name="ProtectionAndIndemnityId" ColumnName="ProtectionAndIndemnityId" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="SMCIsVerified" ColumnName="SMCIsVerified" />
+          <ScalarProperty Name="MarineSoftwareNumber" ColumnName="MarineSoftwareNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DataloyNumber" ColumnName="DataloyNumber" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Phone3" ColumnName="Phone3" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="SatC1" ColumnName="SatC1" />
+          <ScalarProperty Name="SatC2" ColumnName="SatC2" />
+          <ScalarProperty Name="Citadel" ColumnName="Citadel" />
+          <ScalarProperty Name="P_I_Club" ColumnName="P&amp;I Club" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GeneralInspectionReports">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.GeneralInspectionReport">
+        <MappingFragment StoreEntitySet="GeneralInspectionReport">
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="IsPhotographsSectionComplete" ColumnName="IsPhotographsSectionComplete" />
+          <ScalarProperty Name="IsDeficienciesSectionComplete" ColumnName="IsDeficienciesSectionComplete" />
+          <ScalarProperty Name="IsSummarySectionComplete" ColumnName="IsSummarySectionComplete" />
+          <ScalarProperty Name="IsHullSectionComplete" ColumnName="IsHullSectionComplete" />
+          <ScalarProperty Name="IsForeCastleSectionComplete" ColumnName="IsForeCastleSectionComplete" />
+          <ScalarProperty Name="IsHoldsAndCoverSectionComplete" ColumnName="IsHoldsAndCoverSectionComplete" />
+          <ScalarProperty Name="IsDeckSectionComplete" ColumnName="IsDeckSectionComplete" />
+          <ScalarProperty Name="IsSuperstructureSectionComplete" ColumnName="IsSuperstructureSectionComplete" />
+          <ScalarProperty Name="IsEngineRoomSectionComplete" ColumnName="IsEngineRoomSectionComplete" />
+          <ScalarProperty Name="IsGalleySectionComplete" ColumnName="IsGalleySectionComplete" />
+          <ScalarProperty Name="IsMedicalSectionComplete" ColumnName="IsMedicalSectionComplete" />
+          <ScalarProperty Name="IsBridgeSectionComplete" ColumnName="IsBridgeSectionComplete" />
+          <ScalarProperty Name="IsSecuritySectionComplete" ColumnName="IsSecuritySectionComplete" />
+          <ScalarProperty Name="IsSafetyEquipmentSectionComplete" ColumnName="IsSafetyEquipmentSectionComplete" />
+          <ScalarProperty Name="IsRecordKeepingSectionComplete" ColumnName="IsRecordKeepingSectionComplete" />
+          <ScalarProperty Name="IsShipCertificationSectionComplete" ColumnName="IsShipCertificationSectionComplete" />
+          <ScalarProperty Name="IsManningSectionComplete" ColumnName="IsManningSectionComplete" />
+          <ScalarProperty Name="IsGeneralSectionComplete" ColumnName="IsGeneralSectionComplete" />
+          <ScalarProperty Name="FormVersion" ColumnName="FormVersion" />
+          <ScalarProperty Name="UniqueFormID" ColumnName="UniqueFormID" />
+          <ScalarProperty Name="ADPPublicationsComment" ColumnName="ADPPublicationsComment" />
+          <ScalarProperty Name="SnapBackZone5NComment" ColumnName="SnapBackZone5NComment" />
+          <ScalarProperty Name="CylindersLockerComment" ColumnName="CylindersLockerComment" />
+          <ScalarProperty Name="LiferaftDavitComment" ColumnName="LiferaftDavitComment" />
+          <ScalarProperty Name="DaylightSignalsComment" ColumnName="DaylightSignalsComment" />
+          <ScalarProperty Name="BridgewindowswipersComment" ColumnName="BridgewindowswipersComment" />
+          <ScalarProperty Name="BridgewindowswiperssprayComment" ColumnName="BridgewindowswiperssprayComment" />
+          <ScalarProperty Name="ShipPublicAddrComment" ColumnName="ShipPublicAddrComment" />
+          <ScalarProperty Name="AsbestosPlan" ColumnName="AsbestosPlan" />
+          <ScalarProperty Name="BioMPR" ColumnName="BioMPR" />
+          <ScalarProperty Name="NoiseVibrationFile" ColumnName="NoiseVibrationFile" />
+          <ScalarProperty Name="PRE" ColumnName="PRE" />
+          <ScalarProperty Name="BioRPWH" ColumnName="BioRPWH" />
+          <ScalarProperty Name="RPWaterHandbook" ColumnName="RPWaterHandbook" />
+          <ScalarProperty Name="DefibrillatorComment" ColumnName="DefibrillatorComment" />
+          <ScalarProperty Name="DrugsNarcoticsComment" ColumnName="DrugsNarcoticsComment" />
+          <ScalarProperty Name="MedicalLogBookComment" ColumnName="MedicalLogBookComment" />
+          <ScalarProperty Name="ConditionGantryCranesComment" ColumnName="ConditionGantryCranesComment" />
+          <ScalarProperty Name="SnapBackZoneComment" ColumnName="SnapBackZoneComment" />
+          <ScalarProperty Name="GIRFormID" ColumnName="GIRFormID" />
+          <ScalarProperty Name="ShipID" ColumnName="ShipID" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="Ship" ColumnName="Ship" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+          <ScalarProperty Name="Inspector" ColumnName="Inspector" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="GeneralPreamble" ColumnName="GeneralPreamble" />
+          <ScalarProperty Name="Classsociety" ColumnName="Classsociety" />
+          <ScalarProperty Name="YearofBuild" ColumnName="YearofBuild" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="Classofvessel" ColumnName="Classofvessel" />
+          <ScalarProperty Name="Portofregistry" ColumnName="Portofregistry" />
+          <ScalarProperty Name="MMSI" ColumnName="MMSI" />
+          <ScalarProperty Name="IMOnumber" ColumnName="IMOnumber" />
+          <ScalarProperty Name="Callsign" ColumnName="Callsign" />
+          <ScalarProperty Name="SummerDWT" ColumnName="SummerDWT" />
+          <ScalarProperty Name="Grosstonnage" ColumnName="Grosstonnage" />
+          <ScalarProperty Name="Lightweight" ColumnName="Lightweight" />
+          <ScalarProperty Name="Nettonnage" ColumnName="Nettonnage" />
+          <ScalarProperty Name="Beam" ColumnName="Beam" />
+          <ScalarProperty Name="LOA" ColumnName="LOA" />
+          <ScalarProperty Name="Summerdraft" ColumnName="Summerdraft" />
+          <ScalarProperty Name="LBP" ColumnName="LBP" />
+          <ScalarProperty Name="Bowthruster" ColumnName="Bowthruster" />
+          <ScalarProperty Name="BHP" ColumnName="BHP" />
+          <ScalarProperty Name="Noofholds" ColumnName="Noofholds" />
+          <ScalarProperty Name="Nomoveablebulkheads" ColumnName="Nomoveablebulkheads" />
+          <ScalarProperty Name="Containers" ColumnName="Containers" />
+          <ScalarProperty Name="Cargocapacity" ColumnName="Cargocapacity" />
+          <ScalarProperty Name="Cargohandlingequipment" ColumnName="Cargohandlingequipment" />
+          <ScalarProperty Name="Lastvoyageandcargo" ColumnName="Lastvoyageandcargo" />
+          <ScalarProperty Name="CurrentPlannedvoyageandcargo" ColumnName="CurrentPlannedvoyageandcargo" />
+          <ScalarProperty Name="IsSynced" ColumnName="IsSynced" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="ShipboardWorkingArrangements" ColumnName="ShipboardWorkingArrangements" />
+          <ScalarProperty Name="CertificationIndex" ColumnName="CertificationIndex" />
+          <ScalarProperty Name="IsPubsAndDocsSectionComplete" ColumnName="IsPubsAndDocsSectionComplete" />
+          <ScalarProperty Name="CarriedOutByTheDOOW" ColumnName="CarriedOutByTheDOOW" />
+          <ScalarProperty Name="IsRegs4shipsDVD" ColumnName="IsRegs4shipsDVD" />
+          <ScalarProperty Name="Regs4shipsDVD" ColumnName="Regs4shipsDVD" />
+          <ScalarProperty Name="IsSOPEPPoints" ColumnName="IsSOPEPPoints" />
+          <ScalarProperty Name="SOPEPPoints" ColumnName="SOPEPPoints" />
+          <ScalarProperty Name="IsBWMP" ColumnName="IsBWMP" />
+          <ScalarProperty Name="BWMP" ColumnName="BWMP" />
+          <ScalarProperty Name="IsBWMPSupplement" ColumnName="IsBWMPSupplement" />
+          <ScalarProperty Name="BWMPSupplement" ColumnName="BWMPSupplement" />
+          <ScalarProperty Name="IsIntactStabilityManual" ColumnName="IsIntactStabilityManual" />
+          <ScalarProperty Name="IntactStabilityManual" ColumnName="IntactStabilityManual" />
+          <ScalarProperty Name="IsStabilityComputer" ColumnName="IsStabilityComputer" />
+          <ScalarProperty Name="StabilityComputer" ColumnName="StabilityComputer" />
+          <ScalarProperty Name="IsDateOfLast" ColumnName="IsDateOfLast" />
+          <ScalarProperty Name="DateOfLast" ColumnName="DateOfLast" />
+          <ScalarProperty Name="IsCargoSecuring" ColumnName="IsCargoSecuring" />
+          <ScalarProperty Name="CargoSecuring" ColumnName="CargoSecuring" />
+          <ScalarProperty Name="IBulkCargo" ColumnName="IBulkCargo" />
+          <ScalarProperty Name="BulkCargo" ColumnName="BulkCargo" />
+          <ScalarProperty Name="IsSMSManual" ColumnName="IsSMSManual" />
+          <ScalarProperty Name="SMSManual" ColumnName="SMSManual" />
+          <ScalarProperty Name="IsRegisterOf" ColumnName="IsRegisterOf" />
+          <ScalarProperty Name="RegisterOf" ColumnName="RegisterOf" />
+          <ScalarProperty Name="IsFleetStandingOrder" ColumnName="IsFleetStandingOrder" />
+          <ScalarProperty Name="FleetStandingOrder" ColumnName="FleetStandingOrder" />
+          <ScalarProperty Name="IsFleetMemoranda" ColumnName="IsFleetMemoranda" />
+          <ScalarProperty Name="FleetMemoranda" ColumnName="FleetMemoranda" />
+          <ScalarProperty Name="IsShipsPlans" ColumnName="IsShipsPlans" />
+          <ScalarProperty Name="ShipsPlans" ColumnName="ShipsPlans" />
+          <ScalarProperty Name="IsCollective" ColumnName="IsCollective" />
+          <ScalarProperty Name="Collective" ColumnName="Collective" />
+          <ScalarProperty Name="IsDraftAndFreeboardNotice" ColumnName="IsDraftAndFreeboardNotice" />
+          <ScalarProperty Name="DraftAndFreeboardNotice" ColumnName="DraftAndFreeboardNotice" />
+          <ScalarProperty Name="IsPCSOPEP" ColumnName="IsPCSOPEP" />
+          <ScalarProperty Name="PCOPEP" ColumnName="PCOPEP" />
+          <ScalarProperty Name="INTVRP" ColumnName="INTVRP" />
+          <ScalarProperty Name="NTVRP" ColumnName="NTVRP" />
+          <ScalarProperty Name="IVGP" ColumnName="IVGP" />
+          <ScalarProperty Name="VGP" ColumnName="VGP" />
+          <ScalarProperty Name="PubsComments" ColumnName="PubsComments" />
+          <ScalarProperty Name="OfficialLogbookA" ColumnName="OfficialLogbookA" />
+          <ScalarProperty Name="OfficialLogbookB" ColumnName="OfficialLogbookB" />
+          <ScalarProperty Name="OfficialLogbookC" ColumnName="OfficialLogbookC" />
+          <ScalarProperty Name="OfficialLogbookD" ColumnName="OfficialLogbookD" />
+          <ScalarProperty Name="OfficialLogbookE" ColumnName="OfficialLogbookE" />
+          <ScalarProperty Name="DeckLogbook" ColumnName="DeckLogbook" />
+          <ScalarProperty Name="Listofcrew" ColumnName="Listofcrew" />
+          <ScalarProperty Name="LastHose" ColumnName="LastHose" />
+          <ScalarProperty Name="PassagePlanning" ColumnName="PassagePlanning" />
+          <ScalarProperty Name="LoadingComputer" ColumnName="LoadingComputer" />
+          <ScalarProperty Name="EngineLogbook" ColumnName="EngineLogbook" />
+          <ScalarProperty Name="OilRecordBook" ColumnName="OilRecordBook" />
+          <ScalarProperty Name="RiskAssessments" ColumnName="RiskAssessments" />
+          <ScalarProperty Name="GMDSSLogbook" ColumnName="GMDSSLogbook" />
+          <ScalarProperty Name="DeckLogbook5D" ColumnName="DeckLogbook5D" />
+          <ScalarProperty Name="GarbageRecordBook" ColumnName="GarbageRecordBook" />
+          <ScalarProperty Name="BallastWaterRecordBook" ColumnName="BallastWaterRecordBook" />
+          <ScalarProperty Name="CargoRecordBook" ColumnName="CargoRecordBook" />
+          <ScalarProperty Name="EmissionsControlManual" ColumnName="EmissionsControlManual" />
+          <ScalarProperty Name="LGR" ColumnName="LGR" />
+          <ScalarProperty Name="PEER" ColumnName="PEER" />
+          <ScalarProperty Name="RecordKeepingComments" ColumnName="RecordKeepingComments" />
+          <ScalarProperty Name="LastPortStateControl" ColumnName="LastPortStateControl" />
+          <ScalarProperty Name="LiferaftsComment" ColumnName="LiferaftsComment" />
+          <ScalarProperty Name="releasesComment" ColumnName="releasesComment" />
+          <ScalarProperty Name="LifeboatComment" ColumnName="LifeboatComment" />
+          <ScalarProperty Name="LifeboatdavitComment" ColumnName="LifeboatdavitComment" />
+          <ScalarProperty Name="LifeboatequipmentComment" ColumnName="LifeboatequipmentComment" />
+          <ScalarProperty Name="RescueboatComment" ColumnName="RescueboatComment" />
+          <ScalarProperty Name="RescueboatequipmentComment" ColumnName="RescueboatequipmentComment" />
+          <ScalarProperty Name="RescueboatoutboardmotorComment" ColumnName="RescueboatoutboardmotorComment" />
+          <ScalarProperty Name="RescueboatdavitComment" ColumnName="RescueboatdavitComment" />
+          <ScalarProperty Name="DeckComment" ColumnName="DeckComment" />
+          <ScalarProperty Name="PyrotechnicsComment" ColumnName="PyrotechnicsComment" />
+          <ScalarProperty Name="EPIRBComment" ColumnName="EPIRBComment" />
+          <ScalarProperty Name="SARTsComment" ColumnName="SARTsComment" />
+          <ScalarProperty Name="GMDSSComment" ColumnName="GMDSSComment" />
+          <ScalarProperty Name="ManoverboardComment" ColumnName="ManoverboardComment" />
+          <ScalarProperty Name="LinethrowingapparatusComment" ColumnName="LinethrowingapparatusComment" />
+          <ScalarProperty Name="FireextinguishersComment" ColumnName="FireextinguishersComment" />
+          <ScalarProperty Name="EmergencygeneratorComment" ColumnName="EmergencygeneratorComment" />
+          <ScalarProperty Name="CO2roomComment" ColumnName="CO2roomComment" />
+          <ScalarProperty Name="SurvivalComment" ColumnName="SurvivalComment" />
+          <ScalarProperty Name="LifejacketComment" ColumnName="LifejacketComment" />
+          <ScalarProperty Name="FiremansComment" ColumnName="FiremansComment" />
+          <ScalarProperty Name="LifebuoysComment" ColumnName="LifebuoysComment" />
+          <ScalarProperty Name="FireboxesComment" ColumnName="FireboxesComment" />
+          <ScalarProperty Name="EmergencybellsComment" ColumnName="EmergencybellsComment" />
+          <ScalarProperty Name="EmergencylightingComment" ColumnName="EmergencylightingComment" />
+          <ScalarProperty Name="FireplanComment" ColumnName="FireplanComment" />
+          <ScalarProperty Name="DamageComment" ColumnName="DamageComment" />
+          <ScalarProperty Name="EmergencyplansComment" ColumnName="EmergencyplansComment" />
+          <ScalarProperty Name="MusterlistComment" ColumnName="MusterlistComment" />
+          <ScalarProperty Name="SafetysignsComment" ColumnName="SafetysignsComment" />
+          <ScalarProperty Name="EmergencysteeringComment" ColumnName="EmergencysteeringComment" />
+          <ScalarProperty Name="StatutoryemergencydrillsComment" ColumnName="StatutoryemergencydrillsComment" />
+          <ScalarProperty Name="EEBDComment" ColumnName="EEBDComment" />
+          <ScalarProperty Name="OxygenComment" ColumnName="OxygenComment" />
+          <ScalarProperty Name="MultigasdetectorComment" ColumnName="MultigasdetectorComment" />
+          <ScalarProperty Name="GasdetectorComment" ColumnName="GasdetectorComment" />
+          <ScalarProperty Name="SufficientquantityComment" ColumnName="SufficientquantityComment" />
+          <ScalarProperty Name="BASetsComment" ColumnName="BASetsComment" />
+          <ScalarProperty Name="SafetyComment" ColumnName="SafetyComment" />
+          <ScalarProperty Name="GangwayComment" ColumnName="GangwayComment" />
+          <ScalarProperty Name="RestrictedComment" ColumnName="RestrictedComment" />
+          <ScalarProperty Name="OutsideComment" ColumnName="OutsideComment" />
+          <ScalarProperty Name="EntrancedoorsComment" ColumnName="EntrancedoorsComment" />
+          <ScalarProperty Name="AccommodationComment" ColumnName="AccommodationComment" />
+          <ScalarProperty Name="GMDSSComment5G" ColumnName="GMDSSComment5G" />
+          <ScalarProperty Name="VariousComment" ColumnName="VariousComment" />
+          <ScalarProperty Name="SSOComment" ColumnName="SSOComment" />
+          <ScalarProperty Name="SecuritylogbookComment" ColumnName="SecuritylogbookComment" />
+          <ScalarProperty Name="Listoflast10portsComment" ColumnName="Listoflast10portsComment" />
+          <ScalarProperty Name="PFSOComment" ColumnName="PFSOComment" />
+          <ScalarProperty Name="SecuritylevelComment" ColumnName="SecuritylevelComment" />
+          <ScalarProperty Name="DrillsandtrainingComment" ColumnName="DrillsandtrainingComment" />
+          <ScalarProperty Name="DOSComment" ColumnName="DOSComment" />
+          <ScalarProperty Name="SSASComment" ColumnName="SSASComment" />
+          <ScalarProperty Name="VisitorslogbookComment" ColumnName="VisitorslogbookComment" />
+          <ScalarProperty Name="KeyregisterComment" ColumnName="KeyregisterComment" />
+          <ScalarProperty Name="ShipSecurityComment" ColumnName="ShipSecurityComment" />
+          <ScalarProperty Name="SecurityComment" ColumnName="SecurityComment" />
+          <ScalarProperty Name="NauticalchartsComment" ColumnName="NauticalchartsComment" />
+          <ScalarProperty Name="NoticetomarinersComment" ColumnName="NoticetomarinersComment" />
+          <ScalarProperty Name="ListofradiosignalsComment" ColumnName="ListofradiosignalsComment" />
+          <ScalarProperty Name="ListoflightsComment" ColumnName="ListoflightsComment" />
+          <ScalarProperty Name="SailingdirectionsComment" ColumnName="SailingdirectionsComment" />
+          <ScalarProperty Name="TidetablesComment" ColumnName="TidetablesComment" />
+          <ScalarProperty Name="NavtexandprinterComment" ColumnName="NavtexandprinterComment" />
+          <ScalarProperty Name="RadarsComment" ColumnName="RadarsComment" />
+          <ScalarProperty Name="GPSComment" ColumnName="GPSComment" />
+          <ScalarProperty Name="AISComment" ColumnName="AISComment" />
+          <ScalarProperty Name="VDRComment" ColumnName="VDRComment" />
+          <ScalarProperty Name="ECDISComment" ColumnName="ECDISComment" />
+          <ScalarProperty Name="EchosounderComment" ColumnName="EchosounderComment" />
+          <ScalarProperty Name="ADPbackuplaptopComment" ColumnName="ADPbackuplaptopComment" />
+          <ScalarProperty Name="ColourprinterComment" ColumnName="ColourprinterComment" />
+          <ScalarProperty Name="VHFDSCtransceiverComment" ColumnName="VHFDSCtransceiverComment" />
+          <ScalarProperty Name="radioinstallationComment" ColumnName="radioinstallationComment" />
+          <ScalarProperty Name="InmarsatCComment" ColumnName="InmarsatCComment" />
+          <ScalarProperty Name="MagneticcompassComment" ColumnName="MagneticcompassComment" />
+          <ScalarProperty Name="SparecompassbowlComment" ColumnName="SparecompassbowlComment" />
+          <ScalarProperty Name="CompassobservationbookComment" ColumnName="CompassobservationbookComment" />
+          <ScalarProperty Name="GyrocompassComment" ColumnName="GyrocompassComment" />
+          <ScalarProperty Name="RudderindicatorComment" ColumnName="RudderindicatorComment" />
+          <ScalarProperty Name="SpeedlogComment" ColumnName="SpeedlogComment" />
+          <ScalarProperty Name="NavigationComment" ColumnName="NavigationComment" />
+          <ScalarProperty Name="SignalflagsComment" ColumnName="SignalflagsComment" />
+          <ScalarProperty Name="RPMComment" ColumnName="RPMComment" />
+          <ScalarProperty Name="BasicmanoeuvringdataComment" ColumnName="BasicmanoeuvringdataComment" />
+          <ScalarProperty Name="MasterstandingordersComment" ColumnName="MasterstandingordersComment" />
+          <ScalarProperty Name="MasternightordersbookComment" ColumnName="MasternightordersbookComment" />
+          <ScalarProperty Name="SextantComment" ColumnName="SextantComment" />
+          <ScalarProperty Name="AzimuthmirrorComment" ColumnName="AzimuthmirrorComment" />
+          <ScalarProperty Name="BridgepostersComment" ColumnName="BridgepostersComment" />
+          <ScalarProperty Name="ReviewofplannedComment" ColumnName="ReviewofplannedComment" />
+          <ScalarProperty Name="BridgebellbookComment" ColumnName="BridgebellbookComment" />
+          <ScalarProperty Name="BridgenavigationalComment" ColumnName="BridgenavigationalComment" />
+          <ScalarProperty Name="SecurityEquipmentComment" ColumnName="SecurityEquipmentComment" />
+          <ScalarProperty Name="NavigationPost" ColumnName="NavigationPost" />
+          <ScalarProperty Name="GeneralComment" ColumnName="GeneralComment" />
+          <ScalarProperty Name="MedicinestorageComment" ColumnName="MedicinestorageComment" />
+          <ScalarProperty Name="MedicinechestcertificateComment" ColumnName="MedicinechestcertificateComment" />
+          <ScalarProperty Name="InventoryStoresComment" ColumnName="InventoryStoresComment" />
+          <ScalarProperty Name="OxygencylindersComment" ColumnName="OxygencylindersComment" />
+          <ScalarProperty Name="StretcherComment" ColumnName="StretcherComment" />
+          <ScalarProperty Name="SalivaComment" ColumnName="SalivaComment" />
+          <ScalarProperty Name="AlcoholComment" ColumnName="AlcoholComment" />
+          <ScalarProperty Name="HospitalComment" ColumnName="HospitalComment" />
+          <ScalarProperty Name="GeneralGalleyComment" ColumnName="GeneralGalleyComment" />
+          <ScalarProperty Name="HygieneComment" ColumnName="HygieneComment" />
+          <ScalarProperty Name="FoodstorageComment" ColumnName="FoodstorageComment" />
+          <ScalarProperty Name="FoodlabellingComment" ColumnName="FoodlabellingComment" />
+          <ScalarProperty Name="GalleyriskassessmentComment" ColumnName="GalleyriskassessmentComment" />
+          <ScalarProperty Name="FridgetemperatureComment" ColumnName="FridgetemperatureComment" />
+          <ScalarProperty Name="FoodandProvisionsComment" ColumnName="FoodandProvisionsComment" />
+          <ScalarProperty Name="GalleyComment" ColumnName="GalleyComment" />
+          <ScalarProperty Name="ConditionComment" ColumnName="ConditionComment" />
+          <ScalarProperty Name="PaintworkComment" ColumnName="PaintworkComment" />
+          <ScalarProperty Name="LightingComment" ColumnName="LightingComment" />
+          <ScalarProperty Name="PlatesComment" ColumnName="PlatesComment" />
+          <ScalarProperty Name="BilgesComment" ColumnName="BilgesComment" />
+          <ScalarProperty Name="PipelinesandvalvesComment" ColumnName="PipelinesandvalvesComment" />
+          <ScalarProperty Name="LeakageComment" ColumnName="LeakageComment" />
+          <ScalarProperty Name="EquipmentComment" ColumnName="EquipmentComment" />
+          <ScalarProperty Name="OilywaterseparatorComment" ColumnName="OilywaterseparatorComment" />
+          <ScalarProperty Name="FueloiltransferplanComment" ColumnName="FueloiltransferplanComment" />
+          <ScalarProperty Name="SteeringgearComment" ColumnName="SteeringgearComment" />
+          <ScalarProperty Name="WorkshopandequipmentComment" ColumnName="WorkshopandequipmentComment" />
+          <ScalarProperty Name="SoundingpipesComment" ColumnName="SoundingpipesComment" />
+          <ScalarProperty Name="EnginecontrolComment" ColumnName="EnginecontrolComment" />
+          <ScalarProperty Name="ChiefEngineernightordersbookComment" ColumnName="ChiefEngineernightordersbookComment" />
+          <ScalarProperty Name="ChiefEngineerstandingordersComment" ColumnName="ChiefEngineerstandingordersComment" />
+          <ScalarProperty Name="PreUMSComment" ColumnName="PreUMSComment" />
+          <ScalarProperty Name="EnginebellbookComment" ColumnName="EnginebellbookComment" />
+          <ScalarProperty Name="LockoutComment" ColumnName="LockoutComment" />
+          <ScalarProperty Name="EngineRoomComment" ColumnName="EngineRoomComment" />
+          <ScalarProperty Name="CleanlinessandhygieneComment" ColumnName="CleanlinessandhygieneComment" />
+          <ScalarProperty Name="ConditionComment5M" ColumnName="ConditionComment5M" />
+          <ScalarProperty Name="PaintworkComment5M" ColumnName="PaintworkComment5M" />
+          <ScalarProperty Name="SignalmastandstaysComment" ColumnName="SignalmastandstaysComment" />
+          <ScalarProperty Name="MonkeyislandComment" ColumnName="MonkeyislandComment" />
+          <ScalarProperty Name="FireDampersComment" ColumnName="FireDampersComment" />
+          <ScalarProperty Name="RailsBulwarksComment" ColumnName="RailsBulwarksComment" />
+          <ScalarProperty Name="WatertightdoorsComment" ColumnName="WatertightdoorsComment" />
+          <ScalarProperty Name="VentilatorsComment" ColumnName="VentilatorsComment" />
+          <ScalarProperty Name="WinchesComment" ColumnName="WinchesComment" />
+          <ScalarProperty Name="FairleadsComment" ColumnName="FairleadsComment" />
+          <ScalarProperty Name="MooringLinesComment" ColumnName="MooringLinesComment" />
+          <ScalarProperty Name="EmergencyShutOffsComment" ColumnName="EmergencyShutOffsComment" />
+          <ScalarProperty Name="RadioaerialsComment" ColumnName="RadioaerialsComment" />
+          <ScalarProperty Name="SOPEPlockerComment" ColumnName="SOPEPlockerComment" />
+          <ScalarProperty Name="ChemicallockerComment" ColumnName="ChemicallockerComment" />
+          <ScalarProperty Name="AntislippaintComment" ColumnName="AntislippaintComment" />
+          <ScalarProperty Name="SuperstructureComment" ColumnName="SuperstructureComment" />
+          <ScalarProperty Name="CabinsComment" ColumnName="CabinsComment" />
+          <ScalarProperty Name="OfficesComment" ColumnName="OfficesComment" />
+          <ScalarProperty Name="MessroomsComment" ColumnName="MessroomsComment" />
+          <ScalarProperty Name="ToiletsComment" ColumnName="ToiletsComment" />
+          <ScalarProperty Name="LaundryroomComment" ColumnName="LaundryroomComment" />
+          <ScalarProperty Name="ChangingroomComment" ColumnName="ChangingroomComment" />
+          <ScalarProperty Name="OtherComment" ColumnName="OtherComment" />
+          <ScalarProperty Name="ConditionComment5N" ColumnName="ConditionComment5N" />
+          <ScalarProperty Name="SelfclosingfiredoorsComment" ColumnName="SelfclosingfiredoorsComment" />
+          <ScalarProperty Name="StairwellsComment" ColumnName="StairwellsComment" />
+          <ScalarProperty Name="SuperstructureInternalComment" ColumnName="SuperstructureInternalComment" />
+          <ScalarProperty Name="PortablegangwayComment" ColumnName="PortablegangwayComment" />
+          <ScalarProperty Name="SafetynetComment" ColumnName="SafetynetComment" />
+          <ScalarProperty Name="AccommodationLadderComment" ColumnName="AccommodationLadderComment" />
+          <ScalarProperty Name="SafeaccessprovidedComment" ColumnName="SafeaccessprovidedComment" />
+          <ScalarProperty Name="PilotladdersComment" ColumnName="PilotladdersComment" />
+          <ScalarProperty Name="BoardingEquipmentComment" ColumnName="BoardingEquipmentComment" />
+          <ScalarProperty Name="CleanlinessComment" ColumnName="CleanlinessComment" />
+          <ScalarProperty Name="PaintworkComment5P" ColumnName="PaintworkComment5P" />
+          <ScalarProperty Name="ShipsiderailsComment" ColumnName="ShipsiderailsComment" />
+          <ScalarProperty Name="WeathertightdoorsComment" ColumnName="WeathertightdoorsComment" />
+          <ScalarProperty Name="FirehydrantsComment" ColumnName="FirehydrantsComment" />
+          <ScalarProperty Name="VentilatorsComment5P" ColumnName="VentilatorsComment5P" />
+          <ScalarProperty Name="ManholecoversComment" ColumnName="ManholecoversComment" />
+          <ScalarProperty Name="MainDeckAreaComment" ColumnName="MainDeckAreaComment" />
+          <ScalarProperty Name="ConditionComment5Q" ColumnName="ConditionComment5Q" />
+          <ScalarProperty Name="PaintworkComment5Q" ColumnName="PaintworkComment5Q" />
+          <ScalarProperty Name="MechanicaldamageComment" ColumnName="MechanicaldamageComment" />
+          <ScalarProperty Name="AccessladdersComment" ColumnName="AccessladdersComment" />
+          <ScalarProperty Name="ManholecoversComment5Q" ColumnName="ManholecoversComment5Q" />
+          <ScalarProperty Name="HoldbilgeComment" ColumnName="HoldbilgeComment" />
+          <ScalarProperty Name="AccessdoorsComment" ColumnName="AccessdoorsComment" />
+          <ScalarProperty Name="ConditionHatchCoversComment" ColumnName="ConditionHatchCoversComment" />
+          <ScalarProperty Name="PaintworkHatchCoversComment" ColumnName="PaintworkHatchCoversComment" />
+          <ScalarProperty Name="RubbersealsComment" ColumnName="RubbersealsComment" />
+          <ScalarProperty Name="SignsofhatchesComment" ColumnName="SignsofhatchesComment" />
+          <ScalarProperty Name="SealingtapeComment" ColumnName="SealingtapeComment" />
+          <ScalarProperty Name="ConditionofhydraulicsComment" ColumnName="ConditionofhydraulicsComment" />
+          <ScalarProperty Name="PortablebulkheadsComment" ColumnName="PortablebulkheadsComment" />
+          <ScalarProperty Name="TweendecksComment" ColumnName="TweendecksComment" />
+          <ScalarProperty Name="HatchcoamingComment" ColumnName="HatchcoamingComment" />
+          <ScalarProperty Name="ConditionCargoCranesComment" ColumnName="ConditionCargoCranesComment" />
+          <ScalarProperty Name="GantrycranealarmComment" ColumnName="GantrycranealarmComment" />
+          <ScalarProperty Name="GantryconditionComment" ColumnName="GantryconditionComment" />
+          <ScalarProperty Name="CargoHoldsComment" ColumnName="CargoHoldsComment" />
+          <ScalarProperty Name="CleanlinessComment5R" ColumnName="CleanlinessComment5R" />
+          <ScalarProperty Name="PaintworkComment5R" ColumnName="PaintworkComment5R" />
+          <ScalarProperty Name="TriphazardsComment" ColumnName="TriphazardsComment" />
+          <ScalarProperty Name="WindlassComment" ColumnName="WindlassComment" />
+          <ScalarProperty Name="CablesComment" ColumnName="CablesComment" />
+          <ScalarProperty Name="WinchesComment5R" ColumnName="WinchesComment5R" />
+          <ScalarProperty Name="FairleadsComment5R" ColumnName="FairleadsComment5R" />
+          <ScalarProperty Name="MooringComment" ColumnName="MooringComment" />
+          <ScalarProperty Name="HatchToforecastlespaceComment" ColumnName="HatchToforecastlespaceComment" />
+          <ScalarProperty Name="VentilatorsComment5R" ColumnName="VentilatorsComment5R" />
+          <ScalarProperty Name="BellComment" ColumnName="BellComment" />
+          <ScalarProperty Name="ForemastComment" ColumnName="ForemastComment" />
+          <ScalarProperty Name="FireComment" ColumnName="FireComment" />
+          <ScalarProperty Name="RailsComment" ColumnName="RailsComment" />
+          <ScalarProperty Name="AntislippaintComment5R" ColumnName="AntislippaintComment5R" />
+          <ScalarProperty Name="ForecastleComment" ColumnName="ForecastleComment" />
+          <ScalarProperty Name="CleanlinessComment5S" ColumnName="CleanlinessComment5S" />
+          <ScalarProperty Name="PaintworkComment5S" ColumnName="PaintworkComment5S" />
+          <ScalarProperty Name="ForepeakComment" ColumnName="ForepeakComment" />
+          <ScalarProperty Name="ChainlockerComment" ColumnName="ChainlockerComment" />
+          <ScalarProperty Name="LightingComment5S" ColumnName="LightingComment5S" />
+          <ScalarProperty Name="AccesssafetychainComment" ColumnName="AccesssafetychainComment" />
+          <ScalarProperty Name="EmergencyfirepumpComment" ColumnName="EmergencyfirepumpComment" />
+          <ScalarProperty Name="BowthrusterandroomComment" ColumnName="BowthrusterandroomComment" />
+          <ScalarProperty Name="SparemooringlinesComment" ColumnName="SparemooringlinesComment" />
+          <ScalarProperty Name="PaintlockerComment" ColumnName="PaintlockerComment" />
+          <ScalarProperty Name="ForecastleSpaceComment" ColumnName="ForecastleSpaceComment" />
+          <ScalarProperty Name="BoottopComment" ColumnName="BoottopComment" />
+          <ScalarProperty Name="TopsidesComment" ColumnName="TopsidesComment" />
+          <ScalarProperty Name="AntifoulingComment" ColumnName="AntifoulingComment" />
+          <ScalarProperty Name="DraftandplimsollComment" ColumnName="DraftandplimsollComment" />
+          <ScalarProperty Name="FoulingComment" ColumnName="FoulingComment" />
+          <ScalarProperty Name="MechanicalComment" ColumnName="MechanicalComment" />
+          <ScalarProperty Name="HullComment" ColumnName="HullComment" />
+          <ScalarProperty Name="SummaryComment" ColumnName="SummaryComment" />
+          <ScalarProperty Name="SavedAsDraft" ColumnName="SavedAsDraft" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIRDeficiencies">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.GIRDeficiency">
+        <MappingFragment StoreEntitySet="GIRDeficiencies">
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="AssignTo" ColumnName="AssignTo" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="DeficienciesUniqueID" ColumnName="DeficienciesUniqueID" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="UniqueFormID" ColumnName="UniqueFormID" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+          <ScalarProperty Name="DeficienciesID" ColumnName="DeficienciesID" />
+          <ScalarProperty Name="GIRFormID" ColumnName="GIRFormID" />
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="DateRaised" ColumnName="DateRaised" />
+          <ScalarProperty Name="Deficiency" ColumnName="Deficiency" />
+          <ScalarProperty Name="DateClosed" ColumnName="DateClosed" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Ship" ColumnName="Ship" />
+          <ScalarProperty Name="IsClose" ColumnName="IsClose" />
+          <ScalarProperty Name="ReportType" ColumnName="ReportType" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="StorePath" ColumnName="StorePath" />
+          <ScalarProperty Name="SIRNo" ColumnName="SIRNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIRDeficienciesCommentFiles">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.GIRDeficienciesCommentFile">
+        <MappingFragment StoreEntitySet="GIRDeficienciesCommentFile">
+          <ScalarProperty Name="CommentFileUniqueID" ColumnName="CommentFileUniqueID" />
+          <ScalarProperty Name="NoteUniqueID" ColumnName="NoteUniqueID" />
+          <ScalarProperty Name="GIRCommentFileID" ColumnName="GIRCommentFileID" />
+          <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+          <ScalarProperty Name="DeficienciesID" ColumnName="DeficienciesID" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="StorePath" ColumnName="StorePath" />
+          <ScalarProperty Name="IsUpload" ColumnName="IsUpload" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIRDeficienciesFiles">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.GIRDeficienciesFile">
+        <MappingFragment StoreEntitySet="GIRDeficienciesFiles">
+          <ScalarProperty Name="DeficienciesFileUniqueID" ColumnName="DeficienciesFileUniqueID" />
+          <ScalarProperty Name="DeficienciesUniqueID" ColumnName="DeficienciesUniqueID" />
+          <ScalarProperty Name="GIRDeficienciesFileID" ColumnName="GIRDeficienciesFileID" />
+          <ScalarProperty Name="DeficienciesID" ColumnName="DeficienciesID" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="StorePath" ColumnName="StorePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIRDeficienciesNotes">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.GIRDeficienciesNote">
+        <MappingFragment StoreEntitySet="GIRDeficienciesNotes">
+          <ScalarProperty Name="isNew" ColumnName="isNew" />
+          <ScalarProperty Name="DeficienciesUniqueID" ColumnName="DeficienciesUniqueID" />
+          <ScalarProperty Name="NoteUniqueID" ColumnName="NoteUniqueID" />
+          <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+          <ScalarProperty Name="DeficienciesID" ColumnName="DeficienciesID" />
+          <ScalarProperty Name="GIRFormID" ColumnName="GIRFormID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIRPhotographs">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.GIRPhotograph">
+        <MappingFragment StoreEntitySet="GIRPhotographs">
+          <ScalarProperty Name="UniqueFormID" ColumnName="UniqueFormID" />
+          <ScalarProperty Name="PhotographsID" ColumnName="PhotographsID" />
+          <ScalarProperty Name="GIRFormID" ColumnName="GIRFormID" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="ImageCaption" ColumnName="ImageCaption" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Ship" ColumnName="Ship" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIRRestandWorkHours">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.GIRRestandWorkHour">
+        <MappingFragment StoreEntitySet="GIRRestandWorkHours">
+          <ScalarProperty Name="UniqueFormID" ColumnName="UniqueFormID" />
+          <ScalarProperty Name="RestandWorkHoursID" ColumnName="RestandWorkHoursID" />
+          <ScalarProperty Name="GIRFormID" ColumnName="GIRFormID" />
+          <ScalarProperty Name="CrewmemberName" ColumnName="CrewmemberName" />
+          <ScalarProperty Name="RestAndWorkDetail" ColumnName="RestAndWorkDetail" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Ship" ColumnName="Ship" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GlRCrewDocuments">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.GlRCrewDocument">
+        <MappingFragment StoreEntitySet="GlRCrewDocuments">
+          <ScalarProperty Name="UniqueFormID" ColumnName="UniqueFormID" />
+          <ScalarProperty Name="CrewDocumentsID" ColumnName="CrewDocumentsID" />
+          <ScalarProperty Name="GIRFormID" ColumnName="GIRFormID" />
+          <ScalarProperty Name="CrewmemberName" ColumnName="CrewmemberName" />
+          <ScalarProperty Name="CertificationDetail" ColumnName="CertificationDetail" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Ship" ColumnName="Ship" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GlRSafeManningRequirements">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.GlRSafeManningRequirement">
+        <MappingFragment StoreEntitySet="GlRSafeManningRequirements">
+          <ScalarProperty Name="UniqueFormID" ColumnName="UniqueFormID" />
+          <ScalarProperty Name="SafeManningRequirementsID" ColumnName="SafeManningRequirementsID" />
+          <ScalarProperty Name="GIRFormID" ColumnName="GIRFormID" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="RequiredbySMD" ColumnName="RequiredbySMD" />
+          <ScalarProperty Name="OnBoard" ColumnName="OnBoard" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Ship" ColumnName="Ship" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpexReportFinilizeDates">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.OpexReportFinilizeDate">
+        <MappingFragment StoreEntitySet="OpexReportFinilizeDate">
+          <ScalarProperty Name="FinilizeID" ColumnName="FinilizeID" />
+          <ScalarProperty Name="FinilizeBy" ColumnName="FinilizeBy" />
+          <ScalarProperty Name="StardDate" ColumnName="StardDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Repositories">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.Repository">
+        <MappingFragment StoreEntitySet="Repositories">
+          <ScalarProperty Name="RepID" ColumnName="RepID" />
+          <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RolePermissions">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.RolePermission">
+        <MappingFragment StoreEntitySet="RolePermission">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="IsReport" ColumnName="IsReport" />
+          <ScalarProperty Name="IsDocument" ColumnName="IsDocument" />
+          <ScalarProperty Name="IsForm" ColumnName="IsForm" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="IsSettings" ColumnName="IsSettings" />
+          <ScalarProperty Name="IsHome" ColumnName="IsHome" />
+          <ScalarProperty Name="IsDeficiencies" ColumnName="IsDeficiencies" />
+          <ScalarProperty Name="IsHelp" ColumnName="IsHelp" />
+          <ScalarProperty Name="IsAbout" ColumnName="IsAbout" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ships">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.Ship">
+        <MappingFragment StoreEntitySet="Ships">
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Phone3" ColumnName="Phone3" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NetTonnage" ColumnName="NetTonnage" />
+          <ScalarProperty Name="GrossTonnage" ColumnName="GrossTonnage" />
+          <ScalarProperty Name="MMSI" ColumnName="MMSI" />
+          <ScalarProperty Name="CallSign" ColumnName="CallSign" />
+          <ScalarProperty Name="IMONumber" ColumnName="IMONumber" />
+          <ScalarProperty Name="BuildYear" ColumnName="BuildYear" />
+          <ScalarProperty Name="ShipID" ColumnName="ShipID" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SIRAdditionalNotes">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.SIRAdditionalNote">
+        <MappingFragment StoreEntitySet="SIRAdditionalNotes">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="NotesUniqueID" ColumnName="NotesUniqueID" />
+          <ScalarProperty Name="UniqueFormID" ColumnName="UniqueFormID" />
+          <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+          <ScalarProperty Name="SIRFormID" ColumnName="SIRFormID" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SIRNotes">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.SIRNote">
+        <MappingFragment StoreEntitySet="SIRNotes">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="NotesUniqueID" ColumnName="NotesUniqueID" />
+          <ScalarProperty Name="UniqueFormID" ColumnName="UniqueFormID" />
+          <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+          <ScalarProperty Name="SIRFormID" ColumnName="SIRFormID" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SuperintendedInspectionReports">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.SuperintendedInspectionReport">
+        <MappingFragment StoreEntitySet="SuperintendedInspectionReport">
+          <ScalarProperty Name="Section18_9_Comment" ColumnName="Section18_9_Comment" />
+          <ScalarProperty Name="Section18_9_Condition" ColumnName="Section18_9_Condition" />
+          <ScalarProperty Name="Section18_8_Comment" ColumnName="Section18_8_Comment" />
+          <ScalarProperty Name="Section18_8_Condition" ColumnName="Section18_8_Condition" />
+          <ScalarProperty Name="Section9_17_Comment" ColumnName="Section9_17_Comment" />
+          <ScalarProperty Name="Section9_17_Condition" ColumnName="Section9_17_Condition" />
+          <ScalarProperty Name="Section9_16_Comment" ColumnName="Section9_16_Comment" />
+          <ScalarProperty Name="Section9_16_Condition" ColumnName="Section9_16_Condition" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="FormVersion" ColumnName="FormVersion" />
+          <ScalarProperty Name="UniqueFormID" ColumnName="UniqueFormID" />
+          <ScalarProperty Name="SavedAsDraft" ColumnName="SavedAsDraft" />
+          <ScalarProperty Name="SIRFormID" ColumnName="SIRFormID" />
+          <ScalarProperty Name="ShipID" ColumnName="ShipID" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+          <ScalarProperty Name="Master" ColumnName="Master" />
+          <ScalarProperty Name="Superintended" ColumnName="Superintended" />
+          <ScalarProperty Name="Section1_1_Condition" ColumnName="Section1_1_Condition" />
+          <ScalarProperty Name="Section1_1_Comment" ColumnName="Section1_1_Comment" />
+          <ScalarProperty Name="Section1_2_Condition" ColumnName="Section1_2_Condition" />
+          <ScalarProperty Name="Section1_2_Comment" ColumnName="Section1_2_Comment" />
+          <ScalarProperty Name="Section1_3_Condition" ColumnName="Section1_3_Condition" />
+          <ScalarProperty Name="Section1_3_Comment" ColumnName="Section1_3_Comment" />
+          <ScalarProperty Name="Section1_4_Condition" ColumnName="Section1_4_Condition" />
+          <ScalarProperty Name="Section1_4_Comment" ColumnName="Section1_4_Comment" />
+          <ScalarProperty Name="Section1_5_Condition" ColumnName="Section1_5_Condition" />
+          <ScalarProperty Name="Section1_5_Comment" ColumnName="Section1_5_Comment" />
+          <ScalarProperty Name="Section1_6_Condition" ColumnName="Section1_6_Condition" />
+          <ScalarProperty Name="Section1_6_Comment" ColumnName="Section1_6_Comment" />
+          <ScalarProperty Name="Section1_7_Condition" ColumnName="Section1_7_Condition" />
+          <ScalarProperty Name="Section1_7_Comment" ColumnName="Section1_7_Comment" />
+          <ScalarProperty Name="Section1_8_Condition" ColumnName="Section1_8_Condition" />
+          <ScalarProperty Name="Section1_8_Comment" ColumnName="Section1_8_Comment" />
+          <ScalarProperty Name="Section1_9_Condition" ColumnName="Section1_9_Condition" />
+          <ScalarProperty Name="Section1_9_Comment" ColumnName="Section1_9_Comment" />
+          <ScalarProperty Name="Section1_10_Condition" ColumnName="Section1_10_Condition" />
+          <ScalarProperty Name="Section1_10_Comment" ColumnName="Section1_10_Comment" />
+          <ScalarProperty Name="Section1_11_Condition" ColumnName="Section1_11_Condition" />
+          <ScalarProperty Name="Section1_11_Comment" ColumnName="Section1_11_Comment" />
+          <ScalarProperty Name="Section2_1_Condition" ColumnName="Section2_1_Condition" />
+          <ScalarProperty Name="Section2_1_Comment" ColumnName="Section2_1_Comment" />
+          <ScalarProperty Name="Section2_2_Condition" ColumnName="Section2_2_Condition" />
+          <ScalarProperty Name="Section2_2_Comment" ColumnName="Section2_2_Comment" />
+          <ScalarProperty Name="Section2_3_Condition" ColumnName="Section2_3_Condition" />
+          <ScalarProperty Name="Section2_3_Comment" ColumnName="Section2_3_Comment" />
+          <ScalarProperty Name="Section2_4_Condition" ColumnName="Section2_4_Condition" />
+          <ScalarProperty Name="Section2_4_Comment" ColumnName="Section2_4_Comment" />
+          <ScalarProperty Name="Section2_5_Condition" ColumnName="Section2_5_Condition" />
+          <ScalarProperty Name="Section2_5_Comment" ColumnName="Section2_5_Comment" />
+          <ScalarProperty Name="Section2_6_Condition" ColumnName="Section2_6_Condition" />
+          <ScalarProperty Name="Section2_6_Comment" ColumnName="Section2_6_Comment" />
+          <ScalarProperty Name="Section2_7_Condition" ColumnName="Section2_7_Condition" />
+          <ScalarProperty Name="Section2_7_Comment" ColumnName="Section2_7_Comment" />
+          <ScalarProperty Name="Section3_1_Condition" ColumnName="Section3_1_Condition" />
+          <ScalarProperty Name="Section3_1_Comment" ColumnName="Section3_1_Comment" />
+          <ScalarProperty Name="Section3_2_Condition" ColumnName="Section3_2_Condition" />
+          <ScalarProperty Name="Section3_2_Comment" ColumnName="Section3_2_Comment" />
+          <ScalarProperty Name="Section3_3_Condition" ColumnName="Section3_3_Condition" />
+          <ScalarProperty Name="Section3_3_Comment" ColumnName="Section3_3_Comment" />
+          <ScalarProperty Name="Section3_4_Condition" ColumnName="Section3_4_Condition" />
+          <ScalarProperty Name="Section3_4_Comment" ColumnName="Section3_4_Comment" />
+          <ScalarProperty Name="Section3_5_Condition" ColumnName="Section3_5_Condition" />
+          <ScalarProperty Name="Section3_5_Comment" ColumnName="Section3_5_Comment" />
+          <ScalarProperty Name="Section4_1_Condition" ColumnName="Section4_1_Condition" />
+          <ScalarProperty Name="Section4_1_Comment" ColumnName="Section4_1_Comment" />
+          <ScalarProperty Name="Section4_2_Condition" ColumnName="Section4_2_Condition" />
+          <ScalarProperty Name="Section4_2_Comment" ColumnName="Section4_2_Comment" />
+          <ScalarProperty Name="Section4_3_Condition" ColumnName="Section4_3_Condition" />
+          <ScalarProperty Name="Section4_3_Comment" ColumnName="Section4_3_Comment" />
+          <ScalarProperty Name="Section5_1_Condition" ColumnName="Section5_1_Condition" />
+          <ScalarProperty Name="Section5_1_Comment" ColumnName="Section5_1_Comment" />
+          <ScalarProperty Name="Section5_6_Condition" ColumnName="Section5_6_Condition" />
+          <ScalarProperty Name="Section5_6_Comment" ColumnName="Section5_6_Comment" />
+          <ScalarProperty Name="Section5_8_Condition" ColumnName="Section5_8_Condition" />
+          <ScalarProperty Name="Section5_8_Comment" ColumnName="Section5_8_Comment" />
+          <ScalarProperty Name="Section5_9_Condition" ColumnName="Section5_9_Condition" />
+          <ScalarProperty Name="Section5_9_Comment" ColumnName="Section5_9_Comment" />
+          <ScalarProperty Name="Section6_1_Condition" ColumnName="Section6_1_Condition" />
+          <ScalarProperty Name="Section6_1_Comment" ColumnName="Section6_1_Comment" />
+          <ScalarProperty Name="Section6_2_Condition" ColumnName="Section6_2_Condition" />
+          <ScalarProperty Name="Section6_2_Comment" ColumnName="Section6_2_Comment" />
+          <ScalarProperty Name="Section6_3_Condition" ColumnName="Section6_3_Condition" />
+          <ScalarProperty Name="Section6_3_Comment" ColumnName="Section6_3_Comment" />
+          <ScalarProperty Name="Section6_4_Condition" ColumnName="Section6_4_Condition" />
+          <ScalarProperty Name="Section6_4_Comment" ColumnName="Section6_4_Comment" />
+          <ScalarProperty Name="Section6_5_Condition" ColumnName="Section6_5_Condition" />
+          <ScalarProperty Name="Section6_5_Comment" ColumnName="Section6_5_Comment" />
+          <ScalarProperty Name="Section6_6_Condition" ColumnName="Section6_6_Condition" />
+          <ScalarProperty Name="Section6_6_Comment" ColumnName="Section6_6_Comment" />
+          <ScalarProperty Name="Section6_7_Condition" ColumnName="Section6_7_Condition" />
+          <ScalarProperty Name="Section6_7_Comment" ColumnName="Section6_7_Comment" />
+          <ScalarProperty Name="Section6_8_Condition" ColumnName="Section6_8_Condition" />
+          <ScalarProperty Name="Section6_8_Comment" ColumnName="Section6_8_Comment" />
+          <ScalarProperty Name="Section7_1_Condition" ColumnName="Section7_1_Condition" />
+          <ScalarProperty Name="Section7_1_Comment" ColumnName="Section7_1_Comment" />
+          <ScalarProperty Name="Section7_2_Condition" ColumnName="Section7_2_Condition" />
+          <ScalarProperty Name="Section7_2_Comment" ColumnName="Section7_2_Comment" />
+          <ScalarProperty Name="Section7_3_Condition" ColumnName="Section7_3_Condition" />
+          <ScalarProperty Name="Section7_3_Comment" ColumnName="Section7_3_Comment" />
+          <ScalarProperty Name="Section7_4_Condition" ColumnName="Section7_4_Condition" />
+          <ScalarProperty Name="Section7_4_Comment" ColumnName="Section7_4_Comment" />
+          <ScalarProperty Name="Section7_5_Condition" ColumnName="Section7_5_Condition" />
+          <ScalarProperty Name="Section7_5_Comment" ColumnName="Section7_5_Comment" />
+          <ScalarProperty Name="Section7_6_Condition" ColumnName="Section7_6_Condition" />
+          <ScalarProperty Name="Section7_6_Comment" ColumnName="Section7_6_Comment" />
+          <ScalarProperty Name="Section8_1_Condition" ColumnName="Section8_1_Condition" />
+          <ScalarProperty Name="Section8_1_Comment" ColumnName="Section8_1_Comment" />
+          <ScalarProperty Name="Section8_2_Condition" ColumnName="Section8_2_Condition" />
+          <ScalarProperty Name="Section8_2_Comment" ColumnName="Section8_2_Comment" />
+          <ScalarProperty Name="Section8_3_Condition" ColumnName="Section8_3_Condition" />
+          <ScalarProperty Name="Section8_3_Comment" ColumnName="Section8_3_Comment" />
+          <ScalarProperty Name="Section8_4_Condition" ColumnName="Section8_4_Condition" />
+          <ScalarProperty Name="Section8_4_Comment" ColumnName="Section8_4_Comment" />
+          <ScalarProperty Name="Section8_5_Condition" ColumnName="Section8_5_Condition" />
+          <ScalarProperty Name="Section8_5_Comment" ColumnName="Section8_5_Comment" />
+          <ScalarProperty Name="Section8_6_Condition" ColumnName="Section8_6_Condition" />
+          <ScalarProperty Name="Section8_6_Comment" ColumnName="Section8_6_Comment" />
+          <ScalarProperty Name="Section8_7_Condition" ColumnName="Section8_7_Condition" />
+          <ScalarProperty Name="Section8_7_Comment" ColumnName="Section8_7_Comment" />
+          <ScalarProperty Name="Section8_8_Condition" ColumnName="Section8_8_Condition" />
+          <ScalarProperty Name="Section8_8_Comment" ColumnName="Section8_8_Comment" />
+          <ScalarProperty Name="Section8_9_Condition" ColumnName="Section8_9_Condition" />
+          <ScalarProperty Name="Section8_9_Comment" ColumnName="Section8_9_Comment" />
+          <ScalarProperty Name="Section8_10_Condition" ColumnName="Section8_10_Condition" />
+          <ScalarProperty Name="Section8_10_Comment" ColumnName="Section8_10_Comment" />
+          <ScalarProperty Name="Section8_11_Condition" ColumnName="Section8_11_Condition" />
+          <ScalarProperty Name="Section8_11_Comment" ColumnName="Section8_11_Comment" />
+          <ScalarProperty Name="Section8_12_Condition" ColumnName="Section8_12_Condition" />
+          <ScalarProperty Name="Section8_12_Comment" ColumnName="Section8_12_Comment" />
+          <ScalarProperty Name="Section8_13_Condition" ColumnName="Section8_13_Condition" />
+          <ScalarProperty Name="Section8_13_Comment" ColumnName="Section8_13_Comment" />
+          <ScalarProperty Name="Section8_14_Condition" ColumnName="Section8_14_Condition" />
+          <ScalarProperty Name="Section8_14_Comment" ColumnName="Section8_14_Comment" />
+          <ScalarProperty Name="Section8_15_Condition" ColumnName="Section8_15_Condition" />
+          <ScalarProperty Name="Section8_15_Comment" ColumnName="Section8_15_Comment" />
+          <ScalarProperty Name="Section8_16_Condition" ColumnName="Section8_16_Condition" />
+          <ScalarProperty Name="Section8_16_Comment" ColumnName="Section8_16_Comment" />
+          <ScalarProperty Name="Section8_17_Condition" ColumnName="Section8_17_Condition" />
+          <ScalarProperty Name="Section8_17_Comment" ColumnName="Section8_17_Comment" />
+          <ScalarProperty Name="Section8_18_Condition" ColumnName="Section8_18_Condition" />
+          <ScalarProperty Name="Section8_18_Comment" ColumnName="Section8_18_Comment" />
+          <ScalarProperty Name="Section8_19_Condition" ColumnName="Section8_19_Condition" />
+          <ScalarProperty Name="Section8_19_Comment" ColumnName="Section8_19_Comment" />
+          <ScalarProperty Name="Section8_20_Condition" ColumnName="Section8_20_Condition" />
+          <ScalarProperty Name="Section8_20_Comment" ColumnName="Section8_20_Comment" />
+          <ScalarProperty Name="Section8_21_Condition" ColumnName="Section8_21_Condition" />
+          <ScalarProperty Name="Section8_21_Comment" ColumnName="Section8_21_Comment" />
+          <ScalarProperty Name="Section8_22_Condition" ColumnName="Section8_22_Condition" />
+          <ScalarProperty Name="Section8_22_Comment" ColumnName="Section8_22_Comment" />
+          <ScalarProperty Name="Section8_23_Condition" ColumnName="Section8_23_Condition" />
+          <ScalarProperty Name="Section8_23_Comment" ColumnName="Section8_23_Comment" />
+          <ScalarProperty Name="Section8_24_Condition" ColumnName="Section8_24_Condition" />
+          <ScalarProperty Name="Section8_24_Comment" ColumnName="Section8_24_Comment" />
+          <ScalarProperty Name="Section8_25_Condition" ColumnName="Section8_25_Condition" />
+          <ScalarProperty Name="Section8_25_Comment" ColumnName="Section8_25_Comment" />
+          <ScalarProperty Name="Section9_1_Condition" ColumnName="Section9_1_Condition" />
+          <ScalarProperty Name="Section9_1_Comment" ColumnName="Section9_1_Comment" />
+          <ScalarProperty Name="Section9_2_Condition" ColumnName="Section9_2_Condition" />
+          <ScalarProperty Name="Section9_2_Comment" ColumnName="Section9_2_Comment" />
+          <ScalarProperty Name="Section9_3_Condition" ColumnName="Section9_3_Condition" />
+          <ScalarProperty Name="Section9_3_Comment" ColumnName="Section9_3_Comment" />
+          <ScalarProperty Name="Section9_4_Condition" ColumnName="Section9_4_Condition" />
+          <ScalarProperty Name="Section9_4_Comment" ColumnName="Section9_4_Comment" />
+          <ScalarProperty Name="Section9_5_Condition" ColumnName="Section9_5_Condition" />
+          <ScalarProperty Name="Section9_5_Comment" ColumnName="Section9_5_Comment" />
+          <ScalarProperty Name="Section9_6_Condition" ColumnName="Section9_6_Condition" />
+          <ScalarProperty Name="Section9_6_Comment" ColumnName="Section9_6_Comment" />
+          <ScalarProperty Name="Section9_7_Condition" ColumnName="Section9_7_Condition" />
+          <ScalarProperty Name="Section9_7_Comment" ColumnName="Section9_7_Comment" />
+          <ScalarProperty Name="Section9_8_Condition" ColumnName="Section9_8_Condition" />
+          <ScalarProperty Name="Section9_8_Comment" ColumnName="Section9_8_Comment" />
+          <ScalarProperty Name="Section9_9_Condition" ColumnName="Section9_9_Condition" />
+          <ScalarProperty Name="Section9_9_Comment" ColumnName="Section9_9_Comment" />
+          <ScalarProperty Name="Section9_10_Condition" ColumnName="Section9_10_Condition" />
+          <ScalarProperty Name="Section9_10_Comment" ColumnName="Section9_10_Comment" />
+          <ScalarProperty Name="Section9_11_Condition" ColumnName="Section9_11_Condition" />
+          <ScalarProperty Name="Section9_11_Comment" ColumnName="Section9_11_Comment" />
+          <ScalarProperty Name="Section9_12_Condition" ColumnName="Section9_12_Condition" />
+          <ScalarProperty Name="Section9_12_Comment" ColumnName="Section9_12_Comment" />
+          <ScalarProperty Name="Section9_13_Condition" ColumnName="Section9_13_Condition" />
+          <ScalarProperty Name="Section9_13_Comment" ColumnName="Section9_13_Comment" />
+          <ScalarProperty Name="Section9_14_Condition" ColumnName="Section9_14_Condition" />
+          <ScalarProperty Name="Section9_14_Comment" ColumnName="Section9_14_Comment" />
+          <ScalarProperty Name="Section9_15_Condition" ColumnName="Section9_15_Condition" />
+          <ScalarProperty Name="Section9_15_Comment" ColumnName="Section9_15_Comment" />
+          <ScalarProperty Name="Section10_1_Condition" ColumnName="Section10_1_Condition" />
+          <ScalarProperty Name="Section10_1_Comment" ColumnName="Section10_1_Comment" />
+          <ScalarProperty Name="Section10_2_Condition" ColumnName="Section10_2_Condition" />
+          <ScalarProperty Name="Section10_2_Comment" ColumnName="Section10_2_Comment" />
+          <ScalarProperty Name="Section10_3_Condition" ColumnName="Section10_3_Condition" />
+          <ScalarProperty Name="Section10_3_Comment" ColumnName="Section10_3_Comment" />
+          <ScalarProperty Name="Section10_4_Condition" ColumnName="Section10_4_Condition" />
+          <ScalarProperty Name="Section10_4_Comment" ColumnName="Section10_4_Comment" />
+          <ScalarProperty Name="Section10_5_Condition" ColumnName="Section10_5_Condition" />
+          <ScalarProperty Name="Section10_5_Comment" ColumnName="Section10_5_Comment" />
+          <ScalarProperty Name="Section10_6_Condition" ColumnName="Section10_6_Condition" />
+          <ScalarProperty Name="Section10_6_Comment" ColumnName="Section10_6_Comment" />
+          <ScalarProperty Name="Section10_7_Condition" ColumnName="Section10_7_Condition" />
+          <ScalarProperty Name="Section10_7_Comment" ColumnName="Section10_7_Comment" />
+          <ScalarProperty Name="Section10_8_Condition" ColumnName="Section10_8_Condition" />
+          <ScalarProperty Name="Section10_8_Comment" ColumnName="Section10_8_Comment" />
+          <ScalarProperty Name="Section10_9_Condition" ColumnName="Section10_9_Condition" />
+          <ScalarProperty Name="Section10_9_Comment" ColumnName="Section10_9_Comment" />
+          <ScalarProperty Name="Section10_10_Condition" ColumnName="Section10_10_Condition" />
+          <ScalarProperty Name="Section10_10_Comment" ColumnName="Section10_10_Comment" />
+          <ScalarProperty Name="Section10_11_Condition" ColumnName="Section10_11_Condition" />
+          <ScalarProperty Name="Section10_11_Comment" ColumnName="Section10_11_Comment" />
+          <ScalarProperty Name="Section10_12_Condition" ColumnName="Section10_12_Condition" />
+          <ScalarProperty Name="Section10_12_Comment" ColumnName="Section10_12_Comment" />
+          <ScalarProperty Name="Section10_13_Condition" ColumnName="Section10_13_Condition" />
+          <ScalarProperty Name="Section10_13_Comment" ColumnName="Section10_13_Comment" />
+          <ScalarProperty Name="Section10_14_Condition" ColumnName="Section10_14_Condition" />
+          <ScalarProperty Name="Section10_14_Comment" ColumnName="Section10_14_Comment" />
+          <ScalarProperty Name="Section10_15_Condition" ColumnName="Section10_15_Condition" />
+          <ScalarProperty Name="Section10_15_Comment" ColumnName="Section10_15_Comment" />
+          <ScalarProperty Name="Section10_16_Condition" ColumnName="Section10_16_Condition" />
+          <ScalarProperty Name="Section10_16_Comment" ColumnName="Section10_16_Comment" />
+          <ScalarProperty Name="Section11_1_Condition" ColumnName="Section11_1_Condition" />
+          <ScalarProperty Name="Section11_1_Comment" ColumnName="Section11_1_Comment" />
+          <ScalarProperty Name="Section11_2_Condition" ColumnName="Section11_2_Condition" />
+          <ScalarProperty Name="Section11_2_Comment" ColumnName="Section11_2_Comment" />
+          <ScalarProperty Name="Section11_3_Condition" ColumnName="Section11_3_Condition" />
+          <ScalarProperty Name="Section11_3_Comment" ColumnName="Section11_3_Comment" />
+          <ScalarProperty Name="Section11_4_Condition" ColumnName="Section11_4_Condition" />
+          <ScalarProperty Name="Section11_4_Comment" ColumnName="Section11_4_Comment" />
+          <ScalarProperty Name="Section11_5_Condition" ColumnName="Section11_5_Condition" />
+          <ScalarProperty Name="Section11_5_Comment" ColumnName="Section11_5_Comment" />
+          <ScalarProperty Name="Section11_6_Condition" ColumnName="Section11_6_Condition" />
+          <ScalarProperty Name="Section11_6_Comment" ColumnName="Section11_6_Comment" />
+          <ScalarProperty Name="Section11_7_Condition" ColumnName="Section11_7_Condition" />
+          <ScalarProperty Name="Section11_7_Comment" ColumnName="Section11_7_Comment" />
+          <ScalarProperty Name="Section11_8_Condition" ColumnName="Section11_8_Condition" />
+          <ScalarProperty Name="Section11_8_Comment" ColumnName="Section11_8_Comment" />
+          <ScalarProperty Name="Section12_1_Condition" ColumnName="Section12_1_Condition" />
+          <ScalarProperty Name="Section12_1_Comment" ColumnName="Section12_1_Comment" />
+          <ScalarProperty Name="Section12_2_Condition" ColumnName="Section12_2_Condition" />
+          <ScalarProperty Name="Section12_2_Comment" ColumnName="Section12_2_Comment" />
+          <ScalarProperty Name="Section12_3_Condition" ColumnName="Section12_3_Condition" />
+          <ScalarProperty Name="Section12_3_Comment" ColumnName="Section12_3_Comment" />
+          <ScalarProperty Name="Section12_4_Condition" ColumnName="Section12_4_Condition" />
+          <ScalarProperty Name="Section12_4_Comment" ColumnName="Section12_4_Comment" />
+          <ScalarProperty Name="Section12_5_Condition" ColumnName="Section12_5_Condition" />
+          <ScalarProperty Name="Section12_5_Comment" ColumnName="Section12_5_Comment" />
+          <ScalarProperty Name="Section12_6_Condition" ColumnName="Section12_6_Condition" />
+          <ScalarProperty Name="Section12_6_Comment" ColumnName="Section12_6_Comment" />
+          <ScalarProperty Name="Section13_1_Condition" ColumnName="Section13_1_Condition" />
+          <ScalarProperty Name="Section13_1_Comment" ColumnName="Section13_1_Comment" />
+          <ScalarProperty Name="Section13_2_Condition" ColumnName="Section13_2_Condition" />
+          <ScalarProperty Name="Section13_2_Comment" ColumnName="Section13_2_Comment" />
+          <ScalarProperty Name="Section13_3_Condition" ColumnName="Section13_3_Condition" />
+          <ScalarProperty Name="Section13_3_Comment" ColumnName="Section13_3_Comment" />
+          <ScalarProperty Name="Section13_4_Condition" ColumnName="Section13_4_Condition" />
+          <ScalarProperty Name="Section13_4_Comment" ColumnName="Section13_4_Comment" />
+          <ScalarProperty Name="Section14_1_Condition" ColumnName="Section14_1_Condition" />
+          <ScalarProperty Name="Section14_1_Comment" ColumnName="Section14_1_Comment" />
+          <ScalarProperty Name="Section14_2_Condition" ColumnName="Section14_2_Condition" />
+          <ScalarProperty Name="Section14_2_Comment" ColumnName="Section14_2_Comment" />
+          <ScalarProperty Name="Section14_3_Condition" ColumnName="Section14_3_Condition" />
+          <ScalarProperty Name="Section14_3_Comment" ColumnName="Section14_3_Comment" />
+          <ScalarProperty Name="Section14_4_Condition" ColumnName="Section14_4_Condition" />
+          <ScalarProperty Name="Section14_4_Comment" ColumnName="Section14_4_Comment" />
+          <ScalarProperty Name="Section14_5_Condition" ColumnName="Section14_5_Condition" />
+          <ScalarProperty Name="Section14_5_Comment" ColumnName="Section14_5_Comment" />
+          <ScalarProperty Name="Section14_6_Condition" ColumnName="Section14_6_Condition" />
+          <ScalarProperty Name="Section14_6_Comment" ColumnName="Section14_6_Comment" />
+          <ScalarProperty Name="Section14_7_Condition" ColumnName="Section14_7_Condition" />
+          <ScalarProperty Name="Section14_7_Comment" ColumnName="Section14_7_Comment" />
+          <ScalarProperty Name="Section14_8_Condition" ColumnName="Section14_8_Condition" />
+          <ScalarProperty Name="Section14_8_Comment" ColumnName="Section14_8_Comment" />
+          <ScalarProperty Name="Section14_9_Condition" ColumnName="Section14_9_Condition" />
+          <ScalarProperty Name="Section14_9_Comment" ColumnName="Section14_9_Comment" />
+          <ScalarProperty Name="Section14_10_Condition" ColumnName="Section14_10_Condition" />
+          <ScalarProperty Name="Section14_10_Comment" ColumnName="Section14_10_Comment" />
+          <ScalarProperty Name="Section14_11_Condition" ColumnName="Section14_11_Condition" />
+          <ScalarProperty Name="Section14_11_Comment" ColumnName="Section14_11_Comment" />
+          <ScalarProperty Name="Section14_12_Condition" ColumnName="Section14_12_Condition" />
+          <ScalarProperty Name="Section14_12_Comment" ColumnName="Section14_12_Comment" />
+          <ScalarProperty Name="Section14_13_Condition" ColumnName="Section14_13_Condition" />
+          <ScalarProperty Name="Section14_13_Comment" ColumnName="Section14_13_Comment" />
+          <ScalarProperty Name="Section14_14_Condition" ColumnName="Section14_14_Condition" />
+          <ScalarProperty Name="Section14_14_Comment" ColumnName="Section14_14_Comment" />
+          <ScalarProperty Name="Section14_15_Condition" ColumnName="Section14_15_Condition" />
+          <ScalarProperty Name="Section14_15_Comment" ColumnName="Section14_15_Comment" />
+          <ScalarProperty Name="Section14_16_Condition" ColumnName="Section14_16_Condition" />
+          <ScalarProperty Name="Section14_16_Comment" ColumnName="Section14_16_Comment" />
+          <ScalarProperty Name="Section14_17_Condition" ColumnName="Section14_17_Condition" />
+          <ScalarProperty Name="Section14_17_Comment" ColumnName="Section14_17_Comment" />
+          <ScalarProperty Name="Section14_18_Condition" ColumnName="Section14_18_Condition" />
+          <ScalarProperty Name="Section14_18_Comment" ColumnName="Section14_18_Comment" />
+          <ScalarProperty Name="Section14_19_Condition" ColumnName="Section14_19_Condition" />
+          <ScalarProperty Name="Section14_19_Comment" ColumnName="Section14_19_Comment" />
+          <ScalarProperty Name="Section14_20_Condition" ColumnName="Section14_20_Condition" />
+          <ScalarProperty Name="Section14_20_Comment" ColumnName="Section14_20_Comment" />
+          <ScalarProperty Name="Section14_21_Condition" ColumnName="Section14_21_Condition" />
+          <ScalarProperty Name="Section14_21_Comment" ColumnName="Section14_21_Comment" />
+          <ScalarProperty Name="Section14_22_Condition" ColumnName="Section14_22_Condition" />
+          <ScalarProperty Name="Section14_22_Comment" ColumnName="Section14_22_Comment" />
+          <ScalarProperty Name="Section14_23_Condition" ColumnName="Section14_23_Condition" />
+          <ScalarProperty Name="Section14_23_Comment" ColumnName="Section14_23_Comment" />
+          <ScalarProperty Name="Section14_24_Condition" ColumnName="Section14_24_Condition" />
+          <ScalarProperty Name="Section14_24_Comment" ColumnName="Section14_24_Comment" />
+          <ScalarProperty Name="Section14_25_Condition" ColumnName="Section14_25_Condition" />
+          <ScalarProperty Name="Section14_25_Comment" ColumnName="Section14_25_Comment" />
+          <ScalarProperty Name="Section15_1_Condition" ColumnName="Section15_1_Condition" />
+          <ScalarProperty Name="Section15_1_Comment" ColumnName="Section15_1_Comment" />
+          <ScalarProperty Name="Section15_2_Condition" ColumnName="Section15_2_Condition" />
+          <ScalarProperty Name="Section15_2_Comment" ColumnName="Section15_2_Comment" />
+          <ScalarProperty Name="Section15_3_Condition" ColumnName="Section15_3_Condition" />
+          <ScalarProperty Name="Section15_3_Comment" ColumnName="Section15_3_Comment" />
+          <ScalarProperty Name="Section15_4_Condition" ColumnName="Section15_4_Condition" />
+          <ScalarProperty Name="Section15_4_Comment" ColumnName="Section15_4_Comment" />
+          <ScalarProperty Name="Section15_5_Condition" ColumnName="Section15_5_Condition" />
+          <ScalarProperty Name="Section15_5_Comment" ColumnName="Section15_5_Comment" />
+          <ScalarProperty Name="Section15_6_Condition" ColumnName="Section15_6_Condition" />
+          <ScalarProperty Name="Section15_6_Comment" ColumnName="Section15_6_Comment" />
+          <ScalarProperty Name="Section15_7_Condition" ColumnName="Section15_7_Condition" />
+          <ScalarProperty Name="Section15_7_Comment" ColumnName="Section15_7_Comment" />
+          <ScalarProperty Name="Section15_8_Condition" ColumnName="Section15_8_Condition" />
+          <ScalarProperty Name="Section15_8_Comment" ColumnName="Section15_8_Comment" />
+          <ScalarProperty Name="Section15_9_Condition" ColumnName="Section15_9_Condition" />
+          <ScalarProperty Name="Section15_9_Comment" ColumnName="Section15_9_Comment" />
+          <ScalarProperty Name="Section15_10_Condition" ColumnName="Section15_10_Condition" />
+          <ScalarProperty Name="Section15_10_Comment" ColumnName="Section15_10_Comment" />
+          <ScalarProperty Name="Section15_11_Condition" ColumnName="Section15_11_Condition" />
+          <ScalarProperty Name="Section15_11_Comment" ColumnName="Section15_11_Comment" />
+          <ScalarProperty Name="Section15_12_Condition" ColumnName="Section15_12_Condition" />
+          <ScalarProperty Name="Section15_12_Comment" ColumnName="Section15_12_Comment" />
+          <ScalarProperty Name="Section15_13_Condition" ColumnName="Section15_13_Condition" />
+          <ScalarProperty Name="Section15_13_Comment" ColumnName="Section15_13_Comment" />
+          <ScalarProperty Name="Section15_14_Condition" ColumnName="Section15_14_Condition" />
+          <ScalarProperty Name="Section15_14_Comment" ColumnName="Section15_14_Comment" />
+          <ScalarProperty Name="Section15_15_Condition" ColumnName="Section15_15_Condition" />
+          <ScalarProperty Name="Section15_15_Comment" ColumnName="Section15_15_Comment" />
+          <ScalarProperty Name="Section16_1_Condition" ColumnName="Section16_1_Condition" />
+          <ScalarProperty Name="Section16_1_Comment" ColumnName="Section16_1_Comment" />
+          <ScalarProperty Name="Section16_2_Condition" ColumnName="Section16_2_Condition" />
+          <ScalarProperty Name="Section16_2_Comment" ColumnName="Section16_2_Comment" />
+          <ScalarProperty Name="Section16_3_Condition" ColumnName="Section16_3_Condition" />
+          <ScalarProperty Name="Section16_3_Comment" ColumnName="Section16_3_Comment" />
+          <ScalarProperty Name="Section16_4_Condition" ColumnName="Section16_4_Condition" />
+          <ScalarProperty Name="Section16_4_Comment" ColumnName="Section16_4_Comment" />
+          <ScalarProperty Name="Section17_1_Condition" ColumnName="Section17_1_Condition" />
+          <ScalarProperty Name="Section17_1_Comment" ColumnName="Section17_1_Comment" />
+          <ScalarProperty Name="Section17_2_Condition" ColumnName="Section17_2_Condition" />
+          <ScalarProperty Name="Section17_2_Comment" ColumnName="Section17_2_Comment" />
+          <ScalarProperty Name="Section17_3_Condition" ColumnName="Section17_3_Condition" />
+          <ScalarProperty Name="Section17_3_Comment" ColumnName="Section17_3_Comment" />
+          <ScalarProperty Name="Section17_4_Condition" ColumnName="Section17_4_Condition" />
+          <ScalarProperty Name="Section17_4_Comment" ColumnName="Section17_4_Comment" />
+          <ScalarProperty Name="Section17_5_Condition" ColumnName="Section17_5_Condition" />
+          <ScalarProperty Name="Section17_5_Comment" ColumnName="Section17_5_Comment" />
+          <ScalarProperty Name="Section17_6_Condition" ColumnName="Section17_6_Condition" />
+          <ScalarProperty Name="Section17_6_Comment" ColumnName="Section17_6_Comment" />
+          <ScalarProperty Name="Section18_1_Condition" ColumnName="Section18_1_Condition" />
+          <ScalarProperty Name="Section18_1_Comment" ColumnName="Section18_1_Comment" />
+          <ScalarProperty Name="Section18_2_Condition" ColumnName="Section18_2_Condition" />
+          <ScalarProperty Name="Section18_2_Comment" ColumnName="Section18_2_Comment" />
+          <ScalarProperty Name="Section18_3_Condition" ColumnName="Section18_3_Condition" />
+          <ScalarProperty Name="Section18_3_Comment" ColumnName="Section18_3_Comment" />
+          <ScalarProperty Name="Section18_4_Condition" ColumnName="Section18_4_Condition" />
+          <ScalarProperty Name="Section18_4_Comment" ColumnName="Section18_4_Comment" />
+          <ScalarProperty Name="Section18_5_Condition" ColumnName="Section18_5_Condition" />
+          <ScalarProperty Name="Section18_5_Comment" ColumnName="Section18_5_Comment" />
+          <ScalarProperty Name="Section18_6_Condition" ColumnName="Section18_6_Condition" />
+          <ScalarProperty Name="Section18_6_Comment" ColumnName="Section18_6_Comment" />
+          <ScalarProperty Name="Section18_7_Condition" ColumnName="Section18_7_Condition" />
+          <ScalarProperty Name="Section18_7_Comment" ColumnName="Section18_7_Comment" />
+          <ScalarProperty Name="IsSynced" ColumnName="IsSynced" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfiles">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.UserProfile">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="ShipFleetID" ColumnName="ShipFleetID" />
+          <ScalarProperty Name="UserGroup" ColumnName="UserGroup" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="RoleOrder" ColumnName="RoleOrder" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="empnre01" ColumnName="empnre01" />
+          <ScalarProperty Name="empste01" ColumnName="empste01" />
+          <ScalarProperty Name="fstnme01" ColumnName="fstnme01" />
+          <ScalarProperty Name="surnme01" ColumnName="surnme01" />
+          <ScalarProperty Name="bthcnte01" ColumnName="bthcnte01" />
+          <ScalarProperty Name="fnce01" ColumnName="fnce01" />
+          <ScalarProperty Name="lane01" ColumnName="lane01" />
+          <ScalarProperty Name="rsnewe01" ColumnName="rsnewe01" />
+          <ScalarProperty Name="sxee01" ColumnName="sxee01" />
+          <ScalarProperty Name="bthdate01" ColumnName="bthdate01" />
+          <ScalarProperty Name="nate01" ColumnName="nate01" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIMSLogInfomations">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.VIMSLogInfomation">
+        <MappingFragment StoreEntitySet="VIMSLogInfomation">
+          <ScalarProperty Name="VIMSID" ColumnName="VIMSID" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="OldINVOICE_EXCHRATE" ColumnName="OldINVOICE_EXCHRATE" />
+          <ScalarProperty Name="OldINVOICE_DATE" ColumnName="OldINVOICE_DATE" />
+          <ScalarProperty Name="NewINVOICE_EXCHRATE" ColumnName="NewINVOICE_EXCHRATE" />
+          <ScalarProperty Name="NewINVOICE_DATE" ColumnName="NewINVOICE_DATE" />
+          <ScalarProperty Name="REQNINVOICEID" ColumnName="REQNINVOICEID" />
+          <ScalarProperty Name="VRID" ColumnName="VRID" />
+          <ScalarProperty Name="OLDAccountID" ColumnName="OLDAccountID" />
+          <ScalarProperty Name="NewAccountID" ColumnName="NewAccountID" />
+          <ScalarProperty Name="NewPoDate" ColumnName="NewPoDate" />
+          <ScalarProperty Name="OldPoDate" ColumnName="OldPoDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserGroups">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.UserGroup">
+        <MappingFragment StoreEntitySet="UserGroup">
+          <ScalarProperty Name="UserGroupName" ColumnName="UserGroupName" />
+          <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.Menu">
+        <MappingFragment StoreEntitySet="Menus">
+          <ScalarProperty Name="IsDefaultMenu" ColumnName="IsDefaultMenu" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="MenuType" ColumnName="MenuType" />
+          <ScalarProperty Name="IsParent" ColumnName="IsParent" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="MenuText" ColumnName="MenuText" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="MenuLevel" ColumnName="MenuLevel" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserGroupMenuPermissions">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.UserGroupMenuPermission">
+        <MappingFragment StoreEntitySet="UserGroupMenuPermission">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Forms">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.Form">
+        <MappingFragment StoreEntitySet="Forms">
+          <ScalarProperty Name="FolderType" ColumnName="FolderType" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="DocumentVersion" ColumnName="DocumentVersion" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UploadType" ColumnName="UploadType" />
+          <ScalarProperty Name="DownloadPath" ColumnName="DownloadPath" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="URN" ColumnName="URN" />
+          <ScalarProperty Name="IsURNBased" ColumnName="IsURNBased" />
+          <ScalarProperty Name="HasSavedData" ColumnName="HasSavedData" />
+          <ScalarProperty Name="CanBeOpened" ColumnName="CanBeOpened" />
+          <ScalarProperty Name="AllowsNetworkAccess" ColumnName="AllowsNetworkAccess" />
+          <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="AmendmentDate" ColumnName="AmendmentDate" />
+          <ScalarProperty Name="Amendment" ColumnName="Amendment" />
+          <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+          <ScalarProperty Name="Issue" ColumnName="Issue" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="TemplatePath" ColumnName="TemplatePath" />
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipSystems">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.ShipSystem">
+        <MappingFragment StoreEntitySet="ShipSystems">
+          <ScalarProperty Name="IsMainPC" ColumnName="IsMainPC" />
+          <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="PCUniqueId" ColumnName="PCUniqueId" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipSystemsEventLogs">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.ShipSystemsEventLog">
+        <MappingFragment StoreEntitySet="ShipSystemsEventLog">
+          <ScalarProperty Name="EventLogType" ColumnName="EventLogType" />
+          <ScalarProperty Name="EventType" ColumnName="EventType" />
+          <ScalarProperty Name="EventMachineName" ColumnName="EventMachineName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+          <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
+          <ScalarProperty Name="EventSource" ColumnName="EventSource" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="ShipSystemId" ColumnName="ShipSystemId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipSystemsInfoes">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.ShipSystemsInfo">
+        <MappingFragment StoreEntitySet="ShipSystemsInfo">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="PropertyValue" ColumnName="PropertyValue" />
+          <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
+          <ScalarProperty Name="ShipSystemId" ColumnName="ShipSystemId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipSystemsProcesses">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.ShipSystemsProcess">
+        <MappingFragment StoreEntitySet="ShipSystemsProcesses">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="MemoryUsage" ColumnName="MemoryUsage" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProcessId" ColumnName="ProcessId" />
+          <ScalarProperty Name="ShipSystemId" ColumnName="ShipSystemId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipSystemsServices">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.ShipSystemsService">
+        <MappingFragment StoreEntitySet="ShipSystemsServices">
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ProcessId" ColumnName="ProcessId" />
+          <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+          <ScalarProperty Name="StartName" ColumnName="StartName" />
+          <ScalarProperty Name="StartupType" ColumnName="StartupType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShipSystemId" ColumnName="ShipSystemId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoldVentilationRecordForms">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.HoldVentilationRecordForm">
+        <MappingFragment StoreEntitySet="HoldVentilationRecordForm">
+          <ScalarProperty Name="IsSynced" ColumnName="IsSynced" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="DischargingDate" ColumnName="DischargingDate" />
+          <ScalarProperty Name="DischargingPort" ColumnName="DischargingPort" />
+          <ScalarProperty Name="LoadingDate" ColumnName="LoadingDate" />
+          <ScalarProperty Name="LoadingPort" ColumnName="LoadingPort" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="HoldVentilationRecordFormId" ColumnName="HoldVentilationRecordFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoldVentilationRecordSheets">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.HoldVentilationRecordSheet">
+        <MappingFragment StoreEntitySet="HoldVentilationRecordSheet">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="SeaTemp" ColumnName="SeaTemp" />
+          <ScalarProperty Name="IsVentilation" ColumnName="IsVentilation" />
+          <ScalarProperty Name="HODewPOint" ColumnName="HODewPOint" />
+          <ScalarProperty Name="HOWetBulb" ColumnName="HOWetBulb" />
+          <ScalarProperty Name="HODryBulb" ColumnName="HODryBulb" />
+          <ScalarProperty Name="OUTDewPOint" ColumnName="OUTDewPOint" />
+          <ScalarProperty Name="OUTWetBulb" ColumnName="OUTWetBulb" />
+          <ScalarProperty Name="OUTDryBulb" ColumnName="OUTDryBulb" />
+          <ScalarProperty Name="HVRTime" ColumnName="HVRTime" />
+          <ScalarProperty Name="HVRDate" ColumnName="HVRDate" />
+          <ScalarProperty Name="HoldVentilationRecordFormId" ColumnName="HoldVentilationRecordFormId" />
+          <ScalarProperty Name="HoldVentilationRecordId" ColumnName="HoldVentilationRecordId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipAppReleaseNotes">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.ShipAppReleaseNote">
+        <MappingFragment StoreEntitySet="ShipAppReleaseNote">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="NoOfFilesAffected" ColumnName="NoOfFilesAffected" />
+          <ScalarProperty Name="AppPublishDate" ColumnName="AppPublishDate" />
+          <ScalarProperty Name="AppDescription" ColumnName="AppDescription" />
+          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
+          <ScalarProperty Name="AppId" ColumnName="AppId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipAppDownloadLogs">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.ShipAppDownloadLog">
+        <MappingFragment StoreEntitySet="ShipAppDownloadLog">
+          <ScalarProperty Name="DownloadDate" ColumnName="DownloadDate" />
+          <ScalarProperty Name="DownloadedAppId" ColumnName="DownloadedAppId" />
+          <ScalarProperty Name="OldAppId" ColumnName="OldAppId" />
+          <ScalarProperty Name="PCUniqueId" ColumnName="PCUniqueId" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackForms">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.FeedbackForm">
+        <MappingFragment StoreEntitySet="FeedbackForm">
+          <ScalarProperty Name="FeedbackBy" ColumnName="FeedbackBy" />
+          <ScalarProperty Name="AttachmentFileName" ColumnName="AttachmentFileName" />
+          <ScalarProperty Name="AttachmentPath" ColumnName="AttachmentPath" />
+          <ScalarProperty Name="IsSynced" ColumnName="IsSynced" />
+          <ScalarProperty Name="IsMailSent" ColumnName="IsMailSent" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMRForms">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.SMRForm">
+        <MappingFragment StoreEntitySet="SMRForm">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Section13" ColumnName="Section13" />
+          <ScalarProperty Name="Section12k" ColumnName="Section12k" />
+          <ScalarProperty Name="Section12j" ColumnName="Section12j" />
+          <ScalarProperty Name="Section12i" ColumnName="Section12i" />
+          <ScalarProperty Name="Section12h" ColumnName="Section12h" />
+          <ScalarProperty Name="Section12g" ColumnName="Section12g" />
+          <ScalarProperty Name="Section12f" ColumnName="Section12f" />
+          <ScalarProperty Name="Section12e" ColumnName="Section12e" />
+          <ScalarProperty Name="Section12d" ColumnName="Section12d" />
+          <ScalarProperty Name="Section12c" ColumnName="Section12c" />
+          <ScalarProperty Name="Section12b" ColumnName="Section12b" />
+          <ScalarProperty Name="Section12a" ColumnName="Section12a" />
+          <ScalarProperty Name="Section11" ColumnName="Section11" />
+          <ScalarProperty Name="Section10" ColumnName="Section10" />
+          <ScalarProperty Name="Section9" ColumnName="Section9" />
+          <ScalarProperty Name="Section8b5" ColumnName="Section8b5" />
+          <ScalarProperty Name="Section8b4" ColumnName="Section8b4" />
+          <ScalarProperty Name="Section8b3" ColumnName="Section8b3" />
+          <ScalarProperty Name="Section8b2" ColumnName="Section8b2" />
+          <ScalarProperty Name="Section8b1" ColumnName="Section8b1" />
+          <ScalarProperty Name="Section8b" ColumnName="Section8b" />
+          <ScalarProperty Name="Section8a" ColumnName="Section8a" />
+          <ScalarProperty Name="Section7h" ColumnName="Section7h" />
+          <ScalarProperty Name="Section7g" ColumnName="Section7g" />
+          <ScalarProperty Name="Section7f2" ColumnName="Section7f2" />
+          <ScalarProperty Name="Section7f1" ColumnName="Section7f1" />
+          <ScalarProperty Name="Section7e3" ColumnName="Section7e3" />
+          <ScalarProperty Name="Section7e2" ColumnName="Section7e2" />
+          <ScalarProperty Name="Section7e1" ColumnName="Section7e1" />
+          <ScalarProperty Name="Section7d" ColumnName="Section7d" />
+          <ScalarProperty Name="Section7c" ColumnName="Section7c" />
+          <ScalarProperty Name="Section7b" ColumnName="Section7b" />
+          <ScalarProperty Name="Section7a" ColumnName="Section7a" />
+          <ScalarProperty Name="Section7" ColumnName="Section7" />
+          <ScalarProperty Name="Section6" ColumnName="Section6" />
+          <ScalarProperty Name="Section5" ColumnName="Section5" />
+          <ScalarProperty Name="Section4" ColumnName="Section4" />
+          <ScalarProperty Name="Section3" ColumnName="Section3" />
+          <ScalarProperty Name="Section2" ColumnName="Section2" />
+          <ScalarProperty Name="Section1" ColumnName="Section1" />
+          <ScalarProperty Name="DateOfMeeting" ColumnName="DateOfMeeting" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="ReviewPeriod" ColumnName="ReviewPeriod" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="ShipID" ColumnName="ShipID" />
+          <ScalarProperty Name="SMRFormID" ColumnName="SMRFormID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMRFormCrewMembers">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.SMRFormCrewMember">
+        <MappingFragment StoreEntitySet="SMRFormCrewMembers">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ElectedAsSafety" ColumnName="ElectedAsSafety" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="SMRFormID" ColumnName="SMRFormID" />
+          <ScalarProperty Name="CrewMemberID" ColumnName="CrewMemberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RiskAssessmentForms">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.RiskAssessmentForm">
+        <MappingFragment StoreEntitySet="RiskAssessmentForm">
+          <ScalarProperty Name="RAFUniqueID" ColumnName="RAFUniqueID" />
+          <ScalarProperty Name="IsApplicable" ColumnName="IsApplicable" />
+          <ScalarProperty Name="IsAmended" ColumnName="IsAmended" />
+          <ScalarProperty Name="SectionType" ColumnName="SectionType" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+          <ScalarProperty Name="IsConfidential" ColumnName="IsConfidential" />
+          <ScalarProperty Name="AmendmentDate" ColumnName="AmendmentDate" />
+          <ScalarProperty Name="Amendment" ColumnName="Amendment" />
+          <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+          <ScalarProperty Name="Issue" ColumnName="Issue" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="IsSynced" ColumnName="IsSynced" />
+          <ScalarProperty Name="SavedAsDraft" ColumnName="SavedAsDraft" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ReviewerLocation" ColumnName="ReviewerLocation" />
+          <ScalarProperty Name="ReviewerRank" ColumnName="ReviewerRank" />
+          <ScalarProperty Name="ReviewerDate" ColumnName="ReviewerDate" />
+          <ScalarProperty Name="ReviewerName" ColumnName="ReviewerName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="RAFID" ColumnName="RAFID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RiskAssessmentFormHazards">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.RiskAssessmentFormHazard">
+        <MappingFragment StoreEntitySet="RiskAssessmentFormHazard">
+          <ScalarProperty Name="RAFUniqueID" ColumnName="RAFUniqueID" />
+          <ScalarProperty Name="Stage4RiskFactor" ColumnName="Stage4RiskFactor" />
+          <ScalarProperty Name="Stage4Likelihood" ColumnName="Stage4Likelihood" />
+          <ScalarProperty Name="Stage4Severity" ColumnName="Stage4Severity" />
+          <ScalarProperty Name="Stage3Description" ColumnName="Stage3Description" />
+          <ScalarProperty Name="Stage2RiskFactor" ColumnName="Stage2RiskFactor" />
+          <ScalarProperty Name="Stage2Likelihood" ColumnName="Stage2Likelihood" />
+          <ScalarProperty Name="Stage2Severity" ColumnName="Stage2Severity" />
+          <ScalarProperty Name="Stage1Description" ColumnName="Stage1Description" />
+          <ScalarProperty Name="RAFID" ColumnName="RAFID" />
+          <ScalarProperty Name="HazardId" ColumnName="HazardId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GeneralSettings">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.GeneralSetting">
+        <MappingFragment StoreEntitySet="GeneralSettings">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MainSyncServicesEventLogs">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.MainSyncServicesEventLog">
+        <MappingFragment StoreEntitySet="MainSyncServicesEventLog">
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="RunningVersion" ColumnName="RunningVersion" />
+          <ScalarProperty Name="ShipSystemId" ColumnName="ShipSystemId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpenFileServicesEventLogs">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.OpenFileServicesEventLog">
+        <MappingFragment StoreEntitySet="OpenFileServicesEventLog">
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="RunningVersion" ColumnName="RunningVersion" />
+          <ScalarProperty Name="ShipSystemId" ColumnName="ShipSystemId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArrivalReports">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.ArrivalReport">
+        <MappingFragment StoreEntitySet="ArrivalReports">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsSynced" ColumnName="IsSynced" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CCEmail" ColumnName="CCEmail" />
+          <ScalarProperty Name="ToEmail" ColumnName="ToEmail" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="NextPort" ColumnName="NextPort" />
+          <ScalarProperty Name="ETCDepartureTime" ColumnName="ETCDepartureTime" />
+          <ScalarProperty Name="ETCDepartureDate" ColumnName="ETCDepartureDate" />
+          <ScalarProperty Name="CargoTime" ColumnName="CargoTime" />
+          <ScalarProperty Name="CargoDate" ColumnName="CargoDate" />
+          <ScalarProperty Name="LubeOil" ColumnName="LubeOil" />
+          <ScalarProperty Name="FreshWater" ColumnName="FreshWater" />
+          <ScalarProperty Name="SulphurDieselOil" ColumnName="SulphurDieselOil" />
+          <ScalarProperty Name="SulphurFuelOil" ColumnName="SulphurFuelOil" />
+          <ScalarProperty Name="DieselOil" ColumnName="DieselOil" />
+          <ScalarProperty Name="FuelOil" ColumnName="FuelOil" />
+          <ScalarProperty Name="DistanceMade" ColumnName="DistanceMade" />
+          <ScalarProperty Name="AverageSpeed" ColumnName="AverageSpeed" />
+          <ScalarProperty Name="ArrivalAlongSideTime" ColumnName="ArrivalAlongSideTime" />
+          <ScalarProperty Name="ArrivalAlongSideDate" ColumnName="ArrivalAlongSideDate" />
+          <ScalarProperty Name="OnAnchor" ColumnName="OnAnchor" />
+          <ScalarProperty Name="NoOfTugsUsed" ColumnName="NoOfTugsUsed" />
+          <ScalarProperty Name="POBTime" ColumnName="POBTime" />
+          <ScalarProperty Name="POBDate" ColumnName="POBDate" />
+          <ScalarProperty Name="NORTenderedTime" ColumnName="NORTenderedTime" />
+          <ScalarProperty Name="NORTenderedDate" ColumnName="NORTenderedDate" />
+          <ScalarProperty Name="ArrivalTime" ColumnName="ArrivalTime" />
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="PortName" ColumnName="PortName" />
+          <ScalarProperty Name="VoyageNo" ColumnName="VoyageNo" />
+          <ScalarProperty Name="ReportCreated" ColumnName="ReportCreated" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="ShipNo" ColumnName="ShipNo" />
+          <ScalarProperty Name="ARID" ColumnName="ARID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailyCargoReports">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.DailyCargoReport">
+        <MappingFragment StoreEntitySet="DailyCargoReports">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CargoType" ColumnName="CargoType" />
+          <ScalarProperty Name="IsSynced" ColumnName="IsSynced" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CCEmail" ColumnName="CCEmail" />
+          <ScalarProperty Name="ToEmail" ColumnName="ToEmail" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="NextPort" ColumnName="NextPort" />
+          <ScalarProperty Name="ETCTime" ColumnName="ETCTime" />
+          <ScalarProperty Name="ETCDate" ColumnName="ETCDate" />
+          <ScalarProperty Name="DirtyOil" ColumnName="DirtyOil" />
+          <ScalarProperty Name="Sludge" ColumnName="Sludge" />
+          <ScalarProperty Name="SulphurDieselOil" ColumnName="SulphurDieselOil" />
+          <ScalarProperty Name="SulphurFuelOil" ColumnName="SulphurFuelOil" />
+          <ScalarProperty Name="DieselOil" ColumnName="DieselOil" />
+          <ScalarProperty Name="FuelOil" ColumnName="FuelOil" />
+          <ScalarProperty Name="CargoRemaining" ColumnName="CargoRemaining" />
+          <ScalarProperty Name="TotalCargoLoaded" ColumnName="TotalCargoLoaded" />
+          <ScalarProperty Name="QuantityOfCargoLoaded" ColumnName="QuantityOfCargoLoaded" />
+          <ScalarProperty Name="NoOfShipsCranesInUse" ColumnName="NoOfShipsCranesInUse" />
+          <ScalarProperty Name="NoOfGangsEmployed" ColumnName="NoOfGangsEmployed" />
+          <ScalarProperty Name="PortName" ColumnName="PortName" />
+          <ScalarProperty Name="VoyageNo" ColumnName="VoyageNo" />
+          <ScalarProperty Name="ReportCreated" ColumnName="ReportCreated" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="ShipNo" ColumnName="ShipNo" />
+          <ScalarProperty Name="DCRID" ColumnName="DCRID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailyPositionReports">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.DailyPositionReport">
+        <MappingFragment StoreEntitySet="DailyPositionReport">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CargoType" ColumnName="CargoType" />
+          <ScalarProperty Name="IsSynced" ColumnName="IsSynced" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CCEmail" ColumnName="CCEmail" />
+          <ScalarProperty Name="ToEmail" ColumnName="ToEmail" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="DraftForward" ColumnName="DraftForward" />
+          <ScalarProperty Name="DraftAft" ColumnName="DraftAft" />
+          <ScalarProperty Name="SwellHeight" ColumnName="SwellHeight" />
+          <ScalarProperty Name="SwellDirection" ColumnName="SwellDirection" />
+          <ScalarProperty Name="SeaState" ColumnName="SeaState" />
+          <ScalarProperty Name="WindForce" ColumnName="WindForce" />
+          <ScalarProperty Name="WindDirection" ColumnName="WindDirection" />
+          <ScalarProperty Name="OilCunsum" ColumnName="OilCunsum" />
+          <ScalarProperty Name="ExhGasTempAftTurboChrg" ColumnName="ExhGasTempAftTurboChrg" />
+          <ScalarProperty Name="HighCylExhTemp" ColumnName="HighCylExhTemp" />
+          <ScalarProperty Name="EngineLoad" ColumnName="EngineLoad" />
+          <ScalarProperty Name="Pitch" ColumnName="Pitch" />
+          <ScalarProperty Name="DirtyOil" ColumnName="DirtyOil" />
+          <ScalarProperty Name="Sludge" ColumnName="Sludge" />
+          <ScalarProperty Name="LubeOil" ColumnName="LubeOil" />
+          <ScalarProperty Name="FreshWater" ColumnName="FreshWater" />
+          <ScalarProperty Name="SulphurDieselOil" ColumnName="SulphurDieselOil" />
+          <ScalarProperty Name="SulphurFuelOil" ColumnName="SulphurFuelOil" />
+          <ScalarProperty Name="DieselOil" ColumnName="DieselOil" />
+          <ScalarProperty Name="FuelOil" ColumnName="FuelOil" />
+          <ScalarProperty Name="EstimatedArrivalTimeFullSpeed" ColumnName="EstimatedArrivalTimeFullSpeed" />
+          <ScalarProperty Name="EstimatedArrivalDateFullSpeed" ColumnName="EstimatedArrivalDateFullSpeed" />
+          <ScalarProperty Name="EstimatedArrivalTimeEcoSpeed" ColumnName="EstimatedArrivalTimeEcoSpeed" />
+          <ScalarProperty Name="EstimatedArrivalDateEcoSpeed" ColumnName="EstimatedArrivalDateEcoSpeed" />
+          <ScalarProperty Name="NextPort" ColumnName="NextPort" />
+          <ScalarProperty Name="DistanceMade" ColumnName="DistanceMade" />
+          <ScalarProperty Name="AverageSpeed" ColumnName="AverageSpeed" />
+          <ScalarProperty Name="Anchored" ColumnName="Anchored" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="VoyageNo" ColumnName="VoyageNo" />
+          <ScalarProperty Name="ReportCreated" ColumnName="ReportCreated" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
+          <ScalarProperty Name="ShipNo" ColumnName="ShipNo" />
+          <ScalarProperty Name="DPRID" ColumnName="DPRID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartureReports">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.DepartureReport">
+        <MappingFragment StoreEntitySet="DepartureReports">
+          <ScalarProperty Name="DraftFWD" ColumnName="DraftFWD" />
+          <ScalarProperty Name="DraftAFT" ColumnName="DraftAFT" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsSynced" ColumnName="IsSynced" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CCEmail" ColumnName="CCEmail" />
+          <ScalarProperty Name="ToEmail" ColumnName="ToEmail" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="IntendedRoute" ColumnName="IntendedRoute" />
+          <ScalarProperty Name="ETATime" ColumnName="ETATime" />
+          <ScalarProperty Name="ETADate" ColumnName="ETADate" />
+          <ScalarProperty Name="NextPort" ColumnName="NextPort" />
+          <ScalarProperty Name="SulphurDieselOil" ColumnName="SulphurDieselOil" />
+          <ScalarProperty Name="SulphurFuelOil" ColumnName="SulphurFuelOil" />
+          <ScalarProperty Name="DieselOil" ColumnName="DieselOil" />
+          <ScalarProperty Name="FuelOil" ColumnName="FuelOil" />
+          <ScalarProperty Name="NoOfTugs" ColumnName="NoOfTugs" />
+          <ScalarProperty Name="POffTime" ColumnName="POffTime" />
+          <ScalarProperty Name="POffDate" ColumnName="POffDate" />
+          <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+          <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+          <ScalarProperty Name="POBTime" ColumnName="POBTime" />
+          <ScalarProperty Name="POBDate" ColumnName="POBDate" />
+          <ScalarProperty Name="CargoLoaded" ColumnName="CargoLoaded" />
+          <ScalarProperty Name="CargoOnBoard" ColumnName="CargoOnBoard" />
+          <ScalarProperty Name="TimeCargoOperations" ColumnName="TimeCargoOperations" />
+          <ScalarProperty Name="DateCargoOperations" ColumnName="DateCargoOperations" />
+          <ScalarProperty Name="PortName" ColumnName="PortName" />
+          <ScalarProperty Name="VoyageNo" ColumnName="VoyageNo" />
+          <ScalarProperty Name="ReportCreated" ColumnName="ReportCreated" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="ShipNo" ColumnName="ShipNo" />
+          <ScalarProperty Name="DRID" ColumnName="DRID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RiskAssessmentFormReviewers">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.RiskAssessmentFormReviewer">
+        <MappingFragment StoreEntitySet="RiskAssessmentFormReviewer">
+          <ScalarProperty Name="RAFUniqueID" ColumnName="RAFUniqueID" />
+          <ScalarProperty Name="IndexNo" ColumnName="IndexNo" />
+          <ScalarProperty Name="ReviewerName" ColumnName="ReviewerName" />
+          <ScalarProperty Name="RAFID" ColumnName="RAFID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CodaPurchaseOrders">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.CodaPurchaseOrder">
+        <MappingFragment StoreEntitySet="CodaPurchaseOrders">
+          <ScalarProperty Name="PODate" ColumnName="PODate" />
+          <ScalarProperty Name="Equip_Name" ColumnName="Equip_Name" />
+          <ScalarProperty Name="Curr_Code" ColumnName="Curr_Code" />
+          <ScalarProperty Name="Dept_Code" ColumnName="Dept_Code" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="Forwarder_Recvd_Date" ColumnName="Forwarder_Recvd_Date" />
+          <ScalarProperty Name="POTotal_Base" ColumnName="POTotal_Base" />
+          <ScalarProperty Name="POExchRate" ColumnName="POExchRate" />
+          <ScalarProperty Name="POTotal" ColumnName="POTotal" />
+          <ScalarProperty Name="PORecVDate" ColumnName="PORecVDate" />
+          <ScalarProperty Name="Account_Descr" ColumnName="Account_Descr" />
+          <ScalarProperty Name="Account_Code" ColumnName="Account_Code" />
+          <ScalarProperty Name="Vendor_Addr_Name" ColumnName="Vendor_Addr_Name" />
+          <ScalarProperty Name="PONO" ColumnName="PONO" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Descr" ColumnName="Descr" />
+          <ScalarProperty Name="ValueDoc" ColumnName="ValueDoc" />
+          <ScalarProperty Name="El1" ColumnName="El1" />
+          <ScalarProperty Name="ModDate" ColumnName="ModDate" />
+          <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+          <ScalarProperty Name="DocCode" ColumnName="DocCode" />
+          <ScalarProperty Name="CmpCode" ColumnName="CmpCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssetManagmentEquipmentITLists">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.AssetManagmentEquipmentITList">
+        <MappingFragment StoreEntitySet="AssetManagmentEquipmentITList">
+          <ScalarProperty Name="ITOSPatchVersion" ColumnName="ITOSPatchVersion" />
+          <ScalarProperty Name="ITOperatingSystem" ColumnName="ITOperatingSystem" />
+          <ScalarProperty Name="ITCriticality" ColumnName="ITCriticality" />
+          <ScalarProperty Name="ITPersonResponsible" ColumnName="ITPersonResponsible" />
+          <ScalarProperty Name="ITOwner" ColumnName="ITOwner" />
+          <ScalarProperty Name="ITHardwareId" ColumnName="ITHardwareId" />
+          <ScalarProperty Name="ITRemark" ColumnName="ITRemark" />
+          <ScalarProperty Name="ITLastServiced" ColumnName="ITLastServiced" />
+          <ScalarProperty Name="ITWorkingCondition" ColumnName="ITWorkingCondition" />
+          <ScalarProperty Name="ITSerialNo" ColumnName="ITSerialNo" />
+          <ScalarProperty Name="ITType" ColumnName="ITType" />
+          <ScalarProperty Name="ITModel" ColumnName="ITModel" />
+          <ScalarProperty Name="ITMake" ColumnName="ITMake" />
+          <ScalarProperty Name="ITLocation" ColumnName="ITLocation" />
+          <ScalarProperty Name="ITEquipment" ColumnName="ITEquipment" />
+          <ScalarProperty Name="AMEId" ColumnName="AMEId" />
+          <ScalarProperty Name="ITId" ColumnName="ITId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssetManagmentEquipmentLists">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.AssetManagmentEquipmentList">
+        <MappingFragment StoreEntitySet="AssetManagmentEquipmentList">
+          <ScalarProperty Name="IsSynced" ColumnName="IsSynced" />
+          <ScalarProperty Name="SavedAsDraft" ColumnName="SavedAsDraft" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="AMEId" ColumnName="AMEId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssetManagmentEquipmentOTLists">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.AssetManagmentEquipmentOTList">
+        <MappingFragment StoreEntitySet="AssetManagmentEquipmentOTList">
+          <ScalarProperty Name="OTOSPatchVersion" ColumnName="OTOSPatchVersion" />
+          <ScalarProperty Name="OTOperatingSystem" ColumnName="OTOperatingSystem" />
+          <ScalarProperty Name="OTCriticality" ColumnName="OTCriticality" />
+          <ScalarProperty Name="OTPersonResponsible" ColumnName="OTPersonResponsible" />
+          <ScalarProperty Name="OTOwner" ColumnName="OTOwner" />
+          <ScalarProperty Name="OTHardwareId" ColumnName="OTHardwareId" />
+          <ScalarProperty Name="OTRemark" ColumnName="OTRemark" />
+          <ScalarProperty Name="OTLastServiced" ColumnName="OTLastServiced" />
+          <ScalarProperty Name="OTWorkingCondition" ColumnName="OTWorkingCondition" />
+          <ScalarProperty Name="OTSerialNo" ColumnName="OTSerialNo" />
+          <ScalarProperty Name="OTType" ColumnName="OTType" />
+          <ScalarProperty Name="OTModel" ColumnName="OTModel" />
+          <ScalarProperty Name="OTMake" ColumnName="OTMake" />
+          <ScalarProperty Name="OTLocation" ColumnName="OTLocation" />
+          <ScalarProperty Name="OTEquipment" ColumnName="OTEquipment" />
+          <ScalarProperty Name="AMEId" ColumnName="AMEId" />
+          <ScalarProperty Name="OTId" ColumnName="OTId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssetManagmentEquipmentSoftwareAssets">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.AssetManagmentEquipmentSoftwareAsset">
+        <MappingFragment StoreEntitySet="AssetManagmentEquipmentSoftwareAssets">
+          <ScalarProperty Name="SAOSPatchVersion" ColumnName="SAOSPatchVersion" />
+          <ScalarProperty Name="SAOperatingSystem" ColumnName="SAOperatingSystem" />
+          <ScalarProperty Name="SACriticality" ColumnName="SACriticality" />
+          <ScalarProperty Name="SAPersonResponsible" ColumnName="SAPersonResponsible" />
+          <ScalarProperty Name="SAOwner" ColumnName="SAOwner" />
+          <ScalarProperty Name="SASoftwareId" ColumnName="SASoftwareId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="LicenseType" ColumnName="LicenseType" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AMEId" ColumnName="AMEId" />
+          <ScalarProperty Name="SAId" ColumnName="SAId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssetManagmentEquipmentLogs">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.AssetManagmentEquipmentLog">
+        <MappingFragment StoreEntitySet="AssetManagmentEquipmentLogs">
+          <ScalarProperty Name="SoftwareAssetsList" ColumnName="SoftwareAssetsList" />
+          <ScalarProperty Name="ITTableList" ColumnName="ITTableList" />
+          <ScalarProperty Name="OTTableList" ColumnName="OTTableList" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="AMEId" ColumnName="AMEId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CybersecurityRisksAssessments">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.CybersecurityRisksAssessment">
+        <MappingFragment StoreEntitySet="CybersecurityRisksAssessment">
+          <ScalarProperty Name="IsSynced" ColumnName="IsSynced" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="CRAId" ColumnName="CRAId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CybersecurityRisksAssessmentLists">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.CybersecurityRisksAssessmentList">
+        <MappingFragment StoreEntitySet="CybersecurityRisksAssessmentList">
+          <ScalarProperty Name="HardwareId" ColumnName="HardwareId" />
+          <ScalarProperty Name="Vulnerability" ColumnName="Vulnerability" />
+          <ScalarProperty Name="RiskDecision" ColumnName="RiskDecision" />
+          <ScalarProperty Name="ResidualRiskScore" ColumnName="ResidualRiskScore" />
+          <ScalarProperty Name="ResidualLikelihoodScore" ColumnName="ResidualLikelihoodScore" />
+          <ScalarProperty Name="ResidualImpactScore" ColumnName="ResidualImpactScore" />
+          <ScalarProperty Name="ResidualRiskCategoryS" ColumnName="ResidualRiskCategoryS" />
+          <ScalarProperty Name="ResidualRiskCategoryA" ColumnName="ResidualRiskCategoryA" />
+          <ScalarProperty Name="ResidualRiskCategoryI" ColumnName="ResidualRiskCategoryI" />
+          <ScalarProperty Name="ResidualRiskCategoryC" ColumnName="ResidualRiskCategoryC" />
+          <ScalarProperty Name="Controls" ColumnName="Controls" />
+          <ScalarProperty Name="RiskOwner" ColumnName="RiskOwner" />
+          <ScalarProperty Name="InherentRiskScore" ColumnName="InherentRiskScore" />
+          <ScalarProperty Name="InherentLikelihoodScore" ColumnName="InherentLikelihoodScore" />
+          <ScalarProperty Name="InherentImpactScore" ColumnName="InherentImpactScore" />
+          <ScalarProperty Name="InherentRiskCategoryS" ColumnName="InherentRiskCategoryS" />
+          <ScalarProperty Name="InherentRiskCategoryA" ColumnName="InherentRiskCategoryA" />
+          <ScalarProperty Name="InherentRiskCategoryI" ColumnName="InherentRiskCategoryI" />
+          <ScalarProperty Name="InherentRiskCategoryC" ColumnName="InherentRiskCategoryC" />
+          <ScalarProperty Name="RiskDescription" ColumnName="RiskDescription" />
+          <ScalarProperty Name="RiskId" ColumnName="RiskId" />
+          <ScalarProperty Name="CRAId" ColumnName="CRAId" />
+          <ScalarProperty Name="CRALId" ColumnName="CRALId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CyberSecuritySettings">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.CyberSecuritySetting">
+        <MappingFragment StoreEntitySet="CyberSecuritySettings">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipSystemsSoftwareInfoes">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.ShipSystemsSoftwareInfo">
+        <MappingFragment StoreEntitySet="ShipSystemsSoftwareInfo">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="RepairPath" ColumnName="RepairPath" />
+          <ScalarProperty Name="ModifyPath" ColumnName="ModifyPath" />
+          <ScalarProperty Name="UninstallString" ColumnName="UninstallString" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="InstallLocation" ColumnName="InstallLocation" />
+          <ScalarProperty Name="InstallDate" ColumnName="InstallDate" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShipSystemId" ColumnName="ShipSystemId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CybersecurityRisksAssessmentLogs">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.CybersecurityRisksAssessmentLog">
+        <MappingFragment StoreEntitySet="CybersecurityRisksAssessmentLogs">
+          <ScalarProperty Name="CybersecurityRisksAssessmentList" ColumnName="CybersecurityRisksAssessmentList" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="CRAId" ColumnName="CRAId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpenFileServicesDownloadLogs">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.OpenFileServicesDownloadLog">
+        <MappingFragment StoreEntitySet="OpenFileServicesDownloadLog">
+          <ScalarProperty Name="DownloadDate" ColumnName="DownloadDate" />
+          <ScalarProperty Name="DownloadedAppId" ColumnName="DownloadedAppId" />
+          <ScalarProperty Name="OldAppId" ColumnName="OldAppId" />
+          <ScalarProperty Name="PCUniqueId" ColumnName="PCUniqueId" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpenFileServicesReleaseNotes">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.OpenFileServicesReleaseNote">
+        <MappingFragment StoreEntitySet="OpenFileServicesReleaseNote">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="NoOfFilesAffected" ColumnName="NoOfFilesAffected" />
+          <ScalarProperty Name="AppPublishDate" ColumnName="AppPublishDate" />
+          <ScalarProperty Name="AppDescription" ColumnName="AppDescription" />
+          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
+          <ScalarProperty Name="AppId" ColumnName="AppId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RiskAssessmentFormLogs">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.RiskAssessmentFormLog">
+        <MappingFragment StoreEntitySet="RiskAssessmentFormLogs">
+          <ScalarProperty Name="RAFUniqueID" ColumnName="RAFUniqueID" />
+          <ScalarProperty Name="RiskAssessmentFormList" ColumnName="RiskAssessmentFormList" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="RAFId" ColumnName="RAFId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.Document">
+        <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="RAFID" ColumnName="RAFID" />
+          <ScalarProperty Name="SectionType" ColumnName="SectionType" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="DocumentVersion" ColumnName="DocumentVersion" />
+          <ScalarProperty Name="UploadType" ColumnName="UploadType" />
+          <ScalarProperty Name="DownloadPath" ColumnName="DownloadPath" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="DocNo" ColumnName="DocNo" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIRDeficienciesInitialActionsFiles">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.GIRDeficienciesInitialActionsFile">
+        <MappingFragment StoreEntitySet="GIRDeficienciesInitialActionsFile">
+          <ScalarProperty Name="IniActFileUniqueID" ColumnName="IniActFileUniqueID" />
+          <ScalarProperty Name="IniActUniqueID" ColumnName="IniActUniqueID" />
+          <ScalarProperty Name="IsUpload" ColumnName="IsUpload" />
+          <ScalarProperty Name="StorePath" ColumnName="StorePath" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="DeficienciesID" ColumnName="DeficienciesID" />
+          <ScalarProperty Name="GIRInitialID" ColumnName="GIRInitialID" />
+          <ScalarProperty Name="GIRFileID" ColumnName="GIRFileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIRDeficienciesResolutions">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.GIRDeficienciesResolution">
+        <MappingFragment StoreEntitySet="GIRDeficienciesResolution">
+          <ScalarProperty Name="isNew" ColumnName="isNew" />
+          <ScalarProperty Name="DeficienciesUniqueID" ColumnName="DeficienciesUniqueID" />
+          <ScalarProperty Name="ResolutionUniqueID" ColumnName="ResolutionUniqueID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Resolution" ColumnName="Resolution" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="GIRFormID" ColumnName="GIRFormID" />
+          <ScalarProperty Name="DeficienciesID" ColumnName="DeficienciesID" />
+          <ScalarProperty Name="GIRResolutionID" ColumnName="GIRResolutionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIRDeficienciesResolutionFiles">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.GIRDeficienciesResolutionFile">
+        <MappingFragment StoreEntitySet="GIRDeficienciesResolutionFile">
+          <ScalarProperty Name="ResolutionFileUniqueID" ColumnName="ResolutionFileUniqueID" />
+          <ScalarProperty Name="ResolutionUniqueID" ColumnName="ResolutionUniqueID" />
+          <ScalarProperty Name="IsUpload" ColumnName="IsUpload" />
+          <ScalarProperty Name="StorePath" ColumnName="StorePath" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="DeficienciesID" ColumnName="DeficienciesID" />
+          <ScalarProperty Name="GIRResolutionID" ColumnName="GIRResolutionID" />
+          <ScalarProperty Name="GIRFileID" ColumnName="GIRFileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditNotesResolutions">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.AuditNotesResolution">
+        <MappingFragment StoreEntitySet="AuditNotesResolution">
+          <ScalarProperty Name="isNew" ColumnName="isNew" />
+          <ScalarProperty Name="NotesUniqueID" ColumnName="NotesUniqueID" />
+          <ScalarProperty Name="ResolutionUniqueID" ColumnName="ResolutionUniqueID" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Resolution" ColumnName="Resolution" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AuditNoteID" ColumnName="AuditNoteID" />
+          <ScalarProperty Name="ResolutionID" ColumnName="ResolutionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditNotesResolutionFiles">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.AuditNotesResolutionFile">
+        <MappingFragment StoreEntitySet="AuditNotesResolutionFiles">
+          <ScalarProperty Name="ResolutionFileUniqueID" ColumnName="ResolutionFileUniqueID" />
+          <ScalarProperty Name="ResolutionUniqueID" ColumnName="ResolutionUniqueID" />
+          <ScalarProperty Name="StorePath" ColumnName="StorePath" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="AuditNoteID" ColumnName="AuditNoteID" />
+          <ScalarProperty Name="ResolutionID" ColumnName="ResolutionID" />
+          <ScalarProperty Name="ResolutionFileID" ColumnName="ResolutionFileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIRDeficienciesInitialActions">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.GIRDeficienciesInitialAction">
+        <MappingFragment StoreEntitySet="GIRDeficienciesInitialActions">
+          <ScalarProperty Name="isNew" ColumnName="isNew" />
+          <ScalarProperty Name="DeficienciesUniqueID" ColumnName="DeficienciesUniqueID" />
+          <ScalarProperty Name="IniActUniqueID" ColumnName="IniActUniqueID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="GIRFormID" ColumnName="GIRFormID" />
+          <ScalarProperty Name="DeficienciesID" ColumnName="DeficienciesID" />
+          <ScalarProperty Name="GIRInitialID" ColumnName="GIRInitialID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetNotificationDetailsById" FunctionName="CarisbrookeShippingModel.Store.SP_GetNotificationDetailsById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarisbrookeShippingModel.SP_GetNotificationDetailsById_Result">
+          <ScalarProperty Name="CommentsCount" ColumnName="CommentsCount" />
+          <ScalarProperty Name="ResolutionsCount" ColumnName="ResolutionsCount" />
+          <ScalarProperty Name="InitialActionsCount" ColumnName="InitialActionsCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Get_GIDeficiencies_OR_SIActionableItems_Number" FunctionName="CarisbrookeShippingModel.Store.SP_Get_GIDeficiencies_OR_SIActionableItems_Number">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarisbrookeShippingModel.SP_Get_GIDeficiencies_OR_SIActionableItems_Number_Result">
+          <ScalarProperty Name="AvailableNo" ColumnName="AvailableNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ResetGIDeficienciesOrSIActionableItemsNumbersFrom501" FunctionName="CarisbrookeShippingModel.Store.SP_ResetGIDeficienciesOrSIActionableItemsNumbersFrom501" />
+    <FunctionImportMapping FunctionImportName="SP_GetAllNotifications" FunctionName="CarisbrookeShippingModel.Store.SP_GetAllNotifications">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarisbrookeShippingModel.SP_GetAllNotifications_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ReportType" ColumnName="ReportType" />
+          <ScalarProperty Name="Deficiency" ColumnName="Deficiency" />
+          <ScalarProperty Name="DeficienciesUniqueID" ColumnName="DeficienciesUniqueID" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="CommentsCount" ColumnName="CommentsCount" />
+          <ScalarProperty Name="ResolutionsCount" ColumnName="ResolutionsCount" />
+          <ScalarProperty Name="InitialActionsCount" ColumnName="InitialActionsCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetAssignedToMeGISIIADeficiencies" FunctionName="CarisbrookeShippingModel.Store.SP_GetAssignedToMeGISIIADeficiencies">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarisbrookeShippingModel.SP_GetAssignedToMeGISIIADeficiencies_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ReportType" ColumnName="ReportType" />
+          <ScalarProperty Name="Deficiency" ColumnName="Deficiency" />
+          <ScalarProperty Name="DeficienciesUniqueID" ColumnName="DeficienciesUniqueID" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="HelpAndSupports">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.HelpAndSupport">
+        <MappingFragment StoreEntitySet="HelpAndSupport">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsSynced" ColumnName="IsSynced" />
+          <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="IsStatus" ColumnName="IsStatus" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="ShipId" ColumnName="ShipId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InternalAuditForms">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.InternalAuditForm">
+        <MappingFragment StoreEntitySet="InternalAuditForm">
+          <ScalarProperty Name="SavedAsDraft" ColumnName="SavedAsDraft" />
+          <ScalarProperty Name="IsClosed" ColumnName="IsClosed" />
+          <ScalarProperty Name="IsAdditional" ColumnName="IsAdditional" />
+          <ScalarProperty Name="AuditType" ColumnName="AuditType" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="IsSynced" ColumnName="IsSynced" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Auditor" ColumnName="Auditor" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="AuditTypeMLC" ColumnName="AuditTypeMLC" />
+          <ScalarProperty Name="AuditTypeISPS" ColumnName="AuditTypeISPS" />
+          <ScalarProperty Name="AuditTypeISM" ColumnName="AuditTypeISM" />
+          <ScalarProperty Name="AuditNo" ColumnName="AuditNo" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="ShipId" ColumnName="ShipId" />
+          <ScalarProperty Name="InternalAuditFormId" ColumnName="InternalAuditFormId" />
+          <ScalarProperty Name="FormVersion" ColumnName="FormVersion" />
+          <ScalarProperty Name="UniqueFormID" ColumnName="UniqueFormID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="ReadByUserId" ColumnName="ReadByUserId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="IsReminder" ColumnName="IsReminder" />
+          <ScalarProperty Name="ReadDateTime" ColumnName="ReadDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+          <ScalarProperty Name="UserGroup" ColumnName="UserGroup" />
+          <ScalarProperty Name="SentToUserId" ColumnName="SentToUserId" />
+          <ScalarProperty Name="FromUserId" ColumnName="FromUserId" />
+          <ScalarProperty Name="DetailsURL" ColumnName="DetailsURL" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="UniqueDataId" ColumnName="UniqueDataId" />
+          <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MLCRegulationTrees">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.MLCRegulationTree">
+        <MappingFragment StoreEntitySet="MLCRegulationTree">
+          <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Regulation" ColumnName="Regulation" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="MLCRegulationParentId" ColumnName="MLCRegulationParentId" />
+          <ScalarProperty Name="MLCRegulationId" ColumnName="MLCRegulationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMSReferencesTrees">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.SMSReferencesTree">
+        <MappingFragment StoreEntitySet="SMSReferencesTree">
+          <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="SMSReferenceParentId" ColumnName="SMSReferenceParentId" />
+          <ScalarProperty Name="SMSReferenceId" ColumnName="SMSReferenceId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SSPReferenceTrees">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.SSPReferenceTree">
+        <MappingFragment StoreEntitySet="SSPReferenceTree">
+          <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="SSPReferenceParentId" ColumnName="SSPReferenceParentId" />
+          <ScalarProperty Name="SSPReferenceId" ColumnName="SSPReferenceId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetNotificationsForTheISMDashboard" FunctionName="CarisbrookeShippingModel.Store.SP_GetNotificationsForTheISMDashboard">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarisbrookeShippingModel.SP_GetNotificationsForTheISMDashboard_Result">
+          <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+          <ScalarProperty Name="UniqueDataId" ColumnName="UniqueDataId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="DetailsURL" ColumnName="DetailsURL" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="ReadDateTime" ColumnName="ReadDateTime" />
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="CreatedByPerson" ColumnName="CreatedByPerson" />
+          <ScalarProperty Name="DataDate" ColumnName="DataDate" />
+          <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetAllNotificationsByUser" FunctionName="CarisbrookeShippingModel.Store.SP_GetAllNotificationsByUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarisbrookeShippingModel.SP_GetAllNotificationsByUser_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ReportType" ColumnName="ReportType" />
+          <ScalarProperty Name="Deficiency" ColumnName="Deficiency" />
+          <ScalarProperty Name="DeficienciesUniqueID" ColumnName="DeficienciesUniqueID" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UniqueDataId" ColumnName="UniqueDataId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="InitialAction" ColumnName="InitialAction" />
+          <ScalarProperty Name="Resolution" ColumnName="Resolution" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CB_proc_GetRecentNotifications" FunctionName="CarisbrookeShippingModel.Store.CB_proc_GetRecentNotifications">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarisbrookeShippingModel.CB_proc_GetRecentNotifications_Result">
+          <ScalarProperty Name="UniqueDataId" ColumnName="UniqueDataId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ReportType" ColumnName="ReportType" />
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="Deficiency" ColumnName="Deficiency" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="CB_FormsPersonMaster">
+      <EntityTypeMapping TypeName="CarisbrookeShippingModel.CB_FormsPersonMaster">
+        <MappingFragment StoreEntitySet="CB_FormsPersonMaster">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="PersonType" ColumnName="PersonType" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

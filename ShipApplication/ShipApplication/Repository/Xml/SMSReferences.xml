@@ -1,0 +1,618 @@
+<?xml version="1.0" standalone="yes"?>
+<SMSReferences>
+	<SMSReference SMSReferenceId="1">
+		<SMSChapterId>1</SMSChapterId>
+		<Chapter>1 - Introduction, Policies, DPA and Deputy</Chapter>
+		<Reference>1.1 - Forward</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="2">
+		<SMSChapterId>1</SMSChapterId>
+		<Chapter>1 - Introduction, Policies, DPA and Deputy</Chapter>
+		<Reference>1.2 - Company Commitment</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="3">
+		<SMSChapterId>1</SMSChapterId>
+		<Chapter>1 - Introduction, Policies, DPA and Deputy</Chapter>
+		<Reference>1.3 - Safety and Environmental Protection Policy</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="4">
+		<SMSChapterId>1</SMSChapterId>
+		<Chapter>1 - Introduction, Policies, DPA and Deputy</Chapter>
+		<Reference>1.4 - Health and Safety at Work Policy</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="5">
+		<SMSChapterId>1</SMSChapterId>
+		<Chapter>1 - Introduction, Policies, DPA and Deputy</Chapter>
+		<Reference>1.5 - Drug and Alcohol Policy</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="6">
+		<SMSChapterId>1</SMSChapterId>
+		<Chapter>1 - Introduction, Policies, DPA and Deputy</Chapter>
+		<Reference>1.6 - Smoking Policy</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="110">
+		<SMSChapterId>1</SMSChapterId>
+		<Chapter>1 - Introduction, Policies, DPA and Deputy</Chapter>
+		<Reference>1.7 - Media Policy</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="7">
+		<SMSChapterId>1</SMSChapterId>
+		<Chapter>1 - Introduction, Policies, DPA and Deputy</Chapter>
+		<Reference>1.8 - Resources and Personnel</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="8">
+		<SMSChapterId>1</SMSChapterId>
+		<Chapter>1 - Introduction, Policies, DPA and Deputy</Chapter>
+		<Reference>1.9 - Designated Person Ashore and Deputy</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="9">
+		<SMSChapterId>2</SMSChapterId>
+		<Chapter>2 - Company and Shipboard Structure, Personnel Responsibilities and Authorities</Chapter>
+		<Reference>2.1 - Company Structure, Responsibilities and Authorities</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="11">
+		<SMSChapterId>2</SMSChapterId>
+		<Chapter>2 - Company and Shipboard Structure, Personnel Responsibilities and Authorities</Chapter>
+		<Reference>2.2 - Shipboard Responsibilities and Authorities</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="12">
+		<SMSChapterId>3</SMSChapterId>
+		<Chapter>3 - Personnel Management</Chapter>
+		<Reference>3.1 - Manning</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="13">
+		<SMSChapterId>3</SMSChapterId>
+		<Chapter>3 - Personnel Management</Chapter>
+		<Reference>3.2 - Recruitment</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="14">
+		<SMSChapterId>3</SMSChapterId>
+		<Chapter>3 - Personnel Management</Chapter>
+		<Reference>3.3 - Familiarisation and Training</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="15">
+		<SMSChapterId>3</SMSChapterId>
+		<Chapter>3 - Personnel Management</Chapter>
+		<Reference>3.4 - Repatriation</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="16">
+		<SMSChapterId>3</SMSChapterId>
+		<Chapter>3 - Personnel Management</Chapter>
+		<Reference>3.5 - Code of Conduct</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="17">
+		<SMSChapterId>3</SMSChapterId>
+		<Chapter>3 - Personnel Management</Chapter>
+		<Reference>3.6 - Fitness for Duty</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="18">
+		<SMSChapterId>3</SMSChapterId>
+		<Chapter>3 - Personnel Management</Chapter>
+		<Reference>3.7 - Medical Arrangements</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="19">
+		<SMSChapterId>3</SMSChapterId>
+		<Chapter>3 - Personnel Management</Chapter>
+		<Reference>3.8 - Personal Protective Equipment</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="20">
+		<SMSChapterId>3</SMSChapterId>
+		<Chapter>3 - Personnel Management</Chapter>
+		<Reference>3.9 - Watchkeeping Arrangements</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="21">
+		<SMSChapterId>3</SMSChapterId>
+		<Chapter>3 - Personnel Management</Chapter>
+		<Reference>3.10 - Records of Rest and Work Hours</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="112">
+		<SMSChapterId>3</SMSChapterId>
+		<Chapter>3 - Personnel Management</Chapter>
+		<Reference>3.11 - Crewmembers Under the Age of 18</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="23">
+		<SMSChapterId>4</SMSChapterId>
+		<Chapter>4 - Communication</Chapter>
+		<Reference>4.1 - Ship and Company</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="24">
+		<SMSChapterId>4</SMSChapterId>
+		<Chapter>4 - Communication</Chapter>
+		<Reference>4.2 - Information for Ports</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="25">
+		<SMSChapterId>4</SMSChapterId>
+		<Chapter>4 - Communication</Chapter>
+		<Reference>4.3 - Company Reporting Procedures</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="26">
+		<SMSChapterId>4</SMSChapterId>
+		<Chapter>4 - Communication</Chapter>
+		<Reference>4.4 - Communication (including the use of GMDSS, VHF and AIS)</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="27">
+		<SMSChapterId>4</SMSChapterId>
+		<Chapter>4 - Communication</Chapter>
+		<Reference>4.5 - Use of Ship's Mobile Telephone</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="28">
+		<SMSChapterId>4</SMSChapterId>
+		<Chapter>4 - Communication</Chapter>
+		<Reference>4.6 - Use of Private Mobile Telephones</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="29">
+		<SMSChapterId>4</SMSChapterId>
+		<Chapter>4 - Communication</Chapter>
+		<Reference>4.7 - Crew Kiosk</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="30">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.1 - Company Inspections</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="31">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.2 - Inspections by Authorities</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="32">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.3 - Ship Maintenance</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="33">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.4 - Maintenance to Critical Equipment</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="34">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.5 - Fire Fighting, Safety and Life Saving Appliances Maintenance</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="35">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.6 - Maintenance to Equipment Affected by MARPOL Annex VI</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="36">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.7 - Deck and Bridge Equipment Maintenance</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="37">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.8 - Engine Room Maintenance</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="38">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.9 - Stock Keeping System</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="39">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.10 - Dry or Wet Docking</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="40">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.11 - Defect Reporting and Repairs</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="41">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.12 - Safe Work Permits</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="113">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.13 - Lock Out / Tag Out</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="42">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.14 - Risk Assessments</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="114">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.15 - Entry to Enclosed Spaces</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="115">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.16 - Safe Markings and Warning Signs</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="116">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.17 - Protective Clothing and Equipment</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="117">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.18 - Lighting</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="118">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.19 - Guard Rails Around openings</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="119">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.20 - Mooring Procedures in Port</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="120">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.21 - Machinery Guards</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="121">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.22 - Handling Chemicals</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="122">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.23 - Working Aloft / Overside</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="123">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.24 - Ropes and Wires</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="124">
+		<SMSChapterId>5</SMSChapterId>
+		<Chapter>5 - Ship Inspections, Maintenance and Safe Working Practices</Chapter>
+		<Reference>5.25 - Operations Manuals</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="43">
+		<SMSChapterId>6</SMSChapterId>
+		<Chapter>6 - Ship in Port</Chapter>
+		<Reference>6.1 - Provisions for Safe Access and Entry</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="44">
+		<SMSChapterId>6</SMSChapterId>
+		<Chapter>6 - Ship in Port</Chapter>
+		<Reference>6.2 - Harbour Watches and Patrols</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="45">
+		<SMSChapterId>6</SMSChapterId>
+		<Chapter>6 - Ship in Port</Chapter>
+		<Reference>6.3 - Ship Security</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="46">
+		<SMSChapterId>6</SMSChapterId>
+		<Chapter>6 - Ship in Port</Chapter>
+		<Reference>6.4 - Cargo Operations</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="47">
+		<SMSChapterId>6</SMSChapterId>
+		<Chapter>6 - Ship in Port</Chapter>
+		<Reference>6.5 - Crane Operations</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="48">
+		<SMSChapterId>6</SMSChapterId>
+		<Chapter>6 - Ship in Port</Chapter>
+		<Reference>6.6 - Cargo Hatch, Bulkheads and Tweendecks</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="49">
+		<SMSChapterId>6</SMSChapterId>
+		<Chapter>6 - Ship in Port</Chapter>
+		<Reference>6.7 - Opening and Closing Hatches</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="50">
+		<SMSChapterId>6</SMSChapterId>
+		<Chapter>6 - Ship in Port</Chapter>
+		<Reference>6.8 - Moving Bulkheads and Tweendecks</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="51">
+		<SMSChapterId>6</SMSChapterId>
+		<Chapter>6 - Ship in Port</Chapter>
+		<Reference>6.9 - Cleaning and Preparing Holds</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="52">
+		<SMSChapterId>6</SMSChapterId>
+		<Chapter>6 - Ship in Port</Chapter>
+		<Reference>6.10 - Dangerous Cargo</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="53">
+		<SMSChapterId>6</SMSChapterId>
+		<Chapter>6 - Ship in Port</Chapter>
+		<Reference>6.11 - Procedures for Receiving Bunkers</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="54">
+		<SMSChapterId>6</SMSChapterId>
+		<Chapter>6 - Ship in Port</Chapter>
+		<Reference>6.12 - Diving Operations</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="55">
+		<SMSChapterId>6</SMSChapterId>
+		<Chapter>6 - Ship in Port</Chapter>
+		<Reference>6.13 - Shore Leave</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="56">
+		<SMSChapterId>6</SMSChapterId>
+		<Chapter>6 - Ship in Port</Chapter>
+		<Reference>6.14 - Personal Safety When Ashore</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="57">
+		<SMSChapterId>7</SMSChapterId>
+		<Chapter>7 - Preparing for Sea</Chapter>
+		<Reference>7.1 - Pre-Sailing Checklists</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="58">
+		<SMSChapterId>7</SMSChapterId>
+		<Chapter>7 - Preparing for Sea</Chapter>
+		<Reference>7.2 - Ship Stability</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="59">
+		<SMSChapterId>7</SMSChapterId>
+		<Chapter>7 - Preparing for Sea</Chapter>
+		<Reference>7.3 - Voyage Planning</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="60">
+		<SMSChapterId>7</SMSChapterId>
+		<Chapter>7 - Preparing for Sea</Chapter>
+		<Reference>7.4 - Harbour Stations</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="61">
+		<SMSChapterId>7</SMSChapterId>
+		<Chapter>7 - Preparing for Sea</Chapter>
+		<Reference>7.5 - Pilotage</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="62">
+		<SMSChapterId>7</SMSChapterId>
+		<Chapter>7 - Preparing for Sea</Chapter>
+		<Reference>7.6 - Stowaways</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="63">
+		<SMSChapterId>8</SMSChapterId>
+		<Chapter>8 - Ship at Sea</Chapter>
+		<Reference>8.1 - Watchkeeping Arrangements</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="64">
+		<SMSChapterId>8</SMSChapterId>
+		<Chapter>8 - Ship at Sea</Chapter>
+		<Reference>8.2 - Master's Standing Orders</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="65">
+		<SMSChapterId>8</SMSChapterId>
+		<Chapter>8 - Ship at Sea</Chapter>
+		<Reference>8.3 - Navigation Watchkeeping</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="66">
+		<SMSChapterId>8</SMSChapterId>
+		<Chapter>8 - Ship at Sea</Chapter>
+		<Reference>8.4 - Engineering Watchkeeping</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="67">
+		<SMSChapterId>8</SMSChapterId>
+		<Chapter>8 - Ship at Sea</Chapter>
+		<Reference>8.5 - Special Requirements in Adverse Weather</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="68">
+		<SMSChapterId>8</SMSChapterId>
+		<Chapter>8 - Ship at Sea</Chapter>
+		<Reference>8.6 - Security and Fire Patrols</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="69">
+		<SMSChapterId>8</SMSChapterId>
+		<Chapter>8 - Ship at Sea</Chapter>
+		<Reference>8.7 - Fire Prevention</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="70">
+		<SMSChapterId>8</SMSChapterId>
+		<Chapter>8 - Ship at Sea</Chapter>
+		<Reference>8.8 - Precautions Against Piracy Attacks</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="71">
+		<SMSChapterId>9</SMSChapterId>
+		<Chapter>9 - Preparing for Arrival in Port</Chapter>
+		<Reference>9.1 - Equipment Testing</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="72">
+		<SMSChapterId>9</SMSChapterId>
+		<Chapter>9 - Preparing for Arrival in Port</Chapter>
+		<Reference>9.2 - Harbour Stations</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="73">
+		<SMSChapterId>9</SMSChapterId>
+		<Chapter>9 - Preparing for Arrival in Port</Chapter>
+		<Reference>9.3 - Pilotage</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="74">
+		<SMSChapterId>9</SMSChapterId>
+		<Chapter>9 - Preparing for Arrival in Port</Chapter>
+		<Reference>9.4 -  Mooring</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="75">
+		<SMSChapterId>9</SMSChapterId>
+		<Chapter>9 - Preparing for Arrival in Port</Chapter>
+		<Reference>9.5 - Hold Preparation During Voyages in Ballast Ballast</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="76">
+		<SMSChapterId>9</SMSChapterId>
+		<Chapter>9 - Preparing for Arrival in Port</Chapter>
+		<Reference>9.6 - Procedures for Change-Over from Regular to Low Sulphur Fuel Oil</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="77">
+		<SMSChapterId>10</SMSChapterId>
+		<Chapter>10 - Handling of Waste Oil, Garbage and Ballast Water</Chapter>
+		<Reference>10.1 - Disposal of Waste Oil</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="78">
+		<SMSChapterId>10</SMSChapterId>
+		<Chapter>10 - Handling of Waste Oil, Garbage and Ballast Water</Chapter>
+		<Reference>10.2 - Disposal of Garbage</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="79">
+		<SMSChapterId>10</SMSChapterId>
+		<Chapter>10 - Handling of Waste Oil, Garbage and Ballast Water</Chapter>
+		<Reference>10.3 - Handling of Ballast Water</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="80">
+		<SMSChapterId>11</SMSChapterId>
+		<Chapter>11 - Shipboard Contingency Plans</Chapter>
+		<Reference>11.1 - Emergency Procedures</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="81">
+		<SMSChapterId>11</SMSChapterId>
+		<Chapter>11 - Shipboard Contingency Plans</Chapter>
+		<Reference>11.2 - Reporting</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="82">
+		<SMSChapterId>11</SMSChapterId>
+		<Chapter>11 - Shipboard Contingency Plans</Chapter>
+		<Reference>11.3 - Drills</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="83">
+		<SMSChapterId>11</SMSChapterId>
+		<Chapter>11 - Shipboard Contingency Plans</Chapter>
+		<Reference>11.4 - Identified Contingencies</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="84">
+		<SMSChapterId>12</SMSChapterId>
+		<Chapter>12 - Contingency Planning</Chapter>
+		<Reference>12.1 - Purpose</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="85">
+		<SMSChapterId>12</SMSChapterId>
+		<Chapter>12 - Contingency Planning</Chapter>
+		<Reference>12.2 - Contingency Planning</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="86">
+		<SMSChapterId>12</SMSChapterId>
+		<Chapter>12 - Contingency Planning</Chapter>
+		<Reference>12.3 - Company Emergency Response Team (Shore Based)</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="87">
+		<SMSChapterId>12</SMSChapterId>
+		<Chapter>12 - Contingency Planning</Chapter>
+		<Reference>12.4 - Media Response</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="88">
+		<SMSChapterId>12</SMSChapterId>
+		<Chapter>12 - Contingency Planning</Chapter>
+		<Reference>12.5 - Company Emergency Response Team - Duties and Responsibilities</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="89">
+		<SMSChapterId>12</SMSChapterId>
+		<Chapter>12 - Contingency Planning</Chapter>
+		<Reference>12.6 - Emergency Procedures</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="90">
+		<SMSChapterId>13</SMSChapterId>
+		<Chapter>13 - Reports and Analysis of Non-Conformities, Accidents and Hazardous Occurrences</Chapter>
+		<Reference>13.1 - Definitions</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="91">
+		<SMSChapterId>13</SMSChapterId>
+		<Chapter>13 - Reports and Analysis of Non-Conformities, Accidents and Hazardous Occurrences</Chapter>
+		<Reference>13.2 - Responsibilities</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="125">
+		<SMSChapterId>13</SMSChapterId>
+		<Chapter>13 - Reports and Analysis of Non-Conformities, Accidents and Hazardous Occurrences</Chapter>
+		<Reference>13.3 - Near-Miss Reporting</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="92">
+		<SMSChapterId>14</SMSChapterId>
+		<Chapter>14 - Compnay Management Procedures - Reviews and Audits</Chapter>
+		<Reference>14.1 - Plans for Shipboard operations</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="93">
+		<SMSChapterId>14</SMSChapterId>
+		<Chapter>14 - Compnay Management Procedures - Reviews and Audits</Chapter>
+		<Reference>14.2 - Company Safety Management System review</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="94">
+		<SMSChapterId>14</SMSChapterId>
+		<Chapter>14 - Compnay Management Procedures - Reviews and Audits</Chapter>
+		<Reference>14.3 - Master's Shipboard Management Review</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="95">
+		<SMSChapterId>14</SMSChapterId>
+		<Chapter>14 - Compnay Management Procedures - Reviews and Audits</Chapter>
+		<Reference>14.4 - Shipboard Safety Committee, Meetings, Minutes</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="96">
+		<SMSChapterId>14</SMSChapterId>
+		<Chapter>14 - Compnay Management Procedures - Reviews and Audits</Chapter>
+		<Reference>14.5 - Internal Audits</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="126">
+		<SMSChapterId>14</SMSChapterId>
+		<Chapter>14 - Compnay Management Procedures - Reviews and Audits</Chapter>
+		<Reference>14.6 - Deficiencies Related to Possible SMS Failure Issued by Class Surveyors</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="97">
+		<SMSChapterId>15</SMSChapterId>
+		<Chapter>15 - Documentation</Chapter>
+		<Reference>15.1 - Mail Delivery To / From the Ship</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="98">
+		<SMSChapterId>15</SMSChapterId>
+		<Chapter>15 - Documentation</Chapter>
+		<Reference>15.2 - Standard Shipboard Filing System</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="99">
+		<SMSChapterId>15</SMSChapterId>
+		<Chapter>15 - Documentation</Chapter>
+		<Reference>15.3 - Internal Documents and Publications</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="100">
+		<SMSChapterId>15</SMSChapterId>
+		<Chapter>15 - Documentation</Chapter>
+		<Reference>15.4 - Amendments to Procedures and Instructions</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="101">
+		<SMSChapterId>15</SMSChapterId>
+		<Chapter>15 - Documentation</Chapter>
+		<Reference>15.5 - External Publications and Documents</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="102">
+		<SMSChapterId>15</SMSChapterId>
+		<Chapter>15 - Documentation</Chapter>
+		<Reference>15.6 - Management System Forms Retention and Returns</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="109">
+		<SMSChapterId>17</SMSChapterId>
+		<Chapter>Other</Chapter>
+		<Reference>Ship Security Plan</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="104">
+		<SMSChapterId>17</SMSChapterId>
+		<Chapter>Other</Chapter>
+		<Reference>Passage Plan File</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="105">
+		<SMSChapterId>17</SMSChapterId>
+		<Chapter>Other</Chapter>
+		<Reference>NTVRP</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="106">
+		<SMSChapterId>17</SMSChapterId>
+		<Chapter>Other</Chapter>
+		<Reference>PCSOPEP</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="107">
+		<SMSChapterId>17</SMSChapterId>
+		<Chapter>Other</Chapter>
+		<Reference>Fleet Standing Orders</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="108">
+		<SMSChapterId>17</SMSChapterId>
+		<Chapter>Other</Chapter>
+		<Reference>Forms and Checklists</Reference>
+	</SMSReference>
+	<SMSReference SMSReferenceId="103">
+		<SMSChapterId>17</SMSChapterId>
+		<Chapter>Other</Chapter>
+		<Reference>Emissions Control Manual</Reference>
+	</SMSReference>
+</SMSReferences>

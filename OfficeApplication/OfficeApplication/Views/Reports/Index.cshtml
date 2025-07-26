@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Reports";
+}
+
+<style type="text/css">
+    .doc-title:hover {
+        cursor: pointer;
+        color: black;
+    }
+
+    .box {
+        margin-bottom: 5px !important;
+    }
+
+    .box-header:hover {
+        background-color: #3333;
+    }
+
+    .header-lnk {
+        color: black !important;
+    }
+
+        .header-lnk:hover {
+            background: none !important;
+        }
+</style>
+
+<section class="content-header">
+    <h1 id="lblISM">
+        Finance
+    </h1>
+</section>
+<section class="content">
+    <div class="box box-solid collapsed-box">
+        <div class="box-header with-border">
+            <h3 class="box-title doc-title"><a class="header-lnk" href="@Url.Action("FinanceList", "Reports")">Opex report</a></h3>
+        </div>
+    </div>
+    <div class="box box-solid collapsed-box">
+        <div class="box-header with-border">
+            <h3 class="box-title doc-title"><a class="header-lnk" href="@Url.Action("Invoice", "Reports")">Invoices received</a></h3>
+        </div>
+    </div>
+    <div class="box box-solid collapsed-box">
+        <div class="box-header with-border">
+            <h3 class="box-title doc-title"><a class="header-lnk" href="@Url.Action("PurchaseOrder", "Reports")">Purchase Orders not invoiced </a></h3>
+        </div>
+    </div>
+    <div class="box box-solid collapsed-box">
+        <div class="box-header with-border">
+            <h3 class="box-title doc-title"><a class="header-lnk" href="@Url.Action("UALOpexFormulaReport", "Reports")">UAL Opex Formula </a></h3>
+        </div>
+    </div>
+</section>
+@*<section class="content-header">
+    <h1 id="lblISMTechnical">
+        Technical
+    </h1>
+</section>
+<section class="content"  style="min-height: 125px;">
+    <div class="box box-solid collapsed-box">
+        <div class="box-header with-border">
+            <h3 class="box-title doc-title"><a class="header-lnk" href="@Url.Action("ShipReportsAnalysis", "Reports")">Ship reports analysis</a></h3>
+        </div>
+    </div>
+</section>*@
+<section class="content-header">
+    <h1 id="lblISMDepartment">
+        ISM Department
+    </h1>
+</section>
+<section class="content">
+    <div class="box box-solid collapsed-box">
+        <div class="box-header with-border">
+            <h3 class="box-title doc-title"><a class="header-lnk" href="@Url.Action("FleetInspectionDueDates", "Reports")">Fleet Inspection Due Dates</a></h3>
+        </div>
+    </div>
+</section>

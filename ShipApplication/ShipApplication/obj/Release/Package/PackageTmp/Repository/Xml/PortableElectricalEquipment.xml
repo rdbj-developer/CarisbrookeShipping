@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="yes"?>
+<PortableElectricalEquipmentRegister>
+	<PortableElectricalEquipment PortableElectricalEquipmentId="1">Angle Grinder</PortableElectricalEquipment>
+	<PortableElectricalEquipment PortableElectricalEquipmentId="2">Circular Saw</PortableElectricalEquipment>
+	<PortableElectricalEquipment PortableElectricalEquipmentId="3">Cordless Drill</PortableElectricalEquipment>
+	<PortableElectricalEquipment PortableElectricalEquipmentId="4">Electric Chain Saw</PortableElectricalEquipment>
+	<PortableElectricalEquipment PortableElectricalEquipmentId="5">Electric Drill</PortableElectricalEquipment>
+	<PortableElectricalEquipment PortableElectricalEquipmentId="6">Extension Cable</PortableElectricalEquipment>
+	<PortableElectricalEquipment PortableElectricalEquipmentId="7">Impact Drill</PortableElectricalEquipment>
+	<PortableElectricalEquipment PortableElectricalEquipmentId="8">Jigsaw</PortableElectricalEquipment>
+	<PortableElectricalEquipment PortableElectricalEquipmentId="9">Portable Cooling Fan</PortableElectricalEquipment>
+	<PortableElectricalEquipment PortableElectricalEquipmentId="10">Portable Welding Machine</PortableElectricalEquipment>
+	<PortableElectricalEquipment PortableElectricalEquipmentId="11">Pressure Washer</PortableElectricalEquipment>
+</PortableElectricalEquipmentRegister>

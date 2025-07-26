@@ -1,0 +1,182 @@
+﻿@{
+    string controllerAction = ViewContext.RouteData.Values["Controller"].ToString() + ViewContext.RouteData.Values["Action"].ToString();
+    var userGroupMenuList = (List<OfficeApplication.BLL.Modals.Menus>)Session["UserGroupMenuPermission"];
+    if (userGroupMenuList != null)
+    {
+        userGroupMenuList = userGroupMenuList.Where(x => x.ParentId == 0).OrderBy(x => x.DisplayOrder).ToList();
+    }
+    else
+    {
+        userGroupMenuList = new List<OfficeApplication.BLL.Modals.Menus>();
+    }
+}
+@* RDBJ 10/16/2021 Added Style*@
+<style>
+    .notification-counter {
+        position: absolute;
+        top: 5px;
+        left: 20px;
+        background-color: rgba(212, 19, 13, 1);
+        color: #fff;
+        border-radius: 3px;
+        padding: 1px 3px;
+        font: 8px Verdana;
+    }
+</style>
+
+@* RDBJ 10/16/2021 Added Script*@
+<script>
+    var RootUrl = '@Url.Content("~/")'; //RDBJ 10/18/2021
+    let oldCount = 0; //RDBJ 10/21/2021
+    var blnfirstTimeLoadPage = true; //RDBJ 10/21/2021
+
+    //RDBJ 10/16/2021
+    $(document).ready(function () {
+        //getNotificationsBedge();  // JSL 07/09/2022 commented //RDBJ 10/16/2021
+        //autoRefreshBedge()    // JSL 07/01/2022 commented //RDBJ 10/16/2021
+
+        //updateNotification(); // JSL 07/01/2022 commented    // JSL 05/01/2022
+        //autoRefreshTopRightCornerBedge(); // JSL 07/01/2022 commented    // JSL 05/16/2022
+
+        ShowHideTopRightCornerNotificationMenu();   // JSL 12/19/2022
+    });
+
+    // JSL 12/19/2022
+    function ShowHideTopRightCornerNotificationMenu() {
+        if (!IsNullEmptyOrUndefined(_CurrentUserDetailsObject)) {
+            if (_CurrentUserDetailsObject.UserGroup == '8') {
+                $("#liTopRightCornerNotification").remove();
+            }
+            else {
+                $("#liTopRightCornerNotification").css("display", "block");
+            }
+        }
+        else {
+            $("#liTopRightCornerNotification").remove();
+        }
+    }
+    // End JSL 12/19/2022
+
+    //RDBJ 10/16/2021
+    function autoRefreshBedge() {
+        var intervalId = window.setInterval(function () {
+            //getNotificationsBedge();  // JSL 07/09/2022 commented
+            //updateNotification(); // JSL 06/16/2022 commented this line to avoid multiple call
+        //}, 5000); // JSL 05/30/2022 commented this line
+        }, 60000);  // JSL 05/30/2022 set 1 mins
+    };
+    //End RDBJ 10/16/2021
+
+    //RDBJ 10/16/2021
+    function getNotificationsBedge() {
+        var notificationCounter = document.getElementById('notificationCounter');
+        var url = RootUrl + 'Notifications/GetCountOfNotifications';
+        $.ajax({
+            url: url,
+            type: 'POST',
+            success: function (res) {
+                console.log("Notification Call");
+                if (res.totalNotification == 0) {
+                    notificationCounter.classList.remove("notification-counter");
+                    notificationCounter.innerHTML = "";
+                }
+                else
+                    notificationCounter.classList.add("notification-counter");
+
+                if (res.totalNotification == undefined)
+                    notificationCounter.innerHTML = "";
+                else {
+                    if (res.totalNotification == 0)
+                        notificationCounter.innerHTML = "";
+                    else
+                        notificationCounter.innerHTML = res.totalNotification;
+                    //RDBJ 10/21/2021 wrapped in if
+                    if (blnfirstTimeLoadPage) {
+                        oldCount = res.totalNotification;
+                        blnfirstTimeLoadPage = false;
+                    }
+                    //RDBJ 10/21/2021 added if
+                    if (parseInt(res.totalNotification) > parseInt(oldCount)) {
+                        oldCount = parseInt(res.totalNotification);
+                        $.notify(" New Notifications!", "success"); //RDBJ 10/21/2021
+                    }
+                }
+            },
+            global: false,
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    };
+    //End RDBJ 10/16/2021
+
+    // JSL 05/16/2022
+    function autoRefreshTopRightCornerBedge() {
+        var intervalId = window.setInterval(function () {
+            updateNotification();
+        }, 300000); // JSL 05/30/2022 Set 5 mins, it was 30 sec
+    };
+    // End JSL 05/16/2022
+
+    // JSL 05/01/2022
+    function updateNotification() {
+        var dic = {};
+        dic["CurrentUserId"] = _CurrentUserDetailsObject.UserGUID;
+
+        CommonServerPostApiCall(dic, "Notifications", "PerformAction", str_API_GETNOTIFICATION
+            , false // JSL 05/16/2022
+        );
+    }
+    // End JSL 05/01/2022
+</script>
+<ul class="sidebar-menu" data-widget="tree">
+    @foreach (var item in userGroupMenuList)
+    {
+        if (item.ControllerName != "#")
+        {
+            <li class="@(controllerAction == (item.ControllerName + item.ActionName) ? "active" : "")">
+                <a href="@Url.Action(item.ActionName, item.ControllerName)">
+                    @* JSL 07/01/2022 added && condition RDBJ 10/16/2021 Wrapped in if for Notifications Menu *@
+                    @if (item.ControllerName == "Notifications"
+                        && item.ActionName == "Index"
+                        )
+                    {
+                        <i class="@item.Class"><span id="notificationCounter"></span></i>
+                    }
+                    @* JSL 07/01/2022 added menu *@
+                    else if (item.ControllerName == "Notifications"
+                        && item.ActionName == "NewNotification"
+                        )
+                    {
+                        <i class="@item.Class"><span id="NewnotificationCounter"></span></i>
+                    }
+                    @* End JSL 07/01/2022 added menu *@
+                    else
+                    {
+                        <i class="@item.Class"></i>
+                    }
+                    <span>@item.MenuText</span>
+                </a>
+            </li>
+        }
+        else
+        {
+            if (item.MenuText.Contains("Business"))
+            {
+                <li class="@(controllerAction == (item.ControllerName + item.ActionName) ? "active" : "" )">
+                    <a href="https://tibco.carisbrooke.co" target="_blank">
+                        <i class="@item.Class"></i> <span>@item.MenuText</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="@(controllerAction == (item.ControllerName + item.ActionName) ? "active" : "" )">
+                    <a href="#">
+                        <i class="@item.Class"></i> <span>@item.MenuText</span>
+                    </a>
+                </li>
+            }
+        }
+    }
+</ul>

@@ -1,0 +1,597 @@
+﻿@using OfficeApplication.BLL.Modals;
+
+@model OpexReportModalList
+@{
+    ViewBag.Title = "Finance";
+}
+<style>
+    .k-grid td, .k-filter-row th, .k-grid-header th.k-header, .k-pager-wrap {
+        padding: 0px;
+        padding-bottom: 0px !important;
+        padding-top: 0px !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    #grid > table {
+        table-layout: fixed;
+    }
+</style>
+
+<script src="~/Scripts/Custom/Reports.js?09.01.2020"></script>
+
+<script>
+    var RootUrl = '@Url.Content("~/")';
+    function LoadGrid()
+    {
+        var month = $("#ddlReportPeriod").val();
+        var array = @Html.Raw(Json.Encode(@ViewBag.opexCode));
+        var obj = new Array();
+        for (var i = 0; i < array.length; i++) {
+            var item = new Object();
+            item.Code = array[i].Code;
+            item.Description = array[i].Description;
+            item.Total = array[i].Total;
+            obj.push(item);
+        }
+        var data = "";
+        $('#grid').empty();
+        $('#grid').kendoGrid({
+
+            scrollable: true,
+            sortable: true,
+
+            selectable: "row",
+            filterable: true,
+            detailInit: detailInit,
+
+            dataSource: {
+                data: obj,
+                pageSize: 10
+            },
+            dataBound: function () {
+                for (var i = 0; i < this.columns.length; i++) {
+                    this.autoFitColumn(i);
+                }
+            },
+            columns: [
+                {
+                    field: "Code",
+                    title: "A/C Code"
+                },
+                {
+                    field: "Description",
+                    title: "A/C Description"
+                },
+                {
+                    field: "Total",
+                    title: "Total (USD)"
+                }
+            ],
+            //aggregate: [{ field: "TOTALAMT", aggregate: "sum" }],
+            dataBound: function () {
+                var grid = this;
+                $(".k-grouping-row").each(function (e) {
+                    grid.collapseGroup(this);
+                });
+            },
+            excelExport: function (e) {
+                e.preventDefault();
+
+                var workbook = e.workbook;
+
+                detailExportPromises = [];
+
+                var masterData = e.data;
+
+                for (var rowIndex = 0; rowIndex < masterData.length; rowIndex++) {
+                    debugger
+                    exportChildData(masterData[rowIndex].Code, rowIndex);
+                }
+
+                $.when.apply(null, detailExportPromises)
+                    .then(function () {
+                        // get the export results
+                        var detailExports = $.makeArray(arguments);
+
+                        // sort by masterRowIndex
+                        detailExports.sort(function (a, b) {
+                            return a.masterRowIndex - b.masterRowIndex;
+                        });
+
+                        // add an empty column
+                        workbook.sheets[0].columns.unshift({
+                            width: 30
+                        });
+
+                        // prepend an empty cell to each row
+                        for (var i = 0; i < workbook.sheets[0].rows.length; i++) {
+                            workbook.sheets[0].rows[i].cells.unshift({});
+                        }
+
+                        // merge the detail export sheet rows with the master sheet rows
+                        // loop backwards so the masterRowIndex doesn't need to be updated
+                        for (var i = detailExports.length - 1; i >= 0; i--) {
+                            var masterRowIndex = detailExports[i].masterRowIndex + 1; // compensate for the header row
+
+                            var sheet = detailExports[i].sheet;
+
+                            // prepend an empty cell to each row
+                            for (var ci = 0; ci < sheet.rows.length; ci++) {
+                                if (sheet.rows[ci].cells[0].value) {
+                                    sheet.rows[ci].cells.unshift({});
+                                }
+                            }
+
+                            // insert the detail sheet rows after the master row
+                            [].splice.apply(workbook.sheets[0].rows, [masterRowIndex + 1, 0].concat(sheet.rows));
+                        }
+
+                        // save the workbook
+                        kendo.saveAs({
+                            dataURI: new kendo.ooxml.Workbook(workbook).toDataURL(),
+                            fileName: "Export.xlsx"
+                        });
+
+
+                    });
+            }
+        });
+    }
+    function detailInitList(e) {
+        var id = e.data.ACCOUNT_CODE;
+        var month = $("#ddlReportPeriod").val();
+        var array = @Html.Raw(Json.Encode(@ViewBag.opexdeatils));
+        dataSourceSubDetails = new kendo.data.DataSource({
+            data: array
+        });
+
+        dataSourceSubDetails.read();
+        var obj = new Array();
+        for (var i = 0; i < dataSourceSubDetails._data.length; i++) {
+            if (dataSourceSubDetails._data[i].AccountCode == id) {
+                var item = new Object();
+                item.AccountDescription = dataSourceSubDetails._data[i].AccountDescription;
+                item.PONO = dataSourceSubDetails._data[i].PONO;
+                item.POTITLE = dataSourceSubDetails._data[i].POTITLE;
+                item.SupplierName = dataSourceSubDetails._data[i].SupplierName;
+                item.InvoiceSent = dataSourceSubDetails._data[i].InvoiceSent;
+                item.POTOTALBASECURRENCY = dataSourceSubDetails._data[i].POTOTALBASECURRENCY;
+                item.POTOTAL = dataSourceSubDetails._data[i].POTOTAL;
+                item.POEXCHRATE = dataSourceSubDetails._data[i].POEXCHRATE;
+                item.INVOICENo = dataSourceSubDetails._data[i].INVOICENo;
+                item.INVOICEAMOUNTBASECURRENCY = dataSourceSubDetails._data[i].INVOICEAMOUNTBASECURRENCY;
+                item.INVOICEAMOUNT = dataSourceSubDetails._data[i].INVOICEAMOUNT;
+                item.NETINVOICEAMOUNT = dataSourceSubDetails._data[i].NETINVOICEAMOUNT;
+                item.POSTATUS = dataSourceSubDetails._data[i].POSTATUS;
+                item.PORECVDATE = dataSourceSubDetails._data[i].PORECVDATE;
+                item.FORWARDER_RECVD_DATE = dataSourceSubDetails._data[i].FORWARDER_RECVD_DATE;
+                item.PODATE = dataSourceSubDetails._data[i].PODATE;
+                item.POCurrency = dataSourceSubDetails._data[i].POCurrency;
+                item.INVOICEDATE = dataSourceSubDetails._data[i].INVOICEDATE;
+                item.InvoiceReceivedDate = dataSourceSubDetails._data[i].InvoiceReceivedDate;
+                obj.push(item);
+            }
+        }
+        $("<div/>").appendTo(e.detailCell).kendoGrid({
+            scrollable: true,
+            sortable: true,
+            selectable: "row",
+            filterable: true,
+            dataSource: { data: obj },
+            dataBound: function () {
+                for (var i = 0; i < this.columns.length; i++) {
+                    this.autoFitColumn(i);
+                }
+            },
+            columns: [
+
+                {
+                    field: "AccountDescription",
+                    title: "Account Description"
+                },
+                {
+                    field: "PONO",
+                    title: " PO No"
+                },
+                {
+                    field: "SupplierName",
+                    title: "Supplier Name"
+                },
+                {
+                    field: "InvoiceSent",
+                    title: "Invoice Sent"
+                },
+                {
+                    field: "POTOTALBASECURRENCY",
+                    title: "PO TOTAL SHIP CURRENCY",
+                    template: "#= POTOTALBASECURRENCY!=null? kendo.toString(POTOTALBASECURRENCY,'n2'):'' #"
+
+                },
+                {
+                    field: "POTOTAL",
+                    title: "PO TOTAL",
+                    attributes: {
+                        "class": "pototal"
+                    }
+                },
+                {
+                    field: "POEXCHRATE",
+                    title: "PO EXCH RATE",
+                    // template: "#= POEXCHRATE!=null? kendo.toString(POEXCHRATE,'n2'):'' #"
+
+                },
+
+                {
+                    field: "INVOICENo",
+                    title: "INVOICE No"
+                }
+                ,
+                {
+                    field: "INVOICEAMOUNTBASECURRENCY",
+                    title: "INVOICE AMOUNT SHIP CURRENCY",
+                    template: "#= INVOICEAMOUNTBASECURRENCY!=null? kendo.toString(INVOICEAMOUNTBASECURRENCY,'n2'):'' #"
+
+                }
+                ,
+                {
+                    field: "INVOICEAMOUNT",
+                    title: "INVOICE AMOUNT",
+                    template: "#= INVOICEAMOUNT!=null? kendo.toString(INVOICEAMOUNT,'n2'):'' #"
+                },
+                {
+                    field: "NETINVOICEAMOUNT",
+                    title: "NET INVOICE AMOUNT",
+                    template: "#= NETINVOICEAMOUNT!=null? kendo.toString(NETINVOICEAMOUNT,'n2'):'' #"
+
+                },
+                {
+                    field: "POSTATUS",
+                    title: "PO STATUS"
+                }
+                ,
+                {
+                    field: "PORECVDATE",
+                    title: "PORECVDATE",
+                    template: "#= PORECVDATE!=null? kendo.toString(kendo.parseDate(PORECVDATE, 'yyyy-MM-dd'), 'dd/MM/yyyy HH:MM'):'' #"
+                },
+                {
+                    field: "FORWARDER_RECVD_DATE",
+                    title: "FORWARDER_RECVD_DATE",
+                    template: "#= FORWARDER_RECVD_DATE!=null? kendo.toString(kendo.parseDate(FORWARDER_RECVD_DATE, 'yyyy-MM-dd'), 'dd/MM/yyyy HH:MM'):'' #"
+                },
+                {
+                    field: "PODATE",
+                    title: "PO DATE",
+                    template: "#= PODATE!=null? kendo.toString(kendo.parseDate(PODATE, 'yyyy-MM-dd'), 'dd/MM/yyyy HH:MM'):'' #"
+                }
+                ,
+                {
+                    field: "POCurrency",
+                    title: "PO Currency"
+                },
+                {
+                    field: "INVOICEDATE",
+                    title: "INVOICE DATE",
+                    template: "#= INVOICEDATE!=null? kendo.toString(kendo.parseDate(INVOICEDATE, 'yyyy-MM-dd'), 'dd/MM/yyyy HH:MM'):'' #"
+                },
+                {
+                    field: "InvoiceReceivedDate",
+                    title: "Invoice Received Date",
+                    template: "#= InvoiceReceivedDate!=null? kendo.toString(kendo.parseDate(InvoiceReceivedDate, 'yyyy-MM-dd'), 'dd/MM/yyyy HH:MM'):'' #"
+                }
+            ]
+
+        });
+
+    }
+
+    function detailInit(e)
+    {
+        var id = e.data.Code;
+        var month = $("#ddlReportPeriod").val();
+        var array = @Html.Raw(Json.Encode(@ViewBag.openSubCode));
+        dataSourceSub = new kendo.data.DataSource({
+            data: array
+        });
+        dataSourceSub.read();
+        var obj = new Array();
+        for (var i = 0; i < dataSourceSub._data.length; i++) {
+            if (dataSourceSub._data[i].Code == id) {
+                var item = new Object()
+                item.ACCOUNT_CODE = dataSourceSub._data[i].ACCOUNT_CODE;
+                item.ACCOUNT_DESCR = dataSourceSub._data[i].ACCOUNT_DESCR;
+                item.Total = dataSourceSub._data[i].Total;
+                //item.Budget = "0";
+                //if (parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 30010 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 30011 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 30015 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 30020 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 30025 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 30040 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 30050 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 30070 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 30075 )
+                //{
+                //    item.Budget = "59096";
+                //}
+                //if (parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 30525 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 30530 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 30535 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 30540)
+                //{
+                //    item.Budget = "8215";
+                //}
+                //if (parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 31010 )
+                //{
+                //    item.Budget = "3198";
+                //}
+                //if (parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 31021 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 31028 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 31030 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 31031)
+                //{
+                //    item.Budget = "11664";
+                //}
+                //if (parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 31041 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 31042 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 31043 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 31044 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 31045 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 31510 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 31520 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 31540 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 31550)
+                //{
+                //    item.Budget = "9320";
+                //}
+                //if (parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 32010 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 32030 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 32040 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 32050)
+                //{
+                //    item.Budget = "3168";
+                //}
+                //if (parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 32060 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 32070 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 32080 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 32510) {
+                //    item.Budget = "5898";
+                //}
+                //if (parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 32515 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 32530 ||
+                //    parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 32545) {
+                //    item.Budget = "3813";
+                //}
+                //if (parseInt(dataSourceSub._data[i].ACCOUNT_CODE) == 33010) {
+                //    item.Budget = "8493";
+                //}
+                obj.push(item);
+            }
+        }
+        obj = obj.sort(function (a, b) { return parseInt(a.Budget) - parseInt(b.Budget) })
+        $("<div/>").appendTo(e.detailCell).kendoGrid({
+
+            scrollable: true,
+            sortable: true,
+
+            selectable: "row",
+            filterable: true,
+            detailInit: detailInitList,
+            dataSource: {
+                data: obj
+            },
+            dataBound: function () {
+                for (var i = 0; i < this.columns.length; i++) {
+                    this.autoFitColumn(i);
+                }
+            },
+            columns: [
+                {
+                    field: "ACCOUNT_CODE",
+                    title: "Account Code"
+                },
+                {
+                    field: "ACCOUNT_DESCR",
+                    title: "Description"
+                },
+                {
+                    field: "Total",
+                    title: "TOTAL"
+                }
+                //,
+                //{
+                //    field: "Budget",
+                //    title: "Budget",
+                //    attributes: {
+                //        "class": "Budget",
+                //        "Budget": "#= Budget #"
+                //    }
+                //}
+            ]
+        });
+
+        //$("td.Budget[budget='0']").text("")
+        ////$("td.Budget[budget!='0']").css('background-color', 'blue')
+        //$("td.Budget[budget='59096']").css('background-color', 'lightgreen')
+        //$("td.Budget[budget='8215']").css('background-color', 'pink')
+        //$("td.Budget[budget='3198']").css('background-color', 'antiquewhite')
+        //$("td.Budget[budget='11664']").css('background-color', 'darkgrey')
+        //$("td.Budget[budget='9320']").css('background-color', 'darkkhaki')
+        //$("td.Budget[budget='3168']").css('background-color', 'khaki')
+        //$("td.Budget[budget='5898']").css('background-color', 'goldenrod')
+        //$("td.Budget[budget='3813']").css('background-color', 'skyblue')
+        //$("td.Budget[budget='8493']").css('background-color', 'lightsalmon')
+
+        //$("td.Budget[budget='59096']").slice(0, $("td.Budget[budget='59096']").length - 1).css('color', 'lightgreen')
+        //$("td.Budget[budget='8215']").slice(0, $("td.Budget[budget='8215']").length - 1).css('color', 'pink')
+        //$("td.Budget[budget='3198']").slice(0, $("td.Budget[budget='3198']").length - 1).css('color', 'antiquewhite')
+        //$("td.Budget[budget='11664']").slice(0, $("td.Budget[budget='11664']").length - 1).css('color', 'darkgrey')
+        //$("td.Budget[budget='9320']").slice(0, $("td.Budget[budget='9320']").length - 1).css('color', 'darkkhaki')
+        //$("td.Budget[budget='3168']").slice(0, $("td.Budget[budget='3168']").length - 1).css('color', 'khaki')
+        //$("td.Budget[budget='5898']").slice(0, $("td.Budget[budget='5898']").length - 1).css('color', 'goldenrod')
+        //$("td.Budget[budget='3813']").slice(0, $("td.Budget[budget='3813']").length - 1).css('color', 'skyblue')
+        //$("td.Budget[budget='8493']").slice(0, $("td.Budget[budget='8493']").length - 1).css('color', 'lightsalmon')
+
+
+
+    }
+    function ExportFile() {
+        var yearValue = $("#ddlReportYear").val();
+        var monthvalue = $("#ddlReportPeriod").val();
+        window.location = RootUrl + "Reports/Download?month=" + monthvalue + "&year="+yearValue;
+    }
+    $(document).ready(function () {
+        LoadGrid();
+        $("td.Budget").css('color', 'blue')
+        $("#ddlReportPeriod").val('@ViewBag.selected');
+        $("#ddlReportYear").val('@ViewBag.year');
+        $("#ddlReportPeriod").change(function () {
+            $("#hdnSelectedVal").val($(this).val())
+            //dataSourceSub = undefined;
+            //dataSourceSubDetails = undefined;
+            //dataSourceSubExport = undefined;
+            //dataSourceSubDeailsExport = undefined;
+            //window.location = RootUrl + "Reports/FinanceList?monthname=" + $(this).val()
+        });
+        $("#btnSubmit").click(function(){
+            dataSourceSub = undefined;
+            dataSourceSubDetails = undefined;
+            dataSourceSubExport = undefined;
+            dataSourceSubDeailsExport = undefined;
+            var yearValue = $("#ddlReportYear").val();
+            var monthvalue = $("#ddlReportPeriod").val();
+            window.location = RootUrl + "Reports/FinanceList?monthname=" + monthvalue + "&year="+yearValue;
+        })
+    });
+</script>
+<div class="well well-sm" style="margin-bottom:0px;">Opex Report <a href="@Url.Action("Index", "Reports")" class="label label-info" style="float:right;">GO BACK</a></div>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <input type="hidden" id="hdnSelectedVal" name="hdnSelectedVal" value="" />
+                    <div class="row">
+                        <div class="col-md-2">
+
+                            <select class="form-control" name="ddlReportPeriod" id="ddlReportPeriod">
+                                <option value="Annual">Annual</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select class="form-control" name="ddlReportYear" id="ddlReportYear">
+                                @if (ViewBag.yearList != null)
+                                {
+                                    foreach (var item in ViewBag.yearList)
+                                    {
+                                        <option value="@item">@item</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary" id="btnSubmit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body" id="ReportPage">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="grid">
+                                <div class="well">Loading Please Wait...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer clearfix no-border">
+                        <button type="button" class="btn btn-default" onclick="PrintReport()"><i class="fa fa-print"></i> Print</button>&nbsp;&nbsp;&nbsp;
+                        <a onclick="ExportFile()" class="btn btn-default"><i class="fa fa-file-excel-o"></i> Export</a>
+                    </div>
+                </div>
+                <div class="box-body" id="ReportPrintPage" style="display:none;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>AC_Code </th>
+                                        <th>AC_Description  </th>
+                                        <th>Total_USD  </th>
+
+                                        <th>Account_Code  </th>
+                                        <th>Account_Description  </th>
+                                        <th>Total  </th>
+                                        <th>PO_NO  </th>
+
+                                        <th>Supplier_Name  </th>
+                                        <th>Invoice_Sent </th>
+                                        <th>PO_TOTAL_SHIP_CURRENCY </th>
+                                        <th>PO_TOTAL </th>
+                                        <th>PO_EXCHRATE </th>
+                                        <th>INVOICE_No </th>
+                                        <th>INVOICE_AMOUNT_SHIP_CURRENCY </th>
+                                        <th>INVOICE_AMOUNT </th>
+                                        <th>NET_INVOICE_AMOUNT </th>
+                                        <th>PO_STATUS </th>
+                                        <th> PO_Received_Date </th>
+                                        <th> RECEIVED_AT_FREIGHT_FORWARDER</th>
+                                        <th> PO_DATE </th>
+                                        <th>PO_Currency </th>
+                                        <th>INVOICE_DATE </th>
+                                    </tr>
+
+                                    @if (ViewBag.printdata != null)
+                                    {
+                                        List<Export> PrintList = ViewBag.printdata;
+                                        foreach (var item in PrintList)
+                                        {
+                                            <tr>
+                                                <td>@item.AC_Code </td>
+                                                <td>@item.AC_Description  </td>
+                                                <td>@item.Total_USD  </td>
+
+                                                <td>@item.Account_Code  </td>
+                                                <td>@item.Account_Description  </td>
+                                                <td>@item.Total  </td>
+                                                <td>@item.PO_NO  </td>
+
+                                                <td>@item.Supplier_Name  </td>
+                                                <td>@item.Invoice_Sent </td>
+                                                <td>@item.PO_TOTAL_SHIP_CURRENCY </td>
+                                                <td>@item.PO_TOTAL </td>
+                                                <td>@item.PO_EXCHRATE </td>
+                                                <td>@item.INVOICE_No </td>
+                                                <td>@item.INVOICE_AMOUNT_SHIP_CURRENCY </td>
+                                                <td>@item.INVOICE_AMOUNT </td>
+                                                <td>@item.NET_INVOICE_AMOUNT </td>
+                                                <td>@item.PO_STATUS </td>
+                                                <td>@item.PO_Received_Date </td>
+                                                <td>@item.RECEIVED_AT_FREIGHT_FORWARDER</td>
+                                                <td>@item.PO_DATE </td>
+                                                <td>@item.PO_Currency</td>
+                                                <td>@item.INVOICE_DATE </td>
+                                            </tr>
+                                        }
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

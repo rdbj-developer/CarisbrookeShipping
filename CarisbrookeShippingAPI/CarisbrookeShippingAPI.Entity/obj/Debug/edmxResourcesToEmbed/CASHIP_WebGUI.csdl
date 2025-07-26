@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CASHIP_WebGUIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CASHIP_WebGUIEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_GetReportsData" ReturnType="Collection(CASHIP_WebGUIModel.sp_GetReportsData_Result1)" />
+    <EntitySet Name="SM_ACCOUNTCODE" EntityType="CASHIP_WebGUIModel.SM_ACCOUNTCODE" />
+  </EntityContainer>
+  <ComplexType Name="sp_GetReportsDataList_Result">
+    <Property Type="String" Name="PONO" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="POTITLE" Nullable="true" MaxLength="35" />
+    <Property Type="Int32" Name="VRID" Nullable="false" />
+    <Property Type="String" Name="ACCOUNT_CODE" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ACCOUNT_DESCR" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CURR_CODE" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="SITENAME" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="POSTATUS" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="SITEID" Nullable="true" />
+    <Property Type="Double" Name="GRANDTOT" Nullable="true" />
+    <Property Type="Double" Name="GRANDTOT_BASE" Nullable="true" />
+    <Property Type="String" Name="FINAL_INVOICE_TXT" Nullable="false" MaxLength="3" />
+    <Property Type="Double" Name="NET_INVOICE_AMT" Nullable="true" />
+    <Property Type="Double" Name="NET_INVOICE_AMT_BASE" Nullable="true" />
+    <Property Type="DateTime" Name="PORECVDATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FORWARDER_RECVD_DATE" Nullable="true" Precision="23" />
+    <Property Type="String" Name="BASE_CURR" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="SITENAME1" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="PODATE" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_GetReportsData_Result">
+    <Property Type="String" Name="PARENT_CODE" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PARENT_DESCR" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ACCOUNT_CODE" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ACCOUNT_DESCR" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="BUDGETYEAR" Nullable="true" />
+    <Property Type="Int16" Name="IS_ACTIVE" Nullable="true" />
+    <Property Type="Double" Name="BUDGET_AMT" Nullable="true" />
+    <Property Type="Double" Name="MONTHLY_BUDGET" Nullable="true" />
+    <Property Type="Int32" Name="USERID_BUDGETBY" Nullable="true" />
+    <Property Type="Int32" Name="BUDGETID" Nullable="true" />
+    <Property Type="Int32" Name="PARENTID" Nullable="true" />
+    <Property Type="String" Name="BASECURRENCY" Nullable="true" MaxLength="75" />
+    <Property Type="Double" Name="P01" Nullable="true" />
+    <Property Type="Double" Name="P02" Nullable="true" />
+    <Property Type="Double" Name="P03" Nullable="true" />
+    <Property Type="Double" Name="P04" Nullable="true" />
+    <Property Type="Double" Name="P05" Nullable="true" />
+    <Property Type="Double" Name="P06" Nullable="true" />
+    <Property Type="Double" Name="P07" Nullable="true" />
+    <Property Type="Double" Name="P08" Nullable="true" />
+    <Property Type="Double" Name="P09" Nullable="true" />
+    <Property Type="Double" Name="P10" Nullable="true" />
+    <Property Type="Double" Name="P11" Nullable="true" />
+    <Property Type="Double" Name="P12" Nullable="true" />
+    <Property Type="Int32" Name="SITEID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_GetReportsData_Result1">
+    <Property Type="String" Name="PARENT_CODE" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PARENT_DESCR" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ACCOUNT_CODE" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ACCOUNT_DESCR" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="BUDGETYEAR" Nullable="true" />
+    <Property Type="Int16" Name="IS_ACTIVE" Nullable="true" />
+    <Property Type="Double" Name="BUDGET_AMT" Nullable="true" />
+    <Property Type="Double" Name="MONTHLY_BUDGET" Nullable="true" />
+    <Property Type="Int32" Name="USERID_BUDGETBY" Nullable="true" />
+    <Property Type="Int32" Name="BUDGETID" Nullable="true" />
+    <Property Type="Int32" Name="PARENTID" Nullable="true" />
+    <Property Type="String" Name="BASECURRENCY" Nullable="true" MaxLength="75" />
+    <Property Type="Double" Name="P01" Nullable="true" />
+    <Property Type="Double" Name="P02" Nullable="true" />
+    <Property Type="Double" Name="P03" Nullable="true" />
+    <Property Type="Double" Name="P04" Nullable="true" />
+    <Property Type="Double" Name="P05" Nullable="true" />
+    <Property Type="Double" Name="P06" Nullable="true" />
+    <Property Type="Double" Name="P07" Nullable="true" />
+    <Property Type="Double" Name="P08" Nullable="true" />
+    <Property Type="Double" Name="P09" Nullable="true" />
+    <Property Type="Double" Name="P10" Nullable="true" />
+    <Property Type="Double" Name="P11" Nullable="true" />
+    <Property Type="Double" Name="P12" Nullable="true" />
+    <Property Type="Int32" Name="SITEID" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="SM_ACCOUNTCODE">
+    <Key>
+      <PropertyRef Name="ACCOUNTID" />
+    </Key>
+    <Property Name="ACCOUNTID" Type="Int32" Nullable="false" />
+    <Property Name="ACCOUNT_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ACCOUNT_DESCR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ACCOUNT_REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EXPORTED" Type="Int32" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_SITE" Type="Int32" />
+    <Property Name="SITEID" Type="Int32" />
+    <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_BY" Type="Int32" />
+    <Property Name="CREATED_BY" Type="Int32" />
+    <Property Name="PARENTID" Type="Int32" />
+  </EntityType>
+</Schema>

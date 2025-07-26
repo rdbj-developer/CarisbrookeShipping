@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?> 
+<ESDI_tblUser> 
+ <tblUser>
+<vUserID>007</vUserID> 
+  		<vFirstname>Adam</vFirstname> 
+  			<vLastname>Smith</vLastname> 
+  			<dtBirthdate>2006-05-07</dtBirthdate> 
+  			<uRankID>Master</uRankID>
+  			<uVesselTypeID>Tanker</uVesselTypeID>
+ 			<vSex>M</vSex> 
+  			<vPlaceOfBirth>Aden</vPlaceOfBirth> 
+  			<uCountryID>Norway</uCountryID> 
+  			<vDocumentNo>4221234</vDocumentNo>
+    			<iManagedByID>Greece Office</iManagedByID>
+    			<uPersonnelPoolID>Pool Europe</uPersonnelPoolID>
+    			<iLastVesselID>Atlantic Spirit</iLastVesselID>
+    			<vEmail>adam.smith.sample@gmail.com</vEmail>
+  			<bActive>True</bActive> 
+			<vExternalID>34445</vExternalID>
+  		  </tblUser>
+</ESDI_tblUser>

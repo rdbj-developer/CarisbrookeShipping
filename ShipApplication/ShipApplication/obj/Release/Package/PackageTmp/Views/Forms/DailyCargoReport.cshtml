@@ -1,0 +1,268 @@
+﻿@using ShipApplication.BLL.Modals;
+@model ShipApplication.BLL.Modals.DailyCargoReportModal
+@{
+    ViewBag.Title = "DailyCargoReport";
+}
+
+<link rel="stylesheet" href="~/Content/Custom/ArrivalForm.css" />
+<script type="text/javascript" src="~/Scripts/jquery/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery/additional-methods.min.js"></script>
+<script src="~/Scripts/Custom/DCRHandler.js?v4"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var res = '@ViewBag.Result';
+        $('.time').inputmask('99:99', { 'placeholder': '00:00' })
+        if (res == '@AppStatic.SUCCESS') {
+            $.notify("Daily Cargo Report Submitted Successfully", "success");
+        }
+        else if (res == '@AppStatic.ERROR') {
+            $.notify("Error occured while submitting Report !", "error");
+        }
+    });
+</script>
+
+<section class="content">
+    <form id="DCRForm" name="DCRForm" method="post" action="@Url.Action("SendDailyCargoReportMail", "Mail")">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="pwd">Ship Code</label><br />
+                    <span>@ShipApplication.BLL.Helpers.SessionManager.ShipCode</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Ship Name</label><br />
+                    <span>@ShipApplication.BLL.Helpers.SessionManager.ShipName</span>
+                    <input type="hidden" name="ShipName" value="@ShipApplication.BLL.Helpers.SessionManager.ShipName" />
+                    <input type="hidden" name="ShipCode" value="@ShipApplication.BLL.Helpers.SessionManager.ShipCode" />
+                    <input type="hidden" name="ReportCreated" value="@ShipApplication.BLL.Helpers.Utility.GetCurrentDateString()" />
+                    <input type="hidden" name="CreatedBy" value="@ShipApplication.BLL.Helpers.SessionManager.Username" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="pwd">Report created on</label><br />
+                                                              <span>@ShipApplication.BLL.Helpers.Utility.GetCurrentDateString()</span><br />                   
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-4">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 nopaddingleftright" for="txtVoyageNo">Voyage no.</label>
+                        <input type="text" class="form-control" id="txtVoyageNo" name="VoyageNo" title="Only integers allowed" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <div class="form-group has-feedback">
+                        <label for="txtPortName">Port Name</label>
+                        <input type="text" class="form-control" id="txtPortName" name="PortName" title="Cannot be blank" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Cargo</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtNoOfGangs">Number of gangs employed (if applicable)</label>
+                        <input type="text" class="form-control" id="txtNoOfGangs" name="NoOfGangs" />
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtNoOfShips">Number of ships cranes in use (if applicable)</label>
+                        <input type="text" class="form-control" id="txtNoOfShips" name="NoOfShips" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtQuantityOfCargoLoaded">Quantity of cargo loaded/discharged since commencement of cargo operations / last report</label>
+                        <input type="text" class="form-control" id="txtQuantityOfCargoLoaded" name="QuantityOfCargoLoaded" />
+                        <span class="form-control-feedback text-danger" style="top:47px;"><label>*</label></span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6" style="padding-top:19px">
+                    <div class="form-group has-feedback">
+                        <label for="txtTotalCargoLoaded">Total cargo loaded/discharged (this port only)</label>
+                        <input type="text" class="form-control" id="txtTotalCargoLoaded" name="TotalCargoLoaded" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtCargoRemaining">Cargo remaining to be loaded/discharged (this port only)</label>
+                        <input type="text" class="form-control" id="txtCargoRemaining" name="CargoRemaining" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 nopaddingleftright" for="txtCargoType">Cargo type</label>
+                        <input type="text" class="form-control" id="txtCargoType" name="CargoType" placeholder="for example: wheat, cement etc." title="Cannot be blank"  />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Bunker ROB</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtFuelOil">Fuel oil</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtFuelOil" name="FuelOil" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">t</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtDieselOil">Diesel oil</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtDieselOil" name="DieselOil" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-1">t</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtSulphurFuelOil">Low sulphur fuel oil</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtSulphurFuelOil" name="SulphurFuelOil" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-1">t</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtSulphurDieselOil">Low sulphur diesel oil</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtSulphurDieselOil" name="SulphurDieselOil" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-1">t</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtSludge">Sludge</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtSludge" name="Sludge" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">m<sup>3</sup></div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtDirtyOil">Dirty oil</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtDirtyOil" name="DirtyOil" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-1">m<sup>3</sup></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Departure</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtETCDate">ETC/D date</label>
+                        <input type="text" class="form-control" id="txtETCDate" name="ETCDate" title="Only date or date and time allowed" />
+                        <span class="form-control-feedback arrivalCalendarAddon">
+                            <label class="text-danger">*</label> <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtETCTime">ETC/D time</label>
+                        <input type="text" class="form-control time" id="txtETCTime" name="ETCTime" placeholder="HH:MM" title="Only time allowed" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtNextPort">Next port</label>
+                        <input type="text" class="form-control" id="txtNextPort" name="NextPort" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-12">
+                    <div class="form-group has-feedback">
+                        <label for="txtRemarks" style="font-size:20px;">Remarks</label>
+                        <input type="text" class="form-control" id="txtRemarks" name="Remarks" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Recipients</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-12">
+                    <label class="col-sm-12 col-xs-12 nopaddingleftright">To...</label>
+                    <input type="text" class="form-control" readonly="readonly" value="shipsPosition@carisbrooke.co" name="ToEmail" id="txtToEmail" />
+                </div>
+                <div class="form-group col-md-12">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 nopaddingleftright">CC...</label>
+                        <input type="text" class="txtCCEmail form-control" readonly="readonly" value="@ViewBag.CCEmail" name="ToCC" id="txtTOCC" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <input type="submit" id="btnSubmit" class="btn btn-primary" value="Submit" />
+            </div>
+        </div>
+    </form>
+</section>

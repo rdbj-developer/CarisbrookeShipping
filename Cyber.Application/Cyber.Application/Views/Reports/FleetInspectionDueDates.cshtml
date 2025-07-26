@@ -1,0 +1,616 @@
+﻿@using OfficeApplication.BLL.Modals;
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .k-grid td, .k-filter-row th, .k-grid-header th.k-header, .k-pager-wrap {
+        padding: 0px;
+        padding-bottom: 0px !important;
+        padding-top: 0px !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    #grid > table {
+        table-layout: fixed;
+    }
+
+    .k-detail-row {
+        height: 50px;
+    }
+
+        .k-detail-row > table {
+            height: 100px;
+        }
+
+    .totalLable {
+        padding-top: 10px;
+        font-weight: bold;
+    }
+
+    .header {
+        background-color: #C6D9F1; /*#b4d2fd*/
+        margin-bottom: -10px;
+        color: #7F7F7F !important;
+        font-weight: 500;
+        padding: 10px;
+    }
+
+    .box-header {
+        padding: 0px;
+        padding-left: 10px;
+    }
+
+    .k-grid td {
+        border: none;
+    }
+
+    .k-padding {
+        padding: 0px 10px 0px 10px;
+    }
+
+    .bg-light-green {
+        background-color: #A7DA4E !important;
+    }
+    /* Hide the Grid header and pager during export */
+    .k-pdf-export .k-grid-toolbar, .k-pdf-export .k-grid-footer,
+    .k-pdf-export .k-grouping-header {
+        display: none;
+    }
+
+    .k-grid-header th.k-header {
+        vertical-align: top;
+        text-align: center;
+        border-style: none;
+        font-weight: 500;
+        color: #7F7F7F !important;
+        font-size: 15px;
+        white-space: normal;
+    }
+
+        .k-grid-header th.k-header > .k-link {
+            max-height: 65px;
+            white-space: normal;
+            vertical-align: text-top;
+            text-align: center;
+            text-overflow: ellipsis;
+        }
+
+    .legend {
+        list-style: none;
+        padding: 1px;
+        margin: 5px;
+    }
+
+        .legend li {
+            margin-right: 10px;
+            color: #7F7F7F;
+            font-weight: 600;
+        }
+
+    li:first-child span {
+        float: left;
+        width: 15px;
+        height: 15px;
+        margin: 2px;
+    }
+
+    .description {
+        color: #7F7F7F;
+        font-weight: 600;
+    }
+
+    .font-blue {
+        color: #2196f3;
+    }
+
+    @@media only screen and (max-width: 1280px) {
+        #descriptionDiv {
+            font-size: 10px;
+        }
+
+        .paddingleft {
+            padding-left: 20px
+        }
+
+        .k-grid-header th.k-header {
+            font-size: 10px;
+        }
+
+        #grid > table {
+            table-layout: fixed;
+            font-size: 10px;
+        }
+    }
+</style>
+<script src="~/Scripts/moment.min.js"></script>
+<script>
+    var RootUrl = '@Url.Content("~/")';
+    var width, shipWidth;
+    var $input;
+    var isCalendarVisible = false;
+    $(document).ready(function () {
+        try {
+            if (screen.width <= 1280) {
+                width = "100px";
+            }
+            else {
+                width = "250px";
+            }
+        } catch (e) {
+            width = "100px"
+        }
+        shipWidth = "90px";
+        LoadFleetDueDatesData();
+    });
+    $(document).on('keydown', function (e) {
+        if (e.keyCode == 80 && (e.metaKey || e.ctrlKey)) {
+            printFleetReport();
+        }
+    });
+
+    function LoadFleetDueDatesData() {
+     $.ajax({
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        headers: {
+            "cache-control": "no-cache"
+        },
+         url: RootUrl + "Reports/GetFleetInspectionDueDates",
+        data: null,
+        success: function (response) {
+            if (response != null) {
+                $('#grid').empty();
+                $('#grid').kendoGrid({
+                    scrollable: false,
+                    filterable: false,
+                    selectable: false,
+                    sortable: false,
+                    resizable: true,
+                    pageable: false,
+                    dataSource: {
+                        data: response
+                    },
+                    dataBound: function () {
+                        //for (var i = 0; i < this.columns.length; i++) {
+                        //    this.autoFitColumn(i);
+                        //}
+                    },
+                    columns: [
+                        {
+                            field: "Ship",
+                            title: "Ship",
+                            width: shipWidth
+
+                        },
+                        {
+                            field: "Notes",
+                            title: "Notes",
+                            width: width
+                        },
+                        {
+                            field: "LastFlagGI",
+                            title: "Flag GI",
+                            template: "#= checkSIDue(kendo.toString(kendo.parseDate(LastFlagGI, 'yyyy-MM-dd'), 'yyyy-MM-dd'),kendo.toString(kendo.parseDate(LastFlagGI, 'yyyy-MM-dd'), 'dd/MM/yyyy'),'LastFlagGI','',ShipId)#"
+                        },
+                        {
+                            field: "LastFlagASI",
+                            title: "Flag ASI",
+                            template: "#= checkSIDue(kendo.toString(kendo.parseDate(LastFlagASI, 'yyyy-MM-dd'), 'yyyy-MM-dd'),kendo.toString(kendo.parseDate(LastFlagASI, 'yyyy-MM-dd'), 'dd/MM/yyyy'),'LastFlagASI','',ShipId)#"
+                        },
+                        {
+                            field: "LastFlagCICA",
+                            title: "Flag CICA",
+                            template: "#= checkSIDue(kendo.toString(kendo.parseDate(LastFlagCICA, 'yyyy-MM-dd'), 'yyyy-MM-dd'),kendo.toString(kendo.parseDate(LastFlagCICA, 'yyyy-MM-dd'), 'dd/MM/yyyy'),'LastFlagCICA','',ShipId)#"
+                        },
+                        {
+                            field: "Last SI",
+                            title: "Last SI",
+                            template: "#= LastSI!=null? kendo.toString(kendo.parseDate(LastSI, 'yyyy-MM-dd'), 'dd/MM/yyyy'):'' #",
+                           // template: "#= checkSIDue(kendo.toString(kendo.parseDate(LastSI, 'yyyy-MM-dd'), 'yyyy-MM-dd'),kendo.toString(kendo.parseDate(LastSI, 'yyyy-MM-dd'), 'dd/MM/yyyy'))#"
+
+                        },
+                        {
+                            field: "NextSIDue",
+                            title: "Next SI Due",
+                            template: "#= checkSIDue(kendo.toString(kendo.parseDate(NextSIDue, 'yyyy-MM-dd'), 'yyyy-MM-dd'),kendo.toString(kendo.parseDate(NextSIDue, 'yyyy-MM-dd'), 'dd/MM/yyyy'),'NextSIDue')#"
+                        },
+                        {
+                            field: "LastFSTO",
+                            title: "Last FS TO",
+                            template: "#= checkSIDue(kendo.toString(kendo.parseDate(LastFSTO, 'yyyy-MM-dd'), 'yyyy-MM-dd'),kendo.toString(kendo.parseDate(LastFSTO, 'yyyy-MM-dd'), 'dd/MM/yyyy'),'LastFSTO')#"
+                        },
+                        {
+                            field: "LastGI",
+                            title: "Last GI",
+                            template: "#= checkSIDue(kendo.toString(kendo.parseDate(LastGI, 'yyyy-MM-dd'), 'yyyy-MM-dd'),kendo.toString(kendo.parseDate(LastGI, 'yyyy-MM-dd'), 'dd/MM/yyyy'),'LastGI')#"
+                        },
+                        {
+                            field: "LastInternalAudit",
+                            title: "Last Int. Audit",
+                            template: "#= LastInternalAudit!=null? kendo.toString(kendo.parseDate(LastInternalAudit, 'yyyy-MM-dd'), 'dd/MM/yyyy'):'' #"
+                        },
+                        {
+                            field: "InternalAuditDue",
+                            title: "Int. Audit Due",
+                            template: "#= checkSIDue(kendo.toString(kendo.parseDate(InternalAuditDue, 'yyyy-MM-dd'), 'yyyy-MM-dd'),kendo.toString(kendo.parseDate(InternalAuditDue, 'yyyy-MM-dd'), 'dd/MM/yyyy'),'InternalAuditDue')#"
+                        },
+                        {
+                            field: "LastExtAudit",
+                            title: "Last Ext. Audit",
+                            template: "#= LastExtAudit!=null? kendo.toString(kendo.parseDate(LastExtAudit, 'yyyy-MM-dd'), 'dd/MM/yyyy'):'' #"
+                        },
+                        {
+                            field: "SMCVerifDue",
+                            title: "SMC Verif. Due",
+                            template: "#= checkSIDue(kendo.toString(kendo.parseDate(SMCVerifDue, 'yyyy-MM-dd'), 'yyyy-MM-dd'),kendo.toString(kendo.parseDate(SMCVerifDue, 'yyyy-MM-dd'), 'dd/MM/yyyy'),'SMCVerifDue',SMCIsVerified)#"
+                            //template: "#= SMCVerifDue!=null? kendo.toString(kendo.parseDate(SMCVerifDue, 'yyyy-MM-dd'), 'dd/MM/yyyy'):'' #"
+                        },
+                        {
+                            field: "SMCExpiry",
+                            title: "SMC Expiry",
+                            template: "#= checkSIDue(kendo.toString(kendo.parseDate(SMCExpiry, 'yyyy-MM-dd'), 'yyyy-MM-dd'),kendo.toString(kendo.parseDate(SMCExpiry, 'yyyy-MM-dd'), 'dd/MM/yyyy'),'SMCExpiry')#"
+                        }]
+                });
+                $("#totalRecords").html(response.length);
+                var grid = $('#grid').data("kendoGrid");
+                grid.dataSource.pageSize(response.length);
+                grid.refresh();
+                var data = grid.dataSource.data();
+                $.each(data, (i, row) => {
+                    if (i % 2) {
+                        $('tr[data-uid="' + row.uid + '"]').css("background-color", "#ebeaf7");
+                    }
+                });
+            }
+        },
+        error: function (response) {
+            console.log(response);
+        }
+    });
+    }
+    function saveTabularData() {
+        var grid = $('#grid').data("kendoGrid");
+        kendo.spreadsheet.drawTabularData({
+            dataSource: grid.dataSource,
+            columns: grid.columns,
+            headerBackground: "#567",
+            headerColor: "#fff",
+            evenBackground: "#eee",
+        }).then(function (group) {
+            kendo.pdf.saveAs(group, "test.pdf");
+        });
+    }
+    function checkSIDue(dueDate, strDate, fieldName, SMCIsVerified, ShipId) {
+        var strTemplate = '<div style="text-align:center;" {clickEvent}>';
+        strTemplate += '<span class="{class} k-padding">'
+        var strClass = "", striClickEvent = "";
+        if (dueDate && dueDate != null && dueDate != undefined) {
+            var currentDate = new Date();
+            var givenDate = new Date(dueDate);
+            var objDiff = difference(givenDate);
+            if (objDiff) {
+                if (fieldName == "LastFlagGI" || fieldName == "LastFlagASI" || fieldName == "LastFlagCICA") {
+                    if (givenDate > currentDate) {
+                        if (objDiff.years == 0 && objDiff.months > 1 && objDiff.months <= 6) { //green for due within 6 months
+                            strClass = "bg-light-green";
+                        }
+                        else if (objDiff.years == 0 && objDiff.months > 0 && objDiff.months <= 1) {// orange for due within 1 month
+                            strClass = "bg-yellow-active";
+                        }
+                    }
+                    else {//red colour for overdue.
+                        strClass = "bg-red";
+                    }
+
+                }
+                if (fieldName == "NextSIDue") {
+                    if (givenDate > currentDate) {
+                        if (objDiff.years == 0 && objDiff.months <= 0) {
+                            strClass = "bg-yellow-active";
+                        }
+                    } else {
+                        strClass = "bg-red";//red colour for overdue.
+                    }
+                }
+                if (fieldName == "LastFSTO") {
+                    if (objDiff.years < 0) {
+                        strClass = "bg-yellow-active";
+                    }
+                }
+                if (fieldName == "LastGI") {
+                    if (objDiff.years < 0) {
+                        strClass = "bg-yellow-active";
+                    }
+                    else if (objDiff.years == 0 && objDiff.months >= 0 && objDiff.months <=6 ) {
+                        strClass = "bg-light-green";
+                    }
+                }
+                if (fieldName == "InternalAuditDue") {
+                    if (givenDate > currentDate) {
+                        if (objDiff.years == 0 && (objDiff.months <= 0 || (objDiff.months == 1 && objDiff.days <= 12))) {
+                            strClass = "bg-yellow-active";
+                        }
+                        else if (objDiff.years == 0 && (objDiff.months <= 0 || (objDiff.months <= 2 && objDiff.days <= 54))) {
+                            strClass = "bg-light-green";
+                        }
+                    } else {
+                        strClass = "bg-red";//red colour for overdue.
+                    }
+                }
+                if (fieldName == "SMCVerifDue") {
+                    if (SMCIsVerified == "1") {
+                        strClass = "font-blue";
+                    }
+                    else {
+                        if (givenDate > currentDate) {
+                            if (objDiff.years == 0 && objDiff.months <= 7) {
+                                strClass = "bg-light-green";
+                            }
+
+                        }
+                        else {
+                            if (objDiff.years == 0 && objDiff.months <= 0 && objDiff.months >= -6) {
+                                strClass = "bg-yellow-active";
+                            }
+                            else if (objDiff.months < 0 && objDiff.months >= -6) {// (objDiff.years < 0 && objDiff.months < 0) {
+                                strClass = "bg-red";
+                            }
+                        }
+                    }
+                }
+                if (fieldName == "SMCExpiry") {
+                    if (givenDate > currentDate) {
+                        if (objDiff.years == 0 && objDiff.months >= 0 && objDiff.months < 3) { //SMC Expiry - 3 months before expiry (renewal window)
+                            strClass = "bg-yellow-active";
+                        }
+                        else if (objDiff.years == 0 && objDiff.months ==3) { //SMC Expiry - 1 Month before renewal window
+                            strClass = "bg-light-green";
+                        }
+                    }
+                }
+            }
+            strTemplate += strDate;
+        }
+        if (fieldName == "LastFlagGI" || fieldName == "LastFlagASI" || fieldName == "LastFlagCICA") {
+            striClickEvent = 'ondblclick="onDoubleClickOpenDatePicker(this,\'' + strDate + '\',\'' + strClass + '\',' + ShipId + ',\'' + fieldName + '\')" ';
+        }
+        strTemplate += '</span>';
+        strTemplate = strTemplate.replace("{class}", strClass);
+        strTemplate = strTemplate.replace("{clickEvent}", striClickEvent);
+        strTemplate += '</div>';
+        return strTemplate;
+    }
+    function difference(d1) {
+        var d2 = new Date();
+        var m = moment(d1);
+        var years = m.diff(d2, 'years');
+        m.add(-years, 'years');
+        var months = m.diff(d2, 'months');
+        m.add(-months, 'months');
+        var days = m.diff(d2, 'days');
+
+        return { years: years, months: months, days: days };
+    }
+    function printFleetReport() {
+         var RootUrl = '@Url.Content("~/")';
+        var gridElement = $('#grid'),
+            printableContent = '',
+            win = window.open('', 'Print-Window');
+        doc = win.document.open();
+
+
+        var style = '@@media print { @@page{size: 50.1cm 30.4cm; margin: 0cm 1cm 1cm 1cm;} body { -webkit-print-color-adjust: exact; } footer { page-break-after: always;  position: fixed; bottom: 0;} }' +
+            '.header { background-color: #b4d2fd; padding: 5px; margin-bottom: -10px; color: #515967;font-weight: 500;font-size: 18px; font-family: \'Source Sans Pro\',sans-serif; } .k-grid-header th.k-header{font-weight: 400; color: #7F7F7F !important; font-size: 11px;font-family: sans-serif;}' +
+            '.box-header { padding: 0px; padding-left: 10px; } table td {font-size: 11px;font-family: \'Source Sans Pro\',sans-serif; border: none; padding: 0px;padding-bottom: 0px !important; padding-top: 0px !important; padding-left: 8px !important; padding-right: 8px !important; } .k-padding { padding: 0px 10px 0px 10px; }  ' +
+            '.bg-light-green{ background-color :#A7DA4E !important; } .bg-red{background-color: #dd4b39 !important; color: #fff !important;} .bg-yellow-active{color: #fff !important; background-color: #db8b0b !important}' +
+            '.text-red { color: #dd4b39 !important; } table{ width:100% ;border-spacing: 5px; border-collapse: separate;} .k-grid-header th.k-header { vertical-align: top; text-align: center; border-style: none; font-weight: 600; color: #7F7F7F !important;}.font-blue { color: #2196f3; }' +
+            '.legend { list-style: none; padding: 1px; margin: 5px;} .legend li { margin-right: 10px; color: #7F7F7F; font-weight: 400; } .zeroWidth{width:0px} .width15{width: 15%;} .width20{width:20%} .width80{width:85%}'+
+            'li:first-child span { float: left; width: 8px; height: 10px; } .description { color: #7F7F7F; font-weight: 400; padding:7px; } .flex{display: flex;} #descriptionDiv{font-size:10px !important; display: flex;font-family: \'Source Sans Pro\',sans-serif;} .paddingleft{padding-left: 8px;}';
+        var desc = document.getElementById("descriptionDiv").outerHTML;
+
+        var htmlStart =
+            '<!DOCTYPE html>' +
+            '<html>' +
+            '<head>' +
+            '<meta charset="utf-8" />' +
+            '<title></title>' +
+            '<link rel="stylesheet" href="' + RootUrl + 'Content/kendo/kendo.common.min.css" type="text/css" />' +
+            '<link rel="stylesheet" href="' + RootUrl + 'Content/kendo/kendo.rtl.min.css" type="text/css" />' +
+            '<link rel="stylesheet" href="' + RootUrl + 'Content/kendo/kendo.silver.min.css" type="text/css" />' +
+            '<link rel="stylesheet" href="' + RootUrl + 'Content/kendo/kendo.mobile.all.min.css" type="text/css" />' +
+            '<style type="text/css">' + style + '</style>' +
+            '</head>' +
+            '<body>' +
+            '<div style="margin-bottom: 10px;">' +
+            '<h4 class="header">Fleet Inspection Due Dates</h4></div>';
+
+        var htmlEnd =
+            '<br/><div class="col-md-12 text-left text-red totalLable" style="font-size:12px !important;font-family: sans-serif;">Total Records: <span id="totalRecords">' + $("#totalRecords").html() + '</span> </div><br/>' +
+            '<footer>' + desc +'</footer>' +
+            '</body>' +
+            '</html>';
+        var gridHeader = gridElement.children('.k-grid-header');
+        if (gridHeader[0]) {
+            var thead = gridHeader.find('thead').clone().addClass('k-grid-header');
+            printableContent = gridElement
+                .clone()
+                .children('.k-grid-header').remove()
+                .end()
+                .children('.k-grid-content')
+                .find('table')
+                .first()
+                .children('tbody').before(thead)
+                .end()
+                .end()
+                .end()
+                .end()[0].innerHTML;
+        } else {
+            printableContent = gridElement.clone()[0].innerHTML;
+        }
+        printableContent = printableContent.replace('style="width:' + width + '"', 'style="width:500px"');
+        doc.write(htmlStart + printableContent + htmlEnd);
+        doc.close();
+        win.print();
+        setTimeout(function () { win.close(); }, 5 );
+    }
+    function onDoubleClickOpenDatePicker(obj, dateString, strClass, ShipId, fieldName) {
+        if (dateString == null || dateString == "null") {
+            dateString = "";
+        }
+        $input = $('<input style="width:-webkit-fill-available;" value="' + dateString + '" onfocusout="onFocusoutDatePicker(this,\'' + dateString + '\',\'' + strClass + '\')" />');
+        $input.datepicker({
+            format: 'dd/mm/yyyy', defaultDate: new Date()});
+        $input.on('changeDate', function (ev) {
+            var kendoWindow = $("<div />").kendoWindow({
+                title: "Update due dates confirmation",
+                resizable: false,
+                modal: true
+            });
+            kendoWindow.data("kendoWindow")
+                .content($("#update-confirmation").html())
+                .center().open();
+
+            kendoWindow.find(".update-confirm,.update-cancel")
+                .click(function () {
+                    if ($(this).hasClass("update-confirm")) {
+                        var date = $input.datepicker('getFormattedDate');                        
+                        $input.datepicker('hide');
+                        $.ajax({
+                            type: "POST",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            headers: {
+                                "cache-control": "no-cache"
+                            },
+                            url: RootUrl + "Reports/UpdateFleetInspectionDueDates",
+                            data: JSON.stringify({
+                                "ShipId": ShipId, "FieldName": fieldName, "EventDate": date }),
+                            success: function (response) {
+                                if (response.result == "Success") {
+                                    var $span = $('<span class="k-padding ' + strClass + '">' + date + "</span>");
+                                    $(obj).find("input").replaceWith($span);
+                                    $.notify("Date updated successfully !!!", "success");                                    
+                                }
+                                else {
+                                    $.notify("Failed to updated record!!!", "error");
+                                }
+                            },
+                            error: function (response) {
+
+                            }
+                        });
+                    }
+                    kendoWindow.data("kendoWindow").close();
+                })
+                .end()
+
+
+        });
+        $input.datepicker().on("show", function () {
+          isCalendarVisible = true;
+        }).on("hide", function () {
+            isCalendarVisible = false;
+        });
+        $(obj).find("span").replaceWith($input);
+        $input.focus();
+        $input.datepicker("show");
+    }
+    function onFocusoutDatePicker(obj, dateString, strClass) {
+        if ($input.datepicker("widget").is(":visible") && !isCalendarVisible) {
+            $input.datepicker("close");
+            var $span = $('<span class="k-padding ' + strClass + '">' + dateString + "</span>");
+            $(obj).replaceWith($span);
+        }
+    }
+</script>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box" id="FleetReportPage">
+                <div class="box-header">
+                    <h4 class="header">Fleet Inspection Due Dates</h4>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="grid" style="overflow-x:scroll">
+                                <div class="well">Loading Please Wait...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 text-left text-red totalLable">
+                            Total Records: <span id="totalRecords">0</span>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="row" id="descriptionDiv">
+                        <div class="col-md-1 col-sm-1" style="padding-top: 7px;">
+                            <span class="description">@DateTime.Now.ToString("dd MMMM yyyy")</span>
+                        </div>
+                        <div class="col-md-11 col-sm-11 flex">
+                            <div class="col-md-2  col-sm-2">
+                                <ul class="legend">
+                                    <li>
+                                        <span class="bg-red"></span>&nbsp; Overdue (For all items)
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-5  col-sm-5">
+                                <ul class="legend">
+                                    <li>
+                                        <span class="bg-yellow-active"></span>&nbsp;  SI -Due within 1 month
+                                    </li>
+                                    <li>
+                                        <span class="paddingleft"></span>&nbsp; GI/FSTO - Last inspection more than 12 months ago
+                                    </li>
+                                    <li>
+                                        <span class="paddingleft"></span>&nbsp; Internals - Due within 6 weeks
+                                    </li>
+                                    <li>
+                                        <span class="paddingleft"></span>&nbsp; SMC Verification - Mid-point of verification period to end of period
+                                    </li>
+                                    <li>
+                                        <span class="paddingleft"></span>&nbsp; SMC Expiry - 3 months before expiry (renewal window)
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-5  col-sm-5">
+                                <ul class="legend">
+                                    <li>
+                                        <span class="bg-light-green"></span>&nbsp;  GI - Due within 6 months
+                                    </li>
+                                    <li>
+                                        <span class="paddingleft"></span>&nbsp; Internals - Due within 12 weeks
+                                    </li>
+                                    <li>
+                                        <span class="paddingleft"></span>&nbsp; SMC Verification - 1 month before verification period to mid-point of period
+                                    </li>
+                                    <li>
+                                        <span class="paddingleft"></span>&nbsp; SMC Expiry - 1 Month before renewal window
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="box-footer clearfix no-border">
+                            <button type="button" class="btn btn-default" onclick="printFleetReport()"><i class="fa fa-print"></i> Print</button>&nbsp;&nbsp;&nbsp;
+                            <a onclick="ExportFile()" class="btn btn-default" style="display:none"><i class="fa fa-file-excel-o"></i> Export</a>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script id="update-confirmation" type="text/x-kendo-template">
+    <p class="update-message">Are you sure want to update this date?</p>
+    <br />
+    <button class="update-confirm k-button">YES</button>
+    <button class="update-cancel k-button">NO</button>
+</script>

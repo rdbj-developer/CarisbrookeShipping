@@ -1,0 +1,2445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarisbrookeShippingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ACCOUNTCODE">
+    <Key>
+      <PropertyRef Name="ACCOUNTID" />
+    </Key>
+    <Property Name="ACCOUNTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ACCOUNT_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ACCOUNT_DESCR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ACCOUNT_REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EXPORTED" Type="Int32" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_SITE" Type="Int32" />
+    <Property Name="SITEID" Type="Int32" />
+    <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_BY" Type="Int32" />
+    <Property Name="CREATED_BY" Type="Int32" />
+    <Property Name="PARENTID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AuditNote">
+    <Key>
+      <PropertyRef Name="AuditNotesId" />
+    </Key>
+    <Property Name="AuditNotesId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InternalAuditFormId" Type="Int64" />
+    <Property Name="Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BriefDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Reference" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FullDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CorrectiveAction" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PreventativeAction" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Rank" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TimeScale" Type="DateTime" Precision="3" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Ship" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsResolved" Type="Boolean" />
+    <Property Name="DateClosed" Type="DateTime" Precision="3" />
+    <Property Name="UniqueFormID" Type="Guid" />
+    <Property Name="NotesUniqueID" Type="Guid" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="isDelete" Type="Int32" Nullable="false" />
+    <Property Name="AssignTo" Type="Guid" />
+  </EntityType>
+  <EntityType Name="AuditNotesAttachment">
+    <Key>
+      <PropertyRef Name="AuditNotesAttachmentId" />
+    </Key>
+    <Property Name="AuditNotesAttachmentId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InternalAuditFormId" Type="Int64" />
+    <Property Name="AuditNotesId" Type="Int64" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="StorePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NotesUniqueID" Type="Guid" />
+    <Property Name="NotesFileUniqueID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="AuditNotesComment">
+    <Key>
+      <PropertyRef Name="CommentsID" />
+    </Key>
+    <Property Name="CommentsID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AuditNoteID" Type="Int64" />
+    <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CommentUniqueID" Type="Guid" />
+    <Property Name="NotesUniqueID" Type="Guid" />
+    <Property Name="isNew" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AuditNotesCommentsFile">
+    <Key>
+      <PropertyRef Name="CommentFileID" />
+    </Key>
+    <Property Name="CommentFileID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CommentsID" Type="Int64" />
+    <Property Name="AuditNoteID" Type="Int64" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StorePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommentUniqueID" Type="Guid" />
+    <Property Name="CommentFileUniqueID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="CSShip">
+    <Key>
+      <PropertyRef Name="ShipId" />
+    </Key>
+    <Property Name="ShipId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ShipClassId" Type="Int32" />
+    <Property Name="BuildCountryId" Type="Int32" />
+    <Property Name="BuildYear" Type="Int32" />
+    <Property Name="ClassificationSocietyId" Type="Int32" />
+    <Property Name="FlagStateId" Type="Int32" />
+    <Property Name="IMONumber" Type="Int32" />
+    <Property Name="CallSign" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MMSI" Type="Int32" />
+    <Property Name="GrossTonnage" Type="Int32" />
+    <Property Name="NetTonnage" Type="Int32" />
+    <Property Name="OfficeId" Type="Int32" />
+    <Property Name="TechnicalManagerId" Type="Int32" />
+    <Property Name="SuperintendentId" Type="Int32" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelivered" Type="Boolean" Nullable="false" />
+    <Property Name="FleetId" Type="Int32" />
+    <Property Name="YardNo" Type="Int32" />
+    <Property Name="OfficialNumber" Type="Int32" />
+    <Property Name="PortOfRegistryId" Type="Int32" />
+    <Property Name="SummerDeadweight" Type="Decimal" Precision="8" Scale="3" />
+    <Property Name="Lightweight" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="LOA" Type="Decimal" Precision="6" Scale="3" />
+    <Property Name="LBP" Type="Decimal" Precision="6" Scale="3" />
+    <Property Name="Beam" Type="Decimal" Precision="5" Scale="3" />
+    <Property Name="SummerDraft" Type="Decimal" Precision="7" Scale="5" />
+    <Property Name="BHP" Type="Int32" />
+    <Property Name="BowThruster" Type="Int32" />
+    <Property Name="BuildNumber" Type="Int32" />
+    <Property Name="Agent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ports" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TechnicalManagerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MinimumSafeManning" Type="Int32" />
+    <Property Name="MaximumPersonsLSA" Type="Int32" />
+    <Property Name="TotalBerths" Type="Int32" />
+    <Property Name="RegisteredOwners" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="HullAndMachineryId" Type="Int32" />
+    <Property Name="ProtectionAndIndemnityId" Type="Int32" />
+    <Property Name="Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SMCIsVerified" Type="Boolean" Nullable="false" />
+    <Property Name="MarineSoftwareNumber" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DataloyNumber" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SatC1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SatC2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Citadel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="P_I_Club" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GeneralInspectionReport">
+    <Key>
+      <PropertyRef Name="GIRFormID" />
+    </Key>
+    <Property Name="GIRFormID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipID" Type="Int32" />
+    <Property Name="ShipName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ship" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Port" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Inspector" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="GeneralPreamble" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Classsociety" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="YearofBuild" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Flag" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Classofvessel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Portofregistry" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MMSI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IMOnumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Callsign" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SummerDWT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Grosstonnage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Lightweight" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Nettonnage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Beam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LOA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Summerdraft" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LBP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Bowthruster" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BHP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Noofholds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Nomoveablebulkheads" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Containers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cargocapacity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cargohandlingequipment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Lastvoyageandcargo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentPlannedvoyageandcargo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsSynced" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ShipboardWorkingArrangements" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CertificationIndex" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsPubsAndDocsSectionComplete" Type="Boolean" />
+    <Property Name="CarriedOutByTheDOOW" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsRegs4shipsDVD" Type="Boolean" />
+    <Property Name="Regs4shipsDVD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsSOPEPPoints" Type="Boolean" />
+    <Property Name="SOPEPPoints" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsBWMP" Type="Boolean" />
+    <Property Name="BWMP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsBWMPSupplement" Type="Boolean" />
+    <Property Name="BWMPSupplement" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsIntactStabilityManual" Type="Boolean" />
+    <Property Name="IntactStabilityManual" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsStabilityComputer" Type="Boolean" />
+    <Property Name="StabilityComputer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDateOfLast" Type="Boolean" />
+    <Property Name="DateOfLast" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsCargoSecuring" Type="Boolean" />
+    <Property Name="CargoSecuring" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IBulkCargo" Type="Boolean" />
+    <Property Name="BulkCargo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsSMSManual" Type="Boolean" />
+    <Property Name="SMSManual" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsRegisterOf" Type="Boolean" />
+    <Property Name="RegisterOf" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsFleetStandingOrder" Type="Boolean" />
+    <Property Name="FleetStandingOrder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsFleetMemoranda" Type="Boolean" />
+    <Property Name="FleetMemoranda" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsShipsPlans" Type="Boolean" />
+    <Property Name="ShipsPlans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsCollective" Type="Boolean" />
+    <Property Name="Collective" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDraftAndFreeboardNotice" Type="Boolean" />
+    <Property Name="DraftAndFreeboardNotice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsPCSOPEP" Type="Boolean" />
+    <Property Name="PCOPEP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="INTVRP" Type="Boolean" />
+    <Property Name="NTVRP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IVGP" Type="Boolean" />
+    <Property Name="VGP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PubsComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OfficialLogbookA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OfficialLogbookB" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OfficialLogbookC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OfficialLogbookD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OfficialLogbookE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeckLogbook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Listofcrew" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastHose" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PassagePlanning" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LoadingComputer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EngineLogbook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OilRecordBook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RiskAssessments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GMDSSLogbook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeckLogbook5D" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GarbageRecordBook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BallastWaterRecordBook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CargoRecordBook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmissionsControlManual" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LGR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PEER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RecordKeepingComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastPortStateControl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LiferaftsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="releasesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LifeboatComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LifeboatdavitComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LifeboatequipmentComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RescueboatComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RescueboatequipmentComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RescueboatoutboardmotorComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RescueboatdavitComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeckComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PyrotechnicsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EPIRBComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SARTsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GMDSSComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManoverboardComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LinethrowingapparatusComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FireextinguishersComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmergencygeneratorComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CO2roomComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SurvivalComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LifejacketComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FiremansComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LifebuoysComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FireboxesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmergencybellsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmergencylightingComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FireplanComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DamageComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmergencyplansComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MusterlistComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SafetysignsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmergencysteeringComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StatutoryemergencydrillsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EEBDComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OxygenComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MultigasdetectorComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GasdetectorComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SufficientquantityComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BASetsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SafetyComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GangwayComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RestrictedComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OutsideComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EntrancedoorsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccommodationComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GMDSSComment5G" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VariousComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SSOComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecuritylogbookComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Listoflast10portsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PFSOComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecuritylevelComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DrillsandtrainingComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DOSComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SSASComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VisitorslogbookComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KeyregisterComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShipSecurityComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NauticalchartsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoticetomarinersComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ListofradiosignalsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ListoflightsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SailingdirectionsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TidetablesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NavtexandprinterComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RadarsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GPSComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AISComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VDRComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ECDISComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EchosounderComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ADPbackuplaptopComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ColourprinterComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VHFDSCtransceiverComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="radioinstallationComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InmarsatCComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MagneticcompassComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SparecompassbowlComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompassobservationbookComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GyrocompassComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RudderindicatorComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SpeedlogComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NavigationComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SignalflagsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RPMComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BasicmanoeuvringdataComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MasterstandingordersComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MasternightordersbookComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SextantComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AzimuthmirrorComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BridgepostersComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReviewofplannedComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BridgebellbookComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BridgenavigationalComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityEquipmentComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NavigationPost" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GeneralComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MedicinestorageComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MedicinechestcertificateComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InventoryStoresComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OxygencylindersComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StretcherComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalivaComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AlcoholComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HospitalComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GeneralGalleyComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HygieneComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FoodstorageComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FoodlabellingComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GalleyriskassessmentComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FridgetemperatureComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FoodandProvisionsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GalleyComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConditionComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaintworkComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LightingComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PlatesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BilgesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PipelinesandvalvesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LeakageComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EquipmentComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OilywaterseparatorComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FueloiltransferplanComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SteeringgearComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WorkshopandequipmentComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SoundingpipesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EnginecontrolComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChiefEngineernightordersbookComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChiefEngineerstandingordersComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PreUMSComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EnginebellbookComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LockoutComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EngineRoomComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CleanlinessandhygieneComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConditionComment5M" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaintworkComment5M" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SignalmastandstaysComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MonkeyislandComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FireDampersComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RailsBulwarksComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WatertightdoorsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VentilatorsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WinchesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FairleadsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MooringLinesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmergencyShutOffsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RadioaerialsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SOPEPlockerComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChemicallockerComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AntislippaintComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SuperstructureComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CabinsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OfficesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MessroomsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ToiletsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LaundryroomComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangingroomComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConditionComment5N" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SelfclosingfiredoorsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StairwellsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SuperstructureInternalComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PortablegangwayComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SafetynetComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccommodationLadderComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SafeaccessprovidedComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PilotladdersComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BoardingEquipmentComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CleanlinessComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaintworkComment5P" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShipsiderailsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WeathertightdoorsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FirehydrantsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VentilatorsComment5P" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManholecoversComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MainDeckAreaComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConditionComment5Q" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaintworkComment5Q" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MechanicaldamageComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccessladdersComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManholecoversComment5Q" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HoldbilgeComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccessdoorsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConditionHatchCoversComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaintworkHatchCoversComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RubbersealsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SignsofhatchesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SealingtapeComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConditionofhydraulicsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PortablebulkheadsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TweendecksComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HatchcoamingComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConditionCargoCranesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GantrycranealarmComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GantryconditionComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CargoHoldsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CleanlinessComment5R" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaintworkComment5R" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TriphazardsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WindlassComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CablesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WinchesComment5R" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FairleadsComment5R" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MooringComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HatchToforecastlespaceComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VentilatorsComment5R" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BellComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForemastComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FireComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RailsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AntislippaintComment5R" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForecastleComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CleanlinessComment5S" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaintworkComment5S" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForepeakComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChainlockerComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LightingComment5S" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccesssafetychainComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmergencyfirepumpComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BowthrusterandroomComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SparemooringlinesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaintlockerComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForecastleSpaceComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BoottopComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TopsidesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AntifoulingComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DraftandplimsollComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FoulingComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MechanicalComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HullComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SummaryComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SavedAsDraft" Type="Boolean" />
+    <NavigationProperty Name="GIRPhotographs" Relationship="Self.FK__GIRPhotog__GIRFo__619B8048" FromRole="GeneralInspectionReport" ToRole="GIRPhotographs" />
+    <NavigationProperty Name="GIRRestandWorkHours" Relationship="Self.FK__GIRRestan__GIRFo__628FA481" FromRole="GeneralInspectionReport" ToRole="GIRRestandWorkHours" />
+    <NavigationProperty Name="GlRCrewDocuments" Relationship="Self.FK__GlRCrewDo__GIRFo__6383C8BA" FromRole="GeneralInspectionReport" ToRole="GlRCrewDocuments" />
+    <NavigationProperty Name="GlRSafeManningRequirements" Relationship="Self.FK__GlRSafeMa__GIRFo__6477ECF3" FromRole="GeneralInspectionReport" ToRole="GlRSafeManningRequirements" />
+    <NavigationProperty Name="GIRDeficiencies" Relationship="Self.FK_GIRDeficiencies_GeneralInspectionReport" FromRole="GeneralInspectionReport" ToRole="GIRDeficiencies" />
+    <Property Name="SnapBackZoneComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConditionGantryCranesComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MedicalLogBookComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DrugsNarcoticsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DefibrillatorComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RPWaterHandbook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BioRPWH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PRE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoiseVibrationFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BioMPR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AsbestosPlan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShipPublicAddrComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BridgewindowswiperssprayComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BridgewindowswipersComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DaylightSignalsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LiferaftDavitComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CylindersLockerComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SnapBackZone5NComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ADPPublicationsComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UniqueFormID" Type="Guid" />
+    <Property Name="FormVersion" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsGeneralSectionComplete" Type="Boolean" />
+    <Property Name="IsManningSectionComplete" Type="Boolean" />
+    <Property Name="IsShipCertificationSectionComplete" Type="Boolean" />
+    <Property Name="IsRecordKeepingSectionComplete" Type="Boolean" />
+    <Property Name="IsSafetyEquipmentSectionComplete" Type="Boolean" />
+    <Property Name="IsSecuritySectionComplete" Type="Boolean" />
+    <Property Name="IsBridgeSectionComplete" Type="Boolean" />
+    <Property Name="IsMedicalSectionComplete" Type="Boolean" />
+    <Property Name="IsGalleySectionComplete" Type="Boolean" />
+    <Property Name="IsEngineRoomSectionComplete" Type="Boolean" />
+    <Property Name="IsSuperstructureSectionComplete" Type="Boolean" />
+    <Property Name="IsDeckSectionComplete" Type="Boolean" />
+    <Property Name="IsHoldsAndCoverSectionComplete" Type="Boolean" />
+    <Property Name="IsForeCastleSectionComplete" Type="Boolean" />
+    <Property Name="IsHullSectionComplete" Type="Boolean" />
+    <Property Name="IsSummarySectionComplete" Type="Boolean" />
+    <Property Name="IsDeficienciesSectionComplete" Type="Boolean" />
+    <Property Name="IsPhotographsSectionComplete" Type="Boolean" />
+    <Property Name="isDelete" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GIRDeficiency">
+    <Key>
+      <PropertyRef Name="DeficienciesID" />
+    </Key>
+    <Property Name="DeficienciesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GIRFormID" Type="Int64" />
+    <Property Name="No" Type="Int32" Nullable="false" />
+    <Property Name="DateRaised" Type="DateTime" Precision="3" />
+    <Property Name="Deficiency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateClosed" Type="DateTime" Precision="3" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Ship" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsClose" Type="Boolean" />
+    <Property Name="ReportType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StorePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SIRNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GeneralInspectionReport" Relationship="Self.FK_GIRDeficiencies_GeneralInspectionReport" FromRole="GIRDeficiencies" ToRole="GeneralInspectionReport" />
+    <Property Name="ItemNo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Section" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UniqueFormID" Type="Guid" />
+    <Property Name="isDelete" Type="Int32" />
+    <Property Name="DeficienciesUniqueID" Type="Guid" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="AssignTo" Type="Guid" />
+    <Property Name="DueDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="GIRDeficienciesCommentFile">
+    <Key>
+      <PropertyRef Name="GIRCommentFileID" />
+    </Key>
+    <Property Name="GIRCommentFileID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NoteID" Type="Int64" />
+    <Property Name="DeficienciesID" Type="Int64" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StorePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsUpload" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoteUniqueID" Type="Guid" />
+    <Property Name="CommentFileUniqueID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="GIRDeficienciesFile">
+    <Key>
+      <PropertyRef Name="GIRDeficienciesFileID" />
+    </Key>
+    <Property Name="GIRDeficienciesFileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeficienciesID" Type="Int64" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StorePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeficienciesUniqueID" Type="Guid" />
+    <Property Name="DeficienciesFileUniqueID" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GIRDeficienciesNote">
+    <Key>
+      <PropertyRef Name="NoteID" />
+    </Key>
+    <Property Name="NoteID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeficienciesID" Type="Int64" />
+    <Property Name="GIRFormID" Type="Int64" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="NoteUniqueID" Type="Guid" />
+    <Property Name="DeficienciesUniqueID" Type="Guid" />
+    <Property Name="isNew" Type="Int32" />
+  </EntityType>
+  <EntityType Name="GIRPhotograph">
+    <Key>
+      <PropertyRef Name="PhotographsID" />
+    </Key>
+    <Property Name="PhotographsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GIRFormID" Type="Int64" />
+    <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageCaption" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Ship" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GeneralInspectionReport" Relationship="Self.FK__GIRPhotog__GIRFo__619B8048" FromRole="GIRPhotographs" ToRole="GeneralInspectionReport" />
+    <Property Name="UniqueFormID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="GIRRestandWorkHour">
+    <Key>
+      <PropertyRef Name="RestandWorkHoursID" />
+    </Key>
+    <Property Name="RestandWorkHoursID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GIRFormID" Type="Int64" />
+    <Property Name="CrewmemberName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RestAndWorkDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Ship" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GeneralInspectionReport" Relationship="Self.FK__GIRRestan__GIRFo__628FA481" FromRole="GIRRestandWorkHours" ToRole="GeneralInspectionReport" />
+    <Property Name="UniqueFormID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="GlRCrewDocument">
+    <Key>
+      <PropertyRef Name="CrewDocumentsID" />
+    </Key>
+    <Property Name="CrewDocumentsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GIRFormID" Type="Int64" />
+    <Property Name="CrewmemberName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CertificationDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Ship" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GeneralInspectionReport" Relationship="Self.FK__GlRCrewDo__GIRFo__6383C8BA" FromRole="GlRCrewDocuments" ToRole="GeneralInspectionReport" />
+    <Property Name="UniqueFormID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="GlRSafeManningRequirement">
+    <Key>
+      <PropertyRef Name="SafeManningRequirementsID" />
+    </Key>
+    <Property Name="SafeManningRequirementsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GIRFormID" Type="Int64" />
+    <Property Name="Rank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RequiredbySMD" Type="Boolean" />
+    <Property Name="OnBoard" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Ship" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GeneralInspectionReport" Relationship="Self.FK__GlRSafeMa__GIRFo__6477ECF3" FromRole="GlRSafeManningRequirements" ToRole="GeneralInspectionReport" />
+    <Property Name="UniqueFormID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="OpexReportFinilizeDate">
+    <Key>
+      <PropertyRef Name="FinilizeID" />
+    </Key>
+    <Property Name="FinilizeID" Type="Guid" Nullable="false" />
+    <Property Name="FinilizeBy" Type="Guid" />
+    <Property Name="StardDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Repository">
+    <Key>
+      <PropertyRef Name="RepID" />
+    </Key>
+    <Property Name="RepID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentID" Type="Guid" />
+    <Property Name="ParentID" Type="Guid" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Extension" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Version" Type="Double" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsReport" Type="Boolean" />
+    <Property Name="IsDocument" Type="Boolean" />
+    <Property Name="IsForm" Type="Boolean" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="IsSettings" Type="Boolean" />
+    <Property Name="IsHome" Type="Boolean" />
+    <Property Name="IsDeficiencies" Type="Boolean" />
+    <Property Name="IsHelp" Type="Boolean" />
+    <Property Name="IsAbout" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Ship">
+    <Key>
+      <PropertyRef Name="ShipID" />
+    </Key>
+    <Property Name="ShipID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ShipCode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="BuildYear" Type="Int32" />
+    <Property Name="IMONumber" Type="Int32" />
+    <Property Name="CallSign" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MMSI" Type="Int32" />
+    <Property Name="GrossTonnage" Type="Int32" />
+    <Property Name="NetTonnage" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Phone2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Phone3" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SIRAdditionalNote">
+    <Key>
+      <PropertyRef Name="NoteID" />
+    </Key>
+    <Property Name="NoteID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SIRFormID" Type="Int64" />
+    <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UniqueFormID" Type="Guid" />
+    <Property Name="NotesUniqueID" Type="Guid" />
+    <Property Name="IsDeleted" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SIRNote">
+    <Key>
+      <PropertyRef Name="NoteID" />
+    </Key>
+    <Property Name="NoteID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SIRFormID" Type="Int64" />
+    <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UniqueFormID" Type="Guid" />
+    <Property Name="NotesUniqueID" Type="Guid" />
+    <Property Name="IsDeleted" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SuperintendedInspectionReport">
+    <Key>
+      <PropertyRef Name="SIRFormID" />
+    </Key>
+    <Property Name="SIRFormID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipID" Type="Int64" />
+    <Property Name="ShipName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Port" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Master" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Superintended" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_5_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_5_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_6_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_6_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_7_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_7_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_8_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_8_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_9_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_9_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_10_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_10_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_11_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section1_11_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section2_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section2_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section2_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section2_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section2_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section2_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section2_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section2_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section2_5_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section2_5_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section2_6_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section2_6_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section2_7_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section2_7_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section3_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section3_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section3_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section3_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section3_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section3_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section3_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section3_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section3_5_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section3_5_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section4_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section4_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section4_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section4_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section4_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section4_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section5_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section5_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section5_6_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section5_6_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section5_8_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section5_8_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section5_9_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section5_9_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_5_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_5_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_6_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_6_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_7_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_7_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_8_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6_8_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7_5_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7_5_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7_6_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7_6_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_5_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_5_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_6_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_6_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_7_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_7_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_8_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_8_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_9_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_9_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_10_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_10_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_11_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_11_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_12_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_12_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_13_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_13_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_14_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_14_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_15_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_15_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_16_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_16_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_17_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_17_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_18_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_18_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_19_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_19_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_20_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_20_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_21_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_21_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_22_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_22_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_23_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_23_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_24_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_24_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_25_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8_25_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_5_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_5_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_6_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_6_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_7_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_7_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_8_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_8_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_9_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_9_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_10_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_10_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_11_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_11_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_12_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_12_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_13_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_13_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_14_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_14_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_15_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_15_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_5_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_5_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_6_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_6_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_7_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_7_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_8_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_8_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_9_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_9_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_10_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_10_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_11_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_11_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_12_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_12_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_13_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_13_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_14_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_14_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_15_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_15_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_16_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10_16_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_5_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_5_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_6_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_6_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_7_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_7_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_8_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11_8_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12_5_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12_5_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12_6_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12_6_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section13_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section13_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section13_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section13_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section13_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section13_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section13_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section13_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_5_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_5_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_6_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_6_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_7_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_7_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_8_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_8_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_9_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_9_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_10_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_10_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_11_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_11_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_12_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_12_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_13_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_13_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_14_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_14_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_15_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_15_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_16_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_16_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_17_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_17_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_18_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_18_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_19_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_19_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_20_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_20_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_21_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_21_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_22_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_22_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_23_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_23_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_24_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_24_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_25_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section14_25_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_5_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_5_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_6_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_6_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_7_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_7_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_8_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_8_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_9_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_9_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_10_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_10_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_11_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_11_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_12_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_12_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_13_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_13_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_14_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_14_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_15_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section15_15_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section16_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section16_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section16_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section16_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section16_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section16_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section16_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section16_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section17_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section17_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section17_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section17_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section17_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section17_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section17_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section17_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section17_5_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section17_5_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section17_6_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section17_6_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_1_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_1_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_2_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_2_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_3_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_3_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_4_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_4_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_5_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_5_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_6_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_6_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_7_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_7_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsSynced" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="SavedAsDraft" Type="Boolean" />
+    <Property Name="UniqueFormID" Type="Guid" />
+    <Property Name="FormVersion" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="isDelete" Type="Int32" Nullable="false" />
+    <Property Name="Section9_16_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_16_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_17_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9_17_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_8_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_8_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_9_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section18_9_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Guid" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserRole" Type="Int32" />
+    <Property Name="RoleOrder" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UserGroup" Type="Int32" />
+    <Property Name="ShipFleetID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UID" />
+    </Key>
+    <Property Name="UID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="empnre01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="empste01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fstnme01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="surnme01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bthcnte01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fnce01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lane01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="rsnewe01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sxee01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bthdate01" Type="DateTime" Precision="3" />
+    <Property Name="nate01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VIMSLogInfomation">
+    <Key>
+      <PropertyRef Name="VIMSID" />
+    </Key>
+    <Property Name="VIMSID" Type="Guid" Nullable="false" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="OldINVOICE_EXCHRATE" Type="Double" />
+    <Property Name="OldINVOICE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="NewINVOICE_EXCHRATE" Type="Double" />
+    <Property Name="NewINVOICE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="REQNINVOICEID" Type="Int32" />
+    <Property Name="VRID" Type="Int32" />
+    <Property Name="OLDAccountID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NewAccountID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NewPoDate" Type="DateTime" Precision="3" />
+    <Property Name="OldPoDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK__GIRPhotog__GIRFo__619B8048">
+    <End Role="GeneralInspectionReport" Type="Self.GeneralInspectionReport" Multiplicity="0..1" />
+    <End Role="GIRPhotographs" Type="Self.GIRPhotograph" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GeneralInspectionReport">
+        <PropertyRef Name="GIRFormID" />
+      </Principal>
+      <Dependent Role="GIRPhotographs">
+        <PropertyRef Name="GIRFormID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GIRRestan__GIRFo__628FA481">
+    <End Role="GeneralInspectionReport" Type="Self.GeneralInspectionReport" Multiplicity="0..1" />
+    <End Role="GIRRestandWorkHours" Type="Self.GIRRestandWorkHour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GeneralInspectionReport">
+        <PropertyRef Name="GIRFormID" />
+      </Principal>
+      <Dependent Role="GIRRestandWorkHours">
+        <PropertyRef Name="GIRFormID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GlRCrewDo__GIRFo__6383C8BA">
+    <End Role="GeneralInspectionReport" Type="Self.GeneralInspectionReport" Multiplicity="0..1" />
+    <End Role="GlRCrewDocuments" Type="Self.GlRCrewDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GeneralInspectionReport">
+        <PropertyRef Name="GIRFormID" />
+      </Principal>
+      <Dependent Role="GlRCrewDocuments">
+        <PropertyRef Name="GIRFormID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GlRSafeMa__GIRFo__6477ECF3">
+    <End Role="GeneralInspectionReport" Type="Self.GeneralInspectionReport" Multiplicity="0..1" />
+    <End Role="GlRSafeManningRequirements" Type="Self.GlRSafeManningRequirement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GeneralInspectionReport">
+        <PropertyRef Name="GIRFormID" />
+      </Principal>
+      <Dependent Role="GlRSafeManningRequirements">
+        <PropertyRef Name="GIRFormID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GIRDeficiencies_GeneralInspectionReport">
+    <End Role="GeneralInspectionReport" Type="Self.GeneralInspectionReport" Multiplicity="0..1" />
+    <End Role="GIRDeficiencies" Type="Self.GIRDeficiency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GeneralInspectionReport">
+        <PropertyRef Name="GIRFormID" />
+      </Principal>
+      <Dependent Role="GIRDeficiencies">
+        <PropertyRef Name="GIRFormID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CarisbrookeShippingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ACCOUNTCODEs" EntityType="Self.ACCOUNTCODE" />
+    <EntitySet Name="AuditNotes" EntityType="Self.AuditNote" />
+    <EntitySet Name="AuditNotesAttachments" EntityType="Self.AuditNotesAttachment" />
+    <EntitySet Name="AuditNotesComments" EntityType="Self.AuditNotesComment" />
+    <EntitySet Name="AuditNotesCommentsFiles" EntityType="Self.AuditNotesCommentsFile" />
+    <EntitySet Name="CSShips" EntityType="Self.CSShip" />
+    <EntitySet Name="GeneralInspectionReports" EntityType="Self.GeneralInspectionReport" />
+    <EntitySet Name="GIRDeficiencies" EntityType="Self.GIRDeficiency" />
+    <EntitySet Name="GIRDeficienciesCommentFiles" EntityType="Self.GIRDeficienciesCommentFile" />
+    <EntitySet Name="GIRDeficienciesFiles" EntityType="Self.GIRDeficienciesFile" />
+    <EntitySet Name="GIRDeficienciesNotes" EntityType="Self.GIRDeficienciesNote" />
+    <EntitySet Name="GIRPhotographs" EntityType="Self.GIRPhotograph" />
+    <EntitySet Name="GIRRestandWorkHours" EntityType="Self.GIRRestandWorkHour" />
+    <EntitySet Name="GlRCrewDocuments" EntityType="Self.GlRCrewDocument" />
+    <EntitySet Name="GlRSafeManningRequirements" EntityType="Self.GlRSafeManningRequirement" />
+    <EntitySet Name="OpexReportFinilizeDates" EntityType="Self.OpexReportFinilizeDate" />
+    <EntitySet Name="Repositories" EntityType="Self.Repository" />
+    <EntitySet Name="RolePermissions" EntityType="Self.RolePermission" />
+    <EntitySet Name="Ships" EntityType="Self.Ship" />
+    <EntitySet Name="SIRAdditionalNotes" EntityType="Self.SIRAdditionalNote" />
+    <EntitySet Name="SIRNotes" EntityType="Self.SIRNote" />
+    <EntitySet Name="SuperintendedInspectionReports" EntityType="Self.SuperintendedInspectionReport" />
+    <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="VIMSLogInfomations" EntityType="Self.VIMSLogInfomation" />
+    <AssociationSet Name="FK__GIRPhotog__GIRFo__619B8048" Association="Self.FK__GIRPhotog__GIRFo__619B8048">
+      <End Role="GeneralInspectionReport" EntitySet="GeneralInspectionReports" />
+      <End Role="GIRPhotographs" EntitySet="GIRPhotographs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GIRRestan__GIRFo__628FA481" Association="Self.FK__GIRRestan__GIRFo__628FA481">
+      <End Role="GeneralInspectionReport" EntitySet="GeneralInspectionReports" />
+      <End Role="GIRRestandWorkHours" EntitySet="GIRRestandWorkHours" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GlRCrewDo__GIRFo__6383C8BA" Association="Self.FK__GlRCrewDo__GIRFo__6383C8BA">
+      <End Role="GeneralInspectionReport" EntitySet="GeneralInspectionReports" />
+      <End Role="GlRCrewDocuments" EntitySet="GlRCrewDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GlRSafeMa__GIRFo__6477ECF3" Association="Self.FK__GlRSafeMa__GIRFo__6477ECF3">
+      <End Role="GeneralInspectionReport" EntitySet="GeneralInspectionReports" />
+      <End Role="GlRSafeManningRequirements" EntitySet="GlRSafeManningRequirements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GIRDeficiencies_GeneralInspectionReport" Association="Self.FK_GIRDeficiencies_GeneralInspectionReport">
+      <End Role="GeneralInspectionReport" EntitySet="GeneralInspectionReports" />
+      <End Role="GIRDeficiencies" EntitySet="GIRDeficiencies" />
+    </AssociationSet>
+    <EntitySet Name="UserGroups" EntityType="CarisbrookeShippingModel.UserGroup" />
+    <EntitySet Name="Menus" EntityType="CarisbrookeShippingModel.Menu" />
+    <EntitySet Name="UserGroupMenuPermissions" EntityType="CarisbrookeShippingModel.UserGroupMenuPermission" />
+    <EntitySet Name="Forms" EntityType="CarisbrookeShippingModel.Form" />
+    <EntitySet Name="ShipSystems" EntityType="CarisbrookeShippingModel.ShipSystem" />
+    <EntitySet Name="ShipSystemsEventLogs" EntityType="CarisbrookeShippingModel.ShipSystemsEventLog" />
+    <EntitySet Name="ShipSystemsInfoes" EntityType="CarisbrookeShippingModel.ShipSystemsInfo" />
+    <EntitySet Name="ShipSystemsProcesses" EntityType="CarisbrookeShippingModel.ShipSystemsProcess" />
+    <EntitySet Name="ShipSystemsServices" EntityType="CarisbrookeShippingModel.ShipSystemsService" />
+    <EntitySet Name="HoldVentilationRecordForms" EntityType="CarisbrookeShippingModel.HoldVentilationRecordForm" />
+    <EntitySet Name="HoldVentilationRecordSheets" EntityType="CarisbrookeShippingModel.HoldVentilationRecordSheet" />
+    <EntitySet Name="ShipAppReleaseNotes" EntityType="CarisbrookeShippingModel.ShipAppReleaseNote" />
+    <EntitySet Name="ShipAppDownloadLogs" EntityType="CarisbrookeShippingModel.ShipAppDownloadLog" />
+    <EntitySet Name="FeedbackForms" EntityType="CarisbrookeShippingModel.FeedbackForm" />
+    <EntitySet Name="SMRForms" EntityType="CarisbrookeShippingModel.SMRForm" />
+    <EntitySet Name="SMRFormCrewMembers" EntityType="CarisbrookeShippingModel.SMRFormCrewMember" />
+    <AssociationSet Name="FK_SMRFormCrewMembers_SMRForm" Association="CarisbrookeShippingModel.FK_SMRFormCrewMembers_SMRForm">
+      <End Role="SMRForm" EntitySet="SMRForms" />
+      <End Role="SMRFormCrewMember" EntitySet="SMRFormCrewMembers" />
+    </AssociationSet>
+    <EntitySet Name="RiskAssessmentForms" EntityType="CarisbrookeShippingModel.RiskAssessmentForm" />
+    <EntitySet Name="RiskAssessmentFormHazards" EntityType="CarisbrookeShippingModel.RiskAssessmentFormHazard" />
+    <EntitySet Name="GeneralSettings" EntityType="CarisbrookeShippingModel.GeneralSetting" />
+    <EntitySet Name="MainSyncServicesEventLogs" EntityType="CarisbrookeShippingModel.MainSyncServicesEventLog" />
+    <EntitySet Name="OpenFileServicesEventLogs" EntityType="CarisbrookeShippingModel.OpenFileServicesEventLog" />
+    <EntitySet Name="ArrivalReports" EntityType="CarisbrookeShippingModel.ArrivalReport" />
+    <EntitySet Name="DailyCargoReports" EntityType="CarisbrookeShippingModel.DailyCargoReport" />
+    <EntitySet Name="DailyPositionReports" EntityType="CarisbrookeShippingModel.DailyPositionReport" />
+    <EntitySet Name="DepartureReports" EntityType="CarisbrookeShippingModel.DepartureReport" />
+    <EntitySet Name="RiskAssessmentFormReviewers" EntityType="CarisbrookeShippingModel.RiskAssessmentFormReviewer" />
+    <EntitySet Name="CodaPurchaseOrders" EntityType="CarisbrookeShippingModel.CodaPurchaseOrder" />
+    <EntitySet Name="AssetManagmentEquipmentITLists" EntityType="CarisbrookeShippingModel.AssetManagmentEquipmentITList" />
+    <EntitySet Name="AssetManagmentEquipmentLists" EntityType="CarisbrookeShippingModel.AssetManagmentEquipmentList" />
+    <EntitySet Name="AssetManagmentEquipmentOTLists" EntityType="CarisbrookeShippingModel.AssetManagmentEquipmentOTList" />
+    <EntitySet Name="AssetManagmentEquipmentSoftwareAssets" EntityType="CarisbrookeShippingModel.AssetManagmentEquipmentSoftwareAsset" />
+    <EntitySet Name="AssetManagmentEquipmentLogs" EntityType="CarisbrookeShippingModel.AssetManagmentEquipmentLog" />
+    <EntitySet Name="CybersecurityRisksAssessments" EntityType="CarisbrookeShippingModel.CybersecurityRisksAssessment" />
+    <EntitySet Name="CybersecurityRisksAssessmentLists" EntityType="CarisbrookeShippingModel.CybersecurityRisksAssessmentList" />
+    <EntitySet Name="CyberSecuritySettings" EntityType="CarisbrookeShippingModel.CyberSecuritySetting" />
+    <EntitySet Name="ShipSystemsSoftwareInfoes" EntityType="CarisbrookeShippingModel.ShipSystemsSoftwareInfo" />
+    <EntitySet Name="CybersecurityRisksAssessmentLogs" EntityType="CarisbrookeShippingModel.CybersecurityRisksAssessmentLog" />
+    <EntitySet Name="OpenFileServicesDownloadLogs" EntityType="CarisbrookeShippingModel.OpenFileServicesDownloadLog" />
+    <EntitySet Name="OpenFileServicesReleaseNotes" EntityType="CarisbrookeShippingModel.OpenFileServicesReleaseNote" />
+    <EntitySet Name="RiskAssessmentFormLogs" EntityType="CarisbrookeShippingModel.RiskAssessmentFormLog" />
+    <EntitySet Name="Documents" EntityType="CarisbrookeShippingModel.Document" />
+    <EntitySet Name="GIRDeficienciesInitialActionsFiles" EntityType="CarisbrookeShippingModel.GIRDeficienciesInitialActionsFile" />
+    <EntitySet Name="GIRDeficienciesResolutions" EntityType="CarisbrookeShippingModel.GIRDeficienciesResolution" />
+    <EntitySet Name="GIRDeficienciesResolutionFiles" EntityType="CarisbrookeShippingModel.GIRDeficienciesResolutionFile" />
+    <EntitySet Name="AuditNotesResolutions" EntityType="CarisbrookeShippingModel.AuditNotesResolution" />
+    <EntitySet Name="AuditNotesResolutionFiles" EntityType="CarisbrookeShippingModel.AuditNotesResolutionFile" />
+    <EntitySet Name="GIRDeficienciesInitialActions" EntityType="CarisbrookeShippingModel.GIRDeficienciesInitialAction" />
+    <FunctionImport Name="SP_GetNotificationDetailsById" ReturnType="Collection(CarisbrookeShippingModel.SP_GetNotificationDetailsById_Result)">
+      <Parameter Name="DeficienciesUniqueID" Mode="In" Type="String" />
+      <Parameter Name="formType" Mode="In" Type="String" />
+      <Parameter Name="crntUserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Get_GIDeficiencies_OR_SIActionableItems_Number" ReturnType="Collection(CarisbrookeShippingModel.SP_Get_GIDeficiencies_OR_SIActionableItems_Number_Result)">
+      <Parameter Name="Ship" Mode="In" Type="String" />
+      <Parameter Name="ReportType" Mode="In" Type="String" />
+      <Parameter Name="min" Mode="In" Type="Int32" />
+      <Parameter Name="max" Mode="In" Type="Int32" />
+      <Parameter Name="UniqueFormID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ResetGIDeficienciesOrSIActionableItemsNumbersFrom501">
+      <Parameter Name="UniqueFormID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetAllNotifications" ReturnType="Collection(CarisbrookeShippingModel.SP_GetAllNotifications_Result)">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+      <Parameter Name="UserGroup" Mode="In" Type="Int32" />
+      <Parameter Name="crntUserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetAssignedToMeGISIIADeficiencies" ReturnType="Collection(CarisbrookeShippingModel.SP_GetAssignedToMeGISIIADeficiencies_Result)">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="HelpAndSupports" EntityType="CarisbrookeShippingModel.HelpAndSupport" />
+    <EntitySet Name="InternalAuditForms" EntityType="CarisbrookeShippingModel.InternalAuditForm" />
+    <EntitySet Name="Notifications" EntityType="CarisbrookeShippingModel.Notification" />
+    <EntitySet Name="MLCRegulationTrees" EntityType="CarisbrookeShippingModel.MLCRegulationTree" />
+    <EntitySet Name="SMSReferencesTrees" EntityType="CarisbrookeShippingModel.SMSReferencesTree" />
+    <EntitySet Name="SSPReferenceTrees" EntityType="CarisbrookeShippingModel.SSPReferenceTree" />
+    <FunctionImport Name="SP_GetNotificationsForTheISMDashboard" ReturnType="Collection(CarisbrookeShippingModel.SP_GetNotificationsForTheISMDashboard_Result)">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetAllNotificationsByUser" ReturnType="Collection(CarisbrookeShippingModel.SP_GetAllNotificationsByUser_Result)">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CB_proc_GetRecentNotifications" ReturnType="Collection(CarisbrookeShippingModel.CB_proc_GetRecentNotifications_Result)">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+      <Parameter Name="CreatedDateTime" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="CB_FormsPersonMaster" EntityType="CarisbrookeShippingModel.CB_FormsPersonMaster" />
+  </EntityContainer>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="UserGroupId" />
+    </Key>
+    <Property Name="UserGroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserGroupName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuLevel" Type="Int32" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="DisplayOrder" Type="Int32" />
+    <Property Name="MenuText" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ControllerName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ActionName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Class" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsParent" Type="Boolean" />
+    <Property Name="MenuType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDefaultMenu" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="UserGroupMenuPermission">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="MenuID" Type="Int32" Nullable="false" />
+    <Property Name="UserGroupID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Form">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FormID" Type="Guid" />
+    <Property Name="TemplatePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Issue" Type="Int32" />
+    <Property Name="IssueDate" Type="DateTime" Precision="3" />
+    <Property Name="Amendment" Type="Int32" />
+    <Property Name="AmendmentDate" Type="DateTime" Precision="3" />
+    <Property Name="Department" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="AccessLevel" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="AllowsNetworkAccess" Type="Boolean" />
+    <Property Name="CanBeOpened" Type="Boolean" />
+    <Property Name="HasSavedData" Type="Boolean" />
+    <Property Name="IsURNBased" Type="Boolean" />
+    <Property Name="URN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DownloadPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UploadType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="DocumentVersion" Type="Double" />
+    <Property Name="Version" Type="Double" />
+    <Property Name="FolderType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ShipSystem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PCName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PCUniqueId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsBlocked" Type="Boolean" />
+    <Property Name="IsMainPC" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ShipSystemsEventLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ShipSystemId" Type="Int64" />
+    <Property Name="EventId" Type="Int32" />
+    <Property Name="EventSource" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="EventDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EventDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="EventMachineName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="EventType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="EventLogType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ShipSystemsInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ShipSystemId" Type="Int64" />
+    <Property Name="PropertyName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PropertyValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="GroupName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayOrder" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ShipSystemsProcess">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ShipSystemId" Type="Int64" />
+    <Property Name="ProcessId" Type="Int64" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MemoryUsage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ShipSystemsService">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ShipSystemId" Type="Int64" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="StartupType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="StartName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SystemName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ProcessId" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="GroupName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HoldVentilationRecordForm">
+    <Key>
+      <PropertyRef Name="HoldVentilationRecordFormId" />
+    </Key>
+    <Property Name="HoldVentilationRecordFormId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ShipCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Cargo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Double" />
+    <Property Name="LoadingPort" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="LoadingDate" Type="DateTime" Precision="3" />
+    <Property Name="DischargingPort" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="DischargingDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsSynced" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="HoldVentilationRecordSheet">
+    <Key>
+      <PropertyRef Name="HoldVentilationRecordId" />
+    </Key>
+    <Property Name="HoldVentilationRecordId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoldVentilationRecordFormId" Type="Int64" />
+    <Property Name="HVRDate" Type="DateTime" Precision="0" />
+    <Property Name="HVRTime" Type="Time" Precision="7" />
+    <Property Name="OUTDryBulb" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="OUTWetBulb" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="OUTDewPOint" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HODryBulb" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HOWetBulb" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HODewPOint" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsVentilation" Type="Boolean" />
+    <Property Name="SeaTemp" Type="Double" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ShipAppReleaseNote">
+    <Key>
+      <PropertyRef Name="AppId" />
+    </Key>
+    <Property Name="AppId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AppPublishDate" Type="DateTime" Precision="3" />
+    <Property Name="NoOfFilesAffected" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ShipAppDownloadLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ShipCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PCName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PCUniqueId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OldAppId" Type="Int64" />
+    <Property Name="DownloadedAppId" Type="Int64" />
+    <Property Name="DownloadDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="FeedbackForm">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ShipName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ShipCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsMailSent" Type="Boolean" />
+    <Property Name="IsSynced" Type="Boolean" />
+    <Property Name="AttachmentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AttachmentFileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FeedbackBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SMRForm">
+    <Key>
+      <PropertyRef Name="SMRFormID" />
+    </Key>
+    <Property Name="SMRFormID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipID" Type="Int32" />
+    <Property Name="ShipName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReviewPeriod" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="DateOfMeeting" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Section1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7a" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7b" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7c" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7d" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7e1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7e2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7e3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7f1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7f2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7g" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section7h" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8a" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8b" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8b1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8b2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8b3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8b4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section8b5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section11" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12a" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12b" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12c" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12d" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12e" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12f" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12g" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12h" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12i" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12j" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section12k" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Section13" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SMRFormCrewMembers" Relationship="CarisbrookeShippingModel.FK_SMRFormCrewMembers_SMRForm" FromRole="SMRForm" ToRole="SMRFormCrewMember" />
+  </EntityType>
+  <EntityType Name="SMRFormCrewMember">
+    <Key>
+      <PropertyRef Name="CrewMemberID" />
+    </Key>
+    <Property Name="CrewMemberID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SMRFormID" Type="Int64" />
+    <Property Name="Rank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ElectedAsSafety" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SMRForm" Relationship="CarisbrookeShippingModel.FK_SMRFormCrewMembers_SMRForm" FromRole="SMRFormCrewMember" ToRole="SMRForm" />
+  </EntityType>
+  <Association Name="FK_SMRFormCrewMembers_SMRForm">
+    <End Type="CarisbrookeShippingModel.SMRForm" Role="SMRForm" Multiplicity="0..1" />
+    <End Type="CarisbrookeShippingModel.SMRFormCrewMember" Role="SMRFormCrewMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMRForm">
+        <PropertyRef Name="SMRFormID" />
+      </Principal>
+      <Dependent Role="SMRFormCrewMember">
+        <PropertyRef Name="SMRFormID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="RiskAssessmentForm">
+    <Key>
+      <PropertyRef Name="RAFID" />
+    </Key>
+    <Property Name="RAFID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ShipCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReviewerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReviewerDate" Type="DateTime" Precision="3" />
+    <Property Name="ReviewerRank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReviewerLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="SavedAsDraft" Type="Boolean" />
+    <Property Name="IsSynced" Type="Boolean" />
+    <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Issue" Type="Int32" />
+    <Property Name="IssueDate" Type="DateTime" Precision="3" />
+    <Property Name="Amendment" Type="Int32" />
+    <Property Name="AmendmentDate" Type="DateTime" Precision="3" />
+    <Property Name="IsConfidential" Type="Boolean" />
+    <Property Name="DocumentID" Type="Guid" />
+    <Property Name="ParentID" Type="Guid" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SectionType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsAmended" Type="Boolean" />
+    <Property Name="IsApplicable" Type="Boolean" />
+    <Property Name="RAFUniqueID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="RiskAssessmentFormHazard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="HazardId" Type="Int64" />
+    <Property Name="RAFID" Type="Int64" />
+    <Property Name="Stage1Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Stage2Severity" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Stage2Likelihood" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Stage2RiskFactor" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Stage3Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Stage4Severity" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Stage4Likelihood" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Stage4RiskFactor" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="RAFUniqueID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="GeneralSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MainSyncServicesEventLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ShipSystemId" Type="Int64" />
+    <Property Name="RunningVersion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="Latitude" Type="Decimal" Precision="12" Scale="9" />
+    <Property Name="Longitude" Type="Decimal" Precision="12" Scale="9" />
+  </EntityType>
+  <EntityType Name="OpenFileServicesEventLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ShipSystemId" Type="Int64" />
+    <Property Name="RunningVersion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="Latitude" Type="Decimal" Precision="12" Scale="9" />
+    <Property Name="Longitude" Type="Decimal" Precision="12" Scale="9" />
+  </EntityType>
+  <EntityType Name="ArrivalReport">
+    <Key>
+      <PropertyRef Name="ARID" />
+    </Key>
+    <Property Name="ARID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipNo" Type="Int32" />
+    <Property Name="ShipName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ReportCreated" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VoyageNo" Type="Int32" />
+    <Property Name="PortName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ArrivalDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ArrivalTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NORTenderedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NORTenderedTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="POBDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="POBTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoOfTugsUsed" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OnAnchor" Type="Boolean" />
+    <Property Name="ArrivalAlongSideDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ArrivalAlongSideTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AverageSpeed" Type="Double" />
+    <Property Name="DistanceMade" Type="Double" />
+    <Property Name="FuelOil" Type="Double" />
+    <Property Name="DieselOil" Type="Double" />
+    <Property Name="SulphurFuelOil" Type="Double" />
+    <Property Name="SulphurDieselOil" Type="Double" />
+    <Property Name="FreshWater" Type="Double" />
+    <Property Name="LubeOil" Type="Double" />
+    <Property Name="CargoDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CargoTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ETCDepartureDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ETCDepartureTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NextPort" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ToEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CCEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsSynced" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DailyCargoReport">
+    <Key>
+      <PropertyRef Name="DCRID" />
+    </Key>
+    <Property Name="DCRID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipNo" Type="Int32" />
+    <Property Name="ShipName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ReportCreated" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VoyageNo" Type="Int32" />
+    <Property Name="PortName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NoOfGangsEmployed" Type="Double" />
+    <Property Name="NoOfShipsCranesInUse" Type="Double" />
+    <Property Name="QuantityOfCargoLoaded" Type="Double" />
+    <Property Name="TotalCargoLoaded" Type="Double" />
+    <Property Name="CargoRemaining" Type="Double" />
+    <Property Name="FuelOil" Type="Double" />
+    <Property Name="DieselOil" Type="Double" />
+    <Property Name="SulphurFuelOil" Type="Double" />
+    <Property Name="SulphurDieselOil" Type="Double" />
+    <Property Name="Sludge" Type="Double" />
+    <Property Name="DirtyOil" Type="Double" />
+    <Property Name="ETCDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ETCTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NextPort" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ToEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CCEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsSynced" Type="Boolean" />
+    <Property Name="CargoType" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DailyPositionReport">
+    <Key>
+      <PropertyRef Name="DPRID" />
+    </Key>
+    <Property Name="DPRID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipNo" Type="Int32" />
+    <Property Name="ShipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ShipName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ReportCreated" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VoyageNo" Type="Int32" />
+    <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Anchored" Type="Boolean" />
+    <Property Name="AverageSpeed" Type="Double" />
+    <Property Name="DistanceMade" Type="Double" />
+    <Property Name="NextPort" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EstimatedArrivalDateEcoSpeed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EstimatedArrivalTimeEcoSpeed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EstimatedArrivalDateFullSpeed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EstimatedArrivalTimeFullSpeed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FuelOil" Type="Double" />
+    <Property Name="DieselOil" Type="Double" />
+    <Property Name="SulphurFuelOil" Type="Double" />
+    <Property Name="SulphurDieselOil" Type="Double" />
+    <Property Name="FreshWater" Type="Double" />
+    <Property Name="LubeOil" Type="Double" />
+    <Property Name="Sludge" Type="Double" />
+    <Property Name="DirtyOil" Type="Double" />
+    <Property Name="Pitch" Type="Double" />
+    <Property Name="EngineLoad" Type="Double" />
+    <Property Name="HighCylExhTemp" Type="Double" />
+    <Property Name="ExhGasTempAftTurboChrg" Type="Double" />
+    <Property Name="OilCunsum" Type="Double" />
+    <Property Name="WindDirection" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WindForce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SeaState" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SwellDirection" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SwellHeight" Type="Double" />
+    <Property Name="DraftAft" Type="Double" />
+    <Property Name="DraftForward" Type="Double" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ToEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CCEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsSynced" Type="Boolean" />
+    <Property Name="CargoType" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DepartureReport">
+    <Key>
+      <PropertyRef Name="DRID" />
+    </Key>
+    <Property Name="DRID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipNo" Type="Int32" />
+    <Property Name="ShipName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ReportCreated" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VoyageNo" Type="Int32" />
+    <Property Name="PortName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DateCargoOperations" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeCargoOperations" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CargoOnBoard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CargoLoaded" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="POBDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="POBTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepartureDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepartureTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="POffDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="POffTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoOfTugs" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="FuelOil" Type="Double" />
+    <Property Name="DieselOil" Type="Double" />
+    <Property Name="SulphurFuelOil" Type="Double" />
+    <Property Name="SulphurDieselOil" Type="Double" />
+    <Property Name="NextPort" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ETADate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ETATime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IntendedRoute" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ToEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CCEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsSynced" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DraftAFT" Type="Double" />
+    <Property Name="DraftFWD" Type="Double" />
+  </EntityType>
+  <EntityType Name="RiskAssessmentFormReviewer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="RAFID" Type="Int64" />
+    <Property Name="ReviewerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IndexNo" Type="Int64" />
+    <Property Name="RAFUniqueID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="CodaPurchaseOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="CmpCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DocCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DocNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ModDate" Type="DateTime" Precision="3" />
+    <Property Name="El1" Type="String" MaxLength="72" FixedLength="false" Unicode="false" />
+    <Property Name="ValueDoc" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Descr" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Invoice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SiteName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PONO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Vendor_Addr_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Account_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Account_Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PORecVDate" Type="DateTime" Precision="3" />
+    <Property Name="POTotal" Type="Double" />
+    <Property Name="POExchRate" Type="Double" />
+    <Property Name="POTotal_Base" Type="Double" />
+    <Property Name="Forwarder_Recvd_Date" Type="DateTime" Precision="3" />
+    <Property Name="InvoiceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dept_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Curr_Code" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="Equip_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PODate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="AssetManagmentEquipmentITList">
+    <Key>
+      <PropertyRef Name="ITId" />
+    </Key>
+    <Property Name="ITId" Type="Guid" Nullable="false" />
+    <Property Name="AMEId" Type="Guid" Nullable="false" />
+    <Property Name="ITEquipment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ITLocation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ITMake" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ITModel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ITType" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ITSerialNo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ITWorkingCondition" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ITLastServiced" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ITRemark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ITHardwareId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ITOwner" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ITPersonResponsible" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ITCriticality" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ITOperatingSystem" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ITOSPatchVersion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AssetManagmentEquipmentList">
+    <Key>
+      <PropertyRef Name="AMEId" />
+    </Key>
+    <Property Name="AMEId" Type="Guid" Nullable="false" />
+    <Property Name="ShipName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ShipCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="SavedAsDraft" Type="Boolean" />
+    <Property Name="IsSynced" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="AssetManagmentEquipmentOTList">
+    <Key>
+      <PropertyRef Name="OTId" />
+    </Key>
+    <Property Name="OTId" Type="Guid" Nullable="false" />
+    <Property Name="AMEId" Type="Guid" Nullable="false" />
+    <Property Name="OTEquipment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OTLocation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OTMake" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OTModel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OTType" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OTSerialNo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OTWorkingCondition" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OTLastServiced" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OTRemark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OTHardwareId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OTOwner" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OTPersonResponsible" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OTCriticality" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OTOperatingSystem" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OTOSPatchVersion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AssetManagmentEquipmentSoftwareAsset">
+    <Key>
+      <PropertyRef Name="SAId" />
+    </Key>
+    <Property Name="SAId" Type="Guid" Nullable="false" />
+    <Property Name="AMEId" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Manufacturer" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="LicenseType" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SASoftwareId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SAOwner" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SAPersonResponsible" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SACriticality" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SAOperatingSystem" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SAOSPatchVersion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AssetManagmentEquipmentLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="AMEId" Type="Guid" Nullable="false" />
+    <Property Name="ShipName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ShipCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LogDate" Type="DateTime" Precision="3" />
+    <Property Name="OTTableList" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ITTableList" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SoftwareAssetsList" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CybersecurityRisksAssessment">
+    <Key>
+      <PropertyRef Name="CRAId" />
+    </Key>
+    <Property Name="CRAId" Type="Guid" Nullable="false" />
+    <Property Name="ShipName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ShipCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsSynced" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="CybersecurityRisksAssessmentList">
+    <Key>
+      <PropertyRef Name="CRALId" />
+    </Key>
+    <Property Name="CRALId" Type="Guid" Nullable="false" />
+    <Property Name="CRAId" Type="Guid" Nullable="false" />
+    <Property Name="RiskId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="RiskDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="InherentRiskCategoryC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="InherentRiskCategoryI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="InherentRiskCategoryA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="InherentRiskCategoryS" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="InherentImpactScore" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="InherentLikelihoodScore" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="InherentRiskScore" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="RiskOwner" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Controls" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ResidualRiskCategoryC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ResidualRiskCategoryI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ResidualRiskCategoryA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ResidualRiskCategoryS" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ResidualImpactScore" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ResidualLikelihoodScore" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ResidualRiskScore" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="RiskDecision" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Vulnerability" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="HardwareId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CyberSecuritySetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ShipSystemsSoftwareInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ShipSystemId" Type="Int64" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InstallDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InstallLocation" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Publisher" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UninstallString" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyPath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="RepairPath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CybersecurityRisksAssessmentLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="CRAId" Type="Guid" Nullable="false" />
+    <Property Name="ShipName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ShipCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LogDate" Type="DateTime" Precision="3" />
+    <Property Name="CybersecurityRisksAssessmentList" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="OpenFileServicesDownloadLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ShipCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PCName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PCUniqueId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OldAppId" Type="Int64" />
+    <Property Name="DownloadedAppId" Type="Int64" />
+    <Property Name="DownloadDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="OpenFileServicesReleaseNote">
+    <Key>
+      <PropertyRef Name="AppId" />
+    </Key>
+    <Property Name="AppId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AppPublishDate" Type="DateTime" Precision="3" />
+    <Property Name="NoOfFilesAffected" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="RiskAssessmentFormLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="RAFId" Type="Int64" Nullable="false" />
+    <Property Name="ShipName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ShipCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LogDate" Type="DateTime" Precision="3" />
+    <Property Name="RiskAssessmentFormList" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RAFUniqueID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="DocID" />
+    </Key>
+    <Property Name="DocID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentID" Type="Guid" />
+    <Property Name="ParentID" Type="Guid" />
+    <Property Name="Number" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DocNo" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DownloadPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UploadType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentVersion" Type="Double" />
+    <Property Name="Version" Type="Double" />
+    <Property Name="Location" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="SectionType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RAFID" Type="Int64" />
+  </EntityType>
+  <EntityType Name="GIRDeficienciesInitialActionsFile">
+    <Key>
+      <PropertyRef Name="GIRFileID" />
+    </Key>
+    <Property Name="GIRFileID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GIRInitialID" Type="Int64" />
+    <Property Name="DeficienciesID" Type="Int64" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StorePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsUpload" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IniActUniqueID" Type="Guid" />
+    <Property Name="IniActFileUniqueID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="GIRDeficienciesResolution">
+    <Key>
+      <PropertyRef Name="GIRResolutionID" />
+    </Key>
+    <Property Name="GIRResolutionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeficienciesID" Type="Int64" />
+    <Property Name="GIRFormID" Type="Int64" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Resolution" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ResolutionUniqueID" Type="Guid" />
+    <Property Name="DeficienciesUniqueID" Type="Guid" />
+    <Property Name="isNew" Type="Int32" />
+  </EntityType>
+  <EntityType Name="GIRDeficienciesResolutionFile">
+    <Key>
+      <PropertyRef Name="GIRFileID" />
+    </Key>
+    <Property Name="GIRFileID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GIRResolutionID" Type="Int64" />
+    <Property Name="DeficienciesID" Type="Int64" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StorePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsUpload" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ResolutionUniqueID" Type="Guid" />
+    <Property Name="ResolutionFileUniqueID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="AuditNotesResolution">
+    <Key>
+      <PropertyRef Name="ResolutionID" />
+    </Key>
+    <Property Name="ResolutionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AuditNoteID" Type="Int64" />
+    <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Resolution" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ResolutionUniqueID" Type="Guid" />
+    <Property Name="NotesUniqueID" Type="Guid" />
+    <Property Name="isNew" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AuditNotesResolutionFile">
+    <Key>
+      <PropertyRef Name="ResolutionFileID" />
+    </Key>
+    <Property Name="ResolutionFileID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResolutionID" Type="Int64" />
+    <Property Name="AuditNoteID" Type="Int64" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StorePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ResolutionUniqueID" Type="Guid" />
+    <Property Name="ResolutionFileUniqueID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="GIRDeficienciesInitialAction">
+    <Key>
+      <PropertyRef Name="GIRInitialID" />
+    </Key>
+    <Property Name="GIRInitialID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeficienciesID" Type="Int64" />
+    <Property Name="GIRFormID" Type="Int64" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IniActUniqueID" Type="Guid" />
+    <Property Name="DeficienciesUniqueID" Type="Guid" />
+    <Property Name="isNew" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="SP_GetNotificationDetailsById_Result">
+    <Property Type="Int32" Name="CommentsCount" Nullable="true" />
+    <Property Type="Int32" Name="ResolutionsCount" Nullable="true" />
+    <Property Type="Int32" Name="InitialActionsCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_GIDeficiencies_OR_SIActionableItems_Number_Result">
+    <Property Type="Int32" Name="AvailableNo" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_GetAllNotifications_Result">
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ReportType" Nullable="true" />
+    <Property Type="String" Name="Deficiency" Nullable="true" />
+    <Property Type="Guid" Name="DeficienciesUniqueID" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UserName" Nullable="true" />
+    <Property Type="Int32" Name="CommentsCount" Nullable="true" />
+    <Property Type="Int32" Name="ResolutionsCount" Nullable="true" />
+    <Property Type="Int32" Name="InitialActionsCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_GetAssignedToMeGISIIADeficiencies_Result">
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ReportType" Nullable="true" />
+    <Property Type="String" Name="Deficiency" Nullable="true" />
+    <Property Type="Guid" Name="DeficienciesUniqueID" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <EntityType Name="HelpAndSupport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ShipId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsStatus" Type="Int32" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="IsSynced" Type="Int32" />
+    <Property Name="IsDeleted" Type="Int32" />
+  </EntityType>
+  <EntityType Name="InternalAuditForm">
+    <Key>
+      <PropertyRef Name="InternalAuditFormId" />
+    </Key>
+    <Property Name="UniqueFormID" Type="Guid" />
+    <Property Name="FormVersion" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="InternalAuditFormId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipId" Type="Int64" />
+    <Property Name="ShipName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AuditNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AuditTypeISM" Type="Boolean" />
+    <Property Name="AuditTypeISPS" Type="Boolean" />
+    <Property Name="AuditTypeMLC" Type="Boolean" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Auditor" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsSynced" Type="Boolean" />
+    <Property Name="isDelete" Type="Int32" />
+    <Property Name="AuditType" Type="Int32" Nullable="false" />
+    <Property Name="IsAdditional" Type="Boolean" Nullable="false" />
+    <Property Name="IsClosed" Type="Boolean" Nullable="false" />
+    <Property Name="SavedAsDraft" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UniqueId" Type="Guid" />
+    <Property Name="UniqueDataId" Type="Guid" />
+    <Property Name="DataType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDraft" Type="Boolean" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DetailsURL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FromUserId" Type="Guid" />
+    <Property Name="SentToUserId" Type="Guid" />
+    <Property Name="UserGroup" Type="Int32" />
+    <Property Name="NotificationType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ReadDateTime" Type="DateTime" Precision="3" />
+    <Property Name="IsReminder" Type="Boolean" Nullable="false" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="ReadByUserId" Type="Guid" />
+  </EntityType>
+  <EntityType Name="MLCRegulationTree">
+    <Key>
+      <PropertyRef Name="MLCRegulationId" />
+    </Key>
+    <Property Name="Id" Type="Guid" />
+    <Property Name="MLCRegulationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MLCRegulationParentId" Type="Int32" />
+    <Property Name="Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Regulation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SMSReferencesTree">
+    <Key>
+      <PropertyRef Name="SMSReferenceId" />
+    </Key>
+    <Property Name="Id" Type="Guid" />
+    <Property Name="SMSReferenceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SMSReferenceParentId" Type="Int32" />
+    <Property Name="Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Reference" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SSPReferenceTree">
+    <Key>
+      <PropertyRef Name="SSPReferenceId" />
+    </Key>
+    <Property Name="Id" Type="Guid" />
+    <Property Name="SSPReferenceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SSPReferenceParentId" Type="Int32" />
+    <Property Name="Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Reference" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <ComplexType Name="SP_GetNotificationsForTheISMDashboard_Result">
+    <Property Type="Guid" Name="UniqueId" Nullable="true" />
+    <Property Type="Guid" Name="UniqueDataId" Nullable="true" />
+    <Property Type="Boolean" Name="IsDraft" Nullable="false" />
+    <Property Type="String" Name="DataType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DetailsURL" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="CreatedDateTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ReadDateTime" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsRead" Nullable="false" />
+    <Property Type="String" Name="ShipName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="CreatedByPerson" Nullable="true" />
+    <Property Type="DateTime" Name="DataDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ShipCode" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="SP_GetAllNotificationsByUser_Result">
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ReportType" Nullable="true" />
+    <Property Type="String" Name="Deficiency" Nullable="true" />
+    <Property Type="Guid" Name="DeficienciesUniqueID" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UserName" Nullable="true" />
+    <Property Type="Guid" Name="UniqueDataId" Nullable="true" />
+    <Property Type="Int32" Name="Comment" Nullable="true" />
+    <Property Type="Int32" Name="InitialAction" Nullable="true" />
+    <Property Type="Int32" Name="Resolution" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="CB_proc_GetRecentNotifications_Result">
+    <Property Type="Guid" Name="UniqueDataId" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ReportType" Nullable="true" />
+    <Property Type="Int32" Name="No" Nullable="true" />
+    <Property Type="String" Name="Deficiency" Nullable="true" />
+    <Property Type="Int32" Name="Priority" Nullable="true" />
+    <Property Type="String" Name="DataType" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreatedDateTime" Nullable="true" Precision="23" />
+  </ComplexType>
+  <EntityType Name="CB_FormsPersonMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UniqueId" Type="Guid" Nullable="false" />
+    <Property Name="PersonName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PersonType" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+</Schema>

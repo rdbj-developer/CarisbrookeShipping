@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FormUpdate>
+	<Sequences>
+		<Sequence SequenceNumber="1">1</Sequence>
+		<Sequence SequenceNumber="2">2</Sequence>
+		<Sequence SequenceNumber="3">3</Sequence>
+		<Sequence SequenceNumber="4">4</Sequence>
+		<Sequence SequenceNumber="5">5</Sequence>
+		<Sequence SequenceNumber="6">5a</Sequence>
+		<Sequence SequenceNumber="7">5b</Sequence>
+		<Sequence SequenceNumber="8">5c</Sequence>
+		<Sequence SequenceNumber="9">5d</Sequence>
+		<Sequence SequenceNumber="10">6</Sequence>
+		<Sequence SequenceNumber="11">7</Sequence>
+		<Sequence SequenceNumber="12">8</Sequence>
+		<Sequence SequenceNumber="13">9</Sequence>
+		<Sequence SequenceNumber="14">10</Sequence>
+		<Sequence SequenceNumber="15">11</Sequence>
+		<Sequence SequenceNumber="16">11.1</Sequence>
+		<Sequence SequenceNumber="17">12</Sequence>
+		<Sequence SequenceNumber="18">13</Sequence>
+		<Sequence SequenceNumber="19">13.1</Sequence>
+		<Sequence SequenceNumber="20">13.2</Sequence>
+		<Sequence SequenceNumber="21">14</Sequence>
+		<Sequence SequenceNumber="22">15</Sequence>
+		<Sequence SequenceNumber="23">16</Sequence>
+		<Sequence SequenceNumber="24">16.1</Sequence>
+		<Sequence SequenceNumber="25">17</Sequence>
+		<Sequence SequenceNumber="26">18</Sequence>
+		<Sequence SequenceNumber="27">19</Sequence>
+		<Sequence SequenceNumber="28">20</Sequence>
+		<Sequence SequenceNumber="29">21</Sequence>
+		<Sequence SequenceNumber="30">21a</Sequence>
+		<Sequence SequenceNumber="31">21b</Sequence>
+		<Sequence SequenceNumber="32">22</Sequence>
+		<Sequence SequenceNumber="33">23</Sequence>
+		<Sequence SequenceNumber="33">23a</Sequence>
+		<Sequence SequenceNumber="34">24</Sequence>
+        <Sequence SequenceNumber="35">25</Sequence>
+        <Sequence SequenceNumber="36">25a</Sequence>
+        <Sequence SequenceNumber="36">25b</Sequence>
+        <Sequence SequenceNumber="37">26</Sequence>
+        <Sequence SequenceNumber="38">27</Sequence>
+        <Sequence SequenceNumber="39">28</Sequence>
+        <Sequence SequenceNumber="40">29</Sequence>
+        <Sequence SequenceNumber="41">30</Sequence>
+        <Sequence SequenceNumber="42">31</Sequence>
+	</Sequences>
+	<Version>31</Version>
+	<Date>2016-07-11</Date>
+	<Information><![CDATA[- Updated MWB with "Rank" column, and removed "Cash to Bank" column.
+- Added "VSAT Internet Vouchers" section to SAF.
+- Updated GIR with a number of changes to make it easier to fill in.
+- Updates to several forms for office only (related to database).
+- Fixed bug in SVR.]]></Information>
+	<IsFullInstaller>false</IsFullInstaller>
+	<SendReport>true</SendReport>
+	<CacheClearRequired>false</CacheClearRequired>
+	<CanReInstall>true</CanReInstall>
+	<SettingsRequireUpdate>false</SettingsRequireUpdate>
+	<DeleteFolders>
+	</DeleteFolders>
+	<DeleteFiles>
+	</DeleteFiles>
+	<DeleteStartFolders>
+		<DeleteStartFolder>Forms</DeleteStartFolder>
+		<DeleteStartFolder>Risk Assessments</DeleteStartFolder>
+		<DeleteStartFolder>Safety Management System</DeleteStartFolder>
+		<DeleteStartFolder>Ship Operating Manual</DeleteStartFolder>
+        <DeleteStartFolder>Tools</DeleteStartFolder>
+	</DeleteStartFolders>
+	<DeleteStartFiles>
+		<DeleteStartFile>Index of Forms and Checklists.lnk</DeleteStartFile>
+		<DeleteStartFile>Install Certificate.lnk</DeleteStartFile>
+		<DeleteStartFile>Install Signature.lnk</DeleteStartFile>
+	</DeleteStartFiles>
+	<RegistryValues>
+		<RegistryValue KeyName="HKEY_CURRENT_USER\Software\Microsoft\Office\12.0\Excel\Security" ValueName="ExcelBypassEncryptedMacroScan" ValueType="DWord">1</RegistryValue>
+		<RegistryValue KeyName="HKEY_CURRENT_USER\Software\Microsoft\Office\12.0\Excel\Security" ValueName="VBAWarnings" ValueType="DWord">1</RegistryValue>
+		<RegistryValue KeyName="HKEY_CURRENT_USER\Software\Microsoft\Office\14.0\Excel\Security" ValueName="ExcelBypassEncryptedMacroScan" ValueType="DWord">1</RegistryValue>
+		<RegistryValue KeyName="HKEY_CURRENT_USER\Software\Microsoft\Office\14.0\Excel\Security" ValueName="VBAWarnings" ValueType="DWord">3</RegistryValue>
+	</RegistryValues>
+</FormUpdate>

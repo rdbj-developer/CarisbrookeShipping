@@ -1,0 +1,186 @@
+﻿@* RDBJ 12/30/2021 Created and Implemented *@
+@{
+    ViewBag.Title = "Help & Support";
+}
+
+<style>
+    .k-grid td, .k-filter-row th, .k-grid-header th.k-header, .k-pager-wrap {
+        padding: 0px;
+        padding-bottom: 0px !important;
+        padding-top: 0px !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        cursor: pointer;
+    }
+
+    #grid > table {
+        table-layout: fixed;
+    }
+
+    .k-detail-row {
+        height: 50px;
+    }
+
+        .k-detail-row > table {
+            height: 100px;
+        }
+
+    .k-grid .k-grid-search {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .k-padding {
+        padding: 0px 10px 0px 10px;
+    }
+
+    .bg-light-green {
+        background-color: #A7DA4E !important;
+    }
+
+    .bg-light-orange {
+        background-color: #FF7F50 !important;
+        color: white;
+    }
+
+    label.error {
+        color: red !important;
+        font-size: small !important;
+        font-weight: 600 !important;
+    }
+
+    select {
+        cursor: pointer;
+    }
+
+    /* RDBJ 02/24/2022 */
+    div.row {
+        margin-right: 0px !important;
+    }
+    /* End RDBJ 02/24/2022 */
+</style>
+<script type="text/javascript" src="~/Scripts/jquery/jquery.validate.min.js"></script>
+<script src="~/Content/Kendo/kendo.all.min.js"></script>
+<link href="~/Content/Kendo/kendo.common.min.css" rel="stylesheet" />
+<link href="~/Content/Kendo/kendo.mobile.all.min.css" rel="stylesheet" />
+
+<script>
+    var RootUrl = '@Url.Content("~/")';
+</script>
+<script src="~/Scripts/Custom/HelpAndSupport.js?v=12302021"></script>
+
+<section class="">
+    <div class="well well-sm" style="margin-bottom:0px;">
+        <div class="box-header" style="padding:0px !important;">
+            <div class="row">
+                <div class="col-md-2" style="padding-top: 6px;">
+                    Help &amp; Support
+                </div>
+                <div style="float:right; padding: 0px 15px; display:flex;">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" onclick="openAddNewHelpAndSupportModal();"><i class="fa fa-plus-square" aria-hidden="true"></i> Add Support </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="helpSection" class="content gir-content" style="padding:0px !important; min-height: auto !important;">
+        <div id="HelpSupportsGrid"></div>
+    </section>
+</section>
+
+@* RDBJ 12/30/2021 Insert/Update Help And Support *@
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-addNewSupportModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="addNewSupportModalTitle">
+                    <lable id="lblAddEditTitleModal"></lable>
+                </h4>
+                <input type="hidden" id="hdnId" value="" />
+                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>*@
+            </div>
+            <form id="AddNewHelpAndSupportForm" name="AddNewHelpAndSupportForm">
+                <div class="modal-body" style="overflow:hidden !important;">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class="mr-sm-2">Ship : </label>
+                            <select class="form-control" name="ddlShip" id="ddlShip" onchange="">
+                                @if (ViewBag.ships != null && ViewBag.ships.Items != null)
+                                {
+                                    foreach (var item in ViewBag.ships.Items)
+                                    {
+                                        if (@ShipApplication.BLL.Helpers.SessionManager.ShipCode.ToUpper() == item.Code.ToUpper())
+                                        {
+                                            <option value="@item.Code" selected>@item.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@item.Code">@item.Name</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="message-text" class="col-form-label">Message:</label><label class="text-danger">*</label>
+                            <textarea class="form-control" id="txtMessage" name="txtMessage" rows="10"></textarea>
+                            <span class="form-control-feedback">
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class="mr-sm-2">Status : </label>
+                            <select class="form-control" id="ddlStatus" name="ddlStatus">
+                                <option value="0" selected>Open</option>
+                                <option value="1">Close</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="mr-sm-2">Priority : </label>
+                            <select class="form-control" id="ddlPriority" name="ddlPriority">
+                                <option value="1">Low</option>
+                                <option value="2" selected>Medium</option>
+                                <option value="3">High</option>
+                                <option value="4">Critical</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnClose" class="btn btn-danger" onclick="closeHelpAndSupportModal();">Close</button>
+                    <button type="button" id="btnAddNewHelpSupport" class="btn btn-primary" onclick="SubmitNewHelpAndSupport();">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@* End RDBJ 12/30/2021 Insert/Update Help And Support *@
+
+@* RDBJ 12/30/2021 Context Menu *@
+@*<ul id="context-menu">
+    <li id="editDetails"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</li>
+    <li id="deleteDetails"><i class="fa fa-trash" aria-hidden="true"></i> Delete</li>
+</ul>*@
+@* End RDBJ 12/30/2021 Context Menu *@
+
+@* RDBJ 12/30/2021 Search bar *@
+<script id="template" type="text/x-kendo-template">
+    <label class="search-label" for="searchBox">Search :</label>
+    <input type="search" id="searchBox" class="k-textbox" style="width: 250px"/>
+</script>
+@* End RDBJ 12/30/2021 Search bar *@
+
+@* RDBJ 12/30/2021 Confirm warning *@
+<script id="update-confirmation" type="text/x-kendo-template">
+    <p class="update-message">Are you sure want to delete ?</p>
+    <br />
+    <button class="update-confirm k-button">YES</button>
+    <button class="update-cancel k-button">NO</button>
+</script>
+@* End RDBJ 12/30/2021 Confirm warning *@

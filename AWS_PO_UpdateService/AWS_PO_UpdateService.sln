@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWS_PO_UpdateService", "AWS_PO_UpdateService\AWS_PO_UpdateService.csproj", "{B66AF880-04A5-4CFD-96D3-C449BFDDE276}"
+EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "AWS_PO_UpdateService_Setup", "AWS_PO_UpdateService_Setup\AWS_PO_UpdateService_Setup.isproj", "{B353974E-4D45-4687-BEE4-0B2FEF607D18}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B66AF880-04A5-4CFD-96D3-C449BFDDE276} = {B66AF880-04A5-4CFD-96D3-C449BFDDE276}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://cs-work-project.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AWS_PO_UpdateService\\AWS_PO_UpdateService.csproj
+		SccProjectName1 = AWS_PO_UpdateService
+		SccLocalPath1 = AWS_PO_UpdateService
+		SccProjectUniqueName2 = AWS_PO_UpdateService_Setup\\AWS_PO_UpdateService_Setup.isproj
+		SccProjectName2 = AWS_PO_UpdateService_Setup
+		SccLocalPath2 = AWS_PO_UpdateService_Setup
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B66AF880-04A5-4CFD-96D3-C449BFDDE276}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{B66AF880-04A5-4CFD-96D3-C449BFDDE276}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{B66AF880-04A5-4CFD-96D3-C449BFDDE276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B66AF880-04A5-4CFD-96D3-C449BFDDE276}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B66AF880-04A5-4CFD-96D3-C449BFDDE276}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{B66AF880-04A5-4CFD-96D3-C449BFDDE276}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{B66AF880-04A5-4CFD-96D3-C449BFDDE276}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B66AF880-04A5-4CFD-96D3-C449BFDDE276}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B66AF880-04A5-4CFD-96D3-C449BFDDE276}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{B66AF880-04A5-4CFD-96D3-C449BFDDE276}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{B353974E-4D45-4687-BEE4-0B2FEF607D18}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
+		{B353974E-4D45-4687-BEE4-0B2FEF607D18}.CD_ROM|Any CPU.Build.0 = CD_ROM
+		{B353974E-4D45-4687-BEE4-0B2FEF607D18}.Debug|Any CPU.ActiveCfg = DVD-5
+		{B353974E-4D45-4687-BEE4-0B2FEF607D18}.Debug|Any CPU.Build.0 = DVD-5
+		{B353974E-4D45-4687-BEE4-0B2FEF607D18}.DVD-5|Any CPU.ActiveCfg = DVD-5
+		{B353974E-4D45-4687-BEE4-0B2FEF607D18}.DVD-5|Any CPU.Build.0 = DVD-5
+		{B353974E-4D45-4687-BEE4-0B2FEF607D18}.Release|Any CPU.ActiveCfg = SingleImage
+		{B353974E-4D45-4687-BEE4-0B2FEF607D18}.Release|Any CPU.Build.0 = SingleImage
+		{B353974E-4D45-4687-BEE4-0B2FEF607D18}.SingleImage|Any CPU.ActiveCfg = SingleImage
+		{B353974E-4D45-4687-BEE4-0B2FEF607D18}.SingleImage|Any CPU.Build.0 = SingleImage
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5908B90C-8749-4463-8AE8-F781D57DA05E}
+	EndGlobalSection
+EndGlobal

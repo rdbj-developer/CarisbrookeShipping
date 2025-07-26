@@ -1,0 +1,145 @@
+<?xml version="1.0" standalone="yes"?>
+<SSPReferences>
+	<Level1 Level1Key="1" Level1Identifier="1" Level1Value="Ship Security Plan - Part 1">
+		<Level2 Level2Key="2" Level2Identifier="1.1" Level2Value="Ship and Company Particulars"/>
+		<Level2 Level2Key="3" Level2Identifier="1.2" Level2Value="Introduction; Definitions; Duties, Responsibilities and Authorities; Organisation">
+			<Level3 Level3Key="4" Level3Identifier="1.2.1" Level3Value="Introduction"/>
+			<Level3 Level3Key="5" Level3Identifier="1.2.2" Level3Value="Confidentiality"/>
+			<Level3 Level3Key="6" Level3Identifier="1.2.3" Level3Value="Definitions"/>
+			<Level3 Level3Key="7" Level3Identifier="1.2.4" Level3Value="Working Language"/>
+			<Level3 Level3Key="8" Level3Identifier="1.2.5" Level3Value="Master's Overriding Authority and Responsibilities"/>
+			<Level3 Level3Key="9" Level3Identifier="1.2.6" Level3Value="Company Security Officer (CSO)"/>
+			<Level3 Level3Key="10" Level3Identifier="1.2.7" Level3Value="Ship Security Officer (SSO)"/>
+			<Level3 Level3Key="11" Level3Identifier="1.2.8" Level3Value="Other Officers and Crew"/>
+			<Level3 Level3Key="12" Level3Identifier="1.2.9" Level3Value="Security Organisation"/>
+			<Level3 Level3Key="13" Level3Identifier="1.2.10" Level3Value="Security Levels"/>
+			<Level3 Level3Key="14" Level3Identifier="1.2.11" Level3Value="Information to be provided by the Company"/>
+		</Level2>
+		<Level2 Level2Key="15" Level2Identifier="1.3" Level2Value="Reporting of Security Incidents and Non-Conformities">
+			<Level3 Level3Key="16" Level3Identifier="1.3.1" Level3Value="General"/>
+			<Level3 Level3Key="17" Level3Identifier="1.3.2" Level3Value="Procedure"/>
+		</Level2>
+		<Level2 Level2Key="18" Level2Identifier="1.4" Level2Value="Security Familiarisation, Training, Drills and Exercises"/>
+		<Level2 Level2Key="19" Level2Identifier="1.5" Level2Value="Security Management: Audits, Review, Records, and Document Control">
+			<Level3 Level3Key="20" Level3Identifier="1.5.1" Level3Value="Internal and External Audits"/>
+			<Level3 Level3Key="21" Level3Identifier="1.5.2" Level3Value="Review of the Security Management System"/>
+			<Level3 Level3Key="22" Level3Identifier="1.5.3" Level3Value="Security Memos"/>
+			<Level3 Level3Key="23" Level3Identifier="1.5.4" Level3Value="Security Records"/>
+			<Level3 Level3Key="24" Level3Identifier="1.5.5" Level3Value="Document Control">
+				<Level4 Level4Key="25" Level4Identifier="1.5.5.1" Level4Value="General"/>
+				<Level4 Level4Key="26" Level4Identifier="1.5.5.2" Level4Value="Original Issue"/>
+				<Level4 Level4Key="27" Level4Identifier="1.5.5.3" Level4Value="Operational Review of the Ship Security Assessment and Ship Security Plan"/>
+				<Level4 Level4Key="28" Level4Identifier="1.5.5.4" Level4Value="Revision of the Ship Security Plan"/>
+				<Level4 Level4Key="29" Level4Identifier="1.5.5.5" Level4Value="Security Forms"/>
+				<Level4 Level4Key="30" Level4Identifier="1.5.5.6" Level4Value="'Ship to Ship' or 'Ship to Port' Interface - Declaration of Security (DoS)"/>
+				<Level4 Level4Key="31" Level4Identifier="1.5.5.7" Level4Value="Other Security Management related Tools"/>
+				<Level4 Level4Key="32" Level4Identifier="1.5.5.8" Level4Value="Obsolete Documents"/>
+			</Level3>
+		</Level2>
+		<Level2 Level2Key="33" Level2Identifier="1.6" Level2Value="Security Related Communications">
+			<Level3 Level3Key="34" Level3Identifier="1.6.1" Level3Value="General"/>
+			<Level3 Level3Key="35" Level3Identifier="1.6.2" Level3Value="Interfacing with a Port Facility Security Officer (PFSO)"/>
+			<Level3 Level3Key="36" Level3Identifier="1.6.3" Level3Value="Communications with Flag Administration / Contracting Governments"/>
+			<Level3 Level3Key="37" Level3Identifier="1.6.4" Level3Value="Reporting to the Company Security Officer"/>
+			<Level3 Level3Key="38" Level3Identifier="1.6.5" Level3Value="Communications - Ship to Ship"/>
+			<Level3 Level3Key="39" Level3Identifier="1.6.6" Level3Value="Ship Security Alert System (SSAS)"/>
+			<Level3 Level3Key="40" Level3Identifier="1.6.7" Level3Value="Communication On Board the Ship"/>
+			<Level3 Level3Key="41" Level3Identifier="1.6.8" Level3Value="Communication in Response to Threats"/>
+		</Level2>
+		<Level2 Level2Key="42" Level2Identifier="1.7" Level2Value="Ensuring the Performance of all Ship Security Duties">
+			<Level3 Level3Key="43" Level3Identifier="1.7.1" Level3Value="Determining the Readiness Condition, or Security Level"/>
+			<Level3 Level3Key="44" Level3Identifier="1.7.2" Level3Value="Threats to Ships"/>
+			<Level3 Level3Key="45" Level3Identifier="1.7.3" Level3Value="Change of Security Level"/>
+			<Level3 Level3Key="46" Level3Identifier="1.7.4" Level3Value="Ships in Dry-Dock or Yard Repair"/>
+			<Level3 Level3Key="47" Level3Identifier="1.7.5" Level3Value="Riding Squads / Similar Persons"/>
+			<Level3 Level3Key="48" Level3Identifier="1.7.6" Level3Value="Shore-Based Security Staff"/>
+			<Level3 Level3Key="49" Level3Identifier="1.7.7" Level3Value="Reduction of Security Levels"/>
+			<Level3 Level3Key="50" Level3Identifier="1.7.8" Level3Value="Security Incidents"/>
+			<Level3 Level3Key="51" Level3Identifier="1.7.9" Level3Value="Calling at Ports Where The ISPS Code is NOT in force"/>
+			<Level3 Level3Key="52" Level3Identifier="1.7.10" Level3Value="Actions in the Event of an Apparent Threat"/>
+			<Level3 Level3Key="53" Level3Identifier="1.7.11" Level3Value="Duties and Responsibilities of the Security Watch"/>
+			<Level3 Level3Key="54" Level3Identifier="1.7.12" Level3Value="Briefings"/>
+			<Level3 Level3Key="55" Level3Identifier="1.7.13" Level3Value="Security Role for Shipboard Personnel"/>
+			<Level3 Level3Key="56" Level3Identifier="1.7.14" Level3Value="Training"/>
+			<Level3 Level3Key="57" Level3Identifier="1.7.15" Level3Value="Practical / Individual Security Duties"/>
+			<Level3 Level3Key="58" Level3Identifier="1.7.16" Level3Value="Unauthorised Persons"/>
+			<Level3 Level3Key="59" Level3Identifier="1.7.17" Level3Value="Dangerous Goods"/>
+			<Level3 Level3Key="60" Level3Identifier="1.7.18" Level3Value="Inspections and Maintenance of Security Equipment"/>
+			<Level3 Level3Key="61" Level3Identifier="1.7.19" Level3Value="Best Management Practices to Deter Piracy"/>
+			<Level3 Level3Key="62" Level3Identifier="1.7.20" Level3Value="Firearms, Ammunition, and Employment of Private Maritime Security Companies (PMSC)"/>
+			<Level3 Level3Key="63" Level3Identifier="1.7.21" Level3Value="Rendering Assistance at Sea - Security Aspects"/>
+		</Level2>
+		<Level2 Level2Key="64" Level2Identifier="1.8" Level2Value="Searches - Ship and Persons On Board">
+			<Level3 Level3Key="65" Level3Identifier="1.8.1" Level3Value="Ship"/>
+			<Level3 Level3Key="66" Level3Identifier="1.8.2" Level3Value="Visitors, Bags, Personal Belongings / Equipment"/>
+			<Level3 Level3Key="67" Level3Identifier="1.8.3" Level3Value="Specific Types of Searches"/>
+		</Level2>
+		<Level2 Level2Key="68" Level2Identifier="1.9" Level2Value="Security Levels - Aspects and Summary of Requirements">
+			<Level3 Level3Key="69" Level3Identifier="1.9.1" Level3Value="Determining the Security Level in Port"/>
+			<Level3 Level3Key="70" Level3Identifier="1.9.2" Level3Value="Determining the Security Level at Sea"/>
+			<Level3 Level3Key="71" Level3Identifier="1.9.3" Level3Value="Summary of Security Requirements">
+				<Level4 Level4Key="72" Level4Identifier="1.9.3.1" Level4Value="Security Level 1 Requirements">
+					<Level5 Level5Key="73" Level5Identifier="1.9.3.1.1" Level5Value="Access"/>
+					<Level5 Level5Key="74" Level5Identifier="1.9.3.1.2" Level5Value="Monitoring On / Around the Ship"/>
+					<Level5 Level5Key="75" Level5Identifier="1.9.3.1.3" Level5Value="Passengers and Baggage"/>
+					<Level5 Level5Key="76" Level5Identifier="1.9.3.1.4" Level5Value="Cargo and Stores"/>
+					<Level5 Level5Key="77" Level5Identifier="1.9.3.1.5" Level5Value="Frequency of Searching"/>
+				</Level4>
+				<Level4 Level4Key="78" Level4Identifier="1.9.3.2" Level4Value="Security Level 2 Requirements">
+					<Level5 Level5Key="79" Level5Identifier="1.9.3.2.1" Level5Value="Access"/>
+					<Level5 Level5Key="80" Level5Identifier="1.9.3.2.2" Level5Value="Monitoring On / Around the Ship"/>
+					<Level5 Level5Key="81" Level5Identifier="1.9.3.2.3" Level5Value="Passengers and Baggage"/>
+					<Level5 Level5Key="82" Level5Identifier="1.9.3.2.4" Level5Value="Cargo and Stores"/>
+					<Level5 Level5Key="83" Level5Identifier="1.9.3.2.5" Level5Value="Frequency of Searching"/>
+				</Level4>
+				<Level4 Level4Key="84" Level4Identifier="1.9.3.3" Level4Value="Security Level 3 Requirements">
+					<Level5 Level5Key="85" Level5Identifier="1.9.3.3.1" Level5Value="Access"/>
+					<Level5 Level5Key="86" Level5Identifier="1.9.3.3.2" Level5Value="Monitoring On / Around the Ship"/>
+					<Level5 Level5Key="87" Level5Identifier="1.9.3.3.3" Level5Value="Passengers and Baggage"/>
+					<Level5 Level5Key="88" Level5Identifier="1.9.3.3.4" Level5Value="Cargo and Stores"/>
+				</Level4>
+			</Level3>
+		</Level2>
+	</Level1>
+	<Level1 Level1Key="89" Level1Identifier="2" Level1Value="Ship Security Plan - Part 2">
+		<Level2 Level2Key="90" Level2Identifier="2.1" Level2Value="Introduction; Definitions; Duties, Responsibilities, Authorities and Organisation">
+			<Level3 Level3Key="91" Level3Identifier="2.1.1" Level3Value="Restricted Areas"/>
+			<Level3 Level3Key="92" Level3Identifier="2.1.2" Level3Value="Restricted Areas - Security Level 1"/>
+			<Level3 Level3Key="93" Level3Identifier="2.1.3" Level3Value="Restricted Areas - Security Level 2"/>
+			<Level3 Level3Key="94" Level3Identifier="2.1.4" Level3Value="Restricted Areas - Security Level 3"/>
+			<Level3 Level3Key="95" Level3Identifier="2.1.5" Level3Value="Keys and Locks"/>
+			<Level3 Level3Key="96" Level3Identifier="2.1.6" Level3Value="Instructions for the Master"/>
+		</Level2>
+		<Level2 Level2Key="97" Level2Identifier="2.2" Level2Value="Contracting Government Instructions at Security Level 3">
+			<Level3 Level3Key="98" Level3Identifier="2.2.1" Level3Value="General"/>
+			<Level3 Level3Key="99" Level3Identifier="2.2.2" Level3Value="Procedure"/>
+		</Level2>
+		<Level2 Level2Key="100" Level2Identifier="2.3" Level2Value="Security Equipment"/>
+		<Level2 Level2Key="101" Level2Identifier="2.4" Level2Value="Ship Security Alert System, Management, Limiting False Alerts">
+			<Level3 Level3Key="102" Level3Identifier="2.4.1" Level3Value="General"/>
+			<Level3 Level3Key="103" Level3Identifier="2.4.2" Level3Value="Operation of the Ship Security Alert System"/>
+			<Level3 Level3Key="104" Level3Identifier="2.4.3" Level3Value="Testing the Ship Security Alert System"/>
+			<Level3 Level3Key="105" Level3Identifier="2.4.4" Level3Value="Maintenance and Survey of the Ship Security Alert System"/>
+			<Level3 Level3Key="106" Level3Identifier="2.4.5" Level3Value="Ship Security Alert Verification"/>
+			<Level3 Level3Key="107" Level3Identifier="2.4.6" Level3Value="Limiting False Alerts"/>
+		</Level2>
+		<Level2 Level2Key="108" Level2Identifier="2.5" Level2Value="Ship Security Actions and Contingency Plans">
+			<Level3 Level3Key="109" Level3Identifier="2.5.1" Level3Value="Bomb Threat">
+				<Level4 Level4Key="110" Level4Identifier="2.5.1.1" Level4Value="Action on Bomb Threat"/>
+				<Level4 Level4Key="111" Level4Identifier="2.5.1.2" Level4Value="Examples of How a Bomb can be Placed On Board / Delivered"/>
+				<Level4 Level4Key="112" Level4Identifier="2.5.1.3" Level4Value="Receiving a Bomb Threat and Information to Obtain"/>
+				<Level4 Level4Key="113" Level4Identifier="2.5.1.4" Level4Value="Response to a Bomb Threat"/>
+			</Level3>
+			<Level3 Level3Key="114" Level3Identifier="2.5.2" Level3Value="Action on Finding Suspicious Device or Package"/>
+			<Level3 Level3Key="115" Level3Identifier="2.5.3" Level3Value="Evacuation of the Ship"/>
+			<Level3 Level3Key="116" Level3Identifier="2.5.4" Level3Value="Weapons, Devices or Dangerous Substances Found On Board"/>
+			<Level3 Level3Key="117" Level3Identifier="2.5.5" Level3Value="Stowaway Found On Board"/>
+			<Level3 Level3Key="118" Level3Identifier="2.5.6" Level3Value="Suspect Ship / Craft Approaching, Hijack or Hostile Boarding (Unauthorised Access at Sea)">
+				<Level4 Level4Key="119" Level4Identifier="2.5.6.1" Level4Value="Suspect Ship / Craft Approaching"/>
+				<Level4 Level4Key="120" Level4Identifier="2.5.6.2" Level4Value="Hijack / Hostile Boarding"/>
+			</Level3>
+			<Level3 Level3Key="121" Level3Identifier="2.5.7" Level3Value="Security Contingency Plans and Drills"/>
+			<Level3 Level3Key="122" Level3Identifier="2.5.8" Level3Value="Maintaining the Ship's Critical Operations"/>
+		</Level2>
+	</Level1>
+</SSPReferences>

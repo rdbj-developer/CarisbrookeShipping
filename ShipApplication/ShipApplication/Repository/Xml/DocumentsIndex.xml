@@ -1,0 +1,1137 @@
+<?xml version="1.0"?>
+<DocumentsIndex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" IndexVersion="1.0">
+  <DocumentFolder Id="55eb85ed-eac1-4f61-8241-9dc839df58f4">
+    <ParentId>00000000-0000-0000-0000-000000000000</ParentId>
+    <Number>1</Number>
+    <Title>Safety Management System Manual</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System</Path>
+  </DocumentFolder>
+
+    <DocumentFolder Id="0aec36ac-34f3-4c72-8ada-d0d30b045ac8">
+    <ParentId>0aec36ac-34f3-4c72-8ada-d0d27b045ac8</ParentId>
+    <Title>SEEMP</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\SEEMP</Path>
+  </DocumentFolder>
+  
+  <Document Id="dd3ffc15-943d-4c58-99e3-c665a29554d4">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>000</Number>
+    <Title>Title Page</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\000 - Title Page.pdf</Path>
+  </Document>
+  <Document Id="54b110c8-c8a1-4604-9ad3-b25aa40e4fe6">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>00A</Number>
+    <Title>Contents</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\00A - Contents.pdf</Path>
+  </Document>
+  <Document Id="05e25160-a12c-4c58-9b5c-a69cdee9de0a">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>00B</Number>
+    <Title>Register of Amendments</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\00B - Register of Amendments.pdf</Path>
+  </Document>
+  
+    <Document Id="05e25160-a12c-4c58-9b5c-a69cdee9df0a">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>00</Number>
+    <Title>Records of Crew Briefing</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\00 -  Records of Crew Briefing.pdf</Path>
+  </Document>
+  
+  <Document Id="4267fd62-3322-4f85-8660-063e37a9bc88">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>00C</Number>
+    <Title>SMS Issuance &amp; Approval &amp; Holders</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\00C- SMS Issuance &amp; Approval &amp; Holders - Issue 6 Amend 0.pdf</Path>
+  </Document>
+  <Document Id="77feff59-9e5d-49ba-80eb-6ad185ab58a9">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>Section 01</Number>
+    <Title>Introduction &amp; Company Policies</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\Section 01 - Introduction &amp; Company Policies - Issue 6 Amend 0.pdf</Path>
+  </Document>
+  <Document Id="cd6c70f9-c8fd-45f0-9179-c20f6c7efa15">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>Section 02</Number>
+    <Title>Company &amp; Shipboard Structure &amp; Responsibilities</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\Section 02 - Company &amp; Shipboard Structure &amp; Responsibilities - Issue 6 Amend 0.pdf</Path>
+  </Document>
+  <Document Id="015b31a8-e175-4739-9336-757dcec2b8d0">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>Section 03</Number>
+    <Title>Personnel Management &amp; On Board Complaint Procedure</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\Section 03 - Pers Man &amp; On Board Compl Proc.pdf</Path>
+  </Document>
+  <Document Id="0adec9e8-d2f4-488e-ae34-14e4a344b9a0">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>Section 04</Number>
+    <Title>Communications &amp; Computers</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\Section 04 - Communications &amp; Computers - Issue 6 Amend 0.pdf</Path>
+  </Document>
+  <Document Id="1165c5af-be12-4483-91b3-23cca4358491">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>Section 05</Number>
+    <Title>Ship Inspections &amp; Maintenance &amp; SWPs</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\Section 05 - Ship Inspections &amp; Maintenance &amp; SWPs - Issue 6 Amend 1.pdf</Path>
+  </Document>
+  <Document Id="0384809a-a1d3-4542-a6b3-c0fa1e86d2ed">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>Section 06</Number>
+    <Title>Ship in Port</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\Section 06 - Ship in Port - Issue 6 Amend 0.pdf</Path>
+  </Document>
+  <Document Id="e628a60d-a3a3-4407-a3eb-b3af206625ca">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>Section 07</Number>
+    <Title>Preparing for Sea</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\Section 07 - Preparing for Sea - Issue 6 Amend 0.pdf</Path>
+  </Document>
+  <Document Id="d068f704-c234-40d9-a2be-a69a6ea41c73">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>Section 08</Number>
+    <Title>Ship at Sea</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\Section 08 - Ship at Sea - Issue 6 Amend 0.pdf</Path>
+  </Document>
+  <Document Id="d24f58b4-65dd-4b2e-82b4-2e5ae3bc1838">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>Section 09</Number>
+    <Title>Preparing for Arrival in Port</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\Section 09  - Preparing for Arrival in Port - Issue 6 Amend 0.pdf</Path>
+  </Document>
+  <Document Id="7c021cc0-19cf-40ff-9d03-59f12ca7c15f">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>Section 10</Number>
+    <Title>Waste Oil Garbage Ballast Provs FW</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\Section 10 - Waste Oil Garbage Ballast Provs FW - Issue 6 Amend 0.pdf</Path>
+  </Document>
+  <Document Id="80d8f689-1558-4dde-a3b9-414cab2a8516">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>Section 11</Number>
+    <Title>Shipboard Contingency Plans</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\Section 11 - Shipboard Contingency Plans &amp; SOPs - Issue 6 Amend 0.pdf</Path>
+  </Document>
+  <Document Id="0227fb25-5abc-4ae4-882f-fe3e6ead3cdb">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>Section 12</Number>
+    <Title>Emcy Resp &amp; Contingency Planning</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\Section 12 - Emcy Resp Contingency Planning.pdf</Path>
+  </Document>
+  <Document Id="f9a2d071-ff5e-413d-8367-5b458253f3e5">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>Section 13</Number>
+    <Title>Reporting &amp; Analysis of NCs Accidents and HazOccs</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\Section 13 - Reporting &amp; Analysis of NCs Accidents and HazOccs.pdf</Path>
+  </Document>
+  <Document Id="a26a43eb-b4fc-4835-8f63-c2e565147051">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>Section 14</Number>
+    <Title>Company Management Procedures- Reviews &amp; Audits</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\Section 14 - Company Management Procedures- Reviews &amp; Audits.pdf</Path>
+  </Document>
+  <Document Id="dbe3ea51-104a-463f-b3be-d393ec76c0e8">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Number>Section 15</Number>
+    <Title>Company Documentation</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\Section 15 - Company Documentation.pdf</Path>
+  </Document>
+  <DocumentFolder Id="c659246e-ad12-45d4-aa21-21a683e70525">
+    <ParentId>00000000-0000-0000-0000-000000000000</ParentId>
+    <Number>2</Number>
+    <Title>Ships Operating Manual</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual</Path>
+  </DocumentFolder>
+  <Document Id="0fa0a50e-7576-4ea7-ab0f-d851babdae61">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number />
+    <Title>Cover Page &amp; Spine</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\CSSOM - Cover Page &amp; Spine.pdf</Path>
+  </Document>
+  <Document Id="8dfa9cdf-f742-429c-a869-50559aebafcd">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number>00A</Number>
+    <Title>Title Page &amp; Holders Signatures Pages</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\CSSOM - Section 00A - Title Page &amp; Holders Signatures Pages.pdf</Path>
+  </Document>
+  <Document Id="abf19846-27f0-49b6-addf-6896888c4f8a">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number>00B</Number>
+    <Title>List of Contents</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\CSSOM - Section 00B - List of Contents - Issue 3 Amend 2.pdf</Path>
+  </Document>
+  <Document Id="cfdde666-58b8-4908-a3d5-1159295fe00a">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number>00C</Number>
+    <Title>Register of Amendments</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\CSSOM - Section 00C - Register of Amendments - Issue 3 Amend 3.pdf</Path>
+  </Document>
+  <Document Id="c4148586-4207-43dd-8376-855e1fa05dfc">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number>00D</Number>
+    <Title>Dividers Index</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\CSSOM - Section 00D - Dividers Index.pdf</Path>
+  </Document>
+  <Document Id="89185afa-8a03-498d-915e-c0cceb0c1cf9">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number>01</Number>
+    <Title>Introduction</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\CSSOM - Section 01 - Introduction.pdf</Path>
+  </Document>
+  <Document Id="97d707b2-9572-4c15-9a14-6bba25a95caf">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number>02</Number>
+    <Title>Communications</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\CSSOM - Section 02 - Communications - Issue 3 Amend 2.pdf</Path>
+  </Document>
+  <Document Id="34d576b3-8add-4f30-922e-12d633c1e9bd">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number>03</Number>
+    <Title>Reports to the Company</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\CSSOM - Section 03 - Reports to the Company.pdf</Path>
+  </Document>
+  <Document Id="5ef513ca-be0c-4ae9-a7ff-3b9f8498cab8">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number>04</Number>
+    <Title>Maintaining Eco-Speed</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\CSSOM - Section 04 - Maintaining Eco-Speed - Issue 3 Amend 1.pdf</Path>
+  </Document>
+  <Document Id="7a69ab0a-a3d2-4d13-8103-4fb99539becd">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number>05</Number>
+    <Title>Energy Efficiency Monitoring System</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\CSSOM - Section 05 - Energy Efficiency Monitoring System - Issue 3 Amend  3.pdf</Path>
+  </Document>
+  <Document Id="3b409a69-ff33-484d-b936-9d2eab238281">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number>06</Number>
+    <Title>Bunkering</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\CSSOM - Section 06 - Bunkering - Issue 3 Amend 1.pdf</Path>
+  </Document>
+  <Document Id="6b905381-5a14-4580-946c-b9e23dbfcb57">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number>07</Number>
+    <Title>Cargo Types &amp; Safe Operations</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\CSSOM - Section 07 - Cargo Types &amp; Safe Operations- Issue 3 Amend 1.pdf</Path>
+  </Document>
+  <Document Id="e75ba2d3-6ca9-45ac-adf1-d29f777646e5">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number>08</Number>
+    <Title>Voyage - Port Ancillary Running - Costs</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\CSSOM - Section 08 - Voyage- Port Ancillary Running - Costs - Issue 3 Amend 1.pdf</Path>
+  </Document>
+  <Document Id="0aa3b510-eeb8-487d-98ea-2f016be1785d">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number>09</Number>
+    <Title>Time and Voyage Charters</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\CSSOM - Section 09 - Time and Voyage Charters - Issue 3 Amend 1.pdf</Path>
+  </Document>
+  <Document Id="b89baea9-8aeb-4f78-b4dd-e2f2719d57cb">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number>10</Number>
+    <Title>Operational Forms &amp; Other Documents</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\CSSOM - Section 10 - Operational Forms &amp; Other Documents - Issue 3 Amend 1.pdf</Path>
+  </Document>
+  <Document Id="07835787-1cea-45fa-b16e-55dd02baf6ff">
+    <ParentId>c659246e-ad12-45d4-aa21-21a683e70525</ParentId>
+    <Number />
+    <Title>Shipping Abbreviations</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Ship Operating Manual\Shipping Abbreviations.pdf</Path>
+  </Document>
+  <DocumentFolder Id="0fc3bdb8-0d98-4614-81d3-7918d01bfff2">
+    <ParentId>00000000-0000-0000-0000-000000000000</ParentId>
+    <Number>5</Number>
+    <Title>Risk Assessments</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments</Path>
+  </DocumentFolder>
+  <DocumentFolder Id="e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1">
+    <ParentId>0fc3bdb8-0d98-4614-81d3-7918d01bfff2</ParentId>
+    <Title>01 - General</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General</Path>
+  </DocumentFolder>
+  <Document Id="bfbd6ea0-e8f9-4ae7-b11c-91f4bb2dec9b">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 01</Number>
+    <Title>Enclosed Space Entry</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 01- Enclosed Space Entry.xml</Path>
+  </Document>
+  <Document Id="ce87ab90-d6e6-4a5e-8a23-1dab4ad41b45">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 02</Number>
+    <Title>Dealing with Hazardous Substances</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 02 - Dealing with Hazardous Substances.xml</Path>
+  </Document>
+  <Document Id="52e5b76f-4022-4d85-9c74-03ceb85c8009">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 03</Number>
+    <Title>Handling Heavy Parts</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 03 - Handling Heavy Parts.xml</Path>
+  </Document>
+  <Document Id="4868f77d-1794-454e-a7f5-edf1ab5523d5">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 04</Number>
+    <Title>Hot Work</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 04 - Hot Work.xml</Path>
+  </Document>
+  <Document Id="a2ca2cc5-477c-4f1d-a58a-82621f388f60">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 05</Number>
+    <Title>Working Aloft and Overboard</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 05 - Working Aloft and Overboard.xml</Path>
+  </Document>
+  <Document Id="4a5155fa-1e65-4bb8-8153-6a736c19dcb5">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 06</Number>
+    <Title>Operating Handheld Tools &amp; Power Tools</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 06 - Operating Handheld Tools &amp; Power Tools.xml</Path>
+  </Document>
+  <Document Id="39ca0594-ddec-4fa0-a25d-50425df3627c">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 07</Number>
+    <Title>Operating High Pressure Hydraulic Tools</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 07 - Operating High Pressure Hydraulic Tools.xml</Path>
+  </Document>
+  <Document Id="3efa4c14-13f7-4bf0-8771-adf0bb816dd1">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 08</Number>
+    <Title>Operation of Bench or Fixed Tools</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 08 - Operation of Bench or Fixed Tools.xml</Path>
+  </Document>
+  <Document Id="a013fb08-2771-42fe-813c-f28925f9ff0a">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 09</Number>
+    <Title>Operation of High Pressure Machines</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 09 - Operation of High Pressure Machines.xml</Path>
+  </Document>
+  <Document Id="109e89b7-a213-4ab1-a75f-b5ee40f18095">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 10</Number>
+    <Title>Painting</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 10 - Painting.xml</Path>
+  </Document>
+  <Document Id="8db04244-e705-40e3-a12a-aad088ffd4de">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 11</Number>
+    <Title>Manual Handling</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 11 - Manual Handling.xml</Path>
+  </Document>
+  <Document Id="ff05fc59-71b7-4eb7-be8b-237e2eff40b1">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 12</Number>
+    <Title>Working in a Hot or Cold Climate</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 12 - Working in a Hot or Cold Climate.xml</Path>
+  </Document>
+  <Document Id="66e949ef-2937-4296-a488-f48efd2ffd53">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 13</Number>
+    <Title>Ballasting, De-Ballasting and Ballast Exchange</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 13 - Ballasting, De-Ballasting and Ballast Exchange.xml</Path>
+  </Document>
+  <Document Id="28fabf5c-a365-47e6-b443-9d31525e793a">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 14</Number>
+    <Title>Explosive Gases</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 14 - Explosive Gases.xml</Path>
+  </Document>
+  <Document Id="3c0db152-b43e-43ae-9c45-4fd1f4bbf4a9">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 15</Number>
+    <Title>Ship to Ship Operation - Bunkering Underway</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 15 - Ship to Ship Operation - Bunkering Underway.xml</Path>
+  </Document>
+  <Document Id="60996379-4114-48a9-b1a5-983579fcd258">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 16</Number>
+    <Title>Young Seafarer</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 16 - Young Seafarer.xml</Path>
+  </Document>
+  <Document Id="ae58268e-c9c3-4e68-9e0b-61726f9ad341">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 17</Number>
+    <Title>Entry in CO2 Room</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 17 - Entry in CO2 Room.xml</Path>
+  </Document>
+  <Document Id="c34f76d3-df39-4367-ab76-fc345e4619bf">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 18</Number>
+    <Title>Noise and Vibration</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 18 - Noise and Vibration.xml</Path>
+  </Document>
+  <Document Id="1b3e97e1-aaaa-41b7-9f9d-16f1cc7c3c16">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 19</Number>
+    <Title>Navigating in Ice - Applicable Ships</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 19 - Navigating in Ice - Applicable Ships.xml</Path>
+  </Document>
+  <Document Id="5f10f53a-edff-49e6-8eba-de4013379550">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 20</Number>
+    <Title>Recovery of Persons from Enclosed-Confined Spaces</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 20 - Recovery of Persons from Enclosed-Confined Spaces.xml</Path>
+  </Document>
+  <Document Id="cf42c78d-3627-4085-8fe7-1883dab04bf9">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 21</Number>
+    <Title>Works Carried Out in Heavy Weather Conditions</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 21 - Works Carried Out in Heavy Weather Conditions.xml</Path>
+  </Document>
+  <DocumentFolder Id="fb4f7ab9-3666-4c2d-8d00-b7554eaef255">
+    <ParentId>0fc3bdb8-0d98-4614-81d3-7918d01bfff2</ParentId>
+    <Title>02 - Deck Department</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department</Path>
+  </DocumentFolder>
+  <Document Id="ff0ca9d4-91b2-4a42-8e5b-bc53528cf8d7">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 01</Number>
+    <Title>Anchoring and Weighing Anchor</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 01 - Anchoring and Weighing Anchor.xml</Path>
+  </Document>
+  <Document Id="a22adedb-5614-4eaf-a012-955cb1d7cc5c">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 02</Number>
+    <Title>Mooring and Unmooring Operation</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 02 - Mooring and Unmooring Operation.xml</Path>
+  </Document>
+  <Document Id="9f9e0258-9626-4441-ae57-f264c307a8fb">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 03</Number>
+    <Title>Tug Operation</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 03 - Tug Operation.xml</Path>
+  </Document>
+  <Document Id="8ded4727-c380-4ae9-93ea-634cfe876e07">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 04</Number>
+    <Title>Launch and Recovery of FFLB</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 04 - Launch and Recovery of FFLB.xml</Path>
+  </Document>
+  <Document Id="9d77b014-d6bb-4f92-82b6-b4bc35ab0b31">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 05</Number>
+    <Title>Launch and Recovery of RB</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 05 - Launch and Recovery of RB.xml</Path>
+  </Document>
+  <Document Id="70de8855-1a0c-4cc4-8ea8-969349ddc8ee">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 06</Number>
+    <Title>Launching Liferaft</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 06 - Launching Liferaft.xml</Path>
+  </Document>
+  <Document Id="2e005eeb-71fd-4265-8f3b-af5f5eec6d59">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 07</Number>
+    <Title>Shifting Bulkheads, Tweendecks with Cargo Crane</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 07 - Shifting Bulkheads, Tweendecks with Cargo Crane.xml</Path>
+  </Document>
+  <Document Id="e7d0fcdf-d53c-419b-8811-7d681002e161">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 08</Number>
+    <Title>Bulkheads, Tweendecks with Gantry Crane</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 08 - Shifting Bulkheads, Tweendecks with Gantry Crane.xml</Path>
+  </Document>
+  <Document Id="ae97dadb-4182-4e75-a53c-ffd4d9e35fa2">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 09</Number>
+    <Title>Cargo Crane Un-Parking and Cargo Crane Operation</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 09 - Cargo Crane Un-Parking and Cargo Crane Operation.xml</Path>
+  </Document>
+  <Document Id="3d8d9d4c-196b-43f2-a6fd-6c9e6c74dfb7">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 10</Number>
+    <Title>Cargo Crane Tandem Lift</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 10 - Cargo Crane Tandem Lift.xml</Path>
+  </Document>
+  <Document Id="ca1173a5-400e-41b8-8d8b-01e21ebcef9b">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 11</Number>
+    <Title>Opening and Closing Hatch Covers - Hydraulic Type</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 11 - Opening and Closing Hatch Covers - Hydraulic Type.xml</Path>
+  </Document>
+  <Document Id="79c2f6ff-b391-45cd-b97c-ca1e2e912718">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 12</Number>
+    <Title>Opening and Closing Hatch Covers - Gantry Crane</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 12 - Opening and Closing Hatch Covers - Gantry Crane.xml</Path>
+  </Document>
+  <Document Id="bceb50b2-bd10-4bb5-ad0c-9f3a8959febf">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 13</Number>
+    <Title>Opening and Closing Hatch Covers - Cargo Crane</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 13 - Opening and Closing Hatch Covers - Cargo Crane.xml</Path>
+  </Document>
+  <Document Id="5f54b0b7-54b4-4f47-b3f7-4039ba6da003">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 14</Number>
+    <Title>Cargo Operations</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 14 - Cargo Operations.xml</Path>
+  </Document>
+  <Document Id="c5aeb6a7-34d1-45f2-9087-5c1646eb3102">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 15</Number>
+    <Title>Loading and Discharing Dirty Cargo</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 15 - Loading and Discharing Dirty Cargo.xml</Path>
+  </Document>
+  <Document Id="f186aadd-cf51-4c24-92d0-5465c46b4f32">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 16</Number>
+    <Title>Cargo Lashing - Unlashing - Adjusting at Sea</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 16 - Cargo Lashing - Unlashing - Adjusting at Sea.xml</Path>
+  </Document>
+  <Document Id="4d50c4e2-668c-4f21-afd8-0912724faf7c">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 17</Number>
+    <Title>Rigging and Stowing Accommodation Ladder</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 17 - Rigging and Stowing Accommodation Ladder.xml</Path>
+  </Document>
+  <Document Id="3534354f-b3cb-489b-8c52-e932c5ef4d16">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 18</Number>
+    <Title>Pilot Embarkation and Disembarkation</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 18 - Pilot Embarkation and Disembarkation.xml</Path>
+  </Document>
+  <Document Id="e818d665-b817-448d-aa28-fab73056e805">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 19</Number>
+    <Title>Rigging Razor Wire</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 19 - Rigging Razor Wire.xml</Path>
+  </Document>
+  <Document Id="5cc15fae-a6e5-4fe6-8fae-294876484168">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 20</Number>
+    <Title>Deck and Hold Washing</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 20 - Deck and Hold Washing.xml</Path>
+  </Document>
+  <Document Id="96cf1b82-81fc-4332-9ff0-af3a6d733822">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 21</Number>
+    <Title>Medical Treatment</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 21 - Medical Treatment.xml</Path>
+  </Document>
+  <Document Id="7ad804d1-c4f5-4edb-a506-1fdb606a27b0">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 22</Number>
+    <Title>Ship to Ship Operation (mother ship anchored)</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 22 - Ship to Ship Operation (mother ship anchored).xml</Path>
+  </Document>
+  <Document Id="a0a1261c-1dc1-45d1-a689-65772442ff49">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 23</Number>
+    <Title>Handling - Stowing Anchor Chain When Weighing Anchor</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 23 - Handling - Stowing Anchor Chain When Weighing Anchor.xml</Path>
+  </Document>
+  <Document Id="0773bfcc-46a5-4600-8c92-399e7184d03b">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 24</Number>
+    <Title>Taking of Fresh Water (to be produced on board)</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 24 - Taking of Fresh Water (to be produced on board).xml</Path>
+  </Document>
+  <Document Id="4b9b9e44-e965-418c-9d86-77ae2cef3b64">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 25</Number>
+    <Title>Recovery of Persons from Water</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 25 - Recovery of Persons from Water.xml</Path>
+  </Document>
+  <DocumentFolder Id="d15d2f20-f3b5-4137-b12e-2caf8b737493">
+    <ParentId>0fc3bdb8-0d98-4614-81d3-7918d01bfff2</ParentId>
+    <Title>03 - Engine Department</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\03 - Engine Department</Path>
+  </DocumentFolder>
+  <Document Id="65f82418-51b4-4e53-b663-5954ea8016be">
+    <ParentId>d15d2f20-f3b5-4137-b12e-2caf8b737493</ParentId>
+    <Number>E 01</Number>
+    <Title>Bunkering or Sludge Removal</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\03 - Engine Department\E 01 - Bunkering or Sludge Removal.xml</Path>
+  </Document>
+  <Document Id="cd33ec98-9a1c-41c5-b437-3653dc77c2f0">
+    <ParentId>d15d2f20-f3b5-4137-b12e-2caf8b737493</ParentId>
+    <Number>E 02</Number>
+    <Title>Maintenance and Repair of Electrical Equipment</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\03 - Engine Department\E 02 - Maintenance and Repair of Electrical Equipment.xml</Path>
+  </Document>
+  <Document Id="65eac7c3-f1e4-4d76-9cc7-e48bc0835c14">
+    <ParentId>d15d2f20-f3b5-4137-b12e-2caf8b737493</ParentId>
+    <Number>E 03</Number>
+    <Title>Checking or Replacing or Handling Batteries</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\03 - Engine Department\E 03 - Checking or Replacing or Handling Batteries.xml</Path>
+  </Document>
+  <Document Id="ff924c66-07e0-4732-bf35-39eae10f5228">
+    <ParentId>d15d2f20-f3b5-4137-b12e-2caf8b737493</ParentId>
+    <Number>E 04</Number>
+    <Title>Maintenance, Repair to Machinery</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\03 - Engine Department\E 04 - Maintenance, Repair to Machinery.xml</Path>
+  </Document>
+  <Document Id="a8609194-783e-405d-a7ba-01c2d6880c87">
+    <ParentId>d15d2f20-f3b5-4137-b12e-2caf8b737493</ParentId>
+    <Number>E 05</Number>
+    <Title>the Incinerator</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\03 - Engine Department\E 05 - Operating the Incinerator.xml</Path>
+  </Document>
+  <Document Id="e308640d-e924-4207-b030-7400ba74f90c">
+    <ParentId>d15d2f20-f3b5-4137-b12e-2caf8b737493</ParentId>
+    <Number>E 06</Number>
+    <Title>Maintenance to Air Conditioning System</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\03 - Engine Department\E 06- Maintenance to Air Conditioning System.xml</Path>
+  </Document>
+  <Document Id="f0bc1d0d-cded-411d-82e1-bd5b75fafce9">
+    <ParentId>d15d2f20-f3b5-4137-b12e-2caf8b737493</ParentId>
+    <Number>E 07</Number>
+    <Title>Maintenance to Sewage Plant</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\03 - Engine Department\E 07 - Maintenance to Sewage Plant.xml</Path>
+  </Document>
+  <Document Id="b42c0e9f-2a7b-4bae-8729-db723e017f49">
+    <ParentId>d15d2f20-f3b5-4137-b12e-2caf8b737493</ParentId>
+    <Number>E 08</Number>
+    <Title>Working in Remote and Confined Spaces</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\03 - Engine Department\E 08 - Working in Remote and Confined Spaces.xml</Path>
+  </Document>
+  <DocumentFolder Id="38fa58fa-7e1d-4b72-9915-a0146960005e">
+    <ParentId>0fc3bdb8-0d98-4614-81d3-7918d01bfff2</ParentId>
+    <Title>04 - Catering</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\04 - Catering</Path>
+  </DocumentFolder>
+  <Document Id="0d3bb35a-ae2a-41cd-861d-e38e37fddc9e">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005e</ParentId>
+    <Number>C 01</Number>
+    <Title>Food Storage and Preparation</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\04 - Catering\C 01 - Food Storage and Preparation.xml</Path>
+  </Document>
+  <Document Id="12415a48-278a-4257-ae71-b0c34dd9081b">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005e</ParentId>
+    <Number>C 02</Number>
+    <Title>Barbeque or Pig Roast</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\04 - Catering\C 02 - Barbeque or Pig Roast.xml</Path>
+  </Document>
+  <Document Id="48b3e156-2363-4328-a51d-a11a2b0587a8">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005e</ParentId>
+    <Number>C 03</Number>
+    <Title>Use of Fridges - Entry into Refrigerated Spaces</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\04 - Catering\C 03 - Use of Fridges - Entry into Refrigerated Spaces.xml</Path>
+  </Document>
+  <DocumentFolder Id="9d6a5e46-5e80-4c31-848b-d9a6b66726b5">
+    <ParentId>0fc3bdb8-0d98-4614-81d3-7918d01bfff2</ParentId>
+    <Title>05 - Subcontractors</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\05 - Subcontractors</Path>
+  </DocumentFolder>
+  <Document Id="d082ad98-591b-4a62-a23e-097e252f2b20">
+    <ParentId>9d6a5e46-5e80-4c31-848b-d9a6b66726b5</ParentId>
+    <Number>S 01</Number>
+    <Title>Bobcat Operation</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\05 - Subcontractors\S 01 - Bobcat Operation.xml</Path>
+  </Document>
+  <Document Id="6d95fc2a-e914-4931-b739-ea311a43f331">
+    <ParentId>9d6a5e46-5e80-4c31-848b-d9a6b66726b5</ParentId>
+    <Number>S 02</Number>
+    <Title>Diving Operation</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\05 - Subcontractors\S 02- Diving Operation.xml</Path>
+  </Document>
+  <Document Id="9279135d-9dcb-4157-a0ac-f75b25b7f088">
+    <ParentId>9d6a5e46-5e80-4c31-848b-d9a6b66726b5</ParentId>
+    <Number>S 03</Number>
+    <Title>Dry Docking</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\05 - Subcontractors\S 03 - Dry Docking.xml</Path>
+  </Document>
+  <Document Id="f95813f4-51eb-426a-a3f2-d65bfbe50799">
+    <ParentId>9d6a5e46-5e80-4c31-848b-d9a6b66726b5</ParentId>
+    <Number>S 04</Number>
+    <Title>Any Technicians Hired by Company to Work On Board</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\05 - Subcontractors\S 04 - Any Technicians Hired by Company to Work On Board.xml</Path>
+  </Document>
+  <DocumentFolder Id="0aec36ac-34f3-4c72-8ada-d0d27b045ac8">
+    <ParentId>00000000-0000-0000-0000-000000000000</ParentId>
+    <Number>8</Number>
+    <Title>Other</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other</Path>
+  </DocumentFolder>
+  <Document Id="0891b29d-8fd2-4e2a-90c9-50d083a56e7b">
+    <ParentId>0aec36ac-34f3-4c72-8ada-d0d27b045ac8</ParentId>
+    <Title>Nautilus Agreement</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Nautilus Agreement.pdf</Path>
+  </Document>
+  <Document Id="39bf86dd-99e3-4e4c-84e1-2dd87eff2504">
+    <ParentId>0aec36ac-34f3-4c72-8ada-d0d27b045ac8</ParentId>
+    <Number />
+    <Title>Shipboard Filling System</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Standard Filling System.pdf</Path>
+  </Document>
+  <DocumentFolder Id="bcbb434b-d3ae-474e-a2dd-029396c01bab">
+    <ParentId>00000000-0000-0000-0000-000000000000</ParentId>
+    <Number>6</Number>
+    <Title>DOC - Companies (ISM)</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\DOC - Companies (ISM)</Path>
+  </DocumentFolder>
+  <Document Id="176546ca-3c4e-4e2c-9f61-0f068c9e639c">
+    <ParentId>bcbb434b-d3ae-474e-a2dd-029396c01bab</ParentId>
+    <Title>IOM DOC</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\DOC - Companies (ISM)\IOM DOC.pdf</Path>
+  </Document>
+  <Document Id="b3c962da-8cf6-44cd-a3e5-ef6cbb23ad7b">
+    <ParentId>bcbb434b-d3ae-474e-a2dd-029396c01bab</ParentId>
+    <Title>UK DOC</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\DOC - Companies (ISM)\UK DOC.pdf</Path>
+  </Document>
+  <DocumentFolder Id="9607a990-d48f-4d8c-976a-8284ed5fa54d">
+    <ParentId>00000000-0000-0000-0000-000000000000</ParentId>
+    <Number>4</Number>
+    <Title>Fleet Memoranda</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda</Path>
+  </DocumentFolder>
+  <DocumentFolder Id="f07070c5-b89a-4dc9-8762-1f2913bacee9">
+    <ParentId>00000000-0000-0000-0000-000000000000</ParentId>
+    <Number>3</Number>
+    <Title>Fleet Standing Orders</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders</Path>
+  </DocumentFolder>
+  <Document Id="ab382f8b-960c-4a01-aff2-94d057ee9417">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 22</Number>
+    <Title>Ship to Helicopter Operations</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 22 - Ship to Helicopter Operations.xml</Path>
+  </Document>
+  <Document Id="669081f2-cb9c-4d89-b808-4b3f064978fd">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 23</Number>
+    <Title>Refilling of SCBA Cylinders</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 23 - Refilling of SCBA Cylinders.xml</Path>
+  </Document>
+  <Document Id="fc2be15f-ba4e-42f4-8864-d3cb83c5f3bc">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 26</Number>
+    <Title>Carriage of Windmill Blades on Deck - Blind Sector</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 26 - Carriage of Windmill Blades on Deck- Blind Sector.xml</Path>
+  </Document>
+  <Document Id="951c34cf-1a7d-4ff7-89d6-ad2611c9461e">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 27</Number>
+    <Title>Greasing of Cargo Cranes Wires</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 27 - Greasing of Cargo Cranes Wires.xml</Path>
+  </Document>
+  <Document Id="c7e83904-734d-4e34-94be-96f7dd22b2d1">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 28</Number>
+    <Title>Use of Dual ECDIS</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 28 - Use of Dual ECDIS.xml</Path>
+  </Document>
+   
+  <Document Id="c7e83904-734d-4e34-94be-96f8dd22b2d1">
+    <ParentId>fb4f7ab9-3666-4c2d-8d00-b7554eaef255</ParentId>
+    <Number>D 28</Number>
+    <Title>Use of Dual ECDIS</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\02 - Deck Department\D 29 - Actions for when alongside and notified of Heavy Weather.xml</Path>
+  </Document>
+  <Document Id="2f80ebec-3a19-4efb-acd9-174ebed7cb76">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>Index</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\Index.pdf</Path>
+  </Document>
+  <Document Id="58553ad2-11dc-439c-9a44-c0e556f09eae">
+    <ParentId>9607a990-d48f-4d8c-976a-8284ed5fa54d</ParentId>
+    <Title>Index</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda\Index.pdf</Path>
+  </Document>
+  <DocumentFolder Id="38fa58fa-7e1d-4b72-9915-c0146960005f">
+    <ParentId>0fc3bdb8-0d98-4614-81d3-7918d01bfff2</ParentId>
+    <Title>00 - Risk Assessment Review Instructions &amp; Log </Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\00 - Risk Assessment Review Instructions &amp; Log</Path>
+  </DocumentFolder>
+  <Document Id="7c1e738b-a902-42b9-ad60-242f2c0c81b4">
+    <ParentId>38fa58fa-7e1d-4b72-9915-c0146960005f</ParentId>
+    <Number>01</Number>
+    <Title>Review Instructions </Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\00 - Risk Assessment Review Instructions &amp; Log\01 - Review Instructions.pdf</Path>
+  </Document>
+  <Document Id="7c1e738b-a902-42b9-ad60-242f2c0c81b5">
+    <ParentId>38fa58fa-7e1d-4b72-9915-c0146960005f</ParentId>
+    <Number>02</Number>
+    <Title>Review Log </Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\00 - Risk Assessment Review Instructions &amp; Log\02 - Review Log.docx</Path>
+  </Document>
+  <Document Id="c035e3e7-2954-4576-8e4e-bac3a0949d14">
+    <ParentId>e34454ae-cdb4-4f9e-8b4b-48fe03cd16d1</ParentId>
+    <Number>G 24</Number>
+    <Title>USE OF LIFEJACKETS DURING FFB LAUNCHING</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Risk Assessments\01 - General\G 24 - USE OF LIFEJACKETS DURING FFB LAUNCHING - Insert-  CLASS VESSELS.XML</Path>
+  </Document>
+  <Document Id="1ea1d99a-dee5-4095-b96c-f8a1f931802f">
+    <ParentId>bcbb434b-d3ae-474e-a2dd-029396c01bab</ParentId>
+    <Number />
+    <Title>MALTA DOC</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\DOC - Companies (ISM)\MALTA DOC.pdf</Path>
+  </Document>
+  <Document Id="2bdc9d8c-c447-43d6-a78e-df685b590389">
+    <ParentId>bcbb434b-d3ae-474e-a2dd-029396c01bab</ParentId>
+    <Title>PORTUGAL Interim DOC</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\DOC - Companies (ISM)\PORTUGAL Interim DOC.pdf</Path>
+  </Document>
+  <Document Id="0aee1e54-7bb4-41e4-bc95-538c9a56007a">
+    <ParentId>0aec36ac-34f3-4c72-8ada-d0d27b045ac8</ParentId>
+    <Number />
+    <Title>EU-MRV Monitoring Plan (ships over 5,000 GT)</Title>
+    <Path>C:\Carisbrooke Shipping Ltd\Saved Forms\EU-MRV\Monitoring plan.pdf</Path>
+  </Document>
+  <Document Id="0aee1e87-7bd4-41e4-bc95-538c9a66007a">
+    <ParentId>0aec36ac-34f3-4c72-8ada-d0d30b045ac8</ParentId>
+    <Number />
+    <Title>SEEMP - Part I Complete Manual</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\SEEMP\SEEMP - Part I Complete Manual.pdf</Path>
+  </Document>
+  <Document Id="0aee1e87-7bd4-46e4-bc95-538c9a66007a">
+    <ParentId>0aec36ac-34f3-4c72-8ada-d0d30b045ac8</ParentId>
+    <Number />
+    <Title>SEEMP  Part 1</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\SEEMP\SEEMP  Part 1.pdf</Path>
+  </Document>
+  <Document Id="0aee1e87-7bd4-41e4-bc95-538c9a66007a">
+    <ParentId>0aec36ac-34f3-4c72-8ada-d0d30b045ac8</ParentId>
+    <Number />
+    <Title>SEEMP - Part I Complete Manual</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\SEEMP\Brief Outline of SEEMP Part 2 requirements.pdf</Path>
+  </Document>
+  <Document Id="0aee1e64-7bc4-41e4-bc95-538c9a56007a">
+    <ParentId>0aec36ac-34f3-4c72-8ada-d0d30b045ac8</ParentId>
+    <Number />
+    <Title>IMO DCS - SEEMP Part 2 Data Collection Plan (ships over 5,000 GT)</Title>
+    <Path>C:\Carisbrooke Shipping Ltd\Saved Forms\IMO DCS\SEEMP P2 data collection plan.pdf</Path>
+  </Document>
+  <Document Id="0aee1e67-7bc4-41e4-bc95-538c9a56007a">
+    <ParentId>0aec36ac-34f3-4c72-8ada-d0d30b045ac8</ParentId>
+    <Number />
+    <Title>SEEMP Part 2 - Certificate of compliance and survey statement (ships over 5,000 GT)</Title>
+    <Path>C:\Carisbrooke Shipping Ltd\Saved Forms\IMO DCS\COC + Survey statement.pdf</Path>
+  </Document>
+  <Document Id="a63a0ee8-abd0-4608-aab0-fd7df7f35667">
+    <ParentId>bcbb434b-d3ae-474e-a2dd-029396c01bab</ParentId>
+    <Title>Antigua &amp; Barbuda DOC</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\DOC - Companies (ISM)\ANTIGUA &amp; BARBUDA.pdf</Path>
+  </Document>
+  <Document Id="0a9f5c99-4f51-4743-982a-3252cc89ba2c">
+    <ParentId>0aec36ac-34f3-4c72-8ada-d0d27b045ac8</ParentId>
+    <Title>Best Management Practices to Deter Piracy - BMP5</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Best Management Practices to Deter Piracy - BMP5.pdf</Path>
+  </Document>
+  <Document Id="0a9f5c99-4f51-4743-982a-3252cd89ba2c">
+    <ParentId>0aec36ac-34f3-4c72-8ada-d0d27b045ac8</ParentId>
+    <Title>MLC Complaint Contacts</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\MLC Complaint Contacts.pdf</Path>
+  </Document>
+  <Document Id="0a9f5c99-4f51-4743-982a-9252cc89ba2c">
+    <ParentId>0aec36ac-34f3-4c72-8ada-d0d27b045ac8</ParentId>
+    <Title>Seafarer Recruitment and Placement Service Certificates</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Seafarer Recruitment and Placement Service Certificates.pdf</Path>
+  </Document>
+  <Document Id="00c0e35d-0154-42bb-af96-4e980f04bda4">
+    <ParentId>0aec36ac-34f3-4c72-8ada-d0d27b045ac8</ParentId>
+    <Number />
+    <Title>Bimco GoG Guidelines - V3 - June 2018</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bimco GoG Guidelines - V3 - June 2018.pdf</Path>
+  </Document>
+  <DocumentFolder Id="ef76f897-2105-463a-8603-2aab326a90ae">
+    <ParentId>0aec36ac-34f3-4c72-8ada-d0d27b045ac8</ParentId>
+    <Title>P&amp;I Publications</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\P&amp;I Publications</Path>
+  </DocumentFolder>
+  <Document Id="3d572105-6b41-4c38-85d9-8ee936528928">
+    <ParentId>ef76f897-2105-463a-8603-2aab326a90ae</ParentId>
+    <Title>LR – ILO MLC Pocket Checklist</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\P&amp;I Publications\LR - ILO MLC Pocket Checklist.pdf</Path>
+  </Document>
+  <Document Id="4d0a5e7d-3381-40e8-a98e-9b642ed4be8f">
+    <ParentId>ef76f897-2105-463a-8603-2aab326a90ae</ParentId>
+    <Title>LR – ISM &amp; ISPS Pocket Checklist</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\P&amp;I Publications\LR - ISM &amp; ISPS Pocket Checklist.pdf</Path>
+  </Document>
+  <Document Id="4668999e-90ac-4797-9bc3-5b6cf37012b8">
+    <ParentId>ef76f897-2105-463a-8603-2aab326a90ae</ParentId>
+    <Title>LR – Life-Saving Appliances Pocket Checklist</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\P&amp;I Publications\LR - Life-Saving Appliances Pocket Checklist.pdf</Path>
+  </Document>
+  <Document Id="3700a113-dc59-4135-86c9-f9bdd52f1b0a">
+    <ParentId>ef76f897-2105-463a-8603-2aab326a90ae</ParentId>
+    <Title>LR – Marine Fire Safety Pocket Checklist</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\P&amp;I Publications\LR - Marine Fire Safety Pocket Checklist.pdf</Path>
+  </Document>
+  <Document Id="277c3fe7-3227-4021-8628-9e1ff39883df">
+    <ParentId>ef76f897-2105-463a-8603-2aab326a90ae</ParentId>
+    <Title>LR – Port State Inspections Pocket Checklist</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\P&amp;I Publications\LR - Port State Inspections Pocket Checklist.pdf</Path>
+  </Document>
+  <Document Id="23fc9428-1f20-40b4-a74e-831937033ab7">
+    <ParentId>ef76f897-2105-463a-8603-2aab326a90ae</ParentId>
+    <Title>LR – Marine Pollution Prevention Pocket Checklist</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\P&amp;I Publications\LR - Marine Pollution Prevention Pocket Checklist.pdf</Path>
+  </Document>
+  <Document Id="74aa8399-9bd1-494a-9f0b-3b9c5e980891">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 01 - Safe Access and Movement</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 01 - Safe Access and Movement.pdf</Path>
+  </Document>
+  <Document Id="5c96e7a5-b3d3-4bda-9379-9698ad0a54f7">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 02 - Standard Publications List &amp; Training Library+Displayed Items</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 02 - Standard Publications List &amp; Training Library+Displayed Items.pdf</Path>
+  </Document>
+  <Document Id="e731d098-2063-40b5-b9fc-05fda29529b0">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 03 - Malaria, Ebola &amp; Other Infectious Diseases File</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 03 - Malaria, Ebola &amp; Other Infectious Diseases File.pdf</Path>
+  </Document>
+  <Document Id="919d1587-f446-4762-8d33-e18ca40a8018">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 04 - Bridge Sound Reception - 5000 and 6750dwt Vessels only</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 04 - Bridge Sound Reception - 5000 and 6750dwt Vessels only.pdf</Path>
+  </Document>
+  <Document Id="666bdddd-7a02-4452-a91f-1e6371e2ab4b">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 05 -  CO2 EU MRV- Vessels Reporting Requirements</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 05 -  CO2 EU MRV- Vessels Reporting Requirements.pdf</Path>
+  </Document>
+  <Document Id="f83c724a-a06a-492c-a0ca-017eb9c98890">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 06 - FOBAS Fuel Changeover  Procedure &amp; Calculator</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 06 - FOBAS Fuel Changeover  Procedure &amp; Calculator.pdf</Path>
+  </Document>
+  <Document Id="9869fc40-d6e3-4863-b2f8-d4ff947c0a18">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 06 - FOBAS Fuel Changeover calculator</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 06 - FOBAS Fuel Changeover calculator.xlsx</Path>
+  </Document>
+  <Document Id="1bebf230-0adc-4c7c-96c4-65cf37a29492">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 07 - Fine Automatic Fuel Filters</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 07 - Fine Automatic Fuel Filters.pdf</Path>
+  </Document>
+  <Document Id="402492eb-7ea0-47b5-acd8-347b92ec3e12">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 08 - Turbo Charger Maintenance</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 08 - Turbo Charger Maintenance.pdf</Path>
+  </Document>
+  <Document Id="c91fb84e-3639-40d4-9cbe-af7cc4a19b03">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 09 - Stern Tube Lubrication Monitoring</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 09 - Stern Tube Lubrication Monitoring.pdf</Path>
+  </Document>
+  <Document Id="1e535c1d-b14e-4af5-b55c-ebfb3eafbab1">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 10 - Regs4Ships Approved Digital Maritime Publications</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 10 - Regs4Ships Approved Digital Maritime Publications.pdf</Path>
+  </Document>
+  <Document Id="fbf21d71-9a61-41fe-a984-cbe16d76684d">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 11 - Personal &amp; Rescue Protective Equipment</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 11 - Personal &amp; Rescue Protective Equipment.pdf</Path>
+  </Document>
+  <Document Id="8f8ab6fa-149c-4045-bb19-0997dab53267">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 12 - Galley Equipment List</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 12 - Galley Equipment List.pdf</Path>
+  </Document>
+  <Document Id="60144dac-b8ea-4768-bd54-4751120045f4">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 13 - Main Engines using IFO 180 HFO 380</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 13 - Main Engines using IFO 180 HFO 380.pdf</Path>
+  </Document>
+  <Document Id="60144dac-b8ea-4768-bd54-4751120046f4">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 14 - Oil Mist Detector</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 14 - Oil Mist Detector.pdf</Path>
+  </Document>
+  <Document Id="60144dac-b8ea-4768-bd54-4751120056f4">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>TSO 15 - 0.5% Fuel Sulphur Limit and Aderco 2055G</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\TSO 15 - 0.5% Fuel Sulphur Limit and Aderco 2055G.pdf</Path>
+  </Document>
+  <Document Id="a3df18b0-3c2e-4ecc-838f-76f258d9f93c">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>x ECO 01 - Applications for Endorsements of Recognition (EoR) and Certificates of Equivalent Competency (CeC)</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\x ECO 01 - Applications for Endorsements of Recognition (EoR) and Certificates of Equivalent Competency (CeC).pdf</Path>
+  </Document>
+  <Document Id="99666531-151b-4f7c-adc7-f214e0cb3a77">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>x ECO 02  -  Issuance of MCA Approved NWRC II-4 and EWRC III-4</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\x ECO 02  -  Issuance of MCA Approved NWRC II-4 and EWRC III-4.pdf</Path>
+  </Document>
+  <Document Id="9d353421-ac14-4132-8b0a-41d7e736dc41">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>x ECO 03  -  Seafarers, Lookouts, Cadets, Trainee Ratings &amp; Training Records Book</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\x ECO 03  -  Seafarers, Lookouts, Cadets, Trainee Ratings &amp; Training Records Book.pdf</Path>
+  </Document>
+  <Document Id="666ffbc6-2b53-441e-b108-63a5b83e2ed0">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>x ECO 04 - Junior Officer Training &amp; Assessment - OOW</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\x ECO 04 - Junior Officer Training &amp; Assessment - OOW.pdf</Path>
+  </Document>
+  <Document Id="4951ccb1-ef7c-4435-bfd5-caaf903385dd">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>x F0 01 - Ship Accounts Form - SAF - Ship Expenses</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\x F0 01 - Ship Accounts Form - SAF - Ship Expenses.pdf</Path>
+  </Document>
+  <Document Id="600d4eaf-670b-472c-9a75-d9b193dbaaa5">
+    <ParentId>f07070c5-b89a-4dc9-8762-1f2913bacee9</ParentId>
+    <Title>xx Full copy of Fleet Standing Orders File</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Standing Orders\xx Full copy of Fleet Standing Orders File.pdf</Path>
+  </Document>
+  <DocumentFolder Id="38fa58fa-7e1d-4b72-9915-a0146960005f">
+    <ParentId>0aec36ac-34f3-4c72-8ada-d0d27b045ac8</ParentId>
+    <Title>Bridge Checklists</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bridge Checklists</Path>
+  </DocumentFolder>
+  <Document Id="c2afe5e8-f440-4aae-9951-46c6c320ea4a">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005f</ParentId>
+    <Title>000 - Title Page</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bridge Checklists\000 - Title Page.pdf</Path>
+  </Document>
+  <Document Id="094f8b86-f0b0-4351-9d4e-c0f3d3ae72a5">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005f</ParentId>
+    <Title>00 - Bridge Checklists - 28 June 2018</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bridge Checklists\00 - Bridge Checklists.pdf</Path>
+  </Document>
+  <Document Id="81557a62-9514-483a-b5d6-155f02e4dec9">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005f</ParentId>
+    <Title>1 - CBW - Change of Bridge Watch Checklist</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bridge Checklists\1 - CBW - Change of Bridge Watch Checklist.pdf</Path>
+  </Document>
+  <Document Id="6c403613-924a-4c4d-8b26-e932508fc230">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005f</ParentId>
+    <Title>2 - BPAC - Bridge Pre-Arrival Checklist</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bridge Checklists\2 - BPAC - Bridge Pre-Arrival Checklist.pdf</Path>
+  </Document>
+  <Document Id="a8e40270-2015-4a33-af1a-57f68e41cacf">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005f</ParentId>
+    <Title>3 - BPAC USA - Bridge Pre-Arrival Checklist - USA Waters</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bridge Checklists\3 - BPAC USA - Bridge Pre-Arrival Checklist - USA Waters.pdf</Path>
+  </Document>
+  <Document Id="b390ee5b-d200-422d-b733-e89af3480379">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005f</ParentId>
+    <Title>4 - BPDC - Bridge Pre-Departure Checklist</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bridge Checklists\4 - BPDC - Bridge Pre-Departure Checklist.pdf</Path>
+  </Document>
+  <Document Id="5f099c93-8915-4869-800d-a59de104db0a">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005f</ParentId>
+    <Title>5 - Pilot Master Exchange - PMX</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bridge Checklists\5 - Pilot Master Exchange - PMX.pdf</Path>
+  </Document>
+  <Document Id="f2e6d084-5db8-43a8-9664-6667e3a0d2a2">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005f</ParentId>
+    <Title>6 - Anchoring Operations - AOC</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bridge Checklists\6 - Anchoring Operations - AOC.pdf</Path>
+  </Document>
+  <Document Id="88729549-5219-4a0e-9eec-0d4ae07e3fe3">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005f</ParentId>
+    <Title>7 - Restricted Visibillity - RVC</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bridge Checklists\7 - Restricted Visibillity - RVC.pdf</Path>
+  </Document>
+  <Document Id="d215b62a-21a2-48b3-a9ce-a34eff12d5e9">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005f</ParentId>
+    <Title>8 - Bridge Gear Failure - BGF</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bridge Checklists\8 - Bridge Gear Failure - BGF.pdf</Path>
+  </Document>
+  <Document Id="78d6ffae-aa1e-4d11-809b-9db54849b71e">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005f</ParentId>
+    <Title>9 - Heavy Weather - Tropical Storm - HWC</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bridge Checklists\9 - Heavy Weather - Tropical Storm - HWC.pdf</Path>
+  </Document>
+  <Document Id="19789c50-98df-4e54-b1e8-ae25f127ca15">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005f</ParentId>
+    <Title>10 - BA Board 6 and 9ltrs</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bridge Checklists\10 - BA Board 6 and 9ltrs.pdf</Path>
+  </Document>
+  <Document Id="067e32ee-9e1c-46d6-8a87-22d71ad5d2be">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005f</ParentId>
+    <Title>Bridge Checklists - All Combined</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bridge Checklists\Bridge Checklists - All Combined.pdf</Path>
+  </Document>
+  <Document Id="49296e23-d2ba-49d8-94df-0cea3ae0a01b">
+    <ParentId>9607a990-d48f-4d8c-976a-8284ed5fa54d</ParentId>
+    <Title>TSM 01-2019 - Company Vessels &amp; Shore Based Contact Details</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda\TSM 01-2019 - Company Vessels &amp; Shore Based Contact Details.pdf</Path>
+  </Document>
+  <Document Id="92b9b93a-f71a-4d54-a794-b2a13c41f868">
+    <ParentId>9607a990-d48f-4d8c-976a-8284ed5fa54d</ParentId>
+    <Title>TSM 02-2019 - Audits &amp;  Management Activities Schedules</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda\TSM 02-2019 -  Audits &amp; Management Activities Schedules.pdf</Path>
+  </Document>
+  <Document Id="ffc70775-efee-4199-b169-edfb907039dd">
+    <ParentId>9607a990-d48f-4d8c-976a-8284ed5fa54d</ParentId>
+    <Title>TSM 03-2019 - SMS Review Status</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda\TSM 03-2019 - SMS Review Status.pdf</Path>
+  </Document>
+  <Document Id="8dc4b66d-1e4d-4a8f-8f63-4853c199f417">
+    <ParentId>9607a990-d48f-4d8c-976a-8284ed5fa54d</ParentId>
+    <Title>TSM 04-2018 - Company Standards Accommodation Spaces - Working &amp; Living</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda\TSM 04-2018 - Company Standards Accommodation Spaces - Working &amp; Living.pdf</Path>
+  </Document>
+  <Document Id="80ad4415-6626-4e99-8049-a080b2034626">
+    <ParentId>9607a990-d48f-4d8c-976a-8284ed5fa54d</ParentId>
+    <Title>TSM 05-2018 - Port Authorities-West Africa - Advice for Masters</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda\TSM 05-2018 - Port Authorities-West Africa - Advice for Masters.pdf</Path>
+  </Document>
+  <Document Id="dbb7e780-e38d-4864-ab3a-ea13557c4c25">
+    <ParentId>9607a990-d48f-4d8c-976a-8284ed5fa54d</ParentId>
+    <Title>TSM 06-2018 - Company Management Review &amp; response to Shipboard Management Reviews</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda\TSM 06-2018 - Company Management Review &amp; response to Shipboard Management Reviews.pdf</Path>
+  </Document>
+  <Document Id="57af25a6-a604-4c26-b5c9-f43e4456e21f">
+    <ParentId>9607a990-d48f-4d8c-976a-8284ed5fa54d</ParentId>
+    <Title>TSM 07-2018 - Vessels-VSAT Comms-Safety Precautions Measures</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda\TSM 07-2018 - Vessels-VSAT Comms-Safety Precautions Measures.pdf</Path>
+  </Document>
+  <Document Id="aafd3148-3996-40a0-ba09-31c89a9b2618">
+    <ParentId>9607a990-d48f-4d8c-976a-8284ed5fa54d</ParentId>
+    <Title>TSM 04-2019 - Combined Emergency Response Exercise</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda\TSM 04 - 2019 - Combined Emergency Response Exercise.pdf</Path>
+  </Document>
+  <Document Id="324cbe79-eb80-4eb9-a72a-afd9f6431a82">
+    <ParentId>9607a990-d48f-4d8c-976a-8284ed5fa54d</ParentId>
+    <Title>TSM 09- 2018 - Illegal Drugs and other Illicit Substances</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda\TSM 09- 2018 - Illegal Drugs and other Illicit Substances.pdf</Path>
+  </Document>
+  <Document Id="aafd3148-3996-40a0-ba09-32c89a9b2618">
+    <ParentId>9607a990-d48f-4d8c-976a-8284ed5fa54d</ParentId>
+    <Title>TSM 10-2018 - Approaching Winter Season</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda\TSM 10-2018 - Approaching Winter Season.pdf</Path>
+  </Document>
+  <Document Id="aafd3148-3996-40a0-ba09-33c89a9b2618">
+    <ParentId>9607a990-d48f-4d8c-976a-8284ed5fa54d</ParentId>
+    <Title>TSM 11-2018 - PSC Target Zero Deficiencies</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda\TSM 11-2018 - PSC Target Zero Deficiencies.pdf</Path>
+  </Document>
+  <Document Id="68500806-55aa-4683-9171-d6c94143f6d4">
+    <ParentId>9607a990-d48f-4d8c-976a-8284ed5fa54d</ParentId>
+    <Title>x1 - ECM  01-2018 - SEA CBA Work Hours Overtime - All Seafarers</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda\x1 - ECM  01-2018 - SEA CBA Work Hours Overtime - All Seafarers.pdf</Path>
+  </Document>
+  <Document Id="05d56ed1-6391-4c3a-93f6-743dda2228f6">
+    <ParentId>9607a990-d48f-4d8c-976a-8284ed5fa54d</ParentId>
+    <Title>x2 - COM 01-2018 - Works for Other Parties - Bonus Payment</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda\x2 - COM 01-2018 - Works for Other Parties - Bonus Payment.pdf</Path>
+  </Document>
+  <Document Id="9358230a-f4ca-4126-9b6c-b40352222f36">
+    <ParentId>9607a990-d48f-4d8c-976a-8284ed5fa54d</ParentId>
+    <Title>x3 - Fully pdf Copy of Fleet Memoranda</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Fleet Memoranda\x3 - Fully pdf Copy of Fleet Memoranda.pdf</Path>
+  </Document>
+  <DocumentFolder Id="bcbb434b-d3ae-474e-a2dd-029396c01bad">
+    <ParentId>00000000-0000-0000-0000-000000000000</ParentId>
+    <Number>7</Number>
+    <Title>Emergency Contingency Plans</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Emergency Contingency Plans</Path>
+  </DocumentFolder>
+  <Document Id="855959db-df88-4283-9ef7-ebef9e05a574">
+    <ParentId>bcbb434b-d3ae-474e-a2dd-029396c01bad</ParentId>
+    <Title>Emergency Contingency Plans</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Emergency Contingency Plans\Emergency Contingency Plans.pdf</Path>
+  </Document>
+  <Document Id="8ea288a3-1fb2-4070-b631-7abedeeab3da">
+    <ParentId>bcbb434b-d3ae-474e-a2dd-029396c01bad</ParentId>
+    <Title>Mariner's Role in Collecting Evidence Handbook</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Emergency Contingency Plans\Mariner's Role in Collecting Evidence Handbook.pdf</Path>
+  </Document>
+  <Document Id="2173fc77-2b2a-4c07-a0d1-1b0485f31d4a">
+    <ParentId>55eb85ed-eac1-4f61-8241-9dc839df58f4</ParentId>
+    <Title>Complete Manual</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Manuals\Safety Management System\x Complete SMS Manual.pdf</Path>
+  </Document>
+  <Document Id="a0e3a70f-76c3-4f89-8989-cb3e5251067e">
+    <ParentId>38fa58fa-7e1d-4b72-9915-a0146960005f</ParentId>
+    <Title>0 - Bridge Checklist Index</Title>
+    <Path>C:\ProgramData\Carisbrooke Shipping Ltd\ISM Dashboard\Repository\Documents\Other\Bridge Checklists\0 - Bridge Checklist Index.pdf</Path>
+  </Document>
+  
+</DocumentsIndex>

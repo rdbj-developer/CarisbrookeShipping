@@ -1,0 +1,695 @@
+﻿
+<div class="row" id="removediv">
+    <div class="col-md-12">
+        @if (Model != null && Model.AssetManagmentEquipmentListForm != null)
+        {
+            <input type="hidden" value="@Model.AssetManagmentEquipmentListForm.CreatedBy" name="AssetManagmentEquipmentListForm.CreatedBy" id="hdnCreatedBy" />
+            <input type="hidden" value="@Model.AssetManagmentEquipmentListForm.CreatedDate" name="AssetManagmentEquipmentListForm.CreatedDate" id="hdnCreatedDate" />
+            <input type="hidden" value="@Model.AssetManagmentEquipmentListForm.AMEId" name="AssetManagmentEquipmentListForm.AMEId" id="hdnAMEId" />
+            <input type="hidden" value="@Model.AssetManagmentEquipmentListForm.ShipName" name="AssetManagmentEquipmentListForm.ShipName" id="hdnShipName" />
+            <div class="aviodPrint">Last synced: @Model.AssetManagmentEquipmentListForm.UpdatedDate</div>
+        }
+
+        <div class="GeneralSection PageSection AMEGeneralSection drag">
+            <div class="breakDiv">
+                <div class="SectionContent">
+                    <table class="table tblSection tblOTEquipment">
+                        <thead>
+                            <tr style="border: 1px solid #66afe9 !important;">
+                                <td class="SectionHead text-center" colspan="16" style="border: 1px solid #66afe9 !important;">
+                                    OT EQUIPMENT
+                                </td>
+                            </tr>
+                            <tr style="border: 1px solid #66afe9 !important;">
+                                <td width="11%"><p class="m-5 text-center">HARDWARE ID</p></td>
+                                <td width="11%"><p class="m-5 text-center">EQUIPMENT</p></td>
+                                <td width="11%"><p class="m-5 text-center">LOCATION</p></td>
+                                <td width="11%"><p class="m-5 text-center">MAKE</p></td>
+                                <td width="11%"><p class="m-5 text-center">MODEL</p></td>
+                                <td width="10%"><p class="m-5 text-center">TYPE</p></td>
+                                <td width="11%"><p class="m-5 text-center">SERIAL NO</p></td>
+                                <td width="10%"><p class="m-5 text-center">WORKING CONDITION</p></td>
+                                <td width="7%"><p class="m-5 text-center">LAST SERVICED</p></td>
+                                <td width="16%"><p class="m-5 text-center">REMARKS</p></td>
+                                <td width="16%"><p class="m-5 text-center">OWNER</p></td>
+                                <td width="16%"><p class="m-5 text-center">PERSON RESPONSIBLE</p></td>
+                                <td width="16%"><p class="m-5 text-center">CRITICALITY</p></td>
+                                <td width="16%"><p class="m-5 text-center">OPERATING SYSTEM</p></td>
+                                <td width="16%"><p class="m-5 text-center">OS PATCH VERSION</p></td>
+                                <td width="2%" class="aviodPrint"></td>
+                            </tr>
+                        </thead>
+                        @if (@Model == null || @Model.AssetManagmentEquipmentOTListModel == null || @Model.AssetManagmentEquipmentOTListModel.Count <= 0)
+                        {
+                            <tr class="records" index="0" IsSelected="true">
+                                <td width="11%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthSmall" value="OT00001" name="AssetManagmentEquipmentOTListModel[0].OTHardwareId" />
+                                </td>
+                                <td width="11%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthLarge" name="AssetManagmentEquipmentOTListModel[0].OTEquipment" />
+                                </td>
+                                <td width="11%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[0].OTLocation" />
+                                </td>
+                                <td width="11%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[0].OTMake" />
+                                </td>
+                                <td width="11%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[0].OTModel" />
+                                </td>
+                                <td width="10%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[0].OTType" />
+                                </td>
+                                <td width="11%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[0].OTSerialNo" />
+                                </td>
+                                <td width="10%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[0].OTWorkingCondition" />
+                                </td>
+                                <td width="7%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[0].OTLastServiced" />
+                                </td>
+                                <td width="16%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[0].OTRemark" />
+                                </td>
+                                <td width="7%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[0].OTOwner" />
+                                </td>
+                                <td width="7%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[0].OTPersonResponsible" />
+                                </td>
+                                <td width="7%">
+                                    <select class="col-md-12 form-control AMEData minWidthSmall" name="AssetManagmentEquipmentOTListModel[0].OTCriticality">
+                                        <option value=""></option>
+                                        @if (TempData["CriticalityList"] != null)
+                                        {
+                                            foreach (var item in (List<string>)TempData["CriticalityList"])
+                                            {
+                                                <option value="@item">@item</option>
+                                            }
+                                        }
+                                    </select>
+                                </td>
+                                <td width="7%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[0].OTOperatingSystem" />
+                                </td>
+                                <td width="7%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[0].OTOSPatchVersion" />
+                                </td>
+                                <td width="2%" class="text-center aviodPrint">
+                                    <p>
+                                        <span class="m-5 text-center cursor-pointer"><i onclick="removeRecord(this)" class="fa fa-fw fa-remove"></i></span>
+                                    </p>
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            int count1 = 0;
+                            int totalOTCount = Model.AssetManagmentEquipmentOTListModel.Count;
+                            foreach (var item in Model.AssetManagmentEquipmentOTListModel)
+                            {
+                                <tr class="records" index="@count1" IsSelected="true">
+                                    <td width="11%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthSmall" value=" @(!string.IsNullOrEmpty(item.OTHardwareId) ? item.OTHardwareId :  "OT" + (totalOTCount++).ToString().PadLeft(5,'0'))" name="AssetManagmentEquipmentOTListModel[@count1].OTHardwareId" />
+                                    </td>
+                                    <td width="11%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthLarge" value="@item.OTEquipment" name="AssetManagmentEquipmentOTListModel[@count1].OTEquipment" />
+                                    </td>
+                                    <td width="11%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.OTLocation" name="AssetManagmentEquipmentOTListModel[@count1].OTLocation" />
+                                    </td>
+                                    <td width="11%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.OTMake" name="AssetManagmentEquipmentOTListModel[@count1].OTMake" />
+                                    </td>
+                                    <td width="11%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.OTModel" name="AssetManagmentEquipmentOTListModel[@count1].OTModel" />
+                                    </td>
+                                    <td width="10%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.OTType" name="AssetManagmentEquipmentOTListModel[@count1].OTType" />
+                                    </td>
+                                    <td width="11%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.OTSerialNo" name="AssetManagmentEquipmentOTListModel[@count1].OTSerialNo" />
+                                    </td>
+                                    <td width="10%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.OTWorkingCondition" name="AssetManagmentEquipmentOTListModel[@count1].OTWorkingCondition" />
+                                    </td>
+                                    <td width="7%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.OTLastServiced" name="AssetManagmentEquipmentOTListModel[@count1].OTLastServiced" />
+                                    </td>
+                                    <td width="16%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.OTRemark" name="AssetManagmentEquipmentOTListModel[@count1].OTRemark" />
+                                    </td>
+                                    <td width="7%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.OTOwner" name="AssetManagmentEquipmentOTListModel[@count1].OTOwner" />
+                                    </td>
+                                    <td width="7%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.OTPersonResponsible" name="AssetManagmentEquipmentOTListModel[@count1].OTPersonResponsible" />
+                                    </td>
+                                    <td width="7%">
+                                        <select class="col-md-12 form-control AMEData minWidthSmall" name="AssetManagmentEquipmentOTListModel[@count1].OTCriticality">
+                                            <option value=""></option>
+                                            @if (TempData["CriticalityList"] != null)
+                                            {
+                                                foreach (var items in (List<string>)TempData["CriticalityList"])
+                                                {
+                                                    <option @(!string.IsNullOrWhiteSpace(item.OTCriticality) && item.OTCriticality == items ? "selected" : "") value="@items">@items</option>
+                                                }
+                                            }
+                                        </select>
+                                    </td>
+                                    <td width="7%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.OTOperatingSystem" name="AssetManagmentEquipmentOTListModel[@count1].OTOperatingSystem" />
+                                    </td>
+                                    <td width="7%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.OTOSPatchVersion" name="AssetManagmentEquipmentOTListModel[@count1].OTOSPatchVersion" />
+                                    </td>
+                                    <td width="2%" class="text-center aviodPrint">
+                                        <p>
+                                            <span class="m-5 text-center cursor-pointer"><i onclick="removeRecord(this)" class="fa fa-fw fa-remove"></i></span>
+                                        </p>
+                                    </td>
+                                </tr>
+                                count1++;
+                            }
+                        }
+                    </table>
+                    <div class="col-md-12 text-center aviodPrint">
+                        <a href="#" id="lnkAddOTEquipment">Add OT EQUIPMENT</a>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="breakDivPage"></div>
+            <br />
+            <div class="breakDiv">
+                <div class="SectionContent">
+                    <table class="table tblSection tblITEquipment">
+                        <thead>
+                            <tr>
+                                <td class="SectionHead text-center" colspan="16">
+                                    IT EQUIPMENT
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="11%"><p class="m-5 text-center">HARDWARE ID</p></td>
+                                <td width="11%"><p class="m-5 text-center">EQUIPMENT</p></td>
+                                <td width="11%"><p class="m-5 text-center">LOCATION</p></td>
+                                <td width="11%"><p class="m-5 text-center">MAKE</p></td>
+                                <td width="11%"><p class="m-5 text-center">MODEL</p></td>
+                                <td width="10%"><p class="m-5 text-center">TYPE</p></td>
+                                <td width="11%"><p class="m-5 text-center">SERIAL NO</p></td>
+                                <td width="10%"><p class="m-5 text-center">WORKING CONDITION</p></td>
+                                <td width="7%"><p class="m-5 text-center">LAST SERVICED</p></td>
+                                <td width="16%"><p class="m-5 text-center">REMARKS</p></td>
+                                <td width="16%"><p class="m-5 text-center">OWNER</p></td>
+                                <td width="16%"><p class="m-5 text-center">PERSON RESPONSIBLE</p></td>
+                                <td width="16%"><p class="m-5 text-center">CRITICALITY</p></td>
+                                <td width="16%"><p class="m-5 text-center">OPERATING SYSTEM</p></td>
+                                <td width="16%"><p class="m-5 text-center">OS PATCH VERSION</p></td>
+                                <td width="2%" class="aviodPrint"></td>
+                            </tr>
+                        </thead>
+                        @if (@Model == null || @Model.AssetManagmentEquipmentITListModel == null || @Model.AssetManagmentEquipmentITListModel.Count <= 0)
+                        {
+                            <tr class="records" index="0" IsSelected="true">
+                                <td width="11%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthSmall" value="IT00001" name="AssetManagmentEquipmentITListModel[0].ITHardwareId" />
+                                </td>
+                                <td width="11%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthLarge" name="AssetManagmentEquipmentITListModel[0].ITEquipment" />
+                                </td>
+                                <td width="11%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentITListModel[0].ITLocation" />
+                                </td>
+                                <td width="11%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentITListModel[0].ITMake" />
+                                </td>
+                                <td width="11%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentITListModel[0].ITModel" />
+                                </td>
+                                <td width="10%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentITListModel[0].ITType" />
+                                </td>
+                                <td width="11%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentITListModel[0].ITSerialNo" />
+                                </td>
+                                <td width="10%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentITListModel[0].ITWorkingCondition" />
+                                </td>
+                                <td width="7%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentITListModel[0].ITLastServiced" />
+                                </td>
+                                <td width="16%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentITListModel[0].ITRemark" />
+                                </td>
+                                <td width="7%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentITListModel[0].ITOwner" />
+                                </td>
+                                <td width="7%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentITListModel[0].ITPersonResponsible" />
+                                </td>
+                                <td width="7%">
+                                    <select class="col-md-12 form-control AMEData minWidthSmall" name="AssetManagmentEquipmentITListModel[0].ITCriticality">
+                                        <option value=""></option>
+                                        @if (TempData["CriticalityList"] != null)
+                                        {
+                                            foreach (var items in (List<string>)TempData["CriticalityList"])
+                                            {
+                                                <option value="@items">@items</option>
+                                            }
+                                        }
+                                    </select>
+                                </td>
+                                <td width="7%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentITListModel[0].ITOperatingSystem" />
+                                </td>
+                                <td width="7%">
+                                    <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentITListModel[0].ITOSPatchVersion" />
+                                </td>
+                                <td width="2%" class="text-center aviodPrint">
+                                    <p>
+                                        <span class="m-5 text-center cursor-pointer"><i onclick="removeRecord(this)" class="fa fa-fw fa-remove"></i></span>
+                                    </p>
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            int count2 = 0;
+                            int totalITCount = Model.AssetManagmentEquipmentITListModel.Count;
+                            foreach (var item in Model.AssetManagmentEquipmentITListModel)
+                            {
+                                <tr class="records" index="@count2" IsSelected="true">
+                                    <td width="11%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthSmall" value=" @(!string.IsNullOrEmpty(item.ITHardwareId) ? item.ITHardwareId :  "IT" + (totalITCount++).ToString().PadLeft(5,'0'))" name="AssetManagmentEquipmentITListModel[@count2].ITHardwareId" />
+                                    </td>
+                                    <td width="11%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthLarge" value="@item.ITEquipment" name="AssetManagmentEquipmentITListModel[@count2].ITEquipment" />
+                                    </td>
+                                    <td width="11%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.ITLocation" name="AssetManagmentEquipmentITListModel[@count2].ITLocation" />
+                                    </td>
+                                    <td width="11%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.ITMake" name="AssetManagmentEquipmentITListModel[@count2].ITMake" />
+                                    </td>
+                                    <td width="11%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.ITModel" name="AssetManagmentEquipmentITListModel[@count2].ITModel" />
+                                    </td>
+                                    <td width="10%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.ITType" name="AssetManagmentEquipmentITListModel[@count2].ITType" />
+                                    </td>
+                                    <td width="11%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.ITSerialNo" name="AssetManagmentEquipmentITListModel[@count2].ITSerialNo" />
+                                    </td>
+                                    <td width="10%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.ITWorkingCondition" name="AssetManagmentEquipmentITListModel[@count2].ITWorkingCondition" />
+                                    </td>
+                                    <td width="7%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.ITLastServiced" name="AssetManagmentEquipmentITListModel[@count2].ITLastServiced" />
+                                    </td>
+                                    <td width="16%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.ITRemark" name="AssetManagmentEquipmentITListModel[@count2].ITRemark" />
+                                    </td>
+                                    <td width="7%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.ITOwner" name="AssetManagmentEquipmentITListModel[@count2].ITOwner" />
+                                    </td>
+                                    <td width="7%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.ITPersonResponsible" name="AssetManagmentEquipmentITListModel[@count2].ITPersonResponsible" />
+                                    </td>
+                                    <td width="7%">
+                                        <select class="col-md-12 form-control AMEData minWidthSmall" name="AssetManagmentEquipmentITListModel[@count2].ITCriticality">
+                                            <option value=""></option>
+                                            @if (TempData["CriticalityList"] != null)
+                                            {
+                                                foreach (var items in (List<string>)TempData["CriticalityList"])
+                                                {
+                                                    <option @(!string.IsNullOrWhiteSpace(item.ITCriticality) && item.ITCriticality == items ? "selected" : "") value="@items">@items</option>
+                                                }
+                                            }
+                                        </select>
+                                    </td>
+                                    <td width="7%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.ITOperatingSystem" name="AssetManagmentEquipmentITListModel[@count2].ITOperatingSystem" />
+                                    </td>
+                                    <td width="7%">
+                                        <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.ITOSPatchVersion" name="AssetManagmentEquipmentITListModel[@count2].ITOSPatchVersion" />
+                                    </td>
+                                    <td width="2%" class="text-center aviodPrint">
+                                        <p>
+                                            <span class="m-5 text-center cursor-pointer"><i onclick="removeRecord(this)" class="fa fa-fw fa-remove"></i></span>
+                                        </p>
+                                    </td>
+                                </tr>
+                                count2++;
+                            }
+                        }
+                    </table>
+                    <div class="col-md-12 text-center aviodPrint">
+                        <a href="#" id="lnkAddITEquipment">Add IT EQUIPMENT</a>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="breakDivPage"></div>
+            <br />
+            <div class="breakDiv">
+                <div class="SectionContent">
+                    <table class="table tblSection tblSoftwareAssets drag">
+                        <thead>
+                            <tr>
+                                <td class="SectionHead text-center" colspan="12">
+                                    SOFTWARE ASSETS
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="8%"><p class="m-5 text-center">SOFTWARE ID</p></td>
+                                <td width="10%"><p class="m-5 text-center">NAME</p></td>
+                                <td width="10%"><p class="m-5 text-center">MANUFACTURER</p></td>
+                                <td width="10%"><p class="m-5 text-center">LICENSE TYPE</p></td>
+                                <td width="10%"><p class="m-5 text-center">CATEGORY</p></td>
+                                <td width="10%"><p class="m-5 text-center">IS ACTIVE</p></td>
+                                <td width="10%"><p class="m-5 text-center">OWNER</p></td>
+                                <td width="10%"><p class="m-5 text-center">PERSON RESPONSIBLE</p></td>
+                                <td width="10%"><p class="m-5 text-center">CRITICALITY</p></td>
+                                <td width="10%"><p class="m-5 text-center">OPERATING SYSTEM</p></td>
+                                <td width="10%"><p class="m-5 text-center">OS PATCH VERSION</p></td>
+                                <td width="2%" class="aviodPrint"></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (@Model != null && @Model.AssetManagmentEquipmentSoftwareAssetsModel != null && @Model.AssetManagmentEquipmentSoftwareAssetsModel.Count > 0)
+                            {
+                                int count2 = 0;
+                                int totalSACount = Model.AssetManagmentEquipmentSoftwareAssetsModel.Count;
+                                foreach (var item in Model.AssetManagmentEquipmentSoftwareAssetsModel)
+                                {
+                                    <tr class="records" index="@count2" IsSelected="true">
+                                        <td width="8%">
+                                            <input type="text" class="col-md-12 form-control AMEData minWidthSmall" value=" @(!string.IsNullOrEmpty(item.SASoftwareId) ? item.SASoftwareId : "SA" + (totalSACount++).ToString().PadLeft(5,'0'))" name="AssetManagmentEquipmentSoftwareAssetsModel[@count2].SASoftwareId" />
+                                        </td>
+                                        <td width="10%">
+                                            <input type="text" class="col-md-12 form-control AMEData minWidthLarge" value="@item.Name" name="AssetManagmentEquipmentSoftwareAssetsModel[@count2].Name" />
+                                        </td>
+                                        <td width="10%">
+                                            <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.Manufacturer" name="AssetManagmentEquipmentSoftwareAssetsModel[@count2].Manufacturer" />
+                                        </td>
+                                        <td width="10%">
+                                            <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.LicenseType" name="AssetManagmentEquipmentSoftwareAssetsModel[@count2].LicenseType" />
+                                        </td>
+                                        <td width="10%">
+                                            <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.Category" name="AssetManagmentEquipmentSoftwareAssetsModel[@count2].Category" />
+                                        </td>
+                                        <td width="10%">
+                                            <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.IsActive" name="AssetManagmentEquipmentSoftwareAssetsModel[@count2].IsActive" />
+                                        </td>
+                                        <td width="10%">
+                                            <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.SAOwner" name="AssetManagmentEquipmentSoftwareAssetsModel[@count2].SAOwner" />
+                                        </td>
+                                        <td width="10%">
+                                            <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.SAPersonResponsible" name="AssetManagmentEquipmentSoftwareAssetsModel[@count2].SAPersonResponsible" />
+                                        </td>
+                                        <td width="10%">
+                                            <select class="col-md-12 form-control AMEData minWidthSmall" name="AssetManagmentEquipmentSoftwareAssetsModel[@count2].SACriticality">
+                                                <option value=""></option>
+                                                @if (TempData["CriticalityList"] != null)
+                                                {
+                                                    foreach (var items in (List<string>)TempData["CriticalityList"])
+                                                    {
+                                                        <option @(!string.IsNullOrWhiteSpace(item.SACriticality) && item.SACriticality == items ? "selected" : "") value="@items">@items</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </td>
+                                        <td width="10%">
+                                            <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.SAOperatingSystem" name="AssetManagmentEquipmentSoftwareAssetsModel[@count2].SAOperatingSystem" />
+                                        </td>
+                                        <td width="10%">
+                                            <input type="text" class="col-md-12 form-control AMEData minWidthMedium" value="@item.SAOSPatchVersion" name="AssetManagmentEquipmentSoftwareAssetsModel[@count2].SAOSPatchVersion" />
+                                        </td>
+                                        <td width="2%" class="text-center aviodPrint">
+                                            <p>
+                                                <span class="m-5 text-center cursor-pointer"><i onclick="removeRecord(this)" class="fa fa-fw fa-remove"></i></span>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    count2++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    <div class="col-md-12 text-center aviodPrint">
+                        <a href="#" id="lnkAddSoftwareAssets">Add Software Assets</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        //$("input").each(function () {
+        //    if (this.value.length > 0) {
+        //        this.style.width = ((this.value.length + 1)) + 'px';
+        //    }
+        //});
+        $('input').off('input').on('input', function () {
+            if (this.value.length > 0) {
+                this.style.width = ((this.value.length + 1) * 8) + 'px';
+            }
+        });
+        $("#lnkAddOTEquipment").off('click').on("click", function () {
+            $(".tblOTEquipment").find(".records").css('background-color', '#ffffff !important');
+            $(".tblOTEquipment").find(".records").attr('IsSelected', 'false');
+            var count = parseInt($(".tblOTEquipment").find(".records").length);
+            var ids = $(".tblOTEquipment").find(".records td:first-child > input");
+            var valArr = [];
+            if (ids && ids.length > 0) {
+                $.each(ids, function (index, td) {
+                    var str = $(td).val();
+                    valArr.push(parseInt(str.substring(2, str.length)));
+                })
+            }
+            var maxId = 0;
+            if (valArr && valArr.length > 0) {
+                maxId = Math.max.apply(Math, valArr);
+                maxId++;
+            }
+            var strTemplate = '<tr class="records" index="' + count + '" IsSelected="true">'
+                + ' <td width="11%">'
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthSmall" value="OT' + pad((maxId > 0 ? maxId++ : count + 1), 5) + '" name="AssetManagmentEquipmentOTListModel[' + count + '].OTHardwareId" /> '
+                + ' </td> '
+                + ' <td width="11%">'
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthLarge" name="AssetManagmentEquipmentOTListModel[' + count + '].OTEquipment" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[' + count + '].OTLocation" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[' + count + '].OTMake" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[' + count + '].OTModel" /> '
+                + ' </td> '
+                + ' <td width="10%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[' + count + '].OTType" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[' + count + '].OTSerialNo" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[' + count + '].OTWorkingCondition" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData" name="AssetManagmentEquipmentOTListModel[' + count + '].OTLastServiced" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[' + count + '].OTRemark" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[' + count + '].OTOwner" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[' + count + '].OTPersonResponsible" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '  <select class="col-md-12 form-control AMEData minWidthSmall" name="AssetManagmentEquipmentOTListModel[' + count + '].OTCriticality"> '
+                + criticalityList
+                + '  </select>'
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[' + count + '].OTOperatingSystem" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium" name="AssetManagmentEquipmentOTListModel[' + count + '].OTOSPatchVersion" /> '
+                + ' </td> '
+                + ' <td width="2%" class="text-center aviodPrint"> '
+                + '   <p> '
+                + '       <span class="m-5 text-center cursor-pointer"><i onclick="removeRecord(this)" class="fa fa-fw fa-remove"></i></span> '
+                + '   </p> '
+                + ' </td> '
+                + ' </tr>';
+            $(".tblOTEquipment").append(strTemplate);
+            bindAddNewRowEvents();
+        });
+        $("#lnkAddITEquipment").off('click').on("click", function () {
+            $(".tblITEquipment").find(".records").css('background-color', '#ffffff !important');
+            $(".tblITEquipment").find(".records").attr('IsSelected', 'false');
+            var count = parseInt($(".tblITEquipment").find(".records").length);
+            var ids = $(".tblITEquipment").find(".records td:first-child > input");
+            var valArr = [];
+            if (ids && ids.length > 0) {
+                $.each(ids, function (index, td) {
+                    var str = $(td).val();
+                    valArr.push(parseInt(str.substring(2, str.length)));
+                })
+            }
+            var maxId = 0;
+            if (valArr && valArr.length > 0) {
+                maxId = Math.max.apply(Math, valArr);
+                maxId++;
+            }
+            var strTemplate = '<tr class="records" index="' + count + '" IsSelected="true">'
+                + ' <td width="11%">'
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthSmall" value="IT' + pad((maxId > 0 ? maxId++ : count + 1), 5) + '" name="AssetManagmentEquipmentITListModel[' + count + '].ITHardwareId" /> '
+                + ' </td> '
+                + ' <td width="11%">'
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthLarge"  name="AssetManagmentEquipmentITListModel[' + count + '].ITEquipment" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentITListModel[' + count + '].ITLocation" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentITListModel[' + count + '].ITMake" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentITListModel[' + count + '].ITModel" /> '
+                + ' </td> '
+                + ' <td width="10%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentITListModel[' + count + '].ITType" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentITListModel[' + count + '].ITSerialNo" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentITListModel[' + count + '].ITWorkingCondition" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentITListModel[' + count + '].ITLastServiced" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentITListModel[' + count + '].ITRemark" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentITListModel[' + count + '].ITOwner" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentITListModel[' + count + '].ITPersonResponsible" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '  <select class="col-md-12 form-control AMEData minWidthSmall" name="AssetManagmentEquipmentITListModel[' + count + '].ITCriticality"> '
+                + criticalityList
+                + '  </select>'
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentITListModel[' + count + '].ITOperatingSystem" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentITListModel[' + count + '].ITOSPatchVersion" /> '
+                + ' </td> '
+                + ' <td width="2%" class="text-center aviodPrint"> '
+                + '   <p> '
+                + '       <span class="m-5 text-center cursor-pointer"><i onclick="removeRecord(this)" class="fa fa-fw fa-remove"></i></span> '
+                + '   </p> '
+                + ' </td> '
+                + ' </tr>';
+            $(".tblITEquipment").append(strTemplate);
+            bindAddNewRowEvents();
+        });
+        $("#lnkAddSoftwareAssets").off('click').on("click", function () {
+            $(".tblSoftwareAssets").find(".records").css('background-color', '#ffffff !important');
+            $(".tblSoftwareAssets").find(".records").attr('IsSelected', 'false');
+            var count = parseInt($(".tblSoftwareAssets").find(".records").length);
+            var ids = $(".tblSoftwareAssets").find(".records td:first-child > input");
+            var valArr = [];
+            if (ids && ids.length > 0) {
+                $.each(ids, function (index, td) {
+                    var str = $(td).val();
+                    valArr.push(parseInt(str.substring(2, str.length)));
+                })
+            }
+            var maxId = 0;
+            if (valArr && valArr.length > 0) {
+                maxId = Math.max.apply(Math, valArr);
+                maxId++;
+            }
+
+            var strTemplate = '<tr class="records" index="' + count + '" IsSelected="true">'
+                + ' <td width="11%">'
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthSmall" value="SA' + pad((maxId > 0 ? maxId++ : count + 1) , 5) + '"  name="AssetManagmentEquipmentSoftwareAssetsModel[' + count + '].SASoftwareId" /> '
+                + ' </td> '
+                + ' <td width="11%">'
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthLarge"  name="AssetManagmentEquipmentSoftwareAssetsModel[' + count + '].Name" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentSoftwareAssetsModel[' + count + '].Manufacturer" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentSoftwareAssetsModel[' + count + '].LicenseType" /> '
+                + ' </td> '
+                + ' <td width="11%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentSoftwareAssetsModel[' + count + '].Category" /> '
+                + ' </td> '
+                + ' <td width="10%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentSoftwareAssetsModel[' + count + '].IsActive" /> '
+                + ' </td> '
+                + ' <td width="10%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentSoftwareAssetsModel[' + count + '].SAOwner" /> '
+                + ' </td> '
+                + ' <td width="10%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentSoftwareAssetsModel[' + count + '].SAPersonResponsible" /> '
+                + ' </td> '
+                + ' <td width="10%"> '
+                + '  <select class="col-md-12 form-control AMEData minWidthSmall" name="AssetManagmentEquipmentSoftwareAssetsModel[' + count + '].SACriticality"> '
+                + criticalityList
+                + '  </select>'
+                + ' </td> '
+                + ' <td width="10%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentSoftwareAssetsModel[' + count + '].SAOperatingSystem" /> '
+                + ' </td> '
+                + ' <td width="10%"> '
+                + '   <input type="text" class="col-md-12 form-control AMEData minWidthMedium"  name="AssetManagmentEquipmentSoftwareAssetsModel[' + count + '].SAOSPatchVersion" /> '
+                + ' </td> '
+                + ' <td width="2%" class="text-center aviodPrint"> '
+                + '   <p> '
+                + '       <span class="m-5 text-center cursor-pointer"><i onclick="removeRecord(this)" class="fa fa-fw fa-remove"></i></span> '
+                + '   </p> '
+                + ' </td> '
+                + ' </tr>';
+            $(".tblSoftwareAssets").append(strTemplate);
+            bindAddNewRowEvents();
+        });
+        bindAddNewRowEvents();
+
+        var elementScroll = document.querySelector('.drag');
+
+        elementScroll.addEventListener("mousedown", function (e) {
+            this.sx = this.scrollLeft;
+            mx = e.pageX - this.offsetLeft;
+
+            this.addEventListener("mousemove", mouseMoveFunction);
+        });
+
+        elementScroll.addEventListener("mouseup", function (e) {
+            this.removeEventListener("mousemove", mouseMoveFunction);
+            mx = 0;
+        });
+
+    });
+
+    function bindAddNewRowEvents() {
+        $(".AMEData").bind("change", function () {
+            AMEAutoSave();
+        });
+    }
+</script>

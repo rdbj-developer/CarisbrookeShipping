@@ -1,0 +1,1243 @@
+﻿@model OfficeApplication.BLL.Modals.GeneralInspectionReport
+
+@* RDBJ 12/03/2021 set title *@
+@{
+    ViewBag.Title = "GIR - DetailsView";
+}
+
+<style>
+    .content-wrapper {
+        overflow: hidden !important;
+    }
+    /* RDBJ 02/19/2022 */
+    .active:focus {
+        outline: none !important;
+    }
+
+    .NavButton {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    /* End RDBJ 02/19/2022 */
+</style>
+<script type="text/javascript" src="~/Scripts/jquery/jquery.validate.min.js"></script> @* RDBJ 10/07/2021 Added *@
+<script type="text/javascript" src="~/Scripts/jquery/additional-methods.min.js"></script> @* RDBJ 10/07/2021 Added *@
+@*<script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>*@
+<script type="text/javascript" src="~/Scripts/autoSize/autosize.min.js"></script>
+
+@* JSL 12/03/2022 *@
+<link href="~/Content/lightgallery/css/lightgallery.css" rel="stylesheet" />
+<link href="~/Content/lightgallery/css/lightgallery-bundle.css" rel="stylesheet" />
+
+<script src="~/Content/lightgallery/lightgallery.umd.js"></script>
+<script src="~/Content/lightgallery/plugins/fullscreen/lg-fullscreen.umd.js"></script>
+<script src="~/Content/lightgallery/plugins/relativeCaption/lg-relative-caption.umd.js"></script>
+<script src="~/Content/lightgallery/plugins/rotate/lg-rotate.umd.js"></script>
+<script src="~/Content/lightgallery/plugins/thumbnail/lg-thumbnail.umd.js"></script>
+<script src="~/Content/lightgallery/plugins/zoom/lg-zoom.umd.js"></script>
+@* End JSL 12/03/2022 *@
+
+<script type="text/javascript">
+    var RootUrl = '@Url.Content("~/")'; //RDBJ 10/02/2021 it was missing and initial as global
+    var blnUpdateButton = false; //RDBJ 10/07/2021
+
+    var _Ship, _UniqueFormID;   // RDBJ 03/19/2022
+
+    var oTable; //RDBJ 10/23/2021 This is only for deficiencies
+    var oSettings; //RDBJ 10/23/2021 This is only for deficiencies
+
+    $(document).ready(function () {
+        var height = $(window).height();
+        $(".leftContent").height(height - 65);
+        $(".rightContent").height(height - 65);
+        $("#ShipName").val($("#Child option:selected").text());
+        _Ship = $("#Child option:selected").val();  // RDBJ 03/19/2022
+        
+        //$(".SectionComplete").hide(); //RDBJ 10/20/2021 Commented
+        $(".NavButton").click(function () {
+            $("button").removeClass("active"); //RDBJ 10/20/2021
+            $(this).addClass("active"); //RDBJ 10/20/2021
+            var lblValue = $(this).attr("data-lbl-text");
+            var hideSection = $(this).attr("data-lbl-show");
+            $(".PageSection").hide();
+            $("." + hideSection).show();
+            $("#lblSubHeading").text(lblValue);
+            $(".leftContent").animate({ scrollTop: 0 }, "fast");
+        })
+        
+        $("#DeficienciesSection").click(function () {
+            var url = RootUrl + 'Drafts/_GIR_DeficienciesSection';
+            var FormId = $("#UniqueFormID").val();
+            $.ajax({
+                type: "GET",
+                url: url + "?id=" + FormId
+            }).done(function (r) {
+                //$("#ajax_loader").hide(); //RDBJ 10/02/2021 Commented
+                $(".DeficienciesSection").html(r);
+            }).fail(function (e) {
+                console.log(e.responseText);
+            });
+        });
+
+        var IsLoadDefect = getUrlVars()["isDefectSection"];
+        var SectionNo = getUrlVars()["section"];
+        if (IsLoadDefect == "true" && IsLoadDefect != undefined) {
+           // $("#DeficienciesSection").trigger('click');
+
+            $("#sectionList .clsRedirectDefi").each(function () {
+                let $currentControl = $(this);
+                let attribDataSection = $(this).attr("data-section");
+                if (attribDataSection != undefined) {
+                    let splitArray = attribDataSection.split(',');
+                    $.each(splitArray, function (index, value) {
+                        if (value == decodeURI(SectionNo)) {
+                            var lblValue = ($currentControl).attr("data-lbl-text");
+                            var hideSection = ($currentControl).attr("data-lbl-show");
+                            $(".PageSection").hide();
+                            $("." + hideSection).show();
+                            $("#lblSubHeading").text(lblValue);
+                            $(".leftContent").animate({ scrollTop: 0 }, "fast");
+                        }
+                    });
+                }
+            });
+        }
+
+        $('.txtDateRaised').datepicker({
+            format: 'dd/mm/yyyy', //RDBJ 11/29/2021
+            autoclose: true
+        });
+
+        $('.txtDateClosed').datepicker({
+            format: 'dd/mm/yyyy', //RDBJ 11/29/2021
+            autoclose: true
+        });
+
+        $('body').on('focus', ".txtDateRaised,.txtDateClosed", function () {
+            $(this).datepicker({
+                format: 'dd/mm/yyyy'
+            });
+        });
+
+        SetRestrictionForSomeUserToModify();    // JSL 12/19/2022
+
+        textAreaAutoHeight(); //RDBJ 10/12/2021
+        $(".PageSection").hide(); //RDBJ 10/13/2021
+        $(".GeneralSection").show(); //RDBJ 10/13/2021
+    });
+    function ValidateGIRForm() {
+        $('#Date').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true
+        });
+
+        GIRFormValidator = $("#GIRForm").validate({
+            rules: {
+                Ship: {
+                    required: true
+                },
+                Port: {
+                    required: true
+                },
+                Inspector: {
+                    required: true
+                },
+                Date: {
+                    required: true
+                    //date: true
+                },
+                //RDBJ 11/02/2021
+                dateRaised: {
+                    required: true
+                },
+                txtDeficiency: {
+                    required: true
+                },
+                //End RDBJ 11/02/2021
+            },
+            messages: {
+                Ship: "Please Select Ship",
+                Port: "Enter Port.",
+                Inspector: "Please Select Inspector",
+                Date: "Please Enter Date",
+                txtDeficiency: "Please Enter Deficiency", //RDBJ 11/02/2021
+                dateRaised: "Please Enter Date", //RDBJ 11/02/2021
+            },
+            errorPlacement: function (error, element) {
+                $(error).insertAfter($(element).parent().find(".form-control-feedback"));
+            }
+        });
+    }
+    function GetGenDescData(id) {
+        var url = RootUrl + 'GIRList/GIRGetGeneralDescriptionByShip';
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: { Shipvalue: id },
+            dataType: 'json',
+            success: function (data) {
+                SetGenDescData(data);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed...');
+            }
+        });
+    }
+    //RDBJ 10/07/2021 Get this Details from the CSShips tables //RDBJ 09/17/2021
+    function SetGenDescData(data) {
+        if (data != null) {
+            // RDBJ 01/10/2022 commented below 3 lines
+            /*
+            $("input[name='CSShipsModal.ClassificationSocietyId']").val(data.ClassificationSocietyId);
+            $("input[name='CSShipsModal.FlagStateId']").val(data.FlagStateId);
+            $("input[name='CSShipsModal.PortOfRegistryId']").val(data.PortOfRegistryId);
+            */
+
+            // RDBJ 01/10/2022
+            $("#ClassificationSocietyId").val(data.ClassificationSocietyId);
+            $("#FlagStateId").val(data.FlagStateId);
+            $("#PortOfRegistryId").val(data.PortOfRegistryId);
+
+            $("#hdnClassificationSocietyId").val(data.ClassificationSocietyId);
+            $("#hdnFlagStateId").val(data.FlagStateId);
+            $("#hdnPortOfRegistryId").val(data.PortOfRegistryId);
+            // End RDBJ 01/10/2022
+
+            $("input[name='CSShipsModal.IMONumber']").val(data.IMONumber);
+            $("input[name='CSShipsModal.SummerDeadweight']").val(data.SummerDeadweight);
+            $("input[name='CSShipsModal.Lightweight']").val(data.Lightweight);
+            $("input[name='CSShipsModal.Beam']").val(data.Beam);
+            $("input[name='CSShipsModal.SummerDraft']").val(data.SummerDraft);
+            $("input[name='CSShipsModal.BowThruster']").val(data.BowThruster);
+            $("input[name='Noofholds']").val(data.Noofholds);
+            $("input[name='Containers']").val(data.Containers);
+            $("input[name='Cargohandlingequipment']").val(data.Cargohandlingequipment);
+
+            $("input[name='CSShipsModal.BuildYear']").val(data.BuildYear);
+            $("input[name='Classofvessel']").val(data.Classofvessel);
+            $("input[name='CSShipsModal.MMSI']").val(data.MMSI);
+            $("input[name='CSShipsModal.CallSign']").val(data.CallSign);
+            $("input[name='CSShipsModal.GrossTonnage']").val(data.GrossTonnage);
+            $("input[name='CSShipsModal.NetTonnage']").val(data.NetTonnage);
+            $("input[name='CSShipsModal.LOA']").val(data.LOA);
+            $("input[name='CSShipsModal.LBP']").val(data.LBP);
+            $("input[name='CSShipsModal.BHP']").val(data.BHP);
+            $("input[name='Nomoveablebulkheads']").val(data.Nomoveablebulkheads);
+            $("input[name='Cargocapacity']").val(data.Cargocapacity);
+        }
+        else {
+            SetGenDescDataEmpty();
+        }
+    }
+    //End RDBJ 09/17/2021
+
+    //RDBJ 10/07/2021 Update all properties with CSShipsModal //RDBJ 09/17/2021
+    function SetGenDescDataEmpty() {
+        $("input[name='CSShipsModal.ClassificationSocietyId']").val("");
+        $("input[name='CSShipsModal.FlagStateId']").val("");
+        $("input[name='CSShipsModal.PortOfRegistryId']").val("");
+        $("input[name='CSShipsModal.IMONumber']").val("");
+        $("input[name='CSShipsModal.SummerDeadweight']").val("");
+        $("input[name='CSShipsModal.Lightweight']").val("");
+        $("input[name='CSShipsModal.Beam']").val("");
+        $("input[name='CSShipsModal.SummerDraft']").val("");
+        $("input[name='CSShipsModal.BowThruster']").val("");
+        //$("input[name=Noofholds]").val("");
+        //$("input[name=Containers]").val("");
+        //$("input[name=Cargohandlingequipment]").val("");
+        $("input[name='CSShipsModal.BuildYear']").val("");
+        $("input[name='Classofvessel']").val("");
+        $("input[name='CSShipsModal.MMSI']").val("");
+        $("input[name='CSShipsModal.CallSign']").val("");
+        $("input[name='CSShipsModal.GrossTonnage']").val("");
+        $("input[name='CSShipsModal.NetTonnage']").val("");
+        $("input[name='CSShipsModal.LOA']").val("");
+        $("input[name='CSShipsModal.LBP']").val("");
+        $("input[name='CSShipsModal.BHP']").val("");
+        //$("input[name=Nomoveablebulkheads]").val("");
+        //$("input[name=Cargocapacity]").val("");
+    }
+    //End RDBJ 09/17/2021
+
+    function GIRAutoSave(
+        IsUpdateShipForDeficiencies = false    // RDBJ 03/19/2022
+    ) {
+        // JSL 12/19/2022
+        if (!IsNullEmptyOrUndefined(_CurrentUserDetailsObject)) {
+            if (_CurrentUserDetailsObject.UserGroup == '8') {
+                return;
+            }
+        }
+        else {
+            return;
+        }
+        // End JSL 12/19/2022
+
+        $("#lblAutoSave").show();
+        console.log("Input : " + $("#GIRFormID").val());
+        var form = $("#GIRForm");
+        $.ajax({
+            url: '@Url.Action("GIRAutoSave", "GIRList")',
+            type: 'POST',
+            data: form.serialize(),
+            async: true,
+            success: function (res) {
+                console.log(res);
+                $("#GIRFormID").val(res);
+                $("#UniqueFormID").val(res.UniqueFormID);
+                _UniqueFormID = res.UniqueFormID;   // RDBJ 03/19/2022
+                $("#FormVersion").val(res.FormVersion);
+                $("#lblAutoSave").hide();
+
+                // RDBJ 03/19/2022
+                if (IsUpdateShipForDeficiencies) {
+                    UpdateDeficienciesShipWhenChangeFormShip();
+                }
+            // End RDBJ 03/19/2022
+            },
+            error: function (err) {
+                console.log(err);
+                $("#lblAutoSave").hide();
+            }
+        });
+    }
+    function setChnageValue(safe, crewdoc, restandwork, deficiency, Photos) {
+        $("#SafeMiningChanged").val(safe);
+        $("#CrewDocsChanged").val(crewdoc);
+        $("#RestAndWorkChanged").val(restandwork);
+        $("#DeficienciesChanged").val(deficiency);
+        $("#PhotosChanged").val(Photos);
+    }
+    function bindContextMenu() {
+        //alert("call");
+        menuDeficiency = $("#menu").kendoContextMenu({
+            target: ".addDeficiencies",
+            //filter: "tr",
+            animation: {
+                open: { effects: "fadeIn" },
+                duration: 500
+            },
+            select: function (e) {
+                $("#lblAutoSave").show();
+
+                // RDBJ 12/18/2021
+                if ($("#UniqueFormID").val() == "") {
+                    $("#lblAutoSave").hide();
+                    $.notify("Please add General Details first in General Section!", "error");
+                    return;
+                }
+
+                if ($("#UniqueFormID").val() != "00000000-0000-0000-0000-000000000000") { //RDBJ 09/18/2021 changed condition if ($("#GIRFormID").val() != "0") {
+                    var url = RootUrl + 'GIRList/AddGIRDeficiencies';
+                    var itemno = "";
+                    var deficienciesTd = $(e.target).closest('tr').find('td.clsDeficiencies');
+                    var deficiencies = $(deficienciesTd).find('.GIRData').val();
+                    var section = "";
+                    var multipleRowClassName = $(e.target).closest('tr').parent().closest('.clsMultipleRow')[0] == undefined ? "" : $(e.target).closest('tr').parent().closest('.clsMultipleRow')[0].className;
+
+                    if (multipleRowClassName == "clsMultipleRow") {
+                        if (itemNumber != "") {
+                            itemno = $($(e.target).closest('tr').parent().closest('.clsDeficiencies')[0]).parent().find('td.clsItemNo').text().trim() + itemNumber;
+                        }
+                        else {
+                            itemno = $($(e.target).closest('tr').parent().closest('.clsDeficiencies')[0]).parent().find('td.clsItemNo').text().trim();
+                        }
+                        section = $($($(e.target).parent().closest('.clsMultipleRow')[0]).parent().closest('.clsSection')[0]).find('.SectionHead u').text();
+                    }
+                    else {
+                        itemno = $(e.target).closest('tr').find('td.clsItemNo').text().trim();
+                        section = $($(e.target).parent().closest('.clsSection')[0]).find('.SectionHead u').text();
+                    }
+                    if (deficiencies == "") {
+                        $.notify("Please enter comment", "error");
+                        $(deficienciesTd).find('.GIRData').focus();
+                        $("#lblAutoSave").hide();
+                        return false;
+                    }
+                    var Modal = {
+                        GIRFormID: $("#GIRFormID").val(),
+                        UniqueFormID: $("#UniqueFormID").val(),
+                        ItemNo: itemno,
+                        Deficiency: deficiencies,
+                        Section: section,
+                        ReportType: "GI",
+                        Priority: 12, //RDBJ 10/30/2021
+                        Ship: $("#Child option:selected").val(),
+                        DateRaised: $("#Date").val(),   // JSL 10/15/2022
+                    }
+
+                    $.ajax({
+                        url: url,
+                        type: 'POST',
+                        async: true,
+                        data: Modal,
+                        success: function (data) {
+                            console.log(data);
+
+                            $("#FormVersion").val(data.FormVersion);    // RDBJ 02/19/2022
+                            $.notify("Deficiency Added Successfully", "success");  // RDBJ 02/19/2022
+
+                            $("#lblAutoSave").hide();
+                            itemNumber = "";
+                        },
+                        error: function (err) {
+                            console.log(err);
+                            $("#lblAutoSave").hide();
+                        }
+                    });
+                }
+                else {
+                    $.notify("Please save form data", "error");
+                }
+                $("#lblAutoSave").hide();
+            }
+        }).data('kendoContextMenu');
+    }
+    function getUrlVars() {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
+    function printDiv() {
+        var className = $(".PageSection:Visible").attr("class");
+        className = className.replace("PageSection", "");
+        className = className.trim();
+        $(".SectionComplete").hide();
+        $(".aviodPrint").hide();
+        $("#lblInspector").html("<strong>Inspector: </strong>" + $("#Inspector").val());
+        $("#lblship").html("<strong>Ship :</strong>" + $("#ShipName").val());
+        $("#lblport").html("<strong>Port :</strong>" + $("#Port").val());
+        $("#lbldate").html("<strong>Date :</strong>" + $("#Date").val());
+        $("input[type=text]").each(function () {
+            var str = $(this).val();
+            $(this).attr('value', str);
+        });
+        $("textarea").each(function () {
+            var str = $(this).val();
+            $(this).text("");
+            $(this).append(str);
+            //RDBJ 10/13/2021
+            var val = this.innerHTML;
+            if (val != "") {
+                $(this).css("width", "800px");
+                this.removeAttribute("rows");
+                this.addEventListener('focus', function () {
+                    autosize(this);
+                });
+                autosize(this);
+            }
+            //End RDBJ 10/13/2021
+        });
+
+        //RDBJ 10/23/2021 this is only for DeficienciesSections
+        $("select").each(function (i) {
+            var objSelected = $(this).find('option:selected');
+            objSelected.attr('selected', 'selected');
+        });
+
+        //RDBJ 10/23/2021 this is only for DeficienciesSections
+        oTable = $('#tblDeficiencies').DataTable();
+        oSettings = oTable.settings();
+
+        oSettings[0]._iDisplayLength = oSettings[0].fnRecordsTotal();
+        oTable.draw();
+
+        $(".txtAreaDeficiencies").each(function () {
+            var str = $(this).val();
+            $(this).text("");
+            $(this).append(str);
+            var val = this.innerHTML;
+            if (val != "") {
+                $(this).css("width", "400px");
+                this.removeAttribute("rows");
+                this.addEventListener('focus', function () {
+                    autosize(this);
+                });
+                autosize(this);
+            }
+        });
+
+        // RDBJ 01/06/2022
+        $(".txtDateRaised").each(function (i) {
+            $(this).addClass('txtSetDateWidthForPrint');
+        });
+
+        $(".txtDateClosed").each(function (i) {
+            $(this).addClass('txtSetDateWidthForPrint');
+        });
+        // End RDBJ 01/06/2022
+
+        //End RDBJ 10/23/2021
+
+        // JSL 09/09/2022
+        $('.clsDeficiencies').removeClass('text-center');
+        $('.clsDeficiencies').addClass('text-left');
+        $('.clsDeficiencies').attr('style', 'padding: 5px !important');
+
+        $('textarea').replaceWith(function () {
+            return '<span>' + $(this).text() + '</span>';
+        });
+
+        $('input[type="text"]').replaceWith(function () {
+            return '<span>' + $(this).val() + '</span>';
+        });
+        // End JSL 09/09/2022
+
+        var divToPrint = "";
+        $(".PageSection").show();
+        divToPrint = document.getElementById("forntpage").innerHTML;
+        divToPrint += document.getElementById('GIRContent').innerHTML;
+
+        var newWin = window.open('', 'Print-Window');
+        newWin.document.open();
+        var style = "@@media print {.breakDivPage { page-break-after: always; page-break-inside:auto   } }";
+        style += "@@page {size: auto;margin: 5%;}";
+        newWin.document.write('<html><head><title></title>');
+        newWin.document.write('<style>' + style + '</style>');
+        newWin.document.write('<link href="../Content/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />');
+        newWin.document.write('<link href="../Content/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />');
+        newWin.document.write('<link rel="stylesheet" href="../Content/Custom/GIRForm.css" type="text/css" />');
+        newWin.document.write('<link href="../Content/AdminLTE.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="../Content/_all-skins.min.css" rel="stylesheet" />');
+        newWin.document.write('<link href="../Content/Custom/SiteCustom.css" rel="stylesheet" />');
+        newWin.document.write('</head><body onload="window.print()">');
+
+        newWin.document.write(divToPrint);
+        newWin.document.write('</body></html>');
+        $(".aviodPrint").show();
+        newWin.document.close();
+        $(".PageSection").hide();
+        $("." + className).show();
+
+        setTimeout(function () {
+            newWin.close();
+            // RDBJ 01/06/2022
+            $(".txtDateRaised").each(function (i) {
+                $(this).removeClass('txtSetDateWidthForPrint');
+            });
+
+            $(".txtDateClosed").each(function (i) {
+                $(this).removeClass('txtSetDateWidthForPrint');
+            });
+            // End RDBJ 01/06/2022
+
+            //RDBJ 10/13/2021 revert css changes
+            $("textarea").each(function () {
+                var str = $(this).val();
+                $(this).text("");
+                $(this).append(str);
+                var val = this.innerHTML;
+                if (val != "") {
+                    $(this).css("width", "");
+                    this.removeAttribute("rows");
+                    this.addEventListener('focus', function () {
+                        autosize(this);
+                    });
+                    autosize(this);
+                }
+            });
+            //End RDBJ 10/13/2021
+
+            // RDBJ 01/06/2022 this is only for DeficienciesSections
+            $(".txtAreaDeficiencies").each(function () {
+                $(this).css("width", "100%");
+                this.addEventListener('focus', function () {
+                    autosize(this);
+                });
+                autosize(this);
+            });
+
+            //RDBJ 10/23/2021 this is only for DeficienciesSections
+            oSettings[0]._iDisplayLength = 100;
+            oTable.draw();
+            //End RDBJ 10/23/2021
+            location.reload();  // 09/09/2022
+        }, 1000);
+    }
+
+    // RDBJ 01/06/2022
+    function SetDeficienciesDataForPrintAndPrintIt() {
+        var url = RootUrl + 'Drafts/_GIR_DeficienciesSection';
+        var FormId = $("#UniqueFormID").val();
+        $.ajax({
+            type: "GET",
+            url: url + "?id=" + FormId
+        }).done(function (r) {
+            $(".DeficienciesSection").html(r);
+            printDiv();
+        }).fail(function (e) {
+            console.log(e.responseText);
+        });
+    }
+    // End RDBJ 01/06/2022
+
+    //RDBJ 10/12/2021
+    function textAreaAutoHeight() {
+        $("textarea").each(function () {
+            var val = this.innerHTML;
+            if (val != "") {
+                //RDBJ 10/12/2021 Added EventListner
+                this.removeAttribute("rows"); //RDBJ 10/13/2021
+                this.addEventListener('focus', function () {
+                    autosize(this);
+                });
+                //autosize(document.getElementsByTagName("textarea")); //RDBJ 10/12/2021 Commented
+                autosize(this); //RDBJ 10/12/2021
+            }
+        }).on("input", function () {
+            this.style.height = "auto";
+            this.style.height = (this.scrollHeight) + "px";
+        });
+    }
+    //End RDBJ 10/12/2021
+
+    //RDBJ 10/07/2021
+    function AllowEditShipGeneralDescription() {
+        // RDBJ 01/10/2022 commented below 3 lines
+        /*
+        $("input[name='CSShipsModal.ClassificationSocietyId']").removeAttr('readonly');
+        $("input[name='CSShipsModal.FlagStateId']").removeAttr('readonly');
+        $("input[name='CSShipsModal.PortOfRegistryId']").removeAttr('readonly');
+        */
+
+        // RDBJ 01/10/2022
+        $("select[name='ddlClassificationSocietyId']").attr('disabled', false);
+        $("select[name='ddlFlagStateId']").attr('disabled', false);
+        $("select[name='ddlPortOfRegistryId']").attr('disabled', false);
+        // End RDBJ 01/10/2022
+
+        $("input[name='CSShipsModal.IMONumber']").removeAttr('readonly');
+        $("input[name='CSShipsModal.SummerDeadweight']").removeAttr('readonly');
+        $("input[name='CSShipsModal.Lightweight']").removeAttr('readonly');
+        $("input[name='CSShipsModal.Beam']").removeAttr('readonly');
+        $("input[name='CSShipsModal.SummerDraft']").removeAttr('readonly');
+        $("input[name='CSShipsModal.BowThruster']").removeAttr('readonly');
+        //$("input[name=Noofholds]").removeAttr('readonly');
+        //$("input[name=Containers]").removeAttr('readonly');
+        //$("input[name=Cargohandlingequipment]").removeAttr('readonly');
+        $("input[name='CSShipsModal.BuildYear']").removeAttr('readonly');
+        $("input[name='Classofvessel']").removeAttr('readonly');
+        $("input[name='CSShipsModal.MMSI']").removeAttr('readonly');
+        $("input[name='CSShipsModal.CallSign']").removeAttr('readonly');
+        $("input[name='CSShipsModal.GrossTonnage']").removeAttr('readonly');
+        $("input[name='CSShipsModal.NetTonnage']").removeAttr('readonly');
+        $("input[name='CSShipsModal.LOA']").removeAttr('readonly');
+        $("input[name='CSShipsModal.LBP']").removeAttr('readonly');
+        $("input[name='CSShipsModal.BHP']").removeAttr('readonly');
+        //$("input[name=Nomoveablebulkheads]").removeAttr('readonly');
+        //$("input[name=Cargocapacity]").removeAttr('readonly');
+    }
+    //End RDBJ 10/07/2021
+
+    //RDBJ 10/07/2021
+    function DisableEditShipGeneralDescription() {
+        // RDBJ 01/10/2022 commented below 3 lines
+        /*
+        $("input[name='CSShipsModal.ClassificationSocietyId']").attr('readonly', true);
+        $("input[name='CSShipsModal.FlagStateId']").attr('readonly', true);
+        $("input[name='CSShipsModal.PortOfRegistryId']").attr('readonly', true);
+        */
+
+        // RDBJ 01/10/2022
+        $("select[name='ddlClassificationSocietyId']").attr('disabled', true);
+        $("select[name='ddlFlagStateId']").attr('disabled', true);
+        $("select[name='ddlPortOfRegistryId']").attr('disabled', true);
+        // End RDBJ 01/10/2022
+
+        $("input[name='CSShipsModal.IMONumber']").attr('readonly', true);
+        $("input[name='CSShipsModal.SummerDeadweight']").attr('readonly', true);
+        $("input[name='CSShipsModal.Lightweight']").attr('readonly', true);
+        $("input[name='CSShipsModal.Beam']").attr('readonly', true);
+        $("input[name='CSShipsModal.SummerDraft']").attr('readonly', true);
+        $("input[name='CSShipsModal.BowThruster']").attr('readonly', true);
+        //$("input[name=Noofholds]").attr('readonly', true);
+        //$("input[name=Containers]").attr('readonly', true);
+        //$("input[name=Cargohandlingequipment]").attr('readonly', true);
+        $("input[name='CSShipsModal.BuildYear']").attr('readonly', true);
+        $("input[name='Classofvessel']").attr('readonly', true);
+        $("input[name='CSShipsModal.MMSI']").attr('readonly', true);
+        $("input[name='CSShipsModal.CallSign']").attr('readonly', true);
+        $("input[name='CSShipsModal.GrossTonnage']").attr('readonly', true);
+        $("input[name='CSShipsModal.NetTonnage']").attr('readonly', true);
+        $("input[name='CSShipsModal.LOA']").attr('readonly', true);
+        $("input[name='CSShipsModal.LBP']").attr('readonly', true);
+        $("input[name='CSShipsModal.BHP']").attr('readonly', true);
+        //$("input[name=Nomoveablebulkheads]").attr('readonly', true);
+        //$("input[name=Cargocapacity]").attr('readonly', true);
+    }
+    //End RDBJ 10/07/2021
+
+    //RDBJ 10/07/2021
+    function GIRShipGeneralDescriptionSave() {
+        var url = RootUrl + 'GIRList/GIRShipGeneralDescriptionSave';
+        $("#lblAutoSave").show();
+        var form = $("#GIRForm");
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: form.serialize(),
+            async: true,
+            success: function (res) {
+                if ($("#GIRForm").valid()) {
+                    GIRAutoSave();
+                }
+                DisableEditShipGeneralDescription();
+                blnUpdateButton = false;
+                $("#lblAutoSave").hide();
+            },
+            error: function (err) {
+                $("#lblAutoSave").hide();
+            }
+        });
+    }
+    //End RDBJ 10/07/2021
+
+    //RDBJ 10/08/2021
+    function RemoveRequiredStarsIfValues() {
+        if ($("#Port").val() == "")
+            $("#lblErrorPort").css("display", "block");
+        else
+            $("#lblErrorPort").css("display", "none");
+
+        if ($("#Date").val() == "")
+            $("#lblErrorDate").css("display", "block");
+        else
+            $("#lblErrorDate").css("display", "none");
+    }
+    //End RDBJ 10/08/2021
+
+    // RDBJ 01/10/2022
+    function ddlOnChangeSetValueCommonFunction(elementId) {
+        $('#hdn' + elementId).val($('#' + elementId + ' option:selected').val());
+    }
+    // End RDBJ 01/10/2022
+
+    // RDBJ 03/19/2022
+    function UpdateDeficienciesShipWhenChangeFormShip() {
+        // JSL 12/19/2022
+        if (!IsNullEmptyOrUndefined(_CurrentUserDetailsObject)) {
+            if (_CurrentUserDetailsObject.UserGroup == '8') {
+                return;
+            }
+        }
+        else {
+            return;
+        }
+        // End JSL 12/19/2022
+
+        var dic = {};
+
+        dic["UniqueFormID"] = _UniqueFormID;
+        dic["Ship"] = _Ship;
+        dic["FormType"] = 'GI';
+
+        CommonServerPostApiCall(dic, "Forms", "PerformAction", str_API_UPDATEDEFICIENCIESSHIPWHENCHANGESHIPINFORMS);
+    }
+    // End RDBJ 03/19/2022
+
+    // JSL 12/19/2022
+    function SetRestrictionForSomeUserToModify() {
+        if (!IsNullEmptyOrUndefined(_CurrentUserDetailsObject)) {
+            if (_CurrentUserDetailsObject.UserGroup == '8') {
+                $("select[id='Child']").attr('disabled', true);
+                $("#btnUpdateShipsData").css("display", "none");
+                $("#btnUpdateShipsData").remove();
+
+                $("#btnSubmit").css("display", "none");
+                $("#btnSubmit").remove();
+
+                $("#btnSave").css("display", "none");
+                $("#btnSave").remove();
+
+                $("#lnkAddCrewmemberManning4a").css("display", "none");
+                $("#lnkAddCrewmemberManning4a").remove();
+
+                $("#lnkAddCrewmemberManning4b").css("display", "none");
+                $("#lnkAddCrewmemberManning4b").remove();
+
+                $("#lnkAddCrewmemberManning4c").css("display", "none");
+                $("#lnkAddCrewmemberManning4c").remove();
+            }
+            else {
+                $("select[id='Child']").attr('disabled', false);
+                $("#btnUpdateShipsData").css("display", "initial");
+
+                $("#btnSubmit").css("display", "initial");
+                $("#btnSave").css("display", "initial");
+
+                $('.GIRData').bind('contextmenu', function (e) {
+                    e.preventDefault();
+                });
+
+                $(".GIRData").bind("change", function (e) {
+                    $("#ShipName").val($("#Child option:selected").text());
+                    $("#hdnShip").val($("#Child option:selected").val()); //RDBJ 10/07/2021
+                    itemNumber = e.target.classList[3];
+                    setChnageValue(false, false, false, false, false);
+
+                    RemoveRequiredStarsIfValues(); //RDBJ 10/08/2021
+
+                    //10/07/2021
+                    if ($("#GIRForm").valid()) {
+                        GIRAutoSave();
+                    }
+                });
+
+                $("#Child").change(function () {
+                    var id = $("#Child").val();
+                    $("#hdnShip").val($("#Child option:selected").val()); //RDBJ 10/07/2021
+                    _Ship = $("#Child option:selected").val();  // RDBJ 03/19/2022
+
+                    GetGenDescData(id);
+                    //10/07/2021
+                    if ($("#GIRForm").valid()) {
+                        GIRAutoSave(true);  // RDBJ 03/19/2022 Pass true
+                    }
+                });
+
+                $("#btnSave").click(function () {
+                    GIRAutoSave();
+                });
+
+                bindContextMenu();
+                ValidateGIRForm(); //RDBJ 11/02/2021
+
+                //RDBJ 10/07/2021
+                $("#btnUpdateShipsData").click(function () {
+                    if (!blnUpdateButton) {
+                        $("#btnUpdateShipsData").text("Update Ships Data");
+                        $("#btnUpdateShipsDataCancel").css("display", "block"); //RDBJ 10/07/2021
+                        AllowEditShipGeneralDescription();
+                        blnUpdateButton = true;
+                    }
+                    else {
+                        $("#btnUpdateShipsData").text("Edit Ships Data");
+                        $("#btnUpdateShipsDataCancel").css("display", "none"); //RDBJ 10/07/2021
+                        GIRShipGeneralDescriptionSave();
+                    }
+                });
+                //End RDBJ 10/07/2021
+
+                //RDBJ 10/07/2021
+                $("#btnUpdateShipsDataCancel").click(function () {
+                    $("#btnUpdateShipsData").text("Edit Ships Data");
+                    $("#btnUpdateShipsDataCancel").css("display", "none"); //RDBJ 10/07/2021
+                    DisableEditShipGeneralDescription();
+                    blnUpdateButton = false;
+                });
+                //End RDBJ 10/07/2021
+
+                RemoveRequiredStarsIfValues(); //RDBJ 10/08/2021
+            }
+        }
+    }
+    // End JSL 12/19/2022
+</script>
+<link href="~/Content/Custom/GIRForm.css" rel="stylesheet" />
+<style>
+    .glyphicon-remove {
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+
+    @@media only screen and (max-width: 991px) {
+        .col-md-10.leftContent {
+            float: left;
+            width: 80%;
+        }
+
+        .btn-default {
+            width: 100%;
+        }
+    }
+
+    @@media (min-width: 992px) {
+        .col-md-10.leftContent {
+            float: left;
+            width: 80%;
+        }
+
+        .rightContent {
+            width: 20%;
+        }
+    }
+</style>
+<ul id="menu" style="display: none;">
+    <li>
+        Add Deficiencies
+    </li>
+</ul>
+<section class="content" style="padding-top:0px;">
+    <div class="row">
+        <div class="col-md-10 leftContent" style="overflow:auto;">
+            <div class="row">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-6 text-center">
+                    <h3 style="margin-top:30px;">General Inspection Report</h3>
+                    <h5 id="lblSubHeading">General</h5>
+                </div>
+                <div class="col-md-3" style="margin-top:10px;">
+                    <p class="m-0"> Form: GIR</p>
+                    <p class="m-0">Issue No: 5-08/14</p>
+                    <p class="m-0">Amend No: 6-12/16</p>
+                </div>
+            </div>
+
+            <div style="display:none" id="forntpage">
+                <div class="row">
+                    <div class="col-md-12 text-center breakDivPage">
+                        <h3 style="margin-top:150px;">Carisbrooke Shipping Ltd</h3>
+                        <img src="~/Images/logo.png" />
+                        <h1 style="font-weight:bold">General Inspection Report</h1>
+                        <h5 style="margin-top:100px;" id="lblInspector"><strong>Inspector:</strong></h5>
+                        <h5 style="margin-top:100px;" id="lblship"><strong>Ship:</strong></h5>
+                        <h5 style="margin-top:100px;" id="lblport"><strong>Port:</strong></h5>
+                        <h5 style="margin-top:100px;" id="lbldate"><strong>Date:</strong></h5>
+                    </div>
+                </div>
+                <div class="SectionContent">
+                    <table class="table tblSection">
+                        <tr>
+                            <td width="30%" style="text-align:center;border:none!important;">
+                                <img src="~/Images/logo.png" style="width:50px" />
+                                <p>Carisbrooke Shipping</p>
+                            </td>
+                            <td width="50%" style="text-align:center; padding-top:25px !important;border:none!important;">
+                                <strong>General Inspection Report</strong>
+                            </td>
+                            <td width="20%" style="border:none!important;">
+                                <p class="m-0"> Form: GIR</p>
+                                <p class="m-0">Issue No: 5-08/14</p>
+                                <p class="m-0">Amend No: 6-12/16</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-12  breakDivPage">
+                        <table id="index">
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">1</td>
+                                <td style=" padding: 5px !important; border: none!important;">Index </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">2</td>
+                                <td style=" padding: 5px !important; border: none!important;">Preamble </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">3</td>
+                                <td style=" padding: 5px !important; border: none!important;">General Description  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">4</td>
+                                <td style=" padding: 5px !important; border: none!important;">Manning  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">5</td>
+                                <td style=" padding: 5px !important; border: none!important;">General Inspection  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">A</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Certification  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">B</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">List of Publications Held  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">C</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">List of Documentation / Records Kept  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">D</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Upkeep of Records  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">E</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Port / Flag State Inspection Reports  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">F</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Safety Equipment  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">G</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Security Equipment and Records  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">H</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Bridge  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">I</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Navigation  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">J</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Hospital and Medicine Locker  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">K</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;"> Galley  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">L</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Engine Room  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">M</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Accommodation Block and Poop Deck - External Standards  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">N</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Accommodation Block - Internal Standards  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">O</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Boarding Equipment  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">P</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Main Deck Area 12  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Q</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Cargo Holds, Hatch Covers, Cargo and/or Gantry Crane  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">R</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Forecastle Head  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">S</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Forecastle Space  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">T</td>
+                                <td style=" padding: 5px !important; border: none!important; padding-left: 50px!important;">Hull  </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">6</td>
+                                <td style=" padding: 5px !important; border: none!important;">Summary and Recommendations </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">7</td>
+                                <td style=" padding: 5px !important; border: none!important;">Deficiencies </td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                            <tr>
+                                <td style=" padding: 5px !important; border: none!important;">8</td>
+                                <td style=" padding: 5px !important; border: none!important;">Photographs</td>
+                                <td style=" padding: 5px !important; border: none!important;">
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <form id="GIRForm" name="GIRForm" method="post" action="@Url.Action("GeneralInspectionReport", "Forms")">
+                <div class="row" id="GIRContent">
+                    <input type="hidden" id="GIRFormID" value="@Model.GIRFormID" name="GIRFormID" />
+                    <input type="hidden" id="SafeMiningChanged" value="false" name="Manning_SafeMiningChanged" />
+                    <input type="hidden" id="CrewDocsChanged" value="false" name="Manning_CrewDocsChanged" />
+                    <input type="hidden" id="RestAndWorkChanged" value="false" name="Manning_RestAndWorkChanged" />
+                    <input type="hidden" id="DeficienciesChanged" value="false" name="Manning_DeficienciesChanged" />
+                    <input type="hidden" id="PhotosChanged" value="false" name="Manning_PhotosChanged" />
+
+                    <input type="hidden" id="hdnShip" value="@Model.Ship" name="Ship" /> @* RDBJ 10/07/2021 *@
+                    <input type="hidden" id="hdnShipID" value="@Model.ShipID" name="ShipID" /> @* JSL 12/31/2022 *@
+                    <input type="hidden" id="hdnShipName" value="@Model.ShipName" name="ShipName" /> @* JSL 12/31/2022 *@
+                    <input type="hidden" id="FormVersion" value="@Model.FormVersion" name="FormVersion" />
+                    <input type="hidden" id="UniqueFormID" value="@Model.UniqueFormID" name="UniqueFormID" />
+                    @if (Model.SavedAsDraft == true)
+                    {
+                        <input type="hidden" id="SavedAsDraft" value="true" name="SavedAsDraft" />
+                    }
+                    else
+                    {
+                        <input type="hidden" id="SavedAsDraft" value="false" name="SavedAsDraft" />
+                    }
+                    <div class="col-md-12">
+                        @* RDBJ 10/13/2021 Removed CSS after PageSection from each section div style="display:none;" *@
+                        <div class="GeneralSection PageSection">
+                            @{Html.RenderPartial("_GIR_GeneralSection");}
+                        </div>
+                        <div class="ManningSection PageSection">
+                            @{Html.RenderPartial("_GIR_ManningSection");}
+                        </div>
+                        <div class="ShipCertificationSection PageSection">
+                            @{Html.RenderPartial("_GIR_ShipCertificationSection");}
+                        </div>
+                        <div class="PubsAndDocSection PageSection">
+                            @{Html.RenderPartial("_GIR_PubsAndDocSection");}
+                        </div>
+                        <div class="RecordKeepingSection PageSection">
+                            @{Html.RenderPartial("_GIR_RecordKeepingSection");}
+                        </div>
+                        <div class="SafetyEquipmentSection PageSection">
+                            @{Html.RenderPartial("_GIR_SafetyEquipmentSection");}
+                        </div>
+                        <div class="SecuritySection PageSection">
+                            @{Html.RenderPartial("_GIR_SecuritySection");}
+                        </div>
+                        <div class="BridgeSection PageSection">
+                            @{Html.RenderPartial("_GIR_BridgeSection");}
+                        </div>
+                        <div class="MedicalSection PageSection">
+                            @{Html.RenderPartial("_GIR_MedicalSection");}
+                        </div>
+                        <div class="GalleySection PageSection">
+                            @{Html.RenderPartial("_GIR_GalleySection");}
+                        </div>
+                        <div class="EngineRoomSection PageSection">
+                            @{Html.RenderPartial("_GIR_EngineRoomSection");}
+                        </div>
+                        <div class="SuperstructureSection PageSection">
+                            @{Html.RenderPartial("_GIR_SuperstructureSection");}
+                        </div>
+                        <div class="DeckSection PageSection">
+                            @{Html.RenderPartial("_GIR_DeckSection");}
+                        </div>
+                        <div class="HoldsAndCoverSection PageSection">
+                            @{Html.RenderPartial("_GIR_HoldsAndCoverSection");}
+                        </div>
+                        <div class="ForeCastleSection PageSection">
+                            @{Html.RenderPartial("_GIR_ForeCastleSection");}
+                        </div>
+                        <div class="HullSection PageSection">
+                            @{Html.RenderPartial("_GIR_HullSection");}
+                        </div>
+                        <div class="SummarySection PageSection">
+                            @{Html.RenderPartial("_GIR_SummarySection");}
+                        </div>
+                        <div class="DeficienciesSection PageSection">
+                            @{Html.RenderPartial("_GIR_DeficienciesSection");}
+                        </div>
+                        <div class="PhotographsSection PageSection">
+                            @{Html.RenderPartial("_GIR_PhotographsSection");}
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-primary" onclick="SetDeficienciesDataForPrintAndPrintIt()" @*onclick="printDiv()"*@>
+                            Print
+                        </button> &nbsp;&nbsp;
+                        @* JSL 12/19/2022 added style *@
+                        <button type="submit" id="btnSubmit" class="btn btn-primary" style="display: none;">
+                            Submit
+                        </button> &nbsp;&nbsp;
+                        @* JSL 12/19/2022 added style *@
+                        <button type="button" id="btnSave" class="btn btn-primary" style="display: none;">
+                            Save
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-2 rightContent p-l-r-0" style="overflow:auto;" id="sectionList">
+            <div class="col-md-12 p-l-r-0 text-center">
+                <h3>Form Assistance</h3>
+            </div>
+            <div class="col-md-12 p-l-r-0 text-center">
+                <h4>Navigation</h4>
+                <br />
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                @* RDBJ 10/20/2021 set active class *@
+                <button type="button" class="btn btn-default col-md-12 NavButton active clsRedirectDefi" data-lbl-show="GeneralSection" id="GeneralSection" data-lbl-text="General">1-3 - General</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="ManningSection" id="ManningSection" data-section="Section 4a,Section 4b,Section 4c,Section 4d" data-lbl-text="Manning">4A-4B-4C-4D - Manning</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="ShipCertificationSection" id="ShipCertificationSection" data-section="Section 5A" data-lbl-text="Ship Certification">5A - Ship Certification</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="PubsAndDocSection" id="PubsAndDocSection" data-section="Section 5B,Section 5C,Section 4c,Section 4d" data-lbl-text="List of Publications and Documnets">5B-5C - Pubs and Docs</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="RecordKeepingSection" id="RecordKeepingSection" data-section="Section 5D,Section 5E" data-lbl-text="Record Keeping">5D-5E - Record Keeping</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="SafetyEquipmentSection" id="SafetyEquipmentSection" data-section="Section 5F" data-lbl-text="Safety Equipment">5F - Safety Equipment</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="SecuritySection" id="SecuritySection" data-section="Section 5G" data-lbl-text="Security Equipment and Records">5G - Security</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="BridgeSection" id="BridgeSection" data-section="Section 5H,Section 5I" data-lbl-text="Bridge and Navigation">5H-5I - Bridge</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="MedicalSection" id="MedicalSection" data-section="Section 5J" data-lbl-text="Hospital and Medical Locker">5J - Medical</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="GalleySection" id="GalleySection" data-section="Section 5K" data-lbl-text="Galley">5K - Galley</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="EngineRoomSection" id="EngineRoomSection" data-section="Section 5L" data-lbl-text="Engine Room">5L - Engine Room</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="SuperstructureSection" id="SuperstructureSection" data-section="Section 5M,Section 5N" data-lbl-text="Superstructure and Deck - Standards">5M-5N - Superstructure</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="DeckSection" id="DeckSection" data-section="Section 5O,Section 5P" data-lbl-text="Boarding Equipment and Main Deck">5O-5P - Deck</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="HoldsAndCoverSection" id="HoldsAndCoverSection" data-section="Section 5Q" data-lbl-text="Holds and Hatch Covers">5Q - Holds and Covers</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="ForeCastleSection" id="ForeCastleSection" data-section="Section 5R,Section 5S" data-lbl-text="Forecastle">5R-5S - Forecastle</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="HullSection" id="HullSection" data-section="Section 5T" data-lbl-text="Hull">5T - Hull</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="SummarySection" id="SummarySection" data-section="Section 6" data-lbl-text="Summary and Recommendations">6 - Summary</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="DeficienciesSection" id="DeficienciesSection" data-lbl-text="Deficiencies">7 - Deficiencies</button>
+            </div>
+            <div class="col-md-12 text-center m-b-10">
+                <button type="button" class="btn btn-default col-md-12 NavButton clsRedirectDefi" data-lbl-show="PhotographsSection" id="PhotographsSection" data-lbl-text="Photographs">Photographs</button>
+            </div>
+        </div>
+    </div>
+</section>

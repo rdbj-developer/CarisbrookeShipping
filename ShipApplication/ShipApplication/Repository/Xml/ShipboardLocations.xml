@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="yes"?>
+<ShipboardLocations>
+	<ShipboardLocation ShipboardLocationId="1">Auxiliary Engine Room</ShipboardLocation>
+	<ShipboardLocation ShipboardLocationId="2">Boat Deck Store</ShipboardLocation>
+	<ShipboardLocation ShipboardLocationId="3">Bosun Store</ShipboardLocation>
+	<ShipboardLocation ShipboardLocationId="4">Deck Store</ShipboardLocation>
+	<ShipboardLocation ShipboardLocationId="5">E/R (Lower)</ShipboardLocation>
+	<ShipboardLocation ShipboardLocationId="6">E/R (Upper)</ShipboardLocation>
+	<ShipboardLocation ShipboardLocationId="7">E/R (Workshop)</ShipboardLocation>
+	<ShipboardLocation ShipboardLocationId="8">Forecastle</ShipboardLocation>
+	<ShipboardLocation ShipboardLocationId="9">Forecastle Store</ShipboardLocation>
+	<ShipboardLocation ShipboardLocationId="10">Main Deck (Midships)</ShipboardLocation>
+	<ShipboardLocation ShipboardLocationId="11">Main Deck (Port)</ShipboardLocation>
+	<ShipboardLocation ShipboardLocationId="12">Main Deck (Starboard)</ShipboardLocation>
+	<ShipboardLocation ShipboardLocationId="13">Provision Crane</ShipboardLocation>
+	<ShipboardLocation ShipboardLocationId="14">Purifier Room</ShipboardLocation>
+</ShipboardLocations>

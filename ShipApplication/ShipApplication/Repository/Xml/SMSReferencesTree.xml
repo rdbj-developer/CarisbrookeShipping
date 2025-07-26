@@ -1,0 +1,472 @@
+<?xml version="1.0" standalone="yes"?>
+<SMSReferences>
+	<Level1 Level1Key="1" Level1Identifier="1" Level1Value="Introduction &amp; Company Policies">
+		<Level2 Level2Key="2" Level2Identifier="1.1" Level2Value="	Foreword &amp; Company Commitment"/>
+		<Level2 Level2Key="3" Level2Identifier="1.2" Level2Value="	Company Policies"/>
+	</Level1>
+	<Level1 Level1Key="4" Level1Identifier="2" Level1Value="Company and Shipboard Structure, Personnel Responsibilities and Authorities">
+		<Level2 Level2Key="5" Level2Identifier="2.1" Level2Value="Company Structure, Responsibilities and Authorities">
+			<Level3 Level3Key="6" Level3Identifier="2.1.1" Level3Value="Chief Executive Officer"/>
+			<Level3 Level3Key="7" Level3Identifier="2.1.2" Level3Value="Fleet Technical Director"/>
+			<Level3 Level3Key="8" Level3Identifier="2.1.3" Level3Value="Designated Person Ashore (DPA)"/>
+			<Level3 Level3Key="9" Level3Identifier="2.1.4" Level3Value="Marine Manager"/>
+			<Level3 Level3Key="10" Level3Identifier="2.1.5" Level3Value="Marine Insurance Officer"/>
+			<Level3 Level3Key="11" Level3Identifier="2.1.6" Level3Value="ISM Manager (Deputy DPA)"/>
+			<Level3 Level3Key="12" Level3Identifier="2.1.7" Level3Value="Safety Officer"/>
+			<Level3 Level3Key="13" Level3Identifier="2.1.8" Level3Value="ISM and MLC Officer"/>
+			<Level3 Level3Key="14" Level3Identifier="2.1.9" Level3Value="Fleet Manager"/>
+			<Level3 Level3Key="15" Level3Identifier="2.1.10" Level3Value="Technical Assistant"/>
+			<Level3 Level3Key="16" Level3Identifier="2.1.11" Level3Value="Personnel Manager"/>
+			<Level3 Level3Key="17" Level3Identifier="2.1.12" Level3Value="Crew Manager"/>
+			<Level3 Level3Key="18" Level3Identifier="2.1.13" Level3Value="Personnel Officer"/>
+			<Level3 Level3Key="19" Level3Identifier="2.1.14" Level3Value="Crew P&amp;I Officer"/>
+			<Level3 Level3Key="20" Level3Identifier="2.1.15" Level3Value="Purchaser"/>
+			<Level3 Level3Key="21" Level3Identifier="2.1.16" Level3Value="Finance Department"/>
+			<Level3 Level3Key="22" Level3Identifier="2.1.17" Level3Value="Superintendents"/>
+		</Level2>
+		<Level2 Level2Key="23" Level2Identifier="2.2" Level2Value="Shipboard Responsibilities and Authorities">
+			<Level3 Level3Key="24" Level3Identifier="2.2.1" Level3Value="All Seafarers"/>
+			<Level3 Level3Key="25" Level3Identifier="2.2.2" Level3Value="Responsibilities and Overriding Authority of the Master"/>
+			<Level3 Level3Key="26" Level3Identifier="2.2.3" Level3Value="Responsibilities and Authorities of the Safety Officer"/>
+			<Level3 Level3Key="27" Level3Identifier="2.2.4" Level3Value="Responsibilities and Authorities of the Chief Officer"/>
+			<Level3 Level3Key="28" Level3Identifier="2.2.5" Level3Value="Responsibilities of the Second Officer"/>
+			<Level3 Level3Key="29" Level3Identifier="2.2.6" Level3Value="Responsibilities of the Third Officer (and / or Junior Officer)"/>
+			<Level3 Level3Key="30" Level3Identifier="2.2.7" Level3Value="Responsibilities and Authority of the Chief Engineer"/>
+			<Level3 Level3Key="31" Level3Identifier="2.2.8" Level3Value="Responsibilities of the Second / Third Engineer"/>
+			<Level3 Level3Key="32" Level3Identifier="2.2.9" Level3Value="Responsibilities of the Key AB / Bosun"/>
+			<Level3 Level3Key="33" Level3Identifier="2.2.10" Level3Value="Responsibilities of the Able-Bodied Seaman (AB)"/>
+			<Level3 Level3Key="34" Level3Identifier="2.2.11" Level3Value="Responsibilities of the Ordinary Seaman (OS)"/>
+			<Level3 Level3Key="35" Level3Identifier="2.2.12" Level3Value="Responsibilities of the Fitter"/>
+			<Level3 Level3Key="36" Level3Identifier="2.2.13" Level3Value="Responsibilities of the Oiler / Wiper"/>
+			<Level3 Level3Key="37" Level3Identifier="2.2.14" Level3Value="Responsibilities of the Cook"/>
+			<Level3 Level3Key="38" Level3Identifier="2.2.15" Level3Value="Responsibilities of Deck Cadets"/>
+			<Level3 Level3Key="39" Level3Identifier="2.2.16" Level3Value="Responsibilities of Engine Cadets"/>
+			<Level3 Level3Key="40" Level3Identifier="2.2.17" Level3Value="Responsibilities of Deck and Engine Boys"/>
+		</Level2>
+	</Level1>
+	<Level1 Level1Key="41" Level1Identifier="3" Level1Value="Personnel Management">
+		<Level2 Level2Key="42" Level2Identifier="3.1" Level2Value="Manning"/>
+		<Level2 Level2Key="43" Level2Identifier="3.2" Level2Value="Recruitment">
+			<Level3 Level3Key="44" Level3Identifier="3.2.1" Level3Value="Masters and Chief Engineers"/>
+			<Level3 Level3Key="45" Level3Identifier="3.2.2" Level3Value="Officers and Ratings"/>
+			<Level3 Level3Key="46" Level3Identifier="3.2.3" Level3Value="Recruitment Criteria"/>
+			<Level3 Level3Key="47" Level3Identifier="3.2.4" Level3Value="Appraisal of Sea Staff, other than Master and Chief Engineer"/>
+			<Level3 Level3Key="48" Level3Identifier="3.2.5" Level3Value="Appraisal of Performance for Master and Chief Engineer"/>
+			<Level3 Level3Key="49" Level3Identifier="3.2.6" Level3Value="Shore-based Personnel"/>
+		</Level2>
+		<Level2 Level2Key="50" Level2Identifier="3.3" Level2Value="Familiarisation and Training">
+			<Level3 Level3Key="51" Level3Identifier="3.3.1" Level3Value="Familiarisation"/>
+			<Level3 Level3Key="52" Level3Identifier="3.3.2" Level3Value="Change of Command / Hand over"/>
+			<Level3 Level3Key="53" Level3Identifier="3.3.3" Level3Value="Chief Officer and Chief Engineer Handover Period"/>
+			<Level3 Level3Key="54" Level3Identifier="3.3.4" Level3Value="Training On board"/>
+			<Level3 Level3Key="55" Level3Identifier="3.3.5" Level3Value="Shore-based Training"/>
+			<Level3 Level3Key="56" Level3Identifier="3.3.6" Level3Value="Training - Familiarisation, Instructions, Drills, Exercises"/>
+		</Level2>
+		<Level2 Level2Key="57" Level2Identifier="3.4" Level2Value="Repatriation">
+			<Level3 Level3Key="58" Level3Identifier="3.4.1" Level3Value="Sea Service Testimonials"/>
+		</Level2>
+		<Level2 Level2Key="59" Level2Identifier="3.5" Level2Value="Code of Conduct">
+			<Level3 Level3Key="60" Level3Identifier="3.5.1" Level3Value="Conduct in Emergencies"/>
+			<Level3 Level3Key="61" Level3Identifier="3.5.2" Level3Value="Conduct in Situations Other than Emergencies"/>
+			<Level3 Level3Key="62" Level3Identifier="3.5.3" Level3Value="Punctuality"/>
+			<Level3 Level3Key="63" Level3Identifier="3.5.4" Level3Value="Master's and Seafarers Responsibilities Relating to Alcohol and Drugs"/>
+			<Level3 Level3Key="64" Level3Identifier="3.5.5" Level3Value="Misuse of Drugs (as Medicines)"/>
+			<Level3 Level3Key="65" Level3Identifier="3.5.6" Level3Value="Drugs"/>
+			<Level3 Level3Key="66" Level3Identifier="3.5.7" Level3Value="Smuggling"/>
+			<Level3 Level3Key="67" Level3Identifier="3.5.8" Level3Value="Consuming Alcohol"/>
+			<Level3 Level3Key="68" Level3Identifier="3.5.9" Level3Value="Testing, Including Post-Casualty or Post-Incident Testing"/>
+			<Level3 Level3Key="69" Level3Identifier="3.5.10" Level3Value="Senior Staff Ashore"/>
+			<Level3 Level3Key="70" Level3Identifier="3.5.11" Level3Value="Bringing Unauthorised Persons On board"/>
+			<Level3 Level3Key="71" Level3Identifier="3.5.12" Level3Value="Offensive Weapons"/>
+			<Level3 Level3Key="72" Level3Identifier="3.5.13" Level3Value="Smoking in Prohibited Areas"/>
+			<Level3 Level3Key="73" Level3Identifier="3.5.14" Level3Value="Media"/>
+			<Level3 Level3Key="74" Level3Identifier="3.5.15" Level3Value="Duties"/>
+			<Level3 Level3Key="75" Level3Identifier="3.5.16" Level3Value="Private Communications"/>
+			<Level3 Level3Key="76" Level3Identifier="3.5.17" Level3Value="Working and Living Spaces"/>
+			<Level3 Level3Key="77" Level3Identifier="3.5.18" Level3Value="Behaviour Towards Others"/>
+			<Level3 Level3Key="78" Level3Identifier="3.5.19" Level3Value="Dealing with Breaches of the Code"/>
+		</Level2>
+		<Level2 Level2Key="79" Level2Identifier="3.6" Level2Value="Fitness for Duty"/>
+		<Level2 Level2Key="80" Level2Identifier="3.7" Level2Value="Medical Arrangements"/>
+		<Level2 Level2Key="81" Level2Identifier="3.8" Level2Value="Personal Protective Equipment"/>
+		<Level2 Level2Key="82" Level2Identifier="3.9" Level2Value="Watchkeeping and Shipboard Working Arrangements">
+			<Level3 Level3Key="83" Level3Identifier="3.9.1" Level3Value="Bridge"/>
+			<Level3 Level3Key="84" Level3Identifier="3.9.2" Level3Value="Engine Room"/>
+		</Level2>
+		<Level2 Level2Key="85" Level2Identifier="3.10" Level2Value="Records of Rest and Work Hours"/>
+		<Level2 Level2Key="86" Level2Identifier="3.11" Level2Value="Crewmembers Under the Age of 18"/>
+		<Level2 Level2Key="87" Level2Identifier="3.12" Level2Value="On board Complaint Procedure">
+			<Level3 Level3Key="88" Level3Identifier="3.12.1" Level3Value="MLC Company / Flags / Seafarers' National Points of Contact"/>
+		</Level2>
+	</Level1>
+	<Level1 Level1Key="89" Level1Identifier="4" Level1Value="Communications and Computers">
+		<Level2 Level2Key="90" Level2Identifier="4.1" Level2Value="Ships and Company">
+			<Level3 Level3Key="91" Level3Identifier="4.1.1" Level3Value="Responsibilities"/>
+			<Level3 Level3Key="92" Level3Identifier="4.1.2" Level3Value="Company and Shipboard Working Language"/>
+			<Level3 Level3Key="93" Level3Identifier="4.1.3" Level3Value="Company Requirements"/>
+			<Level3 Level3Key="94" Level3Identifier="4.1.4" Level3Value="Email Communication"/>
+		</Level2>
+		<Level2 Level2Key="95" Level2Identifier="4.2" Level2Value="Information for Ports"/>
+		<Level2 Level2Key="96" Level2Identifier="4.3" Level2Value="Company Reporting Procedures"/>
+		<Level2 Level2Key="97" Level2Identifier="4.4" Level2Value="Communication Including the Use of GMDSS, VHF and AIS">
+			<Level3 Level3Key="98" Level3Identifier="4.4.1" Level3Value="Use of VHF and AIS"/>
+			<Level3 Level3Key="99" Level3Identifier="4.4.2" Level3Value="Correct Use of VHF Channels"/>
+		</Level2>
+		<Level2 Level2Key="100" Level2Identifier="4.5" Level2Value="Use of Ship's Mobile and Satellite Telephones"/>
+		<Level2 Level2Key="101" Level2Identifier="4.6" Level2Value="Use of Private Communications Equipment"/>
+		<Level2 Level2Key="102" Level2Identifier="4.7" Level2Value="Crew Kiosk"/>
+		<Level2 Level2Key="103" Level2Identifier="4.8" Level2Value="Ship's Computers"/>
+	</Level1>
+	<Level1 Level1Key="104" Level1Identifier="5" Level1Value="Ship Inspections, Maintenance and Safe Working Practices">
+		<Level2 Level2Key="105" Level2Identifier="5.1" Level2Value="Company Inspections">
+			<Level3 Level3Key="106" Level3Identifier="5.1.1" Level3Value="Master's Inspections"/>
+			<Level3 Level3Key="107" Level3Identifier="5.1.2" Level3Value="Superintendent's Visits and Inspections"/>
+			<Level3 Level3Key="108" Level3Identifier="5.1.3" Level3Value="General Inspections"/>
+			<Level3 Level3Key="109" Level3Identifier="5.1.4" Level3Value="Fleet Safety and Training Officer (FSTO) Training Mission and Inspection"/>
+		</Level2>
+		<Level2 Level2Key="110" Level2Identifier="5.2" Level2Value="Inspections by Authorities">
+			<Level3 Level3Key="111" Level3Identifier="5.2.1" Level3Value="Rectification of Deficiencies Resulting from Inspections"/>
+		</Level2>
+		<Level2 Level2Key="112" Level2Identifier="5.3" Level2Value="Ship Maintenance">
+			<Level3 Level3Key="113" Level3Identifier="5.3.1" Level3Value="Lifting Equipment , Loose Gear and Register Form (LGR)"/>
+			<Level3 Level3Key="114" Level3Identifier="5.3.2" Level3Value="Portable Electrical Equipment and Register Form (PEER)"/>
+			<Level3 Level3Key="115" Level3Identifier="5.3.3" Level3Value="Recording of Maintenance"/>
+		</Level2>
+		<Level2 Level2Key="116" Level2Identifier="5.4" Level2Value="List and Maintenance of Critical Equipment"/>
+		<Level2 Level2Key="117" Level2Identifier="5.5" Level2Value="Fire Fighting, Safety and Life Saving Appliances Maintenance">
+			<Level3 Level3Key="118" Level3Identifier="5.5.1" Level3Value="Lifeboats"/>
+			<Level3 Level3Key="119" Level3Identifier="5.5.2" Level3Value="Survival Craft Launching Appliances, Gangways, Accommodation Ladders - Maintenance, Inspections and Testing - Competent Person">
+				<Level4 Level4Key="120" Level4Identifier="5.5.2.1" Level4Value="General"/>
+				<Level4 Level4Key="121" Level4Identifier="5.5.2.2" Level4Value="Properly Trained Person"/>
+				<Level4 Level4Key="122" Level4Identifier="5.5.2.3" Level4Value="Service Provider"/>
+			</Level3>
+		</Level2>
+		<Level2 Level2Key="123" Level2Identifier="5.6" Level2Value="Maintenance to Equipment Affected by MARPOL Annex VI"/>
+		<Level2 Level2Key="124" Level2Identifier="5.7" Level2Value="Bridge and Deck Equipment Maintenance"/>
+		<Level2 Level2Key="125" Level2Identifier="5.8" Level2Value="Engine Room Maintenance"/>
+		<Level2 Level2Key="126" Level2Identifier="5.9" Level2Value="Inventory System"/>
+		<Level2 Level2Key="127" Level2Identifier="5.10" Level2Value="Dry Docking"/>
+		<Level2 Level2Key="128" Level2Identifier="5.11" Level2Value="Defects Reporting and Repairs"/>
+		<Level2 Level2Key="129" Level2Identifier="5.12" Level2Value="Safe Work Permits"/>
+		<Level2 Level2Key="130" Level2Identifier="5.13" Level2Value="Lock Out / Tag Out"/>
+		<Level2 Level2Key="131" Level2Identifier="5.14" Level2Value="Risk Assessment Procedure, File and Detailed Form">
+			<Level3 Level3Key="132" Level3Identifier="5.14.1" Level3Value="Risk Assessment Procedure and File"/>
+			<Level3 Level3Key="133" Level3Identifier="5.14.2" Level3Value="Risk Assessment Guidance for using the Risk Assessment Form"/>
+		</Level2>
+		<Level2 Level2Key="134" Level2Identifier="5.15" Level2Value="Entry Into Enclosed Spaces">
+			<Level3 Level3Key="135" Level3Identifier="5.15.1" Level3Value="Company Procedures BEFORE Entry">
+				<Level4 Level4Key="136" Level4Identifier="5.15.1.1" Level4Value="Assessment of Risk"/>
+				<Level4 Level4Key="137" Level4Identifier="5.15.1.2" Level4Value="Responsible Person at Entrance"/>
+				<Level4 Level4Key="138" Level4Identifier="5.15.1.3" Level4Value="Identification of Potential Hazards"/>
+				<Level4 Level4Key="139" Level4Identifier="5.15.1.4" Level4Value="Preparing for Entry"/>
+				<Level4 Level4Key="140" Level4Identifier="5.15.1.5" Level4Value="Testing the Atmosphere of the Space"/>
+				<Level4 Level4Key="141" Level4Identifier="5.15.1.6" Level4Value="Entry into a Space"/>
+				<Level4 Level4Key="142" Level4Identifier="5.15.1.7" Level4Value="Preparations Prior to Entry"/>
+				<Level4 Level4Key="143" Level4Identifier="5.15.1.8" Level4Value="Precautions During Entry"/>
+			</Level3>
+			<Level3 Level3Key="144" Level3Identifier="5.15.2" Level3Value="Entry Into An Unsafe Atmosphere">
+				<Level4 Level4Key="145" Level4Identifier="5.15.2.1" Level4Value="Testing the Atmosphere"/>
+			</Level3>
+			<Level3 Level3Key="146" Level3Identifier="5.15.3" Level3Value="Emergency Entry"/>
+			<Level3 Level3Key="147" Level3Identifier="5.15.4" Level3Value="Leaving the Space"/>
+			<Level3 Level3Key="148" Level3Identifier="5.15.5" Level3Value="Drills"/>
+		</Level2>
+		<Level2 Level2Key="149" Level2Identifier="5.16" Level2Value="Safety Markings and Warning Signs"/>
+		<Level2 Level2Key="150" Level2Identifier="5.17" Level2Value="Personal Protective Equipment and Clothing"/>
+		<Level2 Level2Key="151" Level2Identifier="5.18" Level2Value="Lighting"/>
+		<Level2 Level2Key="152" Level2Identifier="5.19" Level2Value="Guard Rails Around Openings"/>
+		<Level2 Level2Key="153" Level2Identifier="5.20" Level2Value="Moorings - Procedures in Port"/>
+		<Level2 Level2Key="154" Level2Identifier="5.21" Level2Value="Machinery Guards"/>
+		<Level2 Level2Key="155" Level2Identifier="5.22" Level2Value="Handling Chemicals"/>
+		<Level2 Level2Key="156" Level2Identifier="5.23" Level2Value="Working Aloft / Over Side"/>
+		<Level2 Level2Key="157" Level2Identifier="5.24" Level2Value="Ropes and Wires"/>
+		<Level2 Level2Key="158" Level2Identifier="5.25" Level2Value="Operators Manuals"/>
+		<Level2 Level2Key="159" Level2Identifier="5.26" Level2Value="Asbestos Management">
+			<Level3 Level3Key="160" Level3Identifier="5.26.1" Level3Value="Company Commitment"/>
+			<Level3 Level3Key="161" Level3Identifier="5.26.2" Level3Value="Duties and Responsibilities"/>
+			<Level3 Level3Key="162" Level3Identifier="5.26.3" Level3Value="General Considerations"/>
+		</Level2>
+	</Level1>
+	<Level1 Level1Key="163" Level1Identifier="6" Level1Value="Ship In Port">
+		<Level2 Level2Key="164" Level2Identifier="6.0" Level2Value="NAABSA (Not Always Afloat But Safe Aground) Berths"/>
+		<Level2 Level2Key="165" Level2Identifier="6.1" Level2Value="Provisions for Safe Access and Entry"/>
+		<Level2 Level2Key="166" Level2Identifier="6.2" Level2Value="Harbour Watches and Patrols">
+			<Level3 Level3Key="167" Level3Identifier="6.2.1" Level3Value="Deck"/>
+			<Level3 Level3Key="168" Level3Identifier="6.2.2" Level3Value="Engine Room"/>
+		</Level2>
+		<Level2 Level2Key="169" Level2Identifier="6.3" Level2Value="Ship Security"/>
+		<Level2 Level2Key="170" Level2Identifier="6.4" Level2Value="Cargo Operation">
+			<Level3 Level3Key="171" Level3Identifier="6.4.1" Level3Value="Preparations for Loading Cargo"/>
+			<Level3 Level3Key="172" Level3Identifier="6.4.2" Level3Value="Precautions During Cargo Operations"/>
+			<Level3 Level3Key="173" Level3Identifier="6.4.3" Level3Value="Preparations for Discharging Cargo"/>
+			<Level3 Level3Key="174" Level3Identifier="6.4.4" Level3Value="Fumigation of Cargo"/>
+			<Level3 Level3Key="175" Level3Identifier="6.4.5" Level3Value="Cargo Lifting Gear"/>
+			<Level3 Level3Key="176" Level3Identifier="6.4.6" Level3Value="Cargo Securing Gear"/>
+		</Level2>
+		<Level2 Level2Key="177" Level2Identifier="6.5" Level2Value="Crane Operations"/>
+		<Level2 Level2Key="178" Level2Identifier="6.6" Level2Value="Cargo Hatch, Bulkhead and Tweendeck Operation Instructions"/>
+		<Level2 Level2Key="179" Level2Identifier="6.7" Level2Value="Opening and Closing of Hatches"/>
+		<Level2 Level2Key="180" Level2Identifier="6.8" Level2Value="Moving of Bulkheads and Tweendecks"/>
+		<Level2 Level2Key="181" Level2Identifier="6.9" Level2Value="Cleaning and Preparing of Holds"/>
+		<Level2 Level2Key="182" Level2Identifier="6.10" Level2Value="Dangerous Cargo"/>
+		<Level2 Level2Key="183" Level2Identifier="6.11" Level2Value="Procedures for Receiving Bunkers">
+			<Level3 Level3Key="184" Level3Identifier="6.11.1" Level3Value="Pollution Prevention"/>
+			<Level3 Level3Key="185" Level3Identifier="6.11.2" Level3Value="Oil Spill Kit"/>
+		</Level2>
+		<Level2 Level2Key="186" Level2Identifier="6.12" Level2Value="Diving Operations"/>
+		<Level2 Level2Key="187" Level2Identifier="6.13" Level2Value="Shore Leave"/>
+		<Level2 Level2Key="188" Level2Identifier="6.14" Level2Value="Personal Safety When Ashore"/>
+	</Level1>
+	<Level1 Level1Key="189" Level1Identifier="7" Level1Value="Preparing For Sea">
+		<Level2 Level2Key="190" Level2Identifier="7.1" Level2Value="Pre-Sailing Checks">
+			<Level3 Level3Key="191" Level3Identifier="7.1.1" Level3Value="Test of Equipment">
+				<Level4 Level4Key="192" Level4Identifier="7.1.1.1" Level4Value="Bridge and Engine Pre-Manoeuvring Departure Checklists"/>
+				<Level4 Level4Key="193" Level4Identifier="7.1.1.2" Level4Value="Stations for Departure"/>
+				<Level4 Level4Key="194" Level4Identifier="7.1.1.3" Level4Value="Preparations for Departure"/>
+				<Level4 Level4Key="195" Level4Identifier="7.1.1.4" Level4Value="Securing Cargo, Hatches and All Hull Openings"/>
+			</Level3>
+		</Level2>
+		<Level2 Level2Key="196" Level2Identifier="7.2" Level2Value="Ship Stability">
+			<Level3 Level3Key="197" Level3Identifier="7.2.1" Level3Value="Stability Calculations"/>
+			<Level3 Level3Key="198" Level3Identifier="7.2.2" Level3Value="Checking and Recording Draft and Stability"/>
+		</Level2>
+		<Level2 Level2Key="199" Level2Identifier="7.3" Level2Value="Voyage Planning">
+			<Level3 Level3Key="200" Level3Identifier="7.3.1" Level3Value="General Considerations"/>
+			<Level3 Level3Key="201" Level3Identifier="7.3.2" Level3Value="Bridge Team Management"/>
+			<Level3 Level3Key="202" Level3Identifier="7.3.3" Level3Value="Bridge Look Out"/>
+			<Level3 Level3Key="203" Level3Identifier="7.3.4" Level3Value="Company Standing Orders - Bridge"/>
+			<Level3 Level3Key="204" Level3Identifier="7.3.5" Level3Value="Safe Speed"/>
+			<Level3 Level3Key="205" Level3Identifier="7.3.6" Level3Value="Use of Engines"/>
+			<Level3 Level3Key="206" Level3Identifier="7.3.7" Level3Value="Use of Whistle"/>
+			<Level3 Level3Key="207" Level3Identifier="7.3.8" Level3Value="Company Assistance"/>
+			<Level3 Level3Key="208" Level3Identifier="7.3.9" Level3Value="Maintaining Safe Under-Keel Clearance (UKC)"/>
+		</Level2>
+		<Level2 Level2Key="209" Level2Identifier="7.4" Level2Value="Log Books">
+			<Level3 Level3Key="210" Level3Identifier="7.4.1" Level3Value="Deck Log Book"/>
+			<Level3 Level3Key="211" Level3Identifier="7.4.2" Level3Value="Official Log Book"/>
+			<Level3 Level3Key="212" Level3Identifier="7.4.3" Level3Value="Master's Night Order Book"/>
+			<Level3 Level3Key="213" Level3Identifier="7.4.4" Level3Value="Bridge Bell Book"/>
+			<Level3 Level3Key="214" Level3Identifier="7.4.5" Level3Value="Bridge Records"/>
+		</Level2>
+		<Level2 Level2Key="215" Level2Identifier="7.5" Level2Value="Weather Forecasts and Routing"/>
+		<Level2 Level2Key="216" Level2Identifier="7.6" Level2Value="Search and Rescue, and Large Rescue at Sea Operations"/>
+		<Level2 Level2Key="217" Level2Identifier="7.7" Level2Value="GMDSS"/>
+		<Level2 Level2Key="218" Level2Identifier="7.8" Level2Value="SART"/>
+		<Level2 Level2Key="219" Level2Identifier="7.9" Level2Value="Passage Planning- Using Paper Charts (w/o ECS/ECDIS)">
+			<Level3 Level3Key="220" Level3Identifier="7.9.1" Level3Value="Responsibility for Passage Planning"/>
+			<Level3 Level3Key="221" Level3Identifier="7.9.2" Level3Value="Planning and Design"/>
+			<Level3 Level3Key="222" Level3Identifier="7.9.3" Level3Value="Berth to Berth Passages"/>
+			<Level3 Level3Key="223" Level3Identifier="7.9.4" Level3Value="Plan Phases"/>
+			<Level3 Level3Key="224" Level3Identifier="7.9.5" Level3Value="Course and Distance Tables"/>
+			<Level3 Level3Key="225" Level3Identifier="7.9.6" Level3Value="Execution and Monitoring"/>
+			<Level3 Level3Key="226" Level3Identifier="7.9.7" Level3Value="Sailing"/>
+			<Level3 Level3Key="227" Level3Identifier="7.9.8" Level3Value="GPS Navigator"/>
+			<Level3 Level3Key="228" Level3Identifier="7.9.9" Level3Value="Echo Sounder"/>
+			<Level3 Level3Key="229" Level3Identifier="7.9.10" Level3Value="Modifying the Plan"/>
+			<Level3 Level3Key="230" Level3Identifier="7.9.11" Level3Value="Ambiguities and Errors"/>
+			<Level3 Level3Key="231" Level3Identifier="7.9.12" Level3Value="Arrival"/>
+			<Level3 Level3Key="232" Level3Identifier="7.9.13" Level3Value="Passage Planning Forms and Log"/>
+		</Level2>
+		<Level2 Level2Key="233" Level2Identifier="7.10" Level2Value="Electronic Chart Display and Information Systems (ECDIS) / Electronic Chart Systems">
+			<Level3 Level3Key="234" Level3Identifier="7.10.1" Level3Value="Company Approval"/>
+			<Level3 Level3Key="235" Level3Identifier="7.10.2" Level3Value="Crew Qualifications"/>
+			<Level3 Level3Key="236" Level3Identifier="7.10.3" Level3Value="Passage Planning"/>
+			<Level3 Level3Key="237" Level3Identifier="7.10.4" Level3Value="Charts"/>
+			<Level3 Level3Key="238" Level3Identifier="7.10.5" Level3Value="Operation"/>
+			<Level3 Level3Key="239" Level3Identifier="7.10.6" Level3Value="Equipment Maintenance"/>
+			<Level3 Level3Key="240" Level3Identifier="7.10.7" Level3Value="Backup Installation"/>
+			<Level3 Level3Key="241" Level3Identifier="7.10.8" Level3Value="Equipment Failure"/>
+			<Level3 Level3Key="242" Level3Identifier="7.10.9" Level3Value="Paper Charts"/>
+			<Level3 Level3Key="243" Level3Identifier="7.10.10" Level3Value="Misuse and Abuse of Equipment"/>
+			<Level3 Level3Key="244" Level3Identifier="7.10.11" Level3Value="ECS"/>
+		</Level2>
+		<Level2 Level2Key="245" Level2Identifier="7.11" Level2Value="Bridge Equipment">
+			<Level3 Level3Key="246" Level3Identifier="7.11.1" Level3Value="Ship's Navigational and Position Fixing Equipment"/>
+			<Level3 Level3Key="247" Level3Identifier="7.11.2" Level3Value="Checking of Bridge Electronic and Other Equipment"/>
+			<Level3 Level3Key="248" Level3Identifier="7.11.3" Level3Value="Repairs and Maintenance to Bridge Equipment"/>
+			<Level3 Level3Key="249" Level3Identifier="7.11.4" Level3Value="Automatic Pilot"/>
+			<Level3 Level3Key="250" Level3Identifier="7.11.5" Level3Value="Hand Steering"/>
+			<Level3 Level3Key="251" Level3Identifier="7.11.6" Level3Value="Electronic Navigational Aids"/>
+			<Level3 Level3Key="252" Level3Identifier="7.11.7" Level3Value="Use of Radar">
+				<Level4 Level4Key="253" Level4Identifier="7.11.7.1" Level4Value="Checking"/>
+				<Level4 Level4Key="254" Level4Identifier="7.11.7.2" Level4Value="Interpretation"/>
+				<Level4 Level4Key="255" Level4Identifier="7.11.7.3" Level4Value="Plotting"/>
+			</Level3>
+			<Level3 Level3Key="256" Level3Identifier="7.11.8" Level3Value="Radar Watchkeeping"/>
+			<Level3 Level3Key="257" Level3Identifier="7.11.9" Level3Value="Automatic Radar Plotting Aid (ARPA)"/>
+			<Level3 Level3Key="258" Level3Identifier="7.11.10" Level3Value="Use of Parallel Indexing Techniques"/>
+			<Level3 Level3Key="259" Level3Identifier="7.11.11" Level3Value="Course Recorder"/>
+			<Level3 Level3Key="260" Level3Identifier="7.11.12" Level3Value="Echo Sounder"/>
+			<Level3 Level3Key="261" Level3Identifier="7.11.13" Level3Value="Speed Log"/>
+			<Level3 Level3Key="262" Level3Identifier="7.11.14" Level3Value="Signalling Equipment"/>
+			<Level3 Level3Key="263" Level3Identifier="7.11.15" Level3Value="Flags"/>
+			<Level3 Level3Key="264" Level3Identifier="7.11.16" Level3Value="Sextant, Binoculars and Chronometer"/>
+			<Level3 Level3Key="265" Level3Identifier="7.11.17" Level3Value="NAVTEX"/>
+			<Level3 Level3Key="266" Level3Identifier="7.11.18" Level3Value="Portable Radio Transceivers"/>
+			<Level3 Level3Key="267" Level3Identifier="7.11.19" Level3Value="Automatic Identification System (AIS)"/>
+			<Level3 Level3Key="268" Level3Identifier="7.11.20" Level3Value="Compasses ( Magnetic and Gyro)"/>
+			<Level3 Level3Key="269" Level3Identifier="7.11.21" Level3Value="Navigation Lights and Shapes"/>
+			<Level3 Level3Key="270" Level3Identifier="7.11.22" Level3Value="Checks Before Manoeuvring"/>
+			<Level3 Level3Key="271" Level3Identifier="7.11.23" Level3Value="Manoeuvring on Bridge Control"/>
+			<Level3 Level3Key="272" Level3Identifier="7.11.24" Level3Value="Black-Out Procedure"/>
+			<Level3 Level3Key="273" Level3Identifier="7.11.25" Level3Value="Security of Bridge Equipment in Port"/>
+		</Level2>
+		<Level2 Level2Key="274" Level2Identifier="7.12" Level2Value="Charts and Nautical Publications">
+			<Level3 Level3Key="275" Level3Identifier="7.12.1" Level3Value="Master's Responsibility"/>
+			<Level3 Level3Key="276" Level3Identifier="7.12.2" Level3Value="Upkeep of the Chart and Publication System"/>
+			<Level3 Level3Key="277" Level3Identifier="7.12.3" Level3Value="Correction of Charts"/>
+		</Level2>
+		<Level2 Level2Key="278" Level2Identifier="7.13" Level2Value="Harbour Stations"/>
+		<Level2 Level2Key="279" Level2Identifier="7.14" Level2Value="Use of Tugs"/>
+		<Level2 Level2Key="280" Level2Identifier="7.15" Level2Value="Pilotage"/>
+	</Level1>
+	<Level1 Level1Key="281" Level1Identifier="8" Level1Value="Ship At Sea">
+		<Level2 Level2Key="282" Level2Identifier="8.1" Level2Value="Watchkeeping Arrangements"/>
+		<Level2 Level2Key="283" Level2Identifier="8.2" Level2Value="Master's Standing Orders"/>
+		<Level2 Level2Key="284" Level2Identifier="8.3" Level2Value="Navigation Watch Keeping and Calling The Master">
+			<Level3 Level3Key="285" Level3Identifier="8.3.1" Level3Value="Risk of Collision"/>
+			<Level3 Level3Key="286" Level3Identifier="8.3.2" Level3Value="Standing Orders for the Officer of the Watch"/>
+			<Level3 Level3Key="287" Level3Identifier="8.3.3" Level3Value="Calling the Master"/>
+		</Level2>
+		<Level2 Level2Key="288" Level2Identifier="8.4" Level2Value="Engineering Watchkeeping and Unmanned Machinery Spaces Procedure"/>
+		<Level2 Level2Key="289" Level2Identifier="8.5" Level2Value="Navigation Operations">
+			<Level3 Level3Key="290" Level3Identifier="8.5.1" Level3Value="Navigation in Narrow Channels, Confined Waters and Traffic Separation Schemes"/>
+			<Level3 Level3Key="291" Level3Identifier="8.5.2" Level3Value="Navigation in Restricted Visibility"/>
+			<Level3 Level3Key="292" Level3Identifier="8.5.3" Level3Value="Navigation in Coastal Waters"/>
+			<Level3 Level3Key="293" Level3Identifier="8.5.4" Level3Value="Navigation in Ice"/>
+			<Level3 Level3Key="294" Level3Identifier="8.5.5" Level3Value="Navigation in Heavy Weather">
+				<Level4 Level4Key="295" Level4Identifier="8.5.5.1" Level4Value="Actions Prior to Heavy Weather"/>
+				<Level4 Level4Key="296" Level4Identifier="8.5.5.2" Level4Value="Precautions to be Taken During Deck Operations"/>
+				<Level4 Level4Key="297" Level4Identifier="8.5.5.3" Level4Value="Action by the Officer of the Watch During Heavy Weather"/>
+			</Level3>
+			<Level3 Level3Key="298" Level3Identifier="8.5.6" Level3Value="Navigation in the Dover Strait and Singapore Strait"/>
+			<Level3 Level3Key="299" Level3Identifier="8.5.7" Level3Value="Navigation in Traffic Separation Schemes"/>
+			<Level3 Level3Key="300" Level3Identifier="8.5.8" Level3Value="Navigation in close Proximity of Offshore Installations"/>
+			<Level3 Level3Key="301" Level3Identifier="8.5.9" Level3Value="Ship at Anchor">
+				<Level4 Level4Key="302" Level4Identifier="8.5.9.1" Level4Value="Anchoring"/>
+				<Level4 Level4Key="303" Level4Identifier="8.5.9.2" Level4Value="Preparation for Anchoring"/>
+				<Level4 Level4Key="304" Level4Identifier="8.5.9.3" Level4Value="Securing an Anchor"/>
+				<Level4 Level4Key="305" Level4Identifier="8.5.9.4" Level4Value="Chain Lockers"/>
+				<Level4 Level4Key="306" Level4Identifier="8.5.9.5" Level4Value="Equipment Limitations"/>
+				<Level4 Level4Key="307" Level4Identifier="8.5.9.6" Level4Value="Release of Anchor Cable Bitter End"/>
+			</Level3>
+			<Level3 Level3Key="308" Level3Identifier="8.5.10" Level3Value="Man Overboard">
+				<Level4 Level4Key="309" Level4Identifier="8.5.10.1" Level4Value="Man Overboard Action List"/>
+			</Level3>
+		</Level2>
+		<Level2 Level2Key="310" Level2Identifier="8.6" Level2Value="Proper Use of VHF Channels"/>
+		<Level2 Level2Key="311" Level2Identifier="8.7" Level2Value="Navigational Warnings"/>
+		<Level2 Level2Key="312" Level2Identifier="8.8" Level2Value="Security and Fire Patrols"/>
+		<Level2 Level2Key="313" Level2Identifier="8.9" Level2Value="Fire Prevention">
+			<Level3 Level3Key="314" Level3Identifier="8.9.1" Level3Value="Smoking"/>
+			<Level3 Level3Key="315" Level3Identifier="8.9.2" Level3Value="Hot Work"/>
+			<Level3 Level3Key="316" Level3Identifier="8.9.3" Level3Value="Galleys"/>
+			<Level3 Level3Key="317" Level3Identifier="8.9.4" Level3Value="Laundry / Drying Rooms"/>
+			<Level3 Level3Key="318" Level3Identifier="8.9.5" Level3Value="Battery Chargers"/>
+			<Level3 Level3Key="319" Level3Identifier="8.9.6" Level3Value="Machinery Spaces"/>
+			<Level3 Level3Key="320" Level3Identifier="8.9.7" Level3Value="Cargo"/>
+		</Level2>
+	</Level1>
+	<Level1 Level1Key="321" Level1Identifier="9" Level1Value="Preparing for Arrival in Port">
+		<Level2 Level2Key="322" Level2Identifier="9.1" Level2Value="Equipment Testing">
+			<Level3 Level3Key="323" Level3Identifier="9.1.1" Level3Value="Bridge and Engine Pre-Manoeuvring Arrival Checklists"/>
+			<Level3 Level3Key="324" Level3Identifier="9.1.2" Level3Value="Stations for Arrival"/>
+			<Level3 Level3Key="325" Level3Identifier="9.1.3" Level3Value="Pre-Arrival Checks for US Ports"/>
+		</Level2>
+		<Level2 Level2Key="326" Level2Identifier="9.2" Level2Value="Harbour Stations"/>
+		<Level2 Level2Key="327" Level2Identifier="9.3" Level2Value="Pilotage">
+			<Level3 Level3Key="328" Level3Identifier="9.3.1" Level3Value="Pilot Boarding Arrangements"/>
+			<Level3 Level3Key="329" Level3Identifier="9.3.2" Level3Value="Navigation with Pilot Embarked"/>
+		</Level2>
+		<Level2 Level2Key="330" Level2Identifier="9.4" Level2Value="Use of Tugs"/>
+		<Level2 Level2Key="331" Level2Identifier="9.5" Level2Value="Mooring"/>
+		<Level2 Level2Key="332" Level2Identifier="9.6" Level2Value="Hold Preparation During Voyages in Ballast"/>
+		<Level2 Level2Key="333" Level2Identifier="9.7" Level2Value="Procedures for Change-Over from Regular to Low Sulphur Fuel Oil"/>
+	</Level1>
+	<Level1 Level1Key="334" Level1Identifier="10" Level1Value="Management of Waste Oil, Garbage, Ballast Water, Provision of Food and Fresh Water">
+		<Level2 Level2Key="335" Level2Identifier="10.1" Level2Value="Disposal of Waste Oil"/>
+		<Level2 Level2Key="336" Level2Identifier="10.2" Level2Value="Disposal of Garbage"/>
+		<Level2 Level2Key="337" Level2Identifier="10.3" Level2Value="Handling of Ballast Water"/>
+		<Level2 Level2Key="338" Level2Identifier="10.4" Level2Value="Management for the Provision of Food and Fresh Water"/>
+	</Level1>
+	<Level1 Level1Key="339" Level1Identifier="11" Level1Value="Shipboard Contingency Plans">
+		<Level2 Level2Key="340" Level2Identifier="11.1" Level2Value="Emergency Procedures">
+			<Level3 Level3Key="341" Level3Identifier="11.1.1" Level3Value="Allocation of Duties to Personnel"/>
+			<Level3 Level3Key="342" Level3Identifier="11.1.2" Level3Value="Ship's Specific Muster Lists and Contingency Plans."/>
+			<Level3 Level3Key="343" Level3Identifier="11.1.3" Level3Value="Towage / Salvage"/>
+		</Level2>
+		<Level2 Level2Key="344" Level2Identifier="11.2" Level2Value="Reporting"/>
+		<Level2 Level2Key="345" Level2Identifier="11.3" Level2Value="Drills"/>
+		<Level2 Level2Key="346" Level2Identifier="11.4" Level2Value="Identified Contingencies/Emergencies">
+			<Level3 Level3Key="347" Level3Identifier="11.4.1" Level3Value="Abandon Ship"/>
+			<Level3 Level3Key="348" Level3Identifier="11.4.2" Level3Value="Fire in Accommodation"/>
+			<Level3 Level3Key="349" Level3Identifier="11.4.3" Level3Value="Fire in Machinery Space"/>
+			<Level3 Level3Key="350" Level3Identifier="11.4.4" Level3Value="Fire in Cargo Holds"/>
+			<Level3 Level3Key="351" Level3Identifier="11.4.5" Level3Value="Fire in Storage Space"/>
+			<Level3 Level3Key="352" Level3Identifier="11.4.6" Level3Value="Fires Anywhere On board - In Port"/>
+			<Level3 Level3Key="353" Level3Identifier="11.4.7" Level3Value="Collision With Another Ship or Object"/>
+			<Level3 Level3Key="354" Level3Identifier="11.4.8" Level3Value="Grounding / Stranding"/>
+			<Level3 Level3Key="355" Level3Identifier="11.4.9" Level3Value="Flooding"/>
+			<Level3 Level3Key="356" Level3Identifier="11.4.10" Level3Value="Main Engine Failure"/>
+			<Level3 Level3Key="357" Level3Identifier="11.4.11" Level3Value="Blackout and Recovery from Bridge Blackout"/>
+			<Level3 Level3Key="358" Level3Identifier="11.4.12" Level3Value="Steering Gear Failure"/>
+			<Level3 Level3Key="359" Level3Identifier="11.4.13" Level3Value="Man Overboard (Immediate Discovery) and Recovery of Persons from the Water"/>
+			<Level3 Level3Key="360" Level3Identifier="11.4.14" Level3Value="Man Overboard (Unknown Time / Position) and Recovery of Persons from the Water"/>
+			<Level3 Level3Key="361" Level3Identifier="11.4.15" Level3Value="Medical Emergencies"/>
+			<Level3 Level3Key="362" Level3Identifier="11.4.16" Level3Value="Helicopter Operations"/>
+			<Level3 Level3Key="363" Level3Identifier="11.4.17" Level3Value="Oil Spill and Pollution"/>
+			<Level3 Level3Key="364" Level3Identifier="11.4.18" Level3Value="Cargo Shifting"/>
+			<Level3 Level3Key="365" Level3Identifier="11.4.19" Level3Value="Hazardous / Dangerous Cargo Threat"/>
+			<Level3 Level3Key="366" Level3Identifier="11.4.20" Level3Value="Heavy Weather Damage"/>
+			<Level3 Level3Key="367" Level3Identifier="11.4.21" Level3Value="Enclosed Space Entry and Personnel Rescue"/>
+			<Level3 Level3Key="368" Level3Identifier="11.4.22" Level3Value="Personnel Rescue from Accommodation and / or Work Places"/>
+		</Level2>
+	</Level1>
+	<Level1 Level1Key="369" Level1Identifier="12" Level1Value="Emergency Response and Contingency Planning">
+		<Level2 Level2Key="370" Level2Identifier="12.1" Level2Value="Purpose"/>
+		<Level2 Level2Key="371" Level2Identifier="12.2" Level2Value="Contingency Planning"/>
+		<Level2 Level2Key="372" Level2Identifier="12.3" Level2Value="Company Emergency Response Team - Shore-Based"/>
+		<Level2 Level2Key="373" Level2Identifier="12.4" Level2Value="Media Response"/>
+		<Level2 Level2Key="374" Level2Identifier="12.5" Level2Value="Company Emergency Response Team (ERT) Members - Duties and Responsibilities"/>
+		<Level2 Level2Key="375" Level2Identifier="12.6" Level2Value="Emergency Response Team Procedures"/>
+		<Level2 Level2Key="376" Level2Identifier="12.7" Level2Value="Emergency Response Procedure In Case of Fatalities, Casualties, Serious Injuries"/>
+		<Level2 Level2Key="377" Level2Identifier="12.8" Level2Value="Appendix A - ERT Contact Names and Numbers"/>
+	</Level1>
+	<Level1 Level1Key="378" Level1Identifier="13" Level1Value="Reporting and Analysis of Non-Conformities, Accidents and Near-Miss / Hazardous Occurrences">
+		<Level2 Level2Key="379" Level2Identifier="13.1" Level2Value="Definitions">
+			<Level3 Level3Key="380" Level3Identifier="13.1.1" Level3Value="Non-Conformity and Observation"/>
+			<Level3 Level3Key="381" Level3Identifier="13.1.2" Level3Value="Hazardous Occurrence / Near-Miss"/>
+			<Level3 Level3Key="382" Level3Identifier="13.1.3" Level3Value="Accident / Incident"/>
+		</Level2>
+		<Level2 Level2Key="383" Level2Identifier="13.2" Level2Value="Responsibilities">
+			<Level3 Level3Key="384" Level3Identifier="13.2.1" Level3Value="Corrective Action"/>
+			<Level3 Level3Key="385" Level3Identifier="13.2.2" Level3Value="Preventative Action"/>
+		</Level2>
+		<Level2 Level2Key="386" Level2Identifier="13.3" Level2Value="Accidents and Hazardous Occurrences / Near-Miss Reporting"/>
+	</Level1>
+	<Level1 Level1Key="387" Level1Identifier="14" Level1Value="Company Management Procedures, Reviews and Audits">
+		<Level2 Level2Key="388" Level2Identifier="14.1" Level2Value="Plans for Shipboard Operations"/>
+		<Level2 Level2Key="389" Level2Identifier="14.2" Level2Value="Company Safety Management System Review"/>
+		<Level2 Level2Key="390" Level2Identifier="14.3" Level2Value="Master's Shipboard Management Review"/>
+		<Level2 Level2Key="391" Level2Identifier="14.4" Level2Value="Shipboard Safety Committee, Meeting and Minutes">
+			<Level3 Level3Key="392" Level3Identifier="14.4.1" Level3Value="Safety Committee"/>
+			<Level3 Level3Key="393" Level3Identifier="14.4.2" Level3Value="Safety Committee Meetings"/>
+			<Level3 Level3Key="394" Level3Identifier="14.4.3" Level3Value="Election of Crew Safety Representative(s)"/>
+			<Level3 Level3Key="395" Level3Identifier="14.4.4" Level3Value="Responsibilities of the Crew Safety Representative"/>
+		</Level2>
+		<Level2 Level2Key="396" Level2Identifier="14.5" Level2Value="Internal Audits"/>
+		<Level2 Level2Key="397" Level2Identifier="14.6" Level2Value="Deficiencies Related to Possible SMS Failure Issued by Class Surveyors"/>
+	</Level1>
+	<Level1 Level1Key="398" Level1Identifier="15" Level1Value="Company Documentation">
+		<Level2 Level2Key="399" Level2Identifier="15.1" Level2Value="Mail Delivery To / From the Ship"/>
+		<Level2 Level2Key="400" Level2Identifier="15.2" Level2Value="Standard Filing System"/>
+		<Level2 Level2Key="401" Level2Identifier="15.3" Level2Value="Internal Documents and Publications"/>
+		<Level2 Level2Key="402" Level2Identifier="15.4" Level2Value="Amendments to Procedures / Instructions"/>
+		<Level2 Level2Key="403" Level2Identifier="15.5" Level2Value="External Publications and Documents"/>
+		<Level2 Level2Key="404" Level2Identifier="15.6" Level2Value="Company Management System Log Books, Files, Forms and Checklists - Retention and Returns">
+			<Level3 Level3Key="405" Level3Identifier="15.6.1" Level3Value="Company Management System Log Books"/>
+			<Level3 Level3Key="406" Level3Identifier="15.6.2" Level3Value="Company Management System Files"/>
+			<Level3 Level3Key="407" Level3Identifier="15.6.3" Level3Value="Forms and Checklists"/>
+		</Level2>
+	</Level1>
+</SMSReferences>

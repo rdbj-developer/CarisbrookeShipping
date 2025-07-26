@@ -1,0 +1,31 @@
+﻿using System;
+
+namespace AWS_PO_UpdateService.Modals
+{
+    public class CodaPurchaseOrderModal
+    {
+        public string CmpCode { get; set; }
+        public string DocCode { get; set; }
+        public string DocNum { get; set; }
+        public Nullable<System.DateTime> ModDate { get; set; }
+        public string El1 { get; set; }
+        public Nullable<decimal> ValueDoc { get; set; }
+        public string Descr { get; set; }
+        public string Invoice { get; set; }
+        public string SiteName { get; set; }
+        public string PONO { get; set; }
+        public string Vendor_Addr_Name { get; set; }
+        public string Account_Code { get; set; }
+        public string Account_Descr { get; set; }
+        public Nullable<System.DateTime> PORecVDate { get; set; }
+        public Nullable<double> POTotal { get; set; }
+        public Nullable<double> POExchRate { get; set; }
+        public Nullable<double> POTotal_Base { get; set; }
+        public Nullable<System.DateTime> Forwarder_Recvd_Date { get; set; }
+        public string InvoiceNo { get; set; }
+        public string Dept_Code { get; set; }
+        public string Curr_Code { get; set; }
+        public string Equip_Name { get; set; }
+        public Nullable<System.DateTime> PODate { get; set; }
+    }
+}

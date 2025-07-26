@@ -1,0 +1,233 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<style type="text/css">
+    .doc-title:hover {
+        cursor: pointer;
+        color: black;
+    }
+
+    .box {
+        margin-bottom: 1px !important;
+    }
+
+    .DocHeader {
+        margin: 0px;
+        font-size: 18px;
+    }
+
+        .DocHeader a {
+            color: #444;
+        }
+
+            .DocHeader a:hover {
+                background: none !important;
+            }
+
+    .box-header:hover {
+        background-color: #3333;
+    }
+
+    .doc-title-a {
+        font-size: 20px;
+    }
+</style>
+
+<script src="~/Scripts/jquery/jquery.min.js"></script>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12 lblHeaderText">
+            <h4 id="lblISM">
+                Select Folder
+            </h4>
+        </div>
+    </div>
+    <div class="row uploadDocDiv" style="display:none;margin-top:10px;">
+        <div class="col-md-12">
+            @using (Html.BeginForm("", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="row">
+                    <input type="hidden" id="hdnDocPath" name="hdnDocPath" value="" />
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="txtFolderName" />
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-primary">Create new folder</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-10">
+                            <div class="input-group">
+                                <label class="input-group-btn">
+                                    <span class="btn btn-primary">
+                                        Choose New Document&hellip; <input type="file" name="postedFiles" multiple="multiple" style="display: none;">
+                                    </span>
+                                </label>
+                                <input type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary" style="float:right;">Upload</button>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 newcontent">
+
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    var AllDirectories;
+    var FolderPathArray = [];
+    function GetAllDirectories() {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("GetAllRepositories", "Repository")',
+            async: false,
+            success: function (res) {
+                if (res != null && res.length > 0) {
+                    AllDirectories = res;
+                    $(".newcontent").html("");
+                    var html = '';
+                    html += '<div class="box box-solid collapsed-box">';
+                    html += '<div class="box-header with-border"><i class="fa fa-folder-o"></i> <h3 data-DocumentID=00000000-0000-0000-0000-000000000000' +
+                               ' data-ParentID=00000000-0000-0000-0000-000000000000' +
+                               ' class="box-title doc-title" data-widget="collapse">Repository' +
+                               '</h3></div>';
+                    html += '</div>';
+                    $(".newcontent").append(html);
+                    $('.doc-title').click(function (e) {
+                        try {
+                            var DocumentID = $(this).attr("data-DocumentID");
+                            FolderPathArray.push({ "Name": "Repository", "DocumentID": "00000000-0000-0000-0000-000000000000", "ParentID": "00000000-0000-0000-0000-000000000000" })
+                            CreateFolderPathLink();
+                            $(".uploadDocDiv").show();
+                            GetSubDirectories(DocumentID);
+                        }
+                        catch (e) { }
+                    });
+                    $('.doc-title-a').click(function (e) {
+                        try {
+                            var DocumentID = $(this).attr("data-DocumentID");
+                            GetSubDirectories(DocumentID);
+                        }
+                        catch (e) { }
+                    });
+                }
+            },
+            error: function () {
+            }
+        });
+    }
+
+    function GetIcon(Type) {
+        var iconfile = "<i class='fa fa-folder-o'></i>";
+        if (Type == "File")
+            iconfile = "<i class='fa fa-file-text-o'></i>"
+        return iconfile;
+    }
+
+    function CreateDirs(MainDirectories) {
+        $(".newcontent").html("");
+        var html = '';
+        for (x in MainDirectories) {
+            var iconfile = GetIcon(MainDirectories[x].Type);
+            html += '<div class="box box-solid collapsed-box">';
+            html += '<div class="box-header with-border">' + iconfile + '<h3 data-DocumentID=' + MainDirectories[x].DocumentID +
+                       ' data-ParentID=' + MainDirectories[x].ParentID +
+                       ' class="box-title doc-title" data-widget="collapse">' + MainDirectories[x].Name +
+                       '</h3></div>';
+            html += '</div>';
+        }
+        $(".newcontent").append(html);
+        $('.doc-title').click(function (e) {
+            try {
+                var Name = $(this).text();
+                var DocumentID = $(this).attr("data-DocumentID");
+                var ParentID = $(this).attr("data-ParentID");
+                SetHeaderLabel(Name, DocumentID, ParentID);
+                GetSubDirectories(DocumentID);
+            }
+            catch (e) { }
+        });
+    }
+
+    function GetSubDirectories(DocumentID) {
+        var Categories = AllDirectories.filter(function (x) {
+            return x.ParentID == DocumentID;
+        })
+        CreateDirs(Categories);
+    }
+
+    function SetHeaderLabel(Name, DocumentID, ParentID) {
+        FolderPathArray.push({ "Name": Name, "DocumentID": DocumentID, "ParentID": ParentID })
+        CreateFolderPathLink();
+    }
+
+    function CreateFolderPathLink() {
+        var html = "";
+        for (x in FolderPathArray) {
+            if (x == 0) {
+                html = "<a data-DocumentID='" + FolderPathArray[x].DocumentID + "' data-ParentID='" + FolderPathArray[x].ParentID + "' class='doc-title-a' href=#>" + FolderPathArray[x].Name + "</a>";
+            }
+            else {
+                html = html + " > " + "<a data-DocumentID='" + FolderPathArray[x].DocumentID + "' data-ParentID='" + FolderPathArray[x].ParentID + "' class='doc-title-a' href=#>" + FolderPathArray[x].Name + "</a>";
+            }
+        }
+
+        $(".lblHeaderText").html("");
+        $(".lblHeaderText").html(html);
+
+        $('.doc-title-a').click(function (e) {
+            try {
+                var Name = $(this).text();
+                var DocumentID = $(this).attr("data-DocumentID");
+                removeItemsByName(FolderPathArray, Name);
+                GetSubDirectories(DocumentID);
+                CreateFolderPathLink();
+            }
+            catch (e) { }
+        });
+        CreateRepositoryPath();
+    }
+
+    function removeItemsByName(arr, Name) {
+        var index;
+        for (x in FolderPathArray) {
+            if (FolderPathArray[x].Name == Name) {
+                index = parseInt(x);
+            }
+        }
+        FolderPathArray.splice(index + 1, FolderPathArray.length - 1);
+    }
+
+    function CreateRepositoryPath() {
+        var path;
+        for (x in FolderPathArray) {
+            if (x == 0) {
+                path = FolderPathArray[x].Name + "\\";
+            }
+            else {
+                path = path + FolderPathArray[x].Name + "\\";
+            }
+        }
+        $("#hdnDocPath").val(path);
+    }
+
+    $(document).ready(function () {
+        GetAllDirectories();
+        var height = $(".content-wrapper").height();
+        $(".newcontent").height(height - 150);
+    });
+</script>
+

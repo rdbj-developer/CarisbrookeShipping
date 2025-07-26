@@ -1,0 +1,580 @@
+﻿@using Newtonsoft.Json;
+@{
+    var GIRPhotographs = JsonConvert.SerializeObject(Model.GIRPhotographs);
+}
+<style>
+    .ImageSection {
+        margin-top: 20px;
+    }
+
+    .imagelist {
+        border: 1px solid black;
+        border-radius: 5px; /* RDBJ 02/07/2022 */
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+
+    div.fill {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        height: 150px;
+        /* RDBJ 02/07/2022 */
+        border-radius: 5px;
+        padding: 0px;
+        /* End RDBJ 02/07/2022 */
+    }
+
+        div.fill img {
+            flex-shrink: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+    .Imgtitle {
+        padding-top: 50px;
+    }
+
+    #close {
+        float: right;
+        /* RDBJ 02/07/2022 commented */
+        /*display: inline-block;
+        padding: 2px 5px;
+        background: #ccc;*/
+    }
+
+    /* RDBJ 02/07/2022 */
+    .imgClass {
+        /*border: 1px solid #ddd;*/
+        border-radius: 4px;
+        padding: 5px;
+        object-fit: cover;
+    }
+
+        .imgClass:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+        }
+
+    .box {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 5px;
+    }
+
+    .item {
+        width: 33.33%;
+        position: relative;
+        padding: 5px;
+        display: block;
+        border: 1px solid #ddd;
+    }
+
+    .img {
+        opacity: 1;
+        display: block;
+        width: 100%;
+        height: 250px;
+        transition: .5s ease;
+        backface-visibility: hidden;
+    }
+
+    .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .item:hover .img {
+        opacity: 0.5;
+    }
+
+    .item:hover .middle {
+        opacity: 1;
+    }
+
+    .info-box {
+        cursor: pointer;
+    }
+
+    input::-webkit-file-upload-button {
+        position: absolute;
+        padding: 10px 20px;
+        background-color: #3c8dbc;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+        transition: 100ms ease-out;
+        cursor: pointer;
+    }
+
+        input::-webkit-file-upload-button:hover {
+            background-color: #bd6e1f;
+            box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12)
+        }
+    /* End RDBJ 02/07/2022 */
+</style>
+<script type="text/javascript">
+    var GIRPhotographsArray = [];
+    $(document).ready(function () {
+        var GIRPhotographsList = '@Html.Raw(GIRPhotographs)';
+        var _strFilePath = '../Images/';    // JSL 11/12/2022
+        if (GIRPhotographsList != "") {
+            var jObj = JSON.parse(GIRPhotographsList);
+            var len = jObj.length;
+            for (x in jObj) {
+                var imgObj = { PhotographsID: 0, FileName: "", ImageCaption: "", ImagePath: "" };
+                imgObj.PhotographsID = parseInt(x);
+                imgObj.FileName = jObj[x].FileName;
+                imgObj.ImageCaption = jObj[x].ImageCaption;
+                // JSL 11/12/2022
+                if (jObj[x].ImagePath.includes("data:")) {
+                    imgObj.ImagePath = jObj[x].ImagePath;
+                }
+                else {
+                    imgObj.ImagePath = _strFilePath + jObj[x].ImagePath;
+                }
+                // End JSL 11/12/2022
+
+                loadPhotos(imgObj);
+                GIRPhotographsArray.push(imgObj);
+            }
+            $("#GIRPhotographs").val(len);  // RDBJ 02/07/2022
+        }
+
+        // RDBJ 02/06/2022 commented below old code
+        /*
+        $("#files").on("change", function (e) {
+            if (typeof (FileReader) != "undefined") {
+                var image_holder = $("#img-holder");
+                var reader = new FileReader();
+                var count = GIRPhotographsArray.length;
+                var fileName = e.target.files[0].name;
+                var imgObj = { PhotographsID: count, FileName: fileName, ImageCaption: "", ImagePath: "" };
+                reader.onload = function (e) {
+                    var size = document.getElementById('files').files[0].size;
+                    //RDBJ 10/30/2021 validation for file size and wrapped in if
+                    if (size > 2000000) {
+                        alert("File must be smaller than 2.0 MB");
+                        return;
+                    }
+                    imgObj.ImagePath = e.target.result;
+                    loadPhotos(imgObj);
+                    GIRPhotographsArray.push(imgObj);
+                    setChnageValue(false, false, false, false, true);
+                    GIRAutoSave();
+                }
+                image_holder.show();
+                reader.readAsDataURL($(this)[0].files[0]);
+            } else {
+                alert("This browser does not support FileReader.");
+            }
+        });
+        */
+        // End RDBJ 02/06/2022 commented below old code
+
+        // JSL 12/03/2022
+        BindLightGallery();
+        // End JSL 12/03/2022
+    });
+
+    function removeImages(ctr, ID) {
+        removeItemsById(GIRPhotographsArray, ID);
+        ReloadAllPhotos();
+        setChnageValue(false, false, false, false, true);
+        GIRAutoSave();
+    }
+    function PhotosChange(ctr, ID) {
+        var txtval = $(ctr).val();
+        for (x in GIRPhotographsArray) {
+            if (GIRPhotographsArray[x].PhotographsID == ID) {
+                GIRPhotographsArray[x].ImageCaption = txtval;
+            }
+        }
+        setChnageValue(false, false, false, false, true);
+        GIRAutoSave();
+    }
+    function ReloadAllPhotos() {
+        if (GIRPhotographsArray.length >= 0) {  // RDBJ 02/07/2022 set >=
+            $("#img-holder").html("");
+            var i = 0;
+            for (x in GIRPhotographsArray) {
+                GIRPhotographsArray[x].PhotographsID = x;
+                loadPhotos(GIRPhotographsArray[x]);
+                i++;
+            }
+        }
+    }
+    function loadPhotos(jObj) {
+        // RDBJ 02/07/2022 commented old design code
+        /*
+        var html = '<div class="row imagelist">' +
+                   '<div class="col-sm-3 fill"> <img style="width: 100%; object-fit: cover;" src="' + jObj.ImagePath + '" /></div>' +
+                   '<span id="close" class=" btn btn-danger aviodPrint" onclick="removeImages(this,' + jObj.PhotographsID + ')">x</span>' + // RDBJ 01/07/2022 added class aviodPrint
+                   '<div class="col-sm-9 Imgtitle">' +
+                   '<div class="form-group">' +
+                   '<input name="GIRPhotographs[' + jObj.PhotographsID + '].FileName" value="' + jObj.FileName + '" type="hidden" class="col-md-12 form-control" />' +
+                   '<input name="GIRPhotographs[' + jObj.PhotographsID + '].ImageCaption" value="' + jObj.ImageCaption + '" type="text" class="col-md-4 form-control GIRData aviodPrint" onchange="PhotosChange(this,' + jObj.PhotographsID + ')" />' + // RDBJ 01/07/2022 added class aviodPrint
+                   '<input name="GIRPhotographs[' + jObj.PhotographsID + '].ImagePath" value="' + jObj.ImagePath + '" type="hidden" class="col-md-12 form-control" />' +
+                   '</div>' +
+                   '</div>' +
+            '</div>';
+        */
+        // End RDBJ 02/07/2022 commented old design code
+
+        // RDBJ 02/07/2022
+        var html = '<div class="item">' +
+            '<input name="GIRPhotographs[' + jObj.PhotographsID + '].FileName" value="' + jObj.FileName + '" type="hidden" class="col-md-12 form-control" />' +
+            //'<input name="GIRPhotographs[' + jObj.PhotographsID + '].ImagePath" value="' + jObj.ImagePath + '" type="hidden" class="col-md-12 form-control" />' +    // JSL 11/12/2022 commented
+            '<input name="GIRPhotographs[' + jObj.PhotographsID + '].ImagePath" value="' + jObj.ImagePath.replace(/..\/Images\//g, "") + '" type="hidden" class="col-md-12 form-control" />' +  // JSL 11/12/2022
+            //'<a download>' +    // JSL 12/03/2022 commented
+            '<a class="itemImage" data-src="' + jObj.ImagePath + '" data-sub-html="' + jObj.ImageCaption + '" href="' + jObj.ImagePath + '" download>' +    // JSL 12/03/2022
+            '<img class="imgClass img" src="' + jObj.ImagePath + '" alt="' + jObj.FileName + '" />' +
+            '</a>' +
+            '<div class="middle">' +
+            '<span class="btn btn-danger btn-sm aviodPrint" onclick="removeImages(this,' + jObj.PhotographsID + ')">Delete</span>' +
+            '</div>' +
+            '<div><input name="GIRPhotographs[' + jObj.PhotographsID + '].ImageCaption" value="' + jObj.ImageCaption + '" type="text" class="col-md-4 form-control GIRData aviodPrint ImageCaption" onchange="PhotosChange(this,' + jObj.PhotographsID + ')" /></div>';
+        // End RDBJ 02/07/2022
+
+        $("#img-holder").append(html);
+    }
+    function removeItemsById(arr, id) {
+        var i = GIRPhotographsArray.length; // RDBJ 03/12/2022 set GIRPhotographsArray rather than arr
+        if (i) {   // (not 0)
+            while (i) {
+                var cur = GIRPhotographsArray[i - 1];   // RDBJ 03/12/2022 set GIRPhotographsArray rather than arr
+                if (parseInt(cur.PhotographsID) == parseInt(id)) {
+                    GIRPhotographsArray.splice(i - 1, 1);   // RDBJ 03/12/2022 set GIRPhotographsArray rather than arr
+                }
+                i--;
+            }
+        }
+    }
+
+    // RDBJ 02/06/2022
+    function GIRfileUpload(ctr) {
+        if (typeof (FileReader) != "undefined") {
+            var image_holder = $("#img-holder");
+            var notAllowType = "";
+            var fileistoobig = "";
+
+            // RDBJ 02/07/2022
+            var MembersCount = parseInt($("#GIRPhotographs").val());
+            for (var i = 0; i < ctr.files.length; i++) {
+                if (//ctr.files[i].type.indexOf('pdf') >= 0 ||
+                    ctr.files[i].type.indexOf('image') >= 0
+                    //ctr.files[i].type.indexOf('document') >= 0 ||
+                    //ctr.files[i].type.indexOf('xml') >= 0 ||
+                    //ctr.files[i].type.indexOf('sheet') >= 0
+                ) {
+                    if (ctr.files[i].size > 2000000) {
+                        fileistoobig = fileistoobig + " [" + ctr.files[i].name + "] ";
+                    }
+                    else {
+                        setupAndLoadImageForPreview(ctr.files[i], MembersCount);
+                        MembersCount = MembersCount + 1;
+                        $("#GIRPhotographs").val(MembersCount);
+                    }
+                }
+                else {
+                    notAllowType = notAllowType + " [" + ctr.files[i].name + "] ";
+                }
+            }
+            // End RDBJ 02/07/2022
+
+            if (notAllowType != "") {
+                $("#modal-default-Error p").text(notAllowType + " files types are not supported")
+                $('#modal-default-Error').modal('show');
+            }
+            else if (fileistoobig != "") {
+                $("#modal-default-Error p").text(fileistoobig + " File must be smaller than 2.0 MB")
+                $('#modal-default-Error').modal('show');
+            }
+            image_holder.show();
+
+            setChnageValue(false, false, false, false, true);
+            GIRAutoSave();
+        } else {
+            alert("This browser does not support FileReader.");
+        }
+    }
+    // End RDBJ 02/06/2022
+
+    // RDBJ 02/07/2022
+    function setupAndLoadImageForPreview(file, MembersCount
+        , FileName  // RDBJ2 03/12/2022
+        , FileContentBase64 // RDBJ2 03/12/2022
+        , IsFileOrPhotoUploaded = false // RDBJ2 03/12/2022
+    ) {
+        // RDBJ2 03/12/2022 wrapped in if
+        if (!IsFileOrPhotoUploaded) {
+            var name = file.name;
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var picFile = e.target;
+                // RDBJ 02/07/2022 commented old design code
+                /*
+                var html = '<div class="row imagelist">' +
+                    '<div class="col-sm-3 fill" ><input type="hidden" name="GIRPhotographs[' + MembersCount + '].ImagePath" value="' + picFile.result + '" /> <img style="width: 100%; object-fit: cover;"  src="' + picFile.result + '" /></div >' +
+                    '<span id="close" class="btn btn-danger aviodPrint" onclick="removeImages(this)">x</span>' +
+                    '<div class="col-sm-9 Imgtitle">' +
+                    '<div class="form-group">' +
+                    '<input name="GIRPhotographs[' + MembersCount + '].FileName" value="' + name + '" type="hidden" class="col-md-12 form-control" placeholder="Enter a caption for the picture" />' +
+                    '<input name="GIRPhotographs[' + MembersCount + '].ImageCaption" onchange="PhotosChange()" type="text" class="col-md-4 form-control aviodPrint" placeholder="Enter a caption for the picture" />' +
+                    '</div>' +
+                    '</div>' +
+                    '</div >';
+                */
+                // End RDBJ 02/07/2022 commented old design code
+
+                // RDBJ 02/07/2022
+                var html = '<div class="item">' +
+                    '<input type="hidden" name="GIRPhotographs[' + MembersCount + '].ImagePath" value="' + picFile.result + '" />' +
+                    '<input type="hidden" name="GIRPhotographs[' + MembersCount + '].FileName" value="' + name + '" />' +
+                    '<a download>' +
+                    '<img class="imgClass img" src="' + picFile.result + '" alt="' + name + '" />' +
+                    '</a>' +
+                    '<div class="middle">' +
+                    '<span class="btn btn-danger btn-sm aviodPrint" onclick="removeImages(this, ' + MembersCount + ')">Delete</span>' +
+                    '</div>' +
+                    '<div><input  type="text" name="GIRPhotographs[' + MembersCount + '].ImageCaption" class="col-md-4 form-control GIRData aviodPrint" onchange="PhotosChange()" placeholder="Enter a caption for the picture" /></div>';
+                // End RDBJ 02/07/2022
+
+                $("#img-holder").append(html);
+                setChnageValue(false, false, false, false, true);
+                GIRAutoSave();
+            }
+            reader.readAsDataURL(file);
+        }
+        // RDBJ2 03/12/2022
+        else {
+            var html = '<div class="item">' +
+                //'<input type="hidden" name="GIRPhotographs[' + MembersCount + '].ImagePath" value="' + FileContentBase64 + '" />' + // JSL 11/12/2022 commented
+                '<input type="hidden" name="GIRPhotographs[' + MembersCount + '].ImagePath" value="' + FileContentBase64.replace(/..\/Images\//g, "") + '" />' +    // JSL 11/12/2022
+                '<input type="hidden" name="GIRPhotographs[' + MembersCount + '].FileName" value="' + FileName + '" />' +
+                //'<a download>' +    // JSL 12/03/2022 commented
+                '<a class="itemImage" href="' + FileContentBase64 + '" download>' +    // JSL 12/03/2022
+                '<img class="imgClass img" src="' + FileContentBase64 + '" alt="' + FileName + '" />' +
+                '</a>' +
+                '<div class="middle">' +
+                '<span class="btn btn-danger btn-sm aviodPrint" onclick="removeImages(this, ' + MembersCount + ')">Delete</span>' +
+                '</div>' +
+                '<div><input  type="text" name="GIRPhotographs[' + MembersCount + '].ImageCaption" class="col-md-4 form-control GIRData aviodPrint" onchange="PhotosChange()" placeholder="Enter a caption for the picture" /></div>';
+
+            $("#img-holder").append(html);
+        }
+        // End RDBJ2 03/12/2022
+    }
+    // End RDBJ 02/07/2022
+
+    // RDBJ2 03/12/2022
+    function GIRPhotosUpload() {
+        // Checking whether FormData is available in browser
+        if (window.FormData !== undefined) {
+            var image_holder = $("#img-holder");
+            var notAllowType = "";
+            var fileistoobig = "";
+
+            var MembersCount = parseInt($("#GIRPhotographs").val());
+
+            var fileUpload = $("#files").get(0);
+            var files = fileUpload.files;
+            // Looping over all files and add it to FormData object
+            for (var i = 0; i < files.length; i++) {
+                if (//files[i].type.indexOf('pdf') >= 0 ||
+                    files[i].type.indexOf('image') >= 0
+                    //files[i].type.indexOf('document') >= 0 ||
+                    //files[i].type.indexOf('xml') >= 0 ||
+                    //files[i].type.indexOf('sheet') >= 0
+                ) {
+                    if (files[i].size > 2000000) {
+                        fileistoobig = fileistoobig + " [" + files[i].name + "] ";
+                    }
+                    else {
+                        // Create FormData object
+                        var fileData = new FormData();
+                        fileData.append(files[i].name, files[i]);
+
+                        fileData.append('UniqueFormID', $("#UniqueFormID").val());
+                        fileData.append('Ship', $("#Child option:selected").val());
+
+                        $.ajax({
+                            url: RootUrl + 'Forms/UploadGIRPhotosOrDefFiles',
+                            type: "POST",
+                            async: true,
+                            contentType: false, // Not to set any content header
+                            processData: false, // Not to process data
+                            data: fileData,
+                            success: function (data) {
+                                if (data.Status == 'Success') {
+                                    setupAndLoadImageForPreview(null, MembersCount
+                                        , data.FileName
+                                        , data.ImagePath
+                                        , true
+                                    );
+
+                                    var imgObj = { PhotographsID: 0, FileName: "", ImageCaption: "", ImagePath: "" };
+                                    imgObj.PhotographsID = parseInt(MembersCount);
+                                    imgObj.FileName = data.FileName;
+                                    imgObj.ImagePath = data.ImagePath;
+                                    imgObj.ImageCaption = "";
+                                    GIRPhotographsArray.push(imgObj);
+
+                                    MembersCount = MembersCount + 1;
+                                    $("#GIRPhotographs").val(MembersCount);
+                                }
+                            },
+                            error: function (err) {
+                                alert(err.statusText);
+                            }
+                        });
+                    }
+                }
+                else {
+                    notAllowType = notAllowType + " [" + files[i].name + "] ";
+                }
+            }
+
+            if (notAllowType != "") {
+                $("#modal-default-Error p").text(notAllowType + " files types are not supported")
+                $('#modal-default-Error').modal('show');
+            }
+            else if (fileistoobig != "") {
+                $("#modal-default-Error p").text(fileistoobig + " File must be smaller than 2.0 MB")
+                $('#modal-default-Error').modal('show');
+            }
+            image_holder.show();
+
+            $("#files").val(null);
+        } else {
+            //alert("FormData is not supported.");
+        }
+    }
+    // End RDBJ2 03/12/2022
+
+    // JSL 12/03/2022
+    function BindLightGallery() {
+        lightGallery(document.getElementById('img-holder'), {
+            selector: '.itemImage',
+            plugins: [lgZoom, lgThumbnail, lgRotate, lgFullscreen],
+            thumbnail: true,
+        });
+    }
+    // End JSL 12/03/2022
+</script>
+<div class="Section breakDiv" style="background-color:#F9B3B3">
+    <div class="instruction m-10">
+        <p class="m-5">Instructions</p>
+        <ul>
+            <li>
+                To add pictures to the document either add them manually by clicking "Add another picture", then using the "Click here to insert a picture" link to browse for the image, or dragging and dropping an image onto link.
+                <br />
+                <h5>Or</h5>
+                Click "Add Pictures from File" and browse to the image(s) you want to add, select 1 or more images then click "Open". You will see a message indicating progress adding the pictures. Tip: if you hold the"Ctrl" button you can select individual images when browsing so you can select all images you wish to add in one go.
+            </li>
+            <li>When you insert a caption for a picture you will notice some buttons are shown to the right.These can be used to re-order the pictures, delete a picture, or show a larger view of the picture. </li>
+        </ul>
+    </div>
+</div>
+<div class="row aviodPrint">
+    <div class="col-md-12">
+        @* RDBJ2 03/12/2022 commented this line *@
+        @*<input type="file" id="files" onchange="GIRfileUpload(this)" value="Add Pictures from file" class="GIRData" accept="image/*" multiple>*@
+
+        @if (Model.SavedAsDraft == true && ViewBag.SavedAsDraft == true)
+        {
+            @* RDBJ2 03/12/2022 *@
+            <input type="file" id="files" onchange="GIRPhotosUpload()" value="Upload Photo For the GI" accept="image/*" multiple />
+        }
+
+        @*<label for="files" class="label label-primary" style="margin:0px;">Upload File</label>
+        <input type="file" id="files" onchange="GIRfileUpload(this)" value="Add Pictures from file" class="GIRData" accept="image/*" multiple style="visibility:hidden;height:4px;width:100%;">*@
+    </div>
+</div>
+<br />
+
+<div class="ImageSection">
+    <input type="hidden" value="0" id="GIRPhotographs" />
+    <div class="container-fluid box" id="img-holder">
+        @*@if (Model.GIRPhotographs != null && Model.GIRPhotographs.Count > 0)
+            {
+                int i = 0;
+                foreach (var item1 in Model.GIRPhotographs)
+                {
+                <div class="row imagelist">
+                    <div class="col-sm-3 fill"> <img src="@item1.ImagePath" id="imgPath" /></div>
+                    <div class="col-sm-9 Imgtitle">
+                        <div class="form-group">
+                            <input name="GIRPhotographs[@i].FileName" id="imgFileName" value="@item1.FileName" type="hidden" class="col-md-12 form-control" />
+                            <input name="GIRPhotographs[@i].ImagePath" id="imgImagePath" value="@item1.ImagePath" type="hidden" class="col-md-12 form-control" />
+                            <input type="text" class="col-md-12 form-control" id="imgImageCaption" name="GIRPhotographs['@i'].ImageCaption" value="@item1.ImageCaption" />
+                        </div>
+                    </div>
+                </div>
+                i++;
+                }
+                <input type="hidden" value="@i" id="GIRPhotographs" />
+            }*@
+    </div>
+</div>
+
+@*<div class="box">
+        <div class="item">
+            <a target="_blank" href="#">
+                <img class="imgClass img" src="" alt="">
+            </a>
+            <div class="middle">
+                <a class="btn btn-danger btn-sm">Delete</a>
+            </div>
+            <div><input class="col-md-12 form-control" type="text" /></div>
+        </div>
+    </div>*@
+
+<div class="SectionComplete">
+    <div class="checkbox">
+        <label>Section Complete?</label>
+        @* RDBJ 10/19/2021 Set Name, Value and wrapped in if*@
+        @if (Model.IsPhotographsSectionComplete == true)
+        {
+            <input type="checkbox" class="GIRData" name="IsPhotographsSectionComplete" value="true" style="margin-left:20px;" checked />
+        }
+        else
+        {
+            <input type="checkbox" class="GIRData" name="IsPhotographsSectionComplete" value="false" style="margin-left:20px;" />
+        }
+    </div>
+</div>
+
+@* RDBJ 02/07/2022 added error Modal *@
+<!-- /.modal -->
+<div class="modal fade" id="modal-default-Error">
+    <div class="modal-dialog">
+        <div class="modal-content aviodPrint">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Files types are not supported</h4>
+            </div>
+            <div class="modal-body">
+                <p>&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+@* End RDBJ 02/07/2022 added error Modal *@

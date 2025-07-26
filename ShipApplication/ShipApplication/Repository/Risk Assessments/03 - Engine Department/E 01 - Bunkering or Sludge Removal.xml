@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?mso-infoPathSolution PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" solutionVersion="6.0.0.0" productVersion="15.0.0" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<my:Main xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata"
+xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10"
+xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-gb">
+  <my:Details>
+    <my:Ship />
+    <my:Number>E 01</my:Number>
+    <my:Date>2015-05-15</my:Date>
+    <my:Title>Bunkering / Sludge Removal</my:Title>
+  </my:Details>
+  <my:Hazards>
+    <my:Hazard my:HazardId="1">
+      <my:Description>Awareness - Falling from a height</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) Use of suitable and appropriate PPE: overalls, safety shoes, hard hat, gloves, etc.; 
+b) Approved boarding equipment must be used i.e. pilot ladder, accommodation ladder, gangway; 
+c) A safety net must be rigged as per IMO regulations; 
+d) All crew engaged in the rigging / stowing of the accommodation ladder / gangway are to wear a safety harness connected to the fall arrest equipment and don a lifejacket.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="2">
+      <my:Description>Atmosphere</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) All crew involved with bunkering / sludge removal operations must be fully trained with the regard to the procedure; 
+b) Use of suitable and appropriate PPE: overalls, safety shoes, hard hat, oil-resistant gloves, etc.; 
+c) &#39;Bunkering / Sludge Removal Checklist&#39; to be completed; 
+d) Smoking is not permitted - Suitable warning notices to be posted; 
+e) Ensure all initial fire-fighting appliances i.e. portable fire extinguisher are on stand-by; 
+f) Hot work is not permitted during bunkering / sludge removal operations.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="3">
+      <my:Description>Manual handling</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) All crew involved with bunkering / sludge removal operations must be fully trained with the regard to the procedure; 
+b) Use of suitable and appropriate PPE: overalls, safety shoes, hard hat, oil-resistant gloves, etc.; 
+c) &#39;Bunkering / Sludge Removal Checklist&#39; to be completed; 
+d) Sufficient number of crew to be made available; 
+e) Vessel&#39;s davit / cargo crane to assist, if necessary, in bringing the fuel line to the bunker station; 
+f) Lines should be fitted to the fuel line to control or adjust the position; 
+g) Consult &#39;Manual Handling&#39; Risk Assessment.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="4">
+      <my:Description>Oil spill</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Use of suitable and appropriate PPE: overalls, safety shoes, hard hat, oil-resistant gloves, goggles, etc.; 
+b) All crew involved with bunkering / sludge removal operations must be fully trained with the regard to the procedure;
+c) &#39;Bunkering / Sludge Removal Checklist&#39; to be completed; 
+d) SOPEP equipment i.e. clean-up materials, dispersants, etc., are on stand-by; d) Emergency stops / alarms tested and ready; 
+e) Suitable warning notices to be posted; 
+f) Adequate lighting to be provided. Use portable lighting if necessary; 
+g) All reception tanks should be sounded prior to and during bunker operations; 
+h) Ensure all scuppers are plugged; 
+i) Ensure all save-alls are empty and in place; 
+j) Any bunker connections not in use should be securely blanked; 
+k) All fuel lines and connections must be visually inspected and connections checked and confirmed tight; 
+l) Crew vigilance - Continuous watch to be maintained in both the E/R and bunker station / deck; 
+m) Communication must be established, via VHF or signal, between the vessel and supplying installation i.e. shore side, barge; 
+n) Fuel line connection to be plugged during transportation prior to and on completion of operations; 
+o) Consult vessel&#39;s &#39;SOPEP Manual&#39;, if an oil spill occurs; 
+p) Consult &#39;Dealing with Hazardous Substances&#39; Risk Assessment, if necessary.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="5">
+      <my:Description>Slips and trips</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>4</my:RiskFactor>
+      <my:ControlMeasures>a) Adequate lighting to be provided. Use portable lighting if necessary; 
+b) Ensure that the deck area and bunker station are free of any obstructions; 
+c) Clean contaminated deck areas as soon as possible.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>2</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+  </my:Hazards>
+  <my:Review>
+    <my:ReviewerName />
+    <my:ReviewerRank />
+    <my:ReviewDate />
+    <my:ReviewLocation /><my:ReviewMembers/>
+  </my:Review>
+  <my:Header>
+    <my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+    <my:HeaderSummary />
+    <my:HeaderCode>RAF</my:HeaderCode>
+    <my:HeaderIssueNumber>5</my:HeaderIssueNumber>
+    <my:HeaderIssueDate>05/14</my:HeaderIssueDate>
+    <my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+    <my:HeaderAmmendmentDate />
+    <my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+  </my:Header>
+  <my:Footer>Risk Assessment: E 01 - Bunkering / Sludge Removal</my:Footer>
+</my:Main>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        try {
+             var isPageInit = "@ViewBag.IsPageInit";
+            if (isPageInit == null || isPageInit=="") {
+                    localStorage.removeItem('activeTab');
+                }
+        } catch (e) {
+
+        }
+
+    });
+</script>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="nav-tabs-custom">
+                @{Html.RenderPartial("TabView");}
+            </div>
+        </div>
+    </div>
+</section>

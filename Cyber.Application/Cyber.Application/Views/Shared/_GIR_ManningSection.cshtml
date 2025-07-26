@@ -1,0 +1,166 @@
+﻿<script type="text/javascript">
+    function removeCrewmember(ctr) {
+        $(ctr).closest('tr').remove();
+    }
+    $(document).ready(function () {
+
+    });
+</script>
+<div class="Section breakDiv">
+    <div class="SectionHead">
+        <u>Section 4a</u> - Safe Manning Requirements
+    </div>
+    <div class="SectionContent">
+        <table class="table tblSection tblSectionManning4a">
+            <input type="hidden" value="0" id="GIRSafeManningRequirements" />
+            <tr>
+
+                <td width="50%"><p class="m-5">Total crew required by safe manning document:</p></td>
+                <td width="25%"><p class="m-5">0</p></td>
+                <td width="25%"><p class="m-5"></p></td>
+            </tr>
+            <tr>
+
+                <td width="50%"><p class="m-5">Total crew on board:</p></td>
+                <td width="25%"><p class="m-5">0</p></td>
+                <td width="25%"><p class="m-5"></p></td>
+            </tr>
+            <tr>
+
+                <td width="50%"><p class="m-5 text-center">Rank</p></td>
+                <td width="25%"><p class="m-5 text-center">Required by SMD?</p></td>
+                <td width="25%"><p class="m-5 text-center">On Board?</p></td>
+            </tr>
+            @if (Model.GIRSafeManningRequirements != null && Model.GIRSafeManningRequirements.Count > 0)
+            {
+                foreach (var item1 in Model.GIRSafeManningRequirements)
+                {
+                    <tr>
+                        <td width="50%">
+                            <div class="form-group has-feedback">
+                                <input type="text" class="col-md-12 form-control" value="@item1.Rank" name="GIRSafeManningRequirements[0].Rank" />
+
+                            </div>
+                        </td>
+                        @if (@item1.RequiredbySMD == true)
+                        {
+                            <td width="25%" class="text-center v-al-m"><input type="checkbox" value="true" checked="checked" name="GIRSafeManningRequirements[0].RequiredbySMD" /> </td>
+                        }
+                        else
+                        {
+                            <td width="25%" class="text-center v-al-m"><input type="checkbox" value="true" name="GIRSafeManningRequirements[0].RequiredbySMD" /> </td>
+                        }
+                        @if (@item1.OnBoard == true)
+                        {
+                            <td width="25%" class="text-center v-al-m"><input checked="checked" type="checkbox" value="true" name="GIRSafeManningRequirements[0].RequiredbySMD" /> </td>
+                        }
+                        else
+                        {
+                            <td width="25%" class="text-center v-al-m"><input type="checkbox" value="true" name="GIRSafeManningRequirements[0].RequiredbySMD" /> </td>
+                        }
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+
+
+</div>
+<div class="Section breakDiv">
+    <div class="SectionHead">
+        <u>Section 4b</u> - Crew Documents
+    </div>
+    <div class="SectionContent">
+        <table class="table tblSection tblSectionManning4b">
+            <input type="hidden" value="0" id="GIRCrewDocuments" />
+            <tr>
+                <td width="40%" class="v-al-m"><p class="m-5 text-center">Crewmember Name</p></td>
+                <td width="60%" class="v-al-m"><p class="m-5 text-center">Detail any certification which is incorrect, out of date, or due to expire within 90 days</p></td>
+            </tr>
+            @if (Model.GIRCrewDocuments != null && Model.GIRCrewDocuments.Count > 0)
+            {
+                foreach (var item1 in Model.GIRCrewDocuments)
+                {
+                    <tr>
+
+                        <td width="40%">
+                            <div class="form-group has-feedback">
+                                <input type="text" value="@item1.CrewmemberName" class="col-md-12 form-control" name="GIRCrewDocuments[0].CrewmemberName" />
+                                <span class="form-control-feedback">
+                                    <label class="text-danger">*</label>
+                                </span>
+                            </div>
+                        </td>
+                        <td width="60%">
+                            <div class="form-group has-feedback">
+                                <input type="text" value="@item1.CertificationDetail" class="col-md-12 form-control" name="GIRCrewDocuments[0].CertificationDetail" />
+                                <span class="form-control-feedback">
+                                    <label class="text-danger">*</label>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+
+</div>
+<div class="Section breakDiv">
+    <div class="SectionHead">
+        <u>Section 4c</u> - Rest and Work Hours
+    </div>
+    <div class="SectionContent">
+        <table class="table tblSection tblSectionManning4c">
+            <input type="hidden" value="0" id="GIRRestWorkHours" />
+            <tr>
+
+                <td width="40%" class="v-al-m"><p class="m-5 text-center">Crewmember Name</p></td>
+                <td width="60%" class="v-al-m"><p class="m-5 text-center">Detail any rest and work hours which have not been completed correctly, or exceed minimum required rest</p></td>
+            </tr>
+            @if (Model.GIRRestandWorkHours != null && Model.GIRRestandWorkHours.Count > 0)
+            {
+                foreach (var item1 in Model.GIRRestandWorkHours)
+                {
+                    <tr>
+                        <td width="40%">
+                            <div class="form-group has-feedback">
+                                <input type="text" class="col-md-12 form-control" value="@item1.CrewmemberName" name="GIRRestandWorkHours[0].CrewmemberName" />
+                                <span class="form-control-feedback">
+                                    <label class="text-danger">*</label>
+                                </span>
+                            </div>
+                        </td>
+                        <td width="60%">
+                            <div class="form-group has-feedback">
+                                <input type="text" class="col-md-12 form-control" value="@item1.RestAndWorkDetail" name="GIRRestandWorkHours[0].RestAndWorkDetail" />
+                                <span class="form-control-feedback">
+                                    <label class="text-danger">*</label>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+
+</div>
+<div class="Section breakDivPage">
+    <div class="SectionHead">
+        <u>Section 4d</u> - Shipboard Working Arrangements
+    </div>
+    <div class="SectionContent">
+        <table class="table tblSection tblSectionManning4d">
+            <tr>
+                <td width="100%"><textarea class="form-control col-md-12" name="ShipboardWorkingArrangements">@Model.ShipboardWorkingArrangements</textarea> </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="SectionComplete">
+    <div class="checkbox">
+        <label>Section Complete?</label>
+        <input type="checkbox" value="" style="margin-left:20px;">
+    </div>
+</div>

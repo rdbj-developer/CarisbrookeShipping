@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CASHIP_WebGUIModelStoreContainer" CdmEntityContainer="CASHIP_WebGUIEntities">
+    <EntitySetMapping Name="SM_ACCOUNTCODE">
+      <EntityTypeMapping TypeName="CASHIP_WebGUIModel.SM_ACCOUNTCODE">
+        <MappingFragment StoreEntitySet="SM_ACCOUNTCODE">
+          <ScalarProperty Name="PARENTID" ColumnName="PARENTID" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+          <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+          <ScalarProperty Name="SITEID" ColumnName="SITEID" />
+          <ScalarProperty Name="UPDATE_SITE" ColumnName="UPDATE_SITE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="EXPORTED" ColumnName="EXPORTED" />
+          <ScalarProperty Name="ACCOUNT_REMARKS" ColumnName="ACCOUNT_REMARKS" />
+          <ScalarProperty Name="ACCOUNT_DESCR" ColumnName="ACCOUNT_DESCR" />
+          <ScalarProperty Name="ACCOUNT_CODE" ColumnName="ACCOUNT_CODE" />
+          <ScalarProperty Name="ACCOUNTID" ColumnName="ACCOUNTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

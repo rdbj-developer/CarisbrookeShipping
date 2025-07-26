@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<LiftingGearRegister>
+	<LiftingGear LiftingGearId="1">Air Hoist</LiftingGear>
+	<LiftingGear LiftingGearId="2">Chain Sling</LiftingGear>
+	<LiftingGear LiftingGearId="3">Davit</LiftingGear>
+	<LiftingGear LiftingGearId="4">Derrick</LiftingGear>
+	<LiftingGear LiftingGearId="5">Electric Chain Hoist</LiftingGear>
+	<LiftingGear LiftingGearId="6">Electric Overhead Travelling Crane</LiftingGear>
+	<LiftingGear LiftingGearId="7">Electric Wire Rope Hoist</LiftingGear>
+	<LiftingGear LiftingGearId="8">Eyebolt</LiftingGear>
+	<LiftingGear LiftingGearId="9">Eyenut</LiftingGear>
+	<LiftingGear LiftingGearId="10">Fibre Rope Sling</LiftingGear>
+	<LiftingGear LiftingGearId="11">Flat Belt Sling</LiftingGear>
+	<LiftingGear LiftingGearId="12">Lifting Beam (non cargo)</LiftingGear>
+	<LiftingGear LiftingGearId="13">Lifting Clamp</LiftingGear>
+	<LiftingGear LiftingGearId="14">Manual Chain Block</LiftingGear>
+	<LiftingGear LiftingGearId="15">Manual Pullift</LiftingGear>
+	<LiftingGear LiftingGearId="16">Manual Travelling Chain Block</LiftingGear>
+	<LiftingGear LiftingGearId="17">Provision Crane</LiftingGear>
+	<LiftingGear LiftingGearId="18">Push Travel Trolley</LiftingGear>
+	<LiftingGear LiftingGearId="19">Restraint Belt</LiftingGear>
+	<LiftingGear LiftingGearId="20">Restraint Lanyard</LiftingGear>
+	<LiftingGear LiftingGearId="21">Roundsling</LiftingGear>
+	<LiftingGear LiftingGearId="22">Shackle</LiftingGear>
+	<LiftingGear LiftingGearId="23">Sheave Block</LiftingGear>
+	<LiftingGear LiftingGearId="24">Swing Jib Crane</LiftingGear>
+	<LiftingGear LiftingGearId="25">Wire Lanyard</LiftingGear>
+	<LiftingGear LiftingGearId="26">Wire Rope</LiftingGear>
+	<LiftingGear LiftingGearId="27">Wire Rope Sling</LiftingGear>
+</LiftingGearRegister>

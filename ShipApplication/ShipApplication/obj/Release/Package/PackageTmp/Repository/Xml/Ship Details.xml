@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Ship ShipId="71">
+	<Name>Office - Cowes</Name>
+	<Beam />
+	<BHP />
+	<LBP />
+	<SummerDeadweight />
+	<Lightweight />
+	<Owner />
+	<OfficialNumber />
+	<Bowthruster />
+	<Email>technical.uk@carisbrooke.co</Email>
+	<PortOfRegistry />
+	<Code>COWES</Code>
+	<CallSign />
+	<Office>Cowes</Office>
+	<FlagName />
+	<LOA />
+	<SummerDraft />
+	<IMONumber>Cowes Office</IMONumber>
+	<MMSI />
+	<NetTonnage />
+	<GrossTonnage />
+	<YearOfBuild />
+	<Class />
+	<Fleet>7</Fleet>
+	<Delivered>True</Delivered>
+</Ship>

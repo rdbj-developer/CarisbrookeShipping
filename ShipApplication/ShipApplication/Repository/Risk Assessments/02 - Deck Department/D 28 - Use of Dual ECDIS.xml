@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><?mso-infoPathSolution solutionVersion="6.0.0.0" PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" productVersion="15.0.0" ?><?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?><my:Main my:DateCreated="2016-06-28T20:05:17" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata" xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10" xmlns:xdServerInfo="http://schemas.microsoft.com/office/infopath/2009/xslt/ServerInfo" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-gb">
+	<my:Details>
+		<my:Number>D28</my:Number>
+		<my:Title>Use of Dual ECDIS (Transas Navi-Sailor 4000 - Full Dual Station) as primary means of navigation.</my:Title>
+	</my:Details>
+	<my:Hazards>
+		<my:Hazard my:HazardId="1">
+			<my:Description>Hardware failure</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>2</my:Likelihood>
+			<my:RiskFactor>4</my:RiskFactor>
+			<my:ControlMeasures>a) Back-up ECDIS unit always ready &amp; available for immediate use;
+b) ECDIS system used type approved hardware;
+c) All equipment in protected area;
+d) Installation and Maintenance done in accordance with makers instructions;
+e) Spare dongle on board - back in case of damage;</my:ControlMeasures>
+			<my:ReducedSeverity>3</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="2">
+			<my:Description>Software failure</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>2</my:Likelihood>
+			<my:RiskFactor>4</my:RiskFactor>
+			<my:ControlMeasures>a)Type approved ECDIS software used;
+b) No other software used on system; 
+c) Back-up ECDIS unit always ready &amp; available for immediate use; 
+d) ECDIS not connected to any other outside computer;
+e) ECDIS not connected to ship's WiFi network;
+f) 24/7 technical service support from Transas ( makers) : +46 771 460 100 / Email : service@transas.com
+g) Back up for the software on CD- always on board;</my:ControlMeasures>
+			<my:ReducedSeverity>3</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="3">
+			<my:Description>Power failure</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>2</my:Likelihood>
+			<my:RiskFactor>4</my:RiskFactor>
+			<my:ControlMeasures>a) Back up power to ECDIS by the UPS system -always in operation;
+b) All radio equipment has secondary power source as per GMDSS regulations;
+c) Emergency Generator start-up &amp; online within 30 seconds automatically;
+d) Batteries (including UPS) maintained regularly.</my:ControlMeasures>
+			<my:ReducedSeverity>3</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="4">
+			<my:Description>Input failure - position, course and speed</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>2</my:Likelihood>
+			<my:RiskFactor>4</my:RiskFactor>
+			<my:ControlMeasures>a) Alarms always in use to warn of failures;
+b) ECDIS stations are connected separately to GPS via NMEA Splitter;
+c) Alarm set to check errors between two GPS units;
+d) The primary positioning fixing system (GPS) regularly cross-checked. Manual fixing position function MUST BE used regularly. Any cross-checking between GPS position fixing and manual position fixing via other methods is logged.
+e) Radar overlay or ARPA fixed targets used to confirm vessel position.
+f) Procedure to increase bridge manning and dedicate resource solely to safe navigation IN CASE OF FAILURE.</my:ControlMeasures>
+			<my:ReducedSeverity>3</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		
+		<my:Hazard my:HazardId="5">
+			<my:Description>Virus infection</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>2</my:Likelihood>
+			<my:RiskFactor>4</my:RiskFactor>
+			<my:ControlMeasures>a) Only Transas software are installed on ECDIS computers;
+b) Units are not connected in any way to another system;
+c) Only Transas updates allowed to be used;
+d) Anti-virus installed on main communication computer which is used for ECDIS updates;
+e) Use only the Dedicated USB stick for data transfer - CLEARLY MARKED.</my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="6">
+			<my:Description>Charts in use are not corrected up-to- date</my:Description>
+			<my:Severity>2</my:Severity>
+			<my:Likelihood>2</my:Likelihood>
+			<my:RiskFactor>3</my:RiskFactor>
+			<my:ControlMeasures>a) Procedure to update route charts during passage planning and consequently during passage on weekly basis;
+b) Updates obtain via e-mail (in real time - automatic reply from Transas);
+c)  Indication is given by the ECDIS to which week charts are updated;
+d) Updates to ENC's are sequential, ECDIS will indicate if an update is missing;
+e) CD with weekly updates are received from the office in suitable ports;
+f) Base CD's are received quarterly in suitable ports;</my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="7">
+			<my:Description>ENC chart coverage unavailable</my:Description>
+			<my:Severity>2</my:Severity>
+			<my:Likelihood>2</my:Likelihood>
+			<my:RiskFactor>3</my:RiskFactor>
+			<my:ControlMeasures>a) RNC charts provided for area not covered by ENC charts, RNC's charts backed up with reduced paper chart folio sufficient for safe navigation;
+b) In areas where neither ENC's nor RNC's are available a full folio of paper charts carried for that area must be carried on board, and relevant corrections obtained and applied.</my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="8">
+			<my:Description>Operation of the ECDIS system on board carried out by not familiarized / trained OOW</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>2</my:Likelihood>
+			<my:RiskFactor>4</my:RiskFactor>
+			<my:ControlMeasures>a) Only Masters and Deck Officers with the appropriate generic and type specific (Transas 4000) can be OOW on a ECDIS Certified Vessel;
+b) Prior to taking charge of Navigational Watch Master and Deck Officer are familiarized with the ECDIS equipment and ECDIS Familiarization form is to be completed in full.
+c) ECDIS Videotel Course available on board (Course 2000) is to be undertaken.</my:ControlMeasures>
+			<my:ReducedSeverity>3</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="9">
+			<my:Description>Pilots unfamiliar with ECDIS</my:Description>
+			<my:Severity>2</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>4</my:RiskFactor>
+			<my:ControlMeasures>a) Pilots predominantly use radar for navigation
+b) Master / OOW is always present on the bridge during pilotage to give advice.
+c) Master is the one to who has the overriding  authority and responsibility; all orders from pilots are to be approved clearly by the Master;
+d) Master is to decide and maintain one ECDIS with preferred settings. </my:ControlMeasures>
+			<my:ReducedSeverity>3</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+	</my:Hazards>
+	<my:Review>
+		<my:ReviewerName></my:ReviewerName>
+		<my:ReviewerRank>MASTER</my:ReviewerRank>
+		<my:ReviewDate>2016-08-09</my:ReviewDate>
+		<my:ReviewLocation>BRIDGE - MV" …………."</my:ReviewLocation>
+		<my:ReviewMembers>ALL OOWs AND DECK CADETS ARE TO BE INCLUDED HEREBY;</my:ReviewMembers>
+	</my:Review>
+	<my:Header>
+		<my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+		<my:HeaderSummary></my:HeaderSummary>
+		<my:HeaderCode>RAF</my:HeaderCode>
+		<my:HeaderIssueNumber>6</my:HeaderIssueNumber>
+		<my:HeaderIssueDate>12/15</my:HeaderIssueDate>
+		<my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+		<my:HeaderAmmendmentDate></my:HeaderAmmendmentDate>
+		<my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+	</my:Header>
+	<my:Footer>Risk Assessment: D28 - Use of Dual ECDIS (Transas Navi-Sailor 4000 - Full Dual Station) as primary means of navigation.</my:Footer>
+</my:Main>

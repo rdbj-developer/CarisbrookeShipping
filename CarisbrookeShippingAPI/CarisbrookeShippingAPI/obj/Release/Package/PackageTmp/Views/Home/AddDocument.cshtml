@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "AddDocument";
+}
+
+<form method="post" action="@Url.Action("AddDocument", "Home")">
+    <div class="row">
+        <br />
+        <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Enter DocumentID" name="DocumentID" />
+        </div>
+        <br />
+        <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Enter ParentId" name="ParentId" />
+        </div>
+        <br />
+        <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Enter Number" name="Number" />
+        </div>
+        <br />
+        <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Enter Title" name="Title" />
+        </div>
+        <br />
+        <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Enter Path" name="Path" />
+        </div>
+        <br />
+        <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Enter File Type" name="Type" />
+        </div>
+        <br />
+        <br />
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>

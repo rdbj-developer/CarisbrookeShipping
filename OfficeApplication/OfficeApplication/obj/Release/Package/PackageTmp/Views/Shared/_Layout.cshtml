@@ -1,0 +1,435 @@
+﻿@using OfficeApplication.BLL.Modals;
+
+@* JSL 04/30/2022 added Helpers*@
+@using OfficeApplication.BLL.Helpers;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap/dist/css/bootstrap.min.css?v=06302022" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/Content/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/Ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="~/Content/datatables.net-bs/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/Content/_all-skins.min.css" rel="stylesheet" />
+    <link href="~/Content/Custom/SiteCustom.css" rel="stylesheet" />
+    <link rel="icon" href="~/Images/office.ico" type="image/x-icon" />
+    <link href="~/Plugins/FancyTree/src/skin-win8/ui.fancytree.css" rel="stylesheet" />
+    <link href="~/Content/Kendo/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/Kendo/kendo.rtl.min.css" rel="stylesheet" />
+    <link href="~/Content/Kendo/kendo.silver.min.css" rel="stylesheet" />
+    <link href="~/Content/Kendo/kendo.mobile.all.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/kendo.all.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link href="~/Content/loader.css" rel="stylesheet" />
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $(document).ajaxStop(function () {
+                $("#ajax_loader").hide();
+            });
+            $(document).ajaxStart(function () {
+                $("#ajax_loader").show();
+            });
+            $(document).ajaxError(function (xhr, props) {
+                if (props.status === 401) {
+                    alert("Session expired!!! You will be logout.");
+                    window.location.href = '@Url.Content("~/")Login/Login';
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        // JSL 04/30/2022
+        var _CurrentUserDetailsObject = {
+            ShipName: '@SessionManager.ShipName'
+            , ShipCode: '@SessionManager.ShipCode'
+            , UserName: '@SessionManager.Username'
+            , UserID: '@SessionManager.UserID'
+            , UserGUID: '@SessionManager.UserGUID'
+            , UserGroup: '@SessionManager.UserGroup'    // JSL 12/19/2022
+        };
+        // End JSL 04/30/2022
+
+        // JSL 06/25/2022
+        var _AllDeficienciesNotificationsData = {};
+        // End JSL 06/25/2022
+
+        // RDBJ 04/02/2022 GI-SI Related
+        var str_API_DELETESIRNOTEORSIRADDITIONALNOTE = '@AppStatic.API_DELETESIRNOTEORSIRADDITIONALNOTE'; // RDBJ2 04/02/2022
+        // End RDBJ 04/02/2022 GI-SI Related
+
+        // RDBJ 02/24/2022 IAF Related
+        var str_API_UPDATEAUDITNOTEDETAILS = '@AppStatic.API_UPDATEAUDITNOTEDETAILS'; // RDBJ2 02/23/2022
+        // End RDBJ 02/24/2022 IAF Related
+
+        // RDBJ 02/24/2022 Settings Related
+        var str_API_GETMAINSYNCSERVICESETTINGS = '@AppStatic.API_GETMAINSYNCSERVICESETTINGS'; // RDBJ2 02/23/2022
+        var str_API_UPDATEMAINSYNCSERVICESETTINGS = '@AppStatic.API_UPDATEMAINSYNCSERVICESETTINGS'; // RDBJ2 02/23/2022
+        // End RDBJ 02/24/2022 Settings Related
+
+        // JSL 04/30/2022
+        var str_API_GETNOTIFICATION = '@AppStatic.API_GETNOTIFICATION'; // JSL 04/30/2022
+        var str_API_OPENANDSEENNOTIFICATION = '@AppStatic.API_OPENANDSEENNOTIFICATION'; // JSL 05/01/2022
+        var str_API_GETNOTIFICATIONFROMPAGE = '@AppStatic.API_GETNOTIFICATIONFROMPAGE'; // JSL 07/04/2022
+        // End JSL 04/30/2022
+
+        // JSL 07/23/2022 Forms Person Related
+        var str_API_GETFORMSPERSONLIST = '@AppStatic.API_GETFORMSPERSONLIST'; // JSL 07/23/2022
+        var str_API_API_ADDNEW_UPDATE_DELETE_FORMSPERSON = '@AppStatic.API_ADDNEW_UPDATE_DELETE_FORMSPERSON'; // JSL 07/23/2022
+        // End JSL 07/23/2022 Forms Person Related
+
+        // JSL 05/10/2022 Common Related
+        var str_API_UPDATEDEFICIENCIESSHIPWHENCHANGESHIPINFORMS = '@AppStatic.API_UPDATEDEFICIENCIESSHIPWHENCHANGESHIPINFORMS'; // RDBJ 03/19/2022
+        var str_API_DELETEDEFICIENCYFILE = '@AppStatic.API_DELETEDEFICIENCYFILE'; // JSL 05/10/2022
+        // End JSL 05/10/2022 Common Related
+
+        // JSL 06/25/2022
+        $(document).ready(function () {
+            // JSL 06/30/2022
+            $(document).on('click', '.notifyjs-foo-base .no', function () {
+                //programmatically trigger propogating hide event
+                $(this).trigger('notify-hide');
+            });
+            // End JSL 06/30/2022
+        });
+        // End JSL 06/25/2022
+
+        var interval;
+        $(document).on('mousemove', function () {
+            clearInterval(interval);
+            var coutdown =  parseInt("@Session.Timeout") * 60; // After 6 minutes session expired  (mouse button click code)
+            interval = setInterval(function () {
+                --coutdown;
+                if (coutdown === 0) {
+                    alert("Session expired!!! You will be logout.");
+                    window.location.href = '@Url.Content("~/")Login/Login';
+                }
+
+            }, 1000);
+        }).mousemove();
+
+        var interval;
+        $(document).on('keydown', function () {
+            clearInterval(interval);
+            var coutdown =  parseInt("@Session.Timeout") * 60; // After 6 minutes session expired (keyboard button press code)
+            interval = setInterval(function () {
+                --coutdown;
+                if (coutdown === 0) {
+                    alert("Session expired you will be logout.");
+                    window.location.href = "/Login/Login";
+                }
+
+            }, 1000);
+        }).mousemove();
+    </script>
+
+    @* JSL 05/01/2022 Added CreateAvatarJs *@
+    <script src="~/Scripts/Custom/CreateAvatar.js?v=06132022"></script>
+
+    @* RDBJ 02/08/2022 Added Layout JS *@
+    <script src="~/Scripts/Custom/Layout.js?v=12192022"></script>
+    <style type="text/css">
+        .logo {
+            padding: 0 8px !important;
+        }
+
+            .logo span {
+                font-size: 14px;
+            }
+
+        .logo-mini {
+            font-size: 16px !important;
+        }
+
+        .logo-lg {
+            white-space: nowrap;
+        }
+
+        /*RDBJ 12/31/2021*/
+        .modal-content {
+            border-radius: 5px !important;
+        }
+
+        /* RDBJ 02/08/2022 */
+        .k-grid td, .k-grid-content td {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .k-widget.k-tooltip {
+            background-color: black !important;
+            color: white !important;
+        }
+
+        /* RDBJ 02/11/2022 commented */
+        /*.k-callout {
+            background-color: transparent !important;
+            color: black !important;
+            border-right-color: black !important;
+        }*/
+        /* End RDBJ 02/08/2022 */
+
+        /* RDBJ 02/11/2022 */
+        .k-grid-content table > tbody > tr {
+            cursor: pointer;
+        }
+        /* End RDBJ 02/11/2022 */
+
+        /* JSL 05/01/2022*/
+        .notificationBox::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            background-color: #F5F5F5;
+            border-radius: 5px
+        }
+
+        .notificationBox::-webkit-scrollbar {
+            width: 10px;
+            background-color: #F5F5F5;
+            border-radius: 5px
+        }
+
+        .notificationBox::-webkit-scrollbar-thumb {
+            background-color: black;
+            border: 2px solid black;
+            border-radius: 5px
+        }
+
+        .notBtn {
+            transition: 0.5s;
+            cursor: pointer
+        }
+        
+        .notificationBox {
+            width: 425px;
+            height: 0px;
+            border-radius: 10px;
+            transition: 0.5s;
+            position: absolute;
+            overflow-y: scroll;
+            padding: 0px;
+            left: -300px;
+            margin-top: 5px;
+            background-color: #F4F4F4;
+            -webkit-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.2);
+            -moz-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.1);
+            box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.1);
+            cursor: context-menu;
+        }
+
+        .notBtn:hover > .notificationBox {
+            height: 60vh
+        }
+
+        .display {
+            position: relative;
+        }
+
+        .cont {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #F4F4F4;
+        }
+
+            .cont:empty {
+                display: none;
+            }
+
+        .stick {
+            text-align: center;
+            display: block;
+            font-size: 50pt;
+            padding-top: 70px;
+            color: black;
+            /*padding-left: 80px*/
+        }
+
+            .stick:hover {
+                color: black;
+            }
+
+        .cent {
+            text-align: center;
+            display: block;
+            color: black;
+        }
+
+        .sec {
+            padding: 25px 10px;
+            color: black;
+            /*background-color: #F4F4F4;*/
+            transition: 0.5s;
+        }
+
+        .profCont {
+            padding-left: 15px;
+        }
+
+        .profile {
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+            width: 75px;
+            float: left;
+        }
+
+        .txt {
+            vertical-align: top;
+            /*font-size: 1.25rem;*/
+            padding: 5px 10px 0px 115px;
+        }
+
+        .sub {
+            font-size: 1.25rem;
+            color: grey;
+        }
+
+        .new {
+            border-style: none none solid none;
+            border-color: red;
+        }
+
+        .sec:hover {
+            background-color: #BFBFBF;
+            cursor: pointer;
+        }
+
+        .text-dark {
+            color:black;
+        }
+        /* End JSL 05/01/2022*/
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <header class="main-header">
+        <a href="#" class="logo">
+            <span class="logo-mini"><b>IMS</b></span>
+            <span class="logo-lg"><b>Integrated Management System</b></span>
+        </a>
+        <nav class="navbar navbar-static-top">
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    @* JSL 12/19/2022 added id and style *@
+                    <li class="nav-item" id="liTopRightCornerNotification" style="display: none;">
+                        <a class="nav-link notBtn" data-toggle="dropdown" href="#" aria-expanded="true">
+                            <i class="fa fa-bell">
+                                <span id="ISMDashBoardNotification"></span>
+                            </i>
+                            <div class="notificationBox" style="margin-top: 20px;">
+                                <div class="display" id="notificationdisplay">
+                                    @*<div class="nothing">
+                                            <i class="fa fa-child stick"></i>
+                                            <div class="cent">Looks Like your all caught up!</div>
+                                        </div>
+                                        <div class="cont">
+                                            <div class="sec new">
+                                                <div class="profCont">
+                                                    <img class="profile" avatar="Andy Dandy">
+                                                </div>
+                                                <div class="txt">James liked your post: "Pure css notification box"</div>
+                                                <div class="txt sub">11/7 - 2:30 pm</div>
+                                            </div>
+                                        </div>*@
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            @*<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">*@
+                            <span class="hidden-xs">CS Office</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="user-header">
+                                <p>
+                                    @Session["Email"]
+                                </p>
+                            </li>
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="@Url.Action("Logout", "Login")" class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Left side sidebar -->
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            @*@Html.Action("Menu","Home")*@
+            @{Html.RenderPartial("Menu", "Home");}
+        </section>
+    </aside>
+
+    <div class="content-wrapper">
+        @RenderBody()
+
+        <div id='ajax_loader' class="loader" style="position: fixed; left: 50%; top: 50%; display: none;">
+        </div>
+    </div>
+
+    <script src="~/Plugins/FancyTree/src/jquery-ui-dependencies/jquery-ui.min.js"></script>
+    <script src="~/Plugins/FancyTree/src/jquery.fancytree.js"></script>
+    <script src="~/Scripts/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Scripts/datatables.net/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/datatables.net-bs/dataTables.bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+
+    <script src="~/Scripts/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/Scripts/fastclick.js"></script>
+    <script src="~/Scripts/adminlte.js"></script>
+    <script src="~/Scripts/demo.js"></script>
+    <script src="~/Scripts/notify.min.js"></script>
+
+    <script src="~/Scripts/jquery/bootbox.min.js"></script>
+
+    <script src="~/Scripts/moment.min.js"></script>
+
+    @* JSL 06/23/2022 *@
+    <script src="~/Scripts/jquery.signalR-2.4.3.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts/Custom/SignalRNotifications.js?v=07062022"></script>
+    @* End JSL 06/23/2022 *@
+
+    <script type="text/javascript">
+        function generateGUID() {
+            var d = new Date().getTime();
+            if (Date.now) {
+                d = Date.now(); //high-precision timer
+            }
+            var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = (d + Math.random() * 16) % 16 | 0;
+                d = Math.floor(d / 16);
+                return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+            });
+            return uuid;
+        };
+    </script>
+    @RenderSection("scripts", required: false)
+
+
+</body>
+</html>

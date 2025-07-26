@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><?mso-infoPathSolution solutionVersion="6.0.0.0" PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" productVersion="15.0.0" ?><?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?><my:Main my:DateCreated="2016-08-10T05:47:17" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata" xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10" xmlns:xdServerInfo="http://schemas.microsoft.com/office/infopath/2009/xslt/ServerInfo" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-gb">
+	<my:Details>
+		<my:Number>G 23</my:Number>
+		<my:Title>Refilling of Self Contained Breathing Apparatus Cylinders </my:Title>
+	</my:Details>
+	<my:Hazards>
+		<my:Hazard my:HazardId="1">
+			<my:Description>Personal Injuries </my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>a) Use of suitable and appropriate PPE: overall, safety shoes, hard hat with chin strap, gloves, safety goggles, etc.; b) Personnel not assigned to compressor related tasks must stand away from the compressor at least 10 feet (3 metres); c) Operator must be very careful not to get parts of their clothing tangled up in the compressor moving parts; d) Do not wear chains, bracelets or rings when operating the unit; e) Do NOT stick hands, screwdrivers or other tools in any moving parts; f) The working area must have proper lighting to ensure good operation; g) Always respect the instructions, WARNINGS and rules from the Manufacturer's Manual.</my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="2">
+			<my:Description>Electricity</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>a) Use of suitable and appropriate PPE: overall, safety shoes, hard hat with chin strap, gloves, etc.;
+b) Make sure that the electric cord is in good condition; c) Never unplug the unit by pulling the cord; 
+d) Do NOT use extension cords; e) Operate the unit with proper electric protection, especially if there is moisture of water; f) In the event of any electrical problem, STOP the unit using the switch identified with O-L, unplug the compressor from the incoming power and get assistance from the appropriate personnel. </my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>2</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="3">
+			<my:Description>Heat</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>a) Use of suitable and appropriate PPE: overall, safety shoes, hard hat with chin strap, gloves, etc.;
+b) The exhaust area is a hot area. Use proper protection while operating the unit, since there is DANGER of physical damage (burning). c) Wait about 30 minutes after stopping the unit to perform any maintenance on it; d) Handle the cylinders using proper PPE, since there is any DANGER of physical damage (burns).</my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="4">
+			<my:Description>Air Contamination</my:Description>
+			<my:Severity>3</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>a) Only use NON polluted air; b) Use the compressor only in clean environments ambient (open area) where there are no dust particles or exhaust fumes; c) Be certain NOT to use the compressor where there is danger of an explosion, in corrosive environments or fire hazard area. d) Smoking is NOT permitted in the vicinity of the compressor during operation; e) before filling the tanks, make sure that the colour of the condensate mixture. This emulsion is white with a milky consistence. Some brown traces are also acceptable. In the event of getting a dense DARK BROWN emulsion, proceed to service the compressor immediately. f) Check the Charcoal filter cartridge and the intake filter and make sure that they are in good condition. Replace the filters as per Manufacturer's Manual chapter 6.6 and 6.8. </my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>2</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="5">
+			<my:Description>Maintenance</my:Description>
+			<my:Severity>2</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>4</my:RiskFactor>
+			<my:ControlMeasures>a) Use of suitable and appropriate PPE: overall, safety shoes, hard hat with chin strap, gloves, etc.;
+b) Consult the Manufacturer's Manual before commencing any maintenance work on the air Compressor; c) Do NOT use flammable liquids in the cleaning process of the compressor. </my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="6">
+			<my:Description>Noise</my:Description>
+			<my:Severity>2</my:Severity>
+			<my:Likelihood>3</my:Likelihood>
+			<my:RiskFactor>4</my:RiskFactor>
+			<my:ControlMeasures>Use of suitable and appropriate PPE: overall, safety shoes, hard hat with chin strap, gloves, EAR DEFENDERS, etc.;</my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>2</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+		</my:Hazard>
+		<my:Hazard my:HazardId="7">
+			<my:Description>Compressor improper operation</my:Description>
+			<my:Severity>4</my:Severity>
+			<my:Likelihood>4</my:Likelihood>
+			<my:RiskFactor>5</my:RiskFactor>
+			<my:ControlMeasures>a) The user must familiarise himself, before commencing using the compressor, with the content of the Manufacturer's Manual, WARNINGS, filling and operation procedures. 
+b) Only use tanks that have been hydrostatically tested; 
+c) Do NOT over pressurize the tanks. Pressurize only to working pressure, stamped on the shoulder of the tanks; d) Before starting filling the cylinders, make sure that all the safety devices are working properly as per Manufacturer's Manual; e) Check the tightness of the fittings using soapy water to check on possible leaks; f) Do NOT empty tanks completely , NOT even during when stocked for a longer period, this to avoid moisture in tanks; g) Do NOT climb on the machine;
+h)Do NOT use the compressor to compress gases other that air, failure to do so can cause severe damage to the operator; 
+i) DO NOT IMMERSE THE TANKS IN COLD WATER FOR ADDITIONAL COOLING DURING THE FILLING PROCESS. THIS MAY RESULT IN THE FORMING OF PERMANENT WATER DROPLETS IN THE TANK. THIS CONDENSATE CAN HARM THE USER OF THE AIR SEVERELY;  
+j) The running period should not exceed 45 minutes in one filling. It should cool down for 15 minutes.</my:ControlMeasures>
+			<my:ReducedSeverity>2</my:ReducedSeverity>
+			<my:ReducedLikelihood>1</my:ReducedLikelihood>
+			<my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+		</my:Hazard>
+		
+		
+		
+	</my:Hazards>
+	<my:Review>
+		<my:ReviewerName></my:ReviewerName>
+		<my:ReviewerRank></my:ReviewerRank>
+		<my:ReviewDate>2016-08-11</my:ReviewDate>
+		<my:ReviewLocation></my:ReviewLocation>
+		<my:ReviewMembers> </my:ReviewMembers>
+	</my:Review>
+	<my:Header>
+		<my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+		<my:HeaderSummary></my:HeaderSummary>
+		<my:HeaderCode>RAF</my:HeaderCode>
+		<my:HeaderIssueNumber>6</my:HeaderIssueNumber>
+		<my:HeaderIssueDate>12/15</my:HeaderIssueDate>
+		<my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+		<my:HeaderAmmendmentDate></my:HeaderAmmendmentDate>
+		<my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+	</my:Header>
+	<my:Footer>Risk Assessment: G 23 - Refilling of Self Contained Breathing Apparatus Cylinders </my:Footer>
+</my:Main>

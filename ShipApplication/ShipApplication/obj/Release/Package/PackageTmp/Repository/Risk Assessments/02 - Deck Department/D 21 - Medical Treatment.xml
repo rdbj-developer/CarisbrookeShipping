@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?mso-infoPathSolution PIVersion="1.0.0.0" href="file:///C:\ProgramData\Carisbrooke%20Shipping%20Ltd\ISM%20Dashboard\Repository\Forms\Technical%20and%20Safety\RAF%20-%20Risk%20Assessment%20Form%20v2.xsn" name="urn:schemas-microsoft-com:office:infopath:RAF---Risk-Assessment-Form:-myXSD-2010-09-08T18-23-10" solutionVersion="6.0.0.0" productVersion="15.0.0" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<my:Main xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata"
+xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2010-09-08T18:23:10"
+xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-gb">
+  <my:Details>
+    <my:Ship />
+    <my:Number>D 21</my:Number>
+    <my:Date>2015-05-15</my:Date>
+    <my:Title>Medical Treatment</my:Title>
+  </my:Details>
+  <my:Hazards>
+    <my:Hazard my:HazardId="1">
+      <my:Description>Medicines - lack of</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) All statutory/mandatory medicines used or expired should be replenished as soon as possible; 
+b) All medicine should be locked and their distribution should be controlled; 
+c) Consult MSN 1768 for guidance</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="2">
+      <my:Description>Incorrect administration of medicine</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Only a competent person should diagnose and administer medicines; 
+b) Check if casualty has any allergies; 
+c) Consult &#39;International Medical Guide for Ship&#39;, &#39;The Ship Captain&#39;s Medical Guide&#39; and relevant sections of the IMDG Code; 
+d) If necessary contact CIRM (radio medical centre) for advice.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="3">
+      <my:Description>Medical Oxygen</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Smoking within the vicinity of medical oxygen is not permitted; 
+b) The Manufacturer&#39;s Manual must be consulted for instructions regarding the use and operation of the medical oxygen kit; 
+c) Refer to relevant section(s) of IMDG Code regarding oxygen dosage.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="4">
+      <my:Description>Use of no-sterile medical equipment</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>4</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Only sterile equipment to be used; 
+b) All medical equipment must be stored in its designated place;
+c)Refer to relevant sections of ship’s medical guide regarding sterilizing procedures.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="5">
+      <my:Description>Lack of and/or improper knowledge</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Regular training of crew regarding first aid techniques;
+b) First aid kits should be regularly checked and required stock maintained.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="6">
+      <my:Description>Biological - infectious disease</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>4</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) Crew suspected of suffering from infectious disease should be isolated from the other crew; 
+b) Consider a single crewmember be designated as care provider; 
+c) Face mask and disposable gloves to be used; 
+d) Appropriate professional advice to be sought.</my:ControlMeasures>
+      <my:ReducedSeverity>2</my:ReducedSeverity>
+      <my:ReducedLikelihood>2</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="7">
+      <my:Description>Biological - cuts, open wounds, potential for infection</my:Description>
+      <my:Severity>3</my:Severity>
+      <my:Likelihood>3</my:Likelihood>
+      <my:RiskFactor>5</my:RiskFactor>
+      <my:ControlMeasures>a) First aid provider to use disposable gloves, and face mask as appropriate; 
+b) Any clothing impregnated with blood and other bodily fluids to be washed separately or destroyed; 
+c) Open wounds to be cleaned, sterilised and dressed; 
+d) Treatment area to be thoroughly cleaned and sterilised after treatment; 
+e) All sharp tools should be washed and sterilized after use as well, refer to relevant section of medical guide for procedure; 
+f) All used needles should be disposed to designated container, should not be mixed with other garbage.</my:ControlMeasures>
+      <my:ReducedSeverity>3</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>3</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="8">
+      <my:Description>Allergic reaction</my:Description>
+      <my:Severity>2</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>3</my:RiskFactor>
+      <my:ControlMeasures>Medicines to be checked if they have any allergic recommendation</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>3</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>2</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="9">
+      <my:Description>Incorrect storage of medicines</my:Description>
+      <my:Severity>1</my:Severity>
+      <my:Likelihood>2</my:Likelihood>
+      <my:RiskFactor>1</my:RiskFactor>
+      <my:ControlMeasures>Medicines to be checked periodically and ensure that are stored in a suitable place.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+    <my:Hazard my:HazardId="10">
+      <my:Description>Controlled Drugs</my:Description>
+      <my:Severity>1</my:Severity>
+      <my:Likelihood>1</my:Likelihood>
+      <my:RiskFactor>1</my:RiskFactor>
+      <my:ControlMeasures>List to be periodically checked/updated according to Medicines Guide.</my:ControlMeasures>
+      <my:ReducedSeverity>1</my:ReducedSeverity>
+      <my:ReducedLikelihood>1</my:ReducedLikelihood>
+      <my:ReducedRiskFactor>1</my:ReducedRiskFactor>
+    </my:Hazard>
+  </my:Hazards>
+  <my:Review>
+    <my:ReviewerName />
+    <my:ReviewerRank />
+    <my:ReviewDate />
+    <my:ReviewLocation /><my:ReviewMembers/>
+  </my:Review>
+  <my:Header>
+    <my:HeaderTitle>Risk Assessment Form</my:HeaderTitle>
+    <my:HeaderSummary />
+    <my:HeaderCode>RAF</my:HeaderCode>
+    <my:HeaderIssueNumber>5</my:HeaderIssueNumber>
+    <my:HeaderIssueDate>05/14</my:HeaderIssueDate>
+    <my:HeaderAmmendmentNumber>0</my:HeaderAmmendmentNumber>
+    <my:HeaderAmmendmentDate />
+    <my:HeaderIsConfidential>false</my:HeaderIsConfidential>
+  </my:Header>
+  <my:Footer>Risk Assessment: D 21 - Medical Treatment</my:Footer>
+</my:Main>

@@ -1,0 +1,263 @@
+﻿.fa-fw {
+    background-color: #FFFFE1;
+    padding: 2px;
+}
+
+.fa-plus {
+    color: green;
+}
+
+.fa-remove {
+    color: red;
+}
+
+.actionToolbar {
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.divar {
+    background: #66afe9;
+    width: 1px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.Section {
+    border: none;
+}
+
+table thead tr td {
+    border: 1px solid #66afe9 !important;
+    padding: 1px !important;
+    text-align: center;
+}
+
+.table > thead > tr > td {
+    vertical-align: middle;
+}
+
+.theadBackColor {
+    background-color: #8eadb6;
+    color: #ffffff;
+}
+
+    .theadBackColor > td {
+        border-right-color: #ffffff !important;
+        border-bottom-color: #ffffff !important;
+    }
+
+        .theadBackColor > td:last-child {
+            border-right-color: #66afe9 !important;
+        }
+
+.SectionHead {
+    border: 1px solid #66afe9 !important
+}
+
+.SectionContent {
+    overflow-x: inherit;
+    min-width: 1500px;
+}
+
+.edit {
+    padding-top: 7px;
+    padding-right: 7px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+}
+
+
+.position-data:hover .edit {
+    display: block;
+}
+
+.position-data {
+    position: relative !important;
+}
+
+/*.new-group {
+        position: relative;
+    }
+
+        .new-group button {
+            position: absolute !important;
+            top: -41px;
+            right: -120px;
+            background-color: transparent;
+            color: black;
+            border: none;
+        }
+        */
+.new-group .edit:hover {
+    background: #b5bdcb !important;
+    color: black !important;
+}
+
+.new-group .edit:focus {
+    outline-color: #b5bdcb;
+    background-color: #b5bdcb;
+}
+
+div.open .edit {
+    display: block;
+}
+
+.new-group ul {
+    overflow-y: scroll;
+    height: 200px;
+    border: 1px solid #b5bdcb;
+}
+
+    .new-group ul a {
+        white-space: pre-line;
+    }
+
+.new-group .k-icon:before {
+    bottom: 10px;
+    left: 3px;
+}
+
+.bg-yellowtext {
+    background-color: #ffff00;
+    color: black;
+}
+
+.headerTD {
+    background-color: transparent;
+}
+
+    .headerTD > tbody > tr > td {
+        border: none !important;
+    }
+
+textarea {
+    min-height: 30px;
+    background-color: #f6f6f6;
+    border-color: #ceced2;
+    margin-top: 4px;
+    overflow: hidden;
+    line-height: 1.65em;
+    padding: .17857143em 0;
+    text-indent: .571em;
+    /*height: 2em;
+        max-height: 2em;
+        overflow: hidden;*/
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+    textarea:focus {
+        outline-color: #b5bdcb;
+    }
+
+.word-wrap {
+    word-break: break-all;
+    /*white-space: pre-wrap;*/
+}
+
+.CRAGeneralSection.PageSection {
+    /* width: 100%; */
+    overflow-x: auto;
+}
+
+.tblSection tr td {
+    text-overflow: ellipsis;
+    /*white-space: nowrap;*/
+}
+
+.GeneralSection .tblSection tbody tr td {
+    padding: 0px 5px !important
+}
+
+.GeneralSection .tblSection tbody tr .k-widget.k-multiselect.k-header.editable-select.CRAData.k-multiselect-clearable {
+    min-width: 400px;
+}
+
+.custom-width {
+    width: 73px !important;
+    min-width: 73px !important;
+}
+
+.GeneralSection .tblSection tbody tr td .k-dropdown-wrap.k-state-default.new-group {
+    /*border:none !important;*/
+    border: 1px solid #ceced2;
+    line-height: 0 !important;
+    border-radius: 0 !important;
+}
+
+    .GeneralSection .tblSection tbody tr td .k-dropdown-wrap.k-state-default.new-group textarea {
+        /*border: 1px solid #ceced2;*/
+        border-right: 0;
+        border-radius: 0px !important;
+    }
+
+    .GeneralSection .tblSection tbody tr td .k-dropdown-wrap.k-state-default.new-group span.k-select {
+        height: 100%;
+        padding: 0;
+        /*border: 1px solid #ceced2;*/
+        border-radius: 0;
+        border-left: 1px solid #ceced2;
+    }
+
+    .GeneralSection .tblSection tbody tr td .k-dropdown-wrap.k-state-default.new-group span.k-icon:before {
+        bottom: 1px;
+        left: 0;
+    }
+
+.GeneralSection .tblSection tbody tr td.aviodPrint p {
+    margin-bottom: 0px;
+}
+
+.GeneralSection .tblSection tbody tr td textarea {
+    max-width: 100% !important;
+    min-width: 100% ; /*300px;*/
+}
+
+
+.riskDecision {
+    max-width: 100% !important;
+    min-width: 245px;
+}
+
+.riskid-width {
+    width: 95px !important;
+    min-width: 95px !important;
+}
+
+
+.min-width400 {
+    min-width: 400px;
+}
+
+.min-width200 {
+    min-width: 200px;
+}
+
+.min-width100 {
+    min-width: 100px;
+}
+
+.spanHD {
+    margin: 2px;
+    padding: .1em .5em .1em .4em;
+    line-height: 1.5em;
+    position: relative;
+    border-radius: 4px;
+    border-color: #ceced2;
+    color: #515967;
+    background-color: #f3f3f4;
+    border: 1px solid;
+}
+input[type="checkbox"][readonly] {
+    pointer-events: none;
+}
+.ul-listbox {
+    padding-left: 0px;
+}

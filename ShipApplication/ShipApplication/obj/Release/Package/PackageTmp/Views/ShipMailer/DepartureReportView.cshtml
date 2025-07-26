@@ -1,0 +1,68 @@
+﻿@using ShipApplication.BLL.Modals;
+@using ShipApplication.BLL.Helpers;
+@{
+    /**/
+
+    Layout = null;
+    DepartureReportModal modal = ViewBag.DepartureReport != null ? (DepartureReportModal)ViewBag.DepartureReport : null;
+}
+<head>
+    <style type="text/css">
+        .mail {
+            margin: 0px;
+            margin-bottom: 2px;
+        }
+
+        .mailHeading {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+@if (modal != null)
+{
+    string strDateCargoOperations = modal.DateCargoOperations.HasValue ? Utility.DateToString(modal.DateCargoOperations) : "";
+    string strPOBDate = modal.POBDate.HasValue ? Utility.DateToString(modal.POBDate) : "";
+    string strPOffDate = modal.POffDate.HasValue ? Utility.DateToString(modal.POffDate) : "";
+    <p class="mail"><b>Ship Code :</b> @modal.ShipCode</p>
+    <p class="mail"><b>Ship Name :</b> @modal.ShipName</p>
+    <p class="mail"><b>Report created on :</b> @ShipApplication.BLL.Helpers.Utility.GetCurrentDateString()</p>
+    <p class="mail"><b>Report submitted by :</b> @modal.CreatedBy</p>
+    <p class="mail"><b>Voyage no :</b> @modal.VoyageNo</p>
+    <p class="mail"><b>Port Name :</b> @modal.PortName</p>
+
+
+    <p class="mail mailHeading"><b>Cargo</b></p>
+    <p class="mail">Date cargo operations completed :@strDateCargoOperations</p>
+    <p class="mail">Time cargo operations completed :@modal.TimeCargoOperations</p>
+    <p class="mail">Cargo on board :@modal.CargoOnBoard t</p>
+    <p class="mail">Cargo loaded / discharged this port :@modal.CargoLoaded t</p>
+    <p class="mail">Draft AFT :@modal.DraftAFT m</p>
+    <p class="mail">Draft FWD :@modal.DraftFWD m</p>
+
+    <p class="mail mailHeading"><b>Departure</b></p>
+    <p class="mail">Pilot on board (POB) date :@strPOBDate</p>
+    <p class="mail">Pilot on board (POB) time :@modal.POBTime</p>
+    <p class="mail">Departure (unberthing) date :@Utility.DateToString(modal.DepartureDate)</p>
+    <p class="mail">Departure (unberthing) time (LT) :@modal.DepartureTime</p>
+    <p class="mail">Pilot off (DOP) date :@strPOffDate</p>
+    <p class="mail">Pilot off (DOP) time :@modal.POffTime</p>
+    <p class="mail">Number of tugs used on departure :@modal.NoOfTugs</p>
+
+
+    <p class="mail mailHeading"><b>Bunker ROB</b></p>
+    <p class="mail">Fuel oil :@modal.FuelOil t</p>
+    <p class="mail">Diesel oil :@modal.DieselOil t</p>
+    <p class="mail">Low sulphur fuel oil :@modal.SulphurFuelOil t</p>
+    <p class="mail">Low sulphur diesel oil :@modal.SulphurDieselOil t</p>
+
+
+    <p class="mail mailHeading"><b>Arrival</b></p>
+    <p class="mail">Next port :@modal.NextPort</p>
+    <p class="mail">ETA date :@Utility.DateToString(modal.ETADate)</p>
+    <p class="mail">ETA time :@modal.ETATime</p>
+    <p class="mail">Intended route to next port :@modal.IntendedRoute</p>
+
+
+    <p class="mail"><b>Remarks</b></p>
+    <p class="mail">@modal.Remarks</p>
+}

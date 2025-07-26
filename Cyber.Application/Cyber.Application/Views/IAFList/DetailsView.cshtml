@@ -1,0 +1,393 @@
+﻿@model OfficeApplication.BLL.Modals.IAF
+@{
+    ViewBag.Title = "DetailsView";
+}
+
+<link href="~/Content/Custom/GIRForm.css" rel="stylesheet" />
+<script>
+     var RootUrl = '@Url.Content("~/")';
+    function ViewNotes( ctr,element)
+    {
+        $('div.form2').hide();
+        $('div.' + ctr).show();
+        $(".AuditNotes tr").css('background-color', '#ffffff');
+        $(element).parent().parent().parent().css('background-color', '#3c8dbc');
+    }
+    function DownloadFile(ctr, data) {
+       
+        var url = RootUrl + "IAFList/Download?file=" + ctr + "&name=" + data;;
+        $.ajax({
+            url: url,
+            contentType: 'application/json; charset=utf-8',
+            datatype: 'json',
+            type: "GET",
+            success: function () {
+                window.location = url;
+            }
+        });
+    }
+</script>
+<section class="content" style="padding-top:0px;">
+    <div class="row">
+        <div class="col-md-12 leftContent" style="overflow:auto;">
+            <div class="row section1">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-6 text-center">
+                    <h3 style="margin-top:30px;">
+                        Internal Audit Form
+                    </h3>
+                    <h5 id="lblSubHeading">General</h5>
+
+                </div>
+                <div class="col-md-3" style="margin-top:10px;">
+                    <p class="m-0"> Form: GIR</p>
+                    <p class="m-0">Issue No: 5-08/14</p>
+                    <p class="m-0">Amend No: 6-12/16</p>
+                </div>
+            </div>
+
+
+            <form id="IAForm" name="IAForm" method="post" action="@Url.Action("Index", "InternalAuditForm")">
+                <div class="section1">
+                    <div class="row" id="GIRContent">
+                        <div class="col-md-12" >
+                            <div class="GeneralSection PageSection">
+                                <div class="Section breakDiv aviodPrint">
+                                    <div class="SectionHead text-center">
+                                        Audit Details
+                                    </div>
+                                    <div class="SectionContent">
+                                        <table class="table tblSection">
+                                            <tr>
+                                                <td width="10%"><p class="m-5">Site:</p></td>
+                                                <td width="40%">
+                                                    <div class="form-group has-feedback">
+                                                        <input type="text" class="col-md-12 form-control" value="@Model.InternalAuditForm.ShipName" />
+                                                        <span class="form-control-feedback">
+                                                            <label class="text-danger">*</label>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td width="10%" rowspan="3"><p class="m-5 text-center">Audit Type(s):</p></td>
+                                                <td width="40%">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" name="InternalAuditForm.AuditTypeISM" value="true" class="{InternalAuditForm.AuditType:true}" id="txtAuditTypeISM">
+                                                                ISM
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%"><p class="m-5">Location</p></td>
+                                                <td width="40%">
+                                                    <div class="form-group has-feedback">
+                                                        <input value="@Model.InternalAuditForm.Location" type="text" id="txtlocation" class="col-md-12 form-control" name="InternalAuditForm.Location" />
+                                                        <span class="form-control-feedback arrivalCalendarAddon">
+                                                            <label class="text-danger">*</label>
+                                                        </span>
+                                                    </div>
+                                                </td>
+
+                                                @*<td width="10%"><p class="m-5">Audit Type(s):</p></td>*@
+                                                <td width="40%">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" name="InternalAuditForm.AuditTypeISPS" value="true" class="{InternalAuditForm.AuditType:true}" id="txtAuditTypeISPS">
+                                                                ISPS
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%"><p class="m-5">Audit No.:</p></td>
+                                                <td width="40%">
+                                                    <div class="form-group has-feedback">
+                                                        <input value="@Model.InternalAuditForm.AuditNo" type="text" id="txtlocation" class="col-md-12 form-control" name="InternalAuditForm.Location" />
+
+
+                                                        <span class="form-control-feedback arrivalCalendarAddon">
+                                                            <label class="text-danger">*</label>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                @*<td width="10%"><p class="m-5">Audit Type(s):</p></td>*@
+                                                <td width="40%">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" name="InternalAuditForm.AuditTypeMLC" value="true" class="{InternalAuditForm.AuditType:true}" id="txtAuditTypeMLC">
+                                                                MLC
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%"><p class="m-5">Date :</p></td>
+                                                <td width="40%">
+                                                    <div class="form-group has-feedback">
+                                                        <input value="@Model.InternalAuditForm.Date"  type="text" id="txtDate" class="col-md-12 form-control datepicker" name="InternalAuditForm.Date" />
+                                                        
+                                                    </div>
+                                                </td>
+                                                <td width="10%"><p class="m-5">Autitor: </p></td>
+                                                <td width="40%">
+                                                    <div class="form-group has-feedback">
+                                                        <input value="@Model.InternalAuditForm.Auditor" type="text" id="txtDate" class="col-md-12 form-control datepicker" name="InternalAuditForm.Date" />
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="Section breakDiv aviodPrint">
+                                    <div class="SectionHead text-center">
+                                        Audit Notes
+                                    </div>
+                                    <div class="SectionContent">
+                                        <table class="table tblSection AuditNotes">
+                                            <tr>
+                                                <td width="10%"><p class="m-5 text-center">Number</p></td>
+                                                <td width="15%"><p class="m-5 text-center">Type</p></td>
+                                                <td width="65%"><p class="m-5 text-center">Brief Description</p></td>
+                                                <td width="2%"><p class="m-5 text-center">View</p></td>
+                                                
+                                            </tr>
+                                            @if (Model.AuditNote.Count > 0)
+                                            {
+                                                foreach (var item in Model.AuditNote)
+                                                {
+                                                    <tr>
+                                                        <td width="10%">
+                                                            @if (@item.Type == "ISM-Non Conformity")
+                                                            {
+                                                                <input type="text" class="col-md-12 form-control" value="@item.Number of @ViewBag.Numbers[0]" />
+
+                                                            }
+                                                            @if (@item.Type == "ISPS-Non Conformity")
+                                                            {
+                                                                <input type="text" class="col-md-12 form-control" value="@item.Number of @ViewBag.Numbers[1]" />
+
+                                                            }
+                                                            @if (@item.Type == "ISM-Observation")
+                                                            {
+                                                                <input type="text" class="col-md-12 form-control" value="@item.Number of @ViewBag.Numbers[2]" />
+
+                                                            }
+                                                            @if (@item.Type == "ISPS-Observation")
+                                                            {
+                                                                <input type="text" class="col-md-12 form-control" value="@item.Number of @ViewBag.Numbers[3]" />
+
+                                                            }
+                                                            @if (@item.Type == "MLC-Deficiency")
+                                                            {
+                                                                <input type="text" class="col-md-12 form-control" value="@item.Number of @ViewBag.Numbers[4]" />
+
+                                                            }
+                                                        </td>
+                                                        <td width="15%">
+                                                            <input type="text" class="col-md-12 form-control" value="@item.Type" />
+                                                        </td>
+                                                        <td width="65%">
+                                                            <input type="text" class="col-md-12 form-control" value="@item.BriefDescription" />
+                                                        </td>
+                                                        <td width="2%"><p class="m-5 text-center"><i onclick="ViewNotes('@item.AuditNotesId',this)" class="fa fa-fw fa-th-list"></i></p></td>
+                                                        
+                                                    </tr>
+                                                }
+                                            }
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <br />
+                    
+                </div>
+
+                <div class="Listsection2">
+                    @foreach (var item in Model.AuditNote)
+                    {
+                    <div class="@item.AuditNotesId form2 Section" style="display:none;">
+                        <div class="row">
+                            <div class="col-md-12 ">
+                                <div class="section2 PageSection SectionDiv">
+                                    <div class="Section">
+                                        <div class="SectionHead text-center">
+                                            Step 1 - Description of Non-Conformity / Observation
+                                        </div>
+                                        <div class="SectionContent">
+                                            <table class="table tblSection">
+                                                <tr>
+                                                    <td width="10%"><p class="m-5">Reference:</p></td>
+                                                    <td width="90%">
+                                                        <div class="form-group has-feedback">
+                                                            <input value="@item.Reference"  type="text" id="BriefDescription" class="col-md-12 form-control" name="AuditNote[@ViewBag.count].Reference" />
+                                                            
+                                                        </div>
+                                                    </td>
+                                                  
+                                                </tr>
+                                                <tr>
+                                                    <td width="10%"><p class="m-5">Brief Description:</p></td>
+                                                    <td width="90%" colspan="2">
+                                                        <div class="form-group has-feedback">
+                                                            <input  value="@item.BriefDescription"  type="text" id="BriefDescription" class="col-md-12 form-control BriefDescription" />
+                                                            
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="100%" colspan="3"><p class="m-5">Full Description:</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="100%" colspan="3">
+                                                        <div class="form-group has-feedback">
+                                                            <textarea rows="4" type="text" id="FullDescription" class="col-md-12 form-control" style="height:50%;" name="AuditNote[@ViewBag.count].FullDescription"> @item.FullDescription </textarea>
+                                                            
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="section2A PageSection SectionDiv">
+                                    <div class="Section">
+                                        <div class="SectionHead text-center">
+                                            Step 2A - Corrective Action(s)
+                                        </div>
+                                        <div class="SectionContent">
+                                            <table class="table tblSection">
+                                                <tr>
+                                                    <td width="100%" colspan="2">
+                                                        <div class="form-group has-feedback">
+                                                            <textarea rows="4" type="text" id="CorrectiveAction" class="col-md-12 form-control" style="height:50%;" name="AuditNote[@ViewBag.count].CorrectiveAction">@item.CorrectiveAction</textarea>
+                                                           
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="section2B PageSection SectionDiv">
+                                    <div class="Section">
+                                        <div class="SectionHead text-center">
+                                            Step 2B - Preventative Action(s)
+                                        </div>
+                                        <div class="SectionContent">
+                                            <table class="table tblSection">
+                                                <tr>
+                                                    <td width="100%" colspan="2">
+                                                        <div class="form-group has-feedback">
+                                                            <textarea rows="4" type="text" id="CorrectiveAction" class="col-md-12 form-control" style="height:50%;" >@item.PreventativeAction</textarea>
+                                                            
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="section3 PageSection SectionDiv">
+                                    <div class="Section">
+                                        <div class="SectionHead text-center">
+                                            Responsible Person<br />
+                                            (Master has overall responsibility to ensure that responsible person will complete the action.)
+                                        </div>
+
+                                        <div class="SectionContent">
+                                            <table class="table tblSection">
+                                                <tr>
+                                                    <td width="5%"><p class="m-5">rank:</p></td>
+                                                    <td width="25%">
+                                                        <div class="form-group has-feedback">
+                                                            <input value="@item.Rank" type="text" class="col-md-12 form-control" id="Port" name="AuditNote[@ViewBag.count].Rank" />
+                                                            
+                                                        </div>
+                                                    </td>
+                                                    <td width="5%"><p class="m-5">Name:</p></td>
+                                                    <td width="25%">
+                                                        <div class="form-group has-feedback">
+                                                            <input value="@item.Name" type="text" class="col-md-12 form-control" id="Port" name="AuditNote[@ViewBag.count].Name" />
+                                                           
+                                                        </div>
+                                                    </td>
+                                                    <td width="5%"><p class="m-5">TimeScale:</p></td>
+                                                    <td width="25%">
+                                                        <div class="form-group has-feedback">
+                                                            <input value="@item.TimeScale" type="text" class="col-md-12 form-control datepicker" id="Date" name="AuditNote[@ViewBag.count].TimeScale" />
+                                                           
+                                                           
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="section4 PageSection SectionDiv" style="width:50%">
+                                    <div class="Section">
+                                        <div class="SectionHead text-center">
+                                            Attachments
+                                        </div>
+
+                                        <div class="SectionContent text-center" style="border:0px;">
+
+                                            <ul class="list-group" id="fileinfo">
+                                                @if (item.AuditNotesAttachment != null)
+                                                {
+                                                    foreach (var list in item.AuditNotesAttachment)
+                                                    {
+                                                        <li class="list-group-item filelist">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label onclick="DownloadFile('@list.StorePath','@list.FileName')">Download</label>
+                                                                </div>
+                                                                <div class="col-md-10">
+                                                                    @list.FileName
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    }
+                                                }
+
+                                            </ul>
+
+
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+
+                            </div>
+
+                        </div>
+                    </div>
+                    }
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</section>
+

@@ -1,0 +1,1711 @@
+<?xml version="1.0" standalone="yes"?>
+<Ships>
+	<Ship ShipId="1">
+		<Name>Amy C</Name>
+		<Beam>21</Beam>
+		<BHP>5180</BHP>
+		<LBP>127</LBP>
+		<SummerDeadweight>13528</SummerDeadweight>
+		<Lightweight>4353</Lightweight>
+		<Owner>Bridge Shipping</Owner>
+		<OfficialNumber>920011</OfficialNumber>
+		<Bowthruster>526</Bowthruster>
+		<Email>amyc@skyfile.com</Email>
+		<PortOfRegistry>Douglas</PortOfRegistry>
+		<Code>AY</Code>
+		<CallSign>MKWC7</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Isle of Man</FlagName>
+		<LOA>136</LOA>
+		<SummerDraft>8</SummerDraft>
+		<IMONumber>9331505</IMONumber>
+		<MMSI>235010170</MMSI>
+		<NetTonnage>4751</NetTonnage>
+		<GrossTonnage>9177</GrossTonnage>
+		<YearOfBuild>2006</YearOfBuild>
+		<Class>LR</Class>
+		<Fleet>1</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>040</DataloyNumber>
+	</Ship>
+	<Ship ShipId="2">
+		<Name>Andrea Anon</Name>
+		<Beam>18.2</Beam>
+		<BHP>2800</BHP>
+		<LBP>103.9</LBP>
+		<SummerDeadweight>8090.9</SummerDeadweight>
+		<Lightweight>2863.9</Lightweight>
+		<Owner>BBS Short Sea I KS</Owner>
+		<OfficialNumber>911408</OfficialNumber>
+		<Bowthruster>280</Bowthruster>
+		<Email>andreaanon@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>MY</Code>
+		<CallSign>MKYC7</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>108.2</LOA>
+		<SummerDraft>6.65</SummerDraft>
+		<IMONumber>9362657</IMONumber>
+		<MMSI>235010300</MMSI>
+		<NetTonnage>2877</NetTonnage>
+		<GrossTonnage>5604</GrossTonnage>
+		<YearOfBuild>2006</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>4</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>391</DataloyNumber>
+	</Ship>
+	<Ship ShipId="3">
+		<Name>Anja C</Name>
+		<Beam>18.2</Beam>
+		<BHP>2800</BHP>
+		<LBP>103.9</LBP>
+		<SummerDeadweight>8090.9</SummerDeadweight>
+		<Lightweight>2853.9</Lightweight>
+		<Owner>Nomadic Short Sea Shipping A.S.</Owner>
+		<OfficialNumber>911894</OfficialNumber>
+		<Bowthruster>280</Bowthruster>
+		<Email>anjac@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>AA</Code>
+		<CallSign>MMTT9</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>108.2</LOA>
+		<SummerDraft>6.65</SummerDraft>
+		<IMONumber>9362669</IMONumber>
+		<MMSI>235011150</MMSI>
+		<NetTonnage>2877</NetTonnage>
+		<GrossTonnage>5604</GrossTonnage>
+		<YearOfBuild>2006</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>4</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>012</DataloyNumber>
+	</Ship>
+	<Ship ShipId="4">
+		<Name>Charlotte C</Name>
+		<Beam>21.2</Beam>
+		<BHP>5180</BHP>
+		<LBP>126.4</LBP>
+		<SummerDeadweight>13517</SummerDeadweight>
+		<Lightweight>4364</Lightweight>
+		<Owner/>
+		<OfficialNumber/>
+		<Bowthruster>500</Bowthruster>
+		<Email>charlottec-cs@skyfile.com</Email>
+		<PortOfRegistry>Valletta</PortOfRegistry>
+		<Code>CHA</Code>
+		<CallSign>9HA4398</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Malta</FlagName>
+		<LOA>136.43</LOA>
+		<SummerDraft>8.36</SummerDraft>
+		<IMONumber>9528706</IMONumber>
+		<MMSI>235072651</MMSI>
+		<NetTonnage>4751</NetTonnage>
+		<GrossTonnage>9177</GrossTonnage>
+		<YearOfBuild>2009</YearOfBuild>
+		<Class>LR</Class>
+		<Fleet>1</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>680</DataloyNumber>
+	</Ship>
+	<Ship ShipId="9">
+		<Name>Greta C</Name>
+		<Beam>21.2</Beam>
+		<BHP>5180</BHP>
+		<LBP>126.4</LBP>
+		<SummerDeadweight>13517</SummerDeadweight>
+		<Lightweight>4364</Lightweight>
+		<Owner>Carisbrooke Shipping Holdings Ltd</Owner>
+		<OfficialNumber/>
+		<Bowthruster>500</Bowthruster>
+		<Email>gretac@skyfile.com</Email>
+		<PortOfRegistry>Douglas</PortOfRegistry>
+		<Code>GRE</Code>
+		<CallSign>2BTR9</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Isle of Man</FlagName>
+		<LOA>136.43</LOA>
+		<SummerDraft>8.36</SummerDraft>
+		<IMONumber>9528720</IMONumber>
+		<MMSI>235069271</MMSI>
+		<NetTonnage>4751</NetTonnage>
+		<GrossTonnage>9177</GrossTonnage>
+		<YearOfBuild>2009</YearOfBuild>
+		<Class>LR</Class>
+		<Fleet>1</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>370</DataloyNumber>
+	</Ship>
+	<Ship ShipId="12">
+		<Name>Heleen C</Name>
+		<Beam>21.2</Beam>
+		<BHP>5180</BHP>
+		<LBP>126.4</LBP>
+		<SummerDeadweight>13497</SummerDeadweight>
+		<Lightweight>4384</Lightweight>
+		<Owner>Bridge Shipping</Owner>
+		<OfficialNumber>28898</OfficialNumber>
+		<Bowthruster>500</Bowthruster>
+		<Email>heleenc@skyfile.com</Email>
+		<PortOfRegistry>Douglas</PortOfRegistry>
+		<Code>HN</Code>
+		<CallSign>MKWB6</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Isle of Man</FlagName>
+		<LOA>136.43</LOA>
+		<SummerDraft>8.35</SummerDraft>
+		<IMONumber>9331490</IMONumber>
+		<MMSI>235010180</MMSI>
+		<NetTonnage>4751</NetTonnage>
+		<GrossTonnage>9177</GrossTonnage>
+		<YearOfBuild>2006</YearOfBuild>
+		<Class>LR</Class>
+		<Fleet>1</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>021</DataloyNumber>
+	</Ship>
+	<Ship ShipId="38">
+		<Name>Jacqueline C</Name>
+		<Beam>21</Beam>
+		<BHP>5400</BHP>
+		<LBP>130</LBP>
+		<SummerDeadweight>12914.1</SummerDeadweight>
+		<Lightweight>5196.4</Lightweight>
+		<Owner>Carisbrooke Shipping (CV14) BV</Owner>
+		<OfficialNumber>915459</OfficialNumber>
+		<Bowthruster>500</Bowthruster>
+		<Email>jacquelinec.2bon5@globeemail.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>JAC</Code>
+		<CallSign>2BON5</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>138.07</LOA>
+		<SummerDraft>8.056</SummerDraft>
+		<IMONumber>9429754</IMONumber>
+		<MMSI>235067944</MMSI>
+		<NetTonnage>4398</NetTonnage>
+		<GrossTonnage>9530</GrossTonnage>
+		<YearOfBuild>2009</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>2</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>550</DataloyNumber>
+	</Ship>
+	<Ship ShipId="62">
+		<Name>Janet C</Name>
+		<Beam>21</Beam>
+		<BHP>5400</BHP>
+		<LBP>130</LBP>
+		<SummerDeadweight>12914.1</SummerDeadweight>
+		<Lightweight>5196.4</Lightweight>
+		<Owner>Carisbrooke Shipping (CV14) BV</Owner>
+		<OfficialNumber>915670</OfficialNumber>
+		<Bowthruster>500</Bowthruster>
+		<Email>janetc@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>JAN</Code>
+		<CallSign>2BZI7</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>138.07</LOA>
+		<SummerDraft>8.056</SummerDraft>
+		<IMONumber>9430129</IMONumber>
+		<MMSI>235070715</MMSI>
+		<NetTonnage>4398</NetTonnage>
+		<GrossTonnage>9530</GrossTonnage>
+		<YearOfBuild>2009</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>2</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>560</DataloyNumber>
+	</Ship>
+	<Ship ShipId="63">
+		<Name>Jasmine C</Name>
+		<Beam>21</Beam>
+		<BHP>5400</BHP>
+		<LBP>130</LBP>
+		<SummerDeadweight>12927</SummerDeadweight>
+		<Lightweight>5183.2</Lightweight>
+		<Owner>Carisbrooke Shipping (CV22) BV</Owner>
+		<OfficialNumber>741976</OfficialNumber>
+		<Bowthruster>522</Bowthruster>
+		<Email>jasminec@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>JAS</Code>
+		<CallSign>2DCC6</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>138.07</LOA>
+		<SummerDraft>8.056</SummerDraft>
+		<IMONumber>9463542</IMONumber>
+		<MMSI>235077714</MMSI>
+		<NetTonnage>4398</NetTonnage>
+		<GrossTonnage>9530</GrossTonnage>
+		<YearOfBuild>2010</YearOfBuild>
+		<Class>LR</Class>
+		<Fleet>2</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>421</DataloyNumber>
+	</Ship>
+	<Ship ShipId="15">
+		<Name>Johanna C</Name>
+		<Beam>21</Beam>
+		<BHP>5400</BHP>
+		<LBP>130</LBP>
+		<SummerDeadweight>12914.1</SummerDeadweight>
+		<Lightweight>5196.4</Lightweight>
+		<Owner>Carisbrooke Shipping (CV14) BV</Owner>
+		<OfficialNumber>915667</OfficialNumber>
+		<Bowthruster>500</Bowthruster>
+		<Email>johannac@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>JOH</Code>
+		<CallSign>2BZI8</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>138.07</LOA>
+		<SummerDraft>8.056</SummerDraft>
+		<IMONumber>9430131</IMONumber>
+		<MMSI>235070716</MMSI>
+		<NetTonnage>4398</NetTonnage>
+		<GrossTonnage>9530</GrossTonnage>
+		<YearOfBuild>2009</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>2</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>570</DataloyNumber>
+	</Ship>
+	<Ship ShipId="16">
+		<Name>Julie C</Name>
+		<Beam>21</Beam>
+		<BHP>5400</BHP>
+		<LBP>130</LBP>
+		<SummerDeadweight>12914</SummerDeadweight>
+		<Lightweight>5196</Lightweight>
+		<Owner>Carisbrooke Shipping (CV14) BV</Owner>
+		<OfficialNumber>916118</OfficialNumber>
+		<Bowthruster>500</Bowthruster>
+		<Email>juliec@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>JUL</Code>
+		<CallSign>2CJQ7</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>138.07</LOA>
+		<SummerDraft>8.056</SummerDraft>
+		<IMONumber>9430143</IMONumber>
+		<MMSI>235073372</MMSI>
+		<NetTonnage>4398</NetTonnage>
+		<GrossTonnage>9530</GrossTonnage>
+		<YearOfBuild>2009</YearOfBuild>
+		<Class>LR</Class>
+		<Fleet>2</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>580</DataloyNumber>
+	</Ship>
+	<Ship ShipId="45">
+		<Name>Karen C</Name>
+		<Beam>15.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>100.92</LBP>
+		<SummerDeadweight>6795.1</SummerDeadweight>
+		<Lightweight>2048.08</Lightweight>
+		<Owner>Carisbrooke Shipping 6252 BV</Owner>
+		<OfficialNumber>916502</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>karenc@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>KRN</Code>
+		<CallSign>2DCC7</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>106.07</LOA>
+		<SummerDraft>6.63</SummerDraft>
+		<IMONumber>9523952</IMONumber>
+		<MMSI>235077715</MMSI>
+		<NetTonnage>2323</NetTonnage>
+		<GrossTonnage>4151</GrossTonnage>
+		<YearOfBuild>2010</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>1</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>720</DataloyNumber>
+	</Ship>
+	<Ship ShipId="47">
+		<Name>Karina C</Name>
+		<Beam>15.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>100.92</LBP>
+		<SummerDeadweight>6792.7</SummerDeadweight>
+		<Lightweight>2055.7</Lightweight>
+		<Owner>Carisbrooke Shipping 6250 BV</Owner>
+		<OfficialNumber>916717</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>karinac@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>KNA</Code>
+		<CallSign>2DMS9</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>106.07</LOA>
+		<SummerDraft>6.63</SummerDraft>
+		<IMONumber>9558000</IMONumber>
+		<MMSI>235080328</MMSI>
+		<NetTonnage>2323</NetTonnage>
+		<GrossTonnage>4151</GrossTonnage>
+		<YearOfBuild>2010</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>1</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>740</DataloyNumber>
+	</Ship>
+	<Ship ShipId="48">
+		<Name>Karla C</Name>
+		<Beam>15.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>100.92</LBP>
+		<SummerDeadweight>6794.78</SummerDeadweight>
+		<Lightweight>2053.22</Lightweight>
+		<Owner>Carisbrooke Shipping 6250 BV</Owner>
+		<OfficialNumber>916926</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>karlac@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>KRL</Code>
+		<CallSign>2DNZ4</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>106.07</LOA>
+		<SummerDraft>6.63</SummerDraft>
+		<IMONumber>9558012</IMONumber>
+		<MMSI>235080632</MMSI>
+		<NetTonnage>2323</NetTonnage>
+		<GrossTonnage>4151</GrossTonnage>
+		<YearOfBuild>2010</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>1</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>750</DataloyNumber>
+	</Ship>
+	<Ship ShipId="46">
+		<Name>Kate C</Name>
+		<Beam>15.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>100.92</LBP>
+		<SummerDeadweight>6700</SummerDeadweight>
+		<Lightweight>2140</Lightweight>
+		<Owner>Carisbrooke Shipping 6250 BV</Owner>
+		<OfficialNumber>916503</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>katec@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>KTE</Code>
+		<CallSign>2DCL7</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>106.07</LOA>
+		<SummerDraft>6.63</SummerDraft>
+		<IMONumber>9523964</IMONumber>
+		<MMSI>235077805</MMSI>
+		<NetTonnage>2323</NetTonnage>
+		<GrossTonnage>4151</GrossTonnage>
+		<YearOfBuild>2010</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>1</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>730</DataloyNumber>
+	</Ship>
+	<Ship ShipId="44">
+		<Name>Kathy C</Name>
+		<Beam>15.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>100.92</LBP>
+		<SummerDeadweight>6762.4</SummerDeadweight>
+		<Lightweight>2047.97</Lightweight>
+		<Owner>Carisbrooke Shipping 6253 B.V.</Owner>
+		<OfficialNumber>916249</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>kathyc@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>KHY</Code>
+		<CallSign>2CTI7</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>106.07</LOA>
+		<SummerDraft>6.63</SummerDraft>
+		<IMONumber>9523940</IMONumber>
+		<MMSI>235075591</MMSI>
+		<NetTonnage>2323</NetTonnage>
+		<GrossTonnage>4151</GrossTonnage>
+		<YearOfBuild>2010</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>1</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>711</DataloyNumber>
+	</Ship>
+	<Ship ShipId="49">
+		<Name>Kelly C</Name>
+		<Beam>15.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>100.92</LBP>
+		<SummerDeadweight>6794.45</SummerDeadweight>
+		<Lightweight>2053.55</Lightweight>
+		<Owner>Carisbrooke Shipping 6250 BV</Owner>
+		<OfficialNumber>916995</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>kellyc@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>KEL</Code>
+		<CallSign>2DNZ7</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>106.07</LOA>
+		<SummerDraft>6.63</SummerDraft>
+		<IMONumber>9558024</IMONumber>
+		<MMSI>235080635</MMSI>
+		<NetTonnage>2323</NetTonnage>
+		<GrossTonnage>4151</GrossTonnage>
+		<YearOfBuild>2010</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>1</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>760</DataloyNumber>
+	</Ship>
+	<Ship ShipId="50">
+		<Name>Kikki C</Name>
+		<Beam>15.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>100.92</LBP>
+		<SummerDeadweight>6795.73</SummerDeadweight>
+		<Lightweight>2052.27</Lightweight>
+		<Owner>Carisbrooke Shipping 6254 B.V.</Owner>
+		<OfficialNumber>917136</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>kikkic@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>KIK</Code>
+		<CallSign>2DNZ5</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>106.07</LOA>
+		<SummerDraft>6.63</SummerDraft>
+		<IMONumber>9558036</IMONumber>
+		<MMSI>235080633</MMSI>
+		<NetTonnage>2323</NetTonnage>
+		<GrossTonnage>4151</GrossTonnage>
+		<YearOfBuild>2010</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>1</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>771</DataloyNumber>
+	</Ship>
+	<Ship ShipId="52">
+		<Name>Kimberly C</Name>
+		<Beam>15.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>100.92</LBP>
+		<SummerDeadweight>6805.9</SummerDeadweight>
+		<Lightweight>2042.01</Lightweight>
+		<Owner>Carisbrooke Shipping 6250 BV</Owner>
+		<OfficialNumber>917380</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>kimberlyc@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>KIM</Code>
+		<CallSign>2EIQ9</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>106.07</LOA>
+		<SummerDraft>6.63</SummerDraft>
+		<IMONumber>9558050</IMONumber>
+		<MMSI>235085467</MMSI>
+		<NetTonnage>2323</NetTonnage>
+		<GrossTonnage>4151</GrossTonnage>
+		<YearOfBuild>2011</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>1</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>790</DataloyNumber>
+	</Ship>
+	<Ship ShipId="51">
+		<Name>Kitty C</Name>
+		<Beam>15.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>100.92</LBP>
+		<SummerDeadweight>6798.7</SummerDeadweight>
+		<Lightweight>2049.3</Lightweight>
+		<Owner>Carisbrooke Shipping 6252 BV</Owner>
+		<OfficialNumber>917378</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>kittyc@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>KIT</Code>
+		<CallSign>2EIQ6</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>106.07</LOA>
+		<SummerDraft>6.63</SummerDraft>
+		<IMONumber>9558048</IMONumber>
+		<MMSI>235085464</MMSI>
+		<NetTonnage>2323</NetTonnage>
+		<GrossTonnage>4151</GrossTonnage>
+		<YearOfBuild>2011</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>1</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>780</DataloyNumber>
+	</Ship>
+	<Ship ShipId="43">
+		<Name>Kristin C</Name>
+		<Beam>15.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>100.92</LBP>
+		<SummerDeadweight>6700</SummerDeadweight>
+		<Lightweight>2140</Lightweight>
+		<Owner>Carisbrooke Shipping 6250 BV</Owner>
+		<OfficialNumber>916248</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>kristinc@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>KRI</Code>
+		<CallSign>2CTI5</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>106.07</LOA>
+		<SummerDraft>6.63</SummerDraft>
+		<IMONumber>9523938</IMONumber>
+		<MMSI>235075688</MMSI>
+		<NetTonnage>2323</NetTonnage>
+		<GrossTonnage>4151</GrossTonnage>
+		<YearOfBuild>2010</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>1</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>700</DataloyNumber>
+	</Ship>
+	<Ship ShipId="18">
+		<Name>Lauren C</Name>
+		<Beam>14.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>84.7</LBP>
+		<SummerDeadweight>4925.6</SummerDeadweight>
+		<Lightweight>1504.9</Lightweight>
+		<Owner>Carisbrooke Shipping 637 Ltd</Owner>
+		<OfficialNumber>913351</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>laurenc@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>LN</Code>
+		<CallSign>MTNU5</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>89.8</LOA>
+		<SummerDraft>6.303</SummerDraft>
+		<IMONumber>9373527</IMONumber>
+		<MMSI>235056239</MMSI>
+		<NetTonnage>1686</NetTonnage>
+		<GrossTonnage>2990</GrossTonnage>
+		<YearOfBuild>2007</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>2</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>922</DataloyNumber>
+	</Ship>
+	<Ship ShipId="53">
+		<Name>Sider Lijun C</Name>
+		<Beam>18.2</Beam>
+		<BHP>2999</BHP>
+		<LBP>103.9</LBP>
+		<SummerDeadweight>8062</SummerDeadweight>
+		<Lightweight>3006.7</Lightweight>
+		<Owner>Vectis 8000 Ltd</Owner>
+		<OfficialNumber>916220</OfficialNumber>
+		<Bowthruster>280</Bowthruster>
+		<Email>sider.lijunc@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>LIJ</Code>
+		<CallSign>2CTU4</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>108.2</LOA>
+		<SummerDraft>6.992</SummerDraft>
+		<IMONumber>9522001</IMONumber>
+		<MMSI>235075699</MMSI>
+		<NetTonnage>2877</NetTonnage>
+		<GrossTonnage>5629</GrossTonnage>
+		<YearOfBuild>2010</YearOfBuild>
+		<Class>LR</Class>
+		<Fleet>4</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>630</DataloyNumber>
+	</Ship>
+	<Ship ShipId="22">
+		<Name>Michelle C</Name>
+		<Beam>21</Beam>
+		<BHP>5400</BHP>
+		<LBP>130</LBP>
+		<SummerDeadweight>12914.1</SummerDeadweight>
+		<Lightweight>5196.4</Lightweight>
+		<Owner>Carisbrooke Shipping (CV2) BV</Owner>
+		<OfficialNumber>916159</OfficialNumber>
+		<Bowthruster>500</Bowthruster>
+		<Email>michellec@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>MIC</Code>
+		<CallSign>2CRW6</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>138.07</LOA>
+		<SummerDraft>8.056</SummerDraft>
+		<IMONumber>9452218</IMONumber>
+		<MMSI>235075245</MMSI>
+		<NetTonnage>4398</NetTonnage>
+		<GrossTonnage>9530</GrossTonnage>
+		<YearOfBuild>2010</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>2</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>590</DataloyNumber>
+	</Ship>
+	<Ship ShipId="23">
+		<Name>Minka C</Name>
+		<Beam>14.5</Beam>
+		<BHP>1960</BHP>
+		<LBP>94.5</LBP>
+		<SummerDeadweight>5664</SummerDeadweight>
+		<Lightweight>1684.8</Lightweight>
+		<Owner>Carisbrooke Shipping 637 Ltd</Owner>
+		<OfficialNumber>914343</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>minkac@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>MIN</Code>
+		<CallSign>2APU3</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>99.6</LOA>
+		<SummerDraft>6.2</SummerDraft>
+		<IMONumber>9373565</IMONumber>
+		<MMSI>235061954</MMSI>
+		<NetTonnage>1963</NetTonnage>
+		<GrossTonnage>3391</GrossTonnage>
+		<YearOfBuild>2008</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>2</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>960</DataloyNumber>
+	</Ship>
+	<Ship ShipId="27">
+		<Name>Nicole C</Name>
+		<Beam>14.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>84.7</LBP>
+		<SummerDeadweight>4984</SummerDeadweight>
+		<Lightweight>1509.1</Lightweight>
+		<Owner>Carisbrooke Shipping 638 Ltd</Owner>
+		<OfficialNumber>913871</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>nicolec@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>NIC</Code>
+		<CallSign>2AHU4</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>89.8</LOA>
+		<SummerDraft>6.3</SummerDraft>
+		<IMONumber>9373541</IMONumber>
+		<MMSI>235059768</MMSI>
+		<NetTonnage>1686</NetTonnage>
+		<GrossTonnage>2990</GrossTonnage>
+		<YearOfBuild>2008</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>2</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>942</DataloyNumber>
+	</Ship>
+	<Ship ShipId="28">
+		<Name>Nomadic Bergen</Name>
+		<Beam>18.2</Beam>
+		<BHP>2999</BHP>
+		<LBP>103.9</LBP>
+		<SummerDeadweight>8056.677</SummerDeadweight>
+		<Lightweight>3013</Lightweight>
+		<Owner>Nomadic Short Sea Shipping A.S.</Owner>
+		<OfficialNumber>915622</OfficialNumber>
+		<Bowthruster>280</Bowthruster>
+		<Email>nomadicbergen@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>NOM</Code>
+		<CallSign>2BYA3</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>108.2</LOA>
+		<SummerDraft>7.057</SummerDraft>
+		<IMONumber>9432490</IMONumber>
+		<MMSI>235070364</MMSI>
+		<NetTonnage>2877</NetTonnage>
+		<GrossTonnage>5629</GrossTonnage>
+		<YearOfBuild>2009</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>4</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>540</DataloyNumber>
+	</Ship>
+	<Ship ShipId="55">
+		<Name>Nomadic Hjellestad</Name>
+		<Beam>21</Beam>
+		<BHP>5400</BHP>
+		<LBP>130</LBP>
+		<SummerDeadweight>12914.1</SummerDeadweight>
+		<Lightweight>5196.4</Lightweight>
+		<Owner>Nomadic Short Sea Shipping A.S.</Owner>
+		<OfficialNumber>741940</OfficialNumber>
+		<Bowthruster>500</Bowthruster>
+		<Email>nhjellestad@skyfile.com</Email>
+		<PortOfRegistry>Douglas</PortOfRegistry>
+		<Code>HJE</Code>
+		<CallSign>2CRW5</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Isle of Man</FlagName>
+		<LOA>138.04</LOA>
+		<SummerDraft>8.057</SummerDraft>
+		<IMONumber>9452220</IMONumber>
+		<MMSI>235075244</MMSI>
+		<NetTonnage>4398</NetTonnage>
+		<GrossTonnage>9530</GrossTonnage>
+		<YearOfBuild>2010</YearOfBuild>
+		<Class>GL</Class>
+		<Fleet>2</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>600</DataloyNumber>
+	</Ship>
+	<Ship ShipId="56">
+		<Name>Nomadic Milde</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner>Nomadic Short Sea Shipping A.S.</Owner>
+		<OfficialNumber>741940</OfficialNumber>
+		<Bowthruster/>
+		<Email>nomadicmilde@skyfile.com</Email>
+		<PortOfRegistry>Douglas</PortOfRegistry>
+		<Code>MIL</Code>
+		<CallSign>2DPQ2</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Isle of Man</FlagName>
+		<LOA>138</LOA>
+		<SummerDraft/>
+		<IMONumber>9463554</IMONumber>
+		<MMSI>235080999</MMSI>
+		<NetTonnage/>
+		<GrossTonnage>9530</GrossTonnage>
+		<YearOfBuild>2010</YearOfBuild>
+		<Class>GL</Class>
+		<Fleet>2</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>430</DataloyNumber>
+	</Ship>
+	<Ship ShipId="71">
+		<Name>Office - Cowes</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner/>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email>technical.uk@carisbrooke.co</Email>
+		<PortOfRegistry/>
+		<Code>COWES</Code>
+		<CallSign/>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber/>
+		<MMSI/>
+		<NetTonnage/>
+		<GrossTonnage/>
+		<YearOfBuild/>
+		<Class/>
+		<Fleet>7</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber/>
+	</Ship>
+	<Ship ShipId="29">
+		<Name>Paula C</Name>
+		<Beam>14.6</Beam>
+		<BHP>1980</BHP>
+		<LBP>84.7</LBP>
+		<SummerDeadweight>4984</SummerDeadweight>
+		<Lightweight>1529.94</Lightweight>
+		<Owner>Carisbrooke Shipping 636 Ltd</Owner>
+		<OfficialNumber>914147</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>paulac@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>PAU</Code>
+		<CallSign>2AHU2</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>89.8</LOA>
+		<SummerDraft>6.3</SummerDraft>
+		<IMONumber>9373553</IMONumber>
+		<MMSI>235059765</MMSI>
+		<NetTonnage>1687</NetTonnage>
+		<GrossTonnage>2990</GrossTonnage>
+		<YearOfBuild>2008</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>2</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>951</DataloyNumber>
+	</Ship>
+	<Ship ShipId="30">
+		<Name>Sally Ann C</Name>
+		<Beam>21.2</Beam>
+		<BHP>5180</BHP>
+		<LBP>126.4</LBP>
+		<SummerDeadweight>13538</SummerDeadweight>
+		<Lightweight>4343</Lightweight>
+		<Owner>Carisbrooke Shipping Holdings Ltd</Owner>
+		<OfficialNumber>29870</OfficialNumber>
+		<Bowthruster>536</Bowthruster>
+		<Email>sallyannc@skyfile.com</Email>
+		<PortOfRegistry>Douglas</PortOfRegistry>
+		<Code>SY</Code>
+		<CallSign>MPXF5</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Isle of Man</FlagName>
+		<LOA>136.43</LOA>
+		<SummerDraft>8.3675</SummerDraft>
+		<IMONumber>9338151</IMONumber>
+		<MMSI>232977000</MMSI>
+		<NetTonnage>4751</NetTonnage>
+		<GrossTonnage>9177</GrossTonnage>
+		<YearOfBuild>2007</YearOfBuild>
+		<Class>LR</Class>
+		<Fleet>1</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>062</DataloyNumber>
+	</Ship>
+	<Ship ShipId="75">
+		<Name>Sider Martina C</Name>
+		<Beam>18.2</Beam>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner>Medina 8000 Ltd</Owner>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email>sider.martinac@skyfile.com</Email>
+		<PortOfRegistry>Douglas</PortOfRegistry>
+		<Code>MNA</Code>
+		<CallSign>2ERO6</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Isle of Man</FlagName>
+		<LOA>104.11</LOA>
+		<SummerDraft/>
+		<IMONumber>9610614</IMONumber>
+		<MMSI>235087577</MMSI>
+		<NetTonnage>2877</NetTonnage>
+		<GrossTonnage>5629</GrossTonnage>
+		<YearOfBuild>2011</YearOfBuild>
+		<Class>LR</Class>
+		<Fleet>4</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>660</DataloyNumber>
+	</Ship>
+	<Ship ShipId="1085">
+		<Name>MAR</Name>
+		<Beam>16.800</Beam>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner>Krabbeholmen Shipping Ltd</Owner>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email>mar@skyfile.com</Email>
+		<PortOfRegistry></PortOfRegistry>
+		<Code>MAR</Code>
+		<CallSign>9HA2652</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Malta</FlagName>
+		<LOA>119.950</LOA>
+		<SummerDraft/>
+		<IMONumber>9586447</IMONumber>
+		<MMSI>215144000</MMSI>
+		<NetTonnage>2913</NetTonnage>
+		<GrossTonnage>5235</GrossTonnage>
+		<YearOfBuild>2011</YearOfBuild>
+		<Class></Class>
+		<Fleet>2</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber></DataloyNumber>
+	</Ship>
+	<Ship ShipId="54">
+		<Name>Steffi C</Name>
+		<Beam>18.2</Beam>
+		<BHP>2877</BHP>
+		<LBP>103.9</LBP>
+		<SummerDeadweight>8036</SummerDeadweight>
+		<Lightweight>3006</Lightweight>
+		<Owner>Vectis 8000 Ltf</Owner>
+		<OfficialNumber>916355</OfficialNumber>
+		<Bowthruster>280</Bowthruster>
+		<Email>steffic@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>STE</Code>
+		<CallSign>2CTX2</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>108.32</LOA>
+		<SummerDraft>7.042</SummerDraft>
+		<IMONumber>9523926</IMONumber>
+		<MMSI>235075723</MMSI>
+		<NetTonnage>2877</NetTonnage>
+		<GrossTonnage>5629</GrossTonnage>
+		<YearOfBuild>2010</YearOfBuild>
+		<Class>LR</Class>
+		<Fleet>4</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>640</DataloyNumber>
+	</Ship>
+	<Ship ShipId="33">
+		<Name>Tina C</Name>
+		<Beam>14.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>94.5</LBP>
+		<SummerDeadweight>5664</SummerDeadweight>
+		<Lightweight>1686.9</Lightweight>
+		<Owner>Carisbrooke Shipping 638 Ltd</Owner>
+		<OfficialNumber>914829</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>tinac@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>TIN</Code>
+		<CallSign>2APY2</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>99.6</LOA>
+		<SummerDraft>6.2</SummerDraft>
+		<IMONumber>9416331</IMONumber>
+		<MMSI>235061987</MMSI>
+		<NetTonnage>1963</NetTonnage>
+		<GrossTonnage>3391</GrossTonnage>
+		<YearOfBuild>2008</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>2</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>970</DataloyNumber>
+	</Ship>
+	<Ship ShipId="84">
+		<Name>Vectis Castle</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner>Vectis Maritime BV</Owner>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email>vectiscastle@skyfile.com</Email>
+		<PortOfRegistry>Valletta</PortOfRegistry>
+		<Code>VCA</Code>
+		<CallSign>9HA4301</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Malta</FlagName>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber>9626168</IMONumber>
+		<MMSI>235095837</MMSI>
+		<NetTonnage/>
+		<GrossTonnage>7227</GrossTonnage>
+		<YearOfBuild>2012</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>4</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>G70</DataloyNumber>
+	</Ship>
+	<Ship ShipId="77">
+		<Name>Vectis Eagle</Name>
+		<Beam>17.4</Beam>
+		<BHP>2400</BHP>
+		<LBP>105.9</LBP>
+		<SummerDeadweight>8557.05</SummerDeadweight>
+		<Lightweight>3297.95</Lightweight>
+		<Owner>Super Greenship BV</Owner>
+		<OfficialNumber/>
+		<Bowthruster>400</Bowthruster>
+		<Email>vectiseagle@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>VEA</Code>
+		<CallSign>2FBR8</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>109.92</LOA>
+		<SummerDraft>7.93</SummerDraft>
+		<IMONumber>9594286</IMONumber>
+		<MMSI>235089915</MMSI>
+		<NetTonnage>2574</NetTonnage>
+		<GrossTonnage>6190</GrossTonnage>
+		<YearOfBuild>2012</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>4</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>G05</DataloyNumber>
+	</Ship>
+	<Ship ShipId="78">
+		<Name>Vectis Falcon</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner>Super Greenship BV</Owner>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email>vectisfalcon@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>VFA</Code>
+		<CallSign>2FBR7</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber>9594298</IMONumber>
+		<MMSI>235089914</MMSI>
+		<NetTonnage/>
+		<GrossTonnage>6190</GrossTonnage>
+		<YearOfBuild>2012</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>4</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>G10</DataloyNumber>
+	</Ship>
+	<Ship ShipId="79">
+		<Name>Vectis Harrier</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner>Super Greenship BV</Owner>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email>vectisharrier@skyfile.com</Email>
+		<PortOfRegistry>Douglas</PortOfRegistry>
+		<Code>VHA</Code>
+		<CallSign>2FBR6</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Isle of Man</FlagName>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber>9594303</IMONumber>
+		<MMSI>235089913</MMSI>
+		<NetTonnage/>
+		<GrossTonnage>6190</GrossTonnage>
+		<YearOfBuild>2012</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>4</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>G15</DataloyNumber>
+	</Ship>
+	<Ship ShipId="83">
+		<Name>Vectis Isle</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner>Medina Maritime BV</Owner>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email>vectisisle@skyfile.com</Email>
+		<PortOfRegistry>Douglas</PortOfRegistry>
+		<Code>VIS</Code>
+		<CallSign>2GAS8</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Isle of Man</FlagName>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber>9626156</IMONumber>
+		<MMSI>235095836</MMSI>
+		<NetTonnage/>
+		<GrossTonnage>7227</GrossTonnage>
+		<YearOfBuild>2012</YearOfBuild>
+		<Class>GL</Class>
+		<Fleet>4</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>G65</DataloyNumber>
+	</Ship>
+	<Ship ShipId="80">
+		<Name>Vectis Osprey</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner>Super Greenship BV</Owner>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email>vectisosprey@skyfile.com</Email>
+		<PortOfRegistry>Douglas</PortOfRegistry>
+		<Code>VOS</Code>
+		<CallSign>2FBR5</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Isle of Man</FlagName>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber>9594315</IMONumber>
+		<MMSI>235089912</MMSI>
+		<NetTonnage/>
+		<GrossTonnage>6190</GrossTonnage>
+		<YearOfBuild>2012</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>4</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>G20</DataloyNumber>
+	</Ship>
+	<Ship ShipId="81">
+		<Name>Vectis Pride</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner>Carisbrooke Shipping 10 000 BV</Owner>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email>vectispride@skyfile.com</Email>
+		<PortOfRegistry>Douglas</PortOfRegistry>
+		<Code>VPE</Code>
+		<CallSign>2FVR8</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Isle of Man</FlagName>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber>9626132</IMONumber>
+		<MMSI>235094625</MMSI>
+		<NetTonnage>3124</NetTonnage>
+		<GrossTonnage>7227</GrossTonnage>
+		<YearOfBuild>2012</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>4</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>G55</DataloyNumber>
+	</Ship>
+	<Ship ShipId="82">
+		<Name>Vectis Progress</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner>Carisbrooke Shipping 10 000 BV</Owner>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email>vectisprogress@skyfile.com</Email>
+		<PortOfRegistry>Douglas</PortOfRegistry>
+		<Code>VPS</Code>
+		<CallSign>2FVR9</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Isle of Man</FlagName>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber>9626144</IMONumber>
+		<MMSI>235094626</MMSI>
+		<NetTonnage/>
+		<GrossTonnage>7227</GrossTonnage>
+		<YearOfBuild>2012</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>4</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>G60</DataloyNumber>
+	</Ship>
+	<Ship ShipId="40">
+		<Name>Victoria C</Name>
+		<Beam>14.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>84.7</LBP>
+		<SummerDeadweight>4909</SummerDeadweight>
+		<Lightweight>1533</Lightweight>
+		<Owner>Carisbrooke Shipping 634 Ltd</Owner>
+		<OfficialNumber>913648</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>victoriac@skyfile.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>VIC</Code>
+		<CallSign>MTQS</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>89.8</LOA>
+		<SummerDraft>6.3</SummerDraft>
+		<IMONumber>9373539</IMONumber>
+		<MMSI>235056276</MMSI>
+		<NetTonnage>1686</NetTonnage>
+		<GrossTonnage>2990</GrossTonnage>
+		<YearOfBuild>2007</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>2</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>931</DataloyNumber>
+	</Ship>
+	<Ship ShipId="76">
+		<Name>Sider Xiaoyi C</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner>Medina 8000 Ltd</Owner>
+		<OfficialNumber>742874</OfficialNumber>
+		<Bowthruster/>
+		<Email>sider.xiaoyic@skyfile.com</Email>
+		<PortOfRegistry>Douglas</PortOfRegistry>
+		<Code>XIA</Code>
+		<CallSign>2ERO9</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Isle of Man</FlagName>
+		<LOA>108</LOA>
+		<SummerDraft/>
+		<IMONumber>9610509</IMONumber>
+		<MMSI>235087579</MMSI>
+		<NetTonnage>2877</NetTonnage>
+		<GrossTonnage>5629</GrossTonnage>
+		<YearOfBuild>2011</YearOfBuild>
+		<Class>LR</Class>
+		<Fleet>4</Fleet>
+		<Delivered>True</Delivered>
+		<DataloyNumber>650</DataloyNumber>
+	</Ship>
+	<Ship ShipId="35">
+		<Name>XX - Anna C</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner/>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email/>
+		<PortOfRegistry/>
+		<Code/>
+		<CallSign/>
+		<Office/>
+		<FlagName/>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber/>
+		<MMSI/>
+		<NetTonnage/>
+		<GrossTonnage/>
+		<YearOfBuild/>
+		<Class/>
+		<Fleet/>
+		<Delivered>False</Delivered>
+		<DataloyNumber/>
+	</Ship>
+	<Ship ShipId="34">
+		<Name>XX - Emily C</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner/>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email/>
+		<PortOfRegistry/>
+		<Code/>
+		<CallSign/>
+		<Office/>
+		<FlagName/>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber/>
+		<MMSI/>
+		<NetTonnage/>
+		<GrossTonnage/>
+		<YearOfBuild/>
+		<Class/>
+		<Fleet/>
+		<Delivered>False</Delivered>
+		<DataloyNumber/>
+	</Ship>
+	<Ship ShipId="13">
+		<Name>XX - Jade C</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner/>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email/>
+		<PortOfRegistry/>
+		<Code>JDE</Code>
+		<CallSign/>
+		<Office/>
+		<FlagName/>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber/>
+		<MMSI/>
+		<NetTonnage/>
+		<GrossTonnage/>
+		<YearOfBuild/>
+		<Class/>
+		<Fleet/>
+		<Delivered>False</Delivered>
+		<DataloyNumber/>
+	</Ship>
+	<Ship ShipId="14">
+		<Name>XX - Jannie C</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner/>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email/>
+		<PortOfRegistry/>
+		<Code/>
+		<CallSign/>
+		<Office/>
+		<FlagName/>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber/>
+		<MMSI/>
+		<NetTonnage/>
+		<GrossTonnage/>
+		<YearOfBuild/>
+		<Class/>
+		<Fleet/>
+		<Delivered>False</Delivered>
+		<DataloyNumber/>
+	</Ship>
+	<Ship ShipId="20">
+		<Name>XX - Margrete C</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner/>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email/>
+		<PortOfRegistry/>
+		<Code/>
+		<CallSign/>
+		<Office/>
+		<FlagName/>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber/>
+		<MMSI/>
+		<NetTonnage/>
+		<GrossTonnage/>
+		<YearOfBuild/>
+		<Class/>
+		<Fleet/>
+		<Delivered>False</Delivered>
+		<DataloyNumber/>
+	</Ship>
+	<Ship ShipId="21">
+		<Name>XX - Mark C</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner/>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email/>
+		<PortOfRegistry/>
+		<Code/>
+		<CallSign/>
+		<Office/>
+		<FlagName/>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber/>
+		<MMSI/>
+		<NetTonnage/>
+		<GrossTonnage/>
+		<YearOfBuild/>
+		<Class/>
+		<Fleet/>
+		<Delivered>False</Delivered>
+		<DataloyNumber/>
+	</Ship>
+	<Ship ShipId="58">
+		<Name>XX - Megan C</Name>
+		<Beam>21.33</Beam>
+		<BHP>5400</BHP>
+		<LBP>130</LBP>
+		<SummerDeadweight>12914</SummerDeadweight>
+		<Lightweight>5196.4</Lightweight>
+		<Owner>Stichting Beheerder Scheepsfonds Hanzevast MS Megan C</Owner>
+		<OfficialNumber>742825</OfficialNumber>
+		<Bowthruster>500</Bowthruster>
+		<Email>meganc@skyfile.com</Email>
+		<PortOfRegistry>Douglas</PortOfRegistry>
+		<Code>MEG</Code>
+		<CallSign>2EFU5</CallSign>
+		<Office/>
+		<FlagName>Isle of Man</FlagName>
+		<LOA>138.06</LOA>
+		<SummerDraft>8.056</SummerDraft>
+		<IMONumber>9463578</IMONumber>
+		<MMSI>235084729</MMSI>
+		<NetTonnage>4398</NetTonnage>
+		<GrossTonnage>9530</GrossTonnage>
+		<YearOfBuild>2011</YearOfBuild>
+		<Class>LR</Class>
+		<Fleet>0</Fleet>
+		<Delivered>False</Delivered>
+		<DataloyNumber>440</DataloyNumber>
+	</Ship>
+	<Ship ShipId="25">
+		<Name>XX - Monica C</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner/>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email/>
+		<PortOfRegistry/>
+		<Code/>
+		<CallSign/>
+		<Office/>
+		<FlagName/>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber/>
+		<MMSI/>
+		<NetTonnage/>
+		<GrossTonnage/>
+		<YearOfBuild/>
+		<Class/>
+		<Fleet/>
+		<Delivered>False</Delivered>
+		<DataloyNumber/>
+	</Ship>
+	<Ship ShipId="31">
+		<Name>XX - Sian C</Name>
+		<Beam>21.2</Beam>
+		<BHP>5180</BHP>
+		<LBP>126.4</LBP>
+		<SummerDeadweight>13479</SummerDeadweight>
+		<Lightweight>4402</Lightweight>
+		<Owner>Carisbrooke Shipping Holdings Ltd</Owner>
+		<OfficialNumber>29709</OfficialNumber>
+		<Bowthruster>750</Bowthruster>
+		<Email>sianc.mpjd7@globeemail.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>SN</Code>
+		<CallSign>MPJD7</CallSign>
+		<Office/>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>136.43</LOA>
+		<SummerDraft>8.36</SummerDraft>
+		<IMONumber>9338149</IMONumber>
+		<MMSI>235910000</MMSI>
+		<NetTonnage>4751</NetTonnage>
+		<GrossTonnage>9177</GrossTonnage>
+		<YearOfBuild>2006</YearOfBuild>
+		<Class>LR</Class>
+		<Fleet>0</Fleet>
+		<Delivered>False</Delivered>
+		<DataloyNumber>052</DataloyNumber>
+	</Ship>
+	<Ship ShipId="32">
+		<Name>XX - Sonja C</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner/>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email/>
+		<PortOfRegistry/>
+		<Code/>
+		<CallSign/>
+		<Office/>
+		<FlagName/>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber/>
+		<MMSI/>
+		<NetTonnage/>
+		<GrossTonnage/>
+		<YearOfBuild/>
+		<Class/>
+		<Fleet/>
+		<Delivered>False</Delivered>
+		<DataloyNumber/>
+	</Ship>
+	<Ship ShipId="37">
+		<Name>XX - UAL Europe</Name>
+		<Beam/>
+		<BHP/>
+		<LBP/>
+		<SummerDeadweight/>
+		<Lightweight/>
+		<Owner/>
+		<OfficialNumber/>
+		<Bowthruster/>
+		<Email/>
+		<PortOfRegistry/>
+		<Code/>
+		<CallSign/>
+		<Office/>
+		<FlagName/>
+		<LOA/>
+		<SummerDraft/>
+		<IMONumber/>
+		<MMSI/>
+		<NetTonnage/>
+		<GrossTonnage/>
+		<YearOfBuild/>
+		<Class/>
+		<Fleet/>
+		<Delivered>False</Delivered>
+		<DataloyNumber/>
+	</Ship>
+	<Ship ShipId="57">
+		<Name>XX - UAL Rodach</Name>
+		<Beam>21</Beam>
+		<BHP>5400</BHP>
+		<LBP>130</LBP>
+		<SummerDeadweight>12914.1</SummerDeadweight>
+		<Lightweight>5196.4</Lightweight>
+		<Owner>MS Celine GmbH and Co KG</Owner>
+		<OfficialNumber/>
+		<Bowthruster>500</Bowthruster>
+		<Email>ualrodach@skyfile.com</Email>
+		<PortOfRegistry>Douglas</PortOfRegistry>
+		<Code>CEL</Code>
+		<CallSign>2EDD9</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Isle of Man</FlagName>
+		<LOA>138.07</LOA>
+		<SummerDraft>8.056</SummerDraft>
+		<IMONumber>9463566</IMONumber>
+		<MMSI>235084107</MMSI>
+		<NetTonnage>4398</NetTonnage>
+		<GrossTonnage>9530</GrossTonnage>
+		<YearOfBuild>2011</YearOfBuild>
+		<Class>GL</Class>
+		<Fleet>0</Fleet>
+		<Delivered>False</Delivered>
+		<DataloyNumber>410</DataloyNumber>
+	</Ship>
+	<Ship ShipId="8">
+		<Name>XX- UAL Angola</Name>
+		<Beam>18.25</Beam>
+		<BHP>4320</BHP>
+		<LBP>136.12</LBP>
+		<SummerDeadweight>10596.41</SummerDeadweight>
+		<Lightweight>3776.5</Lightweight>
+		<Owner/>
+		<OfficialNumber/>
+		<Bowthruster>400</Bowthruster>
+		<Email>ualangola.VSQG6@globeemail.com</Email>
+		<PortOfRegistry/>
+		<Code>GA</Code>
+		<CallSign>VSQG6</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>Isle of Man</FlagName>
+		<LOA>142.69</LOA>
+		<SummerDraft>7.339</SummerDraft>
+		<IMONumber>9258222</IMONumber>
+		<MMSI>235006360</MMSI>
+		<NetTonnage>3870</NetTonnage>
+		<GrossTonnage>7511</GrossTonnage>
+		<YearOfBuild>2002</YearOfBuild>
+		<Class>GL</Class>
+		<Fleet>0</Fleet>
+		<Delivered>False</Delivered>
+		<DataloyNumber>132</DataloyNumber>
+	</Ship>
+	<Ship ShipId="6">
+		<Name>XX-Eileen C</Name>
+		<Beam>14.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>84.7</LBP>
+		<SummerDeadweight>4984</SummerDeadweight>
+		<Lightweight>1522.2</Lightweight>
+		<Owner>nazevast Carisbrooke Shipping 1 NV</Owner>
+		<OfficialNumber>912576</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>eileenc.mpjc3@globeemail.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>EN</Code>
+		<CallSign>MPJC3</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>89.8</LOA>
+		<SummerDraft>6.3</SummerDraft>
+		<IMONumber>9373503</IMONumber>
+		<MMSI>235011860</MMSI>
+		<NetTonnage>1686</NetTonnage>
+		<GrossTonnage>2990</GrossTonnage>
+		<YearOfBuild>2006</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>0</Fleet>
+		<Delivered>False</Delivered>
+		<DataloyNumber>902</DataloyNumber>
+	</Ship>
+	<Ship ShipId="19">
+		<Name>XX-Lisa C</Name>
+		<Beam>14.5</Beam>
+		<BHP>1980</BHP>
+		<LBP>84.7</LBP>
+		<SummerDeadweight>4984</SummerDeadweight>
+		<Lightweight>1514</Lightweight>
+		<Owner>Hanzevast Carisbrooke Shipping 1 NV</Owner>
+		<OfficialNumber>912957</OfficialNumber>
+		<Bowthruster>250</Bowthruster>
+		<Email>lisac.mvol5@globeemail.com</Email>
+		<PortOfRegistry>Cowes</PortOfRegistry>
+		<Code>LA</Code>
+		<CallSign>MVOL5</CallSign>
+		<Office>Cowes</Office>
+		<FlagName>United Kingdom</FlagName>
+		<LOA>89.8</LOA>
+		<SummerDraft>6.3</SummerDraft>
+		<IMONumber>9373515</IMONumber>
+		<MMSI>235050665</MMSI>
+		<NetTonnage>1686</NetTonnage>
+		<GrossTonnage>2990</GrossTonnage>
+		<YearOfBuild>2007</YearOfBuild>
+		<Class>BV</Class>
+		<Fleet>0</Fleet>
+		<Delivered>False</Delivered>
+		<DataloyNumber>912</DataloyNumber>
+	</Ship>
+</Ships>

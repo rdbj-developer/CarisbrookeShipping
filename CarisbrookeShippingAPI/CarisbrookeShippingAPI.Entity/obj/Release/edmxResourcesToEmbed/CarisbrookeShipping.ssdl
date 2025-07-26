@@ -1,0 +1,2290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarisbrookeShippingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACCOUNTCODE">
+    <Key>
+      <PropertyRef Name="ACCOUNTID" />
+    </Key>
+    <Property Name="ACCOUNTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ACCOUNT_CODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="ACCOUNT_DESCR" Type="nvarchar" MaxLength="50" />
+    <Property Name="ACCOUNT_REMARKS" Type="ntext" />
+    <Property Name="EXPORTED" Type="int" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_SITE" Type="int" />
+    <Property Name="SITEID" Type="int" />
+    <Property Name="CREATED_DATE" Type="datetime" />
+    <Property Name="UPDATE_BY" Type="int" />
+    <Property Name="CREATED_BY" Type="int" />
+    <Property Name="PARENTID" Type="int" />
+  </EntityType>
+  <EntityType Name="ArrivalReports">
+    <Key>
+      <PropertyRef Name="ARID" />
+    </Key>
+    <Property Name="ARID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipNo" Type="int" />
+    <Property Name="ShipName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ReportCreated" Type="nvarchar" MaxLength="50" />
+    <Property Name="VoyageNo" Type="int" />
+    <Property Name="PortName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ArrivalDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="ArrivalTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="NORTenderedDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="NORTenderedTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="POBDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="POBTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoOfTugsUsed" Type="nvarchar" MaxLength="250" />
+    <Property Name="OnAnchor" Type="bit" />
+    <Property Name="ArrivalAlongSideDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="ArrivalAlongSideTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="AverageSpeed" Type="float" />
+    <Property Name="DistanceMade" Type="float" />
+    <Property Name="FuelOil" Type="float" />
+    <Property Name="DieselOil" Type="float" />
+    <Property Name="SulphurFuelOil" Type="float" />
+    <Property Name="SulphurDieselOil" Type="float" />
+    <Property Name="FreshWater" Type="float" />
+    <Property Name="LubeOil" Type="float" />
+    <Property Name="CargoDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="CargoTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="ETCDepartureDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="ETCDepartureTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="NextPort" Type="nvarchar(max)" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="ToEmail" Type="nvarchar" MaxLength="250" />
+    <Property Name="CCEmail" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsSynced" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="AssetManagmentEquipmentITList">
+    <Key>
+      <PropertyRef Name="ITId" />
+    </Key>
+    <Property Name="ITId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AMEId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ITEquipment" Type="nvarchar" MaxLength="250" />
+    <Property Name="ITLocation" Type="nvarchar" MaxLength="250" />
+    <Property Name="ITMake" Type="nvarchar" MaxLength="250" />
+    <Property Name="ITModel" Type="nvarchar" MaxLength="250" />
+    <Property Name="ITType" Type="nvarchar" MaxLength="250" />
+    <Property Name="ITSerialNo" Type="nvarchar" MaxLength="250" />
+    <Property Name="ITWorkingCondition" Type="nvarchar" MaxLength="250" />
+    <Property Name="ITLastServiced" Type="nvarchar" MaxLength="250" />
+    <Property Name="ITRemark" Type="nvarchar" MaxLength="250" />
+    <Property Name="ITHardwareId" Type="nvarchar" MaxLength="500" />
+    <Property Name="ITOwner" Type="nvarchar" MaxLength="500" />
+    <Property Name="ITPersonResponsible" Type="nvarchar" MaxLength="500" />
+    <Property Name="ITCriticality" Type="nvarchar" MaxLength="500" />
+    <Property Name="ITOperatingSystem" Type="nvarchar" MaxLength="500" />
+    <Property Name="ITOSPatchVersion" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="AssetManagmentEquipmentList">
+    <Key>
+      <PropertyRef Name="AMEId" />
+    </Key>
+    <Property Name="AMEId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipName" Type="nvarchar" MaxLength="500" />
+    <Property Name="ShipCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="SavedAsDraft" Type="bit" />
+    <Property Name="IsSynced" Type="bit" />
+  </EntityType>
+  <EntityType Name="AssetManagmentEquipmentLogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AMEId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipName" Type="nvarchar" MaxLength="500" />
+    <Property Name="ShipCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="LogDate" Type="datetime" />
+    <Property Name="OTTableList" Type="nvarchar(max)" />
+    <Property Name="ITTableList" Type="nvarchar(max)" />
+    <Property Name="SoftwareAssetsList" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AssetManagmentEquipmentOTList">
+    <Key>
+      <PropertyRef Name="OTId" />
+    </Key>
+    <Property Name="OTId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AMEId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OTEquipment" Type="nvarchar" MaxLength="250" />
+    <Property Name="OTLocation" Type="nvarchar" MaxLength="250" />
+    <Property Name="OTMake" Type="nvarchar" MaxLength="250" />
+    <Property Name="OTModel" Type="nvarchar" MaxLength="250" />
+    <Property Name="OTType" Type="nvarchar" MaxLength="250" />
+    <Property Name="OTSerialNo" Type="nvarchar" MaxLength="250" />
+    <Property Name="OTWorkingCondition" Type="nvarchar" MaxLength="250" />
+    <Property Name="OTLastServiced" Type="nvarchar" MaxLength="250" />
+    <Property Name="OTRemark" Type="nvarchar" MaxLength="250" />
+    <Property Name="OTHardwareId" Type="nvarchar" MaxLength="500" />
+    <Property Name="OTOwner" Type="nvarchar" MaxLength="500" />
+    <Property Name="OTPersonResponsible" Type="nvarchar" MaxLength="500" />
+    <Property Name="OTCriticality" Type="nvarchar" MaxLength="500" />
+    <Property Name="OTOperatingSystem" Type="nvarchar" MaxLength="500" />
+    <Property Name="OTOSPatchVersion" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="AssetManagmentEquipmentSoftwareAssets">
+    <Key>
+      <PropertyRef Name="SAId" />
+    </Key>
+    <Property Name="SAId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AMEId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Manufacturer" Type="nvarchar" MaxLength="250" />
+    <Property Name="LicenseType" Type="nvarchar" MaxLength="250" />
+    <Property Name="Category" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsActive" Type="nvarchar" MaxLength="250" />
+    <Property Name="SASoftwareId" Type="nvarchar" MaxLength="500" />
+    <Property Name="SAOwner" Type="nvarchar" MaxLength="500" />
+    <Property Name="SAPersonResponsible" Type="nvarchar" MaxLength="500" />
+    <Property Name="SACriticality" Type="nvarchar" MaxLength="500" />
+    <Property Name="SAOperatingSystem" Type="nvarchar" MaxLength="500" />
+    <Property Name="SAOSPatchVersion" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="AuditNotes">
+    <Key>
+      <PropertyRef Name="AuditNotesId" />
+    </Key>
+    <Property Name="NotesUniqueID" Type="uniqueidentifier" />
+    <Property Name="UniqueFormID" Type="uniqueidentifier" />
+    <Property Name="AuditNotesId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InternalAuditFormId" Type="bigint" />
+    <Property Name="Number" Type="varchar(max)" />
+    <Property Name="Type" Type="varchar(max)" />
+    <Property Name="BriefDescription" Type="varchar(max)" />
+    <Property Name="Reference" Type="varchar(max)" />
+    <Property Name="FullDescription" Type="varchar(max)" />
+    <Property Name="CorrectiveAction" Type="varchar(max)" />
+    <Property Name="PreventativeAction" Type="varchar(max)" />
+    <Property Name="Rank" Type="varchar(max)" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="TimeScale" Type="datetime" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="Ship" Type="varchar(max)" />
+    <Property Name="IsResolved" Type="bit" />
+    <Property Name="DateClosed" Type="datetime" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="isDelete" Type="int" Nullable="false" />
+    <Property Name="AssignTo" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="AuditNotesAttachment">
+    <Key>
+      <PropertyRef Name="AuditNotesAttachmentId" />
+    </Key>
+    <Property Name="NotesFileUniqueID" Type="uniqueidentifier" />
+    <Property Name="NotesUniqueID" Type="uniqueidentifier" />
+    <Property Name="AuditNotesAttachmentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InternalAuditFormId" Type="bigint" />
+    <Property Name="AuditNotesId" Type="bigint" />
+    <Property Name="FileName" Type="varchar(max)" />
+    <Property Name="StorePath" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="AuditNotesComments">
+    <Key>
+      <PropertyRef Name="CommentsID" />
+    </Key>
+    <Property Name="CommentUniqueID" Type="uniqueidentifier" />
+    <Property Name="NotesUniqueID" Type="uniqueidentifier" />
+    <Property Name="CommentsID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuditNoteID" Type="bigint" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="isNew" Type="int" />
+  </EntityType>
+  <EntityType Name="AuditNotesCommentsFiles">
+    <Key>
+      <PropertyRef Name="CommentFileID" />
+    </Key>
+    <Property Name="CommentFileUniqueID" Type="uniqueidentifier" />
+    <Property Name="CommentUniqueID" Type="uniqueidentifier" />
+    <Property Name="CommentFileID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommentsID" Type="bigint" />
+    <Property Name="AuditNoteID" Type="bigint" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="StorePath" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AuditNotesResolution">
+    <Key>
+      <PropertyRef Name="ResolutionID" />
+    </Key>
+    <Property Name="ResolutionUniqueID" Type="uniqueidentifier" />
+    <Property Name="NotesUniqueID" Type="uniqueidentifier" />
+    <Property Name="ResolutionID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuditNoteID" Type="bigint" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Resolution" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="isNew" Type="int" />
+  </EntityType>
+  <EntityType Name="AuditNotesResolutionFiles">
+    <Key>
+      <PropertyRef Name="ResolutionFileID" />
+    </Key>
+    <Property Name="ResolutionFileUniqueID" Type="uniqueidentifier" />
+    <Property Name="ResolutionUniqueID" Type="uniqueidentifier" />
+    <Property Name="ResolutionFileID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResolutionID" Type="bigint" />
+    <Property Name="AuditNoteID" Type="bigint" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="StorePath" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CB_FormsPersonMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PersonName" Type="nvarchar" MaxLength="250" />
+    <Property Name="PersonType" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="ModifiedBy" Type="uniqueidentifier" />
+    <Property Name="ModifiedDateTime" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CodaPurchaseOrders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CmpCode" Type="varchar" MaxLength="15" />
+    <Property Name="DocCode" Type="varchar" MaxLength="15" />
+    <Property Name="DocNum" Type="varchar" MaxLength="15" />
+    <Property Name="ModDate" Type="datetime" />
+    <Property Name="El1" Type="varchar" MaxLength="72" />
+    <Property Name="ValueDoc" Type="money" />
+    <Property Name="Descr" Type="varchar" MaxLength="36" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="Invoice" Type="varchar" MaxLength="50" />
+    <Property Name="SiteName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PONO" Type="nvarchar" MaxLength="20" />
+    <Property Name="Vendor_Addr_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Account_Code" Type="nvarchar" MaxLength="10" />
+    <Property Name="Account_Descr" Type="nvarchar" MaxLength="50" />
+    <Property Name="PORecVDate" Type="datetime" />
+    <Property Name="POTotal" Type="float" />
+    <Property Name="POExchRate" Type="float" />
+    <Property Name="POTotal_Base" Type="float" />
+    <Property Name="Forwarder_Recvd_Date" Type="datetime" />
+    <Property Name="InvoiceNo" Type="varchar" MaxLength="50" />
+    <Property Name="Dept_Code" Type="nvarchar" MaxLength="10" />
+    <Property Name="Curr_Code" Type="nvarchar" MaxLength="6" />
+    <Property Name="Equip_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="PODate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CSShips">
+    <Key>
+      <PropertyRef Name="ShipId" />
+    </Key>
+    <Property Name="ShipId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Code" Type="nvarchar" MaxLength="255" />
+    <Property Name="ShipClassId" Type="int" />
+    <Property Name="BuildCountryId" Type="int" />
+    <Property Name="BuildYear" Type="int" />
+    <Property Name="ClassificationSocietyId" Type="int" />
+    <Property Name="FlagStateId" Type="int" />
+    <Property Name="IMONumber" Type="int" />
+    <Property Name="CallSign" Type="nvarchar" MaxLength="255" />
+    <Property Name="MMSI" Type="int" />
+    <Property Name="GrossTonnage" Type="int" />
+    <Property Name="NetTonnage" Type="int" />
+    <Property Name="OfficeId" Type="int" />
+    <Property Name="TechnicalManagerId" Type="int" />
+    <Property Name="SuperintendentId" Type="int" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="IsDelivered" Type="bit" Nullable="false" />
+    <Property Name="FleetId" Type="int" />
+    <Property Name="YardNo" Type="int" />
+    <Property Name="OfficialNumber" Type="int" />
+    <Property Name="PortOfRegistryId" Type="int" />
+    <Property Name="SummerDeadweight" Type="decimal" Precision="8" Scale="3" />
+    <Property Name="Lightweight" Type="decimal" Precision="7" Scale="3" />
+    <Property Name="LOA" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="LBP" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="Beam" Type="decimal" Precision="5" Scale="3" />
+    <Property Name="SummerDraft" Type="decimal" Precision="7" Scale="5" />
+    <Property Name="BHP" Type="int" />
+    <Property Name="BowThruster" Type="int" />
+    <Property Name="BuildNumber" Type="int" />
+    <Property Name="Agent" Type="nvarchar(max)" />
+    <Property Name="Ports" Type="nvarchar(max)" />
+    <Property Name="TechnicalManagerNotes" Type="nvarchar(max)" />
+    <Property Name="MinimumSafeManning" Type="int" />
+    <Property Name="MaximumPersonsLSA" Type="int" />
+    <Property Name="TotalBerths" Type="int" />
+    <Property Name="RegisteredOwners" Type="nvarchar" MaxLength="255" />
+    <Property Name="HullAndMachineryId" Type="int" />
+    <Property Name="ProtectionAndIndemnityId" Type="int" />
+    <Property Name="Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="SMCIsVerified" Type="bit" Nullable="false" />
+    <Property Name="MarineSoftwareNumber" Type="char" MaxLength="3" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" />
+    <Property Name="DataloyNumber" Type="char" MaxLength="3" />
+    <Property Name="Phone1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone3" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="SatC1" Type="nvarchar" MaxLength="50" />
+    <Property Name="SatC2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Citadel" Type="nvarchar" MaxLength="50" />
+    <Property Name="P&amp;I Club" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="CybersecurityRisksAssessment">
+    <Key>
+      <PropertyRef Name="CRAId" />
+    </Key>
+    <Property Name="CRAId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipName" Type="nvarchar" MaxLength="500" />
+    <Property Name="ShipCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsSynced" Type="bit" />
+  </EntityType>
+  <EntityType Name="CybersecurityRisksAssessmentList">
+    <Key>
+      <PropertyRef Name="CRALId" />
+    </Key>
+    <Property Name="CRALId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CRAId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RiskId" Type="nvarchar" MaxLength="500" />
+    <Property Name="RiskDescription" Type="nvarchar" MaxLength="1000" />
+    <Property Name="InherentRiskCategoryC" Type="nvarchar" MaxLength="250" />
+    <Property Name="InherentRiskCategoryI" Type="nvarchar" MaxLength="250" />
+    <Property Name="InherentRiskCategoryA" Type="nvarchar" MaxLength="250" />
+    <Property Name="InherentRiskCategoryS" Type="nvarchar" MaxLength="250" />
+    <Property Name="InherentImpactScore" Type="nvarchar" MaxLength="500" />
+    <Property Name="InherentLikelihoodScore" Type="nvarchar" MaxLength="500" />
+    <Property Name="InherentRiskScore" Type="nvarchar" MaxLength="500" />
+    <Property Name="RiskOwner" Type="nvarchar" MaxLength="500" />
+    <Property Name="Controls" Type="nvarchar(max)" />
+    <Property Name="ResidualRiskCategoryC" Type="nvarchar" MaxLength="250" />
+    <Property Name="ResidualRiskCategoryI" Type="nvarchar" MaxLength="250" />
+    <Property Name="ResidualRiskCategoryA" Type="nvarchar" MaxLength="250" />
+    <Property Name="ResidualRiskCategoryS" Type="nvarchar" MaxLength="250" />
+    <Property Name="ResidualImpactScore" Type="nvarchar" MaxLength="500" />
+    <Property Name="ResidualLikelihoodScore" Type="nvarchar" MaxLength="500" />
+    <Property Name="ResidualRiskScore" Type="nvarchar" MaxLength="500" />
+    <Property Name="RiskDecision" Type="nvarchar" MaxLength="500" />
+    <Property Name="Vulnerability" Type="nvarchar" MaxLength="500" />
+    <Property Name="HardwareId" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CybersecurityRisksAssessmentLogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CRAId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipName" Type="nvarchar" MaxLength="500" />
+    <Property Name="ShipCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="LogDate" Type="datetime" />
+    <Property Name="CybersecurityRisksAssessmentList" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CyberSecuritySettings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DailyCargoReports">
+    <Key>
+      <PropertyRef Name="DCRID" />
+    </Key>
+    <Property Name="DCRID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipNo" Type="int" />
+    <Property Name="ShipName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ReportCreated" Type="nvarchar" MaxLength="50" />
+    <Property Name="VoyageNo" Type="int" />
+    <Property Name="PortName" Type="nvarchar" MaxLength="250" />
+    <Property Name="NoOfGangsEmployed" Type="float" />
+    <Property Name="NoOfShipsCranesInUse" Type="float" />
+    <Property Name="QuantityOfCargoLoaded" Type="float" />
+    <Property Name="TotalCargoLoaded" Type="float" />
+    <Property Name="CargoRemaining" Type="float" />
+    <Property Name="FuelOil" Type="float" />
+    <Property Name="DieselOil" Type="float" />
+    <Property Name="SulphurFuelOil" Type="float" />
+    <Property Name="SulphurDieselOil" Type="float" />
+    <Property Name="Sludge" Type="float" />
+    <Property Name="DirtyOil" Type="float" />
+    <Property Name="ETCDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="ETCTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="NextPort" Type="nvarchar(max)" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="ToEmail" Type="nvarchar" MaxLength="250" />
+    <Property Name="CCEmail" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsSynced" Type="bit" />
+    <Property Name="CargoType" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="DailyPositionReport">
+    <Key>
+      <PropertyRef Name="DPRID" />
+    </Key>
+    <Property Name="DPRID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipNo" Type="int" />
+    <Property Name="ShipCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShipName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ReportCreated" Type="nvarchar" MaxLength="50" />
+    <Property Name="VoyageNo" Type="int" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="50" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="50" />
+    <Property Name="Anchored" Type="bit" />
+    <Property Name="AverageSpeed" Type="float" />
+    <Property Name="DistanceMade" Type="float" />
+    <Property Name="NextPort" Type="nvarchar(max)" />
+    <Property Name="EstimatedArrivalDateEcoSpeed" Type="nvarchar" MaxLength="50" />
+    <Property Name="EstimatedArrivalTimeEcoSpeed" Type="nvarchar" MaxLength="50" />
+    <Property Name="EstimatedArrivalDateFullSpeed" Type="nvarchar" MaxLength="50" />
+    <Property Name="EstimatedArrivalTimeFullSpeed" Type="nvarchar" MaxLength="50" />
+    <Property Name="FuelOil" Type="float" />
+    <Property Name="DieselOil" Type="float" />
+    <Property Name="SulphurFuelOil" Type="float" />
+    <Property Name="SulphurDieselOil" Type="float" />
+    <Property Name="FreshWater" Type="float" />
+    <Property Name="LubeOil" Type="float" />
+    <Property Name="Sludge" Type="float" />
+    <Property Name="DirtyOil" Type="float" />
+    <Property Name="Pitch" Type="float" />
+    <Property Name="EngineLoad" Type="float" />
+    <Property Name="HighCylExhTemp" Type="float" />
+    <Property Name="ExhGasTempAftTurboChrg" Type="float" />
+    <Property Name="OilCunsum" Type="float" />
+    <Property Name="WindDirection" Type="nvarchar(max)" />
+    <Property Name="WindForce" Type="nvarchar(max)" />
+    <Property Name="SeaState" Type="nvarchar(max)" />
+    <Property Name="SwellDirection" Type="nvarchar(max)" />
+    <Property Name="SwellHeight" Type="float" />
+    <Property Name="DraftAft" Type="float" />
+    <Property Name="DraftForward" Type="float" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="ToEmail" Type="nvarchar" MaxLength="250" />
+    <Property Name="CCEmail" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsSynced" Type="bit" />
+    <Property Name="CargoType" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="DepartureReports">
+    <Key>
+      <PropertyRef Name="DRID" />
+    </Key>
+    <Property Name="DRID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipNo" Type="int" />
+    <Property Name="ShipName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ReportCreated" Type="nvarchar" MaxLength="50" />
+    <Property Name="VoyageNo" Type="int" />
+    <Property Name="PortName" Type="nvarchar" MaxLength="250" />
+    <Property Name="DateCargoOperations" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeCargoOperations" Type="nvarchar" MaxLength="50" />
+    <Property Name="CargoOnBoard" Type="nvarchar" MaxLength="50" />
+    <Property Name="CargoLoaded" Type="nvarchar" MaxLength="50" />
+    <Property Name="POBDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="POBTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartureDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartureTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="POffDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="POffTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoOfTugs" Type="nvarchar" MaxLength="250" />
+    <Property Name="FuelOil" Type="float" />
+    <Property Name="DieselOil" Type="float" />
+    <Property Name="SulphurFuelOil" Type="float" />
+    <Property Name="SulphurDieselOil" Type="float" />
+    <Property Name="NextPort" Type="nvarchar(max)" />
+    <Property Name="ETADate" Type="nvarchar" MaxLength="50" />
+    <Property Name="ETATime" Type="nvarchar" MaxLength="50" />
+    <Property Name="IntendedRoute" Type="nvarchar(max)" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="ToEmail" Type="nvarchar" MaxLength="250" />
+    <Property Name="CCEmail" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsSynced" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="DraftAFT" Type="float" />
+    <Property Name="DraftFWD" Type="float" />
+  </EntityType>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="DocID" />
+    </Key>
+    <Property Name="DocID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentID" Type="uniqueidentifier" />
+    <Property Name="ParentID" Type="uniqueidentifier" />
+    <Property Name="Number" Type="nvarchar" MaxLength="250" />
+    <Property Name="DocNo" Type="int" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Path" Type="nvarchar(max)" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DownloadPath" Type="nvarchar(max)" />
+    <Property Name="UploadType" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocumentVersion" Type="float" />
+    <Property Name="Version" Type="float" />
+    <Property Name="Location" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="SectionType" Type="nvarchar" MaxLength="100" />
+    <Property Name="RAFID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="FeedbackForm">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipName" Type="varchar" MaxLength="255" />
+    <Property Name="ShipCode" Type="varchar" MaxLength="255" />
+    <Property Name="Title" Type="varchar" MaxLength="300" />
+    <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsMailSent" Type="bit" />
+    <Property Name="IsSynced" Type="bit" />
+    <Property Name="AttachmentPath" Type="nvarchar(max)" />
+    <Property Name="AttachmentFileName" Type="nvarchar(max)" />
+    <Property Name="FeedbackBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Forms">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FormID" Type="uniqueidentifier" />
+    <Property Name="TemplatePath" Type="nvarchar(max)" />
+    <Property Name="Code" Type="nvarchar" MaxLength="100" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Issue" Type="int" />
+    <Property Name="IssueDate" Type="datetime" />
+    <Property Name="Amendment" Type="int" />
+    <Property Name="AmendmentDate" Type="datetime" />
+    <Property Name="Department" Type="nvarchar" MaxLength="250" />
+    <Property Name="Category" Type="nvarchar" MaxLength="250" />
+    <Property Name="AccessLevel" Type="nvarchar" MaxLength="150" />
+    <Property Name="AllowsNetworkAccess" Type="bit" />
+    <Property Name="CanBeOpened" Type="bit" />
+    <Property Name="HasSavedData" Type="bit" />
+    <Property Name="IsURNBased" Type="bit" />
+    <Property Name="URN" Type="nvarchar(max)" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DownloadPath" Type="nvarchar(max)" />
+    <Property Name="UploadType" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="DocumentVersion" Type="float" />
+    <Property Name="Version" Type="float" />
+    <Property Name="FolderType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="GeneralInspectionReport">
+    <Key>
+      <PropertyRef Name="GIRFormID" />
+    </Key>
+    <Property Name="GIRFormID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipID" Type="int" />
+    <Property Name="ShipName" Type="nvarchar(max)" />
+    <Property Name="Ship" Type="nvarchar(max)" />
+    <Property Name="Port" Type="nvarchar(max)" />
+    <Property Name="Inspector" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="GeneralPreamble" Type="nvarchar(max)" />
+    <Property Name="Classsociety" Type="nvarchar(max)" />
+    <Property Name="YearofBuild" Type="nvarchar(max)" />
+    <Property Name="Flag" Type="nvarchar(max)" />
+    <Property Name="Classofvessel" Type="nvarchar(max)" />
+    <Property Name="Portofregistry" Type="nvarchar(max)" />
+    <Property Name="MMSI" Type="nvarchar(max)" />
+    <Property Name="IMOnumber" Type="nvarchar(max)" />
+    <Property Name="Callsign" Type="nvarchar(max)" />
+    <Property Name="SummerDWT" Type="nvarchar(max)" />
+    <Property Name="Grosstonnage" Type="nvarchar(max)" />
+    <Property Name="Lightweight" Type="nvarchar(max)" />
+    <Property Name="Nettonnage" Type="nvarchar(max)" />
+    <Property Name="Beam" Type="nvarchar(max)" />
+    <Property Name="LOA" Type="nvarchar(max)" />
+    <Property Name="Summerdraft" Type="nvarchar(max)" />
+    <Property Name="LBP" Type="nvarchar(max)" />
+    <Property Name="Bowthruster" Type="nvarchar(max)" />
+    <Property Name="BHP" Type="nvarchar(max)" />
+    <Property Name="Noofholds" Type="nvarchar(max)" />
+    <Property Name="Nomoveablebulkheads" Type="nvarchar(max)" />
+    <Property Name="Containers" Type="nvarchar(max)" />
+    <Property Name="Cargocapacity" Type="nvarchar(max)" />
+    <Property Name="Cargohandlingequipment" Type="nvarchar(max)" />
+    <Property Name="Lastvoyageandcargo" Type="nvarchar(max)" />
+    <Property Name="CurrentPlannedvoyageandcargo" Type="nvarchar(max)" />
+    <Property Name="IsSynced" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="ShipboardWorkingArrangements" Type="nvarchar(max)" />
+    <Property Name="CertificationIndex" Type="nvarchar(max)" />
+    <Property Name="IsPubsAndDocsSectionComplete" Type="bit" />
+    <Property Name="CarriedOutByTheDOOW" Type="nvarchar(max)" />
+    <Property Name="IsRegs4shipsDVD" Type="bit" />
+    <Property Name="Regs4shipsDVD" Type="nvarchar(max)" />
+    <Property Name="IsSOPEPPoints" Type="bit" />
+    <Property Name="SOPEPPoints" Type="nvarchar(max)" />
+    <Property Name="IsBWMP" Type="bit" />
+    <Property Name="BWMP" Type="nvarchar(max)" />
+    <Property Name="IsBWMPSupplement" Type="bit" />
+    <Property Name="BWMPSupplement" Type="nvarchar(max)" />
+    <Property Name="IsIntactStabilityManual" Type="bit" />
+    <Property Name="IntactStabilityManual" Type="nvarchar(max)" />
+    <Property Name="IsStabilityComputer" Type="bit" />
+    <Property Name="StabilityComputer" Type="nvarchar(max)" />
+    <Property Name="IsDateOfLast" Type="bit" />
+    <Property Name="DateOfLast" Type="nvarchar(max)" />
+    <Property Name="IsCargoSecuring" Type="bit" />
+    <Property Name="CargoSecuring" Type="nvarchar(max)" />
+    <Property Name="IBulkCargo" Type="bit" />
+    <Property Name="BulkCargo" Type="nvarchar(max)" />
+    <Property Name="IsSMSManual" Type="bit" />
+    <Property Name="SMSManual" Type="nvarchar(max)" />
+    <Property Name="IsRegisterOf" Type="bit" />
+    <Property Name="RegisterOf" Type="nvarchar(max)" />
+    <Property Name="IsFleetStandingOrder" Type="bit" />
+    <Property Name="FleetStandingOrder" Type="nvarchar(max)" />
+    <Property Name="IsFleetMemoranda" Type="bit" />
+    <Property Name="FleetMemoranda" Type="nvarchar(max)" />
+    <Property Name="IsShipsPlans" Type="bit" />
+    <Property Name="ShipsPlans" Type="nvarchar(max)" />
+    <Property Name="IsCollective" Type="bit" />
+    <Property Name="Collective" Type="nvarchar(max)" />
+    <Property Name="IsDraftAndFreeboardNotice" Type="bit" />
+    <Property Name="DraftAndFreeboardNotice" Type="nvarchar(max)" />
+    <Property Name="IsPCSOPEP" Type="bit" />
+    <Property Name="PCOPEP" Type="nvarchar(max)" />
+    <Property Name="INTVRP" Type="bit" />
+    <Property Name="NTVRP" Type="nvarchar(max)" />
+    <Property Name="IVGP" Type="bit" />
+    <Property Name="VGP" Type="nvarchar(max)" />
+    <Property Name="PubsComments" Type="nvarchar(max)" />
+    <Property Name="OfficialLogbookA" Type="nvarchar(max)" />
+    <Property Name="OfficialLogbookB" Type="nvarchar(max)" />
+    <Property Name="OfficialLogbookC" Type="nvarchar(max)" />
+    <Property Name="OfficialLogbookD" Type="nvarchar(max)" />
+    <Property Name="OfficialLogbookE" Type="nvarchar(max)" />
+    <Property Name="DeckLogbook" Type="nvarchar(max)" />
+    <Property Name="Listofcrew" Type="nvarchar(max)" />
+    <Property Name="LastHose" Type="nvarchar(max)" />
+    <Property Name="PassagePlanning" Type="nvarchar(max)" />
+    <Property Name="LoadingComputer" Type="nvarchar(max)" />
+    <Property Name="EngineLogbook" Type="nvarchar(max)" />
+    <Property Name="OilRecordBook" Type="nvarchar(max)" />
+    <Property Name="RiskAssessments" Type="nvarchar(max)" />
+    <Property Name="GMDSSLogbook" Type="nvarchar(max)" />
+    <Property Name="DeckLogbook5D" Type="nvarchar(max)" />
+    <Property Name="GarbageRecordBook" Type="nvarchar(max)" />
+    <Property Name="BallastWaterRecordBook" Type="nvarchar(max)" />
+    <Property Name="CargoRecordBook" Type="nvarchar(max)" />
+    <Property Name="EmissionsControlManual" Type="nvarchar(max)" />
+    <Property Name="LGR" Type="nvarchar(max)" />
+    <Property Name="PEER" Type="nvarchar(max)" />
+    <Property Name="RecordKeepingComments" Type="nvarchar(max)" />
+    <Property Name="LastPortStateControl" Type="nvarchar(max)" />
+    <Property Name="LiferaftsComment" Type="nvarchar(max)" />
+    <Property Name="releasesComment" Type="nvarchar(max)" />
+    <Property Name="LifeboatComment" Type="nvarchar(max)" />
+    <Property Name="LifeboatdavitComment" Type="nvarchar(max)" />
+    <Property Name="LifeboatequipmentComment" Type="nvarchar(max)" />
+    <Property Name="RescueboatComment" Type="nvarchar(max)" />
+    <Property Name="RescueboatequipmentComment" Type="nvarchar(max)" />
+    <Property Name="RescueboatoutboardmotorComment" Type="nvarchar(max)" />
+    <Property Name="RescueboatdavitComment" Type="nvarchar(max)" />
+    <Property Name="DeckComment" Type="nvarchar(max)" />
+    <Property Name="PyrotechnicsComment" Type="nvarchar(max)" />
+    <Property Name="EPIRBComment" Type="nvarchar(max)" />
+    <Property Name="SARTsComment" Type="nvarchar(max)" />
+    <Property Name="GMDSSComment" Type="nvarchar(max)" />
+    <Property Name="ManoverboardComment" Type="nvarchar(max)" />
+    <Property Name="LinethrowingapparatusComment" Type="nvarchar(max)" />
+    <Property Name="FireextinguishersComment" Type="nvarchar(max)" />
+    <Property Name="EmergencygeneratorComment" Type="nvarchar(max)" />
+    <Property Name="CO2roomComment" Type="nvarchar(max)" />
+    <Property Name="SurvivalComment" Type="nvarchar(max)" />
+    <Property Name="LifejacketComment" Type="nvarchar(max)" />
+    <Property Name="FiremansComment" Type="nvarchar(max)" />
+    <Property Name="LifebuoysComment" Type="nvarchar(max)" />
+    <Property Name="FireboxesComment" Type="nvarchar(max)" />
+    <Property Name="EmergencybellsComment" Type="nvarchar(max)" />
+    <Property Name="EmergencylightingComment" Type="nvarchar(max)" />
+    <Property Name="FireplanComment" Type="nvarchar(max)" />
+    <Property Name="DamageComment" Type="nvarchar(max)" />
+    <Property Name="EmergencyplansComment" Type="nvarchar(max)" />
+    <Property Name="MusterlistComment" Type="nvarchar(max)" />
+    <Property Name="SafetysignsComment" Type="nvarchar(max)" />
+    <Property Name="EmergencysteeringComment" Type="nvarchar(max)" />
+    <Property Name="StatutoryemergencydrillsComment" Type="nvarchar(max)" />
+    <Property Name="EEBDComment" Type="nvarchar(max)" />
+    <Property Name="OxygenComment" Type="nvarchar(max)" />
+    <Property Name="MultigasdetectorComment" Type="nvarchar(max)" />
+    <Property Name="GasdetectorComment" Type="nvarchar(max)" />
+    <Property Name="SufficientquantityComment" Type="nvarchar(max)" />
+    <Property Name="BASetsComment" Type="nvarchar(max)" />
+    <Property Name="SafetyComment" Type="nvarchar(max)" />
+    <Property Name="GangwayComment" Type="nvarchar(max)" />
+    <Property Name="RestrictedComment" Type="nvarchar(max)" />
+    <Property Name="OutsideComment" Type="nvarchar(max)" />
+    <Property Name="EntrancedoorsComment" Type="nvarchar(max)" />
+    <Property Name="AccommodationComment" Type="nvarchar(max)" />
+    <Property Name="GMDSSComment5G" Type="nvarchar(max)" />
+    <Property Name="VariousComment" Type="nvarchar(max)" />
+    <Property Name="SSOComment" Type="nvarchar(max)" />
+    <Property Name="SecuritylogbookComment" Type="nvarchar(max)" />
+    <Property Name="Listoflast10portsComment" Type="nvarchar(max)" />
+    <Property Name="PFSOComment" Type="nvarchar(max)" />
+    <Property Name="SecuritylevelComment" Type="nvarchar(max)" />
+    <Property Name="DrillsandtrainingComment" Type="nvarchar(max)" />
+    <Property Name="DOSComment" Type="nvarchar(max)" />
+    <Property Name="SSASComment" Type="nvarchar(max)" />
+    <Property Name="VisitorslogbookComment" Type="nvarchar(max)" />
+    <Property Name="KeyregisterComment" Type="nvarchar(max)" />
+    <Property Name="ShipSecurityComment" Type="nvarchar(max)" />
+    <Property Name="SecurityComment" Type="nvarchar(max)" />
+    <Property Name="NauticalchartsComment" Type="nvarchar(max)" />
+    <Property Name="NoticetomarinersComment" Type="nvarchar(max)" />
+    <Property Name="ListofradiosignalsComment" Type="nvarchar(max)" />
+    <Property Name="ListoflightsComment" Type="nvarchar(max)" />
+    <Property Name="SailingdirectionsComment" Type="nvarchar(max)" />
+    <Property Name="TidetablesComment" Type="nvarchar(max)" />
+    <Property Name="NavtexandprinterComment" Type="nvarchar(max)" />
+    <Property Name="RadarsComment" Type="nvarchar(max)" />
+    <Property Name="GPSComment" Type="nvarchar(max)" />
+    <Property Name="AISComment" Type="nvarchar(max)" />
+    <Property Name="VDRComment" Type="nvarchar(max)" />
+    <Property Name="ECDISComment" Type="nvarchar(max)" />
+    <Property Name="EchosounderComment" Type="nvarchar(max)" />
+    <Property Name="ADPbackuplaptopComment" Type="nvarchar(max)" />
+    <Property Name="ColourprinterComment" Type="nvarchar(max)" />
+    <Property Name="VHFDSCtransceiverComment" Type="nvarchar(max)" />
+    <Property Name="radioinstallationComment" Type="nvarchar(max)" />
+    <Property Name="InmarsatCComment" Type="nvarchar(max)" />
+    <Property Name="MagneticcompassComment" Type="nvarchar(max)" />
+    <Property Name="SparecompassbowlComment" Type="nvarchar(max)" />
+    <Property Name="CompassobservationbookComment" Type="nvarchar(max)" />
+    <Property Name="GyrocompassComment" Type="nvarchar(max)" />
+    <Property Name="RudderindicatorComment" Type="nvarchar(max)" />
+    <Property Name="SpeedlogComment" Type="nvarchar(max)" />
+    <Property Name="NavigationComment" Type="nvarchar(max)" />
+    <Property Name="SignalflagsComment" Type="nvarchar(max)" />
+    <Property Name="RPMComment" Type="nvarchar(max)" />
+    <Property Name="BasicmanoeuvringdataComment" Type="nvarchar(max)" />
+    <Property Name="MasterstandingordersComment" Type="nvarchar(max)" />
+    <Property Name="MasternightordersbookComment" Type="nvarchar(max)" />
+    <Property Name="SextantComment" Type="nvarchar(max)" />
+    <Property Name="AzimuthmirrorComment" Type="nvarchar(max)" />
+    <Property Name="BridgepostersComment" Type="nvarchar(max)" />
+    <Property Name="ReviewofplannedComment" Type="nvarchar(max)" />
+    <Property Name="BridgebellbookComment" Type="nvarchar(max)" />
+    <Property Name="BridgenavigationalComment" Type="nvarchar(max)" />
+    <Property Name="SecurityEquipmentComment" Type="nvarchar(max)" />
+    <Property Name="NavigationPost" Type="nvarchar(max)" />
+    <Property Name="GeneralComment" Type="nvarchar(max)" />
+    <Property Name="MedicinestorageComment" Type="nvarchar(max)" />
+    <Property Name="MedicinechestcertificateComment" Type="nvarchar(max)" />
+    <Property Name="InventoryStoresComment" Type="nvarchar(max)" />
+    <Property Name="OxygencylindersComment" Type="nvarchar(max)" />
+    <Property Name="StretcherComment" Type="nvarchar(max)" />
+    <Property Name="SalivaComment" Type="nvarchar(max)" />
+    <Property Name="AlcoholComment" Type="nvarchar(max)" />
+    <Property Name="HospitalComment" Type="nvarchar(max)" />
+    <Property Name="GeneralGalleyComment" Type="nvarchar(max)" />
+    <Property Name="HygieneComment" Type="nvarchar(max)" />
+    <Property Name="FoodstorageComment" Type="nvarchar(max)" />
+    <Property Name="FoodlabellingComment" Type="nvarchar(max)" />
+    <Property Name="GalleyriskassessmentComment" Type="nvarchar(max)" />
+    <Property Name="FridgetemperatureComment" Type="nvarchar(max)" />
+    <Property Name="FoodandProvisionsComment" Type="nvarchar(max)" />
+    <Property Name="GalleyComment" Type="nvarchar(max)" />
+    <Property Name="ConditionComment" Type="nvarchar(max)" />
+    <Property Name="PaintworkComment" Type="nvarchar(max)" />
+    <Property Name="LightingComment" Type="nvarchar(max)" />
+    <Property Name="PlatesComment" Type="nvarchar(max)" />
+    <Property Name="BilgesComment" Type="nvarchar(max)" />
+    <Property Name="PipelinesandvalvesComment" Type="nvarchar(max)" />
+    <Property Name="LeakageComment" Type="nvarchar(max)" />
+    <Property Name="EquipmentComment" Type="nvarchar(max)" />
+    <Property Name="OilywaterseparatorComment" Type="nvarchar(max)" />
+    <Property Name="FueloiltransferplanComment" Type="nvarchar(max)" />
+    <Property Name="SteeringgearComment" Type="nvarchar(max)" />
+    <Property Name="WorkshopandequipmentComment" Type="nvarchar(max)" />
+    <Property Name="SoundingpipesComment" Type="nvarchar(max)" />
+    <Property Name="EnginecontrolComment" Type="nvarchar(max)" />
+    <Property Name="ChiefEngineernightordersbookComment" Type="nvarchar(max)" />
+    <Property Name="ChiefEngineerstandingordersComment" Type="nvarchar(max)" />
+    <Property Name="PreUMSComment" Type="nvarchar(max)" />
+    <Property Name="EnginebellbookComment" Type="nvarchar(max)" />
+    <Property Name="LockoutComment" Type="nvarchar(max)" />
+    <Property Name="EngineRoomComment" Type="nvarchar(max)" />
+    <Property Name="CleanlinessandhygieneComment" Type="nvarchar(max)" />
+    <Property Name="ConditionComment5M" Type="nvarchar(max)" />
+    <Property Name="PaintworkComment5M" Type="nvarchar(max)" />
+    <Property Name="SignalmastandstaysComment" Type="nvarchar(max)" />
+    <Property Name="MonkeyislandComment" Type="nvarchar(max)" />
+    <Property Name="FireDampersComment" Type="nvarchar(max)" />
+    <Property Name="RailsBulwarksComment" Type="nvarchar(max)" />
+    <Property Name="WatertightdoorsComment" Type="nvarchar(max)" />
+    <Property Name="VentilatorsComment" Type="nvarchar(max)" />
+    <Property Name="WinchesComment" Type="nvarchar(max)" />
+    <Property Name="FairleadsComment" Type="nvarchar(max)" />
+    <Property Name="MooringLinesComment" Type="nvarchar(max)" />
+    <Property Name="EmergencyShutOffsComment" Type="nvarchar(max)" />
+    <Property Name="RadioaerialsComment" Type="nvarchar(max)" />
+    <Property Name="SOPEPlockerComment" Type="nvarchar(max)" />
+    <Property Name="ChemicallockerComment" Type="nvarchar(max)" />
+    <Property Name="AntislippaintComment" Type="nvarchar(max)" />
+    <Property Name="SuperstructureComment" Type="nvarchar(max)" />
+    <Property Name="CabinsComment" Type="nvarchar(max)" />
+    <Property Name="OfficesComment" Type="nvarchar(max)" />
+    <Property Name="MessroomsComment" Type="nvarchar(max)" />
+    <Property Name="ToiletsComment" Type="nvarchar(max)" />
+    <Property Name="LaundryroomComment" Type="nvarchar(max)" />
+    <Property Name="ChangingroomComment" Type="nvarchar(max)" />
+    <Property Name="OtherComment" Type="nvarchar(max)" />
+    <Property Name="ConditionComment5N" Type="nvarchar(max)" />
+    <Property Name="SelfclosingfiredoorsComment" Type="nvarchar(max)" />
+    <Property Name="StairwellsComment" Type="nvarchar(max)" />
+    <Property Name="SuperstructureInternalComment" Type="nvarchar(max)" />
+    <Property Name="PortablegangwayComment" Type="nvarchar(max)" />
+    <Property Name="SafetynetComment" Type="nvarchar(max)" />
+    <Property Name="AccommodationLadderComment" Type="nvarchar(max)" />
+    <Property Name="SafeaccessprovidedComment" Type="nvarchar(max)" />
+    <Property Name="PilotladdersComment" Type="nvarchar(max)" />
+    <Property Name="BoardingEquipmentComment" Type="nvarchar(max)" />
+    <Property Name="CleanlinessComment" Type="nvarchar(max)" />
+    <Property Name="PaintworkComment5P" Type="nvarchar(max)" />
+    <Property Name="ShipsiderailsComment" Type="nvarchar(max)" />
+    <Property Name="WeathertightdoorsComment" Type="nvarchar(max)" />
+    <Property Name="FirehydrantsComment" Type="nvarchar(max)" />
+    <Property Name="VentilatorsComment5P" Type="nvarchar(max)" />
+    <Property Name="ManholecoversComment" Type="nvarchar(max)" />
+    <Property Name="MainDeckAreaComment" Type="nvarchar(max)" />
+    <Property Name="ConditionComment5Q" Type="nvarchar(max)" />
+    <Property Name="PaintworkComment5Q" Type="nvarchar(max)" />
+    <Property Name="MechanicaldamageComment" Type="nvarchar(max)" />
+    <Property Name="AccessladdersComment" Type="nvarchar(max)" />
+    <Property Name="ManholecoversComment5Q" Type="nvarchar(max)" />
+    <Property Name="HoldbilgeComment" Type="nvarchar(max)" />
+    <Property Name="AccessdoorsComment" Type="nvarchar(max)" />
+    <Property Name="ConditionHatchCoversComment" Type="nvarchar(max)" />
+    <Property Name="PaintworkHatchCoversComment" Type="nvarchar(max)" />
+    <Property Name="RubbersealsComment" Type="nvarchar(max)" />
+    <Property Name="SignsofhatchesComment" Type="nvarchar(max)" />
+    <Property Name="SealingtapeComment" Type="nvarchar(max)" />
+    <Property Name="ConditionofhydraulicsComment" Type="nvarchar(max)" />
+    <Property Name="PortablebulkheadsComment" Type="nvarchar(max)" />
+    <Property Name="TweendecksComment" Type="nvarchar(max)" />
+    <Property Name="HatchcoamingComment" Type="nvarchar(max)" />
+    <Property Name="ConditionCargoCranesComment" Type="nvarchar(max)" />
+    <Property Name="GantrycranealarmComment" Type="nvarchar(max)" />
+    <Property Name="GantryconditionComment" Type="nvarchar(max)" />
+    <Property Name="CargoHoldsComment" Type="nvarchar(max)" />
+    <Property Name="CleanlinessComment5R" Type="nvarchar(max)" />
+    <Property Name="PaintworkComment5R" Type="nvarchar(max)" />
+    <Property Name="TriphazardsComment" Type="nvarchar(max)" />
+    <Property Name="WindlassComment" Type="nvarchar(max)" />
+    <Property Name="CablesComment" Type="nvarchar(max)" />
+    <Property Name="WinchesComment5R" Type="nvarchar(max)" />
+    <Property Name="FairleadsComment5R" Type="nvarchar(max)" />
+    <Property Name="MooringComment" Type="nvarchar(max)" />
+    <Property Name="HatchToforecastlespaceComment" Type="nvarchar(max)" />
+    <Property Name="VentilatorsComment5R" Type="nvarchar(max)" />
+    <Property Name="BellComment" Type="nvarchar(max)" />
+    <Property Name="ForemastComment" Type="nvarchar(max)" />
+    <Property Name="FireComment" Type="nvarchar(max)" />
+    <Property Name="RailsComment" Type="nvarchar(max)" />
+    <Property Name="AntislippaintComment5R" Type="nvarchar(max)" />
+    <Property Name="ForecastleComment" Type="nvarchar(max)" />
+    <Property Name="CleanlinessComment5S" Type="nvarchar(max)" />
+    <Property Name="PaintworkComment5S" Type="nvarchar(max)" />
+    <Property Name="ForepeakComment" Type="nvarchar(max)" />
+    <Property Name="ChainlockerComment" Type="nvarchar(max)" />
+    <Property Name="LightingComment5S" Type="nvarchar(max)" />
+    <Property Name="AccesssafetychainComment" Type="nvarchar(max)" />
+    <Property Name="EmergencyfirepumpComment" Type="nvarchar(max)" />
+    <Property Name="BowthrusterandroomComment" Type="nvarchar(max)" />
+    <Property Name="SparemooringlinesComment" Type="nvarchar(max)" />
+    <Property Name="PaintlockerComment" Type="nvarchar(max)" />
+    <Property Name="ForecastleSpaceComment" Type="nvarchar(max)" />
+    <Property Name="BoottopComment" Type="nvarchar(max)" />
+    <Property Name="TopsidesComment" Type="nvarchar(max)" />
+    <Property Name="AntifoulingComment" Type="nvarchar(max)" />
+    <Property Name="DraftandplimsollComment" Type="nvarchar(max)" />
+    <Property Name="FoulingComment" Type="nvarchar(max)" />
+    <Property Name="MechanicalComment" Type="nvarchar(max)" />
+    <Property Name="HullComment" Type="nvarchar(max)" />
+    <Property Name="SummaryComment" Type="nvarchar(max)" />
+    <Property Name="SavedAsDraft" Type="bit" />
+    <Property Name="SnapBackZoneComment" Type="nvarchar(max)" />
+    <Property Name="ConditionGantryCranesComment" Type="nvarchar(max)" />
+    <Property Name="MedicalLogBookComment" Type="nvarchar(max)" />
+    <Property Name="DrugsNarcoticsComment" Type="nvarchar(max)" />
+    <Property Name="DefibrillatorComment" Type="nvarchar(max)" />
+    <Property Name="RPWaterHandbook" Type="nvarchar(max)" />
+    <Property Name="BioRPWH" Type="nvarchar(max)" />
+    <Property Name="PRE" Type="nvarchar(max)" />
+    <Property Name="NoiseVibrationFile" Type="nvarchar(max)" />
+    <Property Name="BioMPR" Type="nvarchar(max)" />
+    <Property Name="AsbestosPlan" Type="nvarchar(max)" />
+    <Property Name="ShipPublicAddrComment" Type="nvarchar(max)" />
+    <Property Name="BridgewindowswiperssprayComment" Type="nvarchar(max)" />
+    <Property Name="BridgewindowswipersComment" Type="nvarchar(max)" />
+    <Property Name="DaylightSignalsComment" Type="nvarchar(max)" />
+    <Property Name="LiferaftDavitComment" Type="nvarchar(max)" />
+    <Property Name="CylindersLockerComment" Type="nvarchar(max)" />
+    <Property Name="SnapBackZone5NComment" Type="nvarchar(max)" />
+    <Property Name="ADPPublicationsComment" Type="nvarchar(max)" />
+    <Property Name="UniqueFormID" Type="uniqueidentifier" />
+    <Property Name="FormVersion" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="IsGeneralSectionComplete" Type="bit" />
+    <Property Name="IsManningSectionComplete" Type="bit" />
+    <Property Name="IsShipCertificationSectionComplete" Type="bit" />
+    <Property Name="IsRecordKeepingSectionComplete" Type="bit" />
+    <Property Name="IsSafetyEquipmentSectionComplete" Type="bit" />
+    <Property Name="IsSecuritySectionComplete" Type="bit" />
+    <Property Name="IsBridgeSectionComplete" Type="bit" />
+    <Property Name="IsMedicalSectionComplete" Type="bit" />
+    <Property Name="IsGalleySectionComplete" Type="bit" />
+    <Property Name="IsEngineRoomSectionComplete" Type="bit" />
+    <Property Name="IsSuperstructureSectionComplete" Type="bit" />
+    <Property Name="IsDeckSectionComplete" Type="bit" />
+    <Property Name="IsHoldsAndCoverSectionComplete" Type="bit" />
+    <Property Name="IsForeCastleSectionComplete" Type="bit" />
+    <Property Name="IsHullSectionComplete" Type="bit" />
+    <Property Name="IsSummarySectionComplete" Type="bit" />
+    <Property Name="IsDeficienciesSectionComplete" Type="bit" />
+    <Property Name="IsPhotographsSectionComplete" Type="bit" />
+    <Property Name="isDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GeneralSettings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="50" />
+    <Property Name="Value" Type="nvarchar" MaxLength="200" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="GIRDeficiencies">
+    <Key>
+      <PropertyRef Name="DeficienciesID" />
+    </Key>
+    <Property Name="DeficienciesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GIRFormID" Type="bigint" />
+    <Property Name="No" Type="int" Nullable="false" />
+    <Property Name="DateRaised" Type="datetime" />
+    <Property Name="Deficiency" Type="nvarchar(max)" />
+    <Property Name="DateClosed" Type="datetime" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="Ship" Type="nvarchar(max)" />
+    <Property Name="IsClose" Type="bit" />
+    <Property Name="ReportType" Type="nvarchar(max)" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="StorePath" Type="nvarchar(max)" />
+    <Property Name="SIRNo" Type="nvarchar(max)" />
+    <Property Name="ItemNo" Type="nvarchar" MaxLength="150" />
+    <Property Name="Section" Type="nvarchar" MaxLength="500" />
+    <Property Name="UniqueFormID" Type="uniqueidentifier" />
+    <Property Name="isDelete" Type="int" />
+    <Property Name="DeficienciesUniqueID" Type="uniqueidentifier" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="AssignTo" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="GIRDeficienciesCommentFile">
+    <Key>
+      <PropertyRef Name="GIRCommentFileID" />
+    </Key>
+    <Property Name="GIRCommentFileID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NoteID" Type="bigint" />
+    <Property Name="DeficienciesID" Type="bigint" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="StorePath" Type="nvarchar(max)" />
+    <Property Name="IsUpload" Type="nvarchar(max)" />
+    <Property Name="NoteUniqueID" Type="uniqueidentifier" />
+    <Property Name="CommentFileUniqueID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="GIRDeficienciesFiles">
+    <Key>
+      <PropertyRef Name="GIRDeficienciesFileID" />
+    </Key>
+    <Property Name="GIRDeficienciesFileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeficienciesFileUniqueID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DeficienciesID" Type="bigint" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="StorePath" Type="nvarchar(max)" />
+    <Property Name="DeficienciesUniqueID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="GIRDeficienciesInitialActions">
+    <Key>
+      <PropertyRef Name="GIRInitialID" />
+    </Key>
+    <Property Name="GIRInitialID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeficienciesID" Type="bigint" />
+    <Property Name="GIRFormID" Type="bigint" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IniActUniqueID" Type="uniqueidentifier" />
+    <Property Name="DeficienciesUniqueID" Type="uniqueidentifier" />
+    <Property Name="isNew" Type="int" />
+  </EntityType>
+  <EntityType Name="GIRDeficienciesInitialActionsFile">
+    <Key>
+      <PropertyRef Name="GIRFileID" />
+    </Key>
+    <Property Name="GIRFileID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GIRInitialID" Type="bigint" />
+    <Property Name="DeficienciesID" Type="bigint" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="StorePath" Type="nvarchar(max)" />
+    <Property Name="IsUpload" Type="nvarchar(max)" />
+    <Property Name="IniActUniqueID" Type="uniqueidentifier" />
+    <Property Name="IniActFileUniqueID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="GIRDeficienciesNotes">
+    <Key>
+      <PropertyRef Name="NoteID" />
+    </Key>
+    <Property Name="NoteID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeficienciesID" Type="bigint" />
+    <Property Name="GIRFormID" Type="bigint" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifyDate" Type="datetime" />
+    <Property Name="NoteUniqueID" Type="uniqueidentifier" />
+    <Property Name="DeficienciesUniqueID" Type="uniqueidentifier" />
+    <Property Name="isNew" Type="int" />
+  </EntityType>
+  <EntityType Name="GIRDeficienciesResolution">
+    <Key>
+      <PropertyRef Name="GIRResolutionID" />
+    </Key>
+    <Property Name="GIRResolutionID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeficienciesID" Type="bigint" />
+    <Property Name="GIRFormID" Type="bigint" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Resolution" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ResolutionUniqueID" Type="uniqueidentifier" />
+    <Property Name="DeficienciesUniqueID" Type="uniqueidentifier" />
+    <Property Name="isNew" Type="int" />
+  </EntityType>
+  <EntityType Name="GIRDeficienciesResolutionFile">
+    <Key>
+      <PropertyRef Name="GIRFileID" />
+    </Key>
+    <Property Name="GIRFileID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GIRResolutionID" Type="bigint" />
+    <Property Name="DeficienciesID" Type="bigint" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="StorePath" Type="nvarchar(max)" />
+    <Property Name="IsUpload" Type="nvarchar(max)" />
+    <Property Name="ResolutionUniqueID" Type="uniqueidentifier" />
+    <Property Name="ResolutionFileUniqueID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="GIRPhotographs">
+    <Key>
+      <PropertyRef Name="PhotographsID" />
+    </Key>
+    <Property Name="PhotographsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GIRFormID" Type="bigint" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+    <Property Name="ImageCaption" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="Ship" Type="nvarchar(max)" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="UniqueFormID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="GIRRestandWorkHours">
+    <Key>
+      <PropertyRef Name="RestandWorkHoursID" />
+    </Key>
+    <Property Name="RestandWorkHoursID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GIRFormID" Type="bigint" />
+    <Property Name="CrewmemberName" Type="nvarchar(max)" />
+    <Property Name="RestAndWorkDetail" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="Ship" Type="nvarchar(max)" />
+    <Property Name="UniqueFormID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="GlRCrewDocuments">
+    <Key>
+      <PropertyRef Name="CrewDocumentsID" />
+    </Key>
+    <Property Name="CrewDocumentsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GIRFormID" Type="bigint" />
+    <Property Name="CrewmemberName" Type="nvarchar(max)" />
+    <Property Name="CertificationDetail" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="Ship" Type="nvarchar(max)" />
+    <Property Name="UniqueFormID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="GlRSafeManningRequirements">
+    <Key>
+      <PropertyRef Name="SafeManningRequirementsID" />
+    </Key>
+    <Property Name="SafeManningRequirementsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GIRFormID" Type="bigint" />
+    <Property Name="Rank" Type="nvarchar(max)" />
+    <Property Name="RequiredbySMD" Type="bit" />
+    <Property Name="OnBoard" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="Ship" Type="nvarchar(max)" />
+    <Property Name="UniqueFormID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="HelpAndSupport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipId" Type="nvarchar" MaxLength="200" />
+    <Property Name="Comments" Type="nvarchar(max)" />
+    <Property Name="IsStatus" Type="int" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="200" />
+    <Property Name="ModifiedDateTime" Type="datetime" />
+    <Property Name="IsSynced" Type="int" />
+    <Property Name="IsDeleted" Type="int" />
+  </EntityType>
+  <EntityType Name="HoldVentilationRecordForm">
+    <Key>
+      <PropertyRef Name="HoldVentilationRecordFormId" />
+    </Key>
+    <Property Name="HoldVentilationRecordFormId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipName" Type="varchar" MaxLength="255" />
+    <Property Name="ShipCode" Type="varchar" MaxLength="255" />
+    <Property Name="Cargo" Type="varchar" MaxLength="300" />
+    <Property Name="Quantity" Type="float" />
+    <Property Name="LoadingPort" Type="varchar" MaxLength="300" />
+    <Property Name="LoadingDate" Type="datetime" />
+    <Property Name="DischargingPort" Type="varchar" MaxLength="300" />
+    <Property Name="DischargingDate" Type="datetime" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsSynced" Type="bit" />
+  </EntityType>
+  <EntityType Name="HoldVentilationRecordSheet">
+    <Key>
+      <PropertyRef Name="HoldVentilationRecordId" />
+    </Key>
+    <Property Name="HoldVentilationRecordId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoldVentilationRecordFormId" Type="bigint" />
+    <Property Name="HVRDate" Type="date" />
+    <Property Name="HVRTime" Type="time" Precision="7" />
+    <Property Name="OUTDryBulb" Type="varchar(max)" />
+    <Property Name="OUTWetBulb" Type="varchar(max)" />
+    <Property Name="OUTDewPOint" Type="varchar(max)" />
+    <Property Name="HODryBulb" Type="varchar(max)" />
+    <Property Name="HOWetBulb" Type="varchar(max)" />
+    <Property Name="HODewPOint" Type="varchar(max)" />
+    <Property Name="IsVentilation" Type="bit" />
+    <Property Name="SeaTemp" Type="float" />
+    <Property Name="Remarks" Type="varchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="InternalAuditForm">
+    <Key>
+      <PropertyRef Name="InternalAuditFormId" />
+    </Key>
+    <Property Name="UniqueFormID" Type="uniqueidentifier" />
+    <Property Name="FormVersion" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="InternalAuditFormId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipId" Type="bigint" />
+    <Property Name="ShipName" Type="varchar(max)" />
+    <Property Name="Location" Type="varchar(max)" />
+    <Property Name="AuditNo" Type="varchar(max)" />
+    <Property Name="AuditTypeISM" Type="bit" />
+    <Property Name="AuditTypeISPS" Type="bit" />
+    <Property Name="AuditTypeMLC" Type="bit" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Auditor" Type="varchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsSynced" Type="bit" />
+    <Property Name="isDelete" Type="int" />
+    <Property Name="AuditType" Type="int" Nullable="false" />
+    <Property Name="IsAdditional" Type="bit" Nullable="false" />
+    <Property Name="IsClosed" Type="bit" Nullable="false" />
+    <Property Name="SavedAsDraft" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MainSyncServicesEventLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipSystemId" Type="bigint" />
+    <Property Name="RunningVersion" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="LastUpdateDate" Type="datetime" />
+    <Property Name="Latitude" Type="decimal" Precision="12" Scale="9" />
+    <Property Name="Longitude" Type="decimal" Precision="12" Scale="9" />
+  </EntityType>
+  <EntityType Name="Menus">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuLevel" Type="int" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="MenuText" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="300" />
+    <Property Name="ControllerName" Type="nvarchar" MaxLength="150" />
+    <Property Name="ActionName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Class" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsParent" Type="bit" />
+    <Property Name="MenuType" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDefaultMenu" Type="bit" />
+  </EntityType>
+  <EntityType Name="MLCRegulationTree">
+    <Key>
+      <PropertyRef Name="MLCRegulationId" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" />
+    <Property Name="MLCRegulationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MLCRegulationParentId" Type="int" />
+    <Property Name="Number" Type="nvarchar" MaxLength="255" />
+    <Property Name="Regulation" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="ModifiedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UniqueId" Type="uniqueidentifier" />
+    <Property Name="UniqueDataId" Type="uniqueidentifier" />
+    <Property Name="DataType" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsDraft" Type="bit" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="DetailsURL" Type="nvarchar" MaxLength="500" />
+    <Property Name="FromUserId" Type="uniqueidentifier" />
+    <Property Name="SentToUserId" Type="uniqueidentifier" />
+    <Property Name="UserGroup" Type="int" />
+    <Property Name="NotificationType" Type="nvarchar" MaxLength="100" />
+    <Property Name="ReadByUserId" Type="uniqueidentifier" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="ReadDateTime" Type="datetime" />
+    <Property Name="IsReminder" Type="bit" Nullable="false" />
+    <Property Name="IsRead" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OpenFileServicesDownloadLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipCode" Type="nchar" MaxLength="10" />
+    <Property Name="PCName" Type="nvarchar" MaxLength="500" />
+    <Property Name="PCUniqueId" Type="nvarchar" MaxLength="150" />
+    <Property Name="OldAppId" Type="bigint" />
+    <Property Name="DownloadedAppId" Type="bigint" />
+    <Property Name="DownloadDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OpenFileServicesEventLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipSystemId" Type="bigint" />
+    <Property Name="RunningVersion" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="LastUpdateDate" Type="datetime" />
+    <Property Name="Latitude" Type="decimal" Precision="12" Scale="9" />
+    <Property Name="Longitude" Type="decimal" Precision="12" Scale="9" />
+  </EntityType>
+  <EntityType Name="OpenFileServicesReleaseNote">
+    <Key>
+      <PropertyRef Name="AppId" />
+    </Key>
+    <Property Name="AppId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppVersion" Type="varchar" MaxLength="50" />
+    <Property Name="AppDescription" Type="varchar(max)" />
+    <Property Name="AppPublishDate" Type="datetime" />
+    <Property Name="NoOfFilesAffected" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OpexReportFinilizeDate">
+    <Key>
+      <PropertyRef Name="FinilizeID" />
+    </Key>
+    <Property Name="FinilizeID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FinilizeBy" Type="uniqueidentifier" />
+    <Property Name="StardDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Repositories">
+    <Key>
+      <PropertyRef Name="RepID" />
+    </Key>
+    <Property Name="RepID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentID" Type="uniqueidentifier" />
+    <Property Name="ParentID" Type="uniqueidentifier" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Extension" Type="nvarchar" MaxLength="50" />
+    <Property Name="Path" Type="nvarchar(max)" />
+    <Property Name="Version" Type="float" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RiskAssessmentForm">
+    <Key>
+      <PropertyRef Name="RAFID" />
+    </Key>
+    <Property Name="RAFID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipName" Type="nvarchar" MaxLength="500" />
+    <Property Name="ShipCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="Number" Type="nvarchar(max)" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="ReviewerName" Type="nvarchar(max)" />
+    <Property Name="ReviewerDate" Type="datetime" />
+    <Property Name="ReviewerRank" Type="nvarchar(max)" />
+    <Property Name="ReviewerLocation" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="SavedAsDraft" Type="bit" />
+    <Property Name="IsSynced" Type="bit" />
+    <Property Name="Code" Type="nvarchar" MaxLength="100" />
+    <Property Name="Issue" Type="int" />
+    <Property Name="IssueDate" Type="datetime" />
+    <Property Name="Amendment" Type="int" />
+    <Property Name="AmendmentDate" Type="datetime" />
+    <Property Name="IsConfidential" Type="bit" />
+    <Property Name="DocumentID" Type="uniqueidentifier" />
+    <Property Name="ParentID" Type="uniqueidentifier" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="SectionType" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsAmended" Type="bit" />
+    <Property Name="IsApplicable" Type="bit" />
+    <Property Name="RAFUniqueID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="RiskAssessmentFormHazard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="HazardId" Type="bigint" />
+    <Property Name="RAFID" Type="bigint" />
+    <Property Name="Stage1Description" Type="nvarchar(max)" />
+    <Property Name="Stage2Severity" Type="nvarchar" MaxLength="250" />
+    <Property Name="Stage2Likelihood" Type="nvarchar" MaxLength="250" />
+    <Property Name="Stage2RiskFactor" Type="nvarchar" MaxLength="250" />
+    <Property Name="Stage3Description" Type="nvarchar(max)" />
+    <Property Name="Stage4Severity" Type="nvarchar" MaxLength="250" />
+    <Property Name="Stage4Likelihood" Type="nvarchar" MaxLength="250" />
+    <Property Name="Stage4RiskFactor" Type="nvarchar" MaxLength="250" />
+    <Property Name="RAFUniqueID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="RiskAssessmentFormLogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RAFId" Type="bigint" Nullable="false" />
+    <Property Name="ShipName" Type="nvarchar" MaxLength="500" />
+    <Property Name="ShipCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="LogDate" Type="datetime" />
+    <Property Name="RiskAssessmentFormList" Type="nvarchar(max)" />
+    <Property Name="RAFUniqueID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="RiskAssessmentFormReviewer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RAFID" Type="bigint" />
+    <Property Name="ReviewerName" Type="nvarchar(max)" />
+    <Property Name="IndexNo" Type="bigint" />
+    <Property Name="RAFUniqueID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar(max)" />
+    <Property Name="IsReport" Type="bit" />
+    <Property Name="IsDocument" Type="bit" />
+    <Property Name="IsForm" Type="bit" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="IsSettings" Type="bit" />
+    <Property Name="IsHome" Type="bit" />
+    <Property Name="IsDeficiencies" Type="bit" />
+    <Property Name="IsHelp" Type="bit" />
+    <Property Name="IsAbout" Type="bit" />
+  </EntityType>
+  <EntityType Name="ShipAppDownloadLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipCode" Type="nchar" MaxLength="10" />
+    <Property Name="PCName" Type="nvarchar" MaxLength="500" />
+    <Property Name="PCUniqueId" Type="nvarchar" MaxLength="150" />
+    <Property Name="OldAppId" Type="bigint" />
+    <Property Name="DownloadedAppId" Type="bigint" />
+    <Property Name="DownloadDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ShipAppReleaseNote">
+    <Key>
+      <PropertyRef Name="AppId" />
+    </Key>
+    <Property Name="AppId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppVersion" Type="varchar" MaxLength="50" />
+    <Property Name="AppDescription" Type="varchar(max)" />
+    <Property Name="AppPublishDate" Type="datetime" />
+    <Property Name="NoOfFilesAffected" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Ships">
+    <Key>
+      <PropertyRef Name="ShipID" />
+    </Key>
+    <Property Name="ShipID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipName" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="ShipCode" Type="char" MaxLength="10" />
+    <Property Name="BuildYear" Type="int" />
+    <Property Name="IMONumber" Type="int" />
+    <Property Name="CallSign" Type="varchar" MaxLength="10" />
+    <Property Name="MMSI" Type="int" />
+    <Property Name="GrossTonnage" Type="int" />
+    <Property Name="NetTonnage" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Phone1" Type="varchar" MaxLength="15" />
+    <Property Name="Phone2" Type="varchar" MaxLength="15" />
+    <Property Name="Phone3" Type="varchar" MaxLength="16" />
+    <Property Name="Mobile" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="ShipSystems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipCode" Type="nchar" MaxLength="10" />
+    <Property Name="PCName" Type="nvarchar" MaxLength="500" />
+    <Property Name="PCUniqueId" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsBlocked" Type="bit" />
+    <Property Name="IsMainPC" Type="bit" />
+  </EntityType>
+  <EntityType Name="ShipSystemsEventLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipSystemId" Type="bigint" />
+    <Property Name="EventId" Type="int" />
+    <Property Name="EventSource" Type="nvarchar" MaxLength="500" />
+    <Property Name="EventDescription" Type="nvarchar(max)" />
+    <Property Name="EventDate" Type="datetime" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="250" />
+    <Property Name="EventMachineName" Type="nvarchar" MaxLength="500" />
+    <Property Name="EventType" Type="nvarchar" MaxLength="200" />
+    <Property Name="EventLogType" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ShipSystemsInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipSystemId" Type="bigint" />
+    <Property Name="PropertyName" Type="nvarchar" MaxLength="500" />
+    <Property Name="PropertyValue" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="250" />
+    <Property Name="DisplayOrder" Type="int" />
+  </EntityType>
+  <EntityType Name="ShipSystemsProcesses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipSystemId" Type="bigint" />
+    <Property Name="ProcessId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar" MaxLength="200" />
+    <Property Name="Username" Type="nvarchar" MaxLength="200" />
+    <Property Name="MemoryUsage" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ShipSystemsServices">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipSystemId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ServiceType" Type="nvarchar" MaxLength="200" />
+    <Property Name="Status" Type="nvarchar" MaxLength="200" />
+    <Property Name="StartupType" Type="nvarchar" MaxLength="200" />
+    <Property Name="StartName" Type="nvarchar" MaxLength="200" />
+    <Property Name="SystemName" Type="nvarchar" MaxLength="500" />
+    <Property Name="ProcessId" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ShipSystemsSoftwareInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipSystemId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Version" Type="nvarchar" MaxLength="50" />
+    <Property Name="InstallDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="InstallLocation" Type="nvarchar" MaxLength="500" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="250" />
+    <Property Name="UninstallString" Type="nvarchar" MaxLength="500" />
+    <Property Name="ModifyPath" Type="nvarchar" MaxLength="500" />
+    <Property Name="RepairPath" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SIRAdditionalNotes">
+    <Key>
+      <PropertyRef Name="NoteID" />
+    </Key>
+    <Property Name="NotesUniqueID" Type="uniqueidentifier" />
+    <Property Name="NoteID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SIRFormID" Type="bigint" />
+    <Property Name="Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="UniqueFormID" Type="uniqueidentifier" />
+    <Property Name="IsDeleted" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SIRNotes">
+    <Key>
+      <PropertyRef Name="NoteID" />
+    </Key>
+    <Property Name="NotesUniqueID" Type="uniqueidentifier" />
+    <Property Name="NoteID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SIRFormID" Type="bigint" />
+    <Property Name="Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="UniqueFormID" Type="uniqueidentifier" />
+    <Property Name="IsDeleted" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SMRForm">
+    <Key>
+      <PropertyRef Name="SMRFormID" />
+    </Key>
+    <Property Name="SMRFormID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipID" Type="int" />
+    <Property Name="ShipName" Type="nvarchar(max)" />
+    <Property Name="ReviewPeriod" Type="nvarchar" MaxLength="250" />
+    <Property Name="Year" Type="int" />
+    <Property Name="DateOfMeeting" Type="nvarchar" MaxLength="250" />
+    <Property Name="Section1" Type="nvarchar(max)" />
+    <Property Name="Section2" Type="nvarchar(max)" />
+    <Property Name="Section3" Type="nvarchar(max)" />
+    <Property Name="Section4" Type="nvarchar(max)" />
+    <Property Name="Section5" Type="nvarchar(max)" />
+    <Property Name="Section6" Type="nvarchar(max)" />
+    <Property Name="Section7" Type="nvarchar(max)" />
+    <Property Name="Section7a" Type="nvarchar(max)" />
+    <Property Name="Section7b" Type="nvarchar(max)" />
+    <Property Name="Section7c" Type="nvarchar(max)" />
+    <Property Name="Section7d" Type="nvarchar(max)" />
+    <Property Name="Section7e1" Type="nvarchar(max)" />
+    <Property Name="Section7e2" Type="nvarchar(max)" />
+    <Property Name="Section7e3" Type="nvarchar(max)" />
+    <Property Name="Section7f1" Type="nvarchar(max)" />
+    <Property Name="Section7f2" Type="nvarchar(max)" />
+    <Property Name="Section7g" Type="nvarchar(max)" />
+    <Property Name="Section7h" Type="nvarchar(max)" />
+    <Property Name="Section8a" Type="nvarchar(max)" />
+    <Property Name="Section8b" Type="nvarchar(max)" />
+    <Property Name="Section8b1" Type="nvarchar(max)" />
+    <Property Name="Section8b2" Type="nvarchar(max)" />
+    <Property Name="Section8b3" Type="nvarchar(max)" />
+    <Property Name="Section8b4" Type="nvarchar(max)" />
+    <Property Name="Section8b5" Type="nvarchar(max)" />
+    <Property Name="Section9" Type="nvarchar(max)" />
+    <Property Name="Section10" Type="nvarchar(max)" />
+    <Property Name="Section11" Type="nvarchar(max)" />
+    <Property Name="Section12a" Type="nvarchar(max)" />
+    <Property Name="Section12b" Type="nvarchar(max)" />
+    <Property Name="Section12c" Type="nvarchar(max)" />
+    <Property Name="Section12d" Type="nvarchar(max)" />
+    <Property Name="Section12e" Type="nvarchar(max)" />
+    <Property Name="Section12f" Type="nvarchar(max)" />
+    <Property Name="Section12g" Type="nvarchar(max)" />
+    <Property Name="Section12h" Type="nvarchar(max)" />
+    <Property Name="Section12i" Type="nvarchar(max)" />
+    <Property Name="Section12j" Type="nvarchar(max)" />
+    <Property Name="Section12k" Type="nvarchar(max)" />
+    <Property Name="Section13" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SMRFormCrewMembers">
+    <Key>
+      <PropertyRef Name="CrewMemberID" />
+    </Key>
+    <Property Name="CrewMemberID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SMRFormID" Type="bigint" />
+    <Property Name="Rank" Type="nvarchar(max)" />
+    <Property Name="FullName" Type="nvarchar(max)" />
+    <Property Name="ElectedAsSafety" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SMSReferencesTree">
+    <Key>
+      <PropertyRef Name="SMSReferenceId" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" />
+    <Property Name="SMSReferenceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SMSReferenceParentId" Type="int" />
+    <Property Name="Number" Type="nvarchar" MaxLength="255" />
+    <Property Name="Reference" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="ModifiedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SSPReferenceTree">
+    <Key>
+      <PropertyRef Name="SSPReferenceId" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" />
+    <Property Name="SSPReferenceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SSPReferenceParentId" Type="int" />
+    <Property Name="Number" Type="nvarchar" MaxLength="255" />
+    <Property Name="Reference" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="ModifiedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SuperintendedInspectionReport">
+    <Key>
+      <PropertyRef Name="SIRFormID" />
+    </Key>
+    <Property Name="SIRFormID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipID" Type="bigint" />
+    <Property Name="ShipName" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Port" Type="nvarchar(max)" />
+    <Property Name="Master" Type="nvarchar(max)" />
+    <Property Name="Superintended" Type="nvarchar(max)" />
+    <Property Name="Section1_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section1_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section1_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section1_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section1_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section1_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section1_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section1_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section1_5_Condition" Type="nvarchar(max)" />
+    <Property Name="Section1_5_Comment" Type="nvarchar(max)" />
+    <Property Name="Section1_6_Condition" Type="nvarchar(max)" />
+    <Property Name="Section1_6_Comment" Type="nvarchar(max)" />
+    <Property Name="Section1_7_Condition" Type="nvarchar(max)" />
+    <Property Name="Section1_7_Comment" Type="nvarchar(max)" />
+    <Property Name="Section1_8_Condition" Type="nvarchar(max)" />
+    <Property Name="Section1_8_Comment" Type="nvarchar(max)" />
+    <Property Name="Section1_9_Condition" Type="nvarchar(max)" />
+    <Property Name="Section1_9_Comment" Type="nvarchar(max)" />
+    <Property Name="Section1_10_Condition" Type="nvarchar(max)" />
+    <Property Name="Section1_10_Comment" Type="nvarchar(max)" />
+    <Property Name="Section1_11_Condition" Type="nvarchar(max)" />
+    <Property Name="Section1_11_Comment" Type="nvarchar(max)" />
+    <Property Name="Section2_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section2_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section2_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section2_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section2_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section2_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section2_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section2_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section2_5_Condition" Type="nvarchar(max)" />
+    <Property Name="Section2_5_Comment" Type="nvarchar(max)" />
+    <Property Name="Section2_6_Condition" Type="nvarchar(max)" />
+    <Property Name="Section2_6_Comment" Type="nvarchar(max)" />
+    <Property Name="Section2_7_Condition" Type="nvarchar(max)" />
+    <Property Name="Section2_7_Comment" Type="nvarchar(max)" />
+    <Property Name="Section3_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section3_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section3_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section3_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section3_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section3_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section3_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section3_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section3_5_Condition" Type="nvarchar(max)" />
+    <Property Name="Section3_5_Comment" Type="nvarchar(max)" />
+    <Property Name="Section4_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section4_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section4_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section4_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section4_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section4_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section5_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section5_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section5_6_Condition" Type="nvarchar(max)" />
+    <Property Name="Section5_6_Comment" Type="nvarchar(max)" />
+    <Property Name="Section5_8_Condition" Type="nvarchar(max)" />
+    <Property Name="Section5_8_Comment" Type="nvarchar(max)" />
+    <Property Name="Section5_9_Condition" Type="nvarchar(max)" />
+    <Property Name="Section5_9_Comment" Type="nvarchar(max)" />
+    <Property Name="Section6_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section6_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section6_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section6_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section6_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section6_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section6_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section6_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section6_5_Condition" Type="nvarchar(max)" />
+    <Property Name="Section6_5_Comment" Type="nvarchar(max)" />
+    <Property Name="Section6_6_Condition" Type="nvarchar(max)" />
+    <Property Name="Section6_6_Comment" Type="nvarchar(max)" />
+    <Property Name="Section6_7_Condition" Type="nvarchar(max)" />
+    <Property Name="Section6_7_Comment" Type="nvarchar(max)" />
+    <Property Name="Section6_8_Condition" Type="nvarchar(max)" />
+    <Property Name="Section6_8_Comment" Type="nvarchar(max)" />
+    <Property Name="Section7_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section7_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section7_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section7_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section7_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section7_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section7_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section7_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section7_5_Condition" Type="nvarchar(max)" />
+    <Property Name="Section7_5_Comment" Type="nvarchar(max)" />
+    <Property Name="Section7_6_Condition" Type="nvarchar(max)" />
+    <Property Name="Section7_6_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_5_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_5_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_6_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_6_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_7_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_7_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_8_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_8_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_9_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_9_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_10_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_10_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_11_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_11_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_12_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_12_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_13_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_13_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_14_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_14_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_15_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_15_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_16_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_16_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_17_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_17_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_18_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_18_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_19_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_19_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_20_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_20_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_21_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_21_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_22_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_22_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_23_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_23_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_24_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_24_Comment" Type="nvarchar(max)" />
+    <Property Name="Section8_25_Condition" Type="nvarchar(max)" />
+    <Property Name="Section8_25_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_5_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_5_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_6_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_6_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_7_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_7_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_8_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_8_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_9_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_9_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_10_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_10_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_11_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_11_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_12_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_12_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_13_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_13_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_14_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_14_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_15_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_15_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_5_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_5_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_6_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_6_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_7_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_7_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_8_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_8_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_9_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_9_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_10_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_10_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_11_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_11_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_12_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_12_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_13_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_13_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_14_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_14_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_15_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_15_Comment" Type="nvarchar(max)" />
+    <Property Name="Section10_16_Condition" Type="nvarchar(max)" />
+    <Property Name="Section10_16_Comment" Type="nvarchar(max)" />
+    <Property Name="Section11_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section11_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section11_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section11_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section11_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section11_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section11_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section11_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section11_5_Condition" Type="nvarchar(max)" />
+    <Property Name="Section11_5_Comment" Type="nvarchar(max)" />
+    <Property Name="Section11_6_Condition" Type="nvarchar(max)" />
+    <Property Name="Section11_6_Comment" Type="nvarchar(max)" />
+    <Property Name="Section11_7_Condition" Type="nvarchar(max)" />
+    <Property Name="Section11_7_Comment" Type="nvarchar(max)" />
+    <Property Name="Section11_8_Condition" Type="nvarchar(max)" />
+    <Property Name="Section11_8_Comment" Type="nvarchar(max)" />
+    <Property Name="Section12_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section12_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section12_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section12_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section12_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section12_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section12_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section12_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section12_5_Condition" Type="nvarchar(max)" />
+    <Property Name="Section12_5_Comment" Type="nvarchar(max)" />
+    <Property Name="Section12_6_Condition" Type="nvarchar(max)" />
+    <Property Name="Section12_6_Comment" Type="nvarchar(max)" />
+    <Property Name="Section13_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section13_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section13_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section13_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section13_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section13_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section13_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section13_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_5_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_5_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_6_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_6_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_7_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_7_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_8_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_8_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_9_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_9_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_10_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_10_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_11_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_11_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_12_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_12_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_13_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_13_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_14_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_14_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_15_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_15_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_16_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_16_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_17_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_17_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_18_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_18_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_19_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_19_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_20_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_20_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_21_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_21_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_22_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_22_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_23_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_23_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_24_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_24_Comment" Type="nvarchar(max)" />
+    <Property Name="Section14_25_Condition" Type="nvarchar(max)" />
+    <Property Name="Section14_25_Comment" Type="nvarchar(max)" />
+    <Property Name="Section15_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section15_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section15_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section15_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section15_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section15_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section15_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section15_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section15_5_Condition" Type="nvarchar(max)" />
+    <Property Name="Section15_5_Comment" Type="nvarchar(max)" />
+    <Property Name="Section15_6_Condition" Type="nvarchar(max)" />
+    <Property Name="Section15_6_Comment" Type="nvarchar(max)" />
+    <Property Name="Section15_7_Condition" Type="nvarchar(max)" />
+    <Property Name="Section15_7_Comment" Type="nvarchar(max)" />
+    <Property Name="Section15_8_Condition" Type="nvarchar(max)" />
+    <Property Name="Section15_8_Comment" Type="nvarchar(max)" />
+    <Property Name="Section15_9_Condition" Type="nvarchar(max)" />
+    <Property Name="Section15_9_Comment" Type="nvarchar(max)" />
+    <Property Name="Section15_10_Condition" Type="nvarchar(max)" />
+    <Property Name="Section15_10_Comment" Type="nvarchar(max)" />
+    <Property Name="Section15_11_Condition" Type="nvarchar(max)" />
+    <Property Name="Section15_11_Comment" Type="nvarchar(max)" />
+    <Property Name="Section15_12_Condition" Type="nvarchar(max)" />
+    <Property Name="Section15_12_Comment" Type="nvarchar(max)" />
+    <Property Name="Section15_13_Condition" Type="nvarchar(max)" />
+    <Property Name="Section15_13_Comment" Type="nvarchar(max)" />
+    <Property Name="Section15_14_Condition" Type="nvarchar(max)" />
+    <Property Name="Section15_14_Comment" Type="nvarchar(max)" />
+    <Property Name="Section15_15_Condition" Type="nvarchar(max)" />
+    <Property Name="Section15_15_Comment" Type="nvarchar(max)" />
+    <Property Name="Section16_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section16_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section16_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section16_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section16_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section16_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section16_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section16_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section17_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section17_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section17_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section17_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section17_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section17_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section17_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section17_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section17_5_Condition" Type="nvarchar(max)" />
+    <Property Name="Section17_5_Comment" Type="nvarchar(max)" />
+    <Property Name="Section17_6_Condition" Type="nvarchar(max)" />
+    <Property Name="Section17_6_Comment" Type="nvarchar(max)" />
+    <Property Name="Section18_1_Condition" Type="nvarchar(max)" />
+    <Property Name="Section18_1_Comment" Type="nvarchar(max)" />
+    <Property Name="Section18_2_Condition" Type="nvarchar(max)" />
+    <Property Name="Section18_2_Comment" Type="nvarchar(max)" />
+    <Property Name="Section18_3_Condition" Type="nvarchar(max)" />
+    <Property Name="Section18_3_Comment" Type="nvarchar(max)" />
+    <Property Name="Section18_4_Condition" Type="nvarchar(max)" />
+    <Property Name="Section18_4_Comment" Type="nvarchar(max)" />
+    <Property Name="Section18_5_Condition" Type="nvarchar(max)" />
+    <Property Name="Section18_5_Comment" Type="nvarchar(max)" />
+    <Property Name="Section18_6_Condition" Type="nvarchar(max)" />
+    <Property Name="Section18_6_Comment" Type="nvarchar(max)" />
+    <Property Name="Section18_7_Condition" Type="nvarchar(max)" />
+    <Property Name="Section18_7_Comment" Type="nvarchar(max)" />
+    <Property Name="IsSynced" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifyDate" Type="datetime" />
+    <Property Name="SavedAsDraft" Type="bit" />
+    <Property Name="UniqueFormID" Type="uniqueidentifier" />
+    <Property Name="FormVersion" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="isDelete" Type="int" Nullable="false" />
+    <Property Name="Section9_16_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_16_Comment" Type="nvarchar(max)" />
+    <Property Name="Section9_17_Condition" Type="nvarchar(max)" />
+    <Property Name="Section9_17_Comment" Type="nvarchar(max)" />
+    <Property Name="Section18_8_Condition" Type="nvarchar(max)" />
+    <Property Name="Section18_8_Comment" Type="nvarchar(max)" />
+    <Property Name="Section18_9_Condition" Type="nvarchar(max)" />
+    <Property Name="Section18_9_Comment" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="UserGroupId" />
+    </Key>
+    <Property Name="UserGroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserGroupName" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserGroupMenuPermission">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="MenuID" Type="int" Nullable="false" />
+    <Property Name="UserGroupID" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="UserRole" Type="int" />
+    <Property Name="RoleOrder" Type="int" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UserGroup" Type="int" />
+    <Property Name="ShipFleetID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UID" />
+    </Key>
+    <Property Name="UID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empnre01" Type="nvarchar" MaxLength="50" />
+    <Property Name="empste01" Type="nvarchar" MaxLength="50" />
+    <Property Name="fstnme01" Type="nvarchar" MaxLength="50" />
+    <Property Name="surnme01" Type="nvarchar" MaxLength="50" />
+    <Property Name="bthcnte01" Type="nvarchar" MaxLength="50" />
+    <Property Name="fnce01" Type="nvarchar" MaxLength="50" />
+    <Property Name="lane01" Type="nvarchar" MaxLength="50" />
+    <Property Name="rsnewe01" Type="nvarchar" MaxLength="50" />
+    <Property Name="sxee01" Type="nvarchar" MaxLength="50" />
+    <Property Name="bthdate01" Type="datetime" />
+    <Property Name="nate01" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="VIMSLogInfomation">
+    <Key>
+      <PropertyRef Name="VIMSID" />
+    </Key>
+    <Property Name="VIMSID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ModifyBy" Type="uniqueidentifier" />
+    <Property Name="ModifyDate" Type="datetime" />
+    <Property Name="OldINVOICE_EXCHRATE" Type="float" />
+    <Property Name="OldINVOICE_DATE" Type="datetime" />
+    <Property Name="NewINVOICE_EXCHRATE" Type="float" />
+    <Property Name="NewINVOICE_DATE" Type="datetime" />
+    <Property Name="REQNINVOICEID" Type="int" />
+    <Property Name="VRID" Type="int" />
+    <Property Name="OLDAccountID" Type="varchar(max)" />
+    <Property Name="NewAccountID" Type="varchar(max)" />
+    <Property Name="NewPoDate" Type="datetime" />
+    <Property Name="OldPoDate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_SMRFormCrewMembers_SMRForm">
+    <End Role="SMRForm" Type="Self.SMRForm" Multiplicity="0..1" />
+    <End Role="SMRFormCrewMembers" Type="Self.SMRFormCrewMembers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMRForm">
+        <PropertyRef Name="SMRFormID" />
+      </Principal>
+      <Dependent Role="SMRFormCrewMembers">
+        <PropertyRef Name="SMRFormID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="CB_proc_GetRecentNotifications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedDateTime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_Get_GIDeficiencies_OR_SIActionableItems_Number" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Ship" Type="varchar" Mode="In" />
+    <Parameter Name="ReportType" Type="varchar" Mode="In" />
+    <Parameter Name="min" Type="int" Mode="In" />
+    <Parameter Name="max" Type="int" Mode="In" />
+    <Parameter Name="UniqueFormID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetAllNotifications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+    <Parameter Name="UserGroup" Type="int" Mode="In" />
+    <Parameter Name="crntUserName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetAllNotificationsByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetAssignedToMeGISIIADeficiencies" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetNotificationDetailsById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeficienciesUniqueID" Type="varchar" Mode="In" />
+    <Parameter Name="formType" Type="varchar" Mode="In" />
+    <Parameter Name="crntUserName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetNotificationsForTheISMDashboard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_ResetGIDeficienciesOrSIActionableItemsNumbersFrom501" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UniqueFormID" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="CarisbrookeShippingModelStoreContainer">
+    <EntitySet Name="ACCOUNTCODE" EntityType="Self.ACCOUNTCODE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArrivalReports" EntityType="Self.ArrivalReports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AssetManagmentEquipmentITList" EntityType="Self.AssetManagmentEquipmentITList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AssetManagmentEquipmentList" EntityType="Self.AssetManagmentEquipmentList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AssetManagmentEquipmentLogs" EntityType="Self.AssetManagmentEquipmentLogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AssetManagmentEquipmentOTList" EntityType="Self.AssetManagmentEquipmentOTList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AssetManagmentEquipmentSoftwareAssets" EntityType="Self.AssetManagmentEquipmentSoftwareAssets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuditNotes" EntityType="Self.AuditNotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuditNotesAttachment" EntityType="Self.AuditNotesAttachment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuditNotesComments" EntityType="Self.AuditNotesComments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuditNotesCommentsFiles" EntityType="Self.AuditNotesCommentsFiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuditNotesResolution" EntityType="Self.AuditNotesResolution" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuditNotesResolutionFiles" EntityType="Self.AuditNotesResolutionFiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CB_FormsPersonMaster" EntityType="Self.CB_FormsPersonMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CodaPurchaseOrders" EntityType="Self.CodaPurchaseOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CSShips" EntityType="Self.CSShips" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CybersecurityRisksAssessment" EntityType="Self.CybersecurityRisksAssessment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CybersecurityRisksAssessmentList" EntityType="Self.CybersecurityRisksAssessmentList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CybersecurityRisksAssessmentLogs" EntityType="Self.CybersecurityRisksAssessmentLogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CyberSecuritySettings" EntityType="Self.CyberSecuritySettings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DailyCargoReports" EntityType="Self.DailyCargoReports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DailyPositionReport" EntityType="Self.DailyPositionReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DepartureReports" EntityType="Self.DepartureReports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeedbackForm" EntityType="Self.FeedbackForm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Forms" EntityType="Self.Forms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GeneralInspectionReport" EntityType="Self.GeneralInspectionReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GeneralSettings" EntityType="Self.GeneralSettings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIRDeficiencies" EntityType="Self.GIRDeficiencies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIRDeficienciesCommentFile" EntityType="Self.GIRDeficienciesCommentFile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIRDeficienciesFiles" EntityType="Self.GIRDeficienciesFiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIRDeficienciesInitialActions" EntityType="Self.GIRDeficienciesInitialActions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIRDeficienciesInitialActionsFile" EntityType="Self.GIRDeficienciesInitialActionsFile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIRDeficienciesNotes" EntityType="Self.GIRDeficienciesNotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIRDeficienciesResolution" EntityType="Self.GIRDeficienciesResolution" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIRDeficienciesResolutionFile" EntityType="Self.GIRDeficienciesResolutionFile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIRPhotographs" EntityType="Self.GIRPhotographs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIRRestandWorkHours" EntityType="Self.GIRRestandWorkHours" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GlRCrewDocuments" EntityType="Self.GlRCrewDocuments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GlRSafeManningRequirements" EntityType="Self.GlRSafeManningRequirements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HelpAndSupport" EntityType="Self.HelpAndSupport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HoldVentilationRecordForm" EntityType="Self.HoldVentilationRecordForm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HoldVentilationRecordSheet" EntityType="Self.HoldVentilationRecordSheet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InternalAuditForm" EntityType="Self.InternalAuditForm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MainSyncServicesEventLog" EntityType="Self.MainSyncServicesEventLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MLCRegulationTree" EntityType="Self.MLCRegulationTree" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OpenFileServicesDownloadLog" EntityType="Self.OpenFileServicesDownloadLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OpenFileServicesEventLog" EntityType="Self.OpenFileServicesEventLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OpenFileServicesReleaseNote" EntityType="Self.OpenFileServicesReleaseNote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OpexReportFinilizeDate" EntityType="Self.OpexReportFinilizeDate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Repositories" EntityType="Self.Repositories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RiskAssessmentForm" EntityType="Self.RiskAssessmentForm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RiskAssessmentFormHazard" EntityType="Self.RiskAssessmentFormHazard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RiskAssessmentFormLogs" EntityType="Self.RiskAssessmentFormLogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RiskAssessmentFormReviewer" EntityType="Self.RiskAssessmentFormReviewer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolePermission" EntityType="Self.RolePermission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipAppDownloadLog" EntityType="Self.ShipAppDownloadLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipAppReleaseNote" EntityType="Self.ShipAppReleaseNote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ships" EntityType="Self.Ships" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipSystems" EntityType="Self.ShipSystems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipSystemsEventLog" EntityType="Self.ShipSystemsEventLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipSystemsInfo" EntityType="Self.ShipSystemsInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipSystemsProcesses" EntityType="Self.ShipSystemsProcesses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipSystemsServices" EntityType="Self.ShipSystemsServices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipSystemsSoftwareInfo" EntityType="Self.ShipSystemsSoftwareInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SIRAdditionalNotes" EntityType="Self.SIRAdditionalNotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SIRNotes" EntityType="Self.SIRNotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SMRForm" EntityType="Self.SMRForm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SMRFormCrewMembers" EntityType="Self.SMRFormCrewMembers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SMSReferencesTree" EntityType="Self.SMSReferencesTree" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SSPReferenceTree" EntityType="Self.SSPReferenceTree" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SuperintendedInspectionReport" EntityType="Self.SuperintendedInspectionReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGroup" EntityType="Self.UserGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGroupMenuPermission" EntityType="Self.UserGroupMenuPermission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VIMSLogInfomation" EntityType="Self.VIMSLogInfomation" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_SMRFormCrewMembers_SMRForm" Association="Self.FK_SMRFormCrewMembers_SMRForm">
+      <End Role="SMRForm" EntitySet="SMRForm" />
+      <End Role="SMRFormCrewMembers" EntitySet="SMRFormCrewMembers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

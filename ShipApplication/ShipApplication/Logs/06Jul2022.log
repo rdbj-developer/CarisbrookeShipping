@@ -1,0 +1,73 @@
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:46:46
+IsAvailable At 06/07/2022 11:46:46
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:46:46
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:46:46
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:46:46
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:46:46
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:46:57
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:46:57
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:47:03
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:47:05
+DeficienciesNumber :Conversion failed when converting from a character string to uniqueidentifier. At 06/07/2022 11:47:05
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:50:36
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:50:39
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:50:41
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:50:44
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:50:44
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:50:47
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:55:33
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Count: 16 At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Test Notification At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: RG At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Passage Douala - Abidjan At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Porto Alegre - Vila Do Conde At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Marseille (France) At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: At Sea Las Palmas to Setubal At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Houston At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Philadelphia At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Cardiff At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Rio Grande At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Hamburg At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Ria Grande At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Hartlepool At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: New Orleans At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Tilbury At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Port of Spain At 06/07/2022 11:55:35
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Count: 16 At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Test Notification At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: RG At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Passage Douala - Abidjan At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Porto Alegre - Vila Do Conde At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Marseille (France) At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: At Sea Las Palmas to Setubal At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Houston At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Philadelphia At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Cardiff At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Rio Grande At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Hamburg At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Ria Grande At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Hartlepool At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: New Orleans At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Tilbury At 06/07/2022 11:55:35
+GetGIDeficiencies_Local_DB Port: Port of Spain At 06/07/2022 11:55:35
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:55:35
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:55:47
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:55:47
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:59:34
+GetGIDeficiencies_Local_DB Count: 1 At 06/07/2022 11:59:34
+GetGIDeficiencies_Local_DB Port: JSL Test Notification At 06/07/2022 11:59:34
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:59:34
+GetGIDeficiencies_Local_DB Count: 1 At 06/07/2022 11:59:34
+GetGIDeficiencies_Local_DB Port: JSL Test Notification At 06/07/2022 11:59:34
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:59:34
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:59:41
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:59:41
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:59:43
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:59:50
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:59:50
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:59:50
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:59:50
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:59:50
+Data  Data Source=JIGNESHLIMBANI\MSSQLSERVER2019;Initial Catalog=CarisbrookeShipping123456;User ID=sa;Password=Abcdefg1 At 06/07/2022 11:59:50

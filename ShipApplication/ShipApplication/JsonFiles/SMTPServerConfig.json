@@ -1,0 +1,11 @@
+{
+  "SMPTServerName": "owa.carisbrooke.co",
+  "SMTPPort": "27",
+  "SMTPFromAddress": "info@carisbrooke.co",
+  "SMTPUserName": "info",
+  "SMTPPassword": "$MTP01983",
+  "IsAuthenticationRequired": false,
+  "CCEmail": [
+    "daniel.lewandowski@carisbrooke.co"
+  ]
+}

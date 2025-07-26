@@ -1,0 +1,44 @@
+<?xml version="1.0" standalone="yes"?>
+<EmailAddresses>
+	<AccountsUK>finance.uk@carisbrooke.co</AccountsUK>
+	<Chartering>chartering@carisbrooke.co</Chartering>
+	<CSO>angus.tapp@carisbrooke.co</CSO>
+	<DPA>angus.tapp@carisbrooke.co</DPA>
+	<ErrorReport>it@carisbrooke.co</ErrorReport>
+	<Frisian>info@frisian.de</Frisian>
+	<ISM>ism@carisbrooke.co</ISM>
+    <ISMISPSOfficer>angus.tapp@carisbrooke.co</ISMISPSOfficer>
+	<IT>it@carisbrooke.co</IT>
+	<LubeOil>lubeoil@carisbrooke.co</LubeOil>
+	<MarineSoftware>marinesoftware@carisbrooke.co</MarineSoftware>
+	<MCU>mcu@carisbrooke.co</MCU>
+	<Operations>operations@carisbrooke.co</Operations>
+	<OperationsManager>gary.blowes@carisbrooke.co</OperationsManager>
+	<PersonnelManager>lisa.straughton@carisbrooke.co</PersonnelManager>
+	<DutyCrewManager>lisa.straughton@carisbrooke.co</DutyCrewManager>
+	<DeputyDutyCrewManager>simon.morton@carisbrooke.co</DeputyDutyCrewManager>
+    <Payroll>payroll@carisbrooke.co</Payroll>
+	<PI></PI>
+	<PurchasingUK>purchasing.uk@carisbrooke.co</PurchasingUK>
+	<Receipts>receipts@carisbrooke.co</Receipts>
+	<Reception>reception@carisbrooke.co</Reception>
+    <ShipsPosition>shipsPosition@carisbrooke.co</ShipsPosition>
+	<SMOFUK>SMOF.uk@carisbrooke.co</SMOFUK>
+	<Support>it@carisbrooke.co</Support>
+	<TDL>tdl@carisbrooke.co</TDL>
+	<TechnicalDirector>simon.merritt@carisbrooke.co</TechnicalDirector>
+	<TechnicalUK>technical.uk@carisbrooke.co</TechnicalUK>
+	<Vectis>vectis@carisbrooke.co</Vectis>
+	<Fleets>
+		<Fleet id="0">technical.uk@carisbrooke.co</Fleet>
+		<Fleet id="1">blue.fleet@carisbrooke.co</Fleet>
+		<Fleet id="2">gold.fleet@carisbrooke.co</Fleet>
+		<Fleet id="4">green.fleet@carisbrooke.co</Fleet>
+	</Fleets>
+	<PurchasingFleets>
+		<PurchasingFleet id="0">purchasing@carisbrooke.co</PurchasingFleet>
+		<PurchasingFleet id="1">purchasing.blue.fleet@carisbrooke.co</PurchasingFleet>
+		<PurchasingFleet id="2">purchasing.gold.fleet@carisbrooke.co</PurchasingFleet>
+		<PurchasingFleet id="4">purchasing.green.fleet@carisbrooke.co</PurchasingFleet>
+	</PurchasingFleets>
+</EmailAddresses>

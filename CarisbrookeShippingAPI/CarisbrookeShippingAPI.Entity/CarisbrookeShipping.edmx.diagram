@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dbaeffbc80bc4afb859e003c1f2c6444" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.ACCOUNTCODE" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.AuditNote" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.AuditNotesAttachment" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.AuditNotesComment" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.AuditNotesCommentsFile" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.CSShip" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.GeneralInspectionReport" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.GIRDeficiency" Width="1.5" PointX="3" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.GIRDeficienciesCommentFile" Width="1.5" PointX="2.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.GIRDeficienciesFile" Width="1.5" PointX="13.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.GIRDeficienciesNote" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.GIRPhotograph" Width="1.5" PointX="3" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.GIRRestandWorkHour" Width="1.5" PointX="3" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.GlRCrewDocument" Width="1.5" PointX="3" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.GlRSafeManningRequirement" Width="1.5" PointX="3" PointY="43.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.OpexReportFinilizeDate" Width="1.5" PointX="14.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.Repository" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.RolePermission" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.Ship" Width="1.5" PointX="2.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.SIRAdditionalNote" Width="1.5" PointX="16.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.SIRNote" Width="1.5" PointX="16.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.SuperintendedInspectionReport" Width="1.5" PointX="16.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.UserProfile" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.User" Width="1.5" PointX="18.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.VIMSLogInfomation" Width="1.5" PointX="12.75" PointY="18.75" IsExpanded="true" />
+        <AssociationConnector Association="CarisbrookeShippingModel.FK__GIRPhotog__GIRFo__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="CarisbrookeShippingModel.FK__GIRRestan__GIRFo__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="CarisbrookeShippingModel.FK__GlRCrewDo__GIRFo__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="CarisbrookeShippingModel.FK__GlRSafeMa__GIRFo__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="CarisbrookeShippingModel.FK_GIRDeficiencies_GeneralInspectionReport" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.UserGroup" Width="1.5" PointX="3.375" PointY="19.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.Menu" Width="1.5" PointX="9.375" PointY="19.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.UserGroupMenuPermission" Width="1.5" PointX="19.375" PointY="14.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.Form" Width="1.5" PointX="19.375" PointY="17.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.ShipSystem" Width="1.5" PointX="20.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.ShipSystemsEventLog" Width="1.5" PointX="21.375" PointY="3.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.ShipSystemsInfo" Width="1.5" PointX="5.375" PointY="21.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.ShipSystemsProcess" Width="1.5" PointX="21.375" PointY="7.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.ShipSystemsService" Width="1.5" PointX="21.375" PointY="11.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.HoldVentilationRecordForm" Width="1.5" PointX="21.375" PointY="16.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.HoldVentilationRecordSheet" Width="1.5" PointX="21.375" PointY="21.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.ShipAppReleaseNote" Width="1.5" PointX="23.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.ShipAppDownloadLog" Width="1.5" PointX="23.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.FeedbackForm" Width="1.5" PointX="23.375" PointY="8.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.SMRForm" Width="1.5" PointX="23.375" PointY="13.375" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.SMRFormCrewMember" Width="1.5" PointX="25.625" PointY="17.25" />
+        <AssociationConnector Association="CarisbrookeShippingModel.FK_SMRFormCrewMembers_SMRForm" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.RiskAssessmentForm" Width="1.5" PointX="23.375" PointY="24.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.RiskAssessmentFormHazard" Width="1.5" PointX="25.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.GeneralSetting" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.MainSyncServicesEventLog" Width="1.5" PointX="11.75" PointY="23.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.OpenFileServicesEventLog" Width="1.5" PointX="13.75" PointY="23.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.ArrivalReport" Width="1.5" PointX="9.375" PointY="9.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.DailyCargoReport" Width="1.5" PointX="7.375" PointY="24.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.DailyPositionReport" Width="1.5" PointX="25.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.DepartureReport" Width="1.5" PointX="25.375" PointY="20.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.RiskAssessmentFormReviewer" Width="1.5" PointX="3.375" PointY="5.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.CodaPurchaseOrder" Width="1.5" PointX="11.375" PointY="9.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.AssetManagmentEquipmentITList" Width="1.5" PointX="27.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.AssetManagmentEquipmentList" Width="1.5" PointX="27.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.AssetManagmentEquipmentOTList" Width="1.5" PointX="27.375" PointY="8.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.AssetManagmentEquipmentSoftwareAsset" Width="1.5" PointX="9.375" PointY="27.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.AssetManagmentEquipmentLog" Width="1.5" PointX="11.375" PointY="27.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.CybersecurityRisksAssessment" Width="1.5" PointX="27.375" PointY="13.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.CybersecurityRisksAssessmentList" Width="1.5" PointX="13.375" PointY="27.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.CyberSecuritySetting" Width="1.5" PointX="5.375" PointY="5.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.ShipSystemsSoftwareInfo" Width="1.5" PointX="27.375" PointY="20.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.CybersecurityRisksAssessmentLog" Width="1.5" PointX="27.375" PointY="25.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.OpenFileServicesDownloadLog" Width="1.5" PointX="29.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.OpenFileServicesReleaseNote" Width="1.5" PointX="29.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.RiskAssessmentFormLog" Width="1.5" PointX="29.375" PointY="8.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.Document" Width="1.5" PointX="19.375" PointY="26.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.GIRDeficienciesInitialActionsFile" Width="1.5" PointX="28.375" PointY="17.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.GIRDeficienciesResolution" Width="1.5" PointX="29.375" PointY="12.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.GIRDeficienciesResolutionFile" Width="1.5" PointX="29.375" PointY="20.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.AuditNotesResolution" Width="1.5" PointX="29.375" PointY="23.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.AuditNotesResolutionFile" Width="1.5" PointX="3.375" PointY="25.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.GIRDeficienciesInitialAction" Width="1.5" PointX="25.375" PointY="29.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.HelpAndSupport" Width="1.5" PointX="27.375" PointY="30.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.InternalAuditForm" Width="1.5" PointX="29.375" PointY="30.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.Notification" Width="1.5" PointX="13.375" PointY="6.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.MLCRegulationTree" Width="1.5" PointX="30.375" PointY="16.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.SMSReferencesTree" Width="1.5" PointX="31.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.SSPReferenceTree" Width="1.5" PointX="31.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.CB_FormsPersonMaster" Width="1.5" PointX="31.375" PointY="8.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.FSTOInspection" Width="1.5" PointX="31.375" PointY="20.75" />
+        <EntityTypeShape EntityType="CarisbrookeShippingModel.FSTOInspectionAttachment" Width="1.5" PointX="31.375" PointY="12.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

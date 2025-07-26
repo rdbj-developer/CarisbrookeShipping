@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IMOSModelStoreContainer" CdmEntityContainer="IMOSEntities">
+    <EntitySetMapping Name="ClassificationSocieties">
+      <EntityTypeMapping TypeName="IMOSModel.ClassificationSociety">
+        <MappingFragment StoreEntitySet="ClassificationSocieties">
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="AbbreviatedName" ColumnName="AbbreviatedName" />
+          <ScalarProperty Name="ClassificationSocietyId" ColumnName="ClassificationSocietyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CSShips">
+      <EntityTypeMapping TypeName="IMOSModel.CSShip">
+        <MappingFragment StoreEntitySet="CSShips">
+          <ScalarProperty Name="P_I_Club" ColumnName="P&amp;I Club" />
+          <ScalarProperty Name="Citadel" ColumnName="Citadel" />
+          <ScalarProperty Name="SatC2" ColumnName="SatC2" />
+          <ScalarProperty Name="SatC1" ColumnName="SatC1" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Phone3" ColumnName="Phone3" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="DataloyNumber" ColumnName="DataloyNumber" />
+          <ScalarProperty Name="CE_email" ColumnName="CE email" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MarineSoftwareNumber" ColumnName="MarineSoftwareNumber" />
+          <ScalarProperty Name="SMCIsVerified" ColumnName="SMCIsVerified" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="ProtectionAndIndemnityId" ColumnName="ProtectionAndIndemnityId" />
+          <ScalarProperty Name="HullAndMachineryId" ColumnName="HullAndMachineryId" />
+          <ScalarProperty Name="RegisteredOwners" ColumnName="RegisteredOwners" />
+          <ScalarProperty Name="TotalBerths" ColumnName="TotalBerths" />
+          <ScalarProperty Name="MaximumPersonsLSA" ColumnName="MaximumPersonsLSA" />
+          <ScalarProperty Name="MinimumSafeManning" ColumnName="MinimumSafeManning" />
+          <ScalarProperty Name="TechnicalManagerNotes" ColumnName="TechnicalManagerNotes" />
+          <ScalarProperty Name="Ports" ColumnName="Ports" />
+          <ScalarProperty Name="Agent" ColumnName="Agent" />
+          <ScalarProperty Name="BuildNumber" ColumnName="BuildNumber" />
+          <ScalarProperty Name="BowThruster" ColumnName="BowThruster" />
+          <ScalarProperty Name="BHP" ColumnName="BHP" />
+          <ScalarProperty Name="SummerDraft" ColumnName="SummerDraft" />
+          <ScalarProperty Name="Beam" ColumnName="Beam" />
+          <ScalarProperty Name="LBP" ColumnName="LBP" />
+          <ScalarProperty Name="LOA" ColumnName="LOA" />
+          <ScalarProperty Name="Lightweight" ColumnName="Lightweight" />
+          <ScalarProperty Name="SummerDeadweight" ColumnName="SummerDeadweight" />
+          <ScalarProperty Name="PortOfRegistryId" ColumnName="PortOfRegistryId" />
+          <ScalarProperty Name="OfficialNumber" ColumnName="OfficialNumber" />
+          <ScalarProperty Name="YardNo" ColumnName="YardNo" />
+          <ScalarProperty Name="FleetId" ColumnName="FleetId" />
+          <ScalarProperty Name="IsDelivered" ColumnName="IsDelivered" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="SuperintendentId" ColumnName="SuperintendentId" />
+          <ScalarProperty Name="TechnicalManagerId" ColumnName="TechnicalManagerId" />
+          <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
+          <ScalarProperty Name="NetTonnage" ColumnName="NetTonnage" />
+          <ScalarProperty Name="GrossTonnage" ColumnName="GrossTonnage" />
+          <ScalarProperty Name="MMSI" ColumnName="MMSI" />
+          <ScalarProperty Name="CallSign" ColumnName="CallSign" />
+          <ScalarProperty Name="IMONumber" ColumnName="IMONumber" />
+          <ScalarProperty Name="FlagStateId" ColumnName="FlagStateId" />
+          <ScalarProperty Name="ClassificationSocietyId" ColumnName="ClassificationSocietyId" />
+          <ScalarProperty Name="BuildYear" ColumnName="BuildYear" />
+          <ScalarProperty Name="BuildCountryId" ColumnName="BuildCountryId" />
+          <ScalarProperty Name="ShipClassId" ColumnName="ShipClassId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShipId" ColumnName="ShipId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

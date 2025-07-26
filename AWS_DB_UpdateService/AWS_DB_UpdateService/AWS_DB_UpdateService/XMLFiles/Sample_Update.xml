@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?> 
+<ESDI_tblUserServiceRecord> 
+<tblUserServiceRecord>
+			<vExternalID>344455</vExternalID> 
+  			<vUserID>0077</vUserID> 
+  			<iInstallationID>107522</iInstallationID> 
+  			<dtSignOn>2019-01-01</dtSignOn> 
+  			<dtSignOff>2019-03-15</dtSignOff>
+  			<uRankID>7521306F-349B-41DA-99F8-A8BA03286DF1</uRankID>
+</tblUserServiceRecord>
+</ESDI_tblUserServiceRecord>

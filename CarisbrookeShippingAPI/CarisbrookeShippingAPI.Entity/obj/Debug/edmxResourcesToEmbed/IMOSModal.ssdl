@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IMOSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ClassificationSocieties">
+    <Key>
+      <PropertyRef Name="ClassificationSocietyId" />
+    </Key>
+    <Property Name="ClassificationSocietyId" Type="int" Nullable="false" />
+    <Property Name="AbbreviatedName" Type="nvarchar" MaxLength="255" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="CSShips">
+    <Key>
+      <PropertyRef Name="ShipId" />
+    </Key>
+    <Property Name="ShipId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Code" Type="nvarchar" MaxLength="255" />
+    <Property Name="ShipClassId" Type="int" />
+    <Property Name="BuildCountryId" Type="int" />
+    <Property Name="BuildYear" Type="int" />
+    <Property Name="ClassificationSocietyId" Type="int" />
+    <Property Name="FlagStateId" Type="int" />
+    <Property Name="IMONumber" Type="int" />
+    <Property Name="CallSign" Type="nvarchar" MaxLength="255" />
+    <Property Name="MMSI" Type="int" />
+    <Property Name="GrossTonnage" Type="int" />
+    <Property Name="NetTonnage" Type="int" />
+    <Property Name="OfficeId" Type="int" />
+    <Property Name="TechnicalManagerId" Type="int" />
+    <Property Name="SuperintendentId" Type="int" />
+    <Property Name="Notes" Type="text" />
+    <Property Name="IsDelivered" Type="bit" Nullable="false" />
+    <Property Name="FleetId" Type="int" />
+    <Property Name="YardNo" Type="int" />
+    <Property Name="OfficialNumber" Type="int" />
+    <Property Name="PortOfRegistryId" Type="int" />
+    <Property Name="SummerDeadweight" Type="decimal" Precision="8" Scale="3" />
+    <Property Name="Lightweight" Type="decimal" Precision="7" Scale="3" />
+    <Property Name="LOA" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="LBP" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="Beam" Type="decimal" Precision="5" Scale="3" />
+    <Property Name="SummerDraft" Type="decimal" Precision="7" Scale="5" />
+    <Property Name="BHP" Type="int" />
+    <Property Name="BowThruster" Type="int" />
+    <Property Name="BuildNumber" Type="int" />
+    <Property Name="Agent" Type="text" />
+    <Property Name="Ports" Type="text" />
+    <Property Name="TechnicalManagerNotes" Type="text" />
+    <Property Name="MinimumSafeManning" Type="int" />
+    <Property Name="MaximumPersonsLSA" Type="int" />
+    <Property Name="TotalBerths" Type="int" />
+    <Property Name="RegisteredOwners" Type="nvarchar" MaxLength="255" />
+    <Property Name="HullAndMachineryId" Type="int" />
+    <Property Name="ProtectionAndIndemnityId" Type="int" />
+    <Property Name="Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="SMCIsVerified" Type="bit" Nullable="false" />
+    <Property Name="MarineSoftwareNumber" Type="char" MaxLength="3" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" />
+    <Property Name="CE email" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataloyNumber" Type="char" MaxLength="3" />
+    <Property Name="Phone1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone3" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="SatC1" Type="nvarchar" MaxLength="50" />
+    <Property Name="SatC2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Citadel" Type="nvarchar" MaxLength="50" />
+    <Property Name="P&amp;I Club" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK_CSShips_ClassificationSocieties">
+    <End Role="ClassificationSocieties" Type="Self.ClassificationSocieties" Multiplicity="0..1" />
+    <End Role="CSShips" Type="Self.CSShips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClassificationSocieties">
+        <PropertyRef Name="ClassificationSocietyId" />
+      </Principal>
+      <Dependent Role="CSShips">
+        <PropertyRef Name="ClassificationSocietyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="IMOSModelStoreContainer">
+    <EntitySet Name="ClassificationSocieties" EntityType="Self.ClassificationSocieties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CSShips" EntityType="Self.CSShips" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CSShips_ClassificationSocieties" Association="Self.FK_CSShips_ClassificationSocieties">
+      <End Role="ClassificationSocieties" EntitySet="ClassificationSocieties" />
+      <End Role="CSShips" EntitySet="CSShips" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

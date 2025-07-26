@@ -1,0 +1,1192 @@
+﻿@model OfficeApplication.BLL.Modals.IAF
+@{
+    ViewBag.Title = "IA - DetailsView";
+}
+<style>
+    /* RDBJ 01/28/2022 do not remove this css, due to hide trial version used section */
+    .ui-igtrialwatermark {
+        display: none !important;
+    }
+
+    /*.checkbox {
+        pointer-events: none;
+    }
+
+    input[type="text"] {
+        pointer-events: none;
+    }
+
+    textarea {
+        pointer-events: none;
+    }*/
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+
+    .btnDownload {
+        display: inline-block !important;
+        cursor: pointer;
+        border: 1px solid black;
+        padding: 5px;
+        border-radius: 50px;
+    }
+
+        .btnDownload:hover {
+            Background: skyblue;
+        }
+
+    /* RDBJ 11/15/2021 */
+    .AuditNotes tr td {
+        padding: 2px !important;
+        padding-bottom: 0px !important;
+    }
+
+    label.col-md-12.form-control.number {
+        margin-bottom: 3px;
+        font-weight: unset;
+    }
+
+    #ReferenceModal .modal-dialog,
+    #ReferenceModal .modal-content {
+        /* 80% of window height */
+        height: 80%;
+    }
+
+    #ReferenceModal .modal-body {
+        /* 100% = dialog height, 120px = header + footer */
+        max-height: calc(100% - 120px);
+        overflow-y: scroll;
+    }
+
+    .fa-fw {
+        background-color: #FFFFE1;
+        padding: 2px;
+    }
+
+    .fa-plus {
+        color: green;
+    }
+
+    .fa-remove {
+        color: red;
+    }
+
+    .filelist:hover {
+        background-color: #3c8dbc;
+    }
+
+    #fileinfo {
+        text-align: left;
+    }
+
+    .filelist {
+        text-align: left;
+        padding: 5px;
+    }
+
+    div.file {
+        position: relative;
+        overflow: hidden;
+    }
+
+    input.file {
+        position: absolute;
+        font-size: 50px;
+        opacity: 0;
+        right: 0;
+        top: 0;
+    }
+
+    .tree, .tree ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+        .tree ul {
+            margin-left: 1em;
+            position: relative;
+        }
+
+            .tree ul ul {
+                margin-left: .5em;
+            }
+
+            .tree ul:before {
+                content: "";
+                display: block;
+                width: 0;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                border-left: 1px solid;
+            }
+
+        .tree li {
+            /*margin: 0;
+            padding: 0 1em;
+            line-height: 2em;
+            color: #369;
+            font-weight: 700;
+            position: relative;*/
+        }
+
+        .tree ul li:before {
+            content: "";
+            display: block;
+            width: 10px;
+            height: 0;
+            border-top: 1px solid;
+            margin-top: -1px;
+            position: absolute;
+            top: 1em;
+            left: 0;
+        }
+
+        .tree ul li:last-child:before {
+            background: #fff;
+            height: auto;
+            top: 1em;
+            bottom: 0;
+        }
+
+    .indicator {
+        margin-right: 5px;
+    }
+
+    .tree li a {
+        text-decoration: none;
+        color: #369;
+    }
+
+    .tree li button, .tree li button:active, .tree li button:focus {
+        text-decoration: none;
+        color: #369;
+        border: none;
+        background: transparent;
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+        outline: 0;
+    }
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+    /* End RDBJ 11/15/2021 */
+
+    /* RDBJ 11/17/2021 */
+    #modal-AddNewAuditNote {
+        overflow-y: scroll;
+    }
+    /* End RDBJ 11/17/2021 */
+
+    /* RDBJ 11/18/2021 */
+    .notAllowtoEditinEditMode {
+        pointer-events: none;
+    }
+    /* End RDBJ 11/18/2021 */
+</style>
+<link href="~/Content/Custom/GIRForm.css" rel="stylesheet" />
+@* RDBJ 11/15/2021 *@
+<script type="text/javascript" src="~/Scripts/bootstrap/bootstrap-treeview.js"></script>
+@*<script src="~/Scripts/Custom/ReferencesData.js"></script>*@
+<script type="text/javascript" src="~/Scripts/jquery/jquery.validate.min.js"></script>
+@* End RDBJ 11/15/2021 *@
+
+@* RDBJ 01/20/2022 added below script *@
+<script type="text/javascript" src="~/Scripts/autoSize/autosize.min.js"></script>
+
+<script>
+    var RootUrl = '@Url.Content("~/")';
+    var AuditRootUrl = '@Url.Content("~/")'; // RDBJ 01/28/2022
+    var Numbers = '@ViewBag.StringNumbers'; //RDBJ 11/17/2021 Updated with StringNumbers //RDBJ 11/16/2021
+    var strOldIAAuditorCheckIfNotExistThenAddInddlAuditor = '@ViewBag.Auditor'; // RDBJ 02/09/2022
+
+</script>
+@* RDBJ 11/18/2021 Added js Reference *@
+<script src="~/Scripts/Custom/IAFDetailsView.js?v=01222023"></script>
+
+@* RDBJ 01/28/2022 Added Dynamic LoadReferences *@
+<script src="~/Scripts/Custom/LoadReferenceData.js?v=01282022"></script>
+
+@* RDBJ 01/28/2022 Added below js *@
+<!-- Ignite UI for jQuery Required Combined JavaScript Files -->
+<link href="https://cdn-na.infragistics.com/igniteui/2021.1/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
+<link href="https://cdn-na.infragistics.com/igniteui/2021.1/latest/css/structure/infragistics.css" rel="stylesheet" />
+<script src="https://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+<script src="https://cdn-na.infragistics.com/igniteui/2021.1/latest/js/infragistics.core.js"></script>
+<script src="https://cdn-na.infragistics.com/igniteui/2021.1/latest/js/infragistics.lob.js"></script>
+@* End RDBJ 01/28/2022 Added below js *@
+
+@* RDBJ 01/28/2022 commented old codes *@
+@* RDBJ 11/15/2021 *@
+@*<script type="text/javascript">
+    $(function () {
+        $('#ISMTree').treeview({
+            color: "#428bca",
+            levels: 1,
+            expandIcon: 'glyphicon glyphicon-chevron-right',
+            collapseIcon: 'glyphicon glyphicon-chevron-down',
+            data: defaultData
+        });
+        $('#SSPTree').treeview({
+            color: "#428bca",
+            levels: 1,
+            expandIcon: 'glyphicon glyphicon-chevron-right',
+            collapseIcon: 'glyphicon glyphicon-chevron-down',
+            data: SSPData
+        });
+        $('#MLCTree').treeview({
+            color: "#428bca",
+            levels: 1,
+            expandIcon: 'glyphicon glyphicon-chevron-right',
+            collapseIcon: 'glyphicon glyphicon-chevron-down',
+            data: MLCData
+        });
+    });
+</script>*@
+@* End RDBJ 11/15/2021 *@
+@* End RDBJ 01/28/2022 commented old codes *@
+
+<section class="content" style="padding-top:0px;">
+    <div class="row">
+        <div class="col-md-12 leftContent" style="overflow:auto;">
+            <div class="row section1">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-6 text-center">
+                    <h3 style="margin-top:30px;">
+                        Internal Audit Form
+                    </h3>
+                    <h5 id="lblSubHeading">General</h5>
+
+                </div>
+                <div class="col-md-3" style="margin-top:10px;">
+                    <p class="m-0"> Form: GIR</p>
+                    <p class="m-0">Issue No: 5-08/14</p>
+                    <p class="m-0">Amend No: 6-12/16</p>
+                </div>
+            </div>
+
+
+            <form id="IAFForm" name="IAFForm" method="post" action="@Url.Action("Index", "IAFList")">
+                <div class="section1">
+                    <div class="row" id="GIRContent">
+                        <div class="col-md-12">
+                            <div class="GeneralSection PageSection">
+                                @* JSL 09/10/2022 removed class aviodPrint  *@
+                                <div class="Section breakDiv">
+                                    <div class="SectionHead text-center">
+                                        Audit Details
+                                    </div>
+                                    <div class="SectionContent">
+                                        <table class="table tblSection">
+                                            <tr>
+                                                <td width="10%"><p class="m-5">Ship:</p></td>
+                                                <td width="40%">
+                                                    <div class="form-group has-feedback">
+                                                        @* RDBJ 11/19/2021 *@
+                                                        <input type="hidden" id="hdnUniqueFormID" class="col-md-12 form-control" name="InternalAuditForm.UniqueFormID" value="@Model.InternalAuditForm.UniqueFormID" />
+                                                        <input type="hidden" id="hdnFormVersion" class="col-md-12 form-control" name="InternalAuditForm.FormVersion" value="@Model.InternalAuditForm.FormVersion" />
+                                                        @* End RDBJ 11/19/2021 *@
+                                                        <input type="hidden" id="hdnShipID" value="@Model.InternalAuditForm.ShipId" name="InternalAuditForm.ShipId" /> @* JSL 12/31/2022 *@
+                                                        @*<input type="text" class="col-md-12 form-control" value="@Model.InternalAuditForm.ShipName" />
+                                                        <span class="form-control-feedback">
+                                                            <label class="text-danger">*</label>
+                                                        </span>*@
+                                                        @* RDBJ 11/16/2021 Added Ship DropDown *@
+                                                        <select class="form-control IAFAutoUpdateData" id="ddlIAFReportShipName" disabled>
+                                                            @if (ViewBag.ShipDatas != null)
+                                                            {
+                                                                foreach (var item in ViewBag.ShipDatas)
+                                                                {
+                                                                    if (ViewBag.ShipName == @item.Code)
+                                                                    {
+                                                                        <option value="@item.Code" selected>@item.Name</option>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <option value="@item.Code">@item.Name</option>
+                                                                    }
+
+                                                                }
+                                                            }
+                                                        </select>
+                                                        <input type="hidden" id="hdnShipName" class="col-md-12 form-control" name="InternalAuditForm.ShipName" value="@Model.InternalAuditForm.ShipName" />
+
+                                                        @* RDBJ 01/23/2022 added hidden *@
+                                                        <input type="hidden" id="hdnIAFFormSavedAsDraft" class="col-md-12 form-control" name="InternalAuditForm.SavedAsDraft" value="@Model.InternalAuditForm.SavedAsDraft.ToString().ToLower()" />
+
+                                                        @* JSL 04/25/2022 added hidden *@
+                                                        <input type="hidden" id="hdnIAFFormAuditType" name="InternalAuditForm.AuditType" value="@Model.InternalAuditForm.AuditType" />
+                                                    </div>
+                                                </td>
+                                                <td width="10%" rowspan="3"><p class="m-5 text-center">Audit Type(s):</p></td>
+                                                <td width="40%">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                @if (Model.InternalAuditForm.AuditTypeISM == true)
+                                                                {
+                                                                    <input type="checkbox" name="InternalAuditForm.AuditTypeISM" value="true" class="{InternalAuditForm.AuditType:true} IAFAutoUpdateData" id="txtAuditTypeISM" checked>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <input type="checkbox" name="InternalAuditForm.AuditTypeISM" value="true" class="{InternalAuditForm.AuditType:true} IAFAutoUpdateData" id="txtAuditTypeISM">
+                                                                }
+                                                                ISM
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%"><p class="m-5">Location</p></td>
+                                                <td width="40%">
+                                                    <div class="form-group has-feedback">
+                                                        <input value="@Model.InternalAuditForm.Location" type="text" id="txtlocation" class="col-md-12 form-control IAFAutoUpdateData" name="InternalAuditForm.Location" />
+                                                        <span class="form-control-feedback arrivalCalendarAddon">
+                                                            @* RDBJ 11/16/2021 Commented *@
+                                                            @*<label class="text-danger">*</label>*@
+                                                        </span>
+                                                    </div>
+                                                </td>
+
+                                                @*<td width="10%"><p class="m-5">Audit Type(s):</p></td>*@
+                                                <td width="40%">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                @if (Model.InternalAuditForm.AuditTypeISPS == true)
+                                                                {
+                                                                    <input type="checkbox" name="InternalAuditForm.AuditTypeISPS" value="true" class="{InternalAuditForm.AuditType:true} IAFAutoUpdateData" id="txtAuditTypeISPS" checked>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <input type="checkbox" name="InternalAuditForm.AuditTypeISPS" value="true" class="{InternalAuditForm.AuditType:true} IAFAutoUpdateData" id="txtAuditTypeISPS">
+                                                                }
+                                                                ISPS
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%"><p class="m-5">Audit No.:</p></td>
+                                                <td width="40%">
+                                                    <div class="form-group has-feedback">
+                                                        <input value="@Model.InternalAuditForm.AuditNo" type="text" id="txtlocation" class="col-md-12 form-control IAFAutoUpdateData" name="InternalAuditForm.AuditNo" readonly />
+                                                        <span class="form-control-feedback arrivalCalendarAddon">
+                                                            @* RDBJ 11/16/2021 Commented *@
+                                                            @*<label class="text-danger">*</label>*@
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                @*<td width="10%"><p class="m-5">Audit Type(s):</p></td>*@
+                                                <td width="40%">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                @if (Model.InternalAuditForm.AuditTypeMLC == true)
+                                                                {
+                                                                    <input type="checkbox" name="InternalAuditForm.AuditTypeMLC" value="true" class="{InternalAuditForm.AuditType:true} IAFAutoUpdateData" id="txtAuditTypeMLC" checked>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <input type="checkbox" name="InternalAuditForm.AuditTypeMLC" value="true" class="{InternalAuditForm.AuditType:true} IAFAutoUpdateData" id="txtAuditTypeMLC">
+                                                                }
+                                                                MLC
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%"><p class="m-5">Date :</p></td>
+                                                <td width="40%">
+                                                    <div class="form-group has-feedback">
+                                                        @* RDBJ 11/16/2021 Updated date fromat from MM to mm *@
+                                                        <input value="@Model.InternalAuditForm.Date.Value.ToString("dd/MM/yyyy")" type="text" id="txtDate" class="col-md-12 form-control datepicker IAFAutoUpdateData" name="InternalAuditForm.Date" />
+
+                                                    </div>
+                                                </td>
+                                                <td width="10%"><p class="m-5">Auditor: </p></td>
+                                                <td width="40%">
+                                                    <div class="form-group has-feedback">
+                                                        @*<input value="@Model.InternalAuditForm.Auditor" type="text" id="txtAuditor" class="col-md-12 form-control IAFAutoUpdateData" name="InternalAuditForm.Auditor" />*@
+                                                        @* RDBJ 01/28/2022 added with dynamic selected *@
+                                                        <select class="col-md-12 form-control IAFAutoUpdateData" id="ddlAuditor" name="InternalAuditForm.Auditor">
+                                                            @* JSL 07/24/2022 commented *@
+                                                            @*<option value=""></option>
+                                                            <option @(Model.InternalAuditForm.Auditor == "Angus Tapp" ? "selected" : "")>Angus Tapp</option>
+                                                            <option @(Model.InternalAuditForm.Auditor == "Bogdan Cojocaru" ? "selected" : "")>Bogdan Cojocaru</option>
+                                                            <option @(Model.InternalAuditForm.Auditor == "Bogdan Sokolowski" ? "selected" : "")>Bogdan Sokolowski</option>
+                                                            <option @(Model.InternalAuditForm.Auditor == "Krzysztof Nowaczyk" ? "selected" : "")>Krzysztof Nowaczyk</option>
+                                                            <option @(Model.InternalAuditForm.Auditor == "Zbigniew Strzyga" ? "selected" : "")>Zbigniew Strzyga</option>
+                                                            <option @(Model.InternalAuditForm.Auditor == "Jon Gray" ? "selected" : "")>Jon Gray</option>
+                                                            <option @(Model.InternalAuditForm.Auditor == "Tushar Bijur" ? "selected" : "")>Tushar Bijur</option>*@
+                                                            @* End JSL 07/24/2022 commented *@
+
+                                                            @* JSL 07/24/2022 *@
+                                                            @if (ViewBag.AuditorsList != null)
+                                                            {
+                                                                foreach (var item in ViewBag.AuditorsList)
+                                                                {
+                                                                    if (Model.InternalAuditForm.Auditor == item.PersonName)
+                                                                    {
+                                                                        <option value="@item.PersonName" selected>@item.PersonName</option>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <option value="@item.PersonName">@item.PersonName</option>
+                                                                    }
+                                                                }
+                                                            }
+                                                            @* End JSL 07/24/2022 *@
+
+                                                        </select>
+                                                        @* End RDBJ 01/28/2022 added with dynamic selected *@
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            @* RDBJ 05/02/2022 added *@
+                                            <tr>
+                                                <td width="10%"><p class="m-5">Additional :</p></td>
+                                                <td width="40%">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @*<input type="checkbox" name="InternalAuditForm.IsAdditional" value="true" class="{InternalAuditForm.IsAdditional:true} IAFAutoUpdateData" id="txtIsAdditional">*@
+                                                            @if (Model.InternalAuditForm.IsAdditional == true)
+                                                            {
+                                                                <input type="checkbox" name="InternalAuditForm.IsAdditional" value="true" class="{InternalAuditForm.IsAdditional:true} IAFAutoUpdateData" id="txtIsAdditional" checked>
+                                                            }
+                                                            else
+                                                            {
+                                                                <input type="checkbox" name="InternalAuditForm.IsAdditional" value="true" class="{InternalAuditForm.IsAdditional:true} IAFAutoUpdateData" id="txtIsAdditional">
+                                                            }
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td width="10%"><p class="m-5">Closed :</p></td>
+                                                <td width="40%">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="InternalAuditForm.IsClosed" value="true" class="{InternalAuditForm.IsClosed:true} IAFAutoUpdateData" id="txtIsClosed">
+                                                            @if (Model.InternalAuditForm.IsClosed == true)
+                                                            {
+                                                                <input type="checkbox" name="InternalAuditForm.IsClosed" value="true" class="{InternalAuditForm.IsClosed:true} IAFAutoUpdateData" id="txtIsClosed" checked>
+                                                            }
+                                                            else
+                                                            {
+                                                                <input type="checkbox" name="InternalAuditForm.IsAdditIsClosedional" value="true" class="{InternalAuditForm.IsClosed:true} IAFAutoUpdateData" id="txtIsClosed">
+                                                            }
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            @* End RDBJ 05/02/2022 added *@
+                                        </table>
+                                    </div>
+                                </div>
+
+                                @* Commented RDBJ 11/22/2021 *@
+                                @*<div class="Section breakDiv aviodPrint" style="border:none; display: flex; margin-bottom: 10px; justify-content: flex-end;">
+                                    <button type="button" id="btnAddIAFAuditNotes" class="btn btn-success" style="display: none; margin-right: 10px !important; padding: 0 10px 0 10px !important;">Add Audit Note</button>
+                                    <button type="button" id="btnEditIAF" class="btn btn-primary" style="padding: 0 10px 0 12px !important;">Edit</button>
+                                </div>*@
+
+                                <div class="Section breakDiv aviodPrint">
+                                    <div class="SectionHead text-center">
+                                        Audit Notes
+                                    </div>
+                                    <div class="SectionContent">
+                                        <table class="table tblSection AuditNotes">
+                                            <tr>
+                                                @* JSL 12/19/2022 Wrapped in if *@
+                                                @if (OfficeApplication.BLL.Helpers.SessionManager.UserGroup != "8")
+                                                {
+                                                    <td></td>
+                                                }
+                                                <td width="10%"><p class="m-5 text-center">Number</p></td>
+                                                <td width="15%"><p class="m-5 text-center">Type</p></td>
+                                                <td width="70%"><p class="m-5 text-center">Brief Description</p></td>
+                                                @* JSL 12/19/2022 Wrapped in if *@
+                                                @if (OfficeApplication.BLL.Helpers.SessionManager.UserGroup != "8")
+                                                {
+                                                    @* RDBJ 01/27/2022 *@
+                                                    <td width="2%"><p class="m-5 text-center cursor-pointer" title="Add New Notes" onclick="addNewNotes()"><i class="fa fa-fw fa-plus"></i></p></td>
+                                                    <td width="2%"><p class="m-5 text-center cursor-pointer notAllowtoEditinEditMode" title="Edit Notes" onclick="EditNotes()"><i class="fa fa-fw fa-file-text-o"></i></p></td>
+                                                    <td width="2%"><p class="m-5 text-center cursor-pointer notAllowtoEditinEditMode" title="Move Up Note" @*onclick="MoveNote('up')"*@><i class=" fa fa-fw fa-caret-up"></i></p></td>
+                                                    <td width="2%"><p class="m-5 text-center cursor-pointer notAllowtoEditinEditMode" title="Move Down Note" @*onclick="MoveNote('down')"*@><i class=" fa fa-fw fa-caret-down"></i></p></td>
+                                                    @* End RDBJ 01/27/2022 *@
+                                                }
+                                                else
+                                                {
+                                                    <td width="2%"><p class="m-5 text-center cursor-pointer" title="Add New Notes"><i class="fa fa-fw fa-plus"></i></p></td>
+                                                    <td width="2%"><p class="m-5 text-center cursor-pointer notAllowtoEditinEditMode" title="Edit Notes"><i class="fa fa-fw fa-file-text-o"></i></p></td>
+                                                    <td width="2%"><p class="m-5 text-center cursor-pointer notAllowtoEditinEditMode" title="Move Up Note"><i class=" fa fa-fw fa-caret-up"></i></p></td>
+                                                    <td width="2%"><p class="m-5 text-center cursor-pointer notAllowtoEditinEditMode" title="Move Down Note"><i class=" fa fa-fw fa-caret-down"></i></p></td>
+                                                }
+                                                <td width="2%"><p class="m-5 text-center">View</p></td>
+                                            </tr>
+                                            @if (Model.AuditNote.Count > 0)
+                                            {
+                                                int i = 0;
+                                                foreach (var item in Model.AuditNote)
+                                                {
+                                                    <tr class="notes" id="@item.NotesUniqueID" index="@i">
+                                                        @* JSL 12/19/2022 Wrapped in if *@
+                                                        @if (OfficeApplication.BLL.Helpers.SessionManager.UserGroup != "8")
+                                                        {
+                                                            <td width="2%"><p class="m-5 text-center cursor-pointer" title="Delete Notes" onclick="removeNotes('@item.NotesUniqueID', this)"><i class="fa fa-fw fa-remove"></i></p></td>
+                                                        }
+                                                        <td width="10%">
+                                                            <input type="hidden" name="AuditNote[@i].Ship" value="@item.Ship" />
+                                                            @if (@item.Type == "ISM-Non Conformity")
+                                                            {
+                                                                @* RDBJ 03/14/2022 Commented *@
+                                                                @*<input type="hidden" class="number IAFAutoUpdateData" id="ISMNCN" name="AuditNote[@i].Number" value="@item.Number" />*@
+                                                                @*<label class="col-md-12 form-control number">@item.Number of <span class="ISMNonConformity">@ViewBag.Numbers[0]</span></label>*@
+                                                                @* End RDBJ 03/14/2022 Commented *@
+
+                                                                @* RDBJ 03/14/2022 *@
+                                                                <input type="hidden" class="number IAFAutoUpdateData" id="CommonNumber" name="AuditNote[@i].Number" value="@item.Number" />
+                                                                <label class="col-md-12 form-control number">@item.Number of <span class="TotalAuditNumber">@ViewBag.Numbers[0]</span></label>
+                                                                @* End RDBJ 03/14/2022 *@
+
+                                                                @*<input type="text" class="col-md-12 form-control number" value="@item.Number of @ViewBag.Numbers[0]" />*@
+                                                            }
+                                                            @if (@item.Type == "ISPS-Non Conformity")
+                                                            {
+                                                                @* RDBJ 03/14/2022 Commented *@
+                                                                @*<input type="hidden" class="number IAFAutoUpdateData" id="ISPSNCN" name="AuditNote[@i].Number" value="@item.Number" />*@
+                                                                @*<label class="col-md-12 form-control number">@item.Number of <span class="ISPSNonConformity">@ViewBag.Numbers[1]</span></label>*@
+                                                                @* End RDBJ 03/14/2022 Commented *@
+
+                                                                @* RDBJ 03/14/2022 *@
+                                                                <input type="hidden" class="number IAFAutoUpdateData" id="CommonNumber" name="AuditNote[@i].Number" value="@item.Number" />
+                                                                <label class="col-md-12 form-control number">@item.Number of <span class="TotalAuditNumber">@ViewBag.Numbers[1]</span></label>
+                                                                @* End RDBJ 03/14/2022 *@
+
+                                                                @*<input type="text" class="col-md-12 form-control notAllowtoEditinEditMode IAFAutoUpdateData" value="@item.Number of @ViewBag.Numbers[1]" />*@
+                                                            }
+                                                            @if (@item.Type == "ISM-Observation")
+                                                            {
+                                                                @* RDBJ 03/14/2022 Commented *@
+                                                                @*<input type="hidden" class="number IAFAutoUpdateData" id="ISMOBS" name="AuditNote[@i].Number" value="@item.Number" />*@
+                                                                @*<label class="col-md-12 form-control number">@item.Number of <span class="ISMObservation">@ViewBag.Numbers[2]</span></label>*@
+                                                                @* End RDBJ 03/14/2022 Commented *@
+
+                                                                @* RDBJ 03/14/2022 *@
+                                                                <input type="hidden" class="number IAFAutoUpdateData" id="CommonNumber" name="AuditNote[@i].Number" value="@item.Number" />
+                                                                <label class="col-md-12 form-control number">@item.Number of <span class="TotalAuditNumber">@ViewBag.Numbers[2]</span></label>
+                                                                @* End RDBJ 03/14/2022 *@
+
+                                                                @*<input type="text" class="col-md-12 form-control notAllowtoEditinEditMode IAFAutoUpdateData" value="@item.Number of @ViewBag.Numbers[2]" />*@
+                                                            }
+                                                            @if (@item.Type == "ISPS-Observation")
+                                                            {
+                                                                @* RDBJ 03/14/2022 Commented *@
+                                                                @*<input type="hidden" class="number IAFAutoUpdateData" id="ISPSOBS" name="AuditNote[@i].Number" value="@item.Number" />*@
+                                                                @*<label class="col-md-12 form-control number">@item.Number of <span class="ISPSObservation">@ViewBag.Numbers[3]</span></label>*@
+                                                                @* End RDBJ 03/14/2022 Commented *@
+
+                                                                @* RDBJ 03/14/2022 *@
+                                                                <input type="hidden" class="number IAFAutoUpdateData" id="CommonNumber" name="AuditNote[@i].Number" value="@item.Number" />
+                                                                <label class="col-md-12 form-control number">@item.Number of <span class="TotalAuditNumber">@ViewBag.Numbers[3]</span></label>
+                                                                @* End RDBJ 03/14/2022 *@
+
+                                                                @*<input type="text" class="col-md-12 form-control notAllowtoEditinEditMode IAFAutoUpdateData" value="@item.Number of @ViewBag.Numbers[3]" />*@
+                                                            }
+                                                            @if (@item.Type == "MLC-Deficiency")
+                                                            {
+                                                                @* RDBJ 03/14/2022 Commented *@
+                                                                @*<input type="hidden" class="number IAFAutoUpdateData" id="MLCDef" name="AuditNote[@i].Number" value="@item.Number" />*@
+                                                                @*<label class="col-md-12 form-control number">@item.Number of <span class="MLCDeficiency">@ViewBag.Numbers[4]</span></label>*@
+                                                                @* End RDBJ 03/14/2022 Commented *@
+
+                                                                @* RDBJ 03/14/2022 *@
+                                                                <input type="hidden" class="number IAFAutoUpdateData" id="CommonNumber" name="AuditNote[@i].Number" value="@item.Number" />
+                                                                <label class="col-md-12 form-control number">@item.Number of <span class="TotalAuditNumber">@ViewBag.Numbers[4]</span></label>
+                                                                @* End RDBJ 03/14/2022 *@
+
+                                                                @*<input type="text" class="col-md-12 form-control notAllowtoEditinEditMode IAFAutoUpdateData" value="@item.Number of @ViewBag.Numbers[4]" />*@
+                                                            }
+                                                        </td>
+                                                        <td width="15%">
+                                                            @* RDBJ 11/22/2021 Uncommented Input and commented Select DropDown *@
+                                                            @*<input type="text" class="col-md-12 form-control IAFAutoUpdateData" id="txtAuditType" name="AuditNote.Type[@i]" value="@item.Type" />*@
+                                                            <select onchange="getNumber(this);" class="col-md-12 form-control type typeInShortList" id="AuditNote[@i].Type" name="AuditNote[@i].Type">
+                                                                @if (ViewBag.AuditNoteTypeList != null)
+                                                                {
+                                                                    foreach (var itemAuditNoteTypes in ViewBag.AuditNoteTypeList)
+                                                                    {
+                                                                        if (item.Type == itemAuditNoteTypes)
+                                                                        {
+                                                                            <option value="@itemAuditNoteTypes" selected>@itemAuditNoteTypes</option>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <option value="@itemAuditNoteTypes">@itemAuditNoteTypes</option>
+                                                                        }
+                                                                    }
+                                                                }
+                                                            </select>
+                                                        </td>
+                                                        <td width="65%" colspan="5">
+                                                            <input type="text" class="col-md-12 form-control IAFAutoUpdateData BriefDescription" id="BriefDescription" name="AuditNote[@i].BriefDescription" value="@item.BriefDescription" placeholder="@(string.IsNullOrEmpty(item.BriefDescription) ? "Give the audit note a short descriptive title." : "")" />
+                                                        </td>
+                                                        <td width="2%" class="cursor-pointer" onclick="ViewNotes('@item.NotesUniqueID', this)"><p class="m-5 text-center"><i class="fa fa-fw fa-th-list"></i></p></td>
+
+                                                    </tr>
+                                                    i++;
+                                                }
+                                            }
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <br />
+
+                </div>
+                @* JSL 09/10/2022 added id="IAFFormPrint" *@
+                <div class="Listsection2" id="IAFFormPrint">
+                    @{ int j = 0; }
+                    @foreach (var item in Model.AuditNote)
+                    {
+                        <input type="hidden" name="AuditNote[@j].NotesUniqueID" value="@item.NotesUniqueID" />
+                        <div class="@item.NotesUniqueID form2 Section" style="display:none;">
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <div class="section2 PageSection SectionDiv">
+                                        <div class="Section">
+                                            <div class="SectionHead text-center">
+                                                Step 1 - Description of Non-Conformity / Observation
+                                            </div>
+                                            <div class="SectionContent">
+                                                <table class="table tblSection">
+                                                    <tr>
+                                                        <td width="10%"><p class="m-5">Reference:</p></td>
+                                                        <td width="90%">
+                                                            <div class="form-group has-feedback">
+                                                                <input value="@item.Reference" type="text" id="Reference" class="col-md-12 form-control IAFAutoUpdateData" name="AuditNote[@j].Reference" />
+
+                                                            </div>
+                                                        </td>
+                                                        <td width="5%"><input type="button" class="form-control" id="RefeData" onclick="SelectReferenceFromAuditNote(@j)" value="..." /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="10%"><p class="m-5">Brief Description:</p></td>
+                                                        <td width="90%" colspan="2">
+                                                            <div class="form-group has-feedback">
+                                                                <input value="@item.BriefDescription" type="text" id="BriefDescription" class="col-md-12 form-control BriefDescription IAFAutoUpdateData" name="AuditNote[@j].BriefDescription" />
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="100%" colspan="3"><p class="m-5">Full Description:</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="100%" colspan="3">
+                                                            <div class="form-group has-feedback">
+                                                                <textarea rows="4" type="text" id="FullDescription" class="col-md-12 form-control IAFAutoUpdateData" style="height:50%;" name="AuditNote[@j].FullDescription">@item.FullDescription</textarea>
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="section2A PageSection SectionDiv">
+                                        <div class="Section">
+                                            <div class="SectionHead text-center">
+                                                Step 2A - Corrective Action(s)
+                                            </div>
+                                            <div class="SectionContent">
+                                                <table class="table tblSection">
+                                                    <tr>
+                                                        <td width="100%" colspan="2">
+                                                            <div class="form-group has-feedback">
+                                                                <textarea rows="4" type="text" id="CorrectiveAction" class="col-md-12 form-control IAFAutoUpdateData" style="height:50%;" name="AuditNote[@j].CorrectiveAction">@item.CorrectiveAction</textarea>
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="section2B PageSection SectionDiv">
+                                        <div class="Section">
+                                            <div class="SectionHead text-center">
+                                                Step 2B - Preventative Action(s)
+                                            </div>
+                                            <div class="SectionContent">
+                                                <table class="table tblSection">
+                                                    <tr>
+                                                        <td width="100%" colspan="2">
+                                                            <div class="form-group has-feedback">
+                                                                <textarea rows="4" type="text" id="PreventativeAction" class="col-md-12 form-control IAFAutoUpdateData" style="height:50%;" name="AuditNote[@j].PreventativeAction">@item.PreventativeAction</textarea>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="section3 PageSection SectionDiv">
+                                        <div class="Section">
+                                            <div class="SectionHead text-center">
+                                                Responsible Person<br />
+                                                (Master has overall responsibility to ensure that responsible person will complete the action.)
+                                            </div>
+
+                                            <div class="SectionContent">
+                                                <table class="table tblSection">
+                                                    <tr>
+                                                        <td width="5%"><p class="m-5">Rank:</p></td>
+                                                        <td width="25%">
+                                                            <div class="form-group has-feedback">
+                                                                <input value="@item.Rank" type="text" class="col-md-12 form-control IAFAutoUpdateData" id="Rank" name="AuditNote[@j].Rank" />
+
+                                                            </div>
+                                                        </td>
+                                                        <td width="5%"><p class="m-5">Name:</p></td>
+                                                        <td width="25%">
+                                                            <div class="form-group has-feedback">
+                                                                <input value="@item.Name" type="text" class="col-md-12 form-control IAFAutoUpdateData" id="Name" name="AuditNote[@j].Name" />
+
+                                                            </div>
+                                                        </td>
+                                                        <td width="5%"><p class="m-5">TimeScale:</p></td>
+                                                        <td width="25%">
+                                                            <div class="form-group has-feedback">
+                                                                @if (@item.TimeScale != null)
+                                                                {
+                                                                    <input value="@item.TimeScale.Value.ToString("dd/MM/yyyy")" type="text" class="col-md-12 form-control datepicker IAFAutoUpdateData" id="Date" name="AuditNote[@j].TimeScale" />
+                                                                    <span class="form-control-feedback arrivalCalendarAddon">
+                                                                        <label class="text-danger">*</label> <i class="fa fa-calendar"></i>
+                                                                    </span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <input value="" type="text" class="col-md-12 form-control datepicker IAFAutoUpdateData" id="TimeScale" name="AuditNote[@j].TimeScale" />
+                                                                    <span class="form-control-feedback arrivalCalendarAddon">
+                                                                        <label class="text-danger">*</label> <i class="fa fa-calendar"></i>
+                                                                    </span>
+                                                                }
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="section4 PageSection SectionDiv" style="width:50%">
+                                        <div class="Section">
+                                            <div class="SectionHead text-center">
+                                                Attachments
+                                            </div>
+
+                                            <div class="SectionContent text-center" style="border:0px;">
+
+                                                <ul class="list-group" id="fileinfo_@j">
+                                                    @if (item.AuditNotesAttachment != null)
+                                                    {
+                                                        int fileNumber = 0;
+                                                        foreach (var list in item.AuditNotesAttachment)
+                                                        {
+                                                            <li class="list-group-item filelist" notesid="@item.NotesUniqueID">
+                                                                <div class="row">
+                                                                    @* JSL 09/10/2022 added class avoidPrint *@
+                                                                    <div class="col-md-3 avoidPrint">
+                                                                        <label class="btnDownload" onclick="DownloadFile('@list.NotesFileUniqueID', '@list.FileName')">Download</label>
+                                                                    </div>
+                                                                    <div class="col-md-9" style="text-align: start;">
+                                                                        <input type="hidden" name="AuditNote[@j].AuditNotesAttachment[@fileNumber].FileName" value="@list.FileName" />
+                                                                        <input type="hidden" name="AuditNote[@j].AuditNotesAttachment[@fileNumber].StorePath" value="@list.StorePath" />
+                                                                        <input type="hidden" name="AuditNote[@j].AuditNotesAttachment[@fileNumber].IsActive" value="true" />
+                                                                        <span style="padding-top: 5px; display: inline-block;">@list.FileName</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        }
+                                                    }
+                                                </ul>
+                                                @* JSL 09/10/2022 added class avoidPrint *@
+                                                <table class="table tblSection aviodPrint" style=" border:0px;">
+                                                    <tr>
+                                                        <td width="50%"><p class="m-5">Max file size:</p></td>
+                                                        <td width="50%">
+                                                            <label class="text-info">4.0 Mb</label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="50%"><p class="m-5">Attachments allowed:</p></td>
+                                                        <td width="50%">
+                                                            <label class="text-info">No Restriction</label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="50%"><p class="m-5">Total allowed size:</p></td>
+                                                        <td width="50%">
+                                                            <label class="text-info">4.0 Mb</label>
+                                                        </td>
+                                                    </tr>
+                                                    @* JSL 12/19/2022 Wrapped in if *@
+                                                    @if (OfficeApplication.BLL.Helpers.SessionManager.UserGroup != "8")
+                                                    {
+                                                    <tr>
+                                                        <td width="25%" colspan="2">
+                                                            <div class="file btn  btn btn-primary">
+                                                                Upload
+                                                                <input type="file" name="file" class="file" onchange="fileUploadEdit('@item.NotesUniqueID', @j, this)" multiple />
+                                                            </div>
+                                                            <button type="button" onclick="RemoveFileEdit()" id="btnremovefile" class="btn btn-primary disabled">
+                                                                Remove
+                                                            </button>
+                                                            <button type="button" id="btnopenfile" class="btn btn-primary disabled">
+                                                                Open
+                                                            </button>
+                                                        </td>
+
+                                                    </tr>
+                                                    }
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                </div>
+
+                            </div>
+                        </div>
+                        j++;
+                    }
+                </div>
+                @* JSL 09/10/2022 added class avoidPrint *@
+                <div class="row Listsection2footer aviodPrint">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-primary" onclick="printDiv()">
+                            Print
+                        </button> &nbsp;&nbsp;
+                        @* JSL 12/19/2022 added style *@
+                        <button type="submit" id="btnSubmit" class="btn btn-primary" style="display: none;">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+@* RDBJ 11/13/2021 Added Audit Note Modal *@
+<div class="modal fade aviodPrint" tabindex="-1" role="dialog" id="modal-AddNewAuditNote">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add New Audit Note</h4>
+            </div>
+            <div class="modal-body" style="overflow:hidden !important;">
+                <div id="AllForm">
+                    @* RDBJ 11/16/2021 *@
+                    <div class="row">
+                        <div class="col-md-12" style="display:flex;">
+                            <label style="padding-top: 5px;padding-right: 5px;">Type:</label>
+                            <select onchange="getNumber(this)" id="AuditNoteType" class="col-md-6 form-control type" style="margin-right:10px;">
+                                <option></option>
+                                <option>ISM-Non Conformity</option>
+                                <option>ISPS-Non Conformity</option>
+                                <option>ISM-Observation</option>
+                                <option>ISPS-Observation</option>
+                                <option>MLC-Deficiency</option>
+                            </select>
+                            <input type="hidden" class="col-md-6 form-control number" id="hdnAuditNoteNumber" />
+                            <label class="col-md-4 form-control number"></label>
+                        </div>
+                    </div>
+                    @* End RDBJ 11/16/2021 *@
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="section2 PageSection SectionDiv">
+                                <div class="Section">
+                                    <div class="SectionHead text-center">
+                                        Step 1 - Description of Non-Conformity / Observation
+                                    </div>
+                                    <div class="SectionContent">
+                                        <table class="table tblSection">
+                                            <tr>
+                                                <td width="10%"><p class="m-5">Reference:</p></td>
+                                                <td width="90%">
+                                                    <div class="form-group has-feedback">
+                                                        <input type="text" id="txtReference" name="Reference" class="col-md-12 form-control" />
+                                                        <span class="form-control-feedback">
+                                                            <label class="text-danger">*</label>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td width="5%"><input type="button" class="form-control RefeData" value="..." /></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%"><p class="m-5">Brief Description:</p></td>
+                                                <td width="90%" colspan="2">
+                                                    <div class="form-group has-feedback">
+                                                        <input type="text" id="txtBriefDescription" class="col-md-12 form-control BriefDescription" />
+                                                        <span class="form-control-feedback">
+                                                            <label class="text-danger">*</label>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="100%" colspan="3"><p class="m-5">Full Description:</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="100%" colspan="3">
+                                                    <div class="form-group has-feedback">
+                                                        <textarea rows="4" type="text" id="txtFullDescription" class="col-md-12 form-control" style="height:50%;"></textarea>
+                                                        <span class="form-control-feedback">
+                                                            <label class="text-danger">*</label>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="section2A PageSection SectionDiv">
+                                <div class="Section">
+                                    <div class="SectionHead text-center">
+                                        Step 2A - Corrective Action(s)
+                                    </div>
+                                    <div class="SectionContent">
+                                        <table class="table tblSection">
+                                            <tr>
+                                                <td width="100%" colspan="2">
+                                                    <div class="form-group has-feedback">
+                                                        <textarea rows="4" type="text" id="txtCorrectiveAction" class="col-md-12 form-control" style="height:50%;"></textarea>
+                                                        <span class="form-control-feedback">
+                                                            <label class="text-danger">*</label>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="section2B PageSection SectionDiv breakDivPage">
+                                <div class="Section">
+                                    <div class="SectionHead text-center">
+                                        Step 2B - Preventative Action(s)
+                                    </div>
+                                    <div class="SectionContent">
+                                        <table class="table tblSection">
+                                            <tr>
+                                                <td width="100%" colspan="2">
+                                                    <div class="form-group has-feedback">
+                                                        <textarea rows="4" type="text" id="txtPreventativeAction" class="col-md-12 form-control" style="height:50%;"></textarea>
+                                                        <span class="form-control-feedback">
+                                                            <label class="text-danger">*</label>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="section3 PageSection SectionDiv">
+                                <div class="Section">
+                                    <div class="SectionHead text-center">
+                                        Responsible Person<br />
+                                        (Master has overall responsibility to ensure that responsible person will complete the action.)
+                                    </div>
+
+                                    <div class="SectionContent">
+                                        <table class="table tblSection">
+                                            <tr>
+                                                <td width="5%"><p class="m-5">Rank:</p></td>
+                                                <td width="25%">
+                                                    <div class="form-group has-feedback">
+                                                        <input type="text" class="col-md-12 form-control" id="txtRank" />
+                                                        <span class="form-control-feedback">
+                                                            <label class="text-danger">*</label>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td width="5%"><p class="m-5">Name:</p></td>
+                                                <td width="25%">
+                                                    <div class="form-group has-feedback">
+                                                        <input type="text" class="col-md-12 form-control" id="txtName" />
+                                                        <span class="form-control-feedback">
+                                                            <label class="text-danger">*</label>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td width="5%"><p class="m-5">TimeScale:</p></td>
+                                                <td width="25%">
+                                                    <div class="form-group has-feedback">
+                                                        <input type="text" class="col-md-12 form-control datepicker" id="txtTimeScale" />
+                                                        <span class="form-control-feedback arrivalCalendarAddon">
+                                                            <label class="text-danger">*</label> <i class="fa fa-calendar"></i>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="section4 PageSection SectionDiv AttachmentsDiv">
+                                <div class="Section">
+                                    <div class="SectionHead text-center">
+                                        Attachments
+                                    </div>
+
+                                    <div class="SectionContent text-center" style="border:0px;">
+
+                                        <ul class="list-group" id="fileinfo_"></ul>
+
+
+                                        <table class="table tblSection" style=" border:0px;">
+                                            <tr>
+                                                <td width="50%"><p class="m-5">Max file size:</p></td>
+                                                <td width="50%">
+                                                    <label class="text-info">4.0 Mb</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="50%"><p class="m-5">Attachments allowed:</p></td>
+                                                <td width="50%">
+                                                    <label class="text-info">No Restriction</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="50%"><p class="m-5">Total allowed size:</p></td>
+                                                <td width="50%">
+                                                    <label class="text-info">4.0 Mb</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="25%" colspan="2">
+                                                    <div class="file btn  btn btn-primary">
+                                                        Upload
+                                                        <input type="file" name="file" class="file" onchange="fileUpload(this)" multiple />
+                                                    </div>
+                                                    <button type="button" onclick="RemoveFile()" id="btnremovefile" class="btn btn-primary disabled">
+                                                        Remove
+                                                    </button>
+                                                    <button type="button" id="btnopenfile" class="btn btn-primary disabled">
+                                                        Open
+                                                    </button>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br />
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnSubmitAuditNote" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+@* End RDBJ 11/13/2021 Added Audit Note Modal *@
+
+@* RDBJ 11/15/2021 Reference Modal *@
+<div id="ReferenceModal" class="modal fade bd-example-modal-lg" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        Modal content
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Select Reference</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        @* RDBJ 01/28/2022 commented below code *@
+                        @*<div id="ISMTree" class=""></div>
+                        <div id="MLCTree" class=""></div>
+                        <div id="SSPTree" class=""></div>*@
+
+                        @* RDBJ 01/28/2022 *@
+                        <ul id="ISMTree" class=""></ul>
+                        <ul id="MLCTree" class=""></ul>
+                        <ul id="SSPTree" class=""></ul>
+                        @* End RDBJ 01/28/2022 *@
+                    </div>
+                </div>
+                <input type="hidden" id="ReferenceData" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="btnCloseReference">Close</button>
+                <button type="button" class="btn btn-primary" id="btnselect" onclick="SelectReference(99)">Select</button>
+            </div>
+        </div>
+    </div>
+</div>
+@* End RDBJ 11/15/2021 Reference Modal *@
+
+@* RDBJ 11/16/2021 File Upload Error Modal *@
+<div class="modal fade aviodPrint" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Files types are not supported</h4>
+            </div>
+            <div class="modal-body">
+                <p>&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+@* End RDBJ 11/16/2021 File Upload Error Modal *@

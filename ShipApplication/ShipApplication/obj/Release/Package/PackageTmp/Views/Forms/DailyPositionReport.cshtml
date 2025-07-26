@@ -1,0 +1,562 @@
+﻿@using ShipApplication.BLL.Modals;
+@model ShipApplication.BLL.Modals.DailyPositionReportModal
+
+@{
+    ViewBag.Title = "DailyPositionReport";
+}
+
+<link rel="stylesheet" href="~/Content/Custom/ArrivalForm.css" />
+<script type="text/javascript" src="~/Scripts/jquery/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery/additional-methods.min.js"></script>
+<script src="~/Scripts/Custom/DPRHandler.js?v3.0"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var res = '@ViewBag.Result';
+        $('.time').inputmask('99:99', { 'placeholder': '00:00' })
+        if (res == '@AppStatic.SUCCESS') {
+            $.notify("Daily Position Report Submitted Successfully", "success");
+        }
+        else if (res == '@AppStatic.ERROR') {
+            $.notify("Error occured while submitting Report !", "error");
+        }
+    });
+</script>
+
+<section class="content">
+    <form id="DPRForm" name="DPRForm" method="post" action="@Url.Action("SendDailyPositionReportMail", "Mail")">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="pwd">Ship Code</label><br />
+                    <span>@ShipApplication.BLL.Helpers.SessionManager.ShipCode</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Ship Name</label><br />
+                    <span>@ShipApplication.BLL.Helpers.SessionManager.ShipName</span>
+                    <input type="hidden" name="ShipName" value="@ShipApplication.BLL.Helpers.SessionManager.ShipName" />
+                    <input type="hidden" name="ShipCode" value="@ShipApplication.BLL.Helpers.SessionManager.ShipCode" />
+                    <input type="hidden" name="ReportCreated" value="@ShipApplication.BLL.Helpers.Utility.GetCurrentDateString()" />
+                    <input type="hidden" name="CreatedBy" value="@ShipApplication.BLL.Helpers.SessionManager.Username" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="pwd">Report created on</label><br />
+                    <span>@ShipApplication.BLL.Helpers.Utility.GetCurrentDateString()</span><br />                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-4">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 nopaddingleftright" for="txtVoyageNo">Voyage no.</label>
+                        <input type="text" class="form-control" id="txtVoyageNo" name="VoyageNo" title="Only integers allowed" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 nopaddingleftright" for="txtCargoType">Cargo type</label>
+                        <input type="text" class="form-control" id="txtCargoType" name="CargoType" placeholder="for example: wheat, cement etc." title="Cannot be blank" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Position</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-5">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 nopaddingleftright" for="txtLatitude">Latitude</label>
+                        <div class="col-md-4 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtLatitudedd" name="Latitudedd" placeholder="dd" maxlength="2" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-md-1">
+                            <span class="form-control-feedback"><label>°</label></span>
+                        </div>
+                        <div class="col-md-4 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtLatitudemm" name="Latitudemm" placeholder="mm" maxlength="2" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-control" id="ddlDirectionNS" name="DirectionNS" style="padding-right: 0px;">
+                                <option value=""></option>
+                                <option value="N">N</option>
+                                <option value="S">S</option>
+                            </select>
+                            <span class="form-control-feedback text-danger" style="padding-right: 40px;"><label>*</label></span>
+                            @*<span class="form-control-feedback"><label>N/S</label></span>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-5">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 nopaddingleftright" for="txtLongitude">Longitude</label>
+                        <div class="col-md-4 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtLongitudeddd" name="Longitudeddd" placeholder="ddd" maxlength="3" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-md-1">
+                            <span class="form-control-feedback"><label>°</label></span>
+                        </div>
+                        <div class="col-md-4 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtLongitudemm" name="Longitudemm" placeholder="mm" maxlength="2" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-control" id="ddlDirectionEW" name="DirectionEW" style="padding-right: 0px;">
+                                <option value=""></option>
+                                <option value="E">E</option>
+                                <option value="W">W</option>
+                            </select>
+                            <span class="form-control-feedback text-danger" style="padding-right: 40px;"><label>*</label></span>
+                            @*<span class="form-control-feedback"><label>E/W</label></span>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <div class="form-group has-feedback">
+                        <label for="chkAnchored">Anchored?</label><br />
+                        <input type="checkbox" name="chkAnchored" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Speed</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 nopaddingleftright" for="txtAverageSpeed">Average speed over last 24 hours</label>
+                        <div class="col-sm-11 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtAverageSpeed" name="AverageSpeed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-1 col-xs-1">knots</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12" for="txtDistanceMade">Distance made good</label>
+                        <div class="col-sm-11 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtDistanceMade" name="DistanceMade" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-1 col-xs-1">NM</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>ETA</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 nopaddingleftright" for="txtNextPort">Next port</label>
+                        <input type="text" class="form-control" id="txtNextPort" name="NextPort" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtEstimatedArrivalDateEcoSpeed">Estimated arrival date at eco speed</label>
+                        <input type="text" class="form-control" id="txtEstimatedArrivalDateEcoSpeed" name="EstimatedArrivalDateEcoSpeed" />
+                        <span class="form-control-feedback arrivalCalendarAddon">
+                            <label class="text-danger">*</label> <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 nopaddingleftright" for="txtEstimatedArrivalTimeEcoSpeed">Estimated arrival time at eco speed (local time)</label>
+                        <input type="text" class="form-control time" id="txtEstimatedArrivalTimeEcoSpeed" name="EstimatedArrivalTimeEcoSpeed" placeholder="HH:MM" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="txtEstimatedArrivalDateFullSpeed">Estimated arrival date at full speed</label>
+                        <input type="text" class="form-control" id="txtEstimatedArrivalDateFullSpeed" name="EstimatedArrivalDateFullSpeed" />
+                        <span class="form-control-feedback arrivalCalendarAddon">
+                            <label class="text-danger">*</label> <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 nopaddingleftright" for="txtEstimatedArrivalTimeFullSpeed">Estimated arrival time at full speed (local time)</label>
+                        <input type="text" class="form-control time" id="txtEstimatedArrivalTimeFullSpeed" name="EstimatedArrivalTimeFullSpeed" placeholder="HH:MM" />
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Bunker ROB</h3>
+                <h5>including unpumpable or "Dead" fuel</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtFuelOil">Fuel oil</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtFuelOil" name="FuelOil" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">t</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtDieselOil">Diesel oil</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtDieselOil" name="DieselOil" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-1">t</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtSulphurFuelOil">Low sulphur fuel oil</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtSulphurFuelOil" name="SulphurFuelOil" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-1">t</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtSulphurDieselOil">Low sulphur diesel oil</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtSulphurDieselOil" name="SulphurDieselOil" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-1">t</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtFreshWater">Fresh water</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtFreshWater" name="FreshWater" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">t</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtLubeOil">Lube oil</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtLubeOil" name="LubeOil" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-1">l</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtSludge">Sludge</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtSludge" name="Sludge" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-1">m<sup>3</sup></div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtDirtyOil">Dirty oil</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtDirtyOil" name="DirtyOil" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-1">m<sup>3</sup></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Performance</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtPitch">Pitch</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtPitch" name="Pitch" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">%</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtEngineLoad">Engine Load</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtEngineLoad" name="EngineLoad" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-1">%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtHighCylExhTemp">Highest M/E cylinder exhaust gas temperature</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtHighCylExhTemp" name="HighCylExhTemp" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">°C</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtExhGasTempAftTurboChrg">Exhaust gas temperature after turbocharger</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtExhGasTempAftTurboChrg" name="ExhGasTempAftTurboChrg" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-1">°C</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtOilCunsum">M/E oil consumption over last 24 hours </label>
+                        <br />(for 2-stroke engine, record cylinder oil consumption)
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtOilCunsum" name="OilCunsum" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">l</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Weather</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="ddlWindDirection">Wind direction</label>
+                        <select class="form-control" id="ddlWindDirection" name="WindDirection">
+                            <option value=""></option>
+                            <option value="None">None</option>
+                            <option value="North">North</option>
+                            <option value="North-northeast">North-northeast</option>
+                            <option value="Northeast">Northeast</option>
+                            <option value="East-northeast">East-northeast</option>
+                            <option value="East">East</option>
+                            <option value="East-southeast">East-southeast</option>
+                            <option value="Southeast">Southeast</option>
+                            <option value="South-southeast">South-southeast</option>
+                            <option value="South">South</option>
+                            <option value="South-southwest">South-southwest</option>
+                            <option value="Southwest">Southwest</option>
+                            <option value="West-southwest">West-southwest</option>
+                            <option value="West">West</option>
+                            <option value="West-northwest">West-northwest</option>
+                            <option value="Northwest">Northwest</option>
+                            <option value="North-northwest">North-northwest</option>
+                            <option value="Indeterminate">Indeterminate</option>
+                        </select>
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="ddlWindForce">Wind force (Beaufort scale)</label>
+                        <select class="form-control" id="ddlWindForce" name="WindForce">
+                            <option value=""></option>
+                            <option value="Calm">0 - Calm</option>
+                            <option value="Light air">1 - Light air</option>
+                            <option value="Light Breeze">2 - Light Breeze</option>
+                            <option value="Gentle Breeze">3 - Gentle Breeze</option>
+                            <option value="Moderate Breeze">4 - Moderate Breeze</option>
+                            <option value="Fresh Breeze">5 - Fresh Breeze</option>
+                            <option value="Strong Breeze">6 - Strong Breeze</option>
+                            <option value="Near gale">7 - Near gale</option>
+                            <option value="Gale">8 - Gale</option>
+                            <option value="Strong Gale">9 - Strong Gale</option>
+                            <option value="Storm">10 - Storm</option>
+                            <option value="Violent Storm">11 - Violent Storm</option>
+                            <option value="Hurricane force">12 - Hurricane force</option>
+                        </select>
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="ddlSeaState">Sea state (Beaufort scale)</label>
+                        <select class="form-control" id="ddlSeaState" name="SeaState">
+                            <option value=""></option>
+                            <option value="Like a mirror">0 - Like a mirror</option>
+                            <option value="Ripples, no crests">1 - Ripples, no crests</option>
+                            <option value="Small wavelets, no whitecaps">2 - Small wavelets, no whitecaps</option>
+                            <option value="Large wavelets, scattered whitecaps">3 - Large wavelets, scattered whitecaps</option>
+                            <option value="Small waves, frequent whitecaps">4 - Small waves, frequent whitecaps</option>
+                            <option value="Moderate waves, many whitecaps, minor spray">5 - Moderate waves, many whitecaps, minor spray</option>
+                            <option value="Large waves, foam crests, some spray">6 - Large waves, foam crests, some spray</option>
+                            <option value="Sea heaps up, foam streaks, moderate spray">7 - Sea heaps up, foam streaks, moderate spray</option>
+                            <option value="High waves, spindrift, considerable spray">8 - High waves, spindrift, considerable spray</option>
+                            <option value="High waves, dense foam, spray begins reducing visibility">9 - High waves, dense foam, spray begins reducing visibility</option>
+                            <option value="Very high waves, large foam patches, spray reducing visibility">10 - Very high waves, large foam patches, spray reducing visibility</option>
+                            <option value="Exceptionallly high waves, foam covers sea, severe spray">11 - Exceptionallly high waves, foam covers sea, severe spray</option>
+                            <option value="Huge waves, foam covers sea, driving spray.">12 - Huge waves, foam covers sea, driving spray.</option>
+                        </select>
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtFreshWater">Swell direction</label>
+                        <br />
+                        <select class="form-control" id="ddlSwellDirection" name="SwellDirection">
+                            <option value=""></option>
+                            <option value="None">None</option>
+                            <option value="North">North</option>
+                            <option value="North-northeast">North-northeast</option>
+                            <option value="Northeast">Northeast</option>
+                            <option value="East-northeast">East-northeast</option>
+                            <option value="East">East</option>
+                            <option value="East-southeast">East-southeast</option>
+                            <option value="Southeast">Southeast</option>
+                            <option value="South-southeast">South-southeast</option>
+                            <option value="South">South</option>
+                            <option value="South-southwest">South-southwest</option>
+                            <option value="Southwest">Southwest</option>
+                            <option value="West-southwest">West-southwest</option>
+                            <option value="West">West</option>
+                            <option value="West-northwest">West-northwest</option>
+                            <option value="Northwest">Northwest</option>
+                            <option value="North-northwest">North-northwest</option>
+                            <option value="Indeterminate">Indeterminate</option>
+                        </select>
+                        <span class="form-control-feedback text-danger"><label>*</label></span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtSwellHeight">Swell height</label>
+                        <br />                     
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtSwellHeight" name="SwellHeight" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">m</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtDraftAft">Draft aft</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtDraftAft" name="DraftAft" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">m</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 col-xs-12 nopaddingleftright" for="txtDraftForward">Draft forward</label>
+                        <div class="col-sm-10 col-xs-10 nopaddingleftright">
+                            <input type="text" class="form-control" id="txtDraftForward" name="DraftForward" title="Only numbers allowed" />
+                            <span class="form-control-feedback text-danger"><label>*</label></span>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">m</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-12">
+                    <div class="form-group has-feedback">
+                        <label for="txtRemarks" style="font-size:20px;">Remarks</label>
+                        <input type="text" class="form-control" id="txtRemarks" name="Remarks" placeholder="Include brief cargo details, planned ports/schedule (if known), and any other relevant information." />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Recipients</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 nopaddingleftright">
+                <div class="form-group col-md-12">
+                    <label class="col-sm-12 col-xs-12 nopaddingleftright">To...</label>
+                    <input type="text" class="form-control" readonly="readonly" value="krutikap.wa@gmail.com" name="ToEmail" id="txtToEmail" />
+                </div>
+                <div class="form-group col-md-12">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-12 nopaddingleftright">CC...</label>
+                        <input type="text" class="txtCCEmail form-control" readonly="readonly" value="@ViewBag.CCEmail" name="ToCC" id="txtTOCC" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <input type="submit" id="btnSubmit" class="btn btn-primary" value="Submit" />
+            </div>
+        </div>
+    </form>
+</section>

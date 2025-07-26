@@ -1,0 +1,159 @@
+﻿
+<div class="Section breakDiv aviodPrint">
+    <div class="SectionHead">
+        <u>Section 1</u> - General Details
+    </div>
+    <div class="SectionContent">
+        <table class="table tblSection">
+            <tr>
+                <td width="10%"><p class="m-5">Ship:</p></td>
+                <td width="40%">
+                    <div class="form-group has-feedback">
+                        @*@Html.DropDownList("Child", ViewBag.ships as SelectList,  new { @class = "form-control col-md-12", Name = "Ship" })*@
+                        <input type="text" class="col-md-12 form-control" id="ShipName" name="ShipName" value="@Model.ShipName" />
+                        <span class="form-control-feedback">
+                            <label class="text-danger">*</label>
+                        </span>
+                    </div>
+                </td>
+                <td width="10%"><p class="m-5">Port:</p></td>
+                <td width="40%">
+                    <div class="form-group has-feedback">
+                        <input type="text" class="col-md-12 form-control" id="Port" name="Port" value="@Model.Port" />
+                        <span class="form-control-feedback">
+                            <label class="text-danger">*</label>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="10%"><p class="m-5">Inspector:</p></td>
+                <td width="40%">
+                    <div class="form-group has-feedback">
+                       
+                        <input type="text" class="col-md-12 form-control" id="Inspector" name="Inspector" value="@Model.Inspector" />
+                        <span class="form-control-feedback">
+                            <label class="text-danger">*</label>
+                        </span>
+                    </div>
+                </td>
+                <td width="10%"><p class="m-5">Date:</p></td>
+                <td width="40%">
+                    <div class="form-group has-feedback">
+                        <input type="text" value="@Model.Date" id="Date" class="col-md-12 form-control" name="Date" />
+                        <span class="form-control-feedback arrivalCalendarAddon">
+                            <label class="text-danger">*</label> <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="Section breakDiv">
+    <div class="SectionHead ">
+        <u>Section 2</u> - General Preamble
+    </div>
+    <div class="SectionContent">
+        <table class="table tblSection">
+            <tr>
+                <td width="100%">
+                    <textarea class="col-md-12 form-control" id="GeneralPreamble" name="GeneralPreamble">@Model.GeneralPreamble</textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="Section breakDiv">
+    <div class="SectionHead">
+        <u>Section 3</u> - General Description
+    </div>
+    <div class="SectionContent">
+        <table class="table tblSection">
+            <tr>
+                <td width="20%"><p class="m-5">Class society:</p></td>
+                <td width="30%"><input type="text" name="Classsociety" value="@Model.Classsociety" class="col-md-12 form-control" /> </td>
+                <td width="20%"><p class="m-5">Year of Build:</p></td>
+                <td width="30%"><input type="text" name="YearofBuild" value="@Model.YearofBuild" class="col-md-12 form-control" /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Flag:</p></td>
+                <td width="30%"><input type="text" name="Flag" value="@Model.Flag" class="col-md-12 form-control" /> </td>
+                <td width="20%"><p class="m-5">Class of vessel:</p></td>
+                <td width="30%"><input type="text" name="Classofvessel" value="@Model.Classofvessel" class="col-md-12 form-control" /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Port of registry:</p></td>
+                <td width="30%"><input type="text" name="Portofregistry" value="@Model.Portofregistry" class="col-md-12 form-control" /> </td>
+                <td width="20%"><p class="m-5">MMSI:</p></td>
+                <td width="30%"><input type="text" name="MMSI" value="@Model.MMSI" class="col-md-12 form-control" /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">IMO number:</p></td>
+                <td width="30%"><input type="text" name="IMOnumber"  value="@Model.IMOnumber" class="col-md-12 form-control" /> </td>
+                <td width="20%"><p class="m-5">Call sign:</p></td>
+                <td width="30%"><input type="text" name="Callsign"  value="@Model.Callsign" class="col-md-12 form-control" /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Summer DWT:</p></td>
+                <td width="30%"><input type="text" name="SummerDWT" value="@Model.SummerDWT" class="col-md-12 form-control" /> </td>
+                <td width="20%"><p class="m-5">Gross tonnage:</p></td>
+                <td width="30%"><input type="text" name="Grosstonnage" value="@Model.Grosstonnage" class="col-md-12 form-control" /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Lightweight:</p></td>
+                <td width="30%"><input type="text" name="Lightweight" value="@Model.Lightweight"  class="col-md-12 form-control" /> </td>
+                <td width="20%"><p class="m-5">Net tonnage:</p></td>
+                <td width="30%"><input type="text" name="Nettonnage" value="@Model.Nettonnage"  class="col-md-12 form-control" /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Beam:</p></td>
+                <td width="30%"><input type="text" name="Beam" value="@Model.Beam" class="col-md-12 form-control" /> </td>
+                <td width="20%"><p class="m-5">LOA:</p></td>
+                <td width="30%"><input type="text" name="LOA" value="@Model.LOA"  class="col-md-12 form-control" /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Summer draft:</p></td>
+                <td width="30%"><input type="text" name="Summerdraft"  value="@Model.Summerdraft" class="col-md-12 form-control" /> </td>
+                <td width="20%"><p class="m-5">LBP:</p></td>
+                <td width="30%"><input type="text" name="LBP"  value="@Model.LBP" class="col-md-12 form-control" /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Bow thruster:</p></td>
+                <td width="30%"><input type="text" name="Bowthruster" value="@Model.Bowthruster"  class="col-md-12 form-control" /> </td>
+                <td width="20%"><p class="m-5">BHP:</p></td>
+                <td width="30%"><input type="text" name="BHP"  value="@Model.BHP" class="col-md-12 form-control" /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">No. of holds:</p></td>
+                <td width="30%"><input type="text" name="Noofholds" value="@Model.Noofholds"  class="col-md-12 form-control" /> </td>
+                <td width="20%"><p class="m-5">No. moveable bulkheads:</p></td>
+                <td width="30%"><input type="text" name="Nomoveablebulkheads"  value="@Model.Nomoveablebulkheads" class="col-md-12 form-control" /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Containers:</p></td>
+                <td width="30%"><input type="text" name="Containers"  value="@Model.Containers" class="col-md-12 form-control" /> </td>
+                <td width="20%"><p class="m-5">Cargo capacity:</p></td>
+                <td width="30%"><input type="text" name="Cargocapacity" value="@Model.Cargocapacity"  class="col-md-12 form-control" /></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Cargo handling equipment:</p></td>
+                <td width="80%" colspan="3"><textarea name="Cargohandlingequipment" class="col-md-12 form-control">@Model.Cargohandlingequipment</textarea></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Last voyage and cargo:</p></td>
+                <td width="80%" colspan="3"><textarea name="Lastvoyageandcargo" class="col-md-12 form-control">@Model.Lastvoyageandcargo</textarea></td>
+            </tr>
+            <tr>
+                <td width="20%"><p class="m-5">Current/Planned voyage and cargo:</p></td>
+                <td width="80%" colspan="3"><textarea name="CurrentPlannedvoyageandcargo" class="col-md-12 form-control">@Model.CurrentPlannedvoyageandcargo</textarea></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="SectionComplete">
+    <div class="checkbox">
+        <label>Section Complete?</label>
+        <input type="checkbox" value="" style="margin-left:20px;">
+    </div>
+</div>

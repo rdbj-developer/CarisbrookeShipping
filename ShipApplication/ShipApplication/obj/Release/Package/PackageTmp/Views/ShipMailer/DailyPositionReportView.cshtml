@@ -1,0 +1,65 @@
+﻿@using ShipApplication.BLL.Modals;
+@using ShipApplication.BLL.Helpers;
+@{
+    Layout = null;
+    DailyPositionReportModal modal = ViewBag.DailyPositionReport != null ? (DailyPositionReportModal)ViewBag.DailyPositionReport : null;
+}
+
+<style type="text/css">
+    .mail {
+        margin: 0px;
+        margin-bottom: 2px;
+    }
+
+    .mailHeading {
+        margin-top: 10px;
+    }
+</style>
+
+@if (modal != null)
+{
+    <p class="mail"><b>Ship Code :</b> @modal.ShipCode</p>
+    <p class="mail"><b>Ship Name :</b> @modal.ShipName</p>
+    <p class="mail"><b>Report created on :</b> @ShipApplication.BLL.Helpers.Utility.GetCurrentDateString()</p>
+    <p class="mail"><b>Report submitted by :</b> @modal.CreatedBy</p>
+    <p class="mail"><b>Voyage no :</b> @modal.VoyageNo</p>
+    <p class="mail mailHeading"><b>Position</b></p>
+    <p class="mail">Latitude : @modal.Latitude</p>
+    <p class="mail">Longitude : @modal.Longitude</p>
+    <p class="mail">Anchored? : @modal.chkAnchored</p>
+    <p class="mail mailHeading"><b>Speed</b></p>
+    <p class="mail">Average speed over last 24 hours : @modal.AverageSpeed knots</p>
+    <p class="mail">Distance made good : @modal.DistanceMade NM</p>
+    <p class="mail mailHeading"><b>ETA</b></p>
+    <p class="mail">Next port : @modal.NextPort</p>
+    <p class="mail">Estimated arrival date at eco speed : @Utility.DateToString(modal.EstimatedArrivalDateEcoSpeed)</p>
+    <p class="mail">Estimated arrival time at eco speed (local time) : @modal.EstimatedArrivalTimeEcoSpeed</p>
+    <p class="mail">Estimated arrival date at full speed : @Utility.DateToString(modal.EstimatedArrivalDateFullSpeed)</p>
+    <p class="mail">Estimated arrival time at full speed (local time) : @modal.EstimatedArrivalTimeFullSpeed</p>
+    <p class="mail mailHeading"><b>Bunker ROB</b></p>
+    <p class="mail">Fuel oil : @modal.FuelOil t</p>
+    <p class="mail">Diesel oil : @modal.DieselOil t</p>
+    <p class="mail">Low sulphur fuel oil : @modal.SulphurFuelOil t</p>
+    <p class="mail">Low sulphur diesel oil : @modal.SulphurDieselOil t</p>
+    <p class="mail">Fresh water : @modal.FreshWater t</p>
+    <p class="mail">Lube oil : @modal.LubeOil l</p>
+    <p class="mail">Sludge : @modal.Sludge m<sup>3</sup></p>
+    <p class="mail">Dirty oil : @modal.DirtyOil m<sup>3</sup></p>
+    <p class="mail mailHeading"><b>Performance</b></p>
+    <p class="mail ">Pitch : @modal.Pitch %</p>
+    <p class="mail">Engine Load : @modal.EngineLoad %</p>
+    <p class="mail">Highest M/E cylinder exhaust gas temperature : @modal.HighCylExhTemp °C</p>
+    <p class="mail">Exhaust gas temperature after turbocharger : @modal.ExhGasTempAftTurboChrg °C</p>
+    <p class="mail">M/E oil consumption over last 24 hours : @modal.OilCunsum l</p>
+    <p class="mail mailHeading"><b>Weather</b></p>
+    <p class="mail">Wind direction : @modal.WindDirection</p>
+    <p class="mail">Wind force (Beaufort scale) : @modal.WindForce</p>
+    <p class="mail">Sea state (Beaufort scale) : @modal.SeaState</p>
+    <p class="mail">Swell direction : @modal.SwellDirection</p>
+    <p class="mail">Swell height : @modal.SwellHeight m</p>
+    <p class="mail">Draft aft : @modal.DraftAft m</p>
+    <p class="mail">Draft forward : @modal.DraftForward m</p>
+    <p class="mail"><b>Remarks</b></p>
+    <p class="mail">@modal.Remarks</p>
+}
+

@@ -1,0 +1,700 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FC8D2BDB-FDEE-4B4D-A7BC-3B01F2891BB9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cyber.Application</RootNamespace>
+    <AssemblyName>Cyber.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Quartz">
+      <HintPath>..\packages\Quartz.2.6.0\lib\net35\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.1.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\DeficienciesController.cs" />
+    <Compile Include="Controllers\DocumentsController.cs" />
+    <Compile Include="Controllers\FormsController.cs" />
+    <Compile Include="Controllers\GIRListController.cs" />
+    <Compile Include="Controllers\HelpController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IAFListController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PurchasingDeptController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\RepositoryController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\SIRListController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AuthorizeFilter.cs" />
+    <Compile Include="Models\SessionExpireAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="SyncJob.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\AdminLTE.min.css" />
+    <Content Include="Content\bootstrap-datepicker\bootstrap-datepicker.css" />
+    <Content Include="Content\bootstrap-datepicker\bootstrap-datepicker.min.css" />
+    <Content Include="Content\bootstrap-datepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Custom\GIRForm.css" />
+    <Content Include="Content\Custom\ManageCybersecurity.css" />
+    <Content Include="Content\Custom\RAFPrint.css" />
+    <Content Include="Content\Custom\SiteCustom.css" />
+    <Content Include="Content\Custom\SMRForm.css" />
+    <Content Include="Content\datatables.net-bs\dataTables.bootstrap.min.css" />
+    <Content Include="Content\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Ionicons\css\ionicons.css" />
+    <Content Include="Content\Ionicons\css\ionicons.min.css" />
+    <Content Include="Content\Ionicons\fonts\ionicons.svg" />
+    <Content Include="Content\kendo\fonts\DejaVu\LICENSE.txt" />
+    <Content Include="Content\kendo\fonts\glyphs\KendoUIGlyphs.svg" />
+    <Content Include="Content\kendo\fonts\glyphs\WebComponentsIcons.svg" />
+    <Content Include="Content\kendo\images\back.png" />
+    <Content Include="Content\kendo\images\kendoui.svg" />
+    <Content Include="Content\kendo\images\wp8_icons.png" />
+    <Content Include="Content\kendo\images\wp8_inverseicons.png" />
+    <Content Include="Content\kendo\kendo.common.min.css" />
+    <Content Include="Content\kendo\kendo.mobile.all.min.css" />
+    <Content Include="Content\kendo\kendo.rtl.min.css" />
+    <Content Include="Content\kendo\kendo.silver.min.css" />
+    <Content Include="Content\kendo\Silver\editor.png" />
+    <Content Include="Content\kendo\Silver\imagebrowser.png" />
+    <Content Include="Content\kendo\Silver\indeterminate.gif" />
+    <Content Include="Content\kendo\Silver\loading-image.gif" />
+    <Content Include="Content\kendo\Silver\loading.gif" />
+    <Content Include="Content\kendo\Silver\loading_2x.gif" />
+    <Content Include="Content\kendo\Silver\markers.png" />
+    <Content Include="Content\kendo\Silver\markers_2x.png" />
+    <Content Include="Content\kendo\Silver\slider-h.gif" />
+    <Content Include="Content\kendo\Silver\slider-v.gif" />
+    <Content Include="Content\kendo\Silver\sprite.png" />
+    <Content Include="Content\kendo\Silver\sprite_2x.png" />
+    <Content Include="Content\kendo\Silver\sprite_kpi.png" />
+    <Content Include="Content\kendo\Silver\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\textures\brushed-metal.png" />
+    <Content Include="Content\kendo\textures\dots1.png" />
+    <Content Include="Content\kendo\textures\dots10.png" />
+    <Content Include="Content\kendo\textures\dots11.png" />
+    <Content Include="Content\kendo\textures\dots12.png" />
+    <Content Include="Content\kendo\textures\dots13.png" />
+    <Content Include="Content\kendo\textures\dots2.png" />
+    <Content Include="Content\kendo\textures\dots3.png" />
+    <Content Include="Content\kendo\textures\dots4.png" />
+    <Content Include="Content\kendo\textures\dots5.png" />
+    <Content Include="Content\kendo\textures\dots6.png" />
+    <Content Include="Content\kendo\textures\dots7.png" />
+    <Content Include="Content\kendo\textures\dots8.png" />
+    <Content Include="Content\kendo\textures\dots9.png" />
+    <Content Include="Content\kendo\textures\glass-lighter.png" />
+    <Content Include="Content\kendo\textures\glass.png" />
+    <Content Include="Content\kendo\textures\highlight.png" />
+    <Content Include="Content\kendo\textures\hsv-gradient.png" />
+    <Content Include="Content\kendo\textures\hue.png" />
+    <Content Include="Content\kendo\textures\leather1.png" />
+    <Content Include="Content\kendo\textures\leather2.png" />
+    <Content Include="Content\kendo\textures\noise.png" />
+    <Content Include="Content\kendo\textures\stripe1.png" />
+    <Content Include="Content\kendo\textures\stripe2.png" />
+    <Content Include="Content\kendo\textures\stripe3.png" />
+    <Content Include="Content\kendo\textures\stripe4.png" />
+    <Content Include="Content\kendo\textures\stripe5.png" />
+    <Content Include="Content\kendo\textures\stripe6.png" />
+    <Content Include="Content\kendo\textures\transparency.png" />
+    <Content Include="Content\kendo\textures\transtexture.png" />
+    <Content Include="Content\kendo\Uniform\editor.png" />
+    <Content Include="Content\kendo\Uniform\imagebrowser.png" />
+    <Content Include="Content\kendo\Uniform\indeterminate.gif" />
+    <Content Include="Content\kendo\Uniform\loading-image.gif" />
+    <Content Include="Content\kendo\Uniform\loading.gif" />
+    <Content Include="Content\kendo\Uniform\loading_2x.gif" />
+    <Content Include="Content\kendo\Uniform\markers.png" />
+    <Content Include="Content\kendo\Uniform\markers_2x.png" />
+    <Content Include="Content\kendo\Uniform\slider-h.gif" />
+    <Content Include="Content\kendo\Uniform\slider-v.gif" />
+    <Content Include="Content\kendo\Uniform\sprite.png" />
+    <Content Include="Content\kendo\Uniform\sprite_2x.png" />
+    <Content Include="Content\kendo\Uniform\sprite_kpi.png" />
+    <Content Include="Content\kendo\Uniform\sprite_kpi_2x.png" />
+    <Content Include="Content\loader.css" />
+    <Content Include="Content\PrintStyle.css" />
+    <Content Include="Content\_all-skins.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\Loader.svg" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\office.ico" />
+    <Content Include="Plugins\FancyTree\src\jquery-ui-dependencies\jquery-ui.min.js" />
+    <Content Include="Plugins\FancyTree\src\jquery.fancytree.js" />
+    <Content Include="Plugins\FancyTree\src\skin-win8\icons-rtl.gif" />
+    <Content Include="Plugins\FancyTree\src\skin-win8\icons.gif" />
+    <Content Include="Plugins\FancyTree\src\skin-win8\loading.gif" />
+    <Content Include="Plugins\FancyTree\src\skin-win8\ui.fancytree.css" />
+    <Content Include="Plugins\FancyTree\src\skin-win8\vline-rtl.gif" />
+    <Content Include="Plugins\FancyTree\src\skin-win8\vline.gif" />
+    <Content Include="Plugins\iCheck\all.css" />
+    <Content Include="Plugins\iCheck\flat\aero%402x.png" />
+    <Content Include="Plugins\iCheck\flat\aero.css" />
+    <Content Include="Plugins\iCheck\flat\aero.png" />
+    <Content Include="Plugins\iCheck\flat\blue%402x.png" />
+    <Content Include="Plugins\iCheck\flat\blue.css" />
+    <Content Include="Plugins\iCheck\flat\blue.png" />
+    <Content Include="Plugins\iCheck\flat\flat%402x.png" />
+    <Content Include="Plugins\iCheck\flat\flat.css" />
+    <Content Include="Plugins\iCheck\flat\flat.png" />
+    <Content Include="Plugins\iCheck\flat\green%402x.png" />
+    <Content Include="Plugins\iCheck\flat\green.css" />
+    <Content Include="Plugins\iCheck\flat\green.png" />
+    <Content Include="Plugins\iCheck\flat\grey%402x.png" />
+    <Content Include="Plugins\iCheck\flat\grey.css" />
+    <Content Include="Plugins\iCheck\flat\grey.png" />
+    <Content Include="Plugins\iCheck\flat\orange%402x.png" />
+    <Content Include="Plugins\iCheck\flat\orange.css" />
+    <Content Include="Plugins\iCheck\flat\orange.png" />
+    <Content Include="Plugins\iCheck\flat\pink%402x.png" />
+    <Content Include="Plugins\iCheck\flat\pink.css" />
+    <Content Include="Plugins\iCheck\flat\pink.png" />
+    <Content Include="Plugins\iCheck\flat\purple%402x.png" />
+    <Content Include="Plugins\iCheck\flat\purple.css" />
+    <Content Include="Plugins\iCheck\flat\purple.png" />
+    <Content Include="Plugins\iCheck\flat\red%402x.png" />
+    <Content Include="Plugins\iCheck\flat\red.css" />
+    <Content Include="Plugins\iCheck\flat\red.png" />
+    <Content Include="Plugins\iCheck\flat\yellow%402x.png" />
+    <Content Include="Plugins\iCheck\flat\yellow.css" />
+    <Content Include="Plugins\iCheck\flat\yellow.png" />
+    <Content Include="Plugins\iCheck\flat\_all.css" />
+    <Content Include="Plugins\iCheck\futurico\futurico%402x.png" />
+    <Content Include="Plugins\iCheck\futurico\futurico.css" />
+    <Content Include="Plugins\iCheck\futurico\futurico.png" />
+    <Content Include="Plugins\iCheck\icheck.js" />
+    <Content Include="Plugins\iCheck\icheck.min.js" />
+    <Content Include="Plugins\iCheck\line\aero.css" />
+    <Content Include="Plugins\iCheck\line\blue.css" />
+    <Content Include="Plugins\iCheck\line\green.css" />
+    <Content Include="Plugins\iCheck\line\grey.css" />
+    <Content Include="Plugins\iCheck\line\line%402x.png" />
+    <Content Include="Plugins\iCheck\line\line.css" />
+    <Content Include="Plugins\iCheck\line\line.png" />
+    <Content Include="Plugins\iCheck\line\orange.css" />
+    <Content Include="Plugins\iCheck\line\pink.css" />
+    <Content Include="Plugins\iCheck\line\purple.css" />
+    <Content Include="Plugins\iCheck\line\red.css" />
+    <Content Include="Plugins\iCheck\line\yellow.css" />
+    <Content Include="Plugins\iCheck\line\_all.css" />
+    <Content Include="Plugins\iCheck\minimal\aero%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\aero.css" />
+    <Content Include="Plugins\iCheck\minimal\aero.png" />
+    <Content Include="Plugins\iCheck\minimal\blue%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\blue.css" />
+    <Content Include="Plugins\iCheck\minimal\blue.png" />
+    <Content Include="Plugins\iCheck\minimal\green%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\green.css" />
+    <Content Include="Plugins\iCheck\minimal\green.png" />
+    <Content Include="Plugins\iCheck\minimal\grey%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\grey.css" />
+    <Content Include="Plugins\iCheck\minimal\grey.png" />
+    <Content Include="Plugins\iCheck\minimal\minimal%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\minimal.css" />
+    <Content Include="Plugins\iCheck\minimal\minimal.png" />
+    <Content Include="Plugins\iCheck\minimal\orange%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\orange.css" />
+    <Content Include="Plugins\iCheck\minimal\orange.png" />
+    <Content Include="Plugins\iCheck\minimal\pink%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\pink.css" />
+    <Content Include="Plugins\iCheck\minimal\pink.png" />
+    <Content Include="Plugins\iCheck\minimal\purple%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\purple.css" />
+    <Content Include="Plugins\iCheck\minimal\purple.png" />
+    <Content Include="Plugins\iCheck\minimal\red%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\red.css" />
+    <Content Include="Plugins\iCheck\minimal\red.png" />
+    <Content Include="Plugins\iCheck\minimal\yellow%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\yellow.css" />
+    <Content Include="Plugins\iCheck\minimal\yellow.png" />
+    <Content Include="Plugins\iCheck\minimal\_all.css" />
+    <Content Include="Plugins\iCheck\polaris\polaris%402x.png" />
+    <Content Include="Plugins\iCheck\polaris\polaris.css" />
+    <Content Include="Plugins\iCheck\polaris\polaris.png" />
+    <Content Include="Plugins\iCheck\square\aero%402x.png" />
+    <Content Include="Plugins\iCheck\square\aero.css" />
+    <Content Include="Plugins\iCheck\square\aero.png" />
+    <Content Include="Plugins\iCheck\square\blue%402x.png" />
+    <Content Include="Plugins\iCheck\square\blue.css" />
+    <Content Include="Plugins\iCheck\square\blue.png" />
+    <Content Include="Plugins\iCheck\square\green%402x.png" />
+    <Content Include="Plugins\iCheck\square\green.css" />
+    <Content Include="Plugins\iCheck\square\green.png" />
+    <Content Include="Plugins\iCheck\square\grey%402x.png" />
+    <Content Include="Plugins\iCheck\square\grey.css" />
+    <Content Include="Plugins\iCheck\square\grey.png" />
+    <Content Include="Plugins\iCheck\square\orange%402x.png" />
+    <Content Include="Plugins\iCheck\square\orange.css" />
+    <Content Include="Plugins\iCheck\square\orange.png" />
+    <Content Include="Plugins\iCheck\square\pink%402x.png" />
+    <Content Include="Plugins\iCheck\square\pink.css" />
+    <Content Include="Plugins\iCheck\square\pink.png" />
+    <Content Include="Plugins\iCheck\square\purple%402x.png" />
+    <Content Include="Plugins\iCheck\square\purple.css" />
+    <Content Include="Plugins\iCheck\square\purple.png" />
+    <Content Include="Plugins\iCheck\square\red%402x.png" />
+    <Content Include="Plugins\iCheck\square\red.css" />
+    <Content Include="Plugins\iCheck\square\red.png" />
+    <Content Include="Plugins\iCheck\square\square%402x.png" />
+    <Content Include="Plugins\iCheck\square\square.css" />
+    <Content Include="Plugins\iCheck\square\square.png" />
+    <Content Include="Plugins\iCheck\square\yellow%402x.png" />
+    <Content Include="Plugins\iCheck\square\yellow.css" />
+    <Content Include="Plugins\iCheck\square\yellow.png" />
+    <Content Include="Plugins\iCheck\square\_all.css" />
+    <Content Include="Repository\DocumentsIndex.xml" />
+    <Content Include="Repository\FormsIndex.xml" />
+    <Content Include="Repository\Risk Assessments\01 - General\G 01- Enclosed Space Entry.xml" />
+    <Content Include="Repository\Risk Assessments\01 - General\G 02 - Dealing with Hazardous Substances.xml" />
+    <Content Include="Repository\Risk Assessments\01 - General\G 03 - Handling Heavy Parts.xml" />
+    <Content Include="Repository\Risk Assessments\02 - Deck Department\D 01 - Anchoring and Weighing Anchor.xml" />
+    <Content Include="Repository\Risk Assessments\02 - Deck Department\D 02 - Mooring and Unmooring Operation.xml" />
+    <Content Include="Repository\Risk Assessments\02 - Deck Department\D 03 - Tug Operation.xml" />
+    <Content Include="Repository\Risk Assessments\02 - Deck Department\D 04 - Launch and Recovery of FFLB.xml" />
+    <Content Include="Repository\Risk Assessments\02 - Deck Department\D 05 - Launch and Recovery of RB.xml" />
+    <Content Include="Repository\Risk Assessments\03 - Engine Department\E 01 - Bunkering or Sludge Removal.xml" />
+    <Content Include="Repository\Risk Assessments\03 - Engine Department\E 02 - Maintenance and Repair of Electrical Equipment.xml" />
+    <Content Include="Repository\Risk Assessments\04 - Catering\C 01 - Food Storage and Preparation.xml" />
+    <Content Include="Repository\Risk Assessments\04 - Catering\C 02 - Barbeque or Pig Roast.xml" />
+    <Content Include="Repository\Risk Assessments\04 - Catering\C 03 - Use of Fridges - Entry into Refrigerated Spaces.xml" />
+    <Content Include="Repository\Risk Assessments\05 - Subcontractors\S 01 - Bobcat Operation.xml" />
+    <Content Include="Repository\Risk Assessments\05 - Subcontractors\S 02- Diving Operation.xml" />
+    <Content Include="Repository\Risk Assessments\05 - Subcontractors\S 03 - Dry Docking.xml" />
+    <Content Include="Repository\Risk Assessments\05 - Subcontractors\S 04 - Any Technicians Hired by Company to Work On Board.xml" />
+    <Content Include="Scripts\adminlte.js" />
+    <Content Include="Scripts\bootstrap-datepicker\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-datepicker\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap-datepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\Custom\AuditDeficiencies.js" />
+    <Content Include="Scripts\Custom\Documents.js" />
+    <Content Include="Scripts\Custom\Forms.js" />
+    <Content Include="Scripts\Custom\ManageDocuments.js" />
+    <Content Include="Scripts\Custom\ManageForms.js" />
+    <Content Include="Scripts\Custom\ManageSiteInfo.js" />
+    <Content Include="Scripts\Custom\ManageXmls.js" />
+    <Content Include="Scripts\Custom\PurchasingDept.js" />
+    <Content Include="Scripts\Custom\Reports.js" />
+    <Content Include="Scripts\Custom\Users.js" />
+    <Content Include="Scripts\datatables.net-bs\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\datatables.net\jquery.dataTables.min.js" />
+    <Content Include="Scripts\demo.js" />
+    <Content Include="Scripts\fastclick.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery\bootbox.min.js" />
+    <Content Include="Scripts\jquery\jquery.min.js" />
+    <Content Include="Scripts\jquery\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery\jquery.validate.min.js" />
+    <Content Include="Scripts\kendo.all.min.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\notify.min.js" />
+    <Content Include="Scripts\table2excel.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Repository\Documents\Fleet Memoranda\Purchasing %28PM%29\" />
+    <Folder Include="Repository\Documents\Fleet Standing Orders\Technical and Safety %28TSO%29\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <Content Include="Content\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="Content\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\font-awesome\css\font-awesome.css.map" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\Ionicons\fonts\ionicons.eot" />
+    <Content Include="Content\Ionicons\fonts\ionicons.ttf" />
+    <Content Include="Content\Ionicons\fonts\ionicons.woff" />
+    <Content Include="Plugins\FancyTree\src\skin-win8\ui.fancytree.less" />
+    <Content Include="Content\kendo\images\kendoui.ttf" />
+    <Content Include="Content\kendo\images\kendoui.woff" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSans-Bold.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSans-ExtraLight.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSans-Oblique.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSans.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSansMono-Bold.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSansMono-BoldOblique.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSansMono-Oblique.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSansMono.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSerif-Bold.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSerif-BoldItalic.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSerif-Italic.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSerif.ttf" />
+    <Content Include="Content\kendo\fonts\glyphs\KendoUIGlyphs.eot" />
+    <Content Include="Content\kendo\fonts\glyphs\KendoUIGlyphs.ttf" />
+    <Content Include="Content\kendo\fonts\glyphs\KendoUIGlyphs.woff" />
+    <Content Include="Content\kendo\fonts\glyphs\WebComponentsIcons.eot" />
+    <Content Include="Content\kendo\fonts\glyphs\WebComponentsIcons.ttf" />
+    <Content Include="Content\kendo\fonts\glyphs\WebComponentsIcons.woff" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Views\Forms\Index.cshtml" />
+    <Content Include="Views\Forms\SMR.cshtml" />
+    <Content Include="Views\Forms\SMRDetails.cshtml" />
+    <None Include="Properties\PublishProfiles\Cyber.Application.pubxml" />
+    <None Include="Properties\PublishProfiles\Cyber.Application.pubxml" />
+    <Content Include="Repository\Documents\DOC - Companies %28ISM%29\IOM DOC.pdf" />
+    <Content Include="Repository\Documents\DOC - Companies %28ISM%29\MALTA DOC.pdf" />
+    <Content Include="Repository\Documents\DOC - Companies %28ISM%29\MALTA Interim DOC.pdf" />
+    <Content Include="Repository\Documents\Fleet Memoranda\Chartering and Operations %28COM%29\COM 001A - Crew Works for Other Parties - Bonus Payments.pdf" />
+    <Content Include="Repository\Documents\Fleet Memoranda\Employment and Crewing %28ECM%29\ECM 01- SEA CBA WORK HOURS OVERTIME - ALL SEAFARERS.PDF" />
+    <Content Include="Repository\Documents\Fleet Memoranda\index.pdf" />
+    <Content Include="Repository\Documents\Fleet Memoranda\Technical and Safety %28TSM%29\TSM 001 - Securing of Free-Fall Lifeboats.pdf" />
+    <Content Include="Repository\Documents\Fleet Memoranda\Technical and Safety %28TSM%29\TSM 01- 2018 Emergency Response Exercise.pdf" />
+    <Content Include="Repository\Documents\Fleet Standing Orders\Chartering and Operations %28CO%29\CO 001 - Time and Voyage Charter Parties.pdf" />
+    <Content Include="Repository\Documents\Fleet Standing Orders\Chartering and Operations %28CO%29\CO 002 - Fuel Returns.pdf" />
+    <Content Include="Repository\Documents\Fleet Standing Orders\Employment and Crewing %28ECO%29\ECO 001 - Applications for Endorsements.pdf" />
+    <Content Include="Repository\Documents\Fleet Standing Orders\Employment and Crewing %28ECO%29\ECO 004B - Signing &amp; Renewal of Crew articles.pdf" />
+    <Content Include="Repository\Documents\Fleet Standing Orders\Finance %28FO%29\F0 001B - Ship Accounts Form %28SAF%29  &amp; Ship%27s Related Expenses.pdf" />
+    <Content Include="Repository\Documents\Fleet Standing Orders\index.pdf" />
+    <Content Include="Repository\Documents\Fleet Standing Orders\Purchasing %28PO%29\PO 001A - Spares, Stores and Service Order Numbers.pdf" />
+    <Content Include="Repository\Documents\Fleet Standing Orders\Purchasing %28PO%29\PO 002A - Order Forms.pdf" />
+    <Content Include="Repository\Documents\Other\Forthcoming Legislation.pdf" />
+    <Content Include="Repository\Documents\Other\Nautilus Agreement.pdf" />
+    <Content Include="Repository\Documents\Other\Standard Filling System.pdf" />
+    <Content Include="Repository\Manuals\Safety Management System\SMS - 00 - Title Page &amp; Records of Crew Briefing.pdf" />
+    <Content Include="Repository\Manuals\Safety Management System\SMS - 00A - Contents - Issue 5 Amend 5.pdf" />
+    <Content Include="Repository\Manuals\Safety Management System\SMS - 00B - Register of Amendments - Issue 5 Amend 6.pdf" />
+    <Content Include="Repository\Manuals\Safety Management System\SMS - 00C- SMS Issuance &amp; Approval &amp; Holders.pdf" />
+    <Content Include="Repository\Manuals\Safety Management System\SMS - Section 01 - Introduction &amp; Company Policies.pdf" />
+    <Content Include="Repository\Manuals\Ship Operating Manual\CSSOM - Cover Page &amp; Spine.pdf" />
+    <Content Include="Repository\Manuals\Ship Operating Manual\CSSOM - Section 00A - Title Page &amp; Holders Signatures Pages.pdf" />
+    <Content Include="Repository\Manuals\Ship Operating Manual\CSSOM - Section 00B - List of Contents - Issue 3 Amend 2.pdf" />
+    <Content Include="Repository\Manuals\Ship Operating Manual\CSSOM - Section 00C - Register of Amendments - Issue 3 Amend 3.pdf" />
+    <Content Include="Repository\Manuals\Ship Operating Manual\CSSOM - Section 00D - Dividers Index.pdf" />
+    <Content Include="Views\Documents\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Help\Index.cshtml" />
+    <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Repository\Risk Assessments\01 - CS- RISK ASSESSMENTS TEMPLATES- HOLDERS SIGNING PAGE - Issue 5 Amend 0.docx" />
+    <Content Include="Repository\Risk Assessments\Index of Risk Assessments.dotx" />
+    <Content Include="Views\Repository\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\ManageDocuments.cshtml" />
+    <Content Include="Views\Reports\Index.cshtml" />
+    <Content Include="Views\Reports\Finance.cshtml" />
+    <Content Include="Views\Forms\GIRDetails.cshtml" />
+    <Content Include="Views\Forms\GeneralInspectionReport.cshtml" />
+    <Content Include="Views\Reports\FinanceList.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Reports\Invoice.cshtml" />
+    <Content Include="Views\Reports\PurchaseOrder.cshtml" />
+    <Content Include="Views\GIRList\Index.cshtml" />
+    <Content Include="Views\GIRList\ListForms.cshtml" />
+    <Content Include="Views\Reports\UALOpexFormulaReport.cshtml" />
+    <Content Include="Views\SIRList\Index.cshtml" />
+    <Content Include="Views\SIRList\DetailsView.cshtml" />
+    <Content Include="Views\Admin\ViewVIMS.cshtml" />
+    <Content Include="Views\Admin\TabView.cshtml" />
+    <Content Include="Views\IAFList\Index.cshtml" />
+    <Content Include="Views\IAFList\DetailsView.cshtml" />
+    <Content Include="Views\Deficiencies\Index.cshtml" />
+    <Content Include="Views\Deficiencies\AuditDeficiencies.cshtml" />
+    <Content Include="Views\Admin\Users.cshtml" />
+    <Content Include="Views\Admin\DocumentsTreeView.cshtml" />
+    <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="Views\Admin\ViewVIMSList.cshtml" />
+    <Content Include="Views\Shared\_GIR_BridgeSection.cshtml" />
+    <Content Include="Views\Shared\_GIR_DeckSection.cshtml" />
+    <Content Include="Views\Shared\_GIR_DeficienciesSection.cshtml" />
+    <Content Include="Views\Shared\_GIR_EngineRoomSection.cshtml" />
+    <Content Include="Views\Shared\_GIR_ForeCastleSection.cshtml" />
+    <Content Include="Views\Shared\_GIR_GalleySection.cshtml" />
+    <Content Include="Views\Shared\_GIR_GeneralSection.cshtml" />
+    <Content Include="Views\Shared\_GIR_HoldsAndCoverSection.cshtml" />
+    <Content Include="Views\Shared\_GIR_HullSection.cshtml" />
+    <Content Include="Views\Shared\_GIR_ManningSection.cshtml" />
+    <Content Include="Views\Shared\_GIR_MedicalSection.cshtml" />
+    <Content Include="Views\Shared\_GIR_PhotographsSection.cshtml" />
+    <Content Include="Views\Shared\_GIR_PubsAndDocSection.cshtml" />
+    <Content Include="Views\Shared\_GIR_RecordKeepingSection.cshtml" />
+    <Content Include="Views\Shared\_GIR_SafetyEquipmentSection.cshtml" />
+    <Content Include="Views\Shared\_GIR_SecuritySection.cshtml" />
+    <Content Include="Views\Shared\_GIR_ShipCertificationSection.cshtml" />
+    <Content Include="Views\Shared\_GIR_SummarySection.cshtml" />
+    <Content Include="Views\Shared\_GIR_SuperstructureSection.cshtml" />
+    <Content Include="Views\Admin\ManageForms.cshtml" />
+    <Content Include="Views\Admin\FormsTreeView.cshtml" />
+    <Content Include="Views\Reports\ShipReportsAnalysis.cshtml" />
+    <Content Include="Repository\Ships.json" />
+    <Content Include="Repository\Reports\ARR - Arrival Report.xsn" />
+    <Content Include="Repository\Reports\DCR - Daily Cargo Report.xsn" />
+    <Content Include="Repository\Reports\DER - Departure Report.xsn" />
+    <Content Include="Repository\Reports\DPR - Daily Position Report.xsn" />
+    <Content Include="Repository\Reports\Reports\ARR - Arrival Report.xsn" />
+    <Content Include="Repository\Reports\Reports\DCR - Daily Cargo Report.xsn" />
+    <Content Include="Repository\Reports\Reports\DER - Departure Report.xsn" />
+    <Content Include="Repository\Reports\Reports\DPR - Daily Position Report.xsn" />
+    <Content Include="Views\Admin\ManageShipReports.cshtml" />
+    <Content Include="Views\Admin\ManageSiteInfo.cshtml" />
+    <Content Include="Views\Admin\ManageXmls.cshtml" />
+    <Content Include="Views\Forms\RAformData.cshtml" />
+    <Content Include="Views\Forms\RiskAssessmentForm.cshtml" />
+    <Content Include="Views\Documents\RiskAssessmentReviewLog.cshtml" />
+    <Content Include="Views\Documents\_ReviewlogDocList.cshtml" />
+    <Content Include="Views\PurchasingDept\Index.cshtml" />
+    <Content Include="Views\Admin\ManageISMDocuments.cshtml" />
+    <Content Include="Views\Admin\ManageAssetManagmentEquipmentList.cshtml" />
+    <Content Include="Views\Admin\_OTITEquipmentList.cshtml" />
+    <Content Include="Views\Admin\ManageCybersecurity.cshtml" />
+    <Content Include="Views\Admin\_CybersecurityRisksAssessmentList.cshtml" />
+    <Content Include="Views\Reports\FleetInspectionDueDates.cshtml" />
+    <Content Include="Views\Admin\ManageSoftwareAssets.cshtml" />
+    <Content Include="Views\Admin\ManageDownloads.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cyber.Application.BLL\Cyber.Application.BLL.csproj">
+      <Project>{58cac857-2232-4f4e-b7c0-b475c97dfb60}</Project>
+      <Name>Cyber.Application.BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>20217</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:20217/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

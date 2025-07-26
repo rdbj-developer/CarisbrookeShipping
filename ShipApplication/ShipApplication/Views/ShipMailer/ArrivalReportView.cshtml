@@ -1,0 +1,73 @@
+﻿@using ShipApplication.BLL.Modals;
+@using ShipApplication.BLL.Helpers;
+@{
+    Layout = null;
+    ArrivalReportModal modal = ViewBag.ArrivalReport != null ? (ArrivalReportModal)ViewBag.ArrivalReport : null;
+}
+<head>
+    <style type="text/css">
+        .mail {
+            margin: 0px;
+            margin-bottom: 2px;
+        }
+
+        .mailHeading {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+@if (modal != null)
+{
+    string strTenderedDate = modal.TenderedDate.HasValue ? Utility.DateToString(modal.TenderedDate) : "";
+    string strPOBDate = modal.POBDate.HasValue ? Utility.DateToString(modal.POBDate) : "";
+    string strArrivalAlongsideDate = modal.ArrivalAlongsideDate.HasValue ? Utility.DateToString(modal.ArrivalAlongsideDate) : "";
+    string strCargoDate = modal.CargoDate.HasValue ? Utility.DateToString(modal.CargoDate) : "";
+    <p class="mail"><b>Ship Code :</b> @modal.ShipCode</p>
+    <p class="mail"><b>Ship Name :</b> @modal.ShipName</p>
+    <p class="mail"><b>Report created on :</b> @ShipApplication.BLL.Helpers.Utility.GetCurrentDateString()</p>
+    <p class="mail"><b>Report submitted by :</b> @modal.CreatedBy</p>
+    <p class="mail"><b>Voyage no :</b> @modal.VoyageNo</p>
+    <p class="mail"><b>Port Name :</b> @modal.PortName</p>
+
+
+    <p class="mail mailHeading"><b>Arrival</b></p>
+    <p class="mail">Arrival date :@Utility.DateToString(modal.ArrivalDate)</p>
+    <p class="mail">Arrival time :@modal.ArrivalTime</p>
+    <p class="mail">Notice of Readiness (NOR) tendered date :@strTenderedDate </p>
+
+    <p class="mail">Notice of Readiness (NOR) tendered time :@modal.TenderedTime</p>
+    <p class="mail">Pilot on board (POB) date :@strPOBDate  </p>
+
+    <p class="mail">Pilot on board (POB) time :@modal.POBTime</p>
+    <p class="mail">Number of tugs used into port :@modal.TugsNo</p>
+    <p class="mail">On Anchor :@modal.chkAnchorOn</p>
+    <p class="mail">Arrival alongside date :@strArrivalAlongsideDate</p>
+    <p class="mail">Arrival alongside time (local time) :@modal.ArrivalAlongsideTime</p>
+    <p class="mail">Average speed since last report :@modal.AverageSpeed knots</p>
+    <p class="mail">Distance made good since last report :@modal.Distance NM</p>
+
+
+    <p class="mail mailHeading"><b>Bunker ROB</b></p>
+    <p class="mail">Fuel oil :@modal.FuelOil t</p>
+    <p class="mail">Diesel oil :@modal.DieselOil t</p>
+    <p class="mail">Low sulphur fuel oil :@modal.SulphurFuelOil t</p>
+    <p class="mail">Low sulphur diesel oil :@modal.SulphurDieselOil t</p>
+    <p class="mail">Fresh water :@modal.FreshWater t</p>
+    <p class="mail">Lube oil :@modal.LubeOil t</p>
+
+
+    <p class="mail mailHeading"><b>Cargo</b></p>
+    <p class="mail">Date cargo ops commenced :@strCargoDate</p>
+    <p class="mail">Time cargo ops commenced (local time) :@modal.CargoTime</p>
+
+
+    <p class="mail mailHeading"><b>Departure</b></p>
+    <p class="mail">ETC/D date : @Utility.DateToString(modal.DepartureDate)</p>
+    <p class="mail">ETC/D time :@modal.DepartureTime</p>
+    <p class="mail">Next port (also applies to Time Charter voyages) :@modal.NextPort</p>
+
+
+    <p class="mail mailHeading"><b>Remarks</b></p>
+    <p class="mail">@modal.Remarks</p>
+}

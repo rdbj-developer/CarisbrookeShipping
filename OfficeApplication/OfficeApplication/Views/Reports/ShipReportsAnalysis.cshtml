@@ -1,0 +1,361 @@
+﻿@using OfficeApplication.BLL.Modals;
+
+@{
+    ViewBag.Title = "ShipReportsAnalysis";
+}
+<style>
+    .k-grid td, .k-filter-row th, .k-grid-header th.k-header, .k-pager-wrap {
+        padding: 0px;
+        padding-bottom: 0px !important;
+        padding-top: 0px !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    #grid > table {
+        table-layout: fixed;
+    }
+
+    .k-detail-row {
+    height:50px;
+    }
+
+    .k-detail-row > table{
+        height: 100px;
+    }
+
+</style>
+<script type="text/javascript">
+     var RootUrl = '@Url.Content("~/")';
+    $(document).ready(function () {
+        $("#btnSubmit").click(function () {
+            LoadGrid();
+        })
+        LoadGrid();
+    });
+
+    function LoadGrid() {
+        var shipCode = $("#ddlShip").val();
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "cache-control": "no-cache"
+            },
+            url: RootUrl + "Reports/GetShipReportsData",
+            data: JSON.stringify({
+                shipCode: shipCode,
+                shipName: $("#ddlShip option:selected").text()
+            }),
+            success: function (response) {
+                if (response != null) {
+                    response = JSON.parse(response);
+                    $('#grid').empty();
+                    $('#grid').kendoGrid({
+                        scrollable: true,
+                        filterable: true,
+                        selectable: true,
+                        detailInit: detailInitList,
+                        pageable: {
+                            alwaysVisible: true,
+                            pageSizes: [5, 10, 20, 100]
+                        },
+                        dataSource: {
+                            data: response,
+                            pageSize: 10
+                        },
+                        dataBound: function () {
+                            for (var i = 0; i < this.columns.length; i++) {
+                                this.autoFitColumn(i);
+                            }
+                        },
+                        columns: [
+                            {
+                                field: "ID",
+                                hidden: true
+                            },
+                            {
+                                field: "ReportName",
+                                title: "Report Type", width: "200px"
+                            },
+                            {
+                                field: "ShipName",
+                                title: "Ship"
+                            },
+                            {
+                                field: "VoyageNo",
+                                title: "Voyage No"
+                            },
+                            {
+                                field: "CreatedDate",
+                                title: "Date",
+                                template: "#= CreatedDate!=null? kendo.toString(kendo.parseDate(CreatedDate, 'yyyy-MM-dd'), 'MM/dd/yyyy'):'' #"
+                            },
+                            {
+                                field: "PortName",
+                                title: "Port"
+                            },
+                            {
+                                field: "Inspector",
+                                title: "Inspector"
+                            },
+                            {
+                                field: "Superintended",
+                                title: "Superintended"
+                            }
+                        ],
+                        dataBound: function () {
+                            var grid = this;
+                            $(".k-grouping-row").each(function (e) {
+                                grid.collapseGroup(this);
+                            });
+                        },
+
+                    });
+                }
+            },
+            error: function (response) {
+                console.log(response);
+            }
+        });
+    }
+    var dateFields = [];
+    function detailInitList(e) {
+        dateFields = [];
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "cache-control": "no-cache"
+            },
+            url: RootUrl + "Reports/GetShipReportsDetails",
+            data: JSON.stringify({
+                id: e.data.ID,
+                reportName: e.data.ReportName
+            }),
+            success: function (result) {
+                if (result != null && result != "") {
+                    var gridData = JSON.parse(result);
+                    var model = generateModel(gridData);
+
+                    var parseFunction;
+
+                    if (dateFields.length > 0) {
+                        parseFunction = function (response) {
+                            for (var i = 0; i < response.length; i++) {
+                                for (var fieldIndex = 0; fieldIndex < dateFields.length; fieldIndex++) {
+                                    var record = response[i];
+                                    record[dateFields[fieldIndex]] = kendo.parseDate(record[dateFields[fieldIndex]]);
+                                }
+                            }
+                            return response;
+                        };
+                    }
+                    var objDataSource = {};
+                    if (parseFunction == undefined) {
+                        objDataSource = {
+                            data: gridData,
+                            schema: {
+                                model: model
+                            }
+                        };
+                    }
+                    else {
+                        objDataSource = {
+                            data: gridData,
+                            schema: {
+                                model: model,
+                                parse: parseFunction
+                            }
+                        }
+                    }
+                    $("<div/>").appendTo(e.detailCell).kendoGrid({
+                        dataSource: objDataSource                        ,
+                        dataBound: function () {
+                            for (var i = 0; i < this.columns.length; i++) {
+                                this.autoFitColumn(i);
+                            }
+                        },
+                        editable: true,
+                        scrollable: true,
+                        sortable: true
+                    });
+                }
+                else {
+                    $.notify("No data found", "error");
+                }
+            },
+            error: function (response) {
+                console.log(response);
+            }
+        });
+    }
+
+    function generateModel(gridData) {
+        var model = {};
+        model.id = "ID";
+        var fields = {};
+        for (var property in gridData) {
+            var propType = typeof gridData[property];
+
+            if (propType == "number") {
+                fields[property] = {
+                    type: "number",
+                    validation: {
+                        required: true
+                    }
+                };
+            } else if (propType == "boolean") {
+                fields[property] = {
+                    type: "boolean",
+                    validation: {
+                        required: true
+                    }
+                };
+            } else if (propType == "string") {
+                var parsedDate = kendo.parseDate(gridData[property]);
+                if (parsedDate) {
+                    fields[property] = {
+                        type: "date",
+                        validation: {
+                            required: true
+                        }
+                    };
+                    dateFields.push(property);
+                } else {
+                    fields[property] = {
+                        validation: {
+                            required: true
+                        }
+                    };
+                }
+            } else {
+                fields[property] = {
+                    validation: {
+                        required: true
+                    }
+                };
+            }
+
+        }
+        model.fields = fields;
+
+        return model;
+    }
+    function ExportFile() {
+        var shipCode = $("#ddlShip").val();
+        window.location = RootUrl + "Reports/DownloadShipReportsData?shipCode=" + shipCode + "&shipName='" + $("#ddlShip option:selected").text() + "'";
+    }
+</script>
+<div class="well well-sm" style="margin-bottom:0px;">Ship Reports Analysis <a href="@Url.Action("Index", "Reports")" class="label label-info" style="float:right;">GO BACK</a></div>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <select class="form-control" name="ddlShip" id="ddlShip">
+                                <option value="">--Select Ship--</option>
+                                @if (ViewBag.Ships != null)
+                                {
+                                    foreach (var item in ViewBag.Ships)
+                                    {
+                                        <option value="@item.Code">@item.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary" id="btnSubmit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body" id="ReportPage">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="grid">
+                                <div class="well">Loading Please Wait...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer clearfix no-border">
+                        <button type="button" class="btn btn-default hidden" onclick="PrintReport()"><i class="fa fa-print"></i> Print</button>&nbsp;&nbsp;&nbsp;
+                        <a onclick="ExportFile()" class="btn btn-default"><i class="fa fa-file-excel-o"></i> Export</a>
+                    </div>
+                </div>
+                <div class="box-body" id="ReportPrintPage" style="display:none;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>AC_Code </th>
+                                        <th>AC_Description  </th>
+                                        <th>Total_USD  </th>
+
+                                        <th>Account_Code  </th>
+                                        <th>Account_Description  </th>
+                                        <th>Total  </th>
+                                        <th>PO_NO  </th>
+
+                                        <th>Supplier_Name  </th>
+                                        <th>Invoice_Sent </th>
+                                        <th>PO_TOTAL_SHIP_CURRENCY </th>
+                                        <th>PO_TOTAL </th>
+                                        <th>PO_EXCHRATE </th>
+                                        <th>INVOICE_No </th>
+                                        <th>INVOICE_AMOUNT_SHIP_CURRENCY </th>
+                                        <th>INVOICE_AMOUNT </th>
+                                        <th>NET_INVOICE_AMOUNT </th>
+                                        <th>PO_STATUS </th>
+                                        <th> PO_Received_Date </th>
+                                        <th> RECEIVED_AT_FREIGHT_FORWARDER</th>
+                                        <th> PO_DATE </th>
+                                        <th>PO_Currency </th>
+                                        <th>INVOICE_DATE </th>
+                                    </tr>
+
+                                    @if (ViewBag.printdata != null)
+                                    {
+                                        List<Export> PrintList = ViewBag.printdata;
+                                        foreach (var item in PrintList)
+                                        {
+                                            <tr>
+                                                <td>@item.AC_Code </td>
+                                                <td>@item.AC_Description  </td>
+                                                <td>@item.Total_USD  </td>
+
+                                                <td>@item.Account_Code  </td>
+                                                <td>@item.Account_Description  </td>
+                                                <td>@item.Total  </td>
+                                                <td>@item.PO_NO  </td>
+
+                                                <td>@item.Supplier_Name  </td>
+                                                <td>@item.Invoice_Sent </td>
+                                                <td>@item.PO_TOTAL_SHIP_CURRENCY </td>
+                                                <td>@item.PO_TOTAL </td>
+                                                <td>@item.PO_EXCHRATE </td>
+                                                <td>@item.INVOICE_No </td>
+                                                <td>@item.INVOICE_AMOUNT_SHIP_CURRENCY </td>
+                                                <td>@item.INVOICE_AMOUNT </td>
+                                                <td>@item.NET_INVOICE_AMOUNT </td>
+                                                <td>@item.PO_STATUS </td>
+                                                <td>@item.PO_Received_Date </td>
+                                                <td>@item.RECEIVED_AT_FREIGHT_FORWARDER</td>
+                                                <td>@item.PO_DATE </td>
+                                                <td>@item.PO_Currency</td>
+                                                <td>@item.INVOICE_DATE </td>
+                                            </tr>
+                                        }
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

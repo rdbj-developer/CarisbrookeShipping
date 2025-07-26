@@ -1,0 +1,354 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<style type="text/css">
+    .row {
+        margin-left: -8px !important;
+    }
+
+    .inner {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+        .inner p {
+            text-align: center;
+            font-size: 20px;
+        }
+
+    .small-box {
+        display: table;
+        width: 100%;
+        min-height: 125px !important;
+    }
+
+        .small-box > .inner {
+            padding: 9px;
+        }
+
+    .dynamic-box {
+        margin-top: -12px;
+        padding-left: 5px;
+        padding-right: 3px;
+        /*margin-right: -22px !important;*/
+    }
+
+    .hvrbox,
+    .hvrbox * {
+        box-sizing: border-box;
+    }
+
+    .hvrbox {
+        position: relative;
+        overflow: hidden;
+        max-width: 100%;
+        height: auto;
+    }
+        /*display: inline-block;*/
+        .hvrbox img {
+            max-width: 100%;
+        }
+
+        .hvrbox .hvrbox-layer_bottom {
+            display: block;
+        }
+
+        .hvrbox .hvrbox-layer_top {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 15px;
+            -moz-transition: all 0.4s ease-in-out 0s;
+            -webkit-transition: all 0.4s ease-in-out 0s;
+            -ms-transition: all 0.4s ease-in-out 0s;
+            transition: all 0.4s ease-in-out 0s;
+        }
+
+        .hvrbox:hover .hvrbox-layer_top,
+        .hvrbox.active .hvrbox-layer_top {
+            opacity: 1;
+        }
+
+        .hvrbox .hvrbox-text {
+            text-align: center;
+            font-size: 18px;
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .hvrbox .hvrbox-text_mobile {
+            font-size: 15px;
+            border-top: 1px solid rgb(179, 179, 179); /* for old browsers */
+            border-top: 1px solid rgba(179, 179, 179, 0.7);
+            margin-top: 5px;
+            padding-top: 2px;
+            display: none;
+        }
+
+        .hvrbox.active .hvrbox-text_mobile {
+            display: block;
+        }
+
+    .hvrbox-text {
+        width: 100%;
+        padding: 20px;
+    }
+</style>
+<script type="text/javascript">
+   var url = "@System.Configuration.ConfigurationManager.AppSettings["FileServiceUrl"].ToString()";
+        var RootUrl = '@Url.Content("~/")';
+</script>
+<script src="~/Scripts/Custom/Forms.js?v=17.12.2019" type="text/javascript"></script>
+<section class="content-header">
+    <div class="row">
+        <div class="col-md-8">
+        </div>
+        <div class="col-md-4">
+            <div class="sidebar-form" style="background:white;border:none;">
+                <div class="input-group">
+                    <input type="text" id="txtSearch" name="q" class="form-control" placeholder="Search..." style="background:white;border:none;">
+                    <span class="input-group-btn">
+                        <button type="button" name="search" onclick="serchForm();" id="search-btn" class="btn btn-flat" style="background:white;border:none;">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="row divFormsList">
+        @*<div class="col-lg-3 col-xs-12 dynamic-box">
+            <a href="@Url.Action("ArrivalReport", "Forms")" style="cursor:pointer;">
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <p>Arrival Report(Testing)<span style="display:none">ARR</span></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-xs-12 dynamic-box">
+            <a href="@Url.Action("Index", "DCRList")" style="cursor:pointer;">
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <p>Daily Cargo Report(Testing)<span style="display:none">DCR</span></p>
+                    </div>
+                </div>
+            </a>
+        </div>*@
+        <div class="col-lg-3 col-xs-12 dynamic-box">
+            <a href="@Url.Action("SMR", "Forms")" style="cursor:pointer;">
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <p>Ship Management Review(Testing) <span style="display:none">SMR</span></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-xs-12 dynamic-box">
+            <a href="@Url.Action("ListForms", "GIRList")" style="cursor:pointer;">
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <p>General Inspection Report(Testing) <span style="display:none">GIR</span></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-xs-12 dynamic-box">
+            <a href="@Url.Action("Index", "SIRList")" style="cursor:pointer;">
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <p>Superintendent Inspection Report(Testing) <span style="display:none">SIR</span></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-xs-12 dynamic-box">
+            <a href="@Url.Action("Index", "IAFList")" style="cursor:pointer;">
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <p>
+                            Internal Audit Form(Testing) <span style="display:none">IAF</span>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12 dynamic-box">
+            <a href="@Url.Action("RiskAssessmentForm", "Forms")" style="cursor:pointer;">
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <p>Risk Assessment Form <span style="display:none">RAF</span></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row divFormsList" id="divFormsList">
+        @if (ViewBag.FormList != null)
+        {
+            var classString = "bg-red";
+            var titleString = "";
+            string strType = "";
+            string strTitle = "";
+            foreach (var item in ViewBag.FormList)
+            {
+                if (item.Code == "RAF" ||  item.Code == "DER"
+                     || item.Code == "DPR" || item.Code == "DCR" || item.Code == "ARR")//item.Code == "IAF" || || item.Code == "GIR"|| item.Code == "SIR" item.Code == "SMR" ||
+                {
+                    continue;
+                }
+                strType = item.Category;
+                if (string.IsNullOrWhiteSpace(strType))
+                {
+                    strType = "";
+                }
+                switch (strType.ToUpper())
+                {
+                    case "AUDITANDINSPECTION":
+                        classString = "bg-red";
+                        break;
+                    case "CHECKLISTS":
+                        classString = "bg-purple";
+                        break;
+                    case "CREWING":
+                        classString = "bg-green";
+                        break;
+                    case "FINANCE":
+                        classString = "bg-blue";
+                        break;
+                    case "HEALTHANDSAFTEY":
+                        classString = "bg-fuchsia";
+                        break;
+                    case "INTERNAL":
+                        classString = "bg-maroon";
+                        break;
+                    case "MISCELLANEOUS":
+                        classString = "bg-orange";
+                        break;
+                    case "OPERATIONS":
+                        classString = "bg-light-blue";
+                        break;
+                    case "PURCHASING":
+                        classString = "bg-fuchsia";
+                        break;
+                    case "SECURITY":
+                        classString = "bg-aqua";
+                        break;
+                    case "TECHNICAL":
+                        classString = "bg-teal";
+                        break;
+                    default:
+                        break;
+                }
+                strTitle = item.Title;
+                titleString = "";
+                if (item.Code == "RWH" || item.Code == "RWHS")
+                {
+                    <div class="col-md-3 col-sm-6 col-xs-12 dynamic-box">
+                        <a href="#" onclick="openFormDocument(@item.TemplatePath,'@item.Code')" style="cursor:pointer;">
+                            <div class="small-box @classString hvrbox" id="boxIssue">
+                                <div class="inner">
+                                    <p>@item.Title @titleString<span style="display:none">@item.Code</span></p>
+                                    <div class="hvrbox-layer_top">
+                                        <div class="hvrbox-text">
+                                            <div class="bottom pull-left" style="text-align:left;">
+
+                                                @if (item.IssueDate != null)
+                                                {
+                                                    <label style="font-size: 15px;">Issue No: @item.Issue - @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.IssueDate))</label><br />
+                                                }
+                                                else
+                                                {
+                                                    <label style="font-size: 15px;">Issue No: @item.Issue - @item.IssueDate</label><br />
+                                                }
+                                                @if (item.AmendmentDate != null)
+                                                {
+                                                    <label style="font-size: 15px;">Amendment No: @item.Amendment - @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.AmendmentDate))</label>
+                                                }
+                                                else
+                                                {
+                                                    <label style="font-size: 15px;">Amendment No: @item.Amendment - @item.AmendmentDate</label>
+                                                }
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-md-3 col-sm-6 col-xs-12 dynamic-box">
+                        <a href="#" onclick="openFormDocument(@item.TemplatePath)" style="cursor:pointer;">
+                            <div class="small-box @classString hvrbox" id="boxIssue">
+                                <div class="inner">
+                                    <p>@item.Title @titleString<span style="display:none">@item.Code</span></p>
+                                    <div class="hvrbox-layer_top">
+                                        <div class="hvrbox-text">
+                                            <div class="bottom pull-left" style="text-align:left;">
+
+                                                @if (item.IssueDate != null)
+                                                {
+                                                    <label style="font-size: 15px;">Issue No: @item.Issue - @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.IssueDate))</label><br />
+                                                }
+                                                else
+                                                {
+                                                    <label style="font-size: 15px;">Issue No: @item.Issue - @item.IssueDate</label><br />
+                                                }
+                                                @if (item.AmendmentDate != null)
+                                                {
+                                                    <label style="font-size: 15px;">Amendment No: @item.Amendment - @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.AmendmentDate))</label>
+                                                }
+                                                else
+                                                {
+                                                    <label style="font-size: 15px;">Amendment No: @item.Amendment - @item.AmendmentDate</label>
+                                                }
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+        }
+    </div>
+</section>
+
+<div class="modal fade" id="confirmServiceModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                @*<h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>*@
+            </div>
+            <div class="modal-body">
+                This form requires Microsoft Infopath and CS Windows Service to work. Would you like to download CS Windows service now?
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-success btn-ok" id="btnService">Download</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

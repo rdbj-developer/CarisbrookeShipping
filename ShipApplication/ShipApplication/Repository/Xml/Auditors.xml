@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="yes"?>
+<Auditors>
+	<Auditor AuditorId="27" Email="angus.tapp@carisbrooke.co">Angus Tapp</Auditor>
+	<Auditor AuditorId="34" Email="bogdan.cojocaru@carisbrooke.co">Bogdan Cojocaru</Auditor>
+	<Auditor AuditorId="32" Email="bogdan.sokolowski@carisbrooke.co">Bogdan Sokolowski</Auditor>
+	<Auditor AuditorId="1041" Email="diacobescu@fmcneworleans.com">Danut Iacobescu</Auditor>
+		<Auditor AuditorId="1039" Email="gfernandes@fmcneworleans.com">Garreth Fernandes</Auditor>
+			<Auditor AuditorId="30" Email="jfernandes@fmcneworleans.com">Jason Fernandes</Auditor>
+				<Auditor AuditorId="38" Email="jon.gray@scan-maritime.com">Jon Gray</Auditor>
+	<Auditor AuditorId="29" Email="krzysztof.nowaczyk@carisbrooke.co">Krzysztof Nowaczyk</Auditor>
+	<Auditor AuditorId="36" Email="zbigniew.strzyga@carisbrooke.co">Zbigniew Strzyga</Auditor>
+
+	<Auditor AuditorId="1038" Email="orry.crews@carisbrooke.co">Orry Crews</Auditor>
+
+
+	<Auditor AuditorId="1040" Email="sgupta@fmcneworleans.com">Sanjeev Gupta</Auditor>
+	
+</Auditors>

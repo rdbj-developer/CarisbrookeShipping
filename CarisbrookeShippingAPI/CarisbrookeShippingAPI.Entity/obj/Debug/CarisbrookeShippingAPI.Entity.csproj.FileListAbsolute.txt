@@ -1,0 +1,10 @@
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingAPI\CarisbrookeShippingAPI.Entity\obj\Debug\CarisbrookeShippingAPI.Entity.csproj.AssemblyReference.cache
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingAPI\CarisbrookeShippingAPI.Entity\obj\Debug\CarisbrookeShippingAPI.Entity.csproj.CoreCompileInputs.cache
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingAPI\CarisbrookeShippingAPI.Entity\bin\Debug\CarisbrookeShippingAPI.Entity.dll.config
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingAPI\CarisbrookeShippingAPI.Entity\bin\Debug\CarisbrookeShippingAPI.Entity.dll
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingAPI\CarisbrookeShippingAPI.Entity\bin\Debug\CarisbrookeShippingAPI.Entity.pdb
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingAPI\CarisbrookeShippingAPI.Entity\bin\Debug\EntityFramework.dll
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingAPI\CarisbrookeShippingAPI.Entity\bin\Debug\EntityFramework.xml
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingAPI\CarisbrookeShippingAPI.Entity\obj\Debug\CarisbrookeShippingAPI.Entity.csproj.CopyComplete
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingAPI\CarisbrookeShippingAPI.Entity\obj\Debug\CarisbrookeShippingAPI.Entity.dll
+D:\Data\Work\dotNetProject\CarisBrooke\Projects\CarisbrookeShippingAPI\CarisbrookeShippingAPI.Entity\obj\Debug\CarisbrookeShippingAPI.Entity.pdb

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<Ranks>
+	<type TypeId="2">Accident</type>
+	<type TypeId="3">Incident</type>
+	<type TypeId="4">Injury</type>
+	<type TypeId="5">Near Miss / Hazardous Occurence</type>
+	<type TypeId="6">Security Incident</type>
+	<type TypeId="7">Security Threat or Breach</type>
+	
+</Ranks>

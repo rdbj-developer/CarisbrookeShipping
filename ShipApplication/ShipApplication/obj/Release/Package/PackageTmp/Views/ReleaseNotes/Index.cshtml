@@ -1,0 +1,31 @@
+﻿@* RDBJ 12/08/2021 Added this page and implemented *@
+@{
+    ViewBag.Title = "Release Notes";
+}
+
+<div class="well well-sm" style="margin-bottom:0px;">
+    <div class="box-header" style="padding:0px !important;">
+        <div class="row">
+            <div class="col-md-2">
+                Release Notes
+            </div>
+        </div>
+    </div>
+</div>
+<section class="content gir-content" style="padding-bottom:0px">
+    @* RDBJ 12/08/2021 *@
+    @if (ViewBag.appReleaseList != null)
+    {
+        foreach (var item in ViewBag.appReleaseList)
+        {
+            <div class="box-header">
+                <h2>Release: @item.AppVersion [@item.AppPublishDate.ToString("MMM dd, yyyy")]</h2>
+                <h4 style="font-weight:600;"><i class="fa fa-info-circle"></i> <span class="text-success">New Features</span>/<span class="text-warning">Improvements</span>/<span class="text-danger">Bug Fixes</span> [@item.NoOfFilesAffected Files are affected]</h4>
+                <p>
+                    <i class="fa fa-hand-o-right"></i> @item.AppDescription
+                </p>
+            </div>
+        }
+    }
+    @* End RDBJ 12/08/2021 *@
+</section>
